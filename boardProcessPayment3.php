@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><?php echo $_SESSION['hoa_community_name']; ?></title>
+    </head>
+    <body>
+        <?php
+            ini_set('max_execution_time', 180);
+
+
+            $id = $_POST['id'];
+            $payment_id = $_POST['payment_id'];
+            $home_id = $_POST['home_id'];
+            $hoa_id = $_POST['hoa_id'];
+            $ptype = $_POST['ptype'];
+            $amount = $_POST['amount'];
+            $process_date = $_POST['process_date'];
+            $document_num = $_POST['document_num'];
+            $community_id = $_POST['community_id'];
+            #date_default_timezone_set('America/Los_Angeles');
+            $dt = date("Y-m-d");
+
+            
+            $conn = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+            $query = "SELECT * FROM current_payments WHERE home_id=".$home_id." AND hoa_id=$hoa_id AND document_num='".$document_num."'";
+
+            $result = pg_query($query);
+
+            $num = pg_num_rows($result);
+
+            if($num == 0)
+            {
+                $query = "INSERT INTO current_payments (id, payment_id, home_id, payment_type_id, amount, process_date, document_num, community_id, hoa_id, referred_to_attorney, payment_status_id, last_updated_on, email_notification_sent) VALUES (".$id.", '".$payment_id."', ".$home_id.", ".$ptype.", ".$amount.", '".date("Y-m-d", strtotime($process_date))."', '".$document_num."', ".$community_id.", ".$hoa_id.", FALSE, 1, '".$dt."', FALSE)";
+
+                $result = pg_query($query);
+
+                echo "<br><br><center><h3>Payment processed successfully for Home ID ".$home_id."</h3></center><br><br>";
+                #echo '<script>myfunction()</script>';
+                echo "<center>Home ID : ".$home_id."<br><br>HOA ID : ".$hoa_id."<br><br>Amount : ".$amount."<br><br>Document Number : ".$document_num."</center>";
+
+                $query = "SELECT * FROM hoaid WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;
+
+                $result = pg_query($query);
+
+                if($result)
+                {
+                    $row = pg_fetch_assoc($result);
+
+                    $to = $row['email'];
+                    $firstname = $row['firstname'];
+                    $lastname = $row['lastname'];
+                }
+
+                #$query = "SELECT * FROM homeid WHERE home_id=".$home_id;
+
+                #$result = pg_query($query);
+
+                #if($result)
+                #{
+                #    $row = pg_fetch_assoc($result);
+
+                #    $address1 = $row['address1'];
+                #    $address2 = $row['address2'];
+                #}
+
+                switch ($community_id) {
+                    case 1:
+                        $community = 'SRP';
+                        $cnote = "Stoneridgeplace HOA";
+                        $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+                        $from = 'info@stoneridgeplace.org';
+                        break;
+
+                    case 2:
+                        $community = 'SRSQ';
+                        $cnote = "Stoneridge Square HOA";
+                        $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+                        $from = 'info@stoneridgesquare.org';
+                        break;
+                }
+
+                
+                
+                $content = 'Hello '.$firstname.' '.$lastname.',<br><br>Your payment with document number "'.$document_num.'" has been processed on '.$process_date.'.<br><br>Thank you,<br>'.$cnote;
+                $subject = 'HOA Payment Processed - '.$community;
+                $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
+                $content_text = strip_tags($content);
+
+
+                $postString = '{
+                "key": "' . $api_key . '",
+                "message": {
+                 "html": "' . $content . '",
+                 "text": "' . $content_text . '",
+                 "subject": "' . $subject . '",
+                 "from_email": "' . $from . '",
+                 "from_name": "' . $from . '",
+                 "to": [
+                 {
+                 "email": "' . $to . '",
+                 "name": "' . $to . '"
+                 }
+                 ],
+                 "track_opens": true,
+                 "track_clicks": true,
+                 "auto_text": true,
+                 "url_strip_qs": true,
+                 "preserve_recipients": true
+                },
+                "async": false
+                }';
+
+                if($to)
+                {
+                    $ch = curl_init();
+                    curl_setopt($ch, CURLOPT_URL, $uri);
+                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+                    $result = curl_exec($ch);
+
+                    echo "<br><br><center><h3>Email Notification Sent</h3></center>";
+                }
+                else
+                    echo "<br><br><center><h3>Email Notification Not Sent</h3></center>";
+            }
+            else
+            {
+                echo "<br><br><center><h3>Payment already exist with Home ID : ".$home_id." and Document number : ".$document_num."</h3></center><br><br>";
+            }
+
+            echo "<br><br><center><a href='boardProcessPayment.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='boardProcessPayment.php'},3000);</script>";
+        ?>
+    </body>
+</html>
