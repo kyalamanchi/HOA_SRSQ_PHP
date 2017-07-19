@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <?php
+
+      session_start();
+
+      pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+      if(@!$_SESSION['hoa_username'])
+      	header("Location: https://hoaboardtime.com/logout.php");
+
+      $community_id = $_SESSION['hoa_community_id'];
+      $user_id=$_SESSION['hoa_user_id'];
+
+      $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
+		  $num_row = pg_num_rows($result);
+
+		  if($num_row == 0)
+			 header("Location: https://hoaboardtime.com/residentDashboard.php");
+
+    ?>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <title><?php echo $_SESSION['hoa_community_name']; ?></title>
+    
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+    <link rel="stylesheet" href="plugins/morris/morris.css">
+    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+  </head>
+
+  <body class="hold-transition skin-blue sidebar-mini">
+    
+    <div class="wrapper">
+
+      	<header class="main-header">
+        
+        	<a class="logo">
+          
+          		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
+          
+          		<span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
+
+        	</a>
+        
+        	<nav class="navbar navbar-static-top">
+          
+          		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            		
+            		<span class="sr-only">Toggle navigation</span>
+
+          		</a>
+
+	          	<div class="navbar-custom-menu">
+	            
+	            	<ul class="nav navbar-nav">
+
+		          		<li class="dropdown user user-menu">
+	              
+		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
+
+		          		</li>
+
+		          		<li class="dropdown user user-menu">
+
+		            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		              
+		              			<i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
+
+		            		</a>
+
+			            	<ul class="dropdown-menu">
+			              
+			              		<li class="user-header">
+			                
+			                		<i class="fa fa-user fa-5x"></i>
+
+			                		<p>
+			                  
+					                  	<?php echo $_SESSION['hoa_username']; ?>
+
+					                  	<br>
+
+					                  	<small><?php echo $_SESSION['hoa_address']; ?></small>
+
+					                  	<a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
+
+					                	<br>
+
+					                </p>
+
+			              		</li>
+
+			            	</ul>
+
+		          		</li>
+
+	            	</ul>
+
+	          	</div>
+
+        	</nav>
+
+      	</header>
+      
+      	<aside class="main-sidebar">
+        
+        	<section class="sidebar">
+          
+          		<ul class="sidebar-menu">
+            
+            		<?php if($community_id == 2)
+                echo "<li class='header text-center'>
+
+                  <img src='srsq_logo.JPG'>
+
+                </li>"; ?>
+            
+                <li class="header text-center"> Quick Links </li>
+
+            		<li class="active treeview">
+              
+              		<a>
+                
+                		<i class="fa fa-dashboard"></i> <span>Board Dashboard</span>
+
+              		</a>
+
+            		</li>
+            
+            		<li class="treeview">
+              
+              		<a href="#">
+
+                		<i class="glyphicon glyphicon-hdd"></i> <span>Document Management</span>
+
+                    <span class="pull-right-container">
+			                  
+                      <i class="fa fa-angle-left pull-right"></i>
+
+                    </span>
+
+              		</a>
+
+              		<ul class="treeview-menu">
+                
+                		<li><a><i class="fa fa-male text-green"></i> Member Documents</a></li>
+                    <li><a><i class="fa fa-wrench text-red"></i> Vendor Documents</a></li>
+
+              		</ul>
+
+            		</li>
+             
+            		<li class="treeview">
+
+              		<a href='https://hoaboardtime.com/boardProcessPayment.php'>
+
+                		<i class='fa fa-dollar'></i> <span>Process Payments</span>
+              
+              		</a>
+
+            		</li>
+            
+            		<li class="treeview">
+              
+              		<a href='https://hoaboardtime.com/boardSetReminder.php'>
+
+                		<i class='fa fa-bell'></i> <span>Create Reminder</span>
+
+              		</a>
+
+            		</li>
+
+                <li class="header text-center"> Other Links </li>
+
+            		<!-- Board -->
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardCharges.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>Late Fee / Write Off </span>
+
+                  </a>
+
+                </li>
+
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>Community Disclosures</span>
+
+                  </a>
+
+                </li>
+
+                <li class='treeview'>
+
+                  <a>
+
+                    <i class="fa fa-users text-blue"></i> <span>Digital Board Room</span>
+
+                  </a>
+
+                </li>
+
+                <li class='treeview'>
+                  
+                  <a href="https://hoaboardtime.com/boardPreviousMonthsPayments.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>Previous Months Payments</span>
+
+                  </a>
+
+                </li>
+
+                <li class="treeview">
+                  
+                  <a href="https://hoaboardtime.com/boardSurveyDetails.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>Survey Details</span>
+
+                  </a>
+
+                </li>
+
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardCommunityExpenditureSummary.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>YTD Expenses</span>
+
+                  </a>
+
+                </li>
+
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardCommunityDeposits.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>YTD Income</span>
+
+                  </a>
+
+                </li>
+
+                <!-- Member -->
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardMailingList.php">
+
+                    <i class="fa fa-street-view text-green"></i> <span>Community Mailing List</span>
+
+                  </a>
+
+                </li>
+                      
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardCustomerBalance.php">
+
+                    <i class="fa fa-street-view text-green"></i> <span>Customer Balance</span>
+
+                  </a>
+
+                </li>
+                
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardHOAHomeInfo.php">
+
+                    <i class="fa fa-street-view text-green"></i> <span>HOA &amp; Home Info</span>
+
+                  </a>
+
+                </li>
+
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardUserDashboard.php">
+
+                    <i class="fa fa-street-view text-green"></i> <span>User Dashbord</span>
+
+                  </a>
+
+                </li>
+                
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardViewReminders.php">
+
+                    <i class="fa fa-street-view text-green"></i> <span>View Reminders</span>
+
+                  </a>
+
+                </li>
+
+                <!-- Vendor -->
+                <li class='treeview'>
+
+                  <a href="https://hoaboardtime.com/boardVendorDashboard.php">
+
+                    <i class="fa fa-wrench text-red"></i> <span>Vendor Dashboard</span>
+
+                  </a>
+
+                </li>
+
+          		</ul>
+
+        	</section>
+
+      	</aside>
+
+      <div class="content-wrapper">
+
+        <?php
+
+        	$year = date("Y");
+        	$month = date("m");
+        	$end_date = date("t");
+
+        	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
+
+        	$amount_recieved = $row['sum'];
+
+          if($amount_recieved == "")
+            $amount_recieved = 0.0;
+
+        	$row = pg_fetch_assoc(pg_query("SELECT count(hoa_id) FROM hoaid WHERE community_id=$community_id"));
+
+        	$total_customers = $row['count'];
+
+        	$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+
+        	$assessment_amount = $row['amount'];
+
+        	$total_amount = ( $total_customers * $assessment_amount );
+        	$amount_percentage = (( $amount_recieved / $total_amount ) * 100 );
+
+        	$paid_customers = pg_num_rows(pg_query("SELECT DISTINCT hoa_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
+
+        	$paid_percentage = (( $paid_customers / $total_customers) * 100 );
+
+        	$del_acc = 0;
+          $del = 3;
+
+          $del_amount = $assessment_amount * $del;
+
+          $result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
+
+          while($row = pg_fetch_assoc($result))
+          {
+
+            $home_id = $row['home_id'];
+            $assessment_charges = $row['sum'];
+
+            $query2 = "SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id;
+            $result2 = pg_query($query2);
+            $row2 = pg_fetch_assoc($result2);
+
+            $firstname = $row2['firstname'];
+            $lastname = $row2['lastname'];
+            $hoa_id = $row2['hoa_id'];
+            $cell_no = $row2['cell_no'];
+            $email = $row2['email'];
+
+            $query2 = "SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id;
+            $result2 = pg_query($query2);
+            $row2 = pg_fetch_assoc($result2);
+            $charges = $row2['sum'];
+
+            $query2 = "SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id;
+            $result2 = pg_query($query2);
+            $row2 = pg_fetch_assoc($result2);
+            $payments = $row2['sum'];
+
+            $balance = $charges - $payments;
+
+            $query2 = "SELECT address1 FROM homeid WHERE home_id=".$home_id;
+            $result2 = pg_query($query2);
+            $row2 = pg_fetch_assoc($result2);
+            $address1 = $row2['address1'];
+
+            if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
+              $del_acc++;
+
+          }
+
+        ?>
+        
+        <section class="content-header">
+
+          <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+
+        </section>
+
+        <section class="content">
+          
+          <div class="row">
+
+          	<section class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12">
+            
+	            <div class="box box-info">
+	                
+	                <div class="box-header">
+	                  
+	                  	<i class="fa fa-pie-chart"></i>
+
+	                  	<h3 class="box-title">Payment Status</h3>
+	                  
+	                  	<div class="pull-right box-tools">
+	                    
+	                    	<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>
+
+	                  	</div>
+	                  
+	                </div>
+
+	                <div class="box-body container-fluid" style='text-align: justify;'>
+	                  
+	                  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center" style="border-right: 1px solid #f4f4f4">
+	                  
+	                  		<a href="boardCurrentMonthAmountRecieved.php">
+	                  		<input type="text" class="knob" data-thickness="0.2" value="<?php echo round($amount_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
+
+	                  		<div class="knob-label" style="font-size: 15pt;"><strong>Amount Recieved</strong><sup>( % )</sup></div>
+	                  		</a>
+
+	                	</div>
+
+	                	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+	                  
+	                  		<a href='boardCurrentMonthPaidMembers.php'>
+	                  		<input type="text" class="knob" data-thickness="0.2" value="<?php echo round($paid_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
+
+	                  		<div class="knob-label" style="font-size: 15pt;"><strong>Members Paid</strong><sup>( % )</sup></div>
+	                  		</a>
+
+	                	</div>
+
+	                </div>
+
+	            </div>
+
+            </section>
+
+            <section class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            
+	            <div class="info-box">
+                  
+                <div class='row container-fluid text-center'>
+
+                  <span class="info-box-text">Bank Account Balance</span>
+
+                </div>
+                      	
+                <div class="row text-center">
+
+                  <?php 
+
+                    if($community_id == 1)
+                    { 
+                      
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
+                      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497428519",oauth_nonce="a4xBATp34bt",oauth_version="1.0",oauth_signature="kh9W2TS%2BgFz71nivoMNkMAvSvgQ%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                      $result = curl_exec($ch);
+                      $json_decode = json_decode($result,TRUE);
+                      $srp_primarySavings = $json_decode['Account'];
+                      $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+                            
+                      curl_close($ch);
+
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
+                            
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497429042",oauth_nonce="zoRTBwG53rl",oauth_version="1.0",oauth_signature="KrrTrLBiDOUerb3%2Fticzvo%2F0HTI%3D'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                      $result2 = curl_exec($ch);
+                      $json_decode2 = json_decode($result2,TRUE);
+                      $srp = $json_decode2['Account'];
+                      $srp_savings_balance = $srp['CurrentBalance'];
+
+                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Savings</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Checkings</div></div><div class='row text-center'>";
+
+                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$srp_savings_balance."</strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$srp_current_balance."</strong></div>";
+                    }
+                    else if($community_id == 2)
+                    {
+                      
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="SgxTWpaSRB7NawOfilk18B%2B5uF0%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                      $result = curl_exec($ch);
+                      $json_decode = json_decode($result,TRUE);
+                      $srp_primarySavings = $json_decode['Account'];
+                      $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+
+                      curl_close($ch);
+
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
+                      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497506240",oauth_nonce="17mNrXSoBTU",oauth_version="1.0",oauth_signature="brqtLZqCSEl1grnLuP%2BmNJfg0Bw%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                      $result2 = curl_exec($ch);
+                      $json_decode2 = json_decode($result2,TRUE);
+                      $srp = $json_decode2['Account'];
+                      $srp_savings = $srp['CurrentBalance'];
+
+                      curl_close($ch);
+
+                      $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
+                      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497507166",oauth_nonce="bBshApDVeXD",oauth_version="1.0",oauth_signature="Fy%2F4%2F6bglRFcBK3of%2F2vCZk%2BPXY%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                      $result3 = curl_exec($ch);
+                      $json_decode3 = json_decode($result3,TRUE);
+                      $srsq_third_Account = $json_decode3['Account'];
+                      $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Savings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Checkings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Investments</div></div><div class='row text-center'>";
+
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$ ".$srp_primary_Savings_CurrentBalance."</strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$ ".$srp_savings."</strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$ ".$srsq_third_Account_Balance."</strong></div>";
+                    }
+
+                    if($community_id == 1)
+                      $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/SRP_HOA/Documents/Minutes/SRP_Minutes_".$year."_%'"));
+                    else if($community_id == 2)
+                      $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year."_%'"));
+
+                  ?>
+                  
+                </div>
+
+              </div>
+
+              <div class="info-box">
+                  
+                <div class='row container-fluid text-center'>
+
+                  <span class="info-box-text">Payment Information</span>
+
+                </div>
+                        
+                <div class="row text-center">
+
+                  <?php 
+
+                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Amount Recieved</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Paid Customers</div></div><div class='row text-center'>";
+
+                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$amount_recieved."</strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>".$paid_customers."</strong></div>";
+                  ?>
+                  
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+            
+            <section class="col-lg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardCurrentMonthPendingPayments.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-hourglass-2 fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+                        
+                            $pending = 0;
+
+                            $result = pg_query("SELECT * FROM hoaid WHERE hoa_id NOT IN (SELECT hoa_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='$year-$month-01' AND process_date<='$year-$month-$end_date') AND community_id=$community_id");
+
+                            while($row = pg_fetch_assoc($result))
+                            {
+                              $r2 = pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$row['hoa_id']." GROUP BY hoa_id");
+                              $r = pg_fetch_assoc($r2);
+                              $cha = $r['sum'];
+
+                              $r2 = pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$row['hoa_id']." GROUP BY hoa_id");
+                              $r = pg_fetch_assoc($r2);
+                              $pay = $r['sum'];
+
+                              if($cha - $pay > 0)
+                                      $pending++;
+                            }
+
+                            if($pending == 0 || $pending == "")
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-orange'><strong>".$pending."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Payments Pending</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <?php if(date('d') >= 16) echo "<a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>"; ?>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-clock-o fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+                        
+                            $result = pg_query("SELECT distinct home_id FROM current_payments WHERE payment_status_id=1 AND community_id=".$community_id." AND process_date>='$year-$month-16' AND process_date<='$year-$month-$end_date'");
+                            $late = 0;
+                                                      
+                            while($row = pg_fetch_assoc($result))
+                              $late++;
+
+                            if($late == 0)
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-info'><strong>".$late."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Late Payments</div>
+                
+                    </div>
+
+                  </div>
+
+                <?php if(date('d') >= 16) echo "</a>"; ?>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardViolationCitations.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-warning fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+                        
+                            $row = pg_fetch_assoc(pg_query("SELECT * FROM violation_management WHERE community_id=$community_id"));
+
+                            $violations = $row['count'];
+
+                            if($violations == 0 || $violations == "")
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-danger'><strong>".$violations."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Violation Citations</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-user-secret fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+
+                            if($del_acc == 0 || $del_acc == "")
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-orange'><strong>".$del_acc."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Delinquent Account</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardCommunityAgreements.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid icon'><i class="fa fa-pencil fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Digital Signatures</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardMeetingMinutes.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-book fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+
+                            if($minutes == 0)
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-info'><strong>".$minutes."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Meeting Minutes</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+            </section>
+            
+          </div>
+
+          <div class="row">
+
+            <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="stoneridgesquare.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
+/*]]>*/</script>
+
+          </div>
+
+        </section>
+
+        <section class="content-header">
+
+          <h1><strong>QuickBooks Reports</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+
+        </section>
+
+        <section class="content">
+
+          <div class="row container-fluid">
+
+            <?php
+        
+              $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
+              
+              curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+              curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="ip1c1vnwspYJ4SEyLwtReFzeIII%3D"'));
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+              $profitandloss = curl_exec($ch);
+              $jsonprofitandloss = json_decode($profitandloss,TRUE);
+              $data = $jsonprofitandloss['Rows']['Row'];
+
+              foreach ($data as $key ) {
+
+                foreach ($key['Summary'] as $Summary) {
+                  
+                  $count = 0;
+                  
+                  foreach ($Summary as $summary) {
+    
+                    if ($summary['value'] == 'Total Revenue') {
+                      
+                      $count = 1;
+                      continue;
+
+                    }
+                    if ( $count == 1 ) {
+                      
+                      $income = $summary['value'];
+                      continue;
+
+                    } 
+
+                    if ( $summary['value'] == 'Total Expenditures') {
+                      
+                      $count = 2;
+                      continue;
+
+                    }
+
+                    if ( $count == 2) {
+                      
+                      $expenditure = $summary['value'];
+                      continue;
+
+                    }
+
+                    if ( $summary['value'] == 'Net Revenue') {
+                      
+                      $count = 3;
+                      continue;
+
+                    }
+
+                    if ( $count == 3) {
+                      
+                      $revenue = $summary['value'];
+                      continue;
+
+                    }
+
+                    if ( $summary['value'] == 'Total Office Supplies & Software'){
+                      
+                      $count = 4;
+                      continue;
+
+                    }
+                    if( $count == 4) {
+                      
+                      $officetotal = $summary['value'];
+                      continue;
+
+                    }
+
+                  }
+
+                }
+
+                foreach ($key['Rows'] as $allRows) {
+                  
+                  foreach ($allRows as $individualRows) {
+  
+                    foreach ($individualRows as $colData) {
+      
+                      foreach ($colData as $keyColData) {
+                        
+                        $count = 0;
+         
+                        foreach ($keyColData as $keyColData2) {
+           
+                          if ( $keyColData2['value'] == 'Total 6410 Office/General Administrative Expenses') {
+                            
+                            $count = 1;
+                            continue;
+
+                          }
+                          else if ( $keyColData2['value'] == 'Total 5420 Repairs & Maintenance') {
+                            
+                            $count = 2;
+                            continue;
+
+                          }
+
+                          if ( $count == 2 ){
+                            
+                            $repair = $keyColData2['value'];
+                            $count = 0;
+                            continue;
+
+                          }
+
+                          if ( $count == 1) {
+            
+                            $officegeneral = $keyColData2['value'];
+                            $count = 0;
+                            continue;
+                          
+                          }
+                        
+                        }
+                      
+                      }  
+      
+                    }
+                  
+                  }
+
+                }
+              
+              }
+            
+            ?>
+
+            <section style="background-color: white;">
+
+              <br>
+            
+              <div class="row container-fluid">
+                
+                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12' style="border-right: 1px solid #f4f4f4">
+
+                  <div class='row text-center container-fluid'>
+
+                    <h4><strong>Income vs Expenditure</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid'>
+
+                    <canvas id="myChart3"></canvas>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid'>
+                    
+                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6' style="border-right: 1px solid #f4f4f4">
+                    
+                      <a href="https://hoaboardtime.com/boardCommunityDeposits.php" title='Click to view community deposits'><h5>INCOME : <b>$ <?php echo round($income, 0); ?></b></h5></a>
+
+                    </div>
+
+                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                    
+                      <a href='https://hoaboardtime.com/boardCommunityExpenditureSummary.php' title='Click to view expenditure summary'><h5>EXPENDITURE : <b>$ <?php echo round($expenditure, 0); ?></b></h5></a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                  <div class='row text-center container-fluid'>
+
+                    <h4><strong>Top 3 Spendings</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid' >
+
+                    <canvas id="myChart4"></canvas>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid'>
+                    
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12' style="border-right: 1px solid #f4f4f4">
+                    
+                      <h5>5420 Repair &amp; Maintainance : <b style="color: black;">$ <?php echo round($repair, 0); ?></b></h5>
+
+                    </div>
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12' style="border-right: 1px solid #f4f4f4">
+                    
+                      <h5>6410 Office/General Administrative Expenses : <b style="color: black;">$ <?php echo round($officegeneral, 0); ?></b></h5>
+
+                    </div>
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                    
+                      <h5>Others : <b style="color: black;">$ <?php echo round($expenditure - ($officegeneral+$repair), 0); ?></b></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              
+              </div>
+
+              <br>
+
+              <?php
+
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
+                
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="SzEjFHI3judOvhE2H4nHT7XFQuk%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from CompanyInfo");
+                
+                $companyInfo = curl_exec($ch);
+                
+                curl_close($ch);
+                
+                $companyInfo = json_decode($companyInfo,TRUE);
+                $companyInfo  = $companyInfo['QueryResponse'];
+                $companyInfo = $companyInfo['CompanyInfo'];
+                
+                curl_close($ch);
+              
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLossDetail?minorversion=8');
+                
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="dF10iisxl3QVmuZhGLd4pIA9GAQ%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                
+                $result = curl_exec($ch);
+                $json_Decode = json_decode($result,TRUE);
+                $header = $json_Decode['Header'];
+                $startDate  = $header['StartPeriod'];
+                $endDate = $header['EndPeriod'];
+                $startDate = strtotime($startDate);
+                $endDate = strtotime($endDate);
+                $startDate = date('F jS ',$startDate);
+                $endDate = date('F jS, Y',$endDate);
+                
+                curl_close($ch);
+
+              ?>
+
+              <div class="row container-fluid text-center">
+
+                <h4><strong>Statement Of Activity</strong></h4>
+
+                <br>
+
+                <?php echo $startDate; ?> - <?php echo $endDate; ?>
+
+              </div>
+
+              <br>
+              <div class="row container-fluid">
+
+                <?php
+
+                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
+                  
+                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="ip1c1vnwspYJ4SEyLwtReFzeIII%3D"'));
+                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                  
+                  $profitandloss = curl_exec($ch);
+                  $jsonprofitandloss = json_decode($profitandloss,TRUE);
+                  $profitandlossrows = $jsonprofitandloss['Rows']['Row'];
+                  
+                  foreach ($profitandlossrows as $profitandlosstest) {
+                    
+                    foreach ($profitandlosstest['Header'] as $keyprofitandloss) {
+                      
+                      foreach ($keyprofitandloss as $keyprofitandloss) {
+                        
+                        $keyprofitandloss = $keyprofitandloss['value'];
+                        
+                        if ( $keyprofitandloss == "Expenditures") {
+                          
+                          foreach ($profitandlosstest['Rows'] as $keyprofitandlosstester) {
+                            
+                            foreach ($keyprofitandlosstester as $helloworld) {
+                              
+                              $helloworld2 = $helloworld['Header'];
+                              $count = 0;
+                              
+                              foreach ($helloworld2['ColData'] as $keycoldata) {
+                                
+                                $count = $count + 1;
+                                if ( $count == 2 ){
+                                  
+                                }
+
+                              }
+
+                            }
+
+                          }
+
+                        }
+
+                      }
+
+                    }
+
+                  }
+
+                ?>
+
+                <div class="col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
+                  
+                  <table class="table table-hover table-bordered container-fluid">
+                    
+                    <thead>
+                        
+                        <tr>
+                            
+                            <th></th>
+                            <th>Total</th>
+
+                        </tr>
+
+                    </thead>
+                    
+                    <tbody>
+                      
+                      <tr>
+                        
+                        <?php
+                          
+                          echo '<td>Revenue</td>';
+                          echo '<td>';
+                          echo '<b>';
+                          echo '$ ';
+                          
+                          $allRows = $json_Decode['Rows'];
+                          
+                          foreach ($allRows['Row'] as $singleRow) {
+                            
+                            $insideRows = $singleRow['Rows'];
+                            $insideRow = $insideRows['Row'];
+                  
+                            foreach($insideRow as $key ) {
+                    
+                              $summary = $key['Summary'];
+                    
+                              foreach ($summary['ColData'] as $colval) {
+                                
+                                $value = floatval($colval['value']);
+                                
+                                if($value && intval($value) != $value)
+                                {
+                                  echo $value;
+                                  break 3;
+
+                                }
+
+                              }
+                            
+                            }
+
+                          }
+                          
+                          echo '</b>';
+
+                        ?>
+
+                      </tr>
+
+                      <tr>
+
+                        <td>
+                          
+                          <h5>4010 Assessments<span style="float:right;">$ <?php  echo $value; ?></span></h5>
+                          
+                          <ul>
+                            
+                            <hr>
+                            <h4>Total Revenue<span style="float:right;">$ <?php  echo $value; ?></span></h4>
+                        
+                          </ul>
+                        
+                        </td>
+
+                      </tr>
+                      
+                      <tr>
+                      
+                        <td>Gross Profit </td>
+                        <td><b>$ <?php echo $value; ?></b></td>
+
+                      </tr>
+
+                      <tr>
+                        
+                        <td colspan="5"><ul><li>No data found.</li></ul></td>
+                      
+                      </tr>
+
+                      <tr>
+                        
+                        <td>Expenditures</td>
+                        
+                        <?php
+
+                          $cell = 0;
+
+                          echo '<td>';
+                          echo '<b>';
+                          echo '$ ';
+
+                          $allRows = $json_Decode['Rows'];
+                          
+                          foreach ($allRows['Row'] as $singleRow) {
+                            
+                            $insideRows = $singleRow['Rows'];
+                            $insideRow = $insideRows['Row'];
+                  
+                            foreach($insideRow as $key ) {
+                              
+                              $summary = $key['Summary'];
+                    
+                              foreach ($summary['ColData'] as $colval) {
+                      
+                                foreach ($colval as $keycol) {
+                                  
+                                  if ( $keycol == "Total for Expenditures") {
+                        
+                                    $cell = 1;
+
+                                  }
+
+                                  if ( $cell == 1 ){
+                                    
+                                    $fval  = floatval($keycol);
+                                    
+                                    if($fval && intval($fval) != $fval)
+                                    {
+                                      echo $fval;
+                                      $cell = 0;
+                                      break 3;
+
+                                    }
+
+                                  }
+
+                                }
+
+                              }
+
+                            }
+
+                          }
+
+                          echo '</b>';
+                        
+                        ?>
+
+                      </tr>
+
+                      <tr>
+
+                        <td>
+                          
+                          <ul>
+                  
+                            <?php 
+                  
+                              foreach ($keyprofitandlosstester as $helloworld) {
+                  
+                                $helloworld2 = $helloworld['Header'];
+                                $count = 0;
+                  
+                                foreach ($helloworld2['ColData'] as $keycoldata) {
+                    
+                                  $count = $count + 1;
+                                  
+                                  if ( $count == 1){
+
+                                    $firstvalue = $keycoldata['value'];
+                                  
+                                  }
+                                  
+                                  if ( $count == 2 ){
+                                    
+                                    echo '<h5>'.$firstvalue.'<span style="float:right;">$ '.$keycoldata['value'].'</span></h5>';
+                                    echo "<hr>";
+                    
+                                  }
+                                
+                                }
+                              
+                              }
+
+                              echo '<h4>Total Expenditure<span style="float:right;">$ '.$fval.'</span></h4>';
+
+                            ?>
+
+                          </ul>
+
+                        </td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td>Net Operating Revenue</td>
+                        <td><b>$ 
+                          <?php
+                            
+                            foreach ($allRows['Row'] as $singleRow) {
+                              
+                              $summary = $singleRow['Summary'];
+                              $ColData  = $summary['ColData'];
+                    
+                              foreach ($ColData as $key) {
+                      
+                                $value   = $key['value'];
+                      
+                                if($value && intval($value) != $value)
+                                {
+                            
+                                  echo $value;
+                                  break 2;
+
+                                }
+                    
+                              }
+                            }
+                          ?>
+                          
+                        </b></td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td colspan="5">
+                
+                          <ul><li>No data found.</li></ul>
+
+                        </td>
+
+                      </tr>
+
+                      <tr>
+
+                        <td>Net Revenue</td>
+                        <td><b>$ <?php echo $value; ?></b></td>
+
+                      </tr>
+                    
+                    </tbody>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+              <br>
+
+            </section>
+
+          </div>
+
+          <script>
+            
+            var ctx = document.getElementById("myChart3");
+            ctx.width  = 2;
+            ctx.height = 1;
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                  labels: [
+                      "INCOME ($)",
+                      "EXPENDITURE ($)"
+                  ],
+                  datasets: [
+                      {
+                          data: [<?php echo round($income, 0); ?>, <?php echo round($expenditure, 0); ?>],
+                          backgroundColor: [
+                              "green",
+                              "orange"
+                          ]
+                      }]
+              },
+                options: {
+                        legend:{
+                          position:'right'
+                        },
+                        cutoutPercentage:70,
+                        animation:{
+                            animateScale:true
+                        }
+                    }
+            });
+
+            $(document).ready( 
+                function () {
+                    var ctx = document.getElementById("myChart3").getContext("2d");
+                    var myNewChart = new Chart(ctx).Pie(data);
+
+                    $("#myChart3").click( 
+                        function(evt){
+                            var activePoints = myNewChart.getSegmentsAtEvent(evt);
+                            var url = "http://example.com/?label=" + activePoints[0].label + "&value=" + activePoints[0].value;
+                            alert(url);
+                        }
+                    );                  
+                }
+            );
+
+          </script>
+
+          <script>
+            
+            var ctx = document.getElementById("myChart4");
+            ctx.width  = 2;
+            ctx.height = 1;
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                  labels: [
+                      "5420 Repair & Maintainance ($)",
+                      "6410 Office/General Administrative Expenses ($)",
+                      "Others ($)"
+                  ],
+                  datasets: [
+                      {
+                          data: [<?php echo round($repair, 0); ?>, <?php echo round($officegeneral, 0); ?>, <?php echo round($expenditure - ($officegeneral+$repair), 0); ?>],
+                          backgroundColor: [
+                              "rgba(75, 192, 192, 99)",
+                              "rgba(143, 102, 144, 99)",
+                              "rgba(153, 102, 255, 99)"
+                          ]
+                      }]
+              },
+                options: {
+                        legend:{
+                          position:'right'
+                        },
+                        cutoutPercentage:70,
+                        animation:{
+                            animateScale:true
+                        }
+                    }
+            });
+
+          </script>
+
+        </section>
+
+        <section class="content-header">
+
+          <h1><strong><?php echo $year; ?> Yearly Statistics</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+
+        </section>
+
+        <section class="content">
+
+          <div class="row container-fluid">
+
+            <section style="background-color: white;">
+
+              <br>
+            
+              <div class="row container-fluid">
+                
+                <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12" style="border-right: 1px solid #f4f4f4">
+                      
+                  <canvas id="myChart1"></canvas>
+
+                </div>
+                  
+                <div class="col-lg-6 col-xl-6 col-md-6 col-xs-12">
+                      
+                  <canvas id="myChart2"></canvas>
+
+                </div>
+
+              </div>
+
+              <br>
+
+            </section>
+
+            <!--My Chart 1-->
+            <script>
+              var ctx = document.getElementById("myChart1");
+              ctx.width  = 3;
+              ctx.height = 2;
+              var myChart = new Chart(ctx, {
+              
+              type: 'bar',
+              data: {
+                  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                  datasets: [{
+                    label: ' Amount Received ($) ',
+                    data: [<?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-01-01' AND process_date<='".$y."-01-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); if($y%4 == 0) $da=29; else $da=28; $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-02-01' AND process_date<='".$y."-02-".$da."'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-03-01' AND process_date<='".$y."-03-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-04-01' AND process_date<='".$y."-04-30'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-05-01' AND process_date<='".$y."-05-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-06-01' AND process_date<='".$y."-06-30'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-07-01' AND process_date<='".$y."-07-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-08-01' AND process_date<='".$y."-08-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-09-01' AND process_date<='".$y."-09-30'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-10-01' AND process_date<='".$y."-10-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-11-01' AND process_date<='".$y."-11-30'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>, <?php $y = date("Y"); $result = pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-12-01' AND process_date<='".$y."-12-31'"); $row = pg_fetch_assoc($result); echo $row['sum']; ?>],
+                    backgroundColor: [
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)',
+                                    'rgba(255, 206, 86, 0.2)',
+                                    'rgba(75, 192, 192, 0.2)',
+                                    'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)',
+                                    'rgba(255, 206, 86, 1)',
+                                    'rgba(75, 192, 192, 1)',
+                                    'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                  }, 
+                  {
+                    label: 'Amount to be Received ($)',
+                    data: [<?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>, <?php echo $total_amount; ?>],
+                    borderColor: "rgba(100,100,255,100)",
+                    // Changes this dataset to become a line
+                    type: 'line'
+                  }]
+              },
+              options: {
+                scales: {
+                  yAxes: [{
+                    ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                  }
+                }
+              });
+            </script>
+
+            <!--My Chart 2-->
+            <script>
+              var ctx = document.getElementById("myChart2");
+              ctx.width  = 3;
+              ctx.height = 2;
+              var myChart = new Chart(ctx, {
+                  type: 'line',
+                  data: {
+                  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                  datasets: [{
+                    label: ' Number of paid customers',
+                    fill: false,
+                          backgroundColor: "rgba(75,192,192,0.4)",
+                          borderColor: "rgba(75,192,192,1)",
+                          borderCapStyle: 'butt',
+                          borderDash: [],
+                          borderDashOffset: 0.0,
+                          borderJoinStyle: 'miter',
+                          pointBorderColor: "rgba(75,192,192,1)",
+                          pointBackgroundColor: "rgba(75,192,192,1)",
+                          pointBorderWidth: 1,
+                          pointHoverRadius: 5,
+                          pointStyle: 'rectRot',
+                          pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                          pointHoverBorderColor: "rgba(220,220,220,1)",
+                          pointHoverBorderWidth: 2,
+                          pointRadius: 8,
+                          showLine: false,
+                          pointHitRadius: 10,
+                          spanGaps: false,
+                    data: [<?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-01-01' AND process_date<='".$y."-01-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); if($y%4 == 0) $da=29; else $da=28; $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-02-01' AND process_date<='".$y."-02-".$da."'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-03-01' AND process_date<='".$y."-03-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-04-01' AND process_date<='".$y."-04-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-05-01' AND process_date<='".$y."-05-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-06-01' AND process_date<='".$y."-06-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-07-01' AND process_date<='".$y."-07-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-08-01' AND process_date<='".$y."-08-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-09-01' AND process_date<='".$y."-09-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-10-01' AND process_date<='".$y."-10-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-11-01' AND process_date<='".$y."-11-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-12-01' AND process_date<='".$y."-12-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>]
+                  }, 
+                  {
+                    label: 'Number of Customers',
+                    data: [<?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>],
+                    borderColor: "rgba(100,100,255,100)",
+                    // Changes this dataset to become a line
+                    type: 'line'
+                  }]
+                }
+              });
+            </script>
+
+          </div>
+
+        </section>
+
+      </div>
+
+      <footer class="main-footer">
+
+        <div class="pull-right hidden-xs"></div>
+        
+        <strong>Copyright &copy; <?php echo date('Y'); ?> <a target='_blank' href="<?php echo $_SESSION['hoa_community_website_url']; ?>"><?php echo $_SESSION['hoa_community_name']; ?></a>.</strong> All rights reserved.
+
+      </footer>
+
+      <div class="control-sidebar-bg"></div>
+
+    </div>
+
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script>
+      $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="plugins/morris/morris.min.js"></script>
+    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="plugins/knob/jquery.knob.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/pages/dashboard.js"></script>
+    <script src="dist/js/demo.js"></script>
+
+  </body>
+
+</html>
