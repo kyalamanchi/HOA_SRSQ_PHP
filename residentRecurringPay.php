@@ -154,7 +154,7 @@
              
                 <li class="treeview">
 
-                    <a href='https://hoaboardtime.com/residentMeetingMinutes.php'>
+                    <a href='https://hoaboardtime.com/residentViewMeetingMinutes.php'>
 
                       <i class='fa fa-folder'></i> <span>Meeting Minutes</span>
               
@@ -174,26 +174,11 @@
 
                 <li class="active treeview">
 
-                    <a href="">
-                
-                      <i class="glyphicon glyphicon-option-horizontal"></i>
-                
-                      <span>Other Links</span>
-                
-                      <span class="pull-right-container">
-                  
-                          <i class="fa fa-angle-left pull-right"></i>
+                    <a>
 
-                      </span>
-
+                      <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
+              
                     </a>
-
-                    <ul class="treeview-menu">
-                
-                      <li class="active"><a><i class="fa fa-circle-o text-orange"></i> Recurring Pay</a></li>
-                      <li><a><i class="fa fa-circle-o text-success"></i> Report Violation</a></li>
-
-                    </ul>
 
                 </li>
 
@@ -243,7 +228,21 @@
                 $amount = $row['amount'];
                 $url = $row['url'];
                 $api_key = $row['api_key'];
-              ?>
+
+                $year = date('Y');
+                $month = date('m');
+
+                if($month == 12)
+                {  
+                  $month = 1;
+                  $year++;
+                }
+                else
+                  $month++;
+
+                $rdate = "3-".$month."-".$year;
+              
+        ?>
 
         <section class="content-header">
 
@@ -254,6 +253,122 @@
         <br>
 
         <section class="box content">
+
+          <br>
+
+          <div class="row text-center">
+
+            <?php 
+
+              $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+
+              $recurring_pay = $row['recurring_pay'];
+
+              if($recurring_pay == 't')
+                $recurring_pay = 'Enabled';
+              else
+                $recurring_pay = 'Not Set';
+
+            ?>
+
+            <?php echo "<h4><strong>Recurring Payment : </strong>".$recurring_pay."</h4>"; ?>
+
+          </div>
+
+          <?php
+
+            if($recurring_pay == 'Enabled')
+            {
+
+              $schedule_start = $row['sch_start'];
+              $schedule_end = $row['sch_end'];
+              $schedule_expire = $row['sch_expires'];
+              $next_schedule = $row['next_sch'];
+              $schedule_continuous = $row['continous'];
+              $schedule_amount = $row['sch_amt'];
+              $schedule_status = $row['sch_status'];
+              $schedule_frequency = $row['sch_frequency'];
+
+              if($schedule_start != "")
+                $schedule_start = date('m-d-Y', strtotime($schedule_start));
+
+              if($schedule_end != "")
+                $schedule_end = date('m-d-Y', strtotime($schedule_end));
+
+              if($schedule_expire != "")
+                $schedule_expire = date('m-d-Y', strtotime($schedule_expire));
+
+              if($next_schedule != "")
+                $next_schedule = date('m-d-Y', strtotime($next_schedule));
+
+              if($schedule_continuous == 't')
+                $schedule_continuous = 'TRUE';
+              else
+                $schedule_continuous = 'FALSE';
+
+              echo "<div class='row text-center'>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Start Date : </strong>".$schedule_start."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule End Date : </strong>".$schedule_end."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Expire Date : </strong>".$schedule_expire."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Next Schedule Date : </strong>".$next_schedule."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Continous : </strong>".$schedule_continuous."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Continous : </strong>".$schedule_continuous."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Amount : </strong>$ ".$schedule_amount."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Status : </strong>".$schedule_status."</h5>";
+
+                echo "</div>";
+
+                echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>";
+
+                  echo "<h5><strong>Schedule Frequency : </strong>".$schedule_frequency."</h5>";
+
+                echo "</div>";
+
+              echo "</div>";
+
+            }
+
+          ?>
+
+          <br>
           
           <div class="row">
 
@@ -288,30 +403,28 @@
                   </div>
                   <div class="row">
                     <div class="form-group col-xl-4 col-xl-offset-2 col-lg-4 col-lg-offset-2 col-md-6 col-xs-12">
-                      <label for="pg_schedule_quantity">Number of Recurrence</label>
-                      <input class="form-control m-b" disabled type="text" value="12">
-                      <input class="form-control m-b" hidden type="hidden" name="pg_schedule_quantity" id="pg_schedule_quantity" value="12">
-                    </div>
-                    <div class="form-group col-xl-4 col-lg-4 col-md-6 col-xs-12">
                       <label for="pg_schedule_start_date">Recurring Payment Start Date</label>
-                      <input class="form-control m-b" disabled type="date" value="<?php echo date('Y-m-d'); ?>">
-                      <input class="form-control m-b" id="pg_schedule_start_date" name="pg_schedule_start_date" type="hidden" value="<?php echo date('Y-m-d'); ?>">
+                      <input class="form-control m-b" disabled type="date" value="<?php echo date('m-d-Y', strtotime($rdate)); ?>">
+                      <input class="form-control m-b" id="pg_schedule_start_date" name="pg_schedule_start_date" type="hidden" value="<?php echo date('m-d-Y', strtotime($rdate)); ?>">
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="form-group col-xl-4 col-xl-offset-2 col-lg-4 col-lg-offset-2 col-md-6 col-xs-12">
-                      <label for="pg_schedule_frequency">Number of Recurrence</label>
+
+                    <div class="form-group col-xl-4 col-lg-4 col-md-6 col-xs-12">
+                      <label for="pg_schedule_frequency">Recurrence Frequency</label>
                       <select id="pg_schedule_frequency" name="pg_schedule_frequency" class="form-control" required>
                         <option selected value="20">Monthly</option>
                         <option value="30">Quarterly</option>
                         <option value="35">Semi-Anually</option>
                       </select>
                     </div>
-                    <div class="form-group col-xl-4 col-lg-4 col-md-6 col-xs-12">
-                      <br>
-                      <button type="submit" class="btn btn-success">Pay Now</button>
-                    </div>
                   </div>
+                  <div class="row">
+                    
+                      <br><center><?php if($recurring_pay != 'Enabled') echo "<button type='submit' class='btn btn-success'>Pay Now</button>"; ?></center><br>
+
+                  </div>
+
+                  <input type="hidden" name="pg_schedule_quantity" id="pg_schedule_quantity" value="0">
+                  <input type="hidden" name="pg_schedule_continuous" id="pg_schedule_continuous" value="1">
                   <input type="hidden" name="pg_tc_show" id="pg_tc_show" value="True">
                   <input type="hidden" name="pg_scheduled_transaction" id="pg_scheduled_transaction" value="1"/>
                   <input type="hidden" name="pg_billto_postal_street_line1" id="pg_billto_postal_street_line1" value="<?php echo $address; ?>">
@@ -322,8 +435,10 @@
                   <input type="hidden" name="pg_billto_telecom_phone_number" id="pg_billto_telecom_phone_number" value="<?php echo $cell_no; ?>">
                   <input type="hidden" name="pg_merchant_data_1" id="pg_merchant_data_1" value="<?php echo $hoa_id; ?>">
                   <input type="hidden" name="pg_consumerorderid" id="pg_consumerorderid" value="<?php echo $hoa_id; ?>">
+                  <input type="hidden" name="pg_wallet_id" id="pg_wallet_id" value="<?php echo $hoa_id; ?>">
                   <input type="hidden" name="pg_continue_url" id="pg_continue_url" value="<?php echo $url; ?>">
                   <input type="hidden" name="pg_api_login_id" id="pg_api_login_id" value="<?php echo $api_key; ?>">
+                  <input type="hidden" name="pg_transaction_type" id="pg_transaction_type" value="20">
                 </form>
               
             </div>

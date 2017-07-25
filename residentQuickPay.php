@@ -154,7 +154,7 @@
              
                 <li class="treeview">
 
-                    <a href='https://hoaboardtime.com/residentMeetingMinutes.php'>
+                    <a href='https://hoaboardtime.com/residentViewMeetingMinutes.php'>
 
                       <i class='fa fa-folder'></i> <span>Meeting Minutes</span>
               
@@ -174,26 +174,11 @@
 
                 <li class="treeview">
 
-                    <a href="">
-                
-                      <i class="glyphicon glyphicon-option-horizontal"></i>
-                
-                      <span>Other Links</span>
-                
-                      <span class="pull-right-container">
-                  
-                          <i class="fa fa-angle-left pull-right"></i>
+                    <a href='https://hoaboardtime.com/residentRecurringPay.php'>
 
-                      </span>
-
+                      <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
+              
                     </a>
-
-                    <ul class="treeview-menu">
-                
-                      <li><a href="https://hoaboardtime.com/residentRecurringPay.php"><i class="fa fa-circle-o text-orange"></i> Recurring Pay</a></li>
-                      <li><a><i class="fa fa-circle-o text-success"></i> Report Violation</a></li>
-
-                    </ul>
 
                 </li>
 
@@ -265,10 +250,6 @@
 
             <br>
 
-            <h4 class="text-center text-danger"><u>Note :</u> Use <strong><?php echo $hoa_id; ?></strong> as HOA Account No(if not prefilled).</h4>
-
-            <br>
-
             <div class="col-xl-offset-2 col-lg-offset-2 col-md-offset-1 col-xl-8 col-lg-8 col-md-10 col-xs-12">
 
               <form method="POST" action="https://swp.paymentsgateway.net/co/default.aspx">
@@ -317,8 +298,10 @@
                     <input type="hidden" name="pg_billto_telecom_phone_number" id="pg_billto_telecom_phone_number" value="<?php echo $cell_no; ?>">
                     <input type="hidden" name="pg_merchant_data_1" id="pg_merchant_data_1" value="<?php echo $hoa_id; ?>">
                     <input type="hidden" name="pg_consumerorderid" id="pg_consumerorderid" value="<?php echo $hoa_id; ?>">
+                    <input type="hidden" name="pg_wallet_id" id="pg_wallet_id" value="<?php echo $hoa_id; ?>">
                     <input type="hidden" name="pg_continue_url" id="pg_continue_url" value="<?php echo $url; ?>">
                     <input type="hidden" name="pg_api_login_id" id="pg_api_login_id" value="<?php echo $api_key; ?>">
+                    <input type="hidden" name="pg_transaction_type" id="pg_transaction_type" value="20">
 
                   </div>
 

@@ -86,10 +86,10 @@
       date_default_timezone_set('America/Los_Angeles'); 
       
       $campaigns = 0;
-      $ch = curl_init('https://us14.api.mailchimp.com/3.0/reports/');
+      $ch = curl_init('https://us12.api.mailchimp.com/3.0/reports/');
       
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+      curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
       
       $result = curl_exec($ch);
@@ -254,7 +254,7 @@
 
                       <div class="pull-left">
 
-                        <a href="" class="btn btn-link btn-flat">Forgot Password?</a>
+                        <a data-toggle="modal">Forgot Password?</a><!-- data-target="#forgotPassword" -->
 
                         <br><br>
 
@@ -283,6 +283,54 @@
         </nav>
 
       </header>
+
+      <div class="modal fade hmodal-success" id="forgotPassword" role="dialog"  aria-hidden="true">
+                                
+        <div class="modal-dialog">
+                                    
+          <div class="modal-content">
+                                        
+            <div class="color-line"></div>
+                        
+            <div class="modal-header">
+                                                
+              <h4 class="modal-title"><strong>Forgot Password?</strong></h4>
+
+            </div>
+
+            <form class="row" method="post" ><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+                                            
+              <div class="modal-body">
+                                                
+                <div class="row container-fluid">
+                                
+                  <div class='col-xl-offset-3 col-lg-offset-3 col-md-offset-2 col-sm-offset-1 col-xs-offset-1 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'>
+
+                    <label>Enter your email</label>
+                    <input type='email' class="form-control" placeholder='example@email.com' name='forgot_password_email' id='forgot_password_email' size='50' required>
+
+                  </div>
+
+                </div>
+
+                <br>
+
+                <center>
+
+                  <button type="submit" name='submit' id='submit' class="btn btn-success btn-sm">Forgot Password</button>
+                  <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Cancel</button>
+
+                </center>
+
+              </div>
+
+            </form>
+
+          </div>
+                  
+        </div>
+
+      </div>
       
       <aside class="main-sidebar">
         
@@ -889,7 +937,7 @@
                   
                   <center>
 
-                    <a class='btn btn-info btn-sm' href='https://swp.paymentsgateway.net/co/default.aspx?pg_api_login_id=73vcR5EEc2' target='_blank'>Pay Now</a>
+                    <a class='btn btn-info btn-sm' href='https://swp.paymentsgateway.net/co/default.aspx?pg_api_login_id=73vcR5EEc2&pg_transaction_type=20' target='_blank'>Pay Now</a>
 
                   </center>
 

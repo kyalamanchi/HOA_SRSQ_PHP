@@ -236,6 +236,16 @@
 
                 </li>
 
+                <li class='treeview'>
+                  
+                  <a href="https://hoaboardtime.com/boardStatementOfActivity.php">
+
+                    <i class="fa fa-users text-blue"></i> <span>Statement Of Activity</span>
+
+                  </a>
+
+                </li>
+
                 <li class="treeview">
                   
                   <a href="https://hoaboardtime.com/boardSurveyDetails.php">
@@ -441,25 +451,59 @@
 
 	                <div class="box-body container-fluid" style='text-align: justify;'>
 	                  
-	                  	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center" style="border-right: 1px solid #f4f4f4">
+                    <div class='row container-fluid'>
+	                    
+                      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center" style="border-right: 1px solid #f4f4f4">
 	                  
 	                  		<a href="boardCurrentMonthAmountRecieved.php">
-	                  		<input type="text" class="knob" data-thickness="0.2" value="<?php echo round($amount_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
+	                  		 
+                         <input type="text" class="knob" data-thickness="0.2" value="<?php if($amount_percentage < 100) echo round($amount_percentage, 1); else echo "100"; ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
-	                  		<div class="knob-label" style="font-size: 15pt;"><strong>Amount Recieved</strong><sup>( % )</sup></div>
-	                  		</a>
+	                  		 <div class="knob-label" style="font-size: 15pt;"><strong>Amount Recieved</strong><sup>( % )</sup></div>
+	                  		
+                        </a>
 
-	                	</div>
+	                	  </div>
 
-	                	<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
+	                	  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
 	                  
 	                  		<a href='boardCurrentMonthPaidMembers.php'>
-	                  		<input type="text" class="knob" data-thickness="0.2" value="<?php echo round($paid_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
+	                  		
+                          <input type="text" class="knob" data-thickness="0.2" value="<?php echo round($paid_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
-	                  		<div class="knob-label" style="font-size: 15pt;"><strong>Members Paid</strong><sup>( % )</sup></div>
-	                  		</a>
+	                  		 <div class="knob-label" style="font-size: 15pt;"><strong>Members Paid</strong><sup>( % )</sup></div>
+	                  		
+                        </a>
 
-	                	</div>
+	                	  </div>
+
+                    </div>
+
+                    <br><br>
+
+                    <div class='row text-center container-fluid'>
+
+                      <a href='https://hoaboardtime.com/boardHomePayMethod.php'>
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4"  style="border: solid; border-right: none;">
+
+                        <strong>ACH : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); echo $row['count']; ?></strong>
+
+                      </div>
+
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4" style="border: solid; border-right: none; border-left: none;">
+
+                        <strong>BillPay : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); echo $row['count']; ?></strong>
+
+                      </div>
+
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4" style="border: solid; border-left: none;">
+
+                        <strong>Check : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); echo $row['count']; ?></strong>
+
+                      </div>
+                      </a>
+
+                    </div>
 
 	                </div>
 
@@ -774,21 +818,33 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <a href='https://hoaboardtime.com/boardCommunityAgreements.php'>
+                <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
 
                   <div style="background:#ffffff;">
                 
                     <div class="box-header">
                   
-                      <div class='row container-fluid icon'><i class="fa fa-pencil fa-4x pull-left text-aqua"></i>
+                      <div class='row container-fluid icon'><i class="fa fa-check-circle fa-4x pull-left text-aqua"></i>
                   
                         <b class="pull-right">
+
+                        <?php
+
+                          $ma = 0 - $assessment_amount;
+
+                          $result = pg_query("SELECT h.home_id FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$ma");
+
+                          $rows = pg_num_rows($result);
+
+                          echo "<h4 class='text-green'><strong>".$rows."</strong></h4>";
+
+                        ?>
 
                         </b>
 
                       </div>
                       
-                      <div class='row container-fluid text-center'><br>Digital Signatures</div>
+                      <div class='row container-fluid text-center'><br>Pre-Paid Members</div>
                 
                     </div>
 
@@ -1120,322 +1176,6 @@
 
               ?>
 
-              <div class="row container-fluid text-center">
-
-                <h4><strong>Statement Of Activity</strong></h4>
-
-                <br>
-
-                <?php echo $startDate; ?> - <?php echo $endDate; ?>
-
-              </div>
-
-              <br>
-              <div class="row container-fluid">
-
-                <?php
-
-                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
-                  
-                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="ip1c1vnwspYJ4SEyLwtReFzeIII%3D"'));
-                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                  
-                  $profitandloss = curl_exec($ch);
-                  $jsonprofitandloss = json_decode($profitandloss,TRUE);
-                  $profitandlossrows = $jsonprofitandloss['Rows']['Row'];
-                  
-                  foreach ($profitandlossrows as $profitandlosstest) {
-                    
-                    foreach ($profitandlosstest['Header'] as $keyprofitandloss) {
-                      
-                      foreach ($keyprofitandloss as $keyprofitandloss) {
-                        
-                        $keyprofitandloss = $keyprofitandloss['value'];
-                        
-                        if ( $keyprofitandloss == "Expenditures") {
-                          
-                          foreach ($profitandlosstest['Rows'] as $keyprofitandlosstester) {
-                            
-                            foreach ($keyprofitandlosstester as $helloworld) {
-                              
-                              $helloworld2 = $helloworld['Header'];
-                              $count = 0;
-                              
-                              foreach ($helloworld2['ColData'] as $keycoldata) {
-                                
-                                $count = $count + 1;
-                                if ( $count == 2 ){
-                                  
-                                }
-
-                              }
-
-                            }
-
-                          }
-
-                        }
-
-                      }
-
-                    }
-
-                  }
-
-                ?>
-
-                <div class="col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                  
-                  <table class="table table-hover table-bordered container-fluid">
-                    
-                    <thead>
-                        
-                        <tr>
-                            
-                            <th></th>
-                            <th>Total</th>
-
-                        </tr>
-
-                    </thead>
-                    
-                    <tbody>
-                      
-                      <tr>
-                        
-                        <?php
-                          
-                          echo '<td>Revenue</td>';
-                          echo '<td>';
-                          echo '<b>';
-                          echo '$ ';
-                          
-                          $allRows = $json_Decode['Rows'];
-                          
-                          foreach ($allRows['Row'] as $singleRow) {
-                            
-                            $insideRows = $singleRow['Rows'];
-                            $insideRow = $insideRows['Row'];
-                  
-                            foreach($insideRow as $key ) {
-                    
-                              $summary = $key['Summary'];
-                    
-                              foreach ($summary['ColData'] as $colval) {
-                                
-                                $value = floatval($colval['value']);
-                                
-                                if($value && intval($value) != $value)
-                                {
-                                  echo $value;
-                                  break 3;
-
-                                }
-
-                              }
-                            
-                            }
-
-                          }
-                          
-                          echo '</b>';
-
-                        ?>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>
-                          
-                          <h5>4010 Assessments<span style="float:right;">$ <?php  echo $value; ?></span></h5>
-                          
-                          <ul>
-                            
-                            <hr>
-                            <h4>Total Revenue<span style="float:right;">$ <?php  echo $value; ?></span></h4>
-                        
-                          </ul>
-                        
-                        </td>
-
-                      </tr>
-                      
-                      <tr>
-                      
-                        <td>Gross Profit </td>
-                        <td><b>$ <?php echo $value; ?></b></td>
-
-                      </tr>
-
-                      <tr>
-                        
-                        <td colspan="5"><ul><li>No data found.</li></ul></td>
-                      
-                      </tr>
-
-                      <tr>
-                        
-                        <td>Expenditures</td>
-                        
-                        <?php
-
-                          $cell = 0;
-
-                          echo '<td>';
-                          echo '<b>';
-                          echo '$ ';
-
-                          $allRows = $json_Decode['Rows'];
-                          
-                          foreach ($allRows['Row'] as $singleRow) {
-                            
-                            $insideRows = $singleRow['Rows'];
-                            $insideRow = $insideRows['Row'];
-                  
-                            foreach($insideRow as $key ) {
-                              
-                              $summary = $key['Summary'];
-                    
-                              foreach ($summary['ColData'] as $colval) {
-                      
-                                foreach ($colval as $keycol) {
-                                  
-                                  if ( $keycol == "Total for Expenditures") {
-                        
-                                    $cell = 1;
-
-                                  }
-
-                                  if ( $cell == 1 ){
-                                    
-                                    $fval  = floatval($keycol);
-                                    
-                                    if($fval && intval($fval) != $fval)
-                                    {
-                                      echo $fval;
-                                      $cell = 0;
-                                      break 3;
-
-                                    }
-
-                                  }
-
-                                }
-
-                              }
-
-                            }
-
-                          }
-
-                          echo '</b>';
-                        
-                        ?>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>
-                          
-                          <ul>
-                  
-                            <?php 
-                  
-                              foreach ($keyprofitandlosstester as $helloworld) {
-                  
-                                $helloworld2 = $helloworld['Header'];
-                                $count = 0;
-                  
-                                foreach ($helloworld2['ColData'] as $keycoldata) {
-                    
-                                  $count = $count + 1;
-                                  
-                                  if ( $count == 1){
-
-                                    $firstvalue = $keycoldata['value'];
-                                  
-                                  }
-                                  
-                                  if ( $count == 2 ){
-                                    
-                                    echo '<h5>'.$firstvalue.'<span style="float:right;">$ '.$keycoldata['value'].'</span></h5>';
-                                    echo "<hr>";
-                    
-                                  }
-                                
-                                }
-                              
-                              }
-
-                              echo '<h4>Total Expenditure<span style="float:right;">$ '.$fval.'</span></h4>';
-
-                            ?>
-
-                          </ul>
-
-                        </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>Net Operating Revenue</td>
-                        <td><b>$ 
-                          <?php
-                            
-                            foreach ($allRows['Row'] as $singleRow) {
-                              
-                              $summary = $singleRow['Summary'];
-                              $ColData  = $summary['ColData'];
-                    
-                              foreach ($ColData as $key) {
-                      
-                                $value   = $key['value'];
-                      
-                                if($value && intval($value) != $value)
-                                {
-                            
-                                  echo $value;
-                                  break 2;
-
-                                }
-                    
-                              }
-                            }
-                          ?>
-                          
-                        </b></td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td colspan="5">
-                
-                          <ul><li>No data found.</li></ul>
-
-                        </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>Net Revenue</td>
-                        <td><b>$ <?php echo $value; ?></b></td>
-
-                      </tr>
-                    
-                    </tbody>
-
-                  </table>
-
-                </div>
-
-              </div>
-
               <br>
 
             </section>
@@ -1566,8 +1306,8 @@
             <!--My Chart 1-->
             <script>
               var ctx = document.getElementById("myChart1");
-              ctx.width  = 3;
-              ctx.height = 2;
+              ctx.width  = 1;
+              ctx.height = 1;
               var myChart = new Chart(ctx, {
               
               type: 'bar',
@@ -1629,43 +1369,29 @@
             <!--My Chart 2-->
             <script>
               var ctx = document.getElementById("myChart2");
-              ctx.width  = 3;
-              ctx.height = 2;
-              var myChart = new Chart(ctx, {
-                  type: 'line',
+              ctx.width  = 1;
+              ctx.height = 1;
+              var myRadarChart = new Chart(ctx, {
+                  type: 'radar',
                   data: {
-                  labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-                  datasets: [{
-                    label: ' Number of paid customers',
-                    fill: false,
-                          backgroundColor: "rgba(75,192,192,0.4)",
-                          borderColor: "rgba(75,192,192,1)",
-                          borderCapStyle: 'butt',
-                          borderDash: [],
-                          borderDashOffset: 0.0,
-                          borderJoinStyle: 'miter',
-                          pointBorderColor: "rgba(75,192,192,1)",
-                          pointBackgroundColor: "rgba(75,192,192,1)",
-                          pointBorderWidth: 1,
-                          pointHoverRadius: 5,
-                          pointStyle: 'rectRot',
-                          pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                          pointHoverBorderColor: "rgba(220,220,220,1)",
-                          pointHoverBorderWidth: 2,
-                          pointRadius: 8,
-                          showLine: false,
-                          pointHitRadius: 10,
-                          spanGaps: false,
-                    data: [<?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-01-01' AND process_date<='".$y."-01-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); if($y%4 == 0) $da=29; else $da=28; $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-02-01' AND process_date<='".$y."-02-".$da."'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-03-01' AND process_date<='".$y."-03-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-04-01' AND process_date<='".$y."-04-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-05-01' AND process_date<='".$y."-05-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-06-01' AND process_date<='".$y."-06-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-07-01' AND process_date<='".$y."-07-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-08-01' AND process_date<='".$y."-08-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-09-01' AND process_date<='".$y."-09-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-10-01' AND process_date<='".$y."-10-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-11-01' AND process_date<='".$y."-11-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-12-01' AND process_date<='".$y."-12-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>]
-                  }, 
-                  {
-                    label: 'Number of Customers',
-                    data: [<?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>],
-                    borderColor: "rgba(100,100,255,100)",
-                    // Changes this dataset to become a line
-                    type: 'line'
-                  }]
-                }
+                      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                      datasets: [{
+                          label: 'Paid Customers',
+                          data: [<?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-01-01' AND process_date<='".$y."-01-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); if($y%4 == 0) $da=29; else $da=28; $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-02-01' AND process_date<='".$y."-02-".$da."'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-03-01' AND process_date<='".$y."-03-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-04-01' AND process_date<='".$y."-04-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-05-01' AND process_date<='".$y."-05-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-06-01' AND process_date<='".$y."-06-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-07-01' AND process_date<='".$y."-07-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-08-01' AND process_date<='".$y."-08-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-09-01' AND process_date<='".$y."-09-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-10-01' AND process_date<='".$y."-10-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-11-01' AND process_date<='".$y."-11-30'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>, <?php $y = date("Y"); $result = pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='".$y."-12-01' AND process_date<='".$y."-12-31'"); $row = pg_num_rows($result); if($row != 0) echo $row; ?>],
+                          fill: false,
+                          pointStyle: 'circle',
+                          pointBackgroundColor: 'green',
+                          borderColor: '#BCF5A9'
+                      },
+                      {
+                          label: 'Total Customers',
+                          data: [<?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>, <?php echo $total_customers; ?>],
+                          fill: false,
+                          pointStyle: 'circle',
+                          pointBackgroundColor: 'orange',
+                          borderColor: '#F3E2A9'
+                      }]
+                  }
               });
             </script>
 

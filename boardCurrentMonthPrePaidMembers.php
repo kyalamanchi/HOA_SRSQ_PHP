@@ -18,7 +18,7 @@
     		$num_row = pg_num_rows($result);
 
     		if($num_row == 0)
-    			header("Location: https://hoaboardtime.com/residentDashboard.php");
+    			header("Location: residentDashboard.php");
 
     ?>
 
@@ -256,9 +256,9 @@
                 </li>
 
                 <!-- Member -->
-                <li class='active treeview'>
+                <li class='treeview'>
 
-                  <a>
+                  <a href="https://hoaboardtime.com/boardMailingList.php">
 
                     <i class="fa fa-street-view text-green"></i> <span>Community Mailing List</span>
 
@@ -331,13 +331,19 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+          $row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+
+          $assessment_amount = $row['amount'];
+
+          $assessment_amount = 0 - $assessment_amount;
+
+          $result = pg_query("SELECT h.home_id, h.address1 FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$assessment_amount");
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Mailing List</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Late Payments</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
@@ -348,17 +354,6 @@
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
-                
-                <div class="box-header">
-                  <i class="fa fa-"></i>
-
-                  <div class="box-tools pull-right">
-
-                    <a type="button" href="mailingListCSV.php" class="btn bg-teal btn-sm">Export as .csv</a>
-
-                  </div>
-
-                </div>
 
                 <div class="box-body table-responsive">
                   
@@ -368,12 +363,9 @@
                       
                       <tr>
                         
-                        <th>HOA ID</th>
                         <th>Name</th>
-                        <th>Home ID</th>
-                        <th>Mailing Address</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Balance</th>
 
                       </tr>
 
@@ -387,45 +379,27 @@
                         {
 
                           $home_id = $row['home_id'];
-                          $living_status = $row['living_status'];
-
+                          $address = $row['address1'];
+                          
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
-                          $hoa_id = $row1['hoa_id'];
                           $name = $row1['firstname'];
                           $name .= " ";
                           $name .= $row1['lastname'];
-                          $email = $row1['email'];
-                          $phone = $row1['cell_no'];
+                          $hoa_id = $row1['hoa_id'];
 
-                          if($living_status == 't')
-                          {
-                            $address = $row['address1'];
-                            $city = $row['city_id'];
-                            $state = $row['state_id'];
-                            $zip = $row['zip_id'];
-                          }
-                          else
-                          {
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id"));
 
-                            $address = $row1['address1'];
-                            $city = $row1['city_id'];
-                            $state = $row1['state_id'];
-                            $zip = $row1['zip_id'];
-                          }
+                          $payments = $row1['sum'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$city"));
-                          $city = $row1['city_name'];
+                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id"));
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$state"));
-                          $state = $row1['state_code'];
+                          $charges = $row1['sum'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$zip"));
-                          $zip = $row1['zip_code'];
+                          $balance = $charges - $payments;
 
-                          echo "<tr><td>".$hoa_id."</td><td>".$name."</td><td>".$home_id."</td><td>".$address.", ".$city." ".$state." ".$zip."</td><td>".$email."</td><td>".$phone."</td></tr>";
-
+                          echo "<tr><td>".$name." ( $hoa_id )</td><td>".$address." ( $home_id )</td><td>$ ".$balance."</td></tr>";
+                          
                         }
 
                       ?>
@@ -436,12 +410,9 @@
 
                       <tr>
 
-                        <th>HOA ID</th>
                         <th>Name</th>
-                        <th>Home ID</th>
-                        <th>Mailing Address</th>
-                        <th>Email</th>
-                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Balance</th>
 
                       </tr>
 

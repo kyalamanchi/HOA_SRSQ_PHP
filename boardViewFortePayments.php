@@ -79,7 +79,7 @@
 					    {
 					                                                
 					        $header[] = "X-Forte-Auth-Organization-Id:org_335337";
-					        $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";//incorrect
+					        $header[] = "Authorization:Basic cmFtc3RwbGFjZUBnbWFpbC5jb206a25ReEgwJEE=";//incorrect
 					                                                
 					        curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335337/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
 					    }  

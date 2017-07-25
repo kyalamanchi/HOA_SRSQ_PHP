@@ -274,10 +274,10 @@
           
           <?php
 
-            $ch = curl_init('https://us14.api.mailchimp.com/3.0/reports/');
+            $ch = curl_init('https://us12.api.mailchimp.com/3.0/reports/');
           
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             
             $result = curl_exec($ch);

@@ -358,6 +358,7 @@
                       <tr>
                         
                         <th>Inspection Date</th>
+                        <th>Status</th>
                         <th>Name</th>
                         <th>Address</th>
                         <th>Description</th>
@@ -392,6 +393,13 @@
                           $violation_sub_category = $row['violation_sub_category_id'];
                           $notice_type = $row['notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
+                          $status = $row['violation_status_id'];
+
+                          if($inspection_date != "")
+                            $inspection_date = date('m-d-Y', strtotime($inspection_date));
+
+                          if($date_of_upload != "")
+                            $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
@@ -404,6 +412,10 @@
 
                           $address = $row1['address1'];
 
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_status WHERE violation_status_id=$status"));
+
+                          $status = $row1['violation_status'];
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_category WHERE violation_category_id=$violation_category"));
 
                           $violation_category = $row1['name'];
@@ -414,8 +426,12 @@
                           $violation_sub_category_rule = $row1['rule'];
                           $violation_sub_category_rule_description = $row1['rule_description'];
                           $violation_sub_category_rule_explanation = $row1['explanation'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+
+                          $location = $row1['location'];
                           
-                          echo "<tr><td>".date('m-d-Y', strtotime($inspection_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".date('m-d-Y', strtotime($date_of_upload))."</td></tr>";
+                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$name."<br>($hoa_id)</td><td>".$address."<br>($home_id)</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
@@ -428,6 +444,7 @@
                       <tr>
 
                         <th>Inspection Date</th>
+                        <th>Status</th>
                         <th>Name</th>
                         <th>Address</th>
                         <th>Description</th>
@@ -482,7 +499,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
       });
     </script>
 

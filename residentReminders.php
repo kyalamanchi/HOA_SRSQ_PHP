@@ -149,7 +149,7 @@
              
                 <li class="treeview">
 
-                    <a href='https://hoaboardtime.com/residentMeetingMinutes.php'>
+                    <a href='https://hoaboardtime.com/residentViewMeetingMinutes.php'>
 
                       <i class='fa fa-folder'></i> <span>Meeting Minutes</span>
               
@@ -169,26 +169,11 @@
 
                 <li class="treeview">
 
-                    <a href="">
-                
-                      <i class="glyphicon glyphicon-option-horizontal"></i>
-                
-                      <span>Other Links</span>
-                
-                      <span class="pull-right-container">
-                  
-                          <i class="fa fa-angle-left pull-right"></i>
+                    <a href='https://hoaboardtime.com/residentRecurringPay.php'>
 
-                      </span>
-
+                      <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
+              
                     </a>
-
-                    <ul class="treeview-menu">
-                
-                      <li><a href="https://hoaboardtime.com/residentRecurringPay.php"><i class="fa fa-circle-o text-orange"></i> Recurring Pay</a></li>
-                      <li><a href="https://hoaboardtime.com/residentReportViolation.php"><i class="fa fa-circle-o text-success"></i> Report Violation</a></li>
-
-                    </ul>
 
                 </li>
 
@@ -212,7 +197,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Violation Citations</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Reminders</strong></h1>
 
         </section>
 

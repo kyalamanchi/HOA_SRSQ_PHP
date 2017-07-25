@@ -82,38 +82,36 @@
 
                 
                 
-                $content = 'Hello '.$firstname.' '.$lastname.',<br><br>Your payment with document number "'.$document_num.'" has been processed on '.$process_date.'.<br><br>Thank you,<br>'.$cnote;
+                $content = 'Your payment was processed on '.date('m/d/Y', $process_date).' with confirmation '.$document_num.'.';
                 $subject = 'HOA Payment Processed - '.$community;
                 $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
                 $content_text = strip_tags($content);
 
 
-                $postString = '{
-                "key": "' . $api_key . '",
-                "message": {
-                 "html": "' . $content . '",
-                 "text": "' . $content_text . '",
-                 "subject": "' . $subject . '",
-                 "from_email": "' . $from . '",
-                 "from_name": "' . $from . '",
-                 "to": [
-                 {
-                 "email": "' . $to . '",
-                 "name": "' . $to . '"
-                 }
-                 ],
-                 "track_opens": true,
-                 "track_clicks": true,
-                 "auto_text": true,
-                 "url_strip_qs": true,
-                 "preserve_recipients": true
-                },
-                "async": false
-                }';
+                $params = array(
+                "key" => $api_key,
+                "message" => array(
+                    "html" => $content,
+                    "text" => $content_text,
+                    "subject" => $subject,
+                    "from_email" => $from,
+                    "from_name" => $from,
+                    "to" => array(
+                        array("email" => $to, "name" => $to)
+                    ),
+                    "track_opens" => true,
+                    "track_clicks" => true,
+                    "auto_text" => true,
+                    "url_strip_qs" => true,
+                    "preserve_recipients" => true
+                ),
+                "async" => false
+                );
 
                 if($to)
                 {
                     $ch = curl_init();
+                    $postString = json_encode($params);
                     curl_setopt($ch, CURLOPT_URL, $uri);
                     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
                     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
@@ -132,7 +130,7 @@
                 echo "<br><br><center><h3>Payment already exist with Home ID : ".$home_id." and Document number : ".$document_num."</h3></center><br><br>";
             }
 
-            echo "<br><br><center><a href='boardProcessPayment.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='boardProcessPayment.php'},3000);</script>";
+            echo "<br><br><center><a href='boardProcessPayment.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardProcessPayment.php'},3000);</script>";
         ?>
     </body>
 </html>

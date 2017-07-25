@@ -149,7 +149,7 @@
              
                 <li class="treeview">
 
-                    <a href='https://hoaboardtime.com/residentMeetingMinutes.php'>
+                    <a href='https://hoaboardtime.com/residentViewMeetingMinutes.php'>
 
                       <i class='fa fa-folder'></i> <span>Meeting Minutes</span>
               
@@ -169,26 +169,11 @@
 
                 <li class="treeview">
 
-                    <a href="">
-                
-                      <i class="glyphicon glyphicon-option-horizontal"></i>
-                
-                      <span>Other Links</span>
-                
-                      <span class="pull-right-container">
-                  
-                          <i class="fa fa-angle-left pull-right"></i>
+                    <a href='https://hoaboardtime.com/residentRecurringPay.php'>
 
-                      </span>
-
+                      <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
+              
                     </a>
-
-                    <ul class="treeview-menu">
-                
-                      <li><a href="https://hoaboardtime.com/residentRecurringPay.php"><i class="fa fa-circle-o text-orange"></i> Recurring Pay</a></li>
-                      <li><a href="https://hoaboardtime.com/residentReportViolation.php"><i class="fa fa-circle-o text-success"></i> Report Violation</a></li>
-
-                    </ul>
 
                 </li>
 
@@ -233,8 +218,7 @@
                       <tr>
                         
                         <th>Inspection Date</th>
-                        <th>Name</th>
-                        <th>Address</th>
+                        <th>Status</th>
                         <th>Description</th>
                         <th>Category</th>
                         <th>Sub Category</th>
@@ -267,21 +251,19 @@
                           $violation_sub_category = $row['violation_sub_category_id'];
                           $notice_type = $row['notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-
-                          $hoa_id = $row1['hoa_id'];
-                          $name = $row1['firstname'];
-                          $name .= " ";
-                          $name .= $row1['lastname'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-
-                          $address = $row1['address1'];
+                          $status = $row['violation_status_id'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_category WHERE violation_category_id=$violation_category"));
 
                           $violation_category = $row1['name'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_status WHERE violation_status_id=$status"));
+
+                          $status = $row1['violation_status'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+
+                          $location = $row1['location'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_sub_category WHERE violation_sub_category_id=$violation_sub_category"));
 
@@ -289,8 +271,14 @@
                           $violation_sub_category_rule = $row1['rule'];
                           $violation_sub_category_rule_description = $row1['rule_description'];
                           $violation_sub_category_rule_explanation = $row1['explanation'];
+
+                          if($date_of_upload != "")
+                            $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+                          if($inspection_date != "")
+                            $inspection_date = date('m-d-Y', strtotime($inspection_date));
                           
-                          echo "<tr><td>".$inspection_date."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
@@ -303,8 +291,7 @@
                       <tr>
 
                         <th>Inspection Date</th>
-                        <th>Name</th>
-                        <th>Address</th>
+                        <th>Status</th>
                         <th>Description</th>
                         <th>Category</th>
                         <th>Sub Category</th>

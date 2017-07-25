@@ -26,7 +26,7 @@
 		$home_id = $row['home_id'];
 		$living_status = $row['living_status'];
 
-		if($living_status)
+		if($living_status == 't')
 		{
 			$address = $row['address1'];
 			$city = $row['city_id'];

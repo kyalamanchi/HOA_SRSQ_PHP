@@ -442,7 +442,6 @@
                       <th>Home Address (Home ID)</th>
                       <th>Living Status</th>
                       <th>Lot</th>
-                      <th>Pay Method</th>
                       <?php if($living_status == 'f') echo "<th>Mailing Address</th>"; ?>
 
                     </thead>
@@ -461,7 +460,7 @@
                         else
                           $living_status = "FALSE";
 
-                        if($living_status)
+                        if($living_status == "TRUE")
                         {
 
                           $address = $row['address1'];
@@ -502,16 +501,93 @@
                           $zip = $row['zip_code'];
                         }
 
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id"));
-                        $pay_method = $row['payment_type_id'];
-
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$pay_method"));
                         $pay_method = $row['payment_type_name'];
 
-                        echo "<tr><td>$address1 $address2 ($home_id)</td><td>$living_status</td><td>$lot</td><td>$pay_method</td>";
+                        echo "<tr><td>$address1 $address2 ($home_id)</td><td>$living_status</td><td>$lot</td>";
 
                         if($living_status == 'FALSE')
                           echo "<td>$address, $city, $state $zip</td>";
+
+                        echo "</tr>";
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-success">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Payment Details</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table class="table table-bordered">
+
+                    <thead>
+                      <?php
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+
+                        $payment_type = $row['payment_type_id'];
+                        $recurring_pay = $row['recurring_pay'];
+
+                      ?>
+                      
+                      <th>Pay Method</th>
+                      <th>Recurring Pay</th>
+                      <?php if($recurring_pay == 't') echo "<th>Schedule Start Date</th><th>Schedule End Date</th><th>Schedule Expires On</th><th>Next Schedule Date</th><th>Schedule Frequency</th>"; ?>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        $schedule_start = $row['sch_start'];
+                        $schedule_end = $row['sch_end'];
+                        $schedule_expires = $row['sch_expires'];
+                        $next_schedule = $row['next_sch'];
+                        $schedule_frequency = $row['sch_frequency'];
+
+                        if($schedule_start != "")
+                          $schedule_start = date('m-d-Y', strtotime($schedule_start));
+
+                        if($schedule_end != "")
+                          $schedule_end = date('m-d-Y', strtotime($schedule_end));
+
+                        if($schedule_expires != "")
+                          $schedule_expires = date('m-d-Y', strtotime($schedule_expires));
+
+                        if($next_schedule != "")
+                          $next_schedule = date('m-d-Y', strtotime($next_schedule));
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+                        $payment_type = $row['payment_type_name'];
+
+                        echo "<tr><td>$payment_type</td>";
+
+                        if($recurring_pay == 't')
+                          echo "<td>Enabled</td><td>$schedule_start</td><td>$schedule_end</td><td>$schedule_expires</td><td>$next_schedule</td><td>$schedule_frequency</td>";
+                        else
+                          echo "<td>Not Set</td>";
 
                         echo "</tr>";
 
@@ -816,8 +892,7 @@
                     <thead>
                       
                       <th>Inspection Date</th>
-                      <th>Name</th>
-                      <th>Address</th>
+                      <th>Status</th>
                       <th>Description</th>
                       <th>Category</th>
                       <th>Sub Category</th>
@@ -848,17 +923,15 @@
                           $violation_sub_category = $row['violation_sub_category_id'];
                           $notice_type = $row['notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
+                          $status = $row['violation_status_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_status WHERE violation_status_id=$status"));
 
-                          $hoa_id = $row1['hoa_id'];
-                          $name = $row1['firstname'];
-                          $name .= " ";
-                          $name .= $row1['lastname'];
+                          $status = $row1['violation_status'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
 
-                          $address = $row1['address1'];
+                          $location = $row1['location'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_category WHERE violation_category_id=$violation_category"));
 
@@ -870,8 +943,14 @@
                           $violation_sub_category_rule = $row1['rule'];
                           $violation_sub_category_rule_description = $row1['rule_description'];
                           $violation_sub_category_rule_explanation = $row1['explanation'];
+
+                          if($date_of_upload != "")
+                            $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+                          if($inspection_date != "")
+                            $inspection_date = date('m-d-Y', strtotime($inspection_date));
                           
-                          echo "<tr><td>".date('m-d-Y', strtotime($inspection_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".date('m-d-Y', strtotime($date_of_upload))."</td></tr>";
+                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
@@ -921,7 +1000,7 @@
 
         $("#example1").DataTable({ "pageLength": 50 });
 
-        $("#example2").DataTable({ "pageLength": 50 });
+        $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
         $("#example3").DataTable({ "pageLength": 50 });
       });

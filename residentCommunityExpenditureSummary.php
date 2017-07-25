@@ -160,7 +160,7 @@
              
             		<li class="treeview">
 
-              			<a href='https://hoaboardtime.com/residentMeetingMinutes.php'>
+              			<a href='https://hoaboardtime.com/residentViewMeetingMinutes.php'>
 
                 			<i class='fa fa-folder'></i> <span>Meeting Minutes</span>
               
@@ -178,30 +178,15 @@
 
             		</li>
 
-            		<li class="treeview">
+                <li class="treeview">
 
-              			<a href="">
-                
-                			<i class="glyphicon glyphicon-option-horizontal"></i>
-                
-                			<span>Other Links</span>
-                
-                			<span class="pull-right-container">
-                  
-                  				<i class="fa fa-angle-left pull-right"></i>
+                    <a href='https://hoaboardtime.com/residentRecurringPay.php'>
 
-                			</span>
+                      <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
+              
+                    </a>
 
-              			</a>
-
-              			<ul class="treeview-menu">
-                
-                			<li><a href="https://hoaboardtime.com/residentRecurringPay.php"><i class="fa fa-circle-o text-orange"></i> Recurring Pay</a></li>
-                      <li><a href="https://hoaboardtime.com/residentReportViolation.php"><i class="fa fa-circle-o text-success"></i> Report Violation</a></li>
-
-              			</ul>
-
-            		</li>
+                </li>
 
           		</ul>
 
@@ -221,7 +206,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Community Expenditures</strong></h1>
+          <h1><strong>YTDD Expenditures</strong></h1>
 
         </section>
 
@@ -232,17 +217,6 @@
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
-                
-                <div class="box-header">
-                  <i class="fa fa-"></i>
-
-                  <div class="box-tools pull-right">
-
-                    <a data-toggle='modal' href='#myModel' data-toggle='popover' data-trigger='hover' type="button" class="btn bg-teal btn-sm">Add Charge</a>
-
-                  </div>
-
-                </div>
 
                 <div class="box-body table-responsive">
                   
@@ -294,18 +268,7 @@
 
                           }
                           
-                          if ( $count == 1) {
-                            
-                            echo '<u><a href="http://52.52.199.120/reports/updateExpenses.php?id='.$purchase['Id'].'"'.'>'.$category.'</a></u>';
-                            $count = 0;
-
-                          }
-                          else {
-                            
-                            echo "-Split-";
-                            $count = 0;
-
-                          }
+                          echo $category;
 
                           echo '</td><td>';
                           print_r("$".number_format($purchase['TotalAmt'],2));
