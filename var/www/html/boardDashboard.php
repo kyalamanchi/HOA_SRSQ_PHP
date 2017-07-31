@@ -419,6 +419,9 @@
 
           }
 
+          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='SIGNED'");
+          $signed_agreements = pg_num_rows($result);
+
         ?>
         
         <section class="content-header">
@@ -600,10 +603,7 @@
                       echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$ ".$srp_primary_Savings_CurrentBalance."</strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$ ".$srp_savings."</strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$ ".$srsq_third_Account_Balance."</strong></div>";
                     }
 
-                    if($community_id == 1)
-                      $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/SRP_HOA/Documents/Minutes/SRP_Minutes_".$year."_%'"));
-                    else if($community_id == 2)
-                      $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year."_%'"));
+                    $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
 
                   ?>
                   
@@ -858,22 +858,22 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <a href='https://hoaboardtime.com/boardMeetingMinutes.php'>
+                <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
 
                   <div style="background:#ffffff;">
                 
                     <div class="box-header">
                   
-                      <div class='row container-fluid'><i class="fa fa-book fa-4x pull-left text-aqua"></i>
+                      <div class='row container-fluid'><i class="fa fa-files-o fa-4x pull-left text-aqua"></i>
                   
                         <b class="pull-right">
                           
                           <?php 
 
-                            if($minutes == 0)
+                            if($documents == 0)
                               echo "<h4 class='text-success'><strong>0</strong></h4>";
                             else
-                              echo "<h4 class='text-info'><strong>".$minutes."</strong></h4>";
+                              echo "<h4 class='text-info'><strong>".$documents."</strong></h4>";
 
                           ?>
 
@@ -881,7 +881,44 @@
 
                       </div>
                       
-                      <div class='row container-fluid text-center'><br>Meeting Minutes</div>
+                      <div class='row container-fluid text-center'><br>Community Docs</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-edit fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+
+                            if($signed_agreements == 0)
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-info'><strong>".$signed_agreements."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Signed Agreements</div>
                 
                     </div>
 

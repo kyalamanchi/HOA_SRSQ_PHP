@@ -139,17 +139,17 @@
       $billpay = ($billpay / $total_payments) * 100;
       $check = ($check / $total_payments) * 100;
 
-      $result = pg_query("SELECT * FROM current_charges WHERE community_id=2 AND assessment_rule_type_id=9 AND assessment_date>='$year-01-01' AND assessment_date<='$year-12-31'");
+      $result = pg_query("SELECT * FROM current_charges WHERE community_id=$community_id AND assessment_rule_type_id=9 AND assessment_date>='$year-01-01' AND assessment_date<='$year-12-31'");
       $board_write_off = pg_num_rows($result);
 
-      $result = pg_query("SELECT * FROM current_charges WHERE community_id=2 AND assessment_rule_type_id=3 AND assessment_date>='$year-$month-01' AND assessment_date<='$year-$month-$end_date'");
+      $result = pg_query("SELECT * FROM current_charges WHERE community_id=$community_id AND assessment_rule_type_id=3 AND assessment_date>='$year-$month-01' AND assessment_date<='$year-$month-$end_date'");
       $late_fee = pg_num_rows($result);
 
       $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year."_%'"));
 
       $dm  = array('0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0, '7' => 0, '8' => 0, '9' => 0, '10' => 0, '11' => 0, '12' => 0, '13' => 0, '14' => 0, '15' => 0, '16' => 0, '17' => 0, '18' => 0, '19' => 0, '20' => 0);
       
-      $result = pg_query("SELECT * FROM document_management WHERE community_id=2");
+      $result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
 
       while($row = pg_fetch_assoc($result))
       {
@@ -170,6 +170,8 @@
         }
 
       }
+
+      $violations = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
 
     ?>
 
@@ -630,6 +632,28 @@
                     <div class="icon">
 
                       <i style="font-size: 55px;" class="fa fa-clock-o"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
+                  <div class="small-box bg-red">
+                    
+                    <div class="inner">
+                      
+                      <h3><?php echo $violations; ?></h3>
+
+                      <p>Inspection Notices(<?php echo $year; ?>)</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 55px;" class="fa fa-exclamation"></i>
 
                     </div>
 

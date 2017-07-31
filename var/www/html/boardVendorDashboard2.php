@@ -390,7 +390,7 @@
                         $address = $row['address'];
 
                         if($active_from != "")
-                          $active_from = date('Y-m-d',strtotime($active_from));
+                          $active_from = date('m-d-Y', strtotime($active_from));
 
                         if($approved == 't')
                           $approved = 'TRUE';
@@ -411,7 +411,7 @@
                           $payment_type = $row['payment_type_name'];
                         }
 
-                        echo "<tr><td>$vendor_name</td><td>".date('m-d-Y', strtotime($active_from))."</td><td>$approved</td><td>$vendor_type</td><td>$payment_type</td><td>$tax_id</td><td>$email</td><td>$phone</td><td>$address</td></tr>";
+                        echo "<tr><td>$vendor_name</td><td>$active_from</td><td>$approved</td><td>$vendor_type</td><td>$payment_type</td><td>$tax_id</td><td>$email</td><td>$phone</td><td>$address</td></tr>";
 
                       ?>
                       
@@ -478,6 +478,14 @@
                 <div class="box-header">
 
                   <center><h4><strong>Current Year Vendor Payment Processed</strong></h4></center>
+                  
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a data-toggle="modal" data-target="#editVendorCurrentYearPaymentsProcessed" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
+
+                  </div>
 
                 </div>
 
@@ -507,31 +515,37 @@
 
                       <?php
 
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_vendors_pmt_processed WHERE vendor_id=$vendor_id AND community_id=$community_id AND year=$year"));
+                        $result = pg_query("SELECT * FROM current_year_vendors_pmt_processed WHERE vendor_id=$vendor_id AND community_id=$community_id ORDER BY year DESC");
 
-                        $current_year = $row['year'];
-                        $m[1] = $row['m1_pmt_processed'];
-                        $m[2] = $row['m2_pmt_processed'];
-                        $m[3] = $row['m3_pmt_processed'];
-                        $m[4] = $row['m4_pmt_processed'];
-                        $m[5] = $row['m5_pmt_processed'];
-                        $m[6] = $row['m6_pmt_processed'];
-                        $m[7] = $row['m7_pmt_processed'];
-                        $m[8] = $row['m8_pmt_processed'];
-                        $m[9] = $row['m9_pmt_processed'];
-                        $m[10] = $row['m10_pmt_processed'];
-                        $m[11] = $row['m11_pmt_processed'];
-                        $m[12] = $row['m12_pmt_processed'];
-
-                        for ($i = 1; $i <= 12; $i++)
+                        while($row = pg_fetch_assoc($result))
                         {
-                          if($m[$i] == 't')
-                            $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
-                          else
-                            $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
-                        }
+                          $current_year = $row['year'];
+                          $m[1] = $row['m1_pmt_processed'];
+                          $m[2] = $row['m2_pmt_processed'];
+                          $m[3] = $row['m3_pmt_processed'];
+                          $m[4] = $row['m4_pmt_processed'];
+                          $m[5] = $row['m5_pmt_processed'];
+                          $m[6] = $row['m6_pmt_processed'];
+                          $m[7] = $row['m7_pmt_processed'];
+                          $m[8] = $row['m8_pmt_processed'];
+                          $m[9] = $row['m9_pmt_processed'];
+                          $m[10] = $row['m10_pmt_processed'];
+                          $m[11] = $row['m11_pmt_processed'];
+                          $m[12] = $row['m12_pmt_processed'];
 
-                        echo "<tr><td>$year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+                          for ($i = 1; $i <= 12; $i++)
+                            $m1[$i] = $m[$i];
+
+                          for ($i = 1; $i <= 12; $i++)
+                          {
+                            if($m[$i] == 't')
+                              $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
+                            else
+                              $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                          }
+
+                          echo "<tr><td>$current_year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+                        }
 
                       ?>
                       
@@ -539,6 +553,112 @@
                     
                   </table>
 
+                </div>
+
+              </div>
+
+              <div class="modal fade hmodal-success" id="editVendorCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
+                                
+                <div class="modal-dialog">
+                                    
+                  <div class="modal-content">
+                                        
+                    <div class="color-line"></div>
+                        
+                    <div class="modal-header">
+                                                
+                      <h4 class="modal-title"><strong>Current Year Vendor Payments Processed</strong></h4>
+
+                    </div>
+
+                    <form class='row' method='post' action='https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php'>
+                                            
+                      <div class='modal-body'>
+                                                
+                        <div class='container-fluid'>
+                              
+                          <div class='row container-fluid'>
+                                
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' <?php if($m1[1] == 't') echo "checked"; ?>></div>
+                            </div>
+                                
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' <?php if($m1[2] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' <?php if($m1[3] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' <?php if($m1[4] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' <?php if($m1[5] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' <?php if($m1[6] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' <?php if($m1[7] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' <?php if($m1[8] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' <?php if($m1[9] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' <?php if($m1[10] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' <?php if($m1[11] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' <?php if($m1[12] == 't') echo "checked"; ?> ></div>
+
+                              <input type="hidden" name="home_id" id='home_id' value="<?php echo $home_id; ?>">
+                              <input type="hidden" name="hoa_id" id='hoa_id' value="<?php echo $hoa_id; ?>">
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class='row text-center'>
+                            <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
+                            <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+                          </div>
+                                                
+                        </div>
+
+                      </div>
+
+                    </form>
+
+                  </div>
+                  
                 </div>
 
               </div>
@@ -635,6 +755,91 @@
                               $document_url = "<a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'><i class='fa fa-file-pdf-o'></i></a>";
 
                             echo "<tr><td>".date('m-d-Y', strtotime($pay_date))."</td><td>$payment_type</td><td>$ $amount</td><td>$bank_account</td><td>$payment_cleared</td><td>$date_payment_cleared</td><td>$closing_year</td><td>$closing_month</td><td>$document_url</td></tr>";
+
+                          }
+
+                        }
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Vendor Documents</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id='example' class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Uploaded Date</th>
+                      <th>Description</th>
+                      <th>Month &amp; Year of Upload</th>
+                      <th>Document Category</th>
+                      <th>Document Type</th>
+                      <th>Document Upload Type</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        $res = pg_query("SELECT * FROM document_management WHERE vendor_master_vendor_id=$vendor_id AND community_id=$community_id");
+
+                        if($res)
+                        {
+
+                          while($row = pg_fetch_assoc($res))
+                          {
+                            
+                            $description = $row['description'];
+                            $month_of_upload = $row['month_of_upload'];
+                            $uploaded_date = $row['uploaded_date'];
+                            $year_of_upload = $row['year_of_upload'];
+                            $document_category = $row['document_category_id'];
+                            $document_type = $row['document_type_id'];
+                            $document_upload_type = $row['document_upload_type_id'];
+                            $document_url = $row['url'];
+
+                            if($uploaded_date != '')
+                              $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
+
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$document_category"));
+                            $document_category = $row1['document_category_name'];
+
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_type WHERE document_type_id=$document_type"));
+                            $document_type = $row1['document_type_name'];
+
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_upload_type WHERE document_upload_type_id=$document_upload_type"));
+                            $document_upload_type = $row1['name'];
+
+                            if($document_url == "")
+                              $description = "N/A";
+                            else
+                              $description = "<a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a>";
+
+                            echo "<tr><td>$uploaded_date</td><td>$description</td><td>$month_of_upload, $year_of_upload</td><td>$document_category</td><td>$document_type</td><td>$document_upload_type</td></tr>";
 
                           }
 
@@ -767,7 +972,7 @@
 
     <script>
       $(function () {
-        $(".select2").select2();
+        $("#example").DataTable({ "pageLength": 50 });
 
         $("#example1").DataTable({ "pageLength": 50 });
       });
