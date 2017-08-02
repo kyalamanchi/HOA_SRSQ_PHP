@@ -945,7 +945,7 @@
 
         <section class="content-header">
 
-          <h1><strong>QuickBooks Reportssss</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>QuickBooks Reports</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
 
