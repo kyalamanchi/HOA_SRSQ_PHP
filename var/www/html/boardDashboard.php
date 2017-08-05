@@ -426,7 +426,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Board Dashboard asdfdfasdfafasdfasca</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
