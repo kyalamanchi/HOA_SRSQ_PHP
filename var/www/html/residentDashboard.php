@@ -234,7 +234,7 @@
           else
             $cell = "<i class='fa fa-check text-green'></i>";
 
-          $row = pg_fetch_assoc(pg_query("SELECT count(*) FROM violation_management WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+          $row = pg_fetch_assoc(pg_query("SELECT count(*) FROM inspection_notices WHERE hoa_id=$hoa_id AND home_id=$home_id"));
 
           $violations = $row['count'];
 
@@ -323,7 +323,7 @@
 
             <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
           
-                <a href="https://hoaboardtime.com/residentParkingTags.php">
+                <a><!--  href="https://hoaboardtime.com/residentParkingTags.php" -->
           
                   <div class="info-box">
             
@@ -408,7 +408,7 @@
 
                     <div class="info-box-content">
               
-                      <span class="info-box-text">Violation Citations</span><br>
+                      <span class="info-box-text">Inspection Notices</span><br>
                       <?php if($violations > 0) echo "<span class='info-box-number text-orange'>$violations</span>"; else echo "<span class='info-box-number text-green'>$violations</span>"; ?>
             
                     </div>

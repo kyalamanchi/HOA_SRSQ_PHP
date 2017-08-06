@@ -191,13 +191,13 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM violation_management WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
+          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Violation Citations</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Inspection Notices</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
 
@@ -247,17 +247,17 @@
                           $document = $row['document_id'];
                           $inspection_date = $row['inspection_date'];
                           $location = $row['location_id'];
-                          $violation_category = $row['violation_category_id'];
-                          $violation_sub_category = $row['violation_sub_category_id'];
-                          $notice_type = $row['notice_type_id'];
+                          $violation_category = $row['inspection_category_id'];
+                          $violation_sub_category = $row['inspection_sub_category_id'];
+                          $notice_type = $row['inspection_notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
-                          $status = $row['violation_status_id'];
+                          $status = $row['inspection_status_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_category WHERE violation_category_id=$violation_category"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
 
                           $violation_category = $row1['name'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_status WHERE violation_status_id=$status"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
 
                           $status = $row1['violation_status'];
 
@@ -265,7 +265,7 @@
 
                           $location = $row1['location'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_sub_category WHERE violation_sub_category_id=$violation_sub_category"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_sub_category WHERE id=$violation_sub_category"));
 
                           $violation_sub_category = $row1['name'];
                           $violation_sub_category_rule = $row1['rule'];

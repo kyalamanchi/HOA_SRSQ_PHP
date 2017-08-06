@@ -422,11 +422,14 @@
           $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='SIGNED'");
           $signed_agreements = pg_num_rows($result);
 
+          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='SIGNED'");
+          $pending_agreements = pg_num_rows($result);
+
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Board Dashboard oarddashb</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
@@ -752,7 +755,7 @@
                           
                           <?php 
                         
-                            $row = pg_fetch_assoc(pg_query("SELECT * FROM violation_management WHERE community_id=$community_id"));
+                            $row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
 
                             $violations = $row['count'];
 
@@ -767,7 +770,7 @@
 
                       </div>
                       
-                      <div class='row container-fluid text-center'><br>Violation Citations</div>
+                      <div class='row container-fluid text-center'><br>Inspection Notices</div>
                 
                     </div>
 
@@ -919,6 +922,43 @@
                       </div>
                       
                       <div class='row container-fluid text-center'><br>Signed Agreements</div>
+                
+                    </div>
+
+                  </div>
+
+                </a>
+
+                <br>
+
+              </div>
+
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+                
+                <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
+
+                  <div style="background:#ffffff;">
+                
+                    <div class="box-header">
+                  
+                      <div class='row container-fluid'><i class="fa fa-edit fa-4x pull-left text-aqua"></i>
+                  
+                        <b class="pull-right">
+                          
+                          <?php 
+
+                            if($pending_agreements == 0)
+                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            else
+                              echo "<h4 class='text-info'><strong>".$pending_agreements."</strong></h4>";
+
+                          ?>
+
+                        </b>
+
+                      </div>
+                      
+                      <div class='row container-fluid text-center'><br>Pending Agreements</div>
                 
                     </div>
 

@@ -332,7 +332,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $hoa_id = $_POST['hoa_id'];
+          $hoa_id = $_REQUEST['hoa_id'];
 
           if(!$hoa_id)
             header("Location: https://hoaboardtime.com/boardUserDashboard.php");
@@ -358,6 +358,14 @@
                 <div class="box-header">
 
                   <center><h4><strong>User Details</strong></h4></center>
+                  
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
+
+                  </div>
 
                 </div>
 
@@ -382,6 +390,7 @@
                         $firstname = $row['firstname'];
                         $lastname = $row['lastname'];
                         $valid_from = $row['valid_from'];
+                        $valid_until = $row['valid_until'];
                         $email = $row['email'];
                         $cell_no = $row['cell_no'];
                         $role = $row['role_type_id'];
@@ -389,6 +398,9 @@
 
                         if($valid_from != "")
                           $valid_from = date('m-d-Y',strtotime($valid_from));
+
+                        if($valid_until != "")
+                          $valid_until = date('m-d-Y',strtotime($valid_until));
 
                         if($role != "")
                         {
@@ -405,6 +417,93 @@
                     
                   </table>
 
+                </div>
+
+              </div>
+
+              <div class="modal fade hmodal-success" id="editUserDetails" role="dialog"  aria-hidden="true">
+                                
+                <div class="modal-dialog">
+                                    
+                  <div class="modal-content">
+                                        
+                    <div class="color-line"></div>
+                        
+                    <div class="modal-header">
+                                                
+                      <h4 class="modal-title"><strong>User Details</strong></h4>
+
+                    </div>
+
+                    <form class="row" method="post" action="https://hoaboardtime.com/boardEditHOAID.php">
+                                            
+                      <div class="modal-body">
+                                                
+                        <div class="container-fluid">
+                              
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>First Name</label>
+                              <input type='text' class="form-control" name='edit_firstname' id='edit_firstname' value="<?php echo $firstname; ?>" required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Last Name</label>
+                              <input type='text' class="form-control" name='edit_lastname' id='edit_lastname' value="<?php echo $lastname; ?>" required>
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Phone</label>
+                              <input type='number' class="form-control" name='edit_cell_no' id='edit_cell_no' value="<?php echo $cell_no; ?>" required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Email</label>
+                              <input type='email' class="form-control" name='edit_email' id='edit_email' value="<?php echo $email; ?>" required>
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Resident Since</label>
+                              <input type='date' class="form-control" name='edit_valid_from' id='edit_valid_from' value="<?php echo $valid_from; ?>" required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Resident Until</label>
+                              <input type='date' class="form-control" name='edit_valid_until' id='edit_valid_until' value="<?php echo $valid_until; ?>" >
+
+                              <input type='hidden' name='hoa_id' id='hoa_id' value="<?php echo $hoa_id; ?>">
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row text-center">
+                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i>Save Changes</button>
+                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i>Cancel</button>
+                          </div>
+                                                
+                        </div class="container-fluid">
+
+                      </div>
+
+                    </form>
+
+                  </div>
+                  
                 </div>
 
               </div>
@@ -614,6 +713,14 @@
                 <div class="box-header">
 
                   <center><h4><strong>Current Year Payments Processed</strong></h4></center>
+                  
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a data-toggle="modal" data-target="#editCurrentYearPaymentsProcessed" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
+
+                  </div>
 
                 </div>
 
@@ -660,6 +767,9 @@
                         $m[12] = $row['m12_pmt_processed'];
 
                         for ($i = 1; $i <= 12; $i++)
+                          $m1[$i] = $m[$i];
+
+                        for ($i = 1; $i <= 12; $i++)
                         {
                           if($m[$i] == 't')
                             $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
@@ -675,6 +785,112 @@
                     
                   </table>
 
+                </div>
+
+              </div>
+
+              <div class="modal fade hmodal-success" id="editCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
+                                
+                <div class="modal-dialog">
+                                    
+                  <div class="modal-content">
+                                        
+                    <div class="color-line"></div>
+                        
+                    <div class="modal-header">
+                                                
+                      <h4 class="modal-title"><strong>Current Year Payments Processed</strong></h4>
+
+                    </div>
+
+                    <form class="row" method="post" action="https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php">
+                                            
+                      <div class="modal-body">
+                                                
+                        <div class="container-fluid">
+                              
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' <?php if($m1[1] == 't') echo "checked"; ?>></div>
+                            </div>
+                                
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' <?php if($m1[2] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' <?php if($m1[3] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' <?php if($m1[4] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' <?php if($m1[5] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' <?php if($m1[6] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' <?php if($m1[7] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' <?php if($m1[8] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' <?php if($m1[9] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' <?php if($m1[10] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' <?php if($m1[11] == 't') echo "checked"; ?> ></div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
+                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' <?php if($m1[12] == 't') echo "checked"; ?> ></div>
+
+                              <input type="hidden" name="home_id" id='home_id' value="<?php echo $home_id; ?>">
+                              <input type="hidden" name="hoa_id" id='hoa_id' value="<?php echo $hoa_id; ?>">
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row text-center">
+                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Save Changes</button>
+                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
+                          </div>
+                                                
+                        </div>
+
+                      </div>
+
+                    </form>
+
+                  </div>
+                  
                 </div>
 
               </div>
