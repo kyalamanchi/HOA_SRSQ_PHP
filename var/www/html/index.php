@@ -786,7 +786,7 @@
                       
                       <h3><?php echo round($open_rate_percentage,1)."<i style='font-size: 12pt;'>%</i>"; ?></h3>
 
-                      <p>Newsletter Open Rate</p>
+                      <p>asdfghjk</p>
 
                     </div>
 
