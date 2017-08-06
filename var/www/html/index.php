@@ -873,7 +873,7 @@
                 <div class="box-header">
                   <i class="fa fa-info"></i>
 
-                  <h3 class="box-title">Payment Information - <?php echo date('F').", ".date("Y"); ?></h3>
+                  <h3 class="box-title">Payment Informationsssss - <?php echo date('F').", ".date("Y"); ?></h3>
 
                   <div class="box-tools pull-right">
 
