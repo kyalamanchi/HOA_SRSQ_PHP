@@ -752,6 +752,54 @@
 
                 </div>
 
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
+                  
+                  <a href='https://hoaboardtime.com/mailchimpCampaigns.php'>
+
+                    <div class="small-box bg-teal">
+                    
+                      <div class="inner">
+                        
+                        <h3><?php echo $campaigns; ?></h3>
+
+                        <p>Community Assets</p>
+
+                      </div>
+
+                      <div class="icon">
+
+                        <i style="font-size: 50px;" class="fa fa-at"></i>
+
+                      </div>
+
+                    </div>
+
+                  </a>
+
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
+                  <div class="small-box bg-teal">
+                    
+                    <div class="inner">
+                      
+                      <h3><?php echo round($open_rate_percentage,1)."<i style='font-size: 12pt;'>%</i>"; ?></h3>
+
+                      <p>Newsletter Open Rate</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 50px;" class="fa fa-folder-open"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
               </div>
 
             </section>
@@ -873,7 +921,7 @@
                 <div class="box-header">
                   <i class="fa fa-info"></i>
 
-                  <h3 class="box-title">Payment Informationsssss - <?php echo date('F').", ".date("Y"); ?></h3>
+                  <h3 class="box-title">Payment Information - <?php echo date('F').", ".date("Y"); ?></h3>
 
                   <div class="box-tools pull-right">
 
