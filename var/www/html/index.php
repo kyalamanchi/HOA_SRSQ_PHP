@@ -763,7 +763,7 @@
                     
                       <div class="inner">
                         
-                        <h3><?php echo $assets; ?></h3>
+                        <h3>$ <?php echo $assets; ?></h3>
 
                         <p>Community Assets</p>
 
