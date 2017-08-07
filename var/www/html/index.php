@@ -173,6 +173,9 @@
 
       $violations = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
 
+      $result = pg_fetch_assoc(pg_query("SELECT sum(current_balance) FROM community_assets WHERE community_id=$community_id"));
+      $assets = $result['sum'];
+
     ?>
 
     <meta charset="utf-8">
@@ -760,7 +763,7 @@
                     
                       <div class="inner">
                         
-                        <h3><?php echo $campaigns; ?></h3>
+                        <h3><?php echo $assets; ?></h3>
 
                         <p>Community Assets</p>
 
@@ -786,7 +789,7 @@
                       
                       <h3><?php echo round($open_rate_percentage,1)."<i style='font-size: 12pt;'>%</i>"; ?></h3>
 
-                      <p>asdfghjk</p>
+                      <p>Percentage Reserves Funded</p>
 
                     </div>
 
