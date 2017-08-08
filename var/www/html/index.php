@@ -787,9 +787,9 @@
                     
                     <div class="inner">
                       
-                      <h3><?php echo round($open_rate_percentage,1)."<i style='font-size: 12pt;'>%</i>"; ?></h3>
+                      <h3>123456</h3>
 
-                      <p>Percentage ytrjytdfjReserves Funded</p>
+                      <p>Percentage Reserves Funded</p>
 
                     </div>
 
