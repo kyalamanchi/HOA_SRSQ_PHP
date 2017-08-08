@@ -213,42 +213,64 @@
         
         <section class="content-header">
 
-          <h1><strong>Newsletter Communication</strong><small> - Stoneridge Square Association</small></h1>
+          <h1><strong>Community Assets</strong><small> - Stoneridge Square Association</small></h1>
 
         </section>
 
         <section class="content">
           
-          <?php
+          <table>
 
-            $ch = curl_init('https://us12.api.mailchimp.com/3.0/reports/');
-          
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            
-            $result = curl_exec($ch);
-            $json_decode = json_decode($result,TRUE);
-            
-            foreach ($json_decode['reports'] as $key ) {
+            <thead>
+
+              <th>Category</th>
+              <th>Sub Category</th>
+              <th>Component</th>
+              <th>UL</th>
+              <th>RUL</th>
+              <th>Average Unit Cost</th>
+              <th>Asset Placement Date</th>
+              <th>Ideal Balance</th>
+              <th>Current Balance</th>
+              <th>Monthly Contribution</th>
+              <th>Quantity</th>
+              <th>Repair Type</th>
+              <th>UOM</th>
               
-              $opens = $key['opens'];
-              $clicks = $key['clicks'];
-              $openrate = sprintf("%.2f",floatval($opens['open_rate']*100.0));
-              $clickrate = sprintf("%.2f",floatval($clicks['click_rate']*100.0) );
-              $date = date("U",strtotime($key['send_time']));
-              $date = date('Y-m-d H:i:s', $date);
-              $url = "#";
-              
-              echo '<a class="list-group-item">
-                <h4 class="list-group-item-heading" style="color: #3FC2D9;font-size: 25px;">'.$key['campaign_title'].'</h4>
-                <br>
-                <p class="list-group-item-text" style="font-size: 19px;"><b>Sent On  </b>'.date('m-d-y', strtotime($date)).'&nbsp;&nbsp;&nbsp;<b>Emails Sent</b> '.$key['emails_sent'].'&nbsp;&nbsp;&nbsp;<b>Open Rate </b>'.$openrate.'%&nbsp;&nbsp;&nbsp;<b>Click Rate</b> '.$clickrate.'%</p>
-              </a>';
+            </thead>
 
-            }
+            <tbody>
 
-          ?>
+              <?php
+
+                $result = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id");
+
+                while ($row = pg_fetch_assoc($result)) 
+                {
+
+                  $asset_category = $row['asset_category_id'];
+                  $asset_sub_category = $row['asset_sub_category_id'];
+                  $asset_component = $row['asset_component_id'];
+                  $ul = $row['ul'];
+                  $rul = $row['rul'];
+                  $avg_unit_cost = $row['avg_unit_cost'];
+                  $asset_placement_date = $row['asset_placement_date'];
+                  $ideal_balance = $row['ideal_balance'];
+                  $current_balance = $row['current_balance'];
+                  $monthly_contributions = $row['monthly_contributions'];
+                  $quantity = $row['quantity'];
+                  $community_repair_type = $row['community_repair_type_id'];
+                  $community_uom = $row['community_uom_id'];
+
+                  echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ current_balance</td><td>$monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+
+                }
+
+              ?>
+
+            </tbody>
+            
+          </table>
 
         </section>
 

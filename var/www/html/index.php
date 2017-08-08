@@ -182,7 +182,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <title>Stoneridge Square Association at Pleasanton</title>
+    <title>Stoneridge Square Association</title>
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -757,7 +757,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
                   
-                  <a href='https://hoaboardtime.com/mailchimpCampaigns.php'>
+                  <a href='https://hoaboardtime.com/communityAssets.php'>
 
                     <div class="small-box bg-teal">
                     
