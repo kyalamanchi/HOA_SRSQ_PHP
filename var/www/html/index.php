@@ -213,7 +213,7 @@
           
           <span class="logo-mini">SRSQ</span>
           
-          <span class="logo-lg">Stoneridge Square Association at Pleasantonnn</span>
+          <span class="logo-lg">Stoneridge Square Association at Pleasantonnnn</span>
 
         </a>
         
