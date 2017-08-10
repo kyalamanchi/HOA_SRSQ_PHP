@@ -757,7 +757,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
                   
-                  <a href='https://hoaboardtime.com/mailchimpCampaigns.php'>
+                  <a href='https://hoaboardtime.com/communityAssets.php'>
 
                     <div class="small-box bg-teal">
                     
