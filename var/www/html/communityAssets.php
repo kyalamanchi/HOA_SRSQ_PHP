@@ -216,58 +216,62 @@
 
           <br>
           
-          <table id='example1' class="table table-bordered">
+          <div class="row container-fluid">
 
-            <thead>
+            <table id='example1' class="table table-bordered">
 
-              <th>Category</th>
-              <th>Sub Category</th>
-              <th>Component</th>
-              <th>UL</th>
-              <th>RUL</th>
-              <th>Average Unit Cost</th>
-              <th>Asset Placement Date</th>
-              <th>Ideal Balance</th>
-              <th>Current Balance</th>
-              <th>Monthly Contribution</th>
-              <th>Quantity</th>
-              <th>Repair Type</th>
-              <th>UOM</th>
+              <thead>
+
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Component</th>
+                <th>UL</th>
+                <th>RUL</th>
+                <th>Average Unit Cost</th>
+                <th>Asset Placement Date</th>
+                <th>Ideal Balance</th>
+                <th>Current Balance</th>
+                <th>Monthly Contribution</th>
+                <th>Quantity</th>
+                <th>Repair Type</th>
+                <th>UOM</th>
+                
+              </thead>
+
+              <tbody>
+
+                <?php
+
+                  $result = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id");
+
+                  while ($row = pg_fetch_assoc($result)) 
+                  {
+
+                    $asset_category = $row['asset_category_id'];
+                    $asset_sub_category = $row['asset_sub_category_id'];
+                    $asset_component = $row['asset_component_id'];
+                    $ul = $row['ul'];
+                    $rul = $row['rul'];
+                    $avg_unit_cost = $row['avg_unit_cost'];
+                    $asset_placement_date = $row['asset_placement_date'];
+                    $ideal_balance = $row['ideal_balance'];
+                    $current_balance = $row['current_balance'];
+                    $monthly_contributions = $row['monthly_contributions'];
+                    $quantity = $row['quantity'];
+                    $community_repair_type = $row['community_repair_type_id'];
+                    $community_uom = $row['community_uom_id'];
+
+                    echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+
+                  }
+
+                ?>
+
+              </tbody>
               
-            </thead>
+            </table>
 
-            <tbody>
-
-              <?php
-
-                $result = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id");
-
-                while ($row = pg_fetch_assoc($result)) 
-                {
-
-                  $asset_category = $row['asset_category_id'];
-                  $asset_sub_category = $row['asset_sub_category_id'];
-                  $asset_component = $row['asset_component_id'];
-                  $ul = $row['ul'];
-                  $rul = $row['rul'];
-                  $avg_unit_cost = $row['avg_unit_cost'];
-                  $asset_placement_date = $row['asset_placement_date'];
-                  $ideal_balance = $row['ideal_balance'];
-                  $current_balance = $row['current_balance'];
-                  $monthly_contributions = $row['monthly_contributions'];
-                  $quantity = $row['quantity'];
-                  $community_repair_type = $row['community_repair_type_id'];
-                  $community_uom = $row['community_uom_id'];
-
-                  echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
-
-                }
-
-              ?>
-
-            </tbody>
-            
-          </table>
+          </div>
 
         </section>
 
