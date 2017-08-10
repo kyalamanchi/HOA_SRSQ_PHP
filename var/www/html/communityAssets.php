@@ -216,7 +216,7 @@
 
           <br>
           
-          <div class="row container-fluid">
+          <div class="row container-fluid" style="background-color: white;">
 
             <table id='example1' class="table table-bordered">
 
