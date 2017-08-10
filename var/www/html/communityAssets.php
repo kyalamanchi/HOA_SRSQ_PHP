@@ -213,8 +213,10 @@
         </section>
 
         <section class="content table-responsive">
+
+          <br>
           
-          <table id='example1' class="table table-border">
+          <table id='example1' class="table table-boarder">
 
             <thead>
 
