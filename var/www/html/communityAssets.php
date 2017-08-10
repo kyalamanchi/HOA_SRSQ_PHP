@@ -261,6 +261,30 @@
                     $community_repair_type = $row['community_repair_type_id'];
                     $community_uom = $row['community_uom_id'];
 
+                    if($asset_category == "")
+                    {
+
+                      $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$asset_category"));
+                      $asset_category = $row1['name'];
+                      
+                    }
+
+                    if($asset_sub_category == "")
+                    {
+
+                      $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_subcategory WHERE id=$asset_sub_category"));
+                      $asset_sub_category = $row1['name'];
+                      
+                    }
+
+                    if($community_repair_type == "")
+                    {
+
+                      $row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_repair_type WHERE id=$community_repair_type"));
+                      $community_repair_type = $row1['name'];
+                      
+                    }
+
                     if($asset_placement_date == "")
                       $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
