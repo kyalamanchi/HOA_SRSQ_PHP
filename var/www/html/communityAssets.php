@@ -216,7 +216,7 @@
 
         <section class="content table-responsive">
           
-          <table class="table table-border">
+          <table id='example1' class="table table-border">
 
             <thead>
 
