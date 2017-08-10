@@ -213,10 +213,10 @@
         </section>
 
         <section class="content table-responsive">
-
-          <br>
           
           <div class="row container-fluid" style="background-color: white;">
+
+            <br><br>
 
             <table id='example1' class="table table-bordered">
 
@@ -270,6 +270,8 @@
               </tbody>
               
             </table>
+
+            <br><br>
 
           </div>
 
