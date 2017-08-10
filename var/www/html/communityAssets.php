@@ -212,9 +212,9 @@
 
         </section>
 
-        <section class="content table-responsive">
+        <section class="content">
           
-          <div class="row container-fluid" style="background-color: white;">
+          <div class="row container-fluid table-responsive" style="background-color: white;">
 
             <br><br>
 
