@@ -248,7 +248,7 @@
                   {
 
                     $asset_category = $row['asset_category_id'];
-                    $asset_sub_category = $row['asset_sub_category_id'];
+                    $asset_sub_category = $row['asset_subcategory_id'];
                     $asset_component = $row['asset_component_id'];
                     $ul = $row['ul'];
                     $rul = $row['rul'];
