@@ -261,7 +261,8 @@
                     $community_repair_type = $row['community_repair_type_id'];
                     $community_uom = $row['community_uom_id'];
 
-                    $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
+                    if($asset_placement_date == "")
+                      $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
                     echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
 
