@@ -781,28 +781,6 @@
 
                 </div>
 
-                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
-                  
-                  <div class="small-box bg-teal">
-                    
-                    <div class="inner">
-                      
-                      <h3>sdlkh</h3>
-
-                      <p>Percentage Reserves Funded</p>
-
-                    </div>
-
-                    <div class="icon">
-
-                      <i style="font-size: 50px;" class="fa fa-folder-open"></i>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
               </div>
 
             </section>
