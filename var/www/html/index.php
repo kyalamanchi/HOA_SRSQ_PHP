@@ -357,7 +357,7 @@
               
               <a href="#getInvolved" class='page-scroll'>
                 
-                <i class="fa fa-comment"></i> <span>Get Involved</span>
+                <i class="fa fa-comment"></i> <span>Get Involvved</span>
 
               </a>
 
