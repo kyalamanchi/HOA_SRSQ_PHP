@@ -216,7 +216,7 @@
 
           <br>
           
-          <table id='example1' class="table table-boarder">
+          <table id='example1' class="table table-bordered">
 
             <thead>
 
