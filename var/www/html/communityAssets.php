@@ -214,9 +214,9 @@
 
         </section>
 
-        <section class="content">
+        <section class="content table-responsive">
           
-          <table>
+          <table class="table table-border">
 
             <thead>
 
