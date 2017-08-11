@@ -359,7 +359,6 @@
                         
                         <th>Agreement To</th>
                         <th>Email</th>
-                        <th>Agreement Type</th>
                         <th>Agreement Name</th>
                         <th>Create Date</th>
                         <th>Send Date</th>
@@ -377,23 +376,11 @@
                         {
 
                           $document_to = $row['document_to'];
-                          $document_type = $row['document_type'];
                           $create_date = $row['create_date'];
                           $send_date = $row['send_date'];
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
                           $emails = array();
-
-                          if($document_type != '')
-                          {
-
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_type WHERE document_type_id=$document_type"));
-
-                            $document_type = $row1['document_type_name'];
-                            
-                          }
-                          else
-                            $document_type = "N/A";
 
                           if($create_date != "")
                             $create_date = date('m-d-Y', strtotime($create_date));
@@ -446,7 +433,7 @@
                               
                               }
 
-                              echo "<td>".$emails[$i]."</td><td>".$document_type."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                             }
 
@@ -464,7 +451,6 @@
 
                         <th>Agreement To</th>
                         <th>Email</th>
-                        <th>Agreement Type</th>
                         <th>Agreement Name</th>
                         <th>Create Date</th>
                         <th>Send Date</th>
