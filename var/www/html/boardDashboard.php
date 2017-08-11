@@ -352,7 +352,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-        	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
+        	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
 
         	$amount_recieved = $row['sum'];
 
@@ -370,7 +370,7 @@
         	$total_amount = ( $total_customers * $assessment_amount );
         	$amount_percentage = (( $amount_recieved / $total_amount ) * 100 );
 
-        	$paid_customers = pg_num_rows(pg_query("SELECT DISTINCT hoa_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
+        	$paid_customers = pg_num_rows(pg_query("SELECT DISTINCT hoa_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
 
         	$paid_percentage = (( $paid_customers / $total_customers) * 100 );
 
