@@ -935,7 +935,7 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
+                <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
 
                   <div style="background:#ffffff;">
                 
@@ -950,7 +950,7 @@
                             if($pending_agreements == 0)
                               echo "<h4 class='text-success'><strong>0</strong></h4>";
                             else
-                              echo "<h4 class='text-warning'><strong>".$pending_agreements."</strong></h4>";
+                              echo "<h4 class='text-orange'><strong>".$pending_agreements."</strong></h4>";
 
                           ?>
 
