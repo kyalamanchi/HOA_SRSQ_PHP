@@ -387,7 +387,7 @@
                           $name .= " ";
                           $name .= $row1['lastname'];
 
-                          $result2 = pg_query("SELECT * FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'");
+                          $result2 = pg_query("SELECT * FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'");
 
                           if($result2)
                           {
