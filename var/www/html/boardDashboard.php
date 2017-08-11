@@ -613,6 +613,8 @@
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
 
                   ?>
+
+                  <br>
                   
                 </div>
 
@@ -638,6 +640,8 @@
 
                     echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$amount_recieved."</strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>".$paid_customers."</strong></div>";
                   ?>
+
+                  <br>
                   
                 </div>
 
