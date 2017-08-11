@@ -173,7 +173,7 @@
 
       $violations = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
 
-      $result = pg_fetch_assoc(pg_query("SELECT sum(current_balance) FROM community_assets WHERE community_id=$community_id"));
+      $result = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id"));
       $assets = $result['sum'];
 
     ?>
