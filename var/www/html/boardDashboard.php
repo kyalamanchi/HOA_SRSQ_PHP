@@ -523,7 +523,9 @@
                   
                 <div class='row container-fluid text-center'>
 
-                  <span class="info-box-text">Bank Account Balance</span>
+                  <br>
+
+                  <span class="info-box-text"><strong>Bank Account Balance</strong></span>
 
                 </div>
                       	
@@ -618,7 +620,9 @@
                   
                 <div class='row container-fluid text-center'>
 
-                  <span class="info-box-text">Payment Information</span>
+                  <br>
+
+                  <span class="info-box-text"><strong>Payment Information</strong></span>
 
                 </div>
                         
