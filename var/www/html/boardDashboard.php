@@ -527,6 +527,8 @@
 
                   <span class="info-box-text"><strong>Bank Account Balance</strong></span>
 
+                  <br>
+
                 </div>
                       	
                 <div class="row text-center">
@@ -623,6 +625,8 @@
                   <br>
 
                   <span class="info-box-text"><strong>Payment Information</strong></span>
+
+                  <br>
 
                 </div>
                         
