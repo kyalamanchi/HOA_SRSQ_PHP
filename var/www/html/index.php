@@ -21,8 +21,6 @@
 
       $amount_recieved = $row['sum'];
 
-      echo "<br><br>rec".$amount_recieved;
-
       $row = pg_fetch_assoc(pg_query("SELECT count(hoa_id) FROM hoaid WHERE community_id=$community_id"));
 
       $total_customers = $row['count'];
@@ -31,12 +29,8 @@
 
       $assessment_amount = $row['amount'];
 
-      echo "<br><br>asss".$assessment_amount;
-
       $total_amount = ( $total_customers * $assessment_amount );
       $amount_percentage = (( $amount_recieved / $total_amount ) * 100 );
-
-      echo "<br><br>%".$amount_percentage;
 
       $paid_customers = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
 
