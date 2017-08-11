@@ -443,14 +443,16 @@
                               
                           <div class="row container-fluid">
                                 
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                              <label>First Name</label>
-                              <input type='text' class="form-control" name='edit_firstname' id='edit_firstname' value="<?php echo $firstname; ?>" required>
+                            <div class='row'>
+                                          
+                              Firstname : <input type='text' name='firstname' id='firstname' value='<?php echo $firstname; ?>' required>
+
                             </div>
                                 
-                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                              <label>Last Name</label>
-                              <input type='text' class="form-control" name='edit_lastname' id='edit_lastname' value="<?php echo $lastname; ?>" required>
+                            <div class='row'>
+                                          
+                              Lastname : <input type='text' name='lastname' id='lastname' value='<?php echo $lastname; ?>' required>
+
                             </div>
 
                           </div>
