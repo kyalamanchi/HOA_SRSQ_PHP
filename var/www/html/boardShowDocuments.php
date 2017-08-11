@@ -370,7 +370,7 @@
             
             <section class="col-lg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-              <div class="row container-fluid" style="background-color: #FFFFFF">
+              <div class="row container-fluid table-responsive" style="background-color: #FFFFFF">
 
                 <?php 
 
