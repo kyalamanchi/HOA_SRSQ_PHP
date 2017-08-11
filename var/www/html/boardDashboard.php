@@ -911,9 +911,9 @@
                           <?php 
 
                             if($signed_agreements == 0)
-                              echo "<h4 class='text-success'><strong>0</strong></h4>";
+                              echo "<h4 class='text-info'><strong>0</strong></h4>";
                             else
-                              echo "<h4 class='text-info'><strong>".$signed_agreements."</strong></h4>";
+                              echo "<h4 class='text-success'><strong>".$signed_agreements."</strong></h4>";
 
                           ?>
 
@@ -941,7 +941,7 @@
                 
                     <div class="box-header">
                   
-                      <div class='row container-fluid'><i class="fa fa-edit fa-4x pull-left text-aqua"></i>
+                      <div class='row container-fluid'><i class="fa fa-spinner fa-4x pull-left text-aqua"></i>
                   
                         <b class="pull-right">
                           
@@ -950,7 +950,7 @@
                             if($pending_agreements == 0)
                               echo "<h4 class='text-success'><strong>0</strong></h4>";
                             else
-                              echo "<h4 class='text-info'><strong>".$pending_agreements."</strong></h4>";
+                              echo "<h4 class='text-warning'><strong>".$pending_agreements."</strong></h4>";
 
                           ?>
 
