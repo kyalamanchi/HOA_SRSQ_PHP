@@ -465,7 +465,7 @@
 	                  		 
                          <input type="text" class="knob" data-thickness="0.2" value="<?php if($amount_percentage < 100) echo round($amount_percentage, 1); else echo "100"; ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
-	                  		 <div class="knob-label" style="font-size: 15pt;"><strong>Amount Recieved</strong><sup>( % )</sup></div>
+	                  		 <div class="knob-label" style="font-size: 15pt;"><strong>Amount Received</strong><sup>( % )</sup></div>
 	                  		
                         </a>
 
@@ -626,7 +626,7 @@
 
                   <?php 
 
-                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Amount Recieved</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Paid Customers</div></div><div class='row text-center'>";
+                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Amount Received</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Paid Customers</div></div><div class='row text-center'>";
 
                     echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$amount_recieved."</strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>".$paid_customers."</strong></div>";
                   ?>
