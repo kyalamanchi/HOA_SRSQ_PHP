@@ -473,8 +473,6 @@
                                   <form class='row' method='post' action='https://hoaboardtime.com/boardUpdateHOAID.php'>
                                                       
                                     <div class='modal-body'>
-                                                          
-                                      <center>
                                         
                                         <div class='row'>
                                           
@@ -532,8 +530,6 @@
 
                                         <button type='submit' name='submit' id='submit' class='btn btn-success btn-sm'>Update</button>
                                         <button type='button' class='btn btn-warning btn-sm' data-dismiss='modal'>Cancel</button>
-                                                          
-                                      </center>
 
                                     </div>
 
