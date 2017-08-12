@@ -474,20 +474,16 @@
                                                       
                                     <div class='modal-body'>
                                         
-                                        <div class='row'>
-                                          
-                                          <div class='row container-fluid'>
+                                        <div class='row container-fluid'>
                                 
-                                            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                              <label>First Name</label>
-                                              <input type='text' class='form-control' name='edit_firstname' id='edit_firstname' value='$firstname' required>
-                                            </div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>First Name</label>
+                                            <input type='text' class='form-control' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+                                          </div>
                                                 
-                                            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                              <label>Last Name</label>
-                                              <input type='text' class='form-control' name='edit_lastname' id='edit_lastname' value='$lastname' required>
-                                            </div>
-
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Last Name</label>
+                                            <input type='text' class='form-control' name='edit_lastname' id='edit_lastname' value='$lastname' required>
                                           </div>
 
                                         </div>
