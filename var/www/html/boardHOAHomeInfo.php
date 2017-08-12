@@ -476,31 +476,53 @@
                                         
                                         <div class='row'>
                                           
-                                          Firstname : <input type='text' name='firstname' id='firstname' value='".$firstname."' required>
+                                          <div class='row container-fluid'>
+                                
+                                            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                              <label>First Name</label>
+                                              <input type='text' class='form-control' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+                                            </div>
+                                                
+                                            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                              <label>Last Name</label>
+                                              <input type='text' class='form-control' name='edit_lastname' id='edit_lastname' value='$lastname' required>
+                                            </div>
+
+                                          </div>
 
                                         </div>
 
                                         <br>
 
-                                        <div class='row'>
+                                        <div class='row container-fluid'>
                                           
-                                          Lastname : <input type='text' name='lastname' id='lastname' value='".$lastname."' required>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Phone</label>
+                                            <input type='number' class='form-control' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
+                                          </div>
+                                              
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Email</label>
+                                            <input type='email' class='form-control' name='edit_email' id='edit_email' value='$email' required>
+                                          </div>
 
                                         </div>
 
                                         <br>
 
-                                        <div class='row'>
+                                        <div class='row container-fluid'>
                                           
-                                          Email : <input type='email' name='email' id='email' value='".$email."' required>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Resident Since</label>
+                                            <input type='date' class='form-control' name='edit_valid_from' id='edit_valid_from' value='$valid_from' required>
+                                          </div>
+                                              
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Resident Until</label>
+                                            <input type='date' class='form-control' name='edit_valid_until' id='edit_valid_until' value='$valid_until' >
 
-                                        </div>
-
-                                        <br>
-
-                                        <div class='row'>
-                                          
-                                          Phone : <input type='number' name='cell_no' id='cell_no' value='".$cell_no."' required>
+                                            <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                          </div>
 
                                         </div>
 
@@ -509,17 +531,17 @@
                                         <button type='submit' name='submit' id='submit' class='btn btn-success btn-sm'>Update</button>
                                         <button type='button' class='btn btn-warning btn-sm' data-dismiss='modal'>Cancel</button>
                                                           
-                                    </center>
+                                      </center>
 
-                                  </div>
+                                    </div>
 
-                                </form>
+                                  </form>
 
-                              </div>
+                                </div>
                             
-                            </div>
+                              </div>
 
-                          </div>";
+                            </div>";
 
                           echo "<div class='modal fade hmodal-success' id='paymentInfo_".$hoa_id."' role='dialog'  aria-hidden='true'>
                                 
