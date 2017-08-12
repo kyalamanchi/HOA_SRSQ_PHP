@@ -524,8 +524,10 @@
 
                                         <br><br>
 
-                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-sm'>Update</button>
-                                        <button type='button' class='btn btn-warning btn-sm' data-dismiss='modal'>Cancel</button>
+                                        <center>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                        </center>
 
                                     </div>
 
