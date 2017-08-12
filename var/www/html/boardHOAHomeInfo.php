@@ -392,6 +392,8 @@
                           $hoa_id = $row['hoa_id'];
                           $firstname = $row['firstname'];
                           $lastname = $row['lastname'];
+                          $valid_from = $row['valid_from'];
+                          $valid_until = $row['valid_until'];
                           $email = $row['email'];
                           $cell_no = $row['cell_no'];
                           $home_id = $row['home_id'];
