@@ -470,7 +470,7 @@
 
                                   </div>
 
-                                  <form class='row' method='post' action='https://hoaboardtime.com/boardUpdateHOAID.php'>
+                                  <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
                                                       
                                     <div class='modal-body'>
                                         
