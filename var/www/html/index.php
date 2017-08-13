@@ -535,28 +535,6 @@
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
                   
                   <div class="small-box bg-aqua">
-                    
-                    <div class="inner">
-                      
-                      <h3>143</h3>
-
-                      <p>Home Owners</p>
-
-                    </div>
-
-                    <div class="icon">
-
-                      <i style="font-size: 55px;" class="fa fa-home"></i>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
-                  
-                  <div class="small-box bg-aqua">
                       
                     <div class="inner">
                         
