@@ -124,6 +124,20 @@
 					$m12 = 't';
 					break;
 			}
+			echo "<br><br>";
+
+			echo $m1."<br>";
+			echo $m2."<br>";
+			echo $m3."<br>";
+			echo $m4."<br>";
+			echo $m5."<br>";
+			echo $m6."<br>";
+			echo $m7."<br>";
+			echo $m8."<br>";
+			echo $m9."<br>";
+			echo $m10."<br>";
+			echo $m11."<br>";
+			echo $m12."<br>";
 		}
 
 		echo "<br><br><br><center><h2>Home ID : ".$home_id."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOA ID : ".$db_hoa_id."</h2></center>";
