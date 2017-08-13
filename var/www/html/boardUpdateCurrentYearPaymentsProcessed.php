@@ -1,5 +1,7 @@
 <?php
-	ini_set('max_execution_time', 180);
+	session_start();
+
+    ini_set('max_execution_time', 180);
 
 	$home_id = $_POST['home_id'];
 	$hoa_id = $_POST['hoa_id'];
