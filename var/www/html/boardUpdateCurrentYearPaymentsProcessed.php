@@ -39,6 +39,8 @@
 
     print_r($m);
 
+    echo "<br><br>";
+
     if($result)
     {
     	$row = pg_fetch_assoc($result);
