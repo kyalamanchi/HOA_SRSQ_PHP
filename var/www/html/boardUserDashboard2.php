@@ -1128,6 +1128,63 @@
 
                 <div class="box-header">
 
+                  <center><h4><strong>Pending Agreements</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id='example2' class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Agreement To</th>
+                      <th>Email</th>
+                      <th>Agreement Name</th>
+                      <th>Create Date</th>
+                      <th>Send Date</th>
+                      <th>Last Updated</th>
+                      <th>Esign URL</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php 
+
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND document_to='%".$email."%'");
+
+                        while($row = pg_fetch_assoc($result))
+                        {
+
+                          
+                          
+                          echo "<tr><td>oi</td><td>".$status."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                          
+                        }
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-warning">
+
+                <div class="box-header">
+
                   <center><h4><strong>Inspection Notices</strong></h4></center>
 
                 </div>
