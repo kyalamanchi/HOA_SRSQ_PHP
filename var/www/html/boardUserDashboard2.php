@@ -1146,7 +1146,7 @@
                           $date_of_upload = $row['date_of_upload'];
                           $status = $row['inspection_status_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_status WHERE violation_status_id=$status"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
 
                           $status = $row1['violation_status'];
 
@@ -1154,11 +1154,11 @@
 
                           $location = $row1['location'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_category WHERE violation_category_id=$violation_category"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
 
                           $violation_category = $row1['name'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_sub_category WHERE violation_sub_category_id=$violation_sub_category"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_sub_category WHERE id=$violation_sub_category"));
 
                           $violation_sub_category = $row1['name'];
                           $violation_sub_category_rule = $row1['rule'];
