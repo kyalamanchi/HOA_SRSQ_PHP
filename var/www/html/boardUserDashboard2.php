@@ -996,7 +996,7 @@
 
               <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
 
-                <div class='box'>
+                <div class='box-info'>
 
                   <div class='box-header'>
 
