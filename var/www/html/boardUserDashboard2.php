@@ -1138,8 +1138,8 @@
 
                     <thead>
                       
-                      <th>Email</th>
                       <th>Agreement Name</th>
+                      <th>Email</th>
                       <th>Create Date</th>
                       <th>Send Date</th>
                       <th>Last Updated</th>
@@ -1181,7 +1181,7 @@
                             if($emails[$i] == $email)
                             {  
 
-                              echo "<tr><td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file'></i></a></td></tr>";
+                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file'></i></a></td></tr>";
 
                             }
 
