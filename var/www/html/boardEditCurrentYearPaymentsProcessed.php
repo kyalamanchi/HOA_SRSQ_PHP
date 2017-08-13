@@ -1,5 +1,7 @@
 <?php
-	ini_set('max_execution_time', 180);
+	session_start();
+
+    ini_set('max_execution_time', 180);
 
 	$home_id = $_POST['home_id'];
 	$hoa_id = $_POST['hoa_id'];
@@ -257,6 +259,6 @@
     	}
     }
 
-    echo "<center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$hoa_id."'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$hoa_id."'},1000);</script>"
+    echo "<center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$hoa_id."'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$hoa_id."'},2000);</script>"
 
 ?>
