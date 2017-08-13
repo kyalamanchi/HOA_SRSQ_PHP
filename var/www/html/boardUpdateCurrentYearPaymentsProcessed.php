@@ -37,6 +37,7 @@
     $query = "SELECT * FROM current_year_payments_processed WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
     $result = pg_query($query);
 
+    print_r($m);
 
     if($result)
     {
