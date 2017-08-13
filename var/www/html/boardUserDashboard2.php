@@ -1138,7 +1138,6 @@
 
                     <thead>
                       
-                      <th>Agreement To</th>
                       <th>Email</th>
                       <th>Agreement Name</th>
                       <th>Create Date</th>
@@ -1164,6 +1163,7 @@
                           $send_date = $row['send_date'];
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
+                          $esign_url = $row['esign_url'];
                           $emails = array();
 
                           if($create_date != "")
@@ -1183,41 +1183,7 @@
                             if($emails[$i] == $email)
                             {  
 
-                              echo "<tr>";
-                              
-                              $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$emails[$i]."'");
-
-                              if(pg_num_rows($result1))
-                              {
-
-                                $row1 = pg_fetch_assoc($result1);
-                                
-                                $name = $row1['firstname'];
-                                $name .= " ";
-                                $name .= $row1['lastname'];
-                                $hoa_id = $row1['hoa_id'];
-
-                                echo "<td>".$name."<br>($hoa_id)</td>";
-
-                              }
-                              else
-                              {
-                                $result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$emails[$i]."'");
-
-                                if(pg_num_rows($result1))
-                                {  
-
-                                  $row1 = pg_fetch_assoc($result1);
-
-                                  echo "<td>".$row1['vendor_name']."</td>";
-
-                                }
-                                else
-                                  echo "<td>N/A</td>";
-                              
-                              }
-
-                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                              echo "<tr><td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td>".$esign_url."</td></tr>";
 
                             }
 
