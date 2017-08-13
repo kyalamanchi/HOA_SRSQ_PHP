@@ -1245,7 +1245,7 @@
       $(function () {
         $(".select2").select2();
 
-        $("#example1").DataTable({ "pageLength": 50 });
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
         $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
