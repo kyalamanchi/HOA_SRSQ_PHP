@@ -258,6 +258,6 @@
     	}
     }
 
-    echo "<center><a href='https://hoaboardtime.com/boardProcessPayment.php'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardProcessPayment.php'},200000);</script>"
+    echo "<br><br><center><a href='https://hoaboardtime.com/boardProcessPayment.php'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardProcessPayment.php'},2000);</script>"
 
 ?>
