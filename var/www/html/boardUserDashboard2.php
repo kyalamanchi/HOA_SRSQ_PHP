@@ -1183,7 +1183,7 @@
                             if($emails[$i] == $email)
                             {  
 
-                              echo "<tr><td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td>".$esign_url."</td></tr>";
+                              echo "<tr><td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'>".$esign_url."</a></td></tr>";
 
                             }
 
