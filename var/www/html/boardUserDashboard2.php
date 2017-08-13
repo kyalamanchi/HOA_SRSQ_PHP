@@ -1181,7 +1181,7 @@
                             if($emails[$i] == $email)
                             {  
 
-                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file'></i></a></td></tr>";
+                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file-pdf'></i></a></td></tr>";
 
                             }
 
