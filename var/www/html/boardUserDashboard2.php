@@ -1102,7 +1102,7 @@
 
                 <div class="box-header">
 
-                  <center><h4><strong>Violation Citations</strong></h4></center>
+                  <center><h4><strong>Inspection Notices</strong></h4></center>
 
                 </div>
 
@@ -1131,7 +1131,7 @@
 
                       <?php 
 
-                        $result = pg_query("SELECT * FROM violation_management WHERE home_id=$home_id AND hoa_id=$hoa_id");
+                        $result = pg_query("SELECT * FROM inspection_notices WHERE home_id=$home_id AND hoa_id=$hoa_id");
 
                         while($row = pg_fetch_assoc($result))
                         {
@@ -1140,11 +1140,11 @@
                           $document = $row['document_id'];
                           $inspection_date = $row['inspection_date'];
                           $location = $row['location_id'];
-                          $violation_category = $row['violation_category_id'];
-                          $violation_sub_category = $row['violation_sub_category_id'];
-                          $notice_type = $row['notice_type_id'];
+                          $violation_category = $row['inspection_category_id'];
+                          $violation_sub_category = $row['inspection_sub_category_id'];
+                          $notice_type = $row['inspection_notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
-                          $status = $row['violation_status_id'];
+                          $status = $row['inspection_status_id'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM violation_status WHERE violation_status_id=$status"));
 
