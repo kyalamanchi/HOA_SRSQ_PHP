@@ -1152,6 +1152,8 @@
 
                       <?php 
 
+                        echo $email;
+
                         $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND document_to='%".$email."%'");
 
                         while($row = pg_fetch_assoc($result))
