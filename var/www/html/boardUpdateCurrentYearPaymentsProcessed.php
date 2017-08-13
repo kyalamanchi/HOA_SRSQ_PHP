@@ -58,6 +58,19 @@
 		$db_m11 = $row['m11_pmt_processed'];
 		$db_m12 = $row['m12_pmt_processed'];
 
+		echo $db_m1."<br>";
+		echo $db_m2."<br>";
+		echo $db_m3."<br>";
+		echo $db_m4."<br>";
+		echo $db_m5."<br>";
+		echo $db_m6."<br>";
+		echo $db_m7."<br>";
+		echo $db_m8."<br>";
+		echo $db_m9."<br>";
+		echo $db_m10."<br>";
+		echo $db_m11."<br>";
+		echo $db_m12."<br>";
+
 		for ($i=0; $i < 12; $i++) 
 		{ 
 			switch ($m[$i]) {
