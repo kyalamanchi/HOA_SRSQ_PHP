@@ -259,7 +259,7 @@
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
 
-                          $status = $row1['violation_status'];
+                          $status = $row1['inspection_status'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
 
