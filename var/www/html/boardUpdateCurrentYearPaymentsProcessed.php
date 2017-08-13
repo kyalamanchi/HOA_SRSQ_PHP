@@ -126,7 +126,7 @@
 			}
 		}
 
-		
+
 			echo "<br><br>";
 
 			echo $m1."<br>";
@@ -141,6 +141,12 @@
 			echo $m10."<br>";
 			echo $m11."<br>";
 			echo $m12."<br>";
+
+			echo "<br><br>";
+
+			echo $hoa_id."<br>";
+			echo $home_id."<br>";
+			echo $updated_by."<br>";
 
 		echo "<br><br><br><center><h2>Home ID : ".$home_id."&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HOA ID : ".$db_hoa_id."</h2></center>";
 
