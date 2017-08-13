@@ -767,11 +767,11 @@
                           
                           <?php 
                         
-                            $row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
+                            $rows = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
 
-                            $violations = $row['count'];
+                            $violations = $rows;
 
-                            if($violations == 0 || $violations == "")
+                            if($violations == 0)
                               echo "<h4 class='text-success'><strong>0</strong></h4>";
                             else
                               echo "<h4 class='text-danger'><strong>".$violations."</strong></h4>";
