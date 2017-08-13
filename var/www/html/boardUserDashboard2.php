@@ -1154,15 +1154,75 @@
 
                         echo $email;
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND document_to='%".$email."%'");
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
                         while($row = pg_fetch_assoc($result))
                         {
 
-                          
-                          
-                          echo "<tr><td>oi</td><td>".$status."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
-                          
+                          $document_to = $row['document_to'];
+                          $create_date = $row['create_date'];
+                          $send_date = $row['send_date'];
+                          $agreement_name = $row['agreement_name'];
+                          $last_updated = $row['last_updated'];
+                          $emails = array();
+
+                          if($create_date != "")
+                            $create_date = date('m-d-Y', strtotime($create_date));
+
+                          if($send_date != "")
+                            $send_date = date('m-d-Y', strtotime($send_date));
+
+                          if($last_updated != "")
+                            $last_updated = date('m-d-Y', strtotime($last_updated));
+
+                          $emails = explode(';', $document_to);
+
+                          for($i = 0; $i < sizeof($emails); $i++)
+                          {  
+
+                            if($emails[$i] == $email)
+                            {  
+
+                              echo "<tr>";
+                              
+                              $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$emails[$i]."'");
+
+                              if(pg_num_rows($result1))
+                              {
+
+                                $row1 = pg_fetch_assoc($result1);
+                                
+                                $name = $row1['firstname'];
+                                $name .= " ";
+                                $name .= $row1['lastname'];
+                                $hoa_id = $row1['hoa_id'];
+
+                                echo "<td>".$name."<br>($hoa_id)</td>";
+
+                              }
+                              else
+                              {
+                                $result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$emails[$i]."'");
+
+                                if(pg_num_rows($result1))
+                                {  
+
+                                  $row1 = pg_fetch_assoc($result1);
+
+                                  echo "<td>".$row1['vendor_name']."</td>";
+
+                                }
+                                else
+                                  echo "<td>N/A</td>";
+                              
+                              }
+
+                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+
+                            }
+
+                          }
+
                         }
 
                       ?>
