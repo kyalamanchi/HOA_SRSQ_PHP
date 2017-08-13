@@ -331,7 +331,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM violation_management WHERE community_id=$community_id");
+          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id");
 
         ?>
         
