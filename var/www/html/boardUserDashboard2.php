@@ -1149,9 +1149,7 @@
 
                     <tbody>
 
-                      <?php 
-
-                        echo $email;
+                      <?php
 
                         $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
@@ -1183,7 +1181,7 @@
                             if($emails[$i] == $email)
                             {  
 
-                              echo "<tr><td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'>".$esign_url."</a></td></tr>";
+                              echo "<tr><td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file'></i></a></td></tr>";
 
                             }
 
