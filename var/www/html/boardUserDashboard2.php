@@ -989,45 +989,50 @@
 
           </div>
 
-          <div class="row">
+          <?php
+          
+          if($payment_type == 'ACH')
+            echo "<div class='row'>
 
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+              <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
 
-              <div class="box">
+                <div class='box'>
 
-                <div class="box-header">
+                  <div class='box-header'>
 
-                  <center><h4><strong>Forte Transactions</strong></h4></center>
+                    <center><h4><strong>Forte Transactions</strong></h4></center>
 
-                </div>
+                  </div>
 
-                <div class="box-body table-responsive">
-                  
-                  <table id='example1' class="table table-bordered">
-
-                    <thead>
-                      
-                      <th>Date</th>
-                      <th>Customer ID</th>
-                      <th>Document Number</th>
-                      <th>Status</th>
-                      <th>Amount</th>
-
-                    </thead>
-
-                    <tbody>
-                      
-                    </tbody>
+                  <div class='box-body table-responsive'>
                     
-                  </table>
+                    <table id='example1' class='table table-bordered'>
+
+                      <thead>
+                        
+                        <th>Date</th>
+                        <th>Customer ID</th>
+                        <th>Document Number</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+
+                      </thead>
+
+                      <tbody>
+                        
+                      </tbody>
+                      
+                    </table>
+
+                  </div>
 
                 </div>
 
-              </div>
+              </section>
 
-            </section>
+            </div>";
 
-          </div>
+          ?>
 
           <div class="row">
 
