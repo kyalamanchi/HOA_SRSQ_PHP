@@ -1124,7 +1124,7 @@
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
-              <div class="box box-warning">
+              <div class="box box-info">
 
                 <div class="box-header">
 
@@ -1134,7 +1134,7 @@
 
                 <div class="box-body table-responsive">
                   
-                  <table id='example2' class="table table-bordered">
+                  <table id='example4' class="table table-bordered">
 
                     <thead>
                       
@@ -1181,7 +1181,7 @@
                             if($emails[$i] == $email)
                             {  
 
-                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file-pdf'></i></a></td></tr>";
+                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-pdf-file'></i></a></td></tr>";
 
                             }
 
@@ -1333,6 +1333,8 @@
         $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
         $("#example3").DataTable({ "pageLength": 50 });
+
+        $("#example4").DataTable({ "pageLength": 50 });
       });
     </script>
 
