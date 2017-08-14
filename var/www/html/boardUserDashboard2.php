@@ -1143,7 +1143,7 @@
                       <th>Create Date</th>
                       <th>Send Date</th>
                       <th>Last Updated</th>
-                      <th>Esign URL</th>
+                      <th>Esign Document</th>
 
                     </thead>
 
