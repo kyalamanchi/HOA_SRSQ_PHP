@@ -403,9 +403,43 @@
 
                                   </div>
 
-                                  <div class='modal-body'>
+                                  <div class='modal-body table-responsive'>";
 
-                                    Funding ID
+                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE transaction_id=".$transaction_id);
+
+                                    echo "<table id='example2' class='table table-bordered table-striped'>
+
+                                      <thead>
+
+                                        <th>Name (HOA ID)</th>
+                                        <th>Transactions ID</th>
+                                        <th>Status</th>
+                                        <th>Amount</th>
+                                        <th>Received Date</th>
+
+                                      </thead>
+
+                                      <tbody>"
+
+                                        while($row1 = pg_fetch_assoc($result1))
+                                        {
+
+                                          $name = $row1['first_name'];
+                                          $name .= " ";
+                                          $name .= $row1['last_name'];
+                                          $transaction_id = $row1['transaction_id'];
+                                          $funding_status = $row1['status'];
+                                          $amount = $row1['amount'];
+                                          $received_date = $row1['received_date'];
+                                          $funding_hoa_id = $row1['hoa_id'];
+
+                                          echo "<tr><td>$name ($funding_hoa_id)</td><td>$transaction_id</td><td>$funding_status</td><td>$amount</td><td>$received_date</td></tr>";
+
+                                        }
+
+                                      echo "</tbody>
+
+                                    </table>
 
                                   </div>
 
@@ -471,6 +505,8 @@
     <script>
       $(function () {
         $("#example1").DataTable({ "pageLength": 50 });
+
+        $("#example2").DataTable({ "pageLength": 50 });
       });
     </script>
 
