@@ -990,7 +990,7 @@
                 
                     <div class="box-header">
                   
-                      <div class='row container-fluid'><i class="fa fa-files-o fa-4x pull-left text-aqua"></i>
+                      <div class='row container-fluid'><i class="fa fa-files-o fa-3x pull-left text-aqua"></i>
                   
                         <b class="pull-right">
 
@@ -998,7 +998,7 @@
 
                       </div>
                       
-                      <div class='row container-fluid text-center'>Community Deposits</div>
+                      <div class='row container-fluid text-center'><br>Community Deposits</div>
                 
                     </div>
 
