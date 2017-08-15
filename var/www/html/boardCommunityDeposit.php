@@ -347,7 +347,7 @@
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
-              <div>
+              <div class="container-fluid">
 
                 <div class="box-body table-responsive">
                   
