@@ -430,7 +430,7 @@
                                           $name = $row1['first_name'];
                                           $name .= " ";
                                           $name .= $row1['last_name'];
-                                          $transaction_id = $row1['transaction_id'];
+                                          $id = $row1['id'];
                                           $funding_status = $row1['status'];
                                           $amount = $row1['amount'];
                                           $received_date = $row1['received_date'];
