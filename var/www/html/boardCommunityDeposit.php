@@ -452,9 +452,9 @@
                             
                               </div>
 
-                            </div>";
+                            </div>
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+                            <tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
 
                         }
 
