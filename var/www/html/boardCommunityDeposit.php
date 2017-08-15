@@ -407,7 +407,7 @@
 
                                     $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id'");
 
-                                    echo "<div class='row container-fluid text-center'>
+                                    echo "<div class='row container-fluid'>
 
                                       <div class='row text-center'>
 
@@ -422,7 +422,7 @@
 
                                       </div>
 
-                                      <div class='row text-center'>";
+                                      <div class='row'>";
 
                                         while($row1 = pg_fetch_assoc($result1))
                                         {
