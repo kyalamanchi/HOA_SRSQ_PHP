@@ -1417,27 +1417,7 @@
 
                       <?php
 
-                        $firstname = $row['firstname'];
-                        $lastname = $row['lastname'];
-                        $valid_from = $row['valid_from'];
-                        $valid_until = $row['valid_until'];
-                        $email = $row['email'];
-                        $cell_no = $row['cell_no'];
-                        $role = $row['role_type_id'];
-                        $home_id = $row['home_id'];
-
-                        if($valid_from != "")
-                          $valid_from = date('m-d-Y',strtotime($valid_from));
-
-                        if($valid_until != "")
-                          $valid_until = date('m-d-Y',strtotime($valid_until));
-
-                        if($role != "")
-                        {
-                          $row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
-
-                          $role = $row['name'];
-                        }
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid=$hoa_id"));
 
                         echo "<tr><td>$firstname $lastname ($hoa_id)</td><td>$valid_from</td><td>$role</td><td>$email</td><td>$cell_no</td></tr>";
 

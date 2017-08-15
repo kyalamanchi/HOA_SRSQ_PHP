@@ -767,7 +767,7 @@
                           
                           <?php 
                         
-                            $rows = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
+                            $rows = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
 
                             $violations = $rows;
 
