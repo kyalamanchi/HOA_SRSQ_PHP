@@ -407,7 +407,7 @@
 
                                     $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id'");
 
-                                    echo "<div class='row container-fluid'>
+                                    echo "<div class='row container-fluid text-center'>
 
                                       <div class='row text-center'>
 
@@ -422,7 +422,7 @@
 
                                       </div>
 
-                                      <div class='row'>";
+                                      <div class='row text-center'>";
 
                                         while($row1 = pg_fetch_assoc($result1))
                                         {
@@ -436,7 +436,7 @@
                                           $received_date = $row1['received_date'];
                                           $funding_hoa_id = $row1['hoa_id'];
 
-                                          echo "<div class='row'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$transaction_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$transaction_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
 
                                         }
 
