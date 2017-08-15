@@ -1140,6 +1140,7 @@
                       
                       <th>Inspection Date</th>
                       <th>Status</th>
+                      <th>Location</th>
                       <th>Description</th>
                       <th>Category</th>
                       <th>Sub Category</th>
@@ -1147,7 +1148,6 @@
                       <th>Sub Category Rule Description</th>
                       <th>Sub Category Rule Explanation</th>
                       <th>Notice Type</th>
-                      <th>Location</th>
                       <th>Document</th>
                       <th>Date of Upload</th>
 
@@ -1197,7 +1197,7 @@
                           if($inspection_date != "")
                             $inspection_date = date('m-d-Y', strtotime($inspection_date));
                           
-                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$location."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
