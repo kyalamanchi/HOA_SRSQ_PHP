@@ -409,7 +409,7 @@
 
                                     echo "<div class='row container-fluid'>
 
-                                      <div class='row'>
+                                      <div class='row text-center'>
 
                                         <strong>
 
