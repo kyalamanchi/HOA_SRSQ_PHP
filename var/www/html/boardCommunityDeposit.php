@@ -458,7 +458,7 @@
 
                             </div>";
 
-                          echo "<tr><a data-toggle='modal' data-target='#funding_id_".$funding_id."'><td>".$id1."</td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></a></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$status."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$effective_date."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$origination_date."</a></td></tr>";
 
                         }
 
