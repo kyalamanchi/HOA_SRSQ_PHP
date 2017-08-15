@@ -389,7 +389,7 @@
                           if($origination_date != '')
                             $origination_date = date('m-d-Y', strtotime($origination_date));
 
-                          echo "<div class='modal fade hmodal-success' id='funding_id_".$funding_id_."' role='dialog'  aria-hidden='true'>
+                          echo "<div class='modal fade hmodal-success' id='funding_id_$funding_id' role='dialog'  aria-hidden='true'>
                                 
                             <div class='modal-dialog'>
                                               
@@ -415,7 +415,7 @@
 
                             </div>";
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id.">".$funding_id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_$funding_id>".$funding_id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
                         }
 
                       ?>
