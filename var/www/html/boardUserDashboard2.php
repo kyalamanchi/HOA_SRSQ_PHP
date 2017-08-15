@@ -1379,6 +1379,82 @@
 
           </div>
 
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-success">
+
+                <div class="box-header">
+
+                  <center><h4><strong>User Documents</strong></h4></center>
+                  
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
+
+                  </div>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Name (HOA ID)</th>
+                      <th>Resident Since</th>
+                      <th>Role</th>
+                      <th>Email</th>
+                      <th>Phone</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        $firstname = $row['firstname'];
+                        $lastname = $row['lastname'];
+                        $valid_from = $row['valid_from'];
+                        $valid_until = $row['valid_until'];
+                        $email = $row['email'];
+                        $cell_no = $row['cell_no'];
+                        $role = $row['role_type_id'];
+                        $home_id = $row['home_id'];
+
+                        if($valid_from != "")
+                          $valid_from = date('m-d-Y',strtotime($valid_from));
+
+                        if($valid_until != "")
+                          $valid_until = date('m-d-Y',strtotime($valid_until));
+
+                        if($role != "")
+                        {
+                          $row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
+
+                          $role = $row['name'];
+                        }
+
+                        echo "<tr><td>$firstname $lastname ($hoa_id)</td><td>$valid_from</td><td>$role</td><td>$email</td><td>$cell_no</td></tr>";
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
         </section>
 
       </div>
