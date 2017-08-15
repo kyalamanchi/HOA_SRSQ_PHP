@@ -361,6 +361,7 @@
                       <th>Status</th>
                       <th>Effective Date</th>
                       <th>Origination Date</th>
+                      <th>Routing Number</th>
                       <th>Account Number</th>
                       <th>Entry Description</th>
 
@@ -376,36 +377,16 @@
                         {
 
                           $funding_id = $row['funding_id'];
-                          $create_date = $row['create_date'];
-                          $send_date = $row['send_date'];
-                          $agreement_name = $row['agreement_name'];
-                          $last_updated = $row['last_updated'];
-                          $esign_url = $row['esign_url'];
-                          $emails = array();
+                          $status = $row['status'];
+                          $net_amount = $row['net_amount'];
+                          $number_of_transactions = $row['number_of_transactions'];
+                          $effective_date = $row['effective_date'];
+                          $origination_date = $row['origination_date'];
+                          $routing_number = $row['routing_number'];
+                          $account_number = $row['account_number_last_four_digits'];
+                          $entry_description = $row['entry_description'];
 
-                          if($create_date != "")
-                            $create_date = date('m-d-Y', strtotime($create_date));
-
-                          if($send_date != "")
-                            $send_date = date('m-d-Y', strtotime($send_date));
-
-                          if($last_updated != "")
-                            $last_updated = date('m-d-Y', strtotime($last_updated));
-
-                          $emails = explode(';', $document_to);
-
-                          for($i = 0; $i < sizeof($emails); $i++)
-                          {  
-
-                            if($emails[$i] == $email)
-                            {  
-
-                              echo "<tr><td>".$funding_id."</td><td>".$funding_id."</td><td>".$funding_id."</td><td>".$funding_id."</td><td>".$funding_id."</td><td>".$funding_id."</td><td>".$funding_id."</td><td>".$funding_id."</td></tr>";
-
-                            }
-
-                          }
-
+                          echo "<tr><td>".$funding_id."</td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td><td>".$routing_number."</td><td>".$account_number."</td><td>".$entry_description."</td></tr>";
                         }
 
                       ?>
@@ -420,6 +401,7 @@
                       <th>Status</th>
                       <th>Effective Date</th>
                       <th>Origination Date</th>
+                      <th>Routing Number</th>
                       <th>Account Number</th>
                       <th>Entry Description</th>
 
