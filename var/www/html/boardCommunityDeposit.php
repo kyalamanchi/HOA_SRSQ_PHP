@@ -422,7 +422,7 @@
 
                                       </div>
 
-                                      <div class='row'>";
+                                      <div class='row container-fluid'>";
 
                                         while($row1 = pg_fetch_assoc($result1))
                                         {
