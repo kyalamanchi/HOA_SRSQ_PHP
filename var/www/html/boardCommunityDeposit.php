@@ -361,9 +361,6 @@
                       <th>Status</th>
                       <th>Effective Date</th>
                       <th>Origination Date</th>
-                      <th>Routing Number</th>
-                      <th>Account Number</th>
-                      <th>Entry Description</th>
 
                     </thead>
 
@@ -392,7 +389,7 @@
                           if($origination_date != '')
                             $origination_date = date('m-d-Y', strtotime($origination_date));
 
-                          echo "<tr><td>".$funding_id."</td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td><td>".$routing_number."</td><td>".$account_number."</td><td>".$entry_description."</td></tr>";
+                          echo "<tr><td>".$funding_id."</td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
                         }
 
                       ?>
@@ -407,9 +404,6 @@
                       <th>Status</th>
                       <th>Effective Date</th>
                       <th>Origination Date</th>
-                      <th>Routing Number</th>
-                      <th>Account Number</th>
-                      <th>Entry Description</th>
 
                     </tfoot>
                     
