@@ -984,7 +984,7 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <a href='https://hoaboardtime.com/boardCommunityDeposits.php'>
+                <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
 
                   <div style="background:#ffffff;">
                 
