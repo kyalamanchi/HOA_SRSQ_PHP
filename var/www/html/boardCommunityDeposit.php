@@ -389,7 +389,7 @@
                           if($origination_date != '')
                             $origination_date = date('m-d-Y', strtotime($origination_date));
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id.">".$funding_id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+                          echo "<tr><td>".$funding_id."</td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
                         }
 
                       ?>
