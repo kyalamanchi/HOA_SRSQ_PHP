@@ -413,7 +413,7 @@
 
                                         <strong>
 
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Transactions ID</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>ID</div>
                                           <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Status</div>
                                           <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Amount</div>
                                           <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Received Date</div>
@@ -439,7 +439,7 @@
                                           if($received_date != '')
                                             $received_date = date('m-d-Y', strtotime($received_date));
 
-                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$transaction_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
 
                                         }
 
