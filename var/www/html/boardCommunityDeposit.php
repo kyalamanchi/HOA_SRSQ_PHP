@@ -399,7 +399,7 @@
                                   
                                   <div class='modal-header'>
                                                           
-                                    <h4 class='modal-title'>Funding ID : ".$funding_id."</h4>
+                                    <h4 class='modal-title'>Funding ID : <strong>".$funding_id."</strong></h4>
 
                                   </div>
 
