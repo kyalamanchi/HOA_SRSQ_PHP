@@ -404,7 +404,7 @@
 
                                     echo "<div class='row container-fluid'>
 
-                                      <div class=''>
+                                      <div class='row text-center'>
 
                                         <strong>
 
