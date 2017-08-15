@@ -390,7 +390,7 @@
                           if($origination_date != '')
                             $origination_date = date('m-d-Y', strtotime($origination_date));
 
-                          echo "<div class='modal fade hmodal-success' id='funding_id_".$funding_id."' aria-hidden='true'>
+                          echo "<div class='modal fade' id='funding_id_".$funding_id."' aria-hidden='true'>
                                 
                             <div class='modal-dialog'>
                                               
