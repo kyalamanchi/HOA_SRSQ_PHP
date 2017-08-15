@@ -628,7 +628,7 @@
 
                   <span class="info-box-text"><strong>Payment Information</strong> - <?php echo date('M').", ".date('Y'); ?></span>
 
-                  <?php echo date('F')." ".date('Y'); ?>
+                  adfa<?php echo date('F')." ".date('Y'); ?>
 
                 </div>
                         
