@@ -628,7 +628,7 @@
 
                   <span class="info-box-text"><strong>Payment Information</strong></span>
 
-                  <b><?php echo date('F')." ".date('Y'); ?></b>
+                  (<?php echo date('F')." ".date('Y'); ?>)
 
                 </div>
                         
