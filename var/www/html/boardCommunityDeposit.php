@@ -405,7 +405,7 @@
 
                                   <div class='modal-body table-responsive'>";
 
-                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE transaction_id='$transaction_id'");
+                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE transaction_id='$funding_id'");
 
                                     echo "<div class='row container-fluid'>
 
