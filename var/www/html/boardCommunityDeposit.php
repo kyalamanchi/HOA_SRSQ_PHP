@@ -389,7 +389,90 @@
                           if($origination_date != '')
                             $origination_date = date('m-d-Y', strtotime($origination_date));
 
-                          echo "<tr><td>".$funding_id."</td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+                          echo "<div class='modal fade hmodal-success' id='funding_id_".$funding_id."' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Funding ID - ".$funding_id."</h4>
+
+                                  </div>
+
+                                  <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
+                                                      
+                                    <div class='modal-body'>
+                                        
+                                        <div class='row container-fluid'>
+                                
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>First Name</label>
+                                            <input type='text' class='form-control' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+                                          </div>
+                                                
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Last Name</label>
+                                            <input type='text' class='form-control' name='edit_lastname' id='edit_lastname' value='$lastname' required>
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+                                          
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Phone</label>
+                                            <input type='number' class='form-control' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
+                                          </div>
+                                              
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Email</label>
+                                            <input type='email' class='form-control' name='edit_email' id='edit_email' value='$email' required>
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+                                          
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Resident Since</label>
+                                            <input type='date' class='form-control' name='edit_valid_from' id='edit_valid_from' value='$valid_from' required>
+                                          </div>
+                                              
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Resident Until</label>
+                                            <input type='date' class='form-control' name='edit_valid_until' id='edit_valid_until' value='$valid_until' >
+
+                                            <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                          </div>
+
+                                        </div>
+
+                                        <br><br>
+
+                                        <center>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                        </center>
+
+                                    </div>
+
+                                  </form>
+
+                                </div>
+                            
+                              </div>
+
+                            </div>";
+
+                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$funding_id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
                         }
 
                       ?>
