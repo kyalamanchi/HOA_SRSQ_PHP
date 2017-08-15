@@ -419,7 +419,7 @@
 
                                       </thead>
 
-                                      <tbody>"
+                                      <tbody>";
 
                                         while($row1 = pg_fetch_assoc($result1))
                                         {
