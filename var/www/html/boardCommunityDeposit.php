@@ -436,23 +436,6 @@
                                           if($received_date != '')
                                             $received_date = date('m-d-Y', strtotime($received_date));
 
-                                          $row2 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id=$transaction_id"));
-
-                                          $cp_hoa_id = $row2['hoa_id'];
-                                          $cp_home_id = $row2['home_id'];
-
-                                          $row2 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$cp_hoa_id"));
-
-                                          $name = $row2['firstname'];
-                                          $name .= " ";
-                                          $name .= $row2['lastname'];
-
-                                          $row2 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$cp_home_id"));
-
-                                          $home = $row2['address1'];
-
-                                          echo "<div class='row text-center'><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Name : $cp_hoa_id</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Living In : $cp_home_id</div></div>";
-
                                           echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$transaction_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
                                         }
