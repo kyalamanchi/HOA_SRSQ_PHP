@@ -392,7 +392,7 @@
 
                           echo "<div class='modal fade' id='funding_id_".$funding_id."' aria-hidden='true'>
                                 
-                            <div class='modal-dialog'>
+                            <div class='modal'>
                                               
                               <div class='modal-content'>
                                                   
