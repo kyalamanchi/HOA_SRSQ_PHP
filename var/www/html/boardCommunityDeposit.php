@@ -407,7 +407,7 @@
 
                                     $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE transaction_id=".$transaction_id);
 
-                                    echo "<table class='table table-bordered table-striped'>
+                                    echo "<table>
 
                                       <thead>
 
@@ -450,6 +450,7 @@
                             </div>";
 
                           echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$funding_id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+
                         }
 
                       ?>
