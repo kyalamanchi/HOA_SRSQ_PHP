@@ -442,9 +442,9 @@
 
                                       echo "</div>
 
-                                    </div>";
+                                    </div>
 
-                                  echo "</div>
+                                  </div>
 
                                   <br>
 
