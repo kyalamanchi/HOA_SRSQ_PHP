@@ -347,11 +347,11 @@
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
-              <div class="container-fluid">
+              <div>
 
                 <div class="box-body table-responsive">
                   
-                  <table id='example1' class="table table-bordered">
+                  <table id='example1' class="table container-fluid table-stripped table-bordered">
 
                     <thead>
                       
