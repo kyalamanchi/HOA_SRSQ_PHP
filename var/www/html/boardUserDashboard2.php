@@ -1068,6 +1068,89 @@
 
                 <div class="box-header">
 
+                  <center><h4><strong>Pending Agreements</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id='example4' class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Agreement Name</th>
+                      <th>Email</th>
+                      <th>Create Date</th>
+                      <th>Send Date</th>
+                      <th>Last Updated</th>
+                      <th>Esign Document</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+
+                        while($row = pg_fetch_assoc($result))
+                        {
+
+                          $document_to = $row['document_to'];
+                          $create_date = $row['create_date'];
+                          $send_date = $row['send_date'];
+                          $agreement_name = $row['agreement_name'];
+                          $last_updated = $row['last_updated'];
+                          $esign_url = $row['esign_url'];
+                          $emails = array();
+
+                          if($create_date != "")
+                            $create_date = date('m-d-Y', strtotime($create_date));
+
+                          if($send_date != "")
+                            $send_date = date('m-d-Y', strtotime($send_date));
+
+                          if($last_updated != "")
+                            $last_updated = date('m-d-Y', strtotime($last_updated));
+
+                          $emails = explode(';', $document_to);
+
+                          for($i = 0; $i < sizeof($emails); $i++)
+                          {  
+
+                            if($emails[$i] == $email)
+                            {  
+
+                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file-pdf-o'></i></a></td></tr>";
+
+                            }
+
+                          }
+
+                        }
+
+                      ?>
+                                            
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-info">
+
+                <div class="box-header">
+
                   <center><h4><strong>Statements Mailed</strong></h4></center>
 
                 </div>
@@ -1248,6 +1331,8 @@
         $("#example1").DataTable({ "pageLength": 50 });
 
         $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example4").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
         $("#example3").DataTable({ "pageLength": 50 });
       });
