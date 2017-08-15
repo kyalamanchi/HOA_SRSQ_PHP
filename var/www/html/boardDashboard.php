@@ -990,7 +990,7 @@
                 
                     <div class="box-header">
                   
-                      <div class='row container-fluid'><i class="fa fa-files-o fa-3x pull-left text-aqua"></i>
+                      <div class='row container-fluid'><i class="fa fa-dollar fa-3x pull-left text-aqua"></i>
                   
                         <b class="pull-right">
 
