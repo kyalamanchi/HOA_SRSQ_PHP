@@ -285,6 +285,14 @@
                       
                     }
 
+                    if($community_uom != "")
+                    {
+
+                      $row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_uom WHERE id=$community_uom"));
+                      $community_uom = $row1['name'];
+                      
+                    }
+
                     if($asset_placement_date != "")
                       $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
