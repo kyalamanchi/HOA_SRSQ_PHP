@@ -343,7 +343,7 @@
 
         <section class="content">
           
-          <div class="row" style="background-color: white;">
+          <div class="row container-fluid" style="background-color: white;">
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
