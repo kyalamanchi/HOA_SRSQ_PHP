@@ -355,7 +355,7 @@
 
                     <thead>
                       
-                      <th>Funding Id</th>
+                      <th>ID</th>
                       <th>Net Amount</th>
                       <th>Number of Transactions</th>
                       <th>Status</th>
@@ -374,6 +374,7 @@
                         {
 
                           $funding_id = $row['funding_id'];
+                          $id = $row['id'];
                           $status = $row['status'];
                           $net_amount = $row['net_amount'];
                           $number_of_transactions = $row['number_of_transactions'];
@@ -457,7 +458,7 @@
 
                             </div>";
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$funding_id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id."</a></td><td>$ ".$net_amount."</td><td>".$number_of_transactions."</td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
 
                         }
 
