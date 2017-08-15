@@ -407,19 +407,18 @@
 
                                     $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE transaction_id=".$transaction_id);
 
-                                    echo "<table>
+                                    echo "<div class='row container-fluid'>
 
-                                      <thead>
+                                      <div class='row'>
 
-                                        <th>Name (HOA ID)</th>
-                                        <th>Transactions ID</th>
-                                        <th>Status</th>
-                                        <th>Amount</th>
-                                        <th>Received Date</th>
+                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Transactions ID</div>
+                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Status</div>
+                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Amount</div>
+                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Received Date</div>
 
-                                      </thead>
+                                      </div>
 
-                                      <tbody>";
+                                      <div class='row'>";
 
                                         while($row1 = pg_fetch_assoc($result1))
                                         {
@@ -433,13 +432,13 @@
                                           $received_date = $row1['received_date'];
                                           $funding_hoa_id = $row1['hoa_id'];
 
-                                          echo "<tr><td>$name ($funding_hoa_id)</td><td>$transaction_id</td><td>$funding_status</td><td>$amount</td><td>$received_date</td></tr>";
+                                          echo "<div class='row'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$transaction_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
 
                                         }
 
-                                      echo "</tbody>
+                                      echo "</div>
 
-                                    </table>";
+                                    </div>";
 
                                   echo "</div>
 
