@@ -529,11 +529,7 @@
                   
                 <div class='row container-fluid text-center'>
 
-                  <br>
-
                   <span class="info-box-text"><strong>Bank Account Balance</strong></span>
-
-                  <br>
 
                 </div>
                       	
@@ -619,8 +615,6 @@
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
 
                   ?>
-
-                  <br><br>
                   
                 </div>
 
@@ -630,11 +624,7 @@
                   
                 <div class='row container-fluid text-center'>
 
-                  <br>
-
-                  <span class="info-box-text"><strong>Payment Information</strong></span>
-
-                  (<?php echo date('F')." ".date('Y'); ?>)
+                  <span class="info-box-text"><strong>Payment Information</strong> - <?php echo date('F').", ".date('Y'); ?></span>
 
                 </div>
                         
@@ -646,8 +636,6 @@
 
                     echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$amount_recieved."</strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>".$paid_customers."</strong></div>";
                   ?>
-
-                  <br><br>
                   
                 </div>
 
