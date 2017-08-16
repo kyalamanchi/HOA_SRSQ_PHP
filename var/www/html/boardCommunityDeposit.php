@@ -397,16 +397,18 @@
                               <div class='modal-content'>
                                                   
                                 <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Funding ID : <strong>".$funding_id."</strong></h4>
+
+                                  </div>
 
                                   <div class='modal-body table-responsive'>";
 
                                     $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id'");
 
                                     echo "<div class='row container-fluid'>
-
-                                      <div class='row text-center'>
-
-                                      </div>
 
                                       <div class='row text-center'>
 
@@ -436,15 +438,15 @@
                                           if($received_date != '')
                                             $received_date = date('m-d-Y', strtotime($received_date));
 
-                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
                                         }
 
                                       echo "</div>
 
-                                    </div>
+                                    </div>";
 
-                                  </div>
+                                  echo "</div>
 
                                   <br>
 
