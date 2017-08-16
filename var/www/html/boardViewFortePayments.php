@@ -102,7 +102,8 @@
 					    foreach ($obj->results as $key) 
 					    {
 					        
-					        echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
+					        if($key->customer_id == $hoa_id)
+					        	echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
 
 					    }
 					                                                
