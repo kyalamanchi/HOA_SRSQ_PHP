@@ -490,21 +490,27 @@
                     <div class='row text-center container-fluid'>
 
                       <a href='https://hoaboardtime.com/boardHomePayMethod.php'>
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4"  style="border: solid; border-right: none;">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3"  style="border: solid; border-right: none;">
 
-                        <strong>ACH : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); echo $row['count']; ?></strong>
-
-                      </div>
-
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4" style="border: solid; border-right: none; border-left: none;">
-
-                        <strong>BillPay : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); echo $row['count']; ?></strong>
+                        <strong>ACH : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); $ach = $row['count']; echo $ach; ?></strong>
 
                       </div>
 
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4" style="border: solid; border-left: none;">
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-right: none; border-left: none;">
 
-                        <strong>Check : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); echo $row['count']; ?></strong>
+                        <strong>BillPay : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); $billpay = $row['count']; echo $billpay; ?></strong>
+
+                      </div>
+
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-right: none; border-left: none;">
+
+                        <strong>Check : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); $check = $row['count']; echo $check; ?></strong>
+
+                      </div>
+
+                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-left: none;">
+
+                        <strong>Others : <?php echo $total_customers - ($ach + $billpay + $check); ?></strong>
 
                       </div>
                       </a>
