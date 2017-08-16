@@ -510,7 +510,7 @@
 
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-left: none;">
 
-                        <strong>Others : <?php echo $total_customers - ($ach + $billpay + $check); ?></strong>
+                        <strong>Others : <?php echo $total_customers; ?></strong>
 
                       </div>
                       </a>
