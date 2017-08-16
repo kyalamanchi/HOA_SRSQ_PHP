@@ -355,11 +355,11 @@
 
                     <thead>
                       
+                      <th>Fund Received On</th>
                       <th>ID</th>
                       <th>Net Amount</th>
                       <th>Number of Transactions</th>
                       <th>Status</th>
-                      <th>Fund Received On</th>
                       <th>Fund Sent On</th>
 
                     </thead>
@@ -456,7 +456,7 @@
 
                             </div>";
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td>".$status."</td><td>".$effective_date."</td><td>".$origination_date."</td></tr>";
+                          echo "<tr><td>".$effective_date."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td>".$status."</td><td>".$origination_date."</td></tr>";
 
                         }
 
@@ -466,11 +466,11 @@
 
                     <tfoot>
                       
+                      <th>Fund Received On</th>
                       <th>Funding Id</th>
                       <th>Net Amount</th>
                       <th>Number of Transactions</th>
                       <th>Status</th>
-                      <th>Fund Received On</th>
                       <th>Fund Sent On</th>
 
                     </tfoot>
