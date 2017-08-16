@@ -388,7 +388,7 @@
                               $firstname = $row1['firstname'];
                               $lastname = $row1['lastname'];
 
-                              echo "<tr><form method='POST' action='https://hoaboardtime.com/boardUserDashboard2.php'><td><input type='hidden' name='hoa_id' id='hoa_id' value='".$hoa_id."'><button type='submit' class='btn btn-link' title='Click to view HOA Dashboard'>".$firstname." ".$lastname."</button></td><td>".$hoa_id."</td></form></tr>";
+                              echo "<tr><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$hoa_id."</a></td></tr>";
                             }
 
                           ?>
