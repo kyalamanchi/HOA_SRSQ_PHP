@@ -823,19 +823,17 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
 
                       <img src="deposits.png" height=75 width=75 alt='Community Deposits'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                     </div>
 
                   </div>
-
-                  <div class='row container-fluid'><hr style="color: blue;"></div>
 
                   <div class="row text-center">
 
@@ -861,13 +859,13 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <img src="documents.png" height=75 width=75 alt='Community Documents'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <h2 class="text-info"><strong><?php echo $documents; ?></strong></h2>
 
