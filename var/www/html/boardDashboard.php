@@ -1050,6 +1050,8 @@
 
                   </div>
 
+                  <div class='row container-fluid'><hr style="color: blue;"></div>
+
                   <div class="row text-center">
 
                     <h4><strong>Community Deposits</strong></h4>
@@ -1087,6 +1089,8 @@
                     </div>
 
                   </div>
+
+                  <div class='row container-fluid'><hr style="color: blue;"></div>
 
                   <div class="row text-center">
 
