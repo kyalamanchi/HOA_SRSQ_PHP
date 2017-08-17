@@ -436,6 +436,8 @@
 
                                       </div>
 
+                                      <br>
+
                                       <div class='row container-fluid'>";
 
                                         while($row1 = pg_fetch_assoc($result1))
@@ -466,7 +468,7 @@
 
                                           $address = $row11['address1'];
 
-                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$name</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$t_hoa_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$address</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$t_home_id</div></div><br>";
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$name</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$t_hoa_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$address</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$t_home_id</div></div>";
 
                                           echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
