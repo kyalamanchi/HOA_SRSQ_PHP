@@ -763,43 +763,6 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
-
-                  <div style="background:#ffffff;">
-                
-                    <div class="box-header">
-                  
-                      <div class='row container-fluid'><i class="fa fa-user-secret fa-4x pull-left text-aqua"></i>
-                  
-                        <b class="pull-right">
-                          
-                          <?php 
-
-                            if($del_acc == 0 || $del_acc == "")
-                              echo "<h4 class='text-success'><strong>0</strong></h4>";
-                            else
-                              echo "<h4 class='text-orange'><strong>".$del_acc."</strong></h4>";
-
-                          ?>
-
-                        </b>
-
-                      </div>
-                      
-                      <div class='row container-fluid text-center'><br>Delinquent Account</div>
-                
-                    </div>
-
-                  </div>
-
-                </a>
-
-                <br>
-
-              </div>
-
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                
                 <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
 
                   <div style="background:#ffffff;">
