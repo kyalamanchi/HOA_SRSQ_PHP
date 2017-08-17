@@ -1024,7 +1024,7 @@
             
           </div>
 
-          <div class="row">
+          <div class="row" style="background-color: #ffffff;">
 
             <br>
 
