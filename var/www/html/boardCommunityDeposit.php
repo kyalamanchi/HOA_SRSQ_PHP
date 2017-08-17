@@ -414,10 +414,10 @@
 
                                         <strong>
 
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>ID</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Status</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Amount</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Received Date</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Name</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>HOA ID</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Address</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Home ID</div>
 
                                         </strong>
 
@@ -427,10 +427,10 @@
 
                                         <strong>
 
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Name</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>HOA ID</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Address</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Home ID</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>ID</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Status</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Amount</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Received Date</div>
 
                                         </strong>
 
@@ -451,7 +451,7 @@
                                           if($received_date != '')
                                             $received_date = date('m-d-Y', strtotime($received_date));
 
-                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id=$transaction_id"));
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id='$transaction_id'"));
 
                                           print_r($row11);
 
