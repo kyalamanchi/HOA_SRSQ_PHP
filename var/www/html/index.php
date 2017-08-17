@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="font-family: avenir;">
+<html style="font-family: Avenir;">
   <head>
     
     <?php
