@@ -1022,11 +1022,13 @@
 
                   <div style="background-color: #ffffff;">
 
+                    <br>
+
                     <div class="row container-fluid">
 
                       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
-                        <img src="collection_accounts.png" height=50 width=50 alt='Collection Accounts'>
+                        <img src="collection_accounts.png" height=75 width=75 alt='Collection Accounts'>
 
                       </div>
 
