@@ -809,7 +809,7 @@
             
           </div>
 
-          <div class="row" style="background-color: #ffffff;">
+          <div class="row container-fluid" style="background-color: #ffffff;">
 
             <br>
 
