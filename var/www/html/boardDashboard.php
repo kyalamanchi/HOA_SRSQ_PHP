@@ -1016,6 +1016,42 @@
 
               </div>
 
+              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+
+                <a href=''>
+
+                  <div style="background-color: #ffffff;">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
+
+                        <img src="collection_accounts.png" height=100 width=100 alt='Collection Accounts'>
+
+                      </div>
+
+                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                        00000
+
+                      </div>
+
+                    </div>
+
+                    <hr class="small">
+
+                    <div class="row container-fluid">
+
+                      Collection Accounts
+
+                    </div>
+
+                  </div>
+
+                </a>
+
+              </div>
+
             </section>
             
           </div>
