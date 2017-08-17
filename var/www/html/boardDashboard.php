@@ -861,21 +861,19 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
 
                       <img src="documents.png" height=75 width=75 alt='Community Documents'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
 
                       <h2 class="text-info"><strong><?php echo $documents; ?></strong></h2>
 
                     </div>
 
                   </div>
-
-                  <div class='row container-fluid'><hr style="color: blue;"></div>
 
                   <div class="row text-center">
 
@@ -901,13 +899,13 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
 
                       <img src="delinquent_accounts.png" height=75 width=75 alt='Delinquent Accounts'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
 
                       <?php 
 
@@ -921,8 +919,6 @@
                     </div>
 
                   </div>
-
-                  <div class='row container-fluid'><hr style="color: blue;"></div>
 
                   <div class="row text-center">
 
@@ -969,7 +965,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row text-center">
 
                     <h4><strong>Inspection Notices</strong></h4>
 
@@ -993,13 +989,13 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
 
                       <img src="pending_agreements.png" height=75 width=75 alt='Pending Agreements'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
 
                       <?php 
 
@@ -1013,8 +1009,6 @@
                     </div>
 
                   </div>
-
-                  <div class='row container-fluid'><hr style="color: blue;"></div>
 
                   <div class="row text-center">
 
