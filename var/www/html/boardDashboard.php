@@ -1018,50 +1018,58 @@
 
               </div>
 
-              <!--div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
-
-                <a href=''>
-
-                  <div class="row container-fluid">
-
-                    <br>
-
-                    <div class="row">
-
-                      <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
-
-                        <img src="collection_accounts.png" height=75 width=75 alt='Collection Accounts'>
-
-                      </div>
-
-                      <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-
-                        <h4><strong>00000</strong></h4>
-
-                      </div>
-
-                    </div>
-
-                    <div class='row container-fluid'><hr style="color: blue;"></div>
-
-                    <div class="row text-center">
-
-                      <h4><strong>Collection Accounts</strong></h4>
-
-                    </div>
-
-                    <br>
-
-                  </div>
-
-                </a>
-
-              </div-->
-
             </section>
 
             <br>
             
+          </div>
+
+          <div class="row">
+
+            <br>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
+              <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
+
+                <div class="row container-fluid">
+
+                  <br>
+
+                  <div class="row">
+
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+
+                      <img src="documents.png" height=75 width=75 alt='Community Documents'>
+
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                      <h4><strong><?php echo $documents; ?></strong></h4>
+
+                    </div>
+
+                  </div>
+
+                  <div class='row container-fluid'><hr style="color: blue;"></div>
+
+                  <div class="row text-center">
+
+                    <h4><strong>Community Documents</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <br>
+
           </div>
 
           <div class="row">
