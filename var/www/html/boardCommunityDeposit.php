@@ -423,6 +423,19 @@
 
                                       </div>
 
+                                      <div class='row text-center'>
+
+                                        <strong>
+
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Name</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>HOA ID</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Address</div>
+                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Home ID</div>
+
+                                        </strong>
+
+                                      </div>
+
                                       <div class='row container-fluid'>";
 
                                         while($row1 = pg_fetch_assoc($result1))
@@ -437,6 +450,12 @@
 
                                           if($received_date != '')
                                             $received_date = date('m-d-Y', strtotime($received_date));
+
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id=$transaction_id"));
+
+                                          print_r($row11);
+
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
                                           echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
