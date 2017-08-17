@@ -397,12 +397,6 @@
                               <div class='modal-content'>
                                                   
                                 <div class='color-line'></div>
-                                  
-                                  <div class='modal-header'>
-                                                          
-                                    <h4 class='modal-title'>Funding ID : <strong>".$funding_id."</strong></h4>
-
-                                  </div>
 
                                   <div class='modal-body table-responsive'>";
 
