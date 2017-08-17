@@ -414,8 +414,8 @@
 
                                         <strong>
 
-                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name (HOA ID)</div>
-                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address (Home ID)</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name<br>(HOA ID)</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address<br>(Home ID)</div>
                                           <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>ID</div>
                                           <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Status</div>
                                           <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Amount</div>
@@ -457,7 +457,7 @@
 
                                           $address = $row11['address1'];
 
-                                          echo "<div class='row text-center'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$name ($t_hoa_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address ($t_home_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
+                                          echo "<div class='row text-center'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$name<br>($t_hoa_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address<br>($t_home_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
 
                                         }
 
