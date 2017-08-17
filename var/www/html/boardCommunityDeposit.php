@@ -453,9 +453,7 @@
 
                                           $row11 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id='$transaction_id'"));
 
-                                          print_r($row11);
-
-                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$name</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$row11['hoa_id']</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$address</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$row11['home_id']</div></div><br>";
 
                                           echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
