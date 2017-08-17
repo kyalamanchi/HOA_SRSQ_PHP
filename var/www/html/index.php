@@ -569,7 +569,7 @@
                     <div class="icon">
                       
                       <!--i style="font-size: 55px;" class="fa fa-book"></i-->
-                      <img src="test-icon.png" alt='test icon'>
+                      <img src="test-icon.png" alt='test icon' height=100 width=100>
 
                     </div>
 
