@@ -1016,7 +1016,7 @@
 
               </div>
 
-              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6" style="border-top: solid; border-bottom: solid; border-left: solid; border-right: solid; border-radius: 1pt;">
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
                 <a href=''>
 
