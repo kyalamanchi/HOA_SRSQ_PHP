@@ -453,7 +453,20 @@
 
                                           $row11 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id='$transaction_id'"));
 
-                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$name</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$row11['hoa_id']</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$address</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$row11['home_id']</div></div><br>";
+                                          $t_hoa_id = $row11['hoa_id'];
+                                          $t_home_id = $row11['home_id'];
+
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$t_hoa_id"));
+
+                                          $name = $row11['firstname'];
+                                          $name .= " ";
+                                          $name .= $row11['lastname'];
+
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$t_home_id"));
+
+                                          $address = $row11['address1'];
+
+                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$name</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$t_hoa_id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$address</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$t_home_id</div></div><br>";
 
                                           echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
 
