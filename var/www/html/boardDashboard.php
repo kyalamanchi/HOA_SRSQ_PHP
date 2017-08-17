@@ -1024,7 +1024,7 @@
 
                     <br>
 
-                    <div class="row">
+                    <div class="row container-fluid text-center">
 
                       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
@@ -1042,7 +1042,7 @@
 
                     <hr class="small">
 
-                    <div class="row container-fluid">
+                    <div class="row container-fluid text-center">
 
                       Collection Accounts
 
