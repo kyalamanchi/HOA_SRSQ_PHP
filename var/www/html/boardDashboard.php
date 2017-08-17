@@ -1016,7 +1016,7 @@
 
               </div>
 
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
+              <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
                 <a href=''>
 
@@ -1024,7 +1024,7 @@
 
                     <br>
 
-                    <div class="row container text-center">
+                    <div class="row text-center">
 
                       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
@@ -1034,7 +1034,7 @@
 
                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
-                        00000
+                        <strong>00000</strong>
 
                       </div>
 
@@ -1042,9 +1042,9 @@
 
                     <hr class="small">
 
-                    <div class="row container text-center">
+                    <div class="row text-center">
 
-                      Collection Accounts
+                      <strong>Collection Accounts</strong>
 
                     </div>
 
