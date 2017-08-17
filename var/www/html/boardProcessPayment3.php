@@ -82,8 +82,8 @@
 
                 
                 
-                $content = 'Your payment was processed on '.date('m/d/Y', strtotime($process_date)).' with confirmation '.$document_num.'.';
-                $subject = 'HOA Payment Processed - '.$community;
+                $content = 'We received your HOA Payment ($'.$amount.') for account '.$hoa_id.' on '.date('m/d/Y', strtotime($process_date)).' and here is the confirmation code'.$document_num.'.';
+                $subject = 'HOA Payment Received for Account - '.$hoa_id;
                 $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
                 $content_text = strip_tags($content);
 
