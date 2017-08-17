@@ -433,7 +433,7 @@
 
         </section>
 
-        <section class="content">
+        <section class="content" style="background-color: #ffffff;">
           
           <div class="row">
 
@@ -1020,7 +1020,7 @@
 
                 <a href=''>
 
-                  <div style="background-color: #ffffff;">
+                  <div>
 
                     <br>
 
