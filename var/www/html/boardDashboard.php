@@ -425,6 +425,8 @@
           $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='OUT_FOR_SIGNATURE'");
           $pending_agreements = pg_num_rows($result);
 
+          $inspections = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
+
         ?>
         
         <section class="content-header">
@@ -956,10 +958,10 @@
 
                       <?php 
 
-                        if($violations > 0)
-                          echo "<h2 class='text-orange'><strong>".$violations."</strong></h2>"; 
+                        if($inspections > 0)
+                          echo "<h2 class='text-orange'><strong>".$inspections."</strong></h2>"; 
                         else
-                          echo "<h2 class='text-green'><strong>".$violations."</strong></h2>";
+                          echo "<h2 class='text-green'><strong>".$inspections."</strong></h2>";
 
                       ?>
 
