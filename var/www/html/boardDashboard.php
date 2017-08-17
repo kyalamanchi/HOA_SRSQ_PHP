@@ -904,7 +904,7 @@
 
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
-                      <h4><strong><?php echo $documents; ?></strong></h4>
+                      <h2><strong><?php echo $documents; ?></strong></h2>
 
                     </div>
 
@@ -947,9 +947,9 @@
                       <?php 
 
                         if($violations > 0)
-                          echo "<h4 class='text-orange'><strong>".$violations."</strong></h4>"; 
+                          echo "<h2 class='text-orange'><strong>".$violations."</strong></h2>"; 
                         else
-                          echo "<h4 class='text-green'><strong>".$violations."</strong></h4>";
+                          echo "<h2 class='text-green'><strong>".$violations."</strong></h2>";
 
                       ?>
 
@@ -994,9 +994,9 @@
                       <?php 
 
                         if($pending_agreements > 0)
-                          echo "<h4 class='text-orange'><strong>".$pending_agreements."</strong></h4>"; 
+                          echo "<h2 class='text-orange'><strong>".$pending_agreements."</strong></h2>"; 
                         else
-                          echo "<h4 class='text-green'><strong>".$pending_agreements."</strong></h4>";
+                          echo "<h2 class='text-green'><strong>".$pending_agreements."</strong></h2>";
 
                       ?>
 
@@ -1041,9 +1041,9 @@
                       <?php 
 
                         if($pending_agreements > 0)
-                          echo "<h4 class='text-green'><strong>".$signed_agreements."</strong></h4>"; 
+                          echo "<h2 class='text-green'><strong>".$signed_agreements."</strong></h2>"; 
                         else
-                          echo "<h4 class='text-info'><strong>".$signed_agreements."</strong></h4>";
+                          echo "<h2 class='text-info'><strong>".$signed_agreements."</strong></h2>";
 
                       ?>
 
