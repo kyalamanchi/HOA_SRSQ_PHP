@@ -1020,7 +1020,7 @@
 
                 <a href=''>
 
-                  <div style="background-color: #ffffff;">
+                  <div class="row container-fluid">
 
                     <br>
 
