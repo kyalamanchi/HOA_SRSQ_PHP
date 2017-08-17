@@ -938,7 +938,7 @@
 
                     <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
 
-                      <img src="inspections.png" height=75 width=75 alt='Inspection Notices'>
+                      <img src="delinquent_accounts.png" height=75 width=75 alt='Delinquent Accounts'>
 
                     </div>
 
