@@ -897,13 +897,13 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <img src="delinquent_accounts.png" height=75 width=75 alt='Delinquent Accounts'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <?php 
 
@@ -987,13 +987,13 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <img src="pending_agreements.png" height=75 width=75 alt='Pending Agreements'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <?php 
 
@@ -1032,13 +1032,13 @@
 
                   <div class="row">
 
-                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
 
                       <img src="signed_agreements.png" height=75 width=75 alt='Pending Agreements'>
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
 
                       <?php 
 
@@ -1052,8 +1052,6 @@
                     </div>
 
                   </div>
-
-                  <div class='row container-fluid'><hr style="color: blue;"></div>
 
                   <div class="row text-center">
 
