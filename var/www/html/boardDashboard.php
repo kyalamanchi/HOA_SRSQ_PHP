@@ -835,7 +835,7 @@
 
                   </div>
 
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Community Deposits</strong></h4>
 
@@ -873,7 +873,7 @@
 
                   </div>
 
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Community Documents</strong></h4>
 
@@ -918,7 +918,7 @@
 
                   </div>
 
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Delinquent Accounts</strong></h4>
 
@@ -963,7 +963,7 @@
 
                   </div>
 
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Inspection Notices</strong></h4>
 
@@ -1008,7 +1008,7 @@
 
                   </div>
 
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Pending Agreemnts</strong></h4>
 
@@ -1053,7 +1053,7 @@
 
                   </div>
 
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Signed Agreemnts</strong></h4>
 
