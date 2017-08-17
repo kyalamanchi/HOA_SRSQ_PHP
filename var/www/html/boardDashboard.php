@@ -969,9 +969,7 @@
 
                   </div>
 
-                  <div class='row container-fluid'><hr style="color: blue;"></div>
-
-                  <div class="row text-center">
+                  <div class="row text-left">
 
                     <h4><strong>Inspection Notices</strong></h4>
 
