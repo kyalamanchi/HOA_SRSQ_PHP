@@ -1040,7 +1040,7 @@
 
                     </div>
 
-                    <hr class="small">
+                    <div class='row container-fluid'><hr class="small"></div>
 
                     <div class="row text-center">
 
