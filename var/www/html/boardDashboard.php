@@ -821,7 +821,7 @@
 
                   <br>
 
-                  <div class="row">
+                  <div class="row container-fluid text-left">
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
@@ -835,7 +835,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row container-fluid text-left">
 
                     <h4><strong>Community Deposits</strong></h4>
 
@@ -853,11 +853,11 @@
 
               <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
 
-                <div class="row container-fluid">
+                <div class="row container-fluid text-left">
 
                   <br>
 
-                  <div class="row">
+                  <div class="row container-fluid">
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
@@ -873,7 +873,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row container-fluid text-left">
 
                     <h4><strong>Community Documents</strong></h4>
 
@@ -891,11 +891,11 @@
 
               <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
 
-                <div class="row container-fluid">
+                <div class="row container-fluid text-left">
 
                   <br>
 
-                  <div class="row">
+                  <div class="row container-fluid">
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
@@ -918,7 +918,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row container-fluid text-left">
 
                     <h4><strong>Delinquent Accounts</strong></h4>
 
@@ -936,11 +936,11 @@
 
               <a href='https://hoaboardtime.com/boardViolationCitations.php'>
 
-                <div class="row container-fluid">
+                <div class="row container-fluid text-left">
 
                   <br>
 
-                  <div class="row">
+                  <div class="row container-fluid">
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
@@ -963,7 +963,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row container-fluid text-left">
 
                     <h4><strong>Inspection Notices</strong></h4>
 
@@ -981,11 +981,11 @@
 
               <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
 
-                <div class="row container-fluid">
+                <div class="row container-fluid text-left">
 
                   <br>
 
-                  <div class="row">
+                  <div class="row container-fluid">
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
@@ -1008,7 +1008,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row container-fluid text-left">
 
                     <h4><strong>Pending Agreemnts</strong></h4>
 
@@ -1026,11 +1026,11 @@
 
               <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
 
-                <div class="row container-fluid">
+                <div class="row container-fluid text-left">
 
                   <br>
 
-                  <div class="row">
+                  <div class="row container-fluid">
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
 
@@ -1053,7 +1053,7 @@
 
                   </div>
 
-                  <div class="row text-left">
+                  <div class="row container-fluid text-left">
 
                     <h4><strong>Signed Agreemnts</strong></h4>
 
