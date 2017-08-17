@@ -761,49 +761,6 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <?php if(date('d') >= 16) echo "<a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>"; ?>
-
-                  <div style="background:#ffffff;">
-                
-                    <div class="box-header">
-                  
-                      <div class='row container-fluid'><i class="fa fa-clock-o fa-4x pull-left text-aqua"></i>
-                  
-                        <b class="pull-right">
-                          
-                          <?php 
-                        
-                            $result = pg_query("SELECT distinct home_id FROM current_payments WHERE payment_status_id=1 AND community_id=".$community_id." AND process_date>='$year-$month-16' AND process_date<='$year-$month-$end_date'");
-                            $late = 0;
-                                                      
-                            while($row = pg_fetch_assoc($result))
-                              $late++;
-
-                            if($late == 0)
-                              echo "<h4 class='text-success'><strong>0</strong></h4>";
-                            else
-                              echo "<h4 class='text-info'><strong>".$late."</strong></h4>";
-
-                          ?>
-
-                        </b>
-
-                      </div>
-                      
-                      <div class='row container-fluid text-center'><br>Late Payments</div>
-                
-                    </div>
-
-                  </div>
-
-                <?php if(date('d') >= 16) echo "</a>"; ?>
-
-                <br>
-
-              </div>
-
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                
                 <a href='https://hoaboardtime.com/boardViolationCitations.php'>
 
                   <div style="background:#ffffff;">
