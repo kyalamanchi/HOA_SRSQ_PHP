@@ -1034,7 +1034,7 @@
 
                       <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
-                        <strong>00000</strong>
+                        <h4><strong>00000</strong></h4>
 
                       </div>
 
@@ -1044,7 +1044,7 @@
 
                     <div class="row text-center">
 
-                      <strong>Collection Accounts</strong>
+                      <h4><strong>Collection Accounts</strong></h4>
 
                     </div>
 
