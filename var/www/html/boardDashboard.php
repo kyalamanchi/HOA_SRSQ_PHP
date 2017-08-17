@@ -1124,7 +1124,14 @@
 
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
-                      <h4><strong><?php echo $documents; ?></strong></h4>
+                      <?php 
+
+                        if($violations > 0)
+                          echo "<h4 class='text-orange'><strong>".$violations."</strong></h4>"; 
+                        else
+                          echo "<h4 class='text-green'><strong>".$violations."</strong></h4>";
+
+                      ?>
 
                     </div>
 
