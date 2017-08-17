@@ -414,21 +414,12 @@
 
                                         <strong>
 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Name (HOA ID)</div>
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Address (Home ID)</div>
-
-                                        </strong>
-
-                                      </div>
-
-                                      <div class='row text-center'>
-
-                                        <strong>
-
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>ID</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Status</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Amount</div>
-                                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>Received Date</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name (HOA ID)</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address (Home ID)</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>ID</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Status</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Amount</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Received Date</div>
 
                                         </strong>
 
@@ -466,9 +457,7 @@
 
                                           $address = $row11['address1'];
 
-                                          echo "<div class='row text-center'><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>$name ($t_hoa_id)</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>$address ($t_home_id)</div></div>";
-
-                                          echo "<div class='row text-center'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div><br>";
+                                          echo "<div class='row text-center'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$name ($t_hoa_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address ($t_home_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
 
                                         }
 
