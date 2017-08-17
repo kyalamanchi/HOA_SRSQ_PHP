@@ -1106,6 +1106,46 @@
 
             </div>
 
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
+              <a href='https://hoaboardtime.com/boardViolationCitations.php'>
+
+                <div class="row container-fluid">
+
+                  <br>
+
+                  <div class="row">
+
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+
+                      <img src="inspections.png" height=75 width=75 alt='Community Documents'>
+
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                      <h4><strong><?php echo $documents; ?></strong></h4>
+
+                    </div>
+
+                  </div>
+
+                  <div class='row container-fluid'><hr style="color: blue;"></div>
+
+                  <div class="row text-center">
+
+                    <h4><strong>Inspection Notices</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
             <br>
 
           </div>
