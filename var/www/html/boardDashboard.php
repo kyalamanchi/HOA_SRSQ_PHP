@@ -947,9 +947,9 @@
                       <?php 
 
                         if($del_acc == 0 || $del_acc == "")
-                          echo "<h2 class='text-red'><strong>".$del_acc."</strong></h2>"; 
+                          echo "<h2 class='text-green'><strong>".$del_acc."</strong></h2>"; 
                         else
-                          echo "<h2 class='text-green'><strong>".$del_acc."</strong></h2>";
+                          echo "<h2 class='text-red'><strong>".$del_acc."</strong></h2>";
 
                       ?>
 
