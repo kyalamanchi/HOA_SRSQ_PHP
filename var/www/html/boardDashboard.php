@@ -954,7 +954,7 @@
 
                     </div>
 
-                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4 text-left">
 
                       <?php 
 
