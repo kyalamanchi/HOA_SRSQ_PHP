@@ -657,7 +657,7 @@
 
           </div>
 
-          <div class="row" style="background-color: #ffffff;">
+          <div class="row">
             
             <section class="col-lg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
@@ -1020,11 +1020,11 @@
 
                 <a href=''>
 
-                  <div>
+                  <div style="background-color: #ffffff;">
 
                     <br>
 
-                    <div class="row container-fluid">
+                    <div class="row">
 
                       <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8">
 
