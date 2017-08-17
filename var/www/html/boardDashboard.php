@@ -928,6 +928,53 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
+              <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
+
+                <div class="row container-fluid">
+
+                  <br>
+
+                  <div class="row">
+
+                    <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 text-center">
+
+                      <img src="inspections.png" height=75 width=75 alt='Inspection Notices'>
+
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+
+                      <?php 
+
+                        if($del_acc == 0 || $del_acc == "")
+                          echo "<h2 class='text-red'><strong>".$del_acc."</strong></h2>"; 
+                        else
+                          echo "<h2 class='text-green'><strong>".$del_acc."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class='row container-fluid'><hr style="color: blue;"></div>
+
+                  <div class="row text-center">
+
+                    <h4><strong>Delinquent Accounts</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
               <a href='https://hoaboardtime.com/boardViolationCitations.php'>
 
                 <div class="row container-fluid">
