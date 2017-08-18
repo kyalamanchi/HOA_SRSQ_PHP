@@ -347,135 +347,6 @@
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
-                <div class="info-box">
-                  
-                  <span class="info-box-icon bg-green"><i class="fa fa-check-square-o"></i></span>
-
-                  <div class="info-box-content">
-              
-                    <span class="info-box-text">Payments Processed - <?php echo date("F").", ".date('y'); ?></span>
-                    
-                    <?php
-
-                      $ach = 0;
-                      $billpay = 0;
-                      $cheque = 0;
-
-                      $result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='".date("Y")."-".date("m")."-1' AND process_date<='".date("Y")."-".date('m')."-".date('t')."'");
-                        
-                      while($row = pg_fetch_assoc($result))
-                      {
-                        if($row['payment_type_id'] == 1)
-                          $ach++;
-                        else if($row['payment_type_id'] == 2)
-                          $billpay++;
-                        else if($row['payment_type_id'] == 3)
-                          $cheque++;
-                      }
-
-                      echo "ACH : ".$ach."<br>BillPay : ".$billpay."<br>Check : ".$cheque;
-
-                    ?>
-            
-                  </div>
-
-                </div>
-              
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
-              <div class="info-box">
-                  
-                <span class="info-box-icon bg-yellow"><i class="fa fa-dollar"></i></span>
-
-                <div class="info-box-content">
-              
-                  <span class="info-box-text text-yellow">Bank Account Balance</span>
-                    
-                  <?php
-
-                    if($community_id == 1)
-                    { 
-                      
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
-                      
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497428519",oauth_nonce="a4xBATp34bt",oauth_version="1.0",oauth_signature="kh9W2TS%2BgFz71nivoMNkMAvSvgQ%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            
-                      $result = curl_exec($ch);
-                      $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_current_balance = $srp_primarySavings['CurrentBalance'];
-                            
-                      curl_close($ch);
-
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
-                            
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497429042",oauth_nonce="zoRTBwG53rl",oauth_version="1.0",oauth_signature="KrrTrLBiDOUerb3%2Fticzvo%2F0HTI%3D'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            
-                      $result2 = curl_exec($ch);
-                      $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings_balance = $srp['CurrentBalance'];
-
-                      echo "Savings : <strong>$ ".$srp_savings_balance."</strong><br>Checkings : <strong>$ ".$srp_current_balance."</strong>";
-                    }
-                    else if($community_id == 2)
-                    {
-                      
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="SgxTWpaSRB7NawOfilk18B%2B5uF0%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-                      $result = curl_exec($ch);
-                      $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
-
-                      curl_close($ch);
-
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
-                      
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497506240",oauth_nonce="17mNrXSoBTU",oauth_version="1.0",oauth_signature="brqtLZqCSEl1grnLuP%2BmNJfg0Bw%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-                      $result2 = curl_exec($ch);
-                      $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings = $srp['CurrentBalance'];
-
-                      curl_close($ch);
-
-                      $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
-                      
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497507166",oauth_nonce="bBshApDVeXD",oauth_version="1.0",oauth_signature="Fy%2F4%2F6bglRFcBK3of%2F2vCZk%2BPXY%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-
-                      $result3 = curl_exec($ch);
-                      $json_decode3 = json_decode($result3,TRUE);
-                      $srsq_third_Account = $json_decode3['Account'];
-                      $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
-
-                      echo "Savings : <strong>$ ".$srp_primary_Savings_CurrentBalance."</strong><br>Checkings : <strong>$ ".$srp_savings."</strong><br>Investments : <strong>$ ".$srsq_third_Account_Balance."</strong>";
-                    }
-
-                  ?>
-            
-                </div>
-
-              </div>
-              
-            </div>
-
           </div>
 
           <div class='row container-fluid' style="background-color: #ffffff;">
@@ -595,7 +466,7 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
@@ -696,6 +567,139 @@
             </div>
 
             <br>
+
+          </div>
+
+          <div class='row container-fluid'>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6">
+          
+                <div class="info-box">
+                  
+                  <span class="info-box-icon bg-green"><i class="fa fa-check-square-o"></i></span>
+
+                  <div class="info-box-content">
+              
+                    <span class="info-box-text">Payments Processed - <?php echo date("F").", ".date('y'); ?></span>
+                    
+                    <?php
+
+                      $ach = 0;
+                      $billpay = 0;
+                      $cheque = 0;
+
+                      $result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='".date("Y")."-".date("m")."-1' AND process_date<='".date("Y")."-".date('m')."-".date('t')."'");
+                        
+                      while($row = pg_fetch_assoc($result))
+                      {
+                        if($row['payment_type_id'] == 1)
+                          $ach++;
+                        else if($row['payment_type_id'] == 2)
+                          $billpay++;
+                        else if($row['payment_type_id'] == 3)
+                          $cheque++;
+                      }
+
+                      echo "ACH : ".$ach."<br>BillPay : ".$billpay."<br>Check : ".$cheque;
+
+                    ?>
+            
+                  </div>
+
+                </div>
+              
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6">
+          
+              <div class="info-box">
+                  
+                <span class="info-box-icon bg-yellow"><i class="fa fa-dollar"></i></span>
+
+                <div class="info-box-content">
+              
+                  <span class="info-box-text text-yellow">Bank Account Balance</span>
+                    
+                  <?php
+
+                    if($community_id == 1)
+                    { 
+                      
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
+                      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497428519",oauth_nonce="a4xBATp34bt",oauth_version="1.0",oauth_signature="kh9W2TS%2BgFz71nivoMNkMAvSvgQ%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                      $result = curl_exec($ch);
+                      $json_decode = json_decode($result,TRUE);
+                      $srp_primarySavings = $json_decode['Account'];
+                      $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+                            
+                      curl_close($ch);
+
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
+                            
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497429042",oauth_nonce="zoRTBwG53rl",oauth_version="1.0",oauth_signature="KrrTrLBiDOUerb3%2Fticzvo%2F0HTI%3D'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                      $result2 = curl_exec($ch);
+                      $json_decode2 = json_decode($result2,TRUE);
+                      $srp = $json_decode2['Account'];
+                      $srp_savings_balance = $srp['CurrentBalance'];
+
+                      echo "Savings : <strong>$ ".$srp_savings_balance."</strong><br>Checkings : <strong>$ ".$srp_current_balance."</strong>";
+                    }
+                    else if($community_id == 2)
+                    {
+                      
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="SgxTWpaSRB7NawOfilk18B%2B5uF0%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                      $result = curl_exec($ch);
+                      $json_decode = json_decode($result,TRUE);
+                      $srp_primarySavings = $json_decode['Account'];
+                      $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+
+                      curl_close($ch);
+
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
+                      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497506240",oauth_nonce="17mNrXSoBTU",oauth_version="1.0",oauth_signature="brqtLZqCSEl1grnLuP%2BmNJfg0Bw%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                      $result2 = curl_exec($ch);
+                      $json_decode2 = json_decode($result2,TRUE);
+                      $srp = $json_decode2['Account'];
+                      $srp_savings = $srp['CurrentBalance'];
+
+                      curl_close($ch);
+
+                      $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
+                      
+                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497507166",oauth_nonce="bBshApDVeXD",oauth_version="1.0",oauth_signature="Fy%2F4%2F6bglRFcBK3of%2F2vCZk%2BPXY%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                      $result3 = curl_exec($ch);
+                      $json_decode3 = json_decode($result3,TRUE);
+                      $srsq_third_Account = $json_decode3['Account'];
+                      $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+
+                      echo "Savings : <strong>$ ".$srp_primary_Savings_CurrentBalance."</strong><br>Checkings : <strong>$ ".$srp_savings."</strong><br>Investments : <strong>$ ".$srsq_third_Account_Balance."</strong>";
+                    }
+
+                  ?>
+            
+                </div>
+
+              </div>
+              
+            </div>
 
           </div>
 
