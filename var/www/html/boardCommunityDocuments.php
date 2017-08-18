@@ -526,7 +526,7 @@
                                 if($date_of_upload != '')
                                   $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
 
-                                if()
+                                if($category != '')
                                 {
 
                                   $row11 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$category"));
