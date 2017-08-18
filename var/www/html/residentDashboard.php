@@ -570,6 +570,8 @@
 
           </div>
 
+          <br><br>
+
           <div class='row container-fluid'>
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6">
