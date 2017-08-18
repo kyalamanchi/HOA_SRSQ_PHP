@@ -505,48 +505,44 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
-              <a href='https://hoaboardtime.com/residentInvoice.php'>
+              <div class="row container-fluid text-left">
 
-                <div class="row container-fluid text-left">
+                <br>
 
-                  <br>
+                <div class="row container-fluid">
 
-                  <div class="row container-fluid">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="account_balance.png" height=75 width=75 alt='Account Balance'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <?php
-
-                        if($balance <= 0)
-                          echo "<h2 class='text-green'><strong>$ ".$balance."</strong></h2>";
-                        else if($balance > 0 && $balance <= $monthly_assessment)
-                          echo "<h2 class='text-orange'><strong>$ ".$balance."</strong></h2>";
-                        else if($balance > $monthly_assessment)
-                          echo "<h2 class='text-red'><strong>$ ".$balance."</strong></h2>";
-
-                      ?>
-
-                    </div>
+                    <img src="account_balance.png" height=75 width=75 alt='Account Balance'>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                    <h4><strong>Account Balance</strong></h4>
+                    <?php
+
+                      if($balance <= 0)
+                        echo "<h2 class='text-green'><strong>$ ".$balance."</strong></h2>";
+                      else if($balance > 0 && $balance <= $monthly_assessment)
+                        echo "<h2 class='text-orange'><strong>$ ".$balance."</strong></h2>";
+                      else if($balance > $monthly_assessment)
+                        echo "<h2 class='text-red'><strong>$ ".$balance."</strong></h2>";
+
+                    ?>
 
                   </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-left">
+
+                  <h4><strong>Account Balance</strong></h4>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
