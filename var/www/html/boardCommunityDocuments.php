@@ -586,51 +586,51 @@
     <script>
       $(function () {
         
-        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example1").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example2").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example3").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example3").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example4").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example4").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example5").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example5").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example6").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example6").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example7").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example7").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example8").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example8").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example9").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example9").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example10").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example10").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example11").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example11").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example12").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example12").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example13").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example13").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example14").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example14").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example15").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example15").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example16").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example16").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example17").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example17").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example18").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example18").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example19").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example19").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example20").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example20").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example21").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example21").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example22").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example22").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
 
-        $("#example23").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example23").DataTable({ "pageLength": 10, "order": [[0, 'desc']] });
         
       });
     </script>
