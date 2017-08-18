@@ -1409,11 +1409,8 @@
 
                     <thead>
                       
-                      <th>Name (HOA ID)</th>
-                      <th>Resident Since</th>
-                      <th>Role</th>
-                      <th>Email</th>
-                      <th>Phone</th>
+                      <th>Description</th>
+                      <th>Uploaded On</th>
 
                     </thead>
 
@@ -1424,7 +1421,7 @@
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid=$hoa_id"));
                         
 
-                        echo "<tr></tr>";
+                        echo "<tr><td></td><td></td></tr>";
 
                       ?>
                       
