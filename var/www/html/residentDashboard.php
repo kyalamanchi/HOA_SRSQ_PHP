@@ -685,7 +685,7 @@
                         $row = pg_fetch_assoc($result);
                         $num = $row['count'];
 
-                        echo "<b class='text-info'>".$num."</b>";
+                        echo "<h2 class='text-green'><strong>".$num."</strong></h2>";
                                       
                       ?>
 
