@@ -568,8 +568,7 @@
 
                     <div class="icon">
                       
-                      <!--i style="font-size: 55px;" class="fa fa-book"></i-->
-                      <img src="test-icon.png" alt='test icon' height=50 width=50>
+                      <i style="font-size: 55px;" class="fa fa-book"></i>
 
                     </div>
 
