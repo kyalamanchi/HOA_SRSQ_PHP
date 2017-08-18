@@ -502,7 +502,7 @@
 
                         <div class='row container-fluid table-responsive'>
 
-                          <table id='".$id."' class='table table-bordered table-stripped'>
+                          <table id='".$id."' class='table table-bordered table-striped'>
 
                             <thead>
 
