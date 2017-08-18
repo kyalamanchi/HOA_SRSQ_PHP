@@ -902,10 +902,10 @@
                         $result = pg_query("SELECT distinct home_id FROM current_payments WHERE payment_status_id=1 AND community_id=".$community_id." AND process_date>='$year-$month-16' AND process_date<='$year-$month-$end_date'");
                         $late = pg_num_rows($result);
 
-                        if($late == 0)
-                          echo "<h4 class='text-green'><strong>0</strong></h4>";
+                        if($late > 0)
+                          echo "<h2 class='text-orange'><strong>".$late."</strong></h2>"; 
                         else
-                          echo "<h4 class='text-orange'><strong>".$late."</strong></h4>";
+                          echo "<h2 class='text-green'><strong>".$late."</strong></h2>";
 
                       ?>
 
