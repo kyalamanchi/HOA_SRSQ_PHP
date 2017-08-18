@@ -517,7 +517,7 @@
                               $desc = $row1['description'];
                               $category = $row1['document_category_id'];
                               $document_url = $row1['url'];
-                              $date_of_upload = $row1['uoploaded_date'];
+                              $date_of_upload = $row1['uploaded_date'];
 
                               if($date_of_upload != '')
                                 $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
