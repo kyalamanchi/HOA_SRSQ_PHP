@@ -303,26 +303,6 @@
 
             <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
           
-                <a href="https://hoaboardtime.com/residentInvoice.php">
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-purple"><i class="fa fa-file-text-o"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">Invoice<br>&amp;<br>Account Statement</span>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
                 <a><!--  href="https://hoaboardtime.com/residentParkingTags.php" -->
           
                   <div class="info-box">
@@ -333,41 +313,6 @@
               
                       <span class="info-box-text">Parking Tags</span><br>
                       <span class="info-box-number"></span>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
-                <a href="residentDirectory.php">
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-black"><i class="fa fa-book"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">Resident Directory</span><br>
-                      <span class="info-box-number">
-                        
-                        <?php
-                          
-                          $query = "SELECT count(*) FROM member_info WHERE community_id=".$community_id;
-
-                          $result = pg_query($query);
-                          $row = pg_fetch_assoc($result);
-                          $num = $row['count'];
-
-                          echo "<b class='text-sky-blue'>".$num."</b>";
-                                      
-                        ?>
-                          
-                      </span>
             
                     </div>
 
