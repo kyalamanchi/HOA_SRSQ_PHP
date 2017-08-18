@@ -485,8 +485,12 @@
 
                 $result = pg_query("SELECT year_of_upload FROM document_management WHERE community_id=$community_id GROUP BY year_of_upload ORDER BY year_of_upload DESC");
 
+                $i = 0;
+
                 while($row = pg_fetch_assoc($result))
                 {
+
+                  $i++;
                 
                   $year_of_upload = $row['year_of_upload'];
                   
@@ -502,7 +506,7 @@
 
                       <div class='timeline-body container-fluid'>
 
-                        <table id='example1' class='table table-bordered table-stripped'>
+                        <table id='example".$i."' class='table table-bordered table-stripped'>
 
                           <thead>
 
@@ -522,8 +526,12 @@
                               $desc = $row1['description'];
                               $category = $row1['document_category_id'];
                               $document_url = $row1['url'];
+                              $date_of_upload = $row1['uoploaded_date'];
 
-                              echo "<tr><td></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td></td></tr>";
+                              if($date_of_upload != '')
+                                $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+                              echo "<tr><td>$date_of_upload</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
 
                             }
 
@@ -580,6 +588,58 @@
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
+
+    <script>
+      $(function () {
+        
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example3").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example4").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example5").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example6").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example7").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example8").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example9").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example10").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example11").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example12").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example13").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example14").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example15").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example16").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example17").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example18").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example19").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example20").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example21").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example22").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example23").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        
+      });
+    </script>
 
   </body>
 
