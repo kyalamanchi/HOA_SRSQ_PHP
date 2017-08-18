@@ -286,23 +286,6 @@
 
             <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
           
-                <div class="info-box">
-                  
-                  <span class="info-box-icon bg-yellow"><i class="fa fa-dollar"></i></span>
-
-                  <div class="info-box-content">
-              
-                    <span class="info-box-text">Account Balance</span><br>
-                    <span class="info-box-number text-yellow">$ <?php echo $balance; ?></span>
-            
-                  </div>
-
-                </div>
-              
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
                 <a><!--  href="https://hoaboardtime.com/residentParkingTags.php" -->
           
                   <div class="info-box">
@@ -519,6 +502,53 @@
           <div class='row container-fluid' style="background-color: #ffffff;">
 
             <br>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
+              <a href='https://hoaboardtime.com/residentInvoice.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="account_balance.png" height=75 width=75 alt='Account Balance'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
+                        if($balance <= 0)
+                          echo "<h2 class='text-green'><strong>$ ".$balance."</strong></h2>";
+                        else if($balance > 0 && $balance <= $monthly_assessment)
+                          echo "<h2 class='text-orange'><strong>$ ".$balance."</strong></h2>";
+                        else if($balance > $monthly_assessment)
+                          echo "<h2 class='text-red'><strong>$ ".$balance."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Account Balance</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
