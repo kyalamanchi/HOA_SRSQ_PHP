@@ -483,7 +483,8 @@
 
                   $i++;
 
-                  echo $i;
+                  $id = 'example';
+                  $id .= $i;
                 
                   $year_of_upload = $row['year_of_upload'];
                   
@@ -501,7 +502,7 @@
 
                         <div class='row table-responsive'>
 
-                          <table id='example".$i."' class='table table-bordered table-stripped'>
+                          <table id='".$id."' class='table table-bordered table-stripped'>
 
                             <thead>
 
