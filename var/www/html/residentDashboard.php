@@ -332,7 +332,7 @@
 
             <br>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <div class="row container-fluid text-left">
 
@@ -375,7 +375,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/residentInvoice.php'>
 
@@ -411,7 +411,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/residentVendorDashboard.php'>
 
@@ -453,7 +453,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <!--a-->
 
@@ -491,7 +491,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/residentPendingAgreements.php'>
 
@@ -539,7 +539,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/residentDirectory.php'>
 
@@ -595,7 +595,7 @@
 
           <div class='row container-fluid'>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12">
           
                 <div class="info-box">
                   
@@ -633,7 +633,7 @@
               
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-xs-6">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-xs-12">
           
               <div class="info-box">
                   
