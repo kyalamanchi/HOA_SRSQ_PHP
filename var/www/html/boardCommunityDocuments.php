@@ -374,51 +374,51 @@
 
         <section class="content">
 
-          <div class="row container-fluid">
+          <!--div class="row container-fluid">
             
             <section class="col-lg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
               <?php
               
-                for($i = 1; $i <= $num_type_docs; $i++)
+                #for($i = 1; $i <= $num_type_docs; $i++)
                 {
                   
-                  if($num_docs[$i] > 0)
+                  #if($num_docs[$i] > 0)
                   {
 
-                    $document_type = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$i"));
+                    #$document_type = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$i"));
 
-                    $document_type = $document_type['document_category_name'];
+                    #$document_type = $document_type['document_category_name'];
                     
-                    echo "<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+                    #echo "<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
                     
-                      <a href='https://hoaboardtime.com/boardShowDocuments.php?document_category=$i'>
+                    #  <a href='https://hoaboardtime.com/boardShowDocuments.php?document_category=$i'>
 
-                        <div style='background:#ffffff;'>
+                    #    <div style='background:#ffffff;'>
                       
-                          <div class='box-header'>
+                    #      <div class='box-header'>
                         
-                            <div class='row container-fluid'><i class='fa fa-files-o fa-4x pull-left text-aqua'></i>
+                    #        <div class='row container-fluid'><i class='fa fa-files-o fa-4x pull-left text-aqua'></i>
                         
-                              <b class='pull-right'>
+                    #          <b class='pull-right'>
                                 
-                                <h4 class='text-info'><strong>".$num_docs[$i]."</strong></h4>
+                    #            <h4 class='text-info'><strong>".$num_docs[$i]."</strong></h4>
 
-                              </b>
+                    #          </b>
 
-                            </div>
+                    #        </div>
                             
-                            <div class='row container-fluid text-center'><br>".$document_type."</div>
+                    #        <div class='row container-fluid text-center'><br>".$document_type."</div>
                       
-                          </div>
+                    #      </div>
 
-                        </div>
+                    #    </div>
 
-                      </a>
+                    #  </a>
 
-                      <br>
+                    #  <br>
 
-                    </div>";
+                    #</div>";
 
                   }
 
@@ -428,7 +428,7 @@
 
               <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
                 
-                <?php if($others > 0) echo "<a href='https://hoaboardtime.com/boardShowDocuments.php?document_category=0'>"; ?>
+                <?php #if($others > 0) echo "<a href='https://hoaboardtime.com/boardShowDocuments.php?document_category=0'>"; ?>
 
                   <div style="background:#ffffff;">
                 
@@ -440,10 +440,10 @@
                           
                           <?php 
 
-                            if($others == 0)
-                              echo "<h4 class='text-success'><strong>0</strong></h4>";
-                            else
-                              echo "<h4 class='text-info'><strong>".$others."</strong></h4>";
+                            #if($others == 0)
+                            #  echo "<h4 class='text-success'><strong>0</strong></h4>";
+                            #else
+                            #  echo "<h4 class='text-info'><strong>".$others."</strong></h4>";
 
                           ?>
 
@@ -457,7 +457,7 @@
 
                   </div>
 
-                <?php if($others > 0) echo "</a>"; ?>
+                <?php #if($others > 0) echo "</a>"; ?>
 
                 <br>
 
@@ -465,7 +465,7 @@
 
             </section>
             
-          </div>
+          </div-->
 
           <div class="row container-fluid">
 
