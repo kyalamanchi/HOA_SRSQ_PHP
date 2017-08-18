@@ -563,6 +563,44 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
+              <a>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <h2 class="text-info"><strong>0</strong></h2>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>My Parking Tags</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
               <a href='https://hoaboardtime.com/residentPendingAgreements.php'>
 
                 <div class="row container-fluid text-left">
@@ -598,42 +636,6 @@
                   <div class="row container-fluid text-left">
 
                     <h4><strong>My Pending Agreements</strong></h4>
-
-                  </div>
-
-                  <br>
-
-                </div>
-
-              </a>
-
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
-
-              <a>
-
-                <div class="row container-fluid text-left">
-
-                  <br>
-
-                  <div class="row container-fluid">
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                    </div>
-
-                  </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <h4><strong>Parking Tags</strong></h4>
 
                   </div>
 
