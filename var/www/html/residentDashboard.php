@@ -571,6 +571,58 @@
 
           </div>
 
+          <div class='row container-fluid'>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
+              <a href='https://hoaboardtime.com/residentPendingAgreements.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="pending_agreements.png" height=75 width=75 alt='Pending Agreements'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '".$_SESSION['hoa_email']."' AND agreement_status='OUT_FOR_SIGNATURE'");
+                        $pending_agreements = pg_num_rows($result);
+
+                        if($pending_agreements == 0)
+                          echo "<h2 class='text-green'><strong>".$pending_agreements."</strong></h2>"; 
+                        else
+                          echo "<h2 class='text-red'><strong>".$pending_agreements."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>My Pending Agreements</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+          </div>
+
         </section>
 
         <section class="content-header">
