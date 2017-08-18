@@ -659,58 +659,6 @@
 
           </div>
 
-          <div class="row">
-
-            <br>
-            
-            <section class="col-lg-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-              <div class="col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6">
-                
-                <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
-
-                  <div style="background:#ffffff;">
-                
-                    <div class="box-header">
-                  
-                      <div class='row container-fluid icon'><i class="fa fa-check-circle fa-4x pull-left text-aqua"></i>
-                  
-                        <b class="pull-right">
-
-                        <?php
-
-                          $ma = 0 - $assessment_amount;
-
-                          $result = pg_query("SELECT h.home_id FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$ma");
-
-                          $rows = pg_num_rows($result);
-
-                          echo "<h4 class='text-green'><strong>".$rows."</strong></h4>";
-
-                        ?>
-
-                        </b>
-
-                      </div>
-                      
-                      <div class='row container-fluid text-center'><br>Pre-Paid Members</div>
-                
-                    </div>
-
-                  </div>
-
-                </a>
-
-                <br>
-
-              </div>
-
-            </section>
-
-            <br>
-            
-          </div>
-
           <div class="row container-fluid" style="background-color: #ffffff;">
 
             <br>
