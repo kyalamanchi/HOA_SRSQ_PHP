@@ -326,27 +326,6 @@
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
-                <a href="https://hoaboardtime.com/residentVendorDashboard.php">
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-purple"><i class="fa fa-wrench"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">Community Vendors</span><br>
-                      <span class='info-box-number text-purple'><?php echo $vendors; ?></span>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
           </div>
 
           <div class='row container-fluid' style="background-color: #ffffff;">
@@ -421,6 +400,48 @@
                   <div class="row container-fluid text-left">
 
                     <h4><strong>Account Statement / Invoice</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
+              <a href='https://hoaboardtime.com/residentVendorDashboard.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="vendors.png" height=75 width=75 alt='Community Vendors'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
+                        echo "<h2 class='text-info'><strong>".$vendors."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Community Vendors</strong></h4>
 
                   </div>
 
