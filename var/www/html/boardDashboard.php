@@ -1044,22 +1044,28 @@
 
                         $pending = 0;
 
-                        $result = pg_query("SELECT * FROM hoaid WHERE hoa_id NOT IN (SELECT hoa_id FROM current_payments WHERE community_id=".$community_id." AND payment_status_id=1 AND process_date>='$year-$month-01' AND process_date<='$year-$month-$end_date') AND community_id=$community_id");
+                        $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id AND home_id NOT IN (SELECT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date')");
 
                         while($row = pg_fetch_assoc($result))
                         {
-                              
-                          $r2 = pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$row['hoa_id']." GROUP BY hoa_id");
-                          $r = pg_fetch_assoc($r2);
-                          $cha = $r['sum'];
 
-                          $r2 = pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$row['hoa_id']." GROUP BY hoa_id");
-                          $r = pg_fetch_assoc($r2);
-                          $pay = $r['sum'];
+                          $home_id = $row['home_id'];
+                          
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
-                          if($cha - $pay > 0)
+                          $hoa_id = $row1['hoa_id'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+                          $charges = $row1['sum'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+                          $payments = $row1['sum'];
+
+                          $balance = $charges - $payments;
+
+                          if($balance > 0)
                             $pending++;
-
+                            
                         }
 
                         if($pending > 0)
