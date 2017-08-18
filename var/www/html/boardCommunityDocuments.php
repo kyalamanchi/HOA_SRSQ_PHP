@@ -482,6 +482,8 @@
                 {
 
                   $i++;
+
+                  echo $i;
                 
                   $year_of_upload = $row['year_of_upload'];
                   
