@@ -539,6 +539,10 @@
 
                           <tfoot>
 
+                            <th>Date of Upload</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            
                           </tfoot>
 
                         </table>
@@ -588,6 +592,8 @@
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 
     <script>
       $(function () {
