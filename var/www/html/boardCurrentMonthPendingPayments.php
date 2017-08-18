@@ -423,7 +423,8 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$home_pay_method"));
                             $home_pay_method = $row1['payment_type_name'];
 
-                            echo "<tr><td><input type='checkbox' name='recipients[]' id='recipients' value='$home_id'></td><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$home_pay_method</td><td>$ $balance</td></tr>";
+                            if($balance > 0)
+                              echo "<tr><td><input type='checkbox' name='recipients[]' id='recipients' value='$home_id'></td><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$home_pay_method</td><td>$ $balance</td></tr>";
 
                           }
 
