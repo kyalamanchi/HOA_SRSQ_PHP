@@ -500,21 +500,42 @@
             
                     <div class='timeline-item'>
 
-                      <div class='timeline-body container-fluid'>";
+                      <div class='timeline-body container-fluid'>
+
+                        <table id='example1' class='table table-bordered table-stripped'>
+
+                          <thead>
+
+                            <th>Date of Upload</th>
+                            <th>Description</th>
+                            <th>Category</th>
+
+                          </thead>
+
+                          <tbody>";
                     
-                        $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload");
+                            $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload");
 
-                        while($row1 = pg_fetch_assoc($result1))
-                        {
+                            while($row1 = pg_fetch_assoc($result1))
+                            {
 
-                          $desc = $row1['description'];
-                          $document_url = $row1['url'];
+                              $desc = $row1['description'];
+                              $category = $row1['document_category_id'];
+                              $document_url = $row1['url'];
 
-                          echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></div>";
+                              echo "<tr><td></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td></td></tr>";
 
-                        }
+                            }
 
-                      echo "</div>
+                          echo "</tbody>
+
+                          <tfoot>
+
+                          </tfoot>
+
+                        </table>
+
+                      </div>
                       
                     </div>
                     
@@ -551,14 +572,8 @@
     </script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-    <script src="plugins/morris/morris.min.js"></script>
     <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="plugins/knob/jquery.knob.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
-    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>\
     <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
