@@ -526,6 +526,15 @@
                                 if($date_of_upload != '')
                                   $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
 
+                                if()
+                                {
+
+                                  $row11 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$category"));
+
+                                  $category = $row11['document_category_name'];
+
+                                }
+
                                 echo "<tr><td>$date_of_upload</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
 
                               }
