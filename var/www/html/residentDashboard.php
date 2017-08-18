@@ -286,27 +286,6 @@
 
             <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
           
-                <a><!--  href="https://hoaboardtime.com/residentParkingTags.php" -->
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-blue"><i class="fa fa-car"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">Parking Tags</span><br>
-                      <span class="info-box-number"></span>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
                 <a href="https://hoaboardtime.com/residentReminders.php">
           
                   <div class="info-box">
