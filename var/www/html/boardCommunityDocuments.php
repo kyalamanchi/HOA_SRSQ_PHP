@@ -499,46 +499,50 @@
 
                       <div class='timeline-body container-fluid'>
 
-                        <table id='example".$i."' class='table table-bordered table-stripped'>
+                        <div class='row table-responsive'>
 
-                          <thead>
+                          <table id='example".$i."' class='table table-bordered table-stripped'>
 
-                            <th>Date of Upload</th>
-                            <th>Description</th>
-                            <th>Category</th>
+                            <thead>
 
-                          </thead>
+                              <th>Date of Upload</th>
+                              <th>Description</th>
+                              <th>Category</th>
 
-                          <tbody>";
-                    
-                            $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload");
+                            </thead>
 
-                            while($row1 = pg_fetch_assoc($result1))
-                            {
+                            <tbody>";
+                      
+                              $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload");
 
-                              $desc = $row1['description'];
-                              $category = $row1['document_category_id'];
-                              $document_url = $row1['url'];
-                              $date_of_upload = $row1['uploaded_date'];
+                              while($row1 = pg_fetch_assoc($result1))
+                              {
 
-                              if($date_of_upload != '')
-                                $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+                                $desc = $row1['description'];
+                                $category = $row1['document_category_id'];
+                                $document_url = $row1['url'];
+                                $date_of_upload = $row1['uploaded_date'];
 
-                              echo "<tr><td>$date_of_upload</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
+                                if($date_of_upload != '')
+                                  $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
 
-                            }
+                                echo "<tr><td>$date_of_upload</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
 
-                          echo "</tbody>
+                              }
 
-                          <tfoot>
+                            echo "</tbody>
 
-                            <th>Date of Upload</th>
-                            <th>Description</th>
-                            <th>Category</th>
+                            <tfoot>
 
-                          </tfoot>
+                              <th>Date of Upload</th>
+                              <th>Description</th>
+                              <th>Category</th>
 
-                        </table>
+                            </tfoot>
+
+                          </table>
+
+                        </div>
 
                       </div>
                       
