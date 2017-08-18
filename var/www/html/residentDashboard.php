@@ -582,7 +582,7 @@
 
                   <div class="info-box-content">
               
-                    <span class="info-box-text text-green">Payments Processed - <?php echo date("F").", ".date('y'); ?></span>
+                    <span class="info-box-text text-green">Payments Processed - <?php echo date("F").", ".date('Y'); ?></span>
                     
                     <?php
 
