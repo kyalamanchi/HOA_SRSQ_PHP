@@ -891,7 +891,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Payments'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Late Payments'>
 
                     </div>
 
@@ -915,7 +915,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <h4><strong>Pending Payments</strong></h4>
+                    <h4><strong>Late Payments</strong></h4>
 
                   </div>
 
