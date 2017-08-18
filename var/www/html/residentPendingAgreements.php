@@ -253,12 +253,13 @@
 
                           $emails = explode(';', $document_to);
 
+                          if($esign_url != '')
+                            $agreement_name = "<a title='Click to sign agreement' target='_blank' href='".$esign_url."'>".$agreement_name."</a>";
+
                           for($i = 0; $i < sizeof($emails); $i++)
                           {  
 
-                            echo "URL : ".$esign_url."<br>";
-
-                            echo "<tr><td><a title='Click to sign agreement' target='_blank' href='".$esign_url."'>".$agreement_name."</a></td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                            echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                           }
 
