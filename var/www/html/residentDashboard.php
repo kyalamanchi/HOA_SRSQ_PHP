@@ -677,16 +677,16 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <?php 
+                      <?php
+                          
+                        $query = "SELECT count(*) FROM member_info WHERE community_id=".$community_id;
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '".$_SESSION['hoa_email']."' AND agreement_status='OUT_FOR_SIGNATURE'");
-                        $pending_agreements = pg_num_rows($result);
+                        $result = pg_query($query);
+                        $row = pg_fetch_assoc($result);
+                        $num = $row['count'];
 
-                        if($pending_agreements == 0)
-                          echo "<h2 class='text-green'><strong>".$pending_agreements."</strong></h2>"; 
-                        else
-                          echo "<h2 class='text-red'><strong>".$pending_agreements."</strong></h2>";
-
+                        echo "<b class='text-info'>".$num."</b>";
+                                      
                       ?>
 
                     </div>
