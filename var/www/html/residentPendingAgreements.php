@@ -220,7 +220,6 @@
                         <th>Create Date</th>
                         <th>Send Date</th>
                         <th>Last Updated</th>
-                        <th>Esign Document</th>
 
                       </tr>
 
@@ -257,7 +256,7 @@
                           for($i = 0; $i < sizeof($emails); $i++)
                           {  
 
-                            echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file-pdf-o'></i></a></td></tr>";
+                            echo "<tr><td><a title='Click to sign agreement' target='_blank' href='".$esign_url."'>".$agreement_name."</a></td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                           }
 
@@ -276,7 +275,6 @@
                         <th>Create Date</th>
                         <th>Send Date</th>
                         <th>Last Updated</th>
-                        <th>Esign Document</th>
 
                       </tr>
 
