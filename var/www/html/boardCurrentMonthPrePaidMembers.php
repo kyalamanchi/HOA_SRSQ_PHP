@@ -343,7 +343,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Late Payments</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Pre-Paid Members</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
