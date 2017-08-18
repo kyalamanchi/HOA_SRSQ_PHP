@@ -1045,6 +1045,57 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
 
+              <a href='https://hoaboardtime.com/boardCurrentMonthPendingPayments.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Pending Payments'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
+                        $ma = 0 - $assessment_amount;
+
+                        $result = pg_query("SELECT h.home_id FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$ma");
+
+                        $rows = pg_num_rows($result);
+
+                        if($rows > 0)
+                          echo "<h2 class='text-orange'><strong>".$rows."</strong></h2>"; 
+                        else
+                          echo "<h2 class='text-green'><strong>".$rows."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Pre-Paid Members</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+
               <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
 
                 <div class="row container-fluid text-left">
