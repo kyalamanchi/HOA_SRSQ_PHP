@@ -989,6 +989,77 @@
 
           </div>
 
+          <?php
+          
+            if($payment_type == 'ACH')
+              echo "<div class='row'>
+
+                <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
+
+                  <div class='box box-info'>
+
+                    <div class='box-header'>
+
+                      <center><h4><strong>Forte Transactions</strong></h4></center>
+
+                    </div>
+
+                    <div class='box-body table-responsive'>
+                      
+                      <table id='example1' class='table table-bordered'>
+
+                        <thead>
+                          
+                          <th>Date</th>
+                          <th>Customer ID</th>
+                          <th>Document Number</th>
+                          <th>Status</th>
+                          <th>Amount</th>
+
+                        </thead>
+
+                        <tbody>";
+
+                          $ch = curl_init();
+                          $header = array();
+                          $header[] = 'Content-Type: application/json';
+                          
+                          if($community_id == 2)
+                          {
+                              
+                            $header[] = "X-Forte-Auth-Organization-Id:org_332536";
+                            $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
+                                                                      
+                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
+                                                                      
+                          }
+
+                          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+                          $result = curl_exec($ch);
+                          $obj = json_decode($result);
+
+                          foreach ($obj->results as $key) 
+                            echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
+                                                                      
+                          curl_close($ch);
+                          
+                        echo "</tbody>
+                        
+                      </table>
+
+                    </div>
+
+                  </div>
+
+                </section>
+
+              </div>";
+
+          ?>
+
           <div class="row">
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
