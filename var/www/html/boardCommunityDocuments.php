@@ -500,7 +500,7 @@
 
                       <div class='timeline-body container-fluid'>
 
-                        <div class='row table-responsive'>
+                        <div class='row container-fluid table-responsive'>
 
                           <table id='".$id."' class='table table-bordered table-stripped'>
 
