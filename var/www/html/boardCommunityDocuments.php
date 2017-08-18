@@ -485,6 +485,8 @@
 
                   $id = 'example';
                   $id .= $i;
+
+                  echo $id;
                 
                   $year_of_upload = $row['year_of_upload'];
                   
@@ -596,7 +598,7 @@
     <script>
       $(function () {
         
-        $("#example1").DataTable();
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
         $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
