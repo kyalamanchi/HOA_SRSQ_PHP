@@ -15,7 +15,10 @@
 
     $pdf->SetFont("Arial", "B", 16);
 
-    $pdf->Cell(185, 6, "Invoice 2-1234123", 0, 1, C);
+    $pdf->Cell(185, 6, "Invoice 2-1234123-2017", 0, 1, C);
+
+    $pdf->SetFont("Arial", "", 12);
+
     $pdf->Cell(185, 6, " ", 0, 1, C);
     $pdf->Cell(100, 6, "Krishna Yalamanchi", 0, 0, L);
     $pdf->Cell(100, 6, "08-20-2017", 0, 1, R);
