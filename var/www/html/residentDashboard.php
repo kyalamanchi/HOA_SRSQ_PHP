@@ -286,27 +286,6 @@
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
-                <a href="https://hoaboardtime.com/residentViolationCitation.php">
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-orange"><i class="fa fa-warning"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">Inspection Notices</span><br>
-                      <?php if($violations > 0) echo "<span class='info-box-number text-orange'>$violations</span>"; else echo "<span class='info-box-number text-green'>$violations</span>"; ?>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
           </div>
 
           <div class='row container-fluid' style="background-color: #ffffff;">
@@ -469,6 +448,53 @@
                   <div class="row container-fluid text-left">
 
                     <h4><strong>Community Vendors</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
+              <a href='https://hoaboardtime.com/residentViolationCitation.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
+                        if($violations > 0) 
+                          echo "<h2 class='text-orange'><strong>$violations</strong></h2>"; 
+                        else 
+                          echo "<h2 class='text-info'><strong>$violations</strong></h2>";
+
+                      ?>
+
+                      <h2 class="text-info"><strong>0</strong></h2>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Inspection Notices</strong></h4>
 
                   </div>
 
