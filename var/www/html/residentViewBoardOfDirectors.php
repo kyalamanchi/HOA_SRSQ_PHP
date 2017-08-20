@@ -241,9 +241,8 @@
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE id-$bod_user_id"));
 
-                            $name = $row1['first_name'];
-                            $name .= " ";
-                            $name .= $row1['last_name'];
+                            $firstname = $row1['first_name'];
+                            $lastname = $row1['last_name'];
 
                           }
 
@@ -256,7 +255,7 @@
                             
                           }
 
-                          echo "<tr><td>".$name."($bod_user_id)</td><td>".$living_in."</td><td>".$title."</td></tr>";
+                          echo "<tr><td>".$firstname." ".$lastname."($bod_user_id)</td><td>".$living_in."</td><td>".$title."</td></tr>";
 
                         }
 
