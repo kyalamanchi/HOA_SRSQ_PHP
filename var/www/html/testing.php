@@ -133,7 +133,7 @@
 
             $pdf->Cell(20,5, date('F', strtotime($tdate)), 0, 0);
             $pdf->Cell(20,5, $charges_row['id']."-".$charges_row['assessment_rule_type_id'], 0, 0);
-            $pdf->Cell(20,5, date('m-d-y', strtotime($tdate))."|".$desc., 0, 0);
+            $pdf->Cell(20,5, date('m-d-y', strtotime($tdate))."|".$desc, 0, 0);
             $pdf->Cell(20,5, "$ ".$charges_row['amount'], 0, 0);
             $pdf->Cell(20,5, " ", 0, 0);
             $pdf->Cell(20,5, "$ ".$month_charge, 0, 1);
