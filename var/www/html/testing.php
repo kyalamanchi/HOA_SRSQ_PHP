@@ -36,9 +36,9 @@
     $pdf->Cell(85, 6, "Due Date : 08-15-17", 0, 1, R);
 
 
-    $pdf->Cell(85, 6, " ", 0, 1, R);
-    $pdf->Cell(85, 6, " ", 0, 1, R);
-    $pdf->Cell(85, 6, " ", 0, 1, R);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
 
 
     $pdf->Cell(100, 6, "To :", 0, 1, L);
@@ -51,6 +51,20 @@
 
     $pdf->Cell(100, 6, "2751 Chocolate Street", 0, 1, L);
     $pdf->Cell(100, 6, "Pleasanton, CA 94588", 0, 1, L);
+
+
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
+
+
+    $pdf->SetFont("Arial", "B", 12);
+    $pdf->Cell(20, 6, "Month", 0, 0);
+    $pdf->Cell(20, 6, "Description", 0, 0);
+    $pdf->Cell(20, 6, "Charge", 0, 0);
+    $pdf->Cell(20, 6, "Payment", 0, 0);
+    $pdf->Cell(20, 6, "Balance", 0, 1);
+    $pdf->SetFont("Arial", "", 12);
 
 
     $pdf->output();
