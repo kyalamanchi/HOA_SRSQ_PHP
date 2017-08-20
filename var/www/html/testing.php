@@ -16,7 +16,9 @@
     $pdf->SetFont("Arial", "", 12);
 
     $pdf->Cell(100, 6, "From :", 0, 1, L);
+    $pdf->SetFont("Arial", "B", 12);
     $pdf->Cell(100, 6, "Stoneridge Square Association", 0, 0, L);
+    $pdf->SetFont("Arial", "", 12);
     $pdf->Cell(85, 6, "Invoice No : 2-254-1259-2017", 0, 1, R);
     $pdf->Cell(100, 6, "PO Box 101901", 0, 0, L);
     $pdf->Cell(85, 6, "Invoice Date : 08-20-2017", 0, 1, R);
