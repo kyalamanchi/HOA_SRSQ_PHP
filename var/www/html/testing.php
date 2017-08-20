@@ -41,8 +41,7 @@
     else if(date("m", strtotime($adate)) > date("m")) 
     	$month = date("m")+1; 
 
-    $ddate = $month."-15-".date("y");
-    $ddate = date("d-m-y", strtotime($ddate));
+    $ddate = date("d-m-y", strtotime($month."-15-".date("y")));
 
 
     require("fpdf/fpdf.php");
