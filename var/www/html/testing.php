@@ -59,15 +59,15 @@
     $pdf->AddPage();
 
 
-    $pdf->SetFont("Arial", "", 12);
+    $pdf->SetFont("Arial", "", 10);
 
 
     $pdf->Cell(100, 6, "From :", 0, 1, L);
 
 
-    $pdf->SetFont("Arial", "B", 12);
+    $pdf->SetFont("Arial", "B", 10);
     $pdf->Cell(100, 6, "Stoneridge Square Association", 0, 0, L);
-    $pdf->SetFont("Arial", "", 12);
+    $pdf->SetFont("Arial", "", 10);
     $pdf->Cell(85, 6, "Invoice No : ".$community_id."-".$home_id."-".$hoa_id."-".$year, 0, 1, R);
 
 
@@ -87,9 +87,9 @@
     $pdf->Cell(100, 6, "To :", 0, 1, L);
 
 
-    $pdf->SetFont("Arial", "B", 12);
+    $pdf->SetFont("Arial", "B", 10);
     $pdf->Cell(100, 6, "Krishna Yalamanchi", 0, 1, L);
-    $pdf->SetFont("Arial", "", 12);
+    $pdf->SetFont("Arial", "", 10);
 
 
     $pdf->Cell(100, 6, "2751 Chocolate Street", 0, 1, L);
