@@ -13,7 +13,7 @@
 
 
     $pdf = new FPDF();
-    $pdf->AddPage('p', 'mm', 'A4');
+    $pdf->AddPage();
 
 
     $pdf->SetFont("Arial", "", 12);
