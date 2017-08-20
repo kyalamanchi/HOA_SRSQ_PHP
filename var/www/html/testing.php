@@ -117,7 +117,10 @@
 
         $payments_results = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND process_date>='$year-$m-1' AND process_date<='$last_date' ORDER BY process_date");
 
-        $month_charge = 0.0;
+        $pdf->SetFillColor(247,248,249);
+    	$pdf->SetTextColor(0);
+    	
+    	$month_charge = 0.0;
         $fill = true;
 
         while($charges_row = pg_fetch_assoc($charges_results))
@@ -140,7 +143,10 @@
 
         }
 
-        $month_payment = 0.0;
+        $pdf->SetFillColor(247,248,249);
+    	$pdf->SetTextColor(0);
+    	
+    	$month_payment = 0.0;
         $fill = true;
 
         while($payments_row = pg_fetch_assoc($payments_results))
