@@ -12,6 +12,9 @@
 
     $pdf = new FPDF();
     $pdf->AddPage();
+
+    $pdf->AddCell(10, 10, "Hello world", 0, 0, C);
+
     $pdf->output();
 
 ?>
