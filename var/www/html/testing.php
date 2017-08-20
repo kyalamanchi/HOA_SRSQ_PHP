@@ -50,15 +50,6 @@
     $pdf->Cell(189, 6, " ", 0, 1);
 
 
-    $pdf->SetFont("Arial", "B", 12);
-    $pdf->Cell(20, 5, "Month", 0, 0);
-    $pdf->Cell(20, 5, "Document ID", 0, 0);
-    $pdf->Cell(20, 5, "Description", 0, 0);
-    $pdf->Cell(20, 5, "Charge", 0, 0);
-    $pdf->Cell(20, 5, "Payment", 0, 0);
-    $pdf->Cell(20, 5, "Balance", 0, 1);
-    $pdf->SetFont("Arial", "", 12);
-
 
     $pdf->output();
 
