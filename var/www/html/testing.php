@@ -15,7 +15,7 @@
 
     $pdf->SetFont("Arial", "B", 16);
 
-    $pdf->Cell(200, 6, "Hello world", 1, 0, C);
+    $pdf->Cell(180, 6, "Hello world", 1, 0, C);
 
     $pdf->output();
 
