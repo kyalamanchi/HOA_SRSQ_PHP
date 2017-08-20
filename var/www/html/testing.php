@@ -165,9 +165,9 @@
     $pdf->Cell(189, 6, " ", 0, 1);
 
 
-    $pdf->SetFont("Arial", "B", 12);
+    $pdf->SetFont("Arial", "B", 10);
     $pdf->Cell(100, 6, "Note", 0, 1, L);
-    $pdf->SetFont("Arial", "", 12);
+    $pdf->SetFont("Arial", "", 10);
 
 
     $pdf->Cell(100, 6, "BillPay Address : ", 0, 1, L);
