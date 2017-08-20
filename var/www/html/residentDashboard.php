@@ -584,7 +584,7 @@
 
                       <?php 
 
-                        echo "<h2 class='text-green'><strong><i class='fa fa-phone'></i> : <?php echo $cell; ?></strong></h2><br><h2 class='text-green'><strong><i class='fa fa-at'></i> : <?php echo $email; ?></strong></h2>";
+                        echo "<h2 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong></h2><br><h2 class='text-green'><strong><i class='fa fa-at'></i> : $email</strong></h2>";
 
                       ?>
 
