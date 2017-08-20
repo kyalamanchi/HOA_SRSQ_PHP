@@ -110,15 +110,15 @@
     $pdf->AddPage();
 
 
-    $pdf->SetFont("Arial", "", 10);
+    $pdf->SetFont("Arial", "", 12);
 
 
     $pdf->Cell(100, 6, "From :", 0, 1, L);
 
 
-    $pdf->SetFont("Arial", "B", 10);
+    $pdf->SetFont("Arial", "B", 12);
     $pdf->Cell(100, 6, $c_name, 0, 0, L);
-    $pdf->SetFont("Arial", "", 10);
+    $pdf->SetFont("Arial", "", 12);
     $pdf->Cell(85, 6, "Invoice No : ".$community_id."-".$home_id."-".$hoa_id."-".$year, 0, 1, R);
 
 
@@ -138,9 +138,9 @@
     $pdf->Cell(100, 6, "To :", 0, 1, L);
 
 
-    $pdf->SetFont("Arial", "B", 10);
+    $pdf->SetFont("Arial", "B", 12);
     $pdf->Cell(100, 6, $cus_name, 0, 1, L);
-    $pdf->SetFont("Arial", "", 10);
+    $pdf->SetFont("Arial", "", 12);
 
 
     $pdf->Cell(100, 6, $cus_addr, 0, 1, L);
@@ -150,14 +150,14 @@
     $pdf->Cell(189, 6, " ", 0, 1);
 
 
-    $pdf->SetFont("Arial", "B", 8);
+    $pdf->SetFont("Arial", "B", 10);
     $pdf->Cell(20, 6, "Month", 0, 0);
     $pdf->Cell(30, 6, "Document ID", 0, 0);
     $pdf->Cell(80, 6, "Description", 0, 0);
     $pdf->Cell(20, 6, "Charge", 0, 0);
     $pdf->Cell(20, 6, "Payment", 0, 0);
     $pdf->Cell(40, 6, "Balance", 0, 1);
-    $pdf->SetFont("Arial", "", 8);
+    $pdf->SetFont("Arial", "", 10);
 
 
     for($m = 1; $m <= 12; $m++)
@@ -229,6 +229,9 @@
     $pdf->Cell(100, 6, $city.", ".$state." ".$zip, 0, 1, L);
     $pdf->Cell(100, 6, "EIN : ".$tax_id, 0, 1, L);
 
+
+    $pdf->Cell(189, 6, " ", 0, 1);
+    
 
     $pdf->Cell(100, 6, "Send an email to ".$c_email." for HOA related queries", 0, 1, L);
     $pdf->Cell(100, 6, "All updates will be posted at ".$c_website, 0, 1, L);
