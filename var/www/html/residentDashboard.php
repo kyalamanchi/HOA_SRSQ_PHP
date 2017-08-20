@@ -610,7 +610,7 @@
 
                       <?php 
 
-                        echo "<h2 class='text-green'><strong><i class='fa fa-phone'></i> : $cell ?></strong><br><strong><i class='fa fa-at'></i> : $email</strong></h2>";
+                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong></h4>";
 
                       ?>
 
