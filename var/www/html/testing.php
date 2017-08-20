@@ -15,6 +15,12 @@
     $home_id = $_REQUEST['home_id'];#$_SESSION['hoa_home_id'];
     $hoa_id = $_REQUEST['hoa_id'];#$_SESSION['hoa_hoa_id'];
 
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+
+    $cus_name = $row['firstname'];
+    $cus_name .= " ";
+    $cus_name .= $row['lastname'];
+
     $row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
 
     $city = $row['payment_city'];
@@ -26,6 +32,51 @@
     $c_email = $row['email'];
     $c_website = $row['community_website_url'];
 
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$state"));
+    $state = $row['state_code'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$city"));
+    $city = $row['city_name'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$zip"));
+    $zip = $row['zip_code'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+
+    $living_status = $row['living_status'];
+
+    if($living_status == 't')
+    {
+        $cus_addr = $row['address1'];
+        $cus_state = $row['state_id'];
+        $cus_city = $row['city_id'];
+        $cus_zip = $row['zip_id'];
+    }
+    else
+    {
+            
+        $result = pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id");
+
+        $row = pg_fetch_assoc($result);
+
+        $cus_addr = $row['address1'];
+        $cus_state = $row['state_id'];
+        $cus_city = $row['city_id'];
+        $cus_zip = $row['zip_id'];
+          
+    }
+
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$cus_state"));
+    $cus_state = $row['state_code'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$cus_city"));
+    $cus_city = $row['city_name'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$cus_zip"));
+    $cus_zip = $row['zip_code'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+    $assessment_amount = $row['amount'];
 
     $result = pg_query("SELECT * FROM current_charges WHERE home_id=".$home_id." ORDER BY assessment_date DESC LIMIT 1");
 
@@ -66,16 +117,16 @@
 
 
     $pdf->SetFont("Arial", "B", 10);
-    $pdf->Cell(100, 6, "Stoneridge Square Association", 0, 0, L);
+    $pdf->Cell(100, 6, $c_name, 0, 0, L);
     $pdf->SetFont("Arial", "", 10);
     $pdf->Cell(85, 6, "Invoice No : ".$community_id."-".$home_id."-".$hoa_id."-".$year, 0, 1, R);
 
 
-    $pdf->Cell(100, 6, "PO Box 101901", 0, 0, L);
+    $pdf->Cell(100, 6, $pobox, 0, 0, L);
     $pdf->Cell(85, 6, "Invoice Date : ".$adate, 0, 1, R);
 
 
-    $pdf->Cell(100, 6, "Pasadena, CA 91189", 0, 0, L);
+    $pdf->Cell(100, 6, $city.", ".$state." ".$zip, 0, 0, L);
     $pdf->Cell(85, 6, "Due Date : ".$ddate, 0, 1, R);
 
 
@@ -88,12 +139,12 @@
 
 
     $pdf->SetFont("Arial", "B", 10);
-    $pdf->Cell(100, 6, "Krishna Yalamanchi", 0, 1, L);
+    $pdf->Cell(100, 6, $cus_name, 0, 1, L);
     $pdf->SetFont("Arial", "", 10);
 
 
-    $pdf->Cell(100, 6, "2751 Chocolate Street", 0, 1, L);
-    $pdf->Cell(100, 6, "Pleasanton, CA 94588", 0, 1, L);
+    $pdf->Cell(100, 6, $cus_addr, 0, 1, L);
+    $pdf->Cell(100, 6, $cus_city.", ".$cus_state." ".$cus_zip, 0, 1, L);
 
 
     $pdf->Cell(189, 6, " ", 0, 1);
@@ -171,8 +222,22 @@
 
 
     $pdf->Cell(100, 6, "BillPay Address : ", 0, 1, L);
+    $pdf->SetFont("Arial", "B", 10);
     $pdf->Cell(100, 6, $c_name, 0, 1, L);
+    $pdf->SetFont("Arial", "", 10);
     $pdf->Cell(100, 6, $pobox.", ".$city.", ".$state." ".$zip.". EIN : ".$tax_id, 0, 1, L);
+
+
+    $pdf->Cell(100, 6, "Send an email to ", 0, 1, L);
+    $pdf->SetFont("Arial", "U", 10);
+    $pdf->Cell(100, 6, $c_email, 0, 1, L);
+    $pdf->SetFont("Arial", "", 10);
+    $pdf->Cell(100, 6, " for HOA related queries", 0, 1, L);
+    $pdf->SetFont("Arial", "", 10);
+    $pdf->Cell(100, 6, "All updates will be posted at ", 0, 0, L);
+    $pdf->SetFont("Arial", "U", 10);
+    $pdf->Cell(100, 6, $c_website, 0, 0, L);
+    $pdf->SetFont("Arial", "", 10);
 
 
     $pdf->output();
