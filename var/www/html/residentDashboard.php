@@ -261,32 +261,6 @@
         </section>
 
         <section class="content">
-          
-          <div class="row">
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
-                <a href="https://hoaboardtime.com/residentProfile.php">
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-teal"><i class="fa fa-user"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">My Profile</span><br>
-                      <strong><i class="fa fa-phone"></i> : <?php echo $cell; ?><br>
-                      <i class="fa fa-at"></i> : <?php echo $email; ?></strong>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
-          </div>
 
           <div class='row container-fluid' style="background-color: #ffffff;">
 
@@ -579,6 +553,48 @@
                   <div class="row container-fluid text-left">
 
                     <h4><strong>My Pending Agreements</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
+              <a href='https://hoaboardtime.com/residentPendingAgreements.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="my_profile.png" height=75 width=75 alt='My Profile'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        echo "<h2 class='text-green'><strong><i class='fa fa-phone'></i> : <?php echo $cell; ?></strong></h2><br><h2 class='text-green'><strong><i class='fa fa-at'></i> : <?php echo $email; ?></strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>My Profile</strong></h4>
 
                   </div>
 
