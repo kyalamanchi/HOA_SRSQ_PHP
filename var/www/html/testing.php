@@ -42,6 +42,7 @@
     	$month = date("m")+1; 
 
     $ddate = $month."-15-".date("y");
+    $ddate = date("m-d-y", strtotime($ddate));
 
 
     require("fpdf/fpdf.php");
