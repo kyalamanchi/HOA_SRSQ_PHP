@@ -59,11 +59,11 @@
 
 
     $pdf->SetFont("Arial", "B", 12);
-    $pdf->Cell(20, 6, "Month", 0, 0);
-    $pdf->Cell(20, 6, "Description", 0, 0);
-    $pdf->Cell(20, 6, "Charge", 0, 0);
-    $pdf->Cell(20, 6, "Payment", 0, 0);
-    $pdf->Cell(20, 6, "Balance", 0, 1);
+    $pdf->Cell(50, 6, "Month", 0, 0);
+    $pdf->Cell(50, 6, "Description", 0, 0);
+    $pdf->Cell(50, 6, "Charge", 0, 0);
+    $pdf->Cell(50, 6, "Payment", 0, 0);
+    $pdf->Cell(50, 6, "Balance", 0, 1);
     $pdf->SetFont("Arial", "", 12);
 
 
