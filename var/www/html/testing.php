@@ -119,9 +119,8 @@
 
         $pdf->SetFillColor(247,248,249);
     	$pdf->SetTextColor(0);
-    	
+
     	$month_charge = 0.0;
-        $fill = true;
 
         while($charges_row = pg_fetch_assoc($charges_results))
         {
@@ -133,13 +132,11 @@
             $r = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$desc"));
             $desc = $r['name'];
 
-            $pdf->Cell(40, 5, date('F', strtotime($tdate)), 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, $charges_row['id']."-".$charges_row['assessment_rule_type_id']." | ".date('m-d-y', strtotime($tdate))." | ".$desc, 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, "$ ".$charges_row['amount'], 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, " ", 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, "$ ".$month_charge, 0, 1, 'L', $fill);
-
-            $fill = !$fill;
+            $pdf->Cell(40, 5, date('F', strtotime($tdate)), 0, 0, 'L');
+            $pdf->Cell(40, 5, $charges_row['id']."-".$charges_row['assessment_rule_type_id']." | ".date('m-d-y', strtotime($tdate))." | ".$desc, 0, 0, 'L');
+            $pdf->Cell(40, 5, "$ ".$charges_row['amount'], 0, 0, 'L');
+            $pdf->Cell(40, 5, " ", 0, 0, 'L');
+            $pdf->Cell(40, 5, "$ ".$month_charge, 0, 1, 'L');
 
         }
 
@@ -155,14 +152,11 @@
             $month_payment += $payments_row['amount'];
             $tdate = $payments_row['process_date'];
 
-            $pdf->Cell(40, 5, date('F', strtotime($tdate)), 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, $payments_row['id']."-".$payments_row['payment_type_id']." | ".date('m-d-y', strtotime($tdate))." | Payment Received # ".$payments_row['document_num'], 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, " ", 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, "$ ".$payments_row['amount'], 0, 0, 'L', $fill);
-            $pdf->Cell(40, 5, "$ ".$month_payment, 0, 1, 'L', $fill);
-
-            $fill = !$fill;
-
+            $pdf->Cell(40, 5, date('F', strtotime($tdate)), 0, 0, 'L');
+            $pdf->Cell(40, 5, $payments_row['id']."-".$payments_row['payment_type_id']." | ".date('m-d-y', strtotime($tdate))." | Payment Received # ".$payments_row['document_num'], 0, 0, 'L');
+            $pdf->Cell(40, 5, " ", 0, 0, 'L');
+            $pdf->Cell(40, 5, "$ ".$payments_row['amount'], 0, 0, 'L');
+            $pdf->Cell(40, 5, "$ ".$month_payment, 0, 1, 'L');
         }
 
     }
