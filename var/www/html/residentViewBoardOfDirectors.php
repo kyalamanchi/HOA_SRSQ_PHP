@@ -227,7 +227,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT * FROM board_committee_details FROM WHERE community_id=$community_id AND is_active='t'");
+                        $result = pg_query("SELECT * FROM board_committee_details FROM WHERE community_id=$community_id AND is_active=TRUE");
 
                         while($row = pg_fetch_assoc($result))
                         {
