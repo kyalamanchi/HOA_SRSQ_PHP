@@ -239,7 +239,7 @@
                           if($bod_user_id)
                           {
 
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE id=$bod_user_id AND is_active='t'"));
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE id=$bod_user_id"));
 
                             $firstname = $row1['first_name'];
                             $lastname = $row1['last_name'];
