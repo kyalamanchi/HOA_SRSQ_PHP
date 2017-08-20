@@ -103,6 +103,7 @@
 
     $pdf->SetFont("Arial", "B", 12);
     $pdf->Cell(40, 6, "Month", 0, 0);
+    $pdf->Cell(40, 6, "Document ID", 0, 0);
     $pdf->Cell(40, 6, "Description", 0, 0);
     $pdf->Cell(40, 6, "Charge", 0, 0);
     $pdf->Cell(40, 6, "Payment", 0, 0);
