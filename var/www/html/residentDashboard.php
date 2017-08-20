@@ -413,6 +413,50 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
+              <a href='https://hoaboardtime.com/residentViewBoardOfDirectors.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="board_of_directors.png" height=75 width=75 alt='Board Of Directors'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
+                        $result = pg_query("SELECT * FROM board_committee_details WHERE community_id=");
+
+                        echo "<h2 class='text-info'><strong>".$bods."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Board Of Directors</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
               <a href='https://hoaboardtime.com/residentVendorDashboard.php'>
 
                 <div class="row container-fluid text-left">
