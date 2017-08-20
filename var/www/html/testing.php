@@ -13,6 +13,8 @@
     $pdf = new FPDF();
     $pdf->AddPage();
 
+    $pdf->SetFont("Arial", "B", 16);
+
     $pdf->Cell(10, 10, "Hello world", 0, 0, C);
 
     $pdf->output();
