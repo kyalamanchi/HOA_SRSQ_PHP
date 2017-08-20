@@ -17,7 +17,9 @@
 
     $pdf->Cell(185, 6, "Invoice 2-1234123", 0, 1, C);
     $pdf->Cell(185, 6, " ", 0, 1, C);
-    $pdf->Cell(185, 6, "Good?", 1, 1, C);
+    $pdf->Cell(100, 6, "Krishna Yalamanchi", 0, 0, L);
+    $pdf->Cell(100, 6, "08-20-2017", 0, 1, R);
+    $pdf->Cell(100, 6, "2751 Chocolate Street", 0, 1, L);
 
     $pdf->output();
 
