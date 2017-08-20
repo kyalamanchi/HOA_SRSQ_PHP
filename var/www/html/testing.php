@@ -139,9 +139,6 @@
             $pdf->Cell(40, 5, "$ ".$month_charge, 0, 1, 'L');
 
         }
-
-        $pdf->SetFillColor(247,248,249);
-    	$pdf->SetTextColor(0);
     	
     	$month_payment = 0.0;
         $fill = true;
