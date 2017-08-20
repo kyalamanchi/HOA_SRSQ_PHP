@@ -236,10 +236,15 @@
                           $bod_home_id = $row['home_id'];
                           $title = $row['title'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE id-$bod_user_id"));
+                          if($bod_user_id)
+                          {
 
-                          $firstname = $row1['first_name'];
-                          $lastname = $row1['last_name'];
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE id=$bod_user_id"));
+
+                            $firstname = $row1['first_name'];
+                            $lastname = $row1['last_name'];
+
+                          }
 
                           if($bod_home_id != "")
                           {
@@ -250,7 +255,7 @@
                             
                           }
 
-                          echo "<tr><td>".$firstname." ".$lastname."($bod_user_id)</td><td>".$living_in."</td><td>".$title."</td></tr>";
+                          echo "<tr><td>".$firstname." ".$lastname."</td><td>".$living_in."</td><td>".$title."</td></tr>";
 
                         }
 
