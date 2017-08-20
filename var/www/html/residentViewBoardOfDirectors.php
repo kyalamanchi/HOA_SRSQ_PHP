@@ -236,7 +236,7 @@
                           $bod_home_id = $row['home_id'];
                           $title = $row['title'];
 
-                          if($bod_user_id != "")
+                          if($bod_user_id)
                           {
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE id-$bod_user_id"));
