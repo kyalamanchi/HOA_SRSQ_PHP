@@ -28,9 +28,9 @@
     $pdf->Cell(85, 6, "Due Date : 08-15-17", 0, 1, R);
 
 
-    $pdf->Cell(85, 6, " ", 0, 1, R);
-    $pdf->Cell(85, 6, " ", 0, 1, R);
-    $pdf->Cell(85, 6, " ", 0, 1, R);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
 
 
     $pdf->Cell(100, 6, "To :", 0, 1, L);
@@ -45,9 +45,9 @@
     $pdf->Cell(100, 6, "Pleasanton, CA 94588", 0, 1, L);
 
 
-    $pdf->Cell(85, 6, " ", 0, 1, R);
-    $pdf->Cell(85, 6, " ", 0, 1, R);
-    $pdf->Cell(85, 6, " ", 0, 1, R);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
+    $pdf->Cell(189, 6, " ", 0, 1);
 
 
     $pdf->SetFont("Arial", "B", 12);
