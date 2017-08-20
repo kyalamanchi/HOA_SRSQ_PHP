@@ -261,6 +261,32 @@
         </section>
 
         <section class="content">
+          
+          <div class="row">
+
+            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
+          
+                <a href="https://hoaboardtime.com/residentProfile.php">
+          
+                  <div class="info-box">
+            
+                    <span class="info-box-icon bg-teal"><i class="fa fa-user"></i></span>
+
+                    <div class="info-box-content">
+              
+                      <span class="info-box-text">My Profile</span><br>
+                      <strong><i class="fa fa-phone"></i> : <?php echo $cell; ?><br>
+                      <i class="fa fa-at"></i> : <?php echo $email; ?></strong>
+            
+                    </div>
+
+                  </div>
+
+                </a>
+
+            </div>
+
+          </div>
 
           <div class='row container-fluid' style="background-color: #ffffff;">
 
@@ -566,7 +592,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-              <a href='https://hoaboardtime.com/residentPendingAgreements.php'>
+              <a href='https://hoaboardtime.com/residentProfile.php'>
 
                 <div class="row container-fluid text-left">
 
@@ -584,7 +610,7 @@
 
                       <?php 
 
-                        echo "<h2 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong></h2>";
+                        echo "<h2 class='text-green'><strong><i class='fa fa-phone'></i> : $cell ?></strong><br><strong><i class='fa fa-at'></i> : $email</strong></h2>";
 
                       ?>
 
