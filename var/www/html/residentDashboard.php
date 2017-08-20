@@ -471,7 +471,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+                      <img src="inspections.png" height=75 width=75 alt='Parking Tags'>
 
                     </div>
 
@@ -485,8 +485,6 @@
                           echo "<h2 class='text-info'><strong>$violations</strong></h2>";
 
                       ?>
-
-                      <h2 class="text-info"><strong>0</strong></h2>
 
                     </div>
 
