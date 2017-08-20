@@ -103,7 +103,6 @@
 
     $pdf->SetFont("Arial", "B", 12);
     $pdf->Cell(40, 6, "Month", 0, 0);
-    $pdf->Cell(40, 6, "Document ID", 0, 0);
     $pdf->Cell(40, 6, "Description", 0, 0);
     $pdf->Cell(40, 6, "Charge", 0, 0);
     $pdf->Cell(40, 6, "Payment", 0, 0);
@@ -133,8 +132,7 @@
             $desc = $r['name'];
 
             $pdf->Cell(40, 5, date('F', strtotime($tdate)), 0, 0);
-            $pdf->Cell(40, 5, $charges_row['id']."-".$charges_row['assessment_rule_type_id'], 0, 0);
-            $pdf->Cell(40, 5, date('m-d-y', strtotime($tdate))."|".$desc, 0, 0);
+            $pdf->Cell(40, 5, $charges_row['id']."-".$charges_row['assessment_rule_type_id']." | ".date('m-d-y', strtotime($tdate))." | ".$desc, 0, 0);
             $pdf->Cell(40, 5, "$ ".$charges_row['amount'], 0, 0);
             $pdf->Cell(40, 5, " ", 0, 0);
             $pdf->Cell(40, 5, "$ ".$month_charge, 0, 1);
@@ -152,8 +150,7 @@
             $tdate = $payments_row['process_date'];
 
             $pdf->Cell(40, 5, date('F', strtotime($tdate)), 0, 0);
-            $pdf->Cell(40, 5, $payments_row['id']."-".$payments_row['payment_type_id'], 0, 0);
-            $pdf->Cell(40, 5, date('m-d-y', strtotime($tdate))."|Payment Received # ".$payments_row['document_num'], 0, 0);
+            $pdf->Cell(40, 5, $payments_row['id']."-".$payments_row['payment_type_id']." | ".date('m-d-y', strtotime($tdate))." | Payment Received # ".$payments_row['document_num'], 0, 0);
             $pdf->Cell(40, 5, " ", 0, 0);
             $pdf->Cell(40, 5, "$ ".$payments_row['amount'], 0, 0);
             $pdf->Cell(40, 5, "$ ".$month_payment, 0, 1);
