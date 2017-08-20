@@ -97,8 +97,6 @@
 
 
     $pdf->Cell(189, 6, " ", 0, 1);
-    $pdf->Cell(189, 6, " ", 0, 1);
-    $pdf->Cell(189, 6, " ", 0, 1);
 
 
     $pdf->SetFont("Arial", "B", 12);
@@ -137,8 +135,6 @@
             $pdf->Cell(40, 5, " ", 0, 0);
             $pdf->Cell(40, 5, "$ ".$month_charge, 0, 1);
 
-            #echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$charges_row['id']."-".$charges_row['assessment_rule_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|".$desc."</td><td>$ ".$charges_row['amount']."</td><td></td><td>$ ".$month_charge."</td></tr>";
-
         }
 
         $month_payment = 0.0;
@@ -155,11 +151,22 @@
             $pdf->Cell(40, 5, "$ ".$payments_row['amount'], 0, 0);
             $pdf->Cell(40, 5, "$ ".$month_payment, 0, 1);
 
-            #echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
-
         }
 
     }
+
+
+    $pdf->Cell(189, 6, " ", 0, 1);
+
+
+    $pdf->SetFont("Arial", "B", 12);
+    $pdf->Cell(100, 6, "Note", 0, 1, L);
+    $pdf->SetFont("Arial", "", 12);
+
+
+    $pdf->Cell(100, 6, "BillPay Address : ", 0, 1, L);
+    $pdf->Cell(100, 6, $c_name, 0, 1, L);
+    $pdf->Cell(100, 6, $pobox.", ".$city.", ".$state." ".$zip.". EIN : ".$tax_id, 0, 1, L);
 
 
     $pdf->output();
