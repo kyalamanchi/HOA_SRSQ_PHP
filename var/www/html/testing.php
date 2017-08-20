@@ -21,7 +21,7 @@
 
     $pdf->Cell(185, 6, " ", 0, 1, C);
     $pdf->Cell(100, 6, "Krishna Yalamanchi", 0, 0, L);
-    $pdf->Cell(80, 6, "08-20-2017", 0, 1, R);
+    $pdf->Cell(80, 6, "Date : 08-20-2017", 0, 1, R);
     $pdf->Cell(100, 6, "2751 Chocolate Street", 0, 1, L);
 
     $pdf->output();
