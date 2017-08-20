@@ -99,13 +99,13 @@
     $pdf->Cell(189, 6, " ", 0, 1);
 
 
-    $pdf->SetFont("Arial", "B", 12);
+    $pdf->SetFont("Arial", "B", 8);
     $pdf->Cell(40, 6, "Month", 0, 0);
     $pdf->Cell(40, 6, "Description", 0, 0);
     $pdf->Cell(40, 6, "Charge", 0, 0);
     $pdf->Cell(40, 6, "Payment", 0, 0);
     $pdf->Cell(40, 6, "Balance", 0, 1);
-    $pdf->SetFont("Arial", "", 12);
+    $pdf->SetFont("Arial", "", 8);
 
 
     for($m = 1; $m <= 12; $m++)
@@ -138,7 +138,7 @@
             $pdf->Cell(40, 5, " ", 0, 0, 'L');
             $pdf->Cell(40, 5, "$ ".$month_charge, 0, 1, 'L');
 
-        }
+        }    	
     	
     	$month_payment = 0.0;
         $fill = true;
