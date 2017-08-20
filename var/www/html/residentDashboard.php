@@ -250,6 +250,8 @@
 
           $total_customers = $row['count'];
 
+          $bods = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE community_id=$community_id AND is_active=TRUE"));
+
         ?>
         
         <section class="content-header">
