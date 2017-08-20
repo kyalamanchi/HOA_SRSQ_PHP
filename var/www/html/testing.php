@@ -13,17 +13,16 @@
     $pdf = new FPDF();
     $pdf->AddPage();
 
-    $pdf->SetFont("Arial", "B", 16);
-
-    $pdf->Cell(185, 6, "Invoice 2-1234123-2017", 0, 1, C);
-
     $pdf->SetFont("Arial", "", 12);
 
-    $pdf->Cell(185, 6, " ", 0, 1, C);
-    $pdf->Cell(100, 6, "Krishna Yalamanchi", 0, 0, L);
-    $pdf->Cell(80, 6, "Date : 08-20-2017", 0, 1, R);
-    $pdf->Cell(100, 6, "2751 Chocolate Street", 0, 1, L);
-
+    $pdf->Cell(100, 6, "From :", 0, 1, L);
+    $pdf->Cell(100, 6, "Stoneridge Square Association", 0, 0, L);
+    $pdf->Cell(85, 6, "Invoice No : 2-254-1259-2017", 0, 1, R);
+    $pdf->Cell(100, 6, "PO Box 101901", 0, 0, L);
+    $pdf->Cell(85, 6, "Invoice Date : 08-20-2017", 0, 1, R);
+    $pdf->Cell(100, 6, "Pasadena, CA 91189", 0, 0, L);
+    $pdf->Cell(85, 6, "Due Date : 08-15-17", 0, 1, R);
+    
     $pdf->output();
 
 ?>
