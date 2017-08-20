@@ -288,27 +288,6 @@
 
             <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
           
-                <a href="https://hoaboardtime.com/residentReminders.php">
-          
-                  <div class="info-box">
-            
-                    <span class="info-box-icon bg-teal"><i class="fa fa-bell"></i></span>
-
-                    <div class="info-box-content">
-              
-                      <span class="info-box-text">Reminders</span><br>
-                      <span class="info-box-number"><?php echo $reminders; ?></span>
-            
-                    </div>
-
-                  </div>
-
-                </a>
-
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-6 col-xs-12">
-          
                 <a href="https://hoaboardtime.com/residentViolationCitation.php">
           
                   <div class="info-box">
@@ -576,6 +555,48 @@
                   <div class="row container-fluid text-left">
 
                     <h4><strong>My Pending Agreements</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
+              <a href='https://hoaboardtime.com/residentReminders.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="reminders.png" height=75 width=75 alt='Reminders'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
+                        echo "<h2 class='text-green'><strong>".$reminders."</strong></h2>";
+                                      
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Reminders</strong></h4>
 
                   </div>
 
