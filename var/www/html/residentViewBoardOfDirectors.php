@@ -256,7 +256,7 @@
                             
                           }
 
-                          echo "<tr><td>".$name.($bod_user_id)"</td><td>".$living_in."</td><td>".$title."</td></tr>";
+                          echo "<tr><td>".$name."($bod_user_id)</td><td>".$living_in."</td><td>".$title."</td></tr>";
 
                         }
 
