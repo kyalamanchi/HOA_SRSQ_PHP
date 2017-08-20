@@ -225,19 +225,13 @@
     $pdf->SetFont("Arial", "B", 10);
     $pdf->Cell(100, 6, $c_name, 0, 1, L);
     $pdf->SetFont("Arial", "", 10);
-    $pdf->Cell(100, 6, $pobox.", ".$city.", ".$state." ".$zip.". EIN : ".$tax_id, 0, 1, L);
+    $pdf->Cell(100, 6, $pobox, 0, 1, L);
+    $pdf->Cell(100, 6, $city.", ".$state." ".$zip, 0, 1, L);
+    $pdf->Cell(100, 6, "EIN : ".$tax_id, 0, 1, L);
 
 
-    $pdf->Cell(10, 6, "Send an email to ", 0, 0, L);
-    $pdf->SetFont("Arial", "U", 10);
-    $pdf->Cell(10, 6, $c_email, 0, 0, L);
-    $pdf->SetFont("Arial", "", 10);
-    $pdf->Cell(10, 6, " for HOA related queries", 0, 1, L);
-    $pdf->SetFont("Arial", "", 10);
-    $pdf->Cell(10, 6, "All updates will be posted at ", 0, 0, L);
-    $pdf->SetFont("Arial", "U", 10);
-    $pdf->Cell(10, 6, $c_website, 0, 1, L);
-    $pdf->SetFont("Arial", "", 10);
+    $pdf->Cell(100, 6, "Send an email to ".$c_email." for HOA related queries", 0, 1, L);
+    $pdf->Cell(100, 6, "All updates will be posted at ".$c_website, 0, 1, L);
 
 
     $pdf->output();
