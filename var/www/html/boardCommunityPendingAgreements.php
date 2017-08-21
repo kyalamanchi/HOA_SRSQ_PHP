@@ -363,6 +363,7 @@
                         <th>Create Date</th>
                         <th>Send Date</th>
                         <th>Last Updated</th>
+                        <th></th>
 
                       </tr>
 
@@ -433,7 +434,7 @@
                               
                               }
 
-                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a href=''>Cancel Agreement</a></td></tr>";
 
                             }
 
@@ -455,6 +456,7 @@
                         <th>Create Date</th>
                         <th>Send Date</th>
                         <th>Last Updated</th>
+                        <th></th>
 
                       </tr>
 
