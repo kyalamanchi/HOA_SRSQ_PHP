@@ -94,6 +94,14 @@
 
     $ddate = $month."-15-".date("y");
 
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+    $total_charges = $row['sum'];
+
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
+    $total_payments = $row['sum'];
+
+    $total = $total_charges - $total_payments;
+
 
     require("fpdf/fpdf.php");
 
@@ -156,7 +164,7 @@
     $pdf->Cell(80, 6, "Description", 0, 0);
     $pdf->Cell(20, 6, "Charge", 0, 0);
     $pdf->Cell(20, 6, "Payment", 0, 0);
-    $pdf->Cell(40, 6, "Balance", 0, 1);
+    $pdf->Cell(40, 6, "Total", 0, 1);
     $pdf->SetFont("Arial", "", 10);
 
 
@@ -211,6 +219,15 @@
         }
 
     }
+
+    $pdf->SetFont("Arial", "B", 10);
+    $pdf->Cell(20, 6, "", 0, 0);
+    $pdf->Cell(30, 6, "", 0, 0);
+    $pdf->Cell(80, 6, "Total", 0, 0);
+    $pdf->SetFont("Arial", "", 10);
+    $pdf->Cell(20, 6, $total_charges, 0, 0);
+    $pdf->Cell(20, 6, $total_payments, 0, 0);
+    $pdf->Cell(40, 6, $total, 0, 1);
 
 
     $pdf->Cell(189, 6, " ", 0, 1);
