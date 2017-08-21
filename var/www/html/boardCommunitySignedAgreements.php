@@ -380,7 +380,7 @@
                           $send_date = $row['send_date'];
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
-                          $emails = array();
+                          $agreement_id = $row['agreement_id'];
 
                           if($create_date != "")
                             $create_date = date('m-d-Y', strtotime($create_date));
@@ -391,20 +391,15 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          $emails = explode(';', $document_to);
-
-                          for($i = 0; $i < sizeof($emails); $i++)
+                          if($emails[$i] != "")
                           {  
 
-                            if($emails[$i] != "")
-                            {  
-
-                              echo "<tr>";
+                            echo "<tr>";
                               
-                              $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$emails[$i]."'");
+                            $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$document_to."'");
 
-                              if(pg_num_rows($result1))
-                              {
+                            if(pg_num_rows($result1))
+                            {
 
                                 $row1 = pg_fetch_assoc($result1);
                                 
@@ -415,27 +410,26 @@
 
                                 echo "<td>".$name."<br>($hoa_id)</td>";
 
+                            }
+                            else
+                            {
+                              
+                              $result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$document_to."'");
+
+                              if(pg_num_rows($result1))
+                              {  
+
+                                $row1 = pg_fetch_assoc($result1);
+
+                                echo "<td>".$row1['vendor_name']."</td>";
+
                               }
                               else
-                              {
-                                $result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$emails[$i]."'");
-
-                                if(pg_num_rows($result1))
-                                {  
-
-                                  $row1 = pg_fetch_assoc($result1);
-
-                                  echo "<td>".$row1['vendor_name']."</td>";
-
-                                }
-                                else
-                                  echo "<td>N/A</td>";
+                                echo "<td>N/A</td>";
                               
-                              }
-
-                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
-
                             }
+
+                            echo "<td>".$document_to."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                           }
 
