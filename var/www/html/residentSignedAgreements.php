@@ -195,7 +195,7 @@
         
         <section class="content-header">
 
-          <h1><strong>My Pending Agreements</strong></h1>
+          <h1><strong>My Signed Agreements</strong></h1>
 
         </section>
 
