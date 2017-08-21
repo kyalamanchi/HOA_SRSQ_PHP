@@ -254,8 +254,8 @@
                           if($agreement_id != '')
                           {  
                             
-                            $agreement_name = "<a title='Click to sign agreement' target='_blank' href='https://hoaboardtime.com/esignPreview?id=".$agreement_id."'>".$agreement_name."</a>";
-                            $document_to = "<a title='Click to sign agreement' target='_blank' href='https://hoaboardtime.com/esignPreview?id=".$agreement_id."'>".$document_to."</a>";
+                            $agreement_name = "<a title='Click to sign agreement' target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a>";
+                            $document_to = "<a title='Click to sign agreement' target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$document_to."</a>";
 
                           }
 
