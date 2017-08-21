@@ -224,10 +224,10 @@
     $pdf->Cell(20, 6, "", 0, 0);
     $pdf->Cell(30, 6, "", 0, 0);
     $pdf->Cell(80, 6, "Total", 0, 0);
-    $pdf->SetFont("Arial", "", 10);
     $pdf->Cell(20, 6, "$ ".$total_charges, 0, 0);
     $pdf->Cell(20, 6, "$ ".$total_payments, 0, 0);
     $pdf->Cell(40, 6, "$ ".$total, 0, 1);
+    $pdf->SetFont("Arial", "", 10);
 
 
     $pdf->Cell(189, 6, " ", 0, 1);
