@@ -229,7 +229,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '%".$_SESSION['hoa_email']."%' AND agreement_status='OUT_FOR_SIGNATURE'");
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '".$_SESSION['hoa_email']."' AND agreement_status='OUT_FOR_SIGNATURE'");
 
                         while($row = pg_fetch_assoc($result))
                         {
