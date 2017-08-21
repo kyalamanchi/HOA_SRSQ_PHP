@@ -4,7 +4,7 @@
 
 	header("Content-type: application/pdf");
 	
-	$agreementID  = '3AAABLblqZhBIQ7hPSRUAC1JwGZP-uirYJ6Qqwvol7mWel8A538YmDDdhTeSmh8GcabLHzfAnLjT4r5HC0d6r3nMwGYM-Ya-i';#$_GET['id'];
+	$agreementID  = $_GET['id'];
 	$url  = 'https://api.na1.echosign.com:443/api/rest/v5/agreements/';
 	$url  = $url.$agreementID."/combinedDocument";
 	$ch = curl_init($url);
