@@ -434,7 +434,7 @@
                               
                               }
 
-                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a href=''>Cancel Agreement</a></td></tr>";
+                              echo "<td>".$emails[$i]."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a href=''>Cancel</a></td></tr>";
 
                             }
 
