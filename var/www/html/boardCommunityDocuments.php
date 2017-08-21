@@ -534,6 +534,8 @@
                                   $category = $row11['document_category_name'];
 
                                 }
+                                else
+                                  $category = 'Others';
 
                                 echo "<tr><td>$date_of_upload</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
 
