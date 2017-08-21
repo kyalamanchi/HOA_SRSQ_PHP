@@ -397,7 +397,7 @@
 
                             echo "<tr>";
                               
-                            $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$emails[$i]."'");
+                            $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$document_to."'");
 
                             if(pg_num_rows($result1))
                             {
