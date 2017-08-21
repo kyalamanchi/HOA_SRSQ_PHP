@@ -391,7 +391,7 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          if($emails[$i] != "")
+                          if($document_to != "")
                           {  
 
                             echo "<tr>";
