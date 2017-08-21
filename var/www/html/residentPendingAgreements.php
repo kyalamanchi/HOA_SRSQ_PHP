@@ -251,8 +251,6 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          $emails = explode(';', $document_to);
-
                           if($esign_url != '')
                           {  
                             
@@ -261,12 +259,7 @@
 
                           }
 
-                          for($i = 0; $i < sizeof($emails); $i++)
-                          {  
-
-                            echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
-
-                          }
+                          echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
 
