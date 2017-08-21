@@ -429,7 +429,7 @@
                               
                             }
 
-                            echo "<td>".$document_to."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                            echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$document_to."</a></td><td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                           }
 
