@@ -229,7 +229,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '".$_SESSION['hoa_email']."' AND agreement_status='OUT_FOR_SIGNATURE'");
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '".$_SESSION['hoa_email']."' AND agreement_status='SIGNED'");
 
                         while($row = pg_fetch_assoc($result))
                         {
@@ -251,7 +251,7 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          if($esign_url != '')
+                          if($agreement_id != '')
                           {  
                             
                             $agreement_name = "<a title='Click to sign agreement' target='_blank' href='".$esign_url."'>".$agreement_name."</a>";
