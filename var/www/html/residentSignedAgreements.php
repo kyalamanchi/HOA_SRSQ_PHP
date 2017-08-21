@@ -239,7 +239,7 @@
                           $send_date = $row['send_date'];
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
-                          $esign_url = $row['esign_url'];
+                          $agreement_id = $row['agreement_id'];
                           $emails = array();
 
                           if($create_date != "")
@@ -254,8 +254,8 @@
                           if($agreement_id != '')
                           {  
                             
-                            $agreement_name = "<a title='Click to sign agreement' target='_blank' href='".$esign_url."'>".$agreement_name."</a>";
-                            $document_to = "<a title='Click to sign agreement' target='_blank' href='".$esign_url."'>".$document_to."</a>";
+                            $agreement_name = "<a title='Click to sign agreement' target='_blank' href='https://hoaboardtime.com/esignPreview?id=".$agreement_id."'>".$agreement_name."</a>";
+                            $document_to = "<a title='Click to sign agreement' target='_blank' href='https://hoaboardtime.com/esignPreview?id=".$agreement_id."'>".$document_to."</a>";
 
                           }
 
