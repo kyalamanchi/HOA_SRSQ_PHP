@@ -608,6 +608,54 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
+              <a href='https://hoaboardtime.com/residentSignedAgreements.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="signed_agreement.png" height=75 width=75 alt='Signed Agreements'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to LIKE '".$_SESSION['hoa_email']."' AND agreement_status='SIGNED'");
+                        $signed_agreements = pg_num_rows($result);
+
+                        if($signed_agreements == 0)
+                          echo "<h2 class='text-green'><strong>".$signed_agreements."</strong></h2>"; 
+                        else
+                          echo "<h2 class='text-red'><strong>".$signed_agreements."</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>My Signed Agreements</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
               <a href='https://hoaboardtime.com/residentReminders.php'>
 
                 <div class="row container-fluid text-left">
