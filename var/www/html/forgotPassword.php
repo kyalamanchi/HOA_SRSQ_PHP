@@ -256,7 +256,9 @@
                         
                         <input class='form-control' name='' id='' required placeholder='Enter OTP here'>
 
-                        <br><br>
+                      </div>
+
+                      <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center'>
 
                         <button type='submit' class='btn btn-xs btn-info'>Reset</button>
 
