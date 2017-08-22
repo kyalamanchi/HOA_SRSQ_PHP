@@ -259,7 +259,7 @@
 
                       <div class="pull-left">
 
-                        <a data-toggle="modal">Forgot Password?</a><!-- data-target="#forgotPassword" -->
+                        <a data-toggle="modal" data-target="#forgotPassword">Forgot Password?</a><!--  -->
 
                         <br><br>
 
