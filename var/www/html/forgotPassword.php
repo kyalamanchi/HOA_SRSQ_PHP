@@ -254,7 +254,7 @@
 
                       <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
                         
-                        <input class='form-control' name='' id='' required placeholder='Enter OTP here'>
+                        <input class='form-control' type='number' name='' id='' required placeholder='Enter OTP here'>
 
                       </div>
 
@@ -270,7 +270,7 @@
 
                 ?>
 
-              <br><br>
+              <br><br><br><br>
 
             </div>
 
