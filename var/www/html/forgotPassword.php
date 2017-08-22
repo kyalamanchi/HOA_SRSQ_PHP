@@ -223,7 +223,13 @@
 
             <br>
 
-              
+              <?php
+
+                $reset_email = $_POST['forgot_password_email'];
+
+                echo $reset_email;
+
+              ?>
 
             <br>
 
