@@ -227,9 +227,9 @@
 
                 $reset_email = $_POST['forgot_password_email'];
 
-                echo $reset_email;
+                echo $reset_email."<br><br><br>";
 
-                echo(rand(10,100));
+                echo(rand(1000,10000));
 
               ?>
 
