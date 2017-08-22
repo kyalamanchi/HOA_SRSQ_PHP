@@ -220,7 +220,7 @@
         <section class="content">
           
           <div class='row container-fluid'>
-          
+
             <div class="row container-fluid" style="background-color: white;">
 
               <br>
@@ -229,9 +229,24 @@
 
                   $reset_email = $_POST['forgot_password_email'];
 
-                  echo $reset_email."<br><br><br>";
+                  $result = pg_query("SELECT * FROM usr WHERE email='$reset_email'");
 
-                  echo(rand(100000,1000000));
+                  if(pg_num_rows($result) == 0)
+                  {
+
+                    echo "<center><h3>User not found.<br><br>Please verify your email and try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},4000);</script></center>";
+
+                  }
+                  else
+                  {
+
+                    $otp = rand(100000,1000000);
+
+                    $row = pg_fetch_assoc($result);
+
+                    echo "Hello $row['first_name'] $row['last_name']";
+
+                  }
 
                 ?>
 
