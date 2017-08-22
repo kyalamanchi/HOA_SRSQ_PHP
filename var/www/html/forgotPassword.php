@@ -229,6 +229,8 @@
 
                 echo $reset_email;
 
+                echo(rand(10,100));
+
               ?>
 
             <br>
