@@ -244,7 +244,7 @@
 
                     $row = pg_fetch_assoc($result);
 
-                    echo "Hello $row['first_name'] $row['last_name']";
+                    echo "Hello ".$row['first_name']." ".$row['last_name'];
 
                   }
 
