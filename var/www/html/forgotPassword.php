@@ -252,8 +252,11 @@
                     echo "
                     <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
 
-                      <label for='otp'>Enter OTP here</label>
-                      <input class='form-control' name='' id='' required placeholder='OTP here'>
+                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-8'>
+                        
+                        <input class='form-control' name='' id='' required placeholder='Enter OTP here'>
+
+                      </div>
 
                       <br><br>
 
