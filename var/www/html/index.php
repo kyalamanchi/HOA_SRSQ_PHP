@@ -303,7 +303,7 @@
 
             </div>
 
-            <form class="row" method="post" ><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+            <form class="row" method="post" action="https://hoaboardtime.com/forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
                                             
               <div class="modal-body">
                                                 
