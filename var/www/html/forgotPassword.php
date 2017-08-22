@@ -229,7 +229,7 @@
 
                 echo $reset_email."<br><br><br>";
 
-                echo(rand(1000,10000));
+                echo(rand(100000,1000000));
 
               ?>
 
