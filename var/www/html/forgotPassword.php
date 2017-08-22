@@ -249,6 +249,18 @@
 
                     echo "Hello ".$first_name." ".$last_name.",<br><br><br>Your account has been temporarily blocked. An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password and unblock your account.<br><br><br>";
 
+                    echo "
+                    <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
+
+                      <label for='otp'>Enter OTP here</label>
+                      <input class='form-control' name='' id='' required placeholder='OTP here'>
+
+                      <br><br>
+
+                      <button type='submit' class='btn btn-xs btn-info'>Reset</button>
+
+                    </form>";
+
                   }
 
                 ?>
