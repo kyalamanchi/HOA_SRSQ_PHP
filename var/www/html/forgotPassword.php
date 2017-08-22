@@ -234,7 +234,7 @@
                   if(pg_num_rows($result) == 0)
                   {
 
-                    echo "<center><h3>User not found.<br><br>Please verify your email and try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},4000);</script></center>";
+                    echo "<center><h3>User not found.<br><br>Please verify your email and try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},2000);</script></center>";
 
                   }
                   else
