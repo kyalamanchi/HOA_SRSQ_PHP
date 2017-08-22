@@ -219,21 +219,25 @@
 
         <section class="content">
           
-          <div class="row container-fluid" style="background-color: white;">
+          <div class='row container-fluid'>
+          
+            <div class="row container-fluid" style="background-color: white;">
 
-            <br>
+              <br>
 
-              <?php
+                <?php
 
-                $reset_email = $_POST['forgot_password_email'];
+                  $reset_email = $_POST['forgot_password_email'];
 
-                echo $reset_email."<br><br><br>";
+                  echo $reset_email."<br><br><br>";
 
-                echo(rand(100000,1000000));
+                  echo(rand(100000,1000000));
 
-              ?>
+                ?>
 
-            <br>
+              <br>
+
+            </div>
 
           </div>
 
