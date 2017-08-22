@@ -322,8 +322,8 @@
 
                 <center>
 
-                  <button type="submit" name='submit' id='submit' class="btn btn-success btn-sm">Forgot Password</button>
-                  <button type="button" class="btn btn-warning btn-sm" data-dismiss="modal">Cancel</button>
+                  <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs">Reset Password</button>
+                  <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
 
                 </center>
 
