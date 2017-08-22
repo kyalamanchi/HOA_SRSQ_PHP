@@ -258,9 +258,9 @@
 
                       </div>
 
-                      <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center'>
+                      <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
 
-                        <button type='submit' class='btn btn-xs btn-info'>Reset</button>
+                        <button type='submit' class='btn btn-sm btn-info'>Reset</button>
 
                       </div>
 
@@ -270,7 +270,7 @@
 
                 ?>
 
-              <br>
+              <br><br>
 
             </div>
 
