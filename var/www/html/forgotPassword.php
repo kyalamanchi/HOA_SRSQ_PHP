@@ -307,6 +307,8 @@
 
                     $status = $result[0]['status'];
 
+                    echo $result[0]['status'];
+
 
                     if($status == 'success')
                     {
@@ -332,7 +334,7 @@
                       </form>";
                     }
                     else
-                      echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
+                      echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},10000);</script></center>";
 
                   }
 
