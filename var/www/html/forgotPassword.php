@@ -249,6 +249,7 @@
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
                     $community_id = $row['community_id'];
+                    $id = $row['id'];
 
                     switch ($community_id) {
                       case 1:
@@ -310,7 +311,7 @@
 
                     if($status == 'sent')
                     {
-                      $result = pg_query("INSERT INTO usr (forgot_password_code) VALUES ('".$otp."')");
+                      $result = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
 
                       if($result)
                       {
