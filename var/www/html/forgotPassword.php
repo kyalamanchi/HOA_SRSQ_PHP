@@ -336,7 +336,7 @@
                         </form>";
                       }
                       else
-                        echo "<center><h3>Some error occured. Please try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>"
+                        echo "<center><h3>Some error occured. Please try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
                     }
                     else
                       echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
