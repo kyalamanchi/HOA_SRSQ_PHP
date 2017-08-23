@@ -42,7 +42,7 @@
 			{
 				if($forgot_password_code != "")
 				{
-					$forgot_password_code = '';
+					$forgot_password_code = "";
 					$result = pg_query("UPDATE usr SET forgot_password_code='".$forgot_password_code."' WHERE email='".$login_email."'");
 				}
 
