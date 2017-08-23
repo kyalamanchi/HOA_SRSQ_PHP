@@ -252,7 +252,7 @@
                       echo "Hello ".$first_name." ".$last_name.",<br><br>Please reset your password to login into your account.<br><br><br>";
 
                       echo "
-                      <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
+                      <form action='https://hoaboardtime.com/forgotPassword.php?forgot_password_email=".$reset_email."' method='POST'>
 
                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
                           
@@ -282,6 +282,8 @@
 
                       </form>";
                     }
+                    else
+                      echo "<br><br><center><h3>Entered OTP is invalid. Please verify the OTP and try again.</h3></center><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/forgotPassword.php?forgot_password_email=".$reset_email."'},1000);</script>";
 
                   }
 

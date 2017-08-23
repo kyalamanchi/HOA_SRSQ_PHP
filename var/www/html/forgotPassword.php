@@ -227,7 +227,7 @@
 
                 <?php
 
-                  $reset_email = $_POST['forgot_password_email'];
+                  $reset_email = $_REQUEST['forgot_password_email'];
 
                   $result = pg_query("SELECT * FROM usr WHERE email='$reset_email'");
 
