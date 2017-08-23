@@ -246,6 +246,7 @@
 
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
+                    $community_id = $row['community_id'];
 
                     echo "Hello ".$first_name." ".$last_name.",<br><br><br>Your account has been temporarily blocked. An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password and unblock your account.<br><br><br>";
 

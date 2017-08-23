@@ -240,6 +240,14 @@
                   else
                   {
 
+                    $row = pg_fetch_assoc($result);
+
+                    $first_name = $row['first_name'];
+                    $last_name = $row['last_name'];
+                    $community_id = $row['community_id'];
+
+                    echo "Hello ".$first_name." ".$last_name.",<br><br><br>Please reset your password to login into your account.<br><br><br>";
+
                     echo "
                     <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
 
