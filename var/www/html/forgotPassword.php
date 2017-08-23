@@ -307,10 +307,8 @@
 
                     $status = $result[0]['status'];
 
-                    echo $result[0]['status'];
 
-
-                    if($status == 'success')
+                    if($status == 'sent')
                     {
                       echo "Hello ".$first_name." ".$last_name.",<br><br><br>An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password.<br><br><br>";
 
