@@ -27,14 +27,18 @@
 		$id = $row['id'];
 		$otp = "";
 
+		echo $pass."<br>".$id."<br>".$reset_email;
+
 		$result = pg_query("UPDATE usr SET password='".$pass."', forgot_password_code='".$otp."' WHERE id=".$id);
+
+		print_r($result);
 
 		if($result)
 			echo "<br><br><br><center><h3>Password changed successfully.<br>You can now use your new password to access your HOA account.</h3></center>";
 		else
 			echo "<br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
 
-		echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},2000);</script>";
+		echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},200000);</script>";
 	}
 
 ?>
