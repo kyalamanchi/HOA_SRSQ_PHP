@@ -320,6 +320,8 @@
 
                       </form>";
 
+                      echo "<br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php'>Click here</a> to resend the OTP to your mail.</center>"
+
                     }
                     else
                     {
