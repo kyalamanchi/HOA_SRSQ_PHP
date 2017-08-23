@@ -266,7 +266,7 @@
                           break;
                     }                     
                   
-                    $content = 'Hello '.$first_name.' '.$last_name.',<br>Please use '.$otp.' as OTP for reseting your HOA account password.<br><br>Thank you.';
+                    $content = 'Hello '.$first_name.' '.$last_name.',<br><br>Please use '.$otp.' as OTP for reseting your HOA account password.<br><br>Thank you<br>'.$cnote.'.';
                     $subject = 'Password Reset for HOA account '.$hoa_id;
                     $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
                     $content_text = strip_tags($content);
