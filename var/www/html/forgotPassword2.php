@@ -306,7 +306,7 @@
                           
                           <div class='row'>
 
-                            <input class='form-control' type='number' name='new_password' id='new_password' required placeholder='Enter New Password'>
+                            <input class='form-control' type='password' name='new_password' id='new_password' required placeholder='Enter New Password'>
 
                           </div>
 
@@ -314,7 +314,7 @@
 
                             <br>
 
-                            <input class='form-control' type='number' name='confirm_password' id='confirm_password' required placeholder='Re-Type New Password'>
+                            <input class='form-control' type='password' name='confirm_password' id='confirm_password' required placeholder='Re-Type New Password'>
 
                             <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."'>
                             <input type='hidden' name='otp_entered' id='otp_entered' value='".$otp_entered."'>
