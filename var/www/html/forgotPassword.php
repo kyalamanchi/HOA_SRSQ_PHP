@@ -248,8 +248,6 @@
                     $id = $row['id'];
                     $passcode = $row['forgot_password_code'];
 
-                    echo "Passcode : ".$passcode."<br><br>";
-
                     if($passcode != "")
                     {
                       
