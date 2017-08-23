@@ -29,7 +29,8 @@
 			$name = $row['first_name'];
 			$name .= " ";
 			$name .= $row['last_name'];
-			$forgot_password_code = $row['forgot_password_code'];
+			$id = $row['id'];
+			$otp = "";
 
 			session_start();
 
@@ -40,11 +41,7 @@
 
 			if($_SESSION['hoa_user_id'] == 400)
 			{
-				if($forgot_password_code != "")
-				{
-					$forgot_password_code = "";
-					$result = pg_query("UPDATE usr SET forgot_password_code='".$forgot_password_code."' WHERE email='".$login_email."'");
-				}
+				$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
 
 				header("Location: https://hoaboardtime.com/backendBalance.php");
 				
