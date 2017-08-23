@@ -89,7 +89,7 @@
         if($result)
         {
             
-            echo "<br><br><br><center><h3>Email Sent.</h3></center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/resendOTPEmail.php?forgot_password_email=".$reset_email."'},1000);</script>";
+            echo "<br><br><br><center><h3>Email Sent.</h3></center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/forgotPassword.php?forgot_password_email=".$reset_email."'},1000);</script>";
 
         }
         else
