@@ -97,7 +97,7 @@
 
                       <div class="pull-left">
 
-                        <a href="" class="btn btn-link btn-flat">Forgot Password?</a>
+                        <a data-toggle="modal" data-target="#forgotPassword">Forgot Password?</a>
 
                         <br><br>
 
@@ -126,6 +126,54 @@
         </nav>
 
       </header>
+
+      <div class="modal fade hmodal-success" id="forgotPassword" role="dialog"  aria-hidden="true">
+                                
+        <div class="modal-dialog">
+                                    
+          <div class="modal-content">
+                                        
+            <div class="color-line"></div>
+                        
+            <div class="modal-header">
+                                                
+              <h4 class="modal-title"><strong>Forgot Password?</strong></h4>
+
+            </div>
+
+            <form class="row" method="post" action="https://hoaboardtime.com/forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+                                            
+              <div class="modal-body">
+                                                
+                <div class="row container-fluid">
+                                
+                  <div class='col-xl-offset-3 col-lg-offset-3 col-md-offset-2 col-sm-offset-1 col-xs-offset-1 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'>
+
+                    <label>Enter your email</label>
+                    <input type='email' class="form-control" placeholder='example@email.com' name='forgot_password_email' id='forgot_password_email' size='50' required>
+
+                  </div>
+
+                </div>
+
+                <br>
+
+                <center>
+
+                  <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs">Reset Password</button>
+                  <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal">Cancel</button>
+
+                </center>
+
+              </div>
+
+            </form>
+
+          </div>
+                  
+        </div>
+
+      </div>
       
       <aside class="main-sidebar">
         
