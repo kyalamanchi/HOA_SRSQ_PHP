@@ -24,7 +24,7 @@
 		{
 			$pass = password_hash($confirm_password, PASSWORD_BCRYPT);
 
-			$result = pg_query("UPDATE usr SET password='".$pass."' WHERE email='".$_SESSION['hoa_email']."'");
+			$result = pg_query("UPDATE usr SET password='".$pass."', modified_date='".date('Y-m-d')."' WHERE email='".$_SESSION['hoa_email']."'");
 
 			echo "<br><br><br><center><h3>Password successfully changed.</h3><center>";
 		}
