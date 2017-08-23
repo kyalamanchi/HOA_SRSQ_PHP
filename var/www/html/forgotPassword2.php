@@ -275,7 +275,7 @@
 
                 <?php
 
-                  $reset_email = $_POST['forgot_password_email'];
+                  $reset_email = $_REQUEST['forgot_password_email'];
 
                   $result = pg_query("SELECT * FROM usr WHERE email='$reset_email'");
 
@@ -293,14 +293,14 @@
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
                     $passcode = $row['forgot_password_code'];
-                    $otp_entered = $_POST['otp_entered'];
+                    $otp_entered = $_REQUEST['otp_entered'];
 
                     if($otp_entered == $passcode)
                     {
                       echo "Hello ".$first_name." ".$last_name.",<br><br>Please reset your password to login into your account.<br><br><br>";
 
                       echo "
-                      <form action='https://hoaboardtime.com/forgotPassword.php?forgot_password_email=".$reset_email."' method='POST'>
+                      <form action='https://hoaboardtime.com/resetPassword.php' method='POST'>
 
                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
                           
@@ -314,7 +314,10 @@
 
                             <br>
 
-                            <input class='form-control' type='number' name='confirm_password' id='confirm_password' required placeholder='Confirm New Password'>
+                            <input class='form-control' type='number' name='confirm_password' id='confirm_password' required placeholder='Re-Type New Password'>
+
+                            <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."'>
+                            <input type='hidden' name='otp_entered' id='otp_entered' value='".$otp_entered."'>
 
                           </div>
 
