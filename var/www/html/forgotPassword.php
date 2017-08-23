@@ -240,6 +240,8 @@
                   else
                   {
 
+                    $to = 'geethchadalawada@gmail.com';#$reset_email;
+
                     $otp = rand(100000,1000000);
 
                     $row = pg_fetch_assoc($result);
@@ -247,6 +249,62 @@
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
                     $community_id = $row['community_id'];
+
+                    switch ($community_id) {
+                      case 1:
+                        $community = 'SRP';
+                        $cnote = "Stoneridgeplace HOA";
+                        $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+                        $from = 'info@stoneridgeplace.org';
+                          break;
+
+                      case 2:
+                        $community = 'SRSQ';
+                        $cnote = "Stoneridge Square HOA";
+                        $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+                        $from = 'info@stoneridgesquare.org';
+                          break;
+                    }                     
+                  
+                    $content = 'Hello '.$first_name.' '.$last_name.',<br>Please use '.$otp.' as OTP for reseting your HOA account password.<br><br>Thank you.';
+                    $subject = 'Password Reset for HOA account '.$hoa_id;
+                    $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
+                    $content_text = strip_tags($content);
+
+                    $params = array(
+                      "key" => $api_key,
+                      "message" => array(
+                        "html" => $content,
+                        "text" => $content_text,
+                        "subject" => $subject,
+                        "from_email" => $from,
+                        "from_name" => $from,
+                        "to" => array(
+                          array("email" => $to, "name" => $to)
+                        ),
+                        "track_opens" => true,
+                        "track_clicks" => true,
+                        "auto_text" => true,
+                        "url_strip_qs" => true,
+                        "preserve_recipients" => true
+                      ),
+                      "async" => false
+                    );
+
+                    $ch = curl_init();
+                    $postString = json_encode($params);
+                    
+                    curl_setopt($ch, CURLOPT_URL, $uri);
+                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+                    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                    curl_setopt($ch, CURLOPT_POST, true);
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+                    
+                    $result = curl_exec($ch);
+
+                    echo $result;
+
 
                     echo "Hello ".$first_name." ".$last_name.",<br><br><br>Your account has been temporarily blocked. An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password and unblock your account.<br><br><br>";
 

@@ -272,7 +272,7 @@
 
                         <br><br><br>
 
-                        <button type='submit' class='btn btn-sm btn-info'>Reset Password</button>
+                        <button type='submit' class='btn btn-xs btn-info'>Reset Password</button>
 
                       </div>
 
