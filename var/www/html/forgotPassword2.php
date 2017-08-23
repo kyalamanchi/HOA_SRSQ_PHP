@@ -260,7 +260,7 @@
 
                         <div class='row'>
 
-                          <br><br>
+                          <br>
 
                           <input class='form-control' type='number' name='confirm_password' id='confirm_password' required placeholder='Confirm New Password'>
 
@@ -282,7 +282,7 @@
 
                 ?>
 
-              <br><br><br><br>
+              <br><br><br><br><br>
 
             </div>
 
