@@ -268,7 +268,7 @@
 
                       <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
 
-                        <br><br><br>
+                        <br><br>
 
                         <button type='submit' class='btn btn-sm btn-info'>Reset Password</button>
 
