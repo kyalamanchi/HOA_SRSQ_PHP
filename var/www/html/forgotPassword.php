@@ -246,7 +246,32 @@
                     $id = $row['id'];
                     $passcode = $row['forgot_password_code'];
 
-                    if($passcode == "")
+                    if($passcode != "")
+                    {
+                      
+                      echo "Hello ".$first_name." ".$last_name.",<br><br><br>Please enter the OTP sent to your mail address (".$reset_email.") to reset your HOA account password.<br><br><br>";
+
+                      echo "
+                      <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
+
+                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+                              
+                          <input class='form-control' type='number' name='otp_entered' id='otp_entered' required placeholder='Enter OTP here'>
+
+                          <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
+
+                          <button type='submit' class='btn btn-sm btn-info'>Reset</button>
+
+                        </div>
+
+                      </form>";
+
+                    }
+                    else
                     {
                       $to = 'geethchadalawada@gmail.com';#$reset_email;
 
@@ -344,31 +369,6 @@
                       }
                       else
                         echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
-                    }
-                    else
-                    {
-                      
-                      echo "Hello ".$first_name." ".$last_name.",<br><br><br>Please enter the OTP sent to your mail address (".$reset_email.") to reset your HOA account password.<br><br><br>";
-
-                      echo "
-                      <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
-
-                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-                              
-                          <input class='form-control' type='number' name='otp_entered' id='otp_entered' required placeholder='Enter OTP here'>
-
-                          <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
-
-                        </div>
-
-                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
-
-                          <button type='submit' class='btn btn-sm btn-info'>Reset</button>
-
-                        </div>
-
-                      </form>";
-
                     }
 
                   }
