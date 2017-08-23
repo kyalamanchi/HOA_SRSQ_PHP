@@ -29,7 +29,7 @@
 
 		echo $pass."<br>".$id."<br>".$reset_email;
 
-		$result = pg_query("UPDATE usr SET password='".$pass."', forgot_password_code='".$otp."' WHERE id=".$id);
+		$result = pg_query("UPDATE usr SET password='".$pass."', forgot_password_code='".$otp."', modified_date='".date('Y-m-d')."' WHERE id=".$id);
 
 		print_r($result);
 
