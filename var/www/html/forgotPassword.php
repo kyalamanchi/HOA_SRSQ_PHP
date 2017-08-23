@@ -310,7 +310,7 @@
 
                     if($status == 'sent')
                     {
-                      $result = pg_query("INSERT INTO usr (forgot_password_code) VALUES (".$otp.")");
+                      $result = pg_query("INSERT INTO usr (forgot_password_code) VALUES ('".$otp."')");
 
                       if($result)
                       {
