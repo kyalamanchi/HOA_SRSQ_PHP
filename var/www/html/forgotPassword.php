@@ -240,6 +240,8 @@
                   else
                   {
 
+                    $row = pg_fetch_assoc($result);
+
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
                     $community_id = $row['community_id'];
@@ -279,8 +281,6 @@
                       $to = 'geethchadalawada@gmail.com';#$reset_email;
 
                       $otp = rand(100000,1000000);
-
-                      $row = pg_fetch_assoc($result);
 
                       switch ($community_id) {
                         case 1:
