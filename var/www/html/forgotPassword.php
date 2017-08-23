@@ -320,7 +320,7 @@
 
                       </form>";
 
-                      echo "<br><br><br><br><br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php'>Click here</a> to regenerate OTP.</center>";
+                      echo "<br><br><br><br><br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php'>Click here</a> if you haven't received a mail containing the OTP.</center>";
 
                     }
                     else
