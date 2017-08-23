@@ -310,29 +310,36 @@
 
                     if($status == 'sent')
                     {
-                      echo "Hello ".$first_name." ".$last_name.",<br><br><br>An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password.<br><br><br>";
+                      $result = pg_query("INSERT INTO usr (forgot_password_code) VALUES (".$otp.")");
 
-                      echo "
-                      <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
+                      if($result)
+                      {
+                        echo "Hello ".$first_name." ".$last_name.",<br><br><br>An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password.<br><br><br>";
 
-                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-                          
-                          <input class='form-control' type='number' name='' id='' required placeholder='Enter OTP here'>
+                        echo "
+                        <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
 
-                          <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+                            
+                            <input class='form-control' type='number' name='' id='' required placeholder='Enter OTP here'>
 
-                        </div>
+                            <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
 
-                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
+                          </div>
 
-                          <button type='submit' class='btn btn-sm btn-info'>Reset</button>
+                          <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
 
-                        </div>
+                            <button type='submit' class='btn btn-sm btn-info'>Reset</button>
 
-                      </form>";
+                          </div>
+
+                        </form>";
+                      }
+                      else
+                        echo "<center><h3>Some error occured. Please try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>"
                     }
                     else
-                      echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},10000);</script></center>";
+                      echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
 
                   }
 
