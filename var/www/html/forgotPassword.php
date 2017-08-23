@@ -256,6 +256,8 @@
                         
                         <input class='form-control' type='number' name='' id='' required placeholder='Enter OTP here'>
 
+                        <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
+
                       </div>
 
                       <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>

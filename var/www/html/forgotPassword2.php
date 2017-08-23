@@ -234,15 +234,11 @@
                   if(pg_num_rows($result) == 0)
                   {
 
-                    echo "<center><h3>User not found.<br><br>Please verify your email and try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
+                    echo "<center><h3>Some error occured.<br><br>Please try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
 
                   }
                   else
                   {
-
-                    $otp = rand(100000,1000000);
-
-                    $row = pg_fetch_assoc($result);
 
                     echo "
                     <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
