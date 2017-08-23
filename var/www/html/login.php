@@ -48,6 +48,7 @@
 			}
 			else
 			{
+				$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
 				
 				$query = "SELECT * FROM hoaid WHERE email='".$login_email."'";
 				$result = pg_query($query);
