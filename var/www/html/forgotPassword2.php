@@ -244,39 +244,44 @@
 
                     $first_name = $row['first_name'];
                     $last_name = $row['last_name'];
+                    $passcode = $row['forgot_password_code'];
+                    $otp_entered = $_POST['otp_entered'];
 
-                    echo "Hello ".$first_name." ".$last_name.",<br><br>Please reset your password to login into your account.<br><br><br>";
+                    if($otp_entered == $passcode)
+                    {
+                      echo "Hello ".$first_name." ".$last_name.",<br><br>Please reset your password to login into your account.<br><br><br>";
 
-                    echo "
-                    <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
+                      echo "
+                      <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
 
-                      <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-                        
-                        <div class='row'>
+                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+                          
+                          <div class='row'>
 
-                          <input class='form-control' type='number' name='new_password' id='new_password' required placeholder='Enter New Password'>
+                            <input class='form-control' type='number' name='new_password' id='new_password' required placeholder='Enter New Password'>
+
+                          </div>
+
+                          <div class='row'>
+
+                            <br>
+
+                            <input class='form-control' type='number' name='confirm_password' id='confirm_password' required placeholder='Confirm New Password'>
+
+                          </div>
 
                         </div>
 
-                        <div class='row'>
+                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
 
-                          <br>
+                          <br><br><br>
 
-                          <input class='form-control' type='number' name='confirm_password' id='confirm_password' required placeholder='Confirm New Password'>
+                          <button type='submit' class='btn btn-xs btn-info'>Reset Password</button>
 
                         </div>
 
-                      </div>
-
-                      <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
-
-                        <br><br><br>
-
-                        <button type='submit' class='btn btn-xs btn-info'>Reset Password</button>
-
-                      </div>
-
-                    </form>";
+                      </form>";
+                    }
 
                   }
 
