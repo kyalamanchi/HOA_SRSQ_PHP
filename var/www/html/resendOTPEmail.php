@@ -89,7 +89,7 @@
         if($result)
         {
             
-            echo "Hello ".$first_name." ".$last_name.",<br><br><br>An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password.<br><br><br>";
+            echo "<br><br><br><center><h3>Email Sent.</h3></center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/resendOTPEmail.php?forgot_password_email=".$reset_email."'},1000);</script>";
 
         }
         else
