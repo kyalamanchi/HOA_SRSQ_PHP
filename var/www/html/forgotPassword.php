@@ -305,7 +305,7 @@
 
                     $result = json_decode($result,TRUE);
 
-                    echo $result[0][1];
+                    echo $result['status'];
 
 
                     echo "Hello ".$first_name." ".$last_name.",<br><br><br>Your account has been temporarily blocked. An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password and unblock your account.<br><br><br>";
