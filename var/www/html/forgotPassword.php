@@ -273,6 +273,7 @@
                     }
                     else
                     {
+
                       $to = 'geethchadalawada@gmail.com';#$reset_email;
 
                       $otp = rand(100000,1000000);
@@ -336,7 +337,8 @@
 
                       $status = $result[0]['status'];
 
-
+                      echo $result[0]['status'];
+                      
                       if($status == 'sent')
                       {
                         $result = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
