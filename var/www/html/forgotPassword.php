@@ -303,6 +303,8 @@
                     
                     $result = curl_exec($ch);
 
+                    $result = json_decode($result);
+
                     echo $result[0][1];
 
 
