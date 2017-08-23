@@ -305,31 +305,34 @@
 
                     $result = json_decode($result,TRUE);
 
-                    print_r($result);
-
-                    echo $result[0]['status'];
+                    $status = $result[0]['status'];
 
 
-                    echo "Hello ".$first_name." ".$last_name.",<br><br><br>Your account has been temporarily blocked. An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password and unblock your account.<br><br><br>";
+                    if($status == 'success')
+                    {
+                      echo "Hello ".$first_name." ".$last_name.",<br><br><br>An OTP has been mailed to your email (".$reset_email.").<br>Please enter the OTP below to reset your HOA account password.<br><br><br>";
 
-                    echo "
-                    <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
+                      echo "
+                      <form action='https://hoaboardtime.com/forgotPassword2.php' method='POST'>
 
-                      <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-                        
-                        <input class='form-control' type='number' name='' id='' required placeholder='Enter OTP here'>
+                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+                          
+                          <input class='form-control' type='number' name='' id='' required placeholder='Enter OTP here'>
 
-                        <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
+                          <input type='hidden' name='forgot_password_email' id='forgot_password_email' value='".$reset_email."' >
 
-                      </div>
+                        </div>
 
-                      <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
+                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left'>
 
-                        <button type='submit' class='btn btn-sm btn-info'>Reset</button>
+                          <button type='submit' class='btn btn-sm btn-info'>Reset</button>
 
-                      </div>
+                        </div>
 
-                    </form>";
+                      </form>";
+                    }
+                    else
+                      echo "<center><br><br><br><h3>Email cannot be sent. Please try again later.</h3><br><br></center>";
 
                   }
 
