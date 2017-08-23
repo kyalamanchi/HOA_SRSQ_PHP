@@ -320,7 +320,7 @@
 
                       </form>";
 
-                      echo "<br><br><br><br><br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php'>Click here</a> if you haven't received a mail.</center>";
+                      echo "<br><br><br><br><br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php?forgot_password_email=".$reset_email."'>Click here</a> if you haven't received a mail.</center>";
 
                     }
                     else
@@ -414,7 +414,7 @@
 
                           </form>";
 
-                          echo "<br><br><br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php'>Click here</a> if you haven't received a mail.</center>";
+                          echo "<br><br><br><br><center><a href='https://hoaboardtime.com/resendOTPEmail.php?forgot_password_email=".$reset_email."'>Click here</a> if you haven't received a mail.</center>";
                         }
                         else
                           echo "<center><h3>Some error occured. Please try again.</h3><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},1000);</script></center>";
