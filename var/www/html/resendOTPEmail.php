@@ -1,6 +1,10 @@
 <?php
 
-	$reset_email = $_REQUEST['forgot_password_email'];
+	session_start();
+
+    pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+ 
+    $reset_email = $_REQUEST['forgot_password_email'];
 
    	$result = pg_query("SELECT * FROM usr WHERE email='$reset_email'");
 
