@@ -688,7 +688,7 @@
 
                     ?>
 
-                    <h2 class="text-info"><strong><?php echo $total_received; ?></strong></h2>
+                    <h2 class="text-info"><strong><?php echo ($total_received/$total_needed)*100; ?>%</strong></h2>
 
                   </div>
 
