@@ -400,7 +400,7 @@
 
                                   <div class='modal-body table-responsive'>";
 
-                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id' ORDER BY id DESC");
+                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id' ORDER BY id");
 
                                     echo "<div class='row container-fluid'>
 
