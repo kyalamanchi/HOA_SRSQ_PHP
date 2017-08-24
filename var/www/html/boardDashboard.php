@@ -512,7 +512,7 @@
 
                       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-left: none;">
 
-                        <strong>Others : <?php echo $total_customers - ($ach + $billpay + $check); ?></strong>
+                        <strong>Others : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id>3")); $other = $row['count']; echo $other; ?></strong>
 
                       </div>
                       </a>
