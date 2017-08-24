@@ -504,7 +504,8 @@
 
                     <div class="icon">
                       
-                      <i style="font-size: 50px;" class="fa fa-users"></i>
+                      <!--i style="font-size: 50px;" class="fa fa-users"></i-->
+                      <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'>
 
                     </div>
 
@@ -526,7 +527,8 @@
 
                     <div class="icon">
 
-                      <i style="font-size: 50px;" class="fa fa-users"></i>
+                      <!--i style="font-size: 50px;" class="fa fa-users"></i-->
+                      <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'>
 
                     </div>
 
@@ -549,7 +551,7 @@
                     <div class="icon">
 
                       <!--i style="font-size: 50px;" class="fa fa-users"></i-->
-                      <img src='delinquent_accounts.png' width=70 height=70 alt='Tenants'>
+                      <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'>
 
                     </div>
 
