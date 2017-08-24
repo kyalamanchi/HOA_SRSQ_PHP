@@ -568,7 +568,7 @@
 
                     <div class="icon">
 
-                      <i style="font-size: 50px;" class="fa fa-envelope"></i>
+                      <i style="font-size: 50px;" class="fa fa-users"></i>
 
                     </div>
 
@@ -590,7 +590,7 @@
 
                     <div class="icon">
 
-                      <i style="font-size: 50px;" class="fa fa-envelope"></i>
+                      <i style="font-size: 50px;" class="fa fa-users"></i>
 
                     </div>
 
