@@ -663,7 +663,7 @@
 
             <br>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
 
@@ -699,7 +699,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
 
@@ -737,7 +737,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
 
@@ -782,7 +782,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardViolationCitations.php'>
 
@@ -827,7 +827,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>
 
@@ -875,7 +875,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
 
@@ -920,7 +920,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCurrentMonthPendingPayments.php'>
 
@@ -991,7 +991,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
 
@@ -1042,7 +1042,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
 
