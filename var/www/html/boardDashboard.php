@@ -688,7 +688,7 @@
 
                     ?>
 
-                    <h2 class="text-info"><strong><?php echo round(($total_received/$total_needed)*100), 2); ?>%</strong></h2>
+                    <h2 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h2>
 
                   </div>
 
