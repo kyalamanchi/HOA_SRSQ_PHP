@@ -741,7 +741,7 @@
                     
                       <div class="inner">
                         
-                        <h3>$ <?php echo $assets; ?></h3>
+                        <h3>$ <?php $assets = $assets/1000; echo $assets; ?></h3>
 
                         <p>Community Assets</p>
 
