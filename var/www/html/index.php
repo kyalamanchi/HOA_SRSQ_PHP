@@ -176,6 +176,8 @@
       $result = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id"));
       $assets = $result['sum'];
 
+      $tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id")); 
+
     ?>
 
     <meta charset="utf-8">
@@ -516,9 +518,9 @@
                       
                     <div class="inner">
                         
-                      <h3><?php $tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id")); echo round((($tenants/$total_customers)*100), 2); ?>%</h3>
+                      <h3><?php echo round(((($total_customers-$tenants)/$total_customers)*100), 2); ?>%</h3>
 
-                      <p>Tenants</p>
+                      <p>Owners</p>
 
                     </div>
 
@@ -538,9 +540,9 @@
                       
                     <div class="inner">
                         
-                      <h3><?php echo round(((($total_customers-$tenants)/$total_customers)*100), 2); ?>%</h3>
+                      <h3><?php echo round((($tenants/$total_customers)*100), 2); ?>%</h3>
 
-                      <p>Owners</p>
+                      <p>Tenants</p>
 
                     </div>
 
