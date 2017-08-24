@@ -665,6 +665,49 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
+              <div class="row container-fluid">
+
+                <br>
+
+                <div class="row container-fluid text-left">
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                    <img src="deposits.png" height=75 width=75 alt='Community Deposits'>
+
+                  </div>
+
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                    <?php
+
+                      $total_needed = $assessment_amount * 12 * $total_customers;
+
+                      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id"));
+                      $total_received = $row['sum'];
+
+                    ?>
+
+                    <h2 class="text-info"><strong><?php echo $total_received; ?></strong></h2>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-left">
+
+                  <h4><strong>Amount Received (<?php echo $year; ?>)</strong></h4>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
               <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
 
                 <div class="row container-fluid">
