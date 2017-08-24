@@ -560,7 +560,7 @@
                       
                     <div class="inner">
                         
-                      <h3><?php $tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id")); echo $tenants; ?></h3>
+                      <h3><?php $tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id")); echo round((($tenants/$total_customers)*100), 2); ?>%</h3>
 
                       <p>Tenants</p>
 
@@ -582,7 +582,7 @@
                       
                     <div class="inner">
                         
-                      <h3><?php echo $total_customers-$tenants; ?></h3>
+                      <h3><?php echo round(((($total_customers-$tenants)/$total_customers)*100), 2); ?>%</h3>
 
                       <p>Owners</p>
 
