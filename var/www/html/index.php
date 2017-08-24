@@ -787,7 +787,7 @@
                     
                       <div class="inner">
                         
-                        <h3>$<?php $assets = round(($assets/1000), 0); echo $assets; ?>K</h3>
+                        <h3>$<?php $assets = round(($assets/1000), 0); echo $assets; ?><i style='font-size: 12pt;'>K</i></h3>
 
                         <p>Community Assets</p>
 
