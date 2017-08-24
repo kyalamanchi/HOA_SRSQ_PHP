@@ -518,7 +518,7 @@
                       
                     <div class="inner">
                         
-                      <h3><?php echo round(((($total_customers-$tenants)/$total_customers)*100), 2); ?>%</h3>
+                      <h3><?php echo round(((($total_customers-$tenants)/$total_customers)*100), 2); ?><i style='font-size: 12pt;'>%</i></h3>
 
                       <p>Owners</p>
 
@@ -540,7 +540,7 @@
                       
                     <div class="inner">
                         
-                      <h3><?php echo round((($tenants/$total_customers)*100), 2); ?>%</h3>
+                      <h3><?php echo round((($tenants/$total_customers)*100), 2); ?><i style='font-size: 12pt;'>%</i></h3>
 
                       <p>Tenants</p>
 
