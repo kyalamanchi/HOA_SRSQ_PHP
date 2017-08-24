@@ -646,7 +646,7 @@
 
                     echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Amount Received</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Paid Customers</div></div><div class='row text-center'>";
 
-                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>$ ".$amount_recieved."</strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong>".$paid_customers."</strong></div>";
+                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCurrentMonthAmountRecieved.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCurrentMonthPaidMembers.php'>".$paid_customers."</a></strong></div>";
                   ?>
 
                   <br><br>
