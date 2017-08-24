@@ -509,50 +509,6 @@
                   </div>
 
                 </div>
-                
-                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
-                  
-                  <div class="small-box bg-aqua">
-                    
-                    <div class="inner">
-                      
-                      <h3><?php $days90 = date('Y-m-d', strtotime("-90 days")); echo pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'")); ?></h3>
-
-                      <p>Newly moved in</p>
-
-                    </div>
-
-                    <div class="icon">
-
-                      <i style="font-size: 55px;" class="ion ion-person-add"></i>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
-                  
-                  <div class="small-box bg-aqua">
-                      
-                    <div class="inner">
-                        
-                      <h3><?php $emails = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id")); echo $emails; ?></h3>
-
-                      <p>Homes with email</p>
-
-                    </div>
-
-                    <div class="icon">
-
-                      <i style="font-size: 50px;" class="fa fa-envelope"></i>
-
-                    </div>
-
-                  </div>
-
-                </div>
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
                   
@@ -591,6 +547,50 @@
                     <div class="icon">
 
                       <i style="font-size: 50px;" class="fa fa-users"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+                
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
+                  <div class="small-box bg-aqua">
+                    
+                    <div class="inner">
+                      
+                      <h3><?php $days90 = date('Y-m-d', strtotime("-90 days")); echo pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'")); ?></h3>
+
+                      <p>Newly moved in</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 55px;" class="ion ion-person-add"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
+                  <div class="small-box bg-aqua">
+                      
+                    <div class="inner">
+                        
+                      <h3><?php $emails = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id")); echo $emails; ?></h3>
+
+                      <p>Homes with email</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 50px;" class="fa fa-envelope"></i>
 
                     </div>
 
