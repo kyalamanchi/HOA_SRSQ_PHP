@@ -556,6 +556,50 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
                   
+                  <div class="small-box bg-aqua">
+                      
+                    <div class="inner">
+                        
+                      <h3><?php $tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id")); echo $tenants; ?></h3>
+
+                      <p>Tenants</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 50px;" class="fa fa-envelope"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
+                  <div class="small-box bg-aqua">
+                      
+                    <div class="inner">
+                        
+                      <h3><?php echo $total_customers-$tenants; ?></h3>
+
+                      <p>Owners</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 50px;" class="fa fa-envelope"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
                   <div class="small-box bg-green">
                     
                     <div class="inner">
