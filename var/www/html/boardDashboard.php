@@ -716,7 +716,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left icon">
 
                       <img src="deposits.png" height=75 width=75 alt='Community Deposits'>
 
