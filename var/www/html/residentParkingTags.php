@@ -44,7 +44,7 @@
               // Number of inputs to create
               var number = document.getElementById("number_of_tags").value;
               // Container <div> where dynamic content will be placed
-              var container = document.getElementById("resolutions");
+              var container = document.getElementById("tags");
               // Clear previous contents of the container
               while (container.hasChildNodes()) {
                   container.removeChild(container.lastChild);
@@ -53,12 +53,12 @@
         for (i=0;i<number;i++){
                   
           // Append a node with a random text
-          container.appendChild(document.createTextNode("Resolution " + (i+1) + " : "));
+          container.appendChild(document.createTextNode("Tag " + (i+1) + " : "));
           // Create an <input> element, set its type and name attributes
           var input = document.createElement("input");
           input.type = "text";
-          input.name = "resolution" + i;
-          input.id = "resolution" + i;
+          input.name = "tags" + i;
+          input.id = "tags" + i;
           input.class = "form-control";
           input.required = "required";
           container.appendChild(input);
@@ -281,11 +281,11 @@
                             <div class="form-group">
                               
                               <label for="number_of_tags" class="control-label">Number of Tags <small><i>(Maximum 3)</i></small> :</label>
-                              <input type="number" min="0" max="3" onchange="addFields()" class="form-control" name="number_of_tags" id="number_of_tags" required>
+                              <input type="number" min="1" max="3" onchange="addFields()" class="form-control" name="number_of_tags" id="number_of_tags" value='1' required>
 
-                              <label class="control-label">Resolutions :</label>
+                              <label class="control-label">Tags :</label>
 
-                              <div id="resolutions" class="form-group">
+                              <div id="tags" class="form-group">
                               </div>
 
                             </div>
