@@ -222,82 +222,101 @@
 
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
-              <div class="row container-fluid table-responsive" style="background-color: white;">
+              <div class="box">
+                
+                <div class="box-header">
                   
-                <table id="example1" class="table table-bordered table-striped">
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a type="button" class="btn bg-teal btn-xs">Add Parking Tag</a>
+
+                  </div>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id="example1" class="table table-bordered table-striped">
                     
-                  <thead>
+                    <thead>
                       
-                    <tr>
+                      <tr>
                         
-                      <th>Date Issued</th>
-                      <th>Valid From</th>
-                      <th>Valid Until</th>
-                      <th>Make</th>
-                      <th>Model</th>
-                      <th>Color</th>
-                      <th>Year</th>
-                      <th>Plate</th>
+                        <th>Date Issued</th>
+                        <th>Valid From</th>
+                        <th>Valid Until</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Plate</th>
 
-                    </tr>
+                      </tr>
 
-                  </thead>
+                    </thead>
 
-                  <tbody>
+                    <tbody>
 
-                    <?php 
+                      <?php 
 
-                      while($row = pg_fetch_assoc($result))
-                      {
+                        while($row = pg_fetch_assoc($result))
+                        {
 
-                        $issued_on = $row['issued_on'];
-                        $valid_from = $row['valid_from'];
-                        $valid_until = $row['valid_until'];
-                        $detail = $row['detail'];
+                          $issued_on = $row['issued_on'];
+                          $valid_from = $row['valid_from'];
+                          $valid_until = $row['valid_until'];
+                          $detail = $row['detail'];
 
-                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
 
-                        $make = $row1['car_make_id'];
-                        $model = $row1['car_model_id'];
-                        $color = $row1['car_color_id'];
-                        $year = $row1['year'];
-                        $plate = $row1['notes'];
+                          $make = $row1['car_make_id'];
+                          $model = $row1['car_model_id'];
+                          $color = $row1['car_color_id'];
+                          $year = $row1['year'];
+                          $plate = $row1['notes'];
 
-                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE id=$make"));
-                        $make = $row1['name'];
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE id=$make"));
 
-                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE id=$model"));
-                        $model = $row1['name'];
+                          $make = $row1['name'];
 
-                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE id=$color"));
-                        $color = $row1['name'];
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE id=$model"));
+
+                          $model = $row1['name'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE id=$color"));
+
+                          $color = $row1['name'];
                           
-                        echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td></tr>";
+                          echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td></tr>";
                           
-                      }
+                        }
 
-                    ?>
+                      ?>
                     
-                  </tbody>
+                    </tbody>
 
-                  <tfoot>
+                    <tfoot>
 
-                    <tr>
+                      <tr>
 
-                      <th>Date Issued</th>
-                      <th>Valid From</th>
-                      <th>Valid Until</th>
-                      <th>Make</th>
-                      <th>Model</th>
-                      <th>Color</th>
-                      <th>Year</th>
-                      <th>Plate</th>
+                        <th>Date Issued</th>
+                        <th>Valid From</th>
+                        <th>Valid Until</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Plate</th>
 
-                    </tr>
+                      </tr>
 
-                  </tfoot>
+                    </tfoot>
 
-                </table>
+                  </table>
+
+                </div>
 
               </div>
 
