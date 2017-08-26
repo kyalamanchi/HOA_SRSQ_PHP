@@ -244,15 +244,17 @@
                               
                           <div class='row container-fluid'>
                             
-                            Add Parking Tags
+                            
 
                           </div>
 
                           <br>
 
                           <div class='row text-center'>
-                            <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
-                            <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+
+                            <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Add Tags</button>
+                            <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Close</button>
+
                           </div>
                                                 
                         </div>
