@@ -281,7 +281,7 @@
                             <div class="form-group">
                               
                               <label for="number_of_tags" class="control-label">Number of Tags <small><i>(Maximum 3)</i></small> :</label>
-                              <input type="number" min="1" max="3" onchange="addFields()" class="form-control" name="number_of_tags" id="number_of_tags" required>
+                              <input type="number" min="1" max="3" onchange="addFields()" name="number_of_tags" id="number_of_tags" required>
 
                               <label class="control-label">Tags :</label>
 
