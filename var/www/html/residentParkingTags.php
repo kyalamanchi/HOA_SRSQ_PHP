@@ -89,6 +89,18 @@
 
           container.appendChild(document.createElement("br"));
           container.appendChild(document.createElement("br"));
+
+          container.appendChild(document.createTextNode("Tag " + (i+1) + " Year : "));
+          var input4 = document.createElement("input");
+          input4.type = "number";
+          input4.name = "tag_year" + i;
+          input4.id = "tag_year" + i;
+          input4.class = "form-control";
+          input4.required = "required";
+          container.appendChild(input3);
+
+          container.appendChild(document.createElement("br"));
+          container.appendChild(document.createElement("br"));
           container.appendChild(document.createElement("br"));
         
         }
