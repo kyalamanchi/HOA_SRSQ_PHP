@@ -206,13 +206,13 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
+          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1");
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Violation Citations</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>My Parking Tags</strong></h1>
 
         </section>
 
@@ -232,12 +232,14 @@
                       
                       <tr>
                         
-                        <th>Open Date</th>
-                        <th>Due Date</th>
-                        <th>Update Date</th>
-                        <th>Comments</th>
-                        <th>Reminder Type</th>
-                        <th>Vendor Assigned</th>
+                        <th>Date Issued</th>
+                        <th>Valid From</th>
+                        <th>Valid Until</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Plate</th>
 
                       </tr>
 
@@ -250,22 +252,20 @@
                         while($row = pg_fetch_assoc($result))
                         {
 
-                          $open_date = $row['open_date'];
-                          $due_date = $row['due_date'];
-                          $update_date = $row['update_date'];
-                          $comments = $row['comments'];
-                          $reminder_type = $row['reminder_type_id'];
-                          $vendor_assigned = $row['vendor_assigned'];
+                          $issued_on = $row['issued_on'];
+                          $valid_from = $row['valid_from'];
+                          $valid_until = $row['valid_until'];
+                          $detail = $row['detail'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
 
-                          $vendor_assigned = $row1['vendor_name'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM reminder_type WHERE id=$reminder_type"));
-
-                          $reminder_type = $row1['reminder_type'];
+                          $make = $row['car_make_id'];
+                          $model = $row['car_model_id'];
+                          $color = $row['car_color_id'];
+                          $year = $row['year'];
+                          $plate = $row['notes'];
                           
-                          echo "<tr><td>".$open_date."</td><td>".$due_date."</td><td>".$update_date."</td><td>".$comments."</td><td>".$reminder_type."</td><td>".$vendor_assigned."</td></tr>";
+                          echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td></tr>";
                           
                         }
 
@@ -277,12 +277,14 @@
 
                       <tr>
 
-                        <th>Open Date</th>
-                        <th>Due Date</th>
-                        <th>Update Date</th>
-                        <th>Comments</th>
-                        <th>Reminder Type</th>
-                        <th>Vendor Assigned</th>
+                        <th>Date Issued</th>
+                        <th>Valid From</th>
+                        <th>Valid Until</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Plate</th>
 
                       </tr>
 
