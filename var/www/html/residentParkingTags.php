@@ -66,7 +66,7 @@
           container.appendChild(document.createElement("br"));
           container.appendChild(document.createElement("br"));
 
-          container.appendChild(document.createTextNode("Tag " + (i+1) + " Description : "));
+          container.appendChild(document.createTextNode("Tag " + (i+1) + " Model : "));
           var input2 = document.createElement("input");
           input2.type = "text";
           input2.name = "tag_model" + i;
@@ -85,7 +85,7 @@
           input3.id = "tag_color" + i;
           input3.class = "form-control";
           input3.required = "required";
-          container.appendChild(input2);
+          container.appendChild(input3);
 
           container.appendChild(document.createElement("br"));
           container.appendChild(document.createElement("br"));
