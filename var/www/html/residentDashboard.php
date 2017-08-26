@@ -480,7 +480,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-              <!--a-->
+              <a href='https://hoaboardtime.com/residentParkingTags.php'>
 
                 <div class="row container-fluid text-left">
 
@@ -496,7 +496,16 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <h2 class="text-info"><strong>0</strong></h2>
+                      <?php
+
+                        $parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE hoa_id=$hoa_id AND community_id=$community_id AND type=1"));
+
+                        if($parking_tags > 0) 
+                          echo "<h2 class='text-green'><strong>$parking_tags</strong></h2>"; 
+                        else 
+                          echo "<h2 class='text-info'><strong>$parking_tags</strong></h2>";
+
+                      ?>
 
                     </div>
 
@@ -512,7 +521,7 @@
 
                 </div>
 
-              <!--/a-->
+              </a>
 
             </div>
 
