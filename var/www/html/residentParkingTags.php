@@ -264,8 +264,20 @@
                           $color = $row1['car_color_id'];
                           $year = $row1['year'];
                           $plate = $row1['notes'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE id=$make"));
+
+                          $make = $row1['name'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE id=$model"));
+
+                          $model = $row1['name'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE id=$color"));
+
+                          $color = $row1['name'];
                           
-                          echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."($detail)</td></tr>";
+                          echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td></tr>";
                           
                         }
 
