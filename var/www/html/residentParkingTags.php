@@ -269,6 +269,15 @@
                           $valid_until = $row['valid_until'];
                           $detail = $row['detail'];
 
+                          if($issued_on != "")
+                            $issued_on = date('m-d-Y', strtotime($issued_on));
+
+                          if($valid_from != "")
+                            $valid_from = date('m-d-Y', strtotime($valid_from));
+
+                          if($valid_until != "")
+                            $valid_until = date('m-d-Y', strtotime($valid_until));
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
 
                           $make = $row1['car_make_id'];
