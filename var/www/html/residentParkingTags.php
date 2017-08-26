@@ -259,11 +259,11 @@
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
 
-                          $make = $row['car_make_id'];
-                          $model = $row['car_model_id'];
-                          $color = $row['car_color_id'];
-                          $year = $row['year'];
-                          $plate = $row['notes'];
+                          $make = $row1['car_make_id'];
+                          $model = $row1['car_model_id'];
+                          $color = $row1['car_color_id'];
+                          $year = $row1['year'];
+                          $plate = $row1['notes'];
                           
                           echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."($detail)</td></tr>";
                           
