@@ -261,6 +261,35 @@
 
                       <?php 
 
+                        function decrypt_string($input)
+                        {
+                          
+                          $input_count = strlen($input);
+                                                                                             
+                          $dec = explode(".", $input);// splits up the string to any array
+                          $x = count($dec);
+                          $y = $x-1;// To get the key of the last bit in the array 
+                                                                                             
+                          $calc = $dec[$y]-50;
+                          $randkey = chr($calc);// works out the randkey number
+                                                                                             
+                          $i = 0;
+                                                                                             
+                          while ($i < $y)
+                          {
+                                                                                             
+                            $array[$i] = $dec[$i]+$randkey; // Works out the ascii characters actual numbers
+                            @$real .= chr($array[$i]); //The actual decryption
+                                                                                             
+                            $i++;
+
+                          };
+                                                                                             
+                          @$input = $real;
+                          return $input;
+                          
+                        }
+
                         while($row = pg_fetch_assoc($result))
                         {
 
@@ -297,6 +326,15 @@
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE id=$color"));
 
                           $color = $row1['name'];
+
+                          if($plate != "")
+                          {
+
+                            $plate = base64_decode($plate);
+
+                            $plate = decrypt_string($plate);
+
+                          }
                           
                           echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td></tr>";
                           
