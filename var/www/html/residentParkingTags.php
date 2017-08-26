@@ -53,12 +53,12 @@
         for (i=0;i<number;i++){
                   
           // Append a node with a random text
-          container.appendChild(document.createTextNode("Tag " + (i+1) + " : "));
+          container.appendChild(document.createTextNode("Tag " + (i+1) + " Make : "));
           // Create an <input> element, set its type and name attributes
           var input = document.createElement("input");
           input.type = "text";
-          input.name = "tags" + i;
-          input.id = "tags" + i;
+          input.name = "tag_make" + i;
+          input.id = "tag_make" + i;
           input.class = "form-control";
           input.required = "required";
           container.appendChild(input);
@@ -66,15 +66,25 @@
           container.appendChild(document.createElement("br"));
           container.appendChild(document.createElement("br"));
 
-          container.appendChild(document.createTextNode("Resolution " + (i+1) + " Description : "));
+          container.appendChild(document.createTextNode("Tag " + (i+1) + " Description : "));
           var input2 = document.createElement("input");
           input2.type = "text";
-          input2.name = "resolution_description" + i;
-          input2.id = "resolution_description" + i;
+          input2.name = "tag_model" + i;
+          input2.id = "tag_model" + i;
           input2.class = "form-control";
-          input2.size = "50";
-          input2.maxlength = "10";
           input2.required = "required";
+          container.appendChild(input2);
+
+          container.appendChild(document.createElement("br"));
+          container.appendChild(document.createElement("br"));
+
+          container.appendChild(document.createTextNode("Tag " + (i+1) + " Color : "));
+          var input3 = document.createElement("input");
+          input3.type = "text";
+          input3.name = "tag_color" + i;
+          input3.id = "tag_color" + i;
+          input3.class = "form-control";
+          input3.required = "required";
           container.appendChild(input2);
 
           container.appendChild(document.createElement("br"));
