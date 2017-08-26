@@ -97,7 +97,7 @@
           input4.id = "tag_year" + i;
           input4.class = "form-control";
           input4.required = "required";
-          container.appendChild(input3);
+          container.appendChild(input4);
 
           container.appendChild(document.createElement("br"));
           container.appendChild(document.createElement("br"));
