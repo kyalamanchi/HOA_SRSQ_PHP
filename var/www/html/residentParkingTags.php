@@ -222,6 +222,51 @@
 
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
+              <div class="modal fade hmodal-success" id="addParkingTags" role="dialog"  aria-hidden="true">
+                                
+                <div class="modal-dialog">
+                                    
+                  <div class="modal-content">
+                                        
+                    <div class="color-line"></div>
+                        
+                    <div class="modal-header">
+                                                
+                      <h4 class="modal-title"><strong>Add Parking Tags</strong></h4>
+
+                    </div>
+
+                    <form class='row' method='post' action='https://hoaboardtime.com/residentAddParkingTags.php'>
+                                            
+                      <div class='modal-body'>
+                                                
+                        <div class='container-fluid'>
+                              
+                          <div class='row container-fluid'>
+                            
+                            Add Parking Tags
+
+                          </div>
+
+                          <br>
+
+                          <div class='row text-center'>
+                            <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
+                            <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+                          </div>
+                                                
+                        </div>
+
+                      </div>
+
+                    </form>
+
+                  </div>
+                  
+                </div>
+
+              </div>
+
               <div class="box">
                 
                 <div class="box-header">
@@ -230,7 +275,7 @@
 
                   <div class="box-tools pull-right">
 
-                    <a type="button" class="btn bg-teal btn-xs">Add Parking Tag</a>
+                    <a type="button" data-toggle="modal" data-target="#addParkingTags" class="btn bg-teal btn-xs">Add Parking Tag</a>
 
                   </div>
 
@@ -287,7 +332,7 @@
                                                                                              
                           @$input = $real;
                           return $input;
-                          
+
                         }
 
                         while($row = pg_fetch_assoc($result))
