@@ -38,6 +38,55 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
+    <script type='text/javascript'>
+      
+      function addFields(){
+              // Number of inputs to create
+              var number = document.getElementById("number_of_tags").value;
+              // Container <div> where dynamic content will be placed
+              var container = document.getElementById("resolutions");
+              // Clear previous contents of the container
+              while (container.hasChildNodes()) {
+                  container.removeChild(container.lastChild);
+              }
+        
+        for (i=0;i<number;i++){
+                  
+          // Append a node with a random text
+          container.appendChild(document.createTextNode("Resolution " + (i+1) + " : "));
+          // Create an <input> element, set its type and name attributes
+          var input = document.createElement("input");
+          input.type = "text";
+          input.name = "resolution" + i;
+          input.id = "resolution" + i;
+          input.class = "form-control";
+          input.required = "required";
+          container.appendChild(input);
+          // Append a line break 
+          container.appendChild(document.createElement("br"));
+          container.appendChild(document.createElement("br"));
+
+          container.appendChild(document.createTextNode("Resolution " + (i+1) + " Description : "));
+          var input2 = document.createElement("input");
+          input2.type = "text";
+          input2.name = "resolution_description" + i;
+          input2.id = "resolution_description" + i;
+          input2.class = "form-control";
+          input2.size = "50";
+          input2.maxlength = "10";
+          input2.required = "required";
+          container.appendChild(input2);
+
+          container.appendChild(document.createElement("br"));
+          container.appendChild(document.createElement("br"));
+          container.appendChild(document.createElement("br"));
+        
+        }
+
+      }
+
+    </script>
+
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -229,7 +278,17 @@
                               
                           <div class='row container-fluid'>
                             
-                            
+                            <div class="form-group">
+                              
+                              <label for="number_of_tags" class="control-label">Number of Tags <small><i>(Maximum 3)</i></small> :</label>
+                              <input type="number" min="0" max="3" onchange="addFields()" class="form-control" name="number_of_tags" id="number_of_tags" required>
+
+                              <label class="control-label">Resolutions :</label>
+
+                              <div id="resolutions" class="form-group">
+                              </div>
+
+                            </div>
 
                           </div>
 
