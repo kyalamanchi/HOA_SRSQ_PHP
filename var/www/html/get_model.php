@@ -1,7 +1,5 @@
 <?php
 
-	session_start();
-
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	$make = $_POST['make'];
@@ -11,7 +9,6 @@
 
 	while($row = pg_fetch_assoc($result))
 	{
-
 		$id = $row['id'];
 		$name = $row['name'];
 
