@@ -225,6 +225,7 @@
                         <th>Color</th>
                         <th>Year</th>
                         <th>Plate</th>
+                        <th>Status</th>
 
                       </tr>
 
@@ -317,23 +318,6 @@
                     
                     </tbody>
 
-                    <tfoot>
-
-                      <tr>
-
-                        <th>Date Issued</th>
-                        <th>Valid From</th>
-                        <th>Valid Until</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Color</th>
-                        <th>Year</th>
-                        <th>Plate</th>
-
-                      </tr>
-
-                    </tfoot>
-
                   </table>
 
                 </div>
@@ -373,7 +357,6 @@
                         <th>Color</th>
                         <th>Year</th>
                         <th>Plate</th>
-                        <th>Status</th>
                         <th></th>
 
                       </tr>
@@ -388,9 +371,7 @@
                         
                           <td>
                             
-                            <select id='' name='' class='form-control' required> 
-
-                              <option disabled selected>Select Make</option>
+                            <select id='' name='' class='form-control' required>
 
                               <?php
 
