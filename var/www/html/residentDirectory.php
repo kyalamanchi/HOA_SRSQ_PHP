@@ -254,7 +254,7 @@
 
                           $hoa_id = $row2['bank_pmt'];
 
-                          $result22 = pg_query("SELECT * FROM homeid WHERE home_id=(SELECT home_id FROM hoaid WHERE hoa_id=$hoa_id AND valid_until<='".date('Y-m-d')."')");
+                          $result22 = pg_query("SELECT * FROM homeid WHERE home_id=(SELECT home_id FROM hoaid WHERE hoa_id=$hoa_id)");
                           $row22 = pg_fetch_assoc($result22);
 
                           $home_id = $row22['home_id'];
