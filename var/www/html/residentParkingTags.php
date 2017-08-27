@@ -371,7 +371,7 @@
                         
                           <td>
                             
-                            <select id='' name='' class='form-control' required>
+                            <select id='make' name='make' class='form-control' required>
 
                               <?php
 
@@ -395,11 +395,41 @@
 
                           <td></td>
 
-                          <td></td>
+                          <td>
+                            
+                            <select id='color' name='color' class='form-control' required>
 
-                          <td></td>
+                              <?php
 
-                          <td></td>
+                                $result1 = pg_query("SELECT * FROM car_color");
+
+                                while($row1 = pg_fetch_assoc($result1))
+                                {
+
+                                  $id = $row1['id'];
+                                  $name = $row1['name'];
+
+                                  echo "<option id='".$id."'>".$name."</option>";
+
+                                }
+
+                              ?>
+
+                            </select>
+
+                          </td>
+
+                          <td>
+                            
+                            <input type='number' id='year' name='year' required>
+
+                          </td>
+
+                          <td>
+                            
+                            <input type='text' name='plate' id='plate' required>
+
+                          </td>
 
                           <td>
                             
