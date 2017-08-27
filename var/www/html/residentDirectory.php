@@ -262,8 +262,9 @@
                             $row2 = pg_fetch_assoc($result2);
 
                             $home_id = $row2['home_id'];
+                            $living_status = $row2['living_status'];
 
-                            if($row2['living_statue'])
+                            if($living_status)
                               $mailing_address = $row2['address1'];
                             else
                             {
