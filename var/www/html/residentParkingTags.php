@@ -373,6 +373,7 @@
                         <th>Color</th>
                         <th>Year</th>
                         <th>Plate</th>
+                        <th>Status</th>
                         <th></th>
 
                       </tr>
@@ -383,50 +384,53 @@
 
                       <tr>
 
-                        <td>
-                          
-                          <select id='' name='' class='form-control' required> 
+                        <form rolw='form' method='POST' action=''>
+                        
+                          <td>
+                            
+                            <select id='' name='' class='form-control' required> 
 
-                            <?php
+                              <option disabled selected>Select Make</option>
 
-                              $result1 = pg_query("SELECT * FROM car_make");
+                              <?php
 
-                              while($row1 = pg_fetch_assoc($result1))
-                              {
+                                $result1 = pg_query("SELECT * FROM car_make");
 
-                                $id = $row1['id'];
-                                $name = $row1['name'];
+                                while($row1 = pg_fetch_assoc($result1))
+                                {
 
-                                echo "<option id='".$id."'>".$name."</option>";
+                                  $id = $row1['id'];
+                                  $name = $row1['name'];
 
-                              }
+                                  echo "<option id='".$id."'>".$name."</option>";
 
-                            ?>
+                                }
 
-                          </select>
+                              ?>
 
-                        </td>
+                            </select>
+
+                          </td>
+
+                          <td></td>
+
+                          <td></td>
+
+                          <td></td>
+
+                          <td></td>
+
+                          <td>
+                            
+                            <button type='submit' class='btn-xs btn-info'>Add Tag</button>
+
+                          </td>
+
+                        </form>
 
                       </tr>
                     
                     </tbody>
-
-                    <tfoot>
-
-                      <tr>
-
-                        <th>Date Issued</th>
-                        <th>Valid From</th>
-                        <th>Valid Until</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Color</th>
-                        <th>Year</th>
-                        <th>Plate</th>
-
-                      </tr>
-
-                    </tfoot>
 
                   </table>
 
