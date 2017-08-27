@@ -44,9 +44,8 @@
         $('#make').change(function(){
           var make = $(this).val();
           $.ajax({
-            url:"https://hoaboardtime.com/get_model.php",
-            method:"POST",
-            data:{make:make},
+            url:"https://hoaboardtime.com/get_model.php?make="+make,
+            method:"GET",
             dataType:"text",
             success:function(data)
             {
