@@ -402,7 +402,7 @@
                                   $id = $row1['id'];
                                   $name = $row1['name'];
 
-                                  echo "<option value='$id'>$name</option>";
+                                  echo "<option value='$id'>$name - $id</option>";
 
                                 }
 
