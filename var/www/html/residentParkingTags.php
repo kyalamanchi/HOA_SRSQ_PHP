@@ -235,6 +235,7 @@
                       
                       <tr>
                         
+                        <th></th>
                         <th>Date Issued</th>
                         <th>Valid From</th>
                         <th>Valid Until</th>
@@ -243,7 +244,7 @@
                         <th>Color</th>
                         <th>Year</th>
                         <th>Plate</th>
-                        <th>Status</th>
+                        <th></th>
 
                       </tr>
 
@@ -328,7 +329,7 @@
 
                           }
                           
-                          echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td><td></td></tr>";
+                          echo "<tr><td><a class='btn btn-link'>Edit</a></td><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td><td><a class='btn btn-link'>Remove</a></td></tr>";
                           
                         }
 
@@ -348,7 +349,7 @@
 
         </section>
 
-        <section class="content-header">
+        <!--section class="content-header">
 
           <h1><strong>Add New Parking Tags</strong></h1>
 
@@ -475,7 +476,7 @@
 
           </div>
 
-        </section>
+        </section-->
 
       </div>
 
