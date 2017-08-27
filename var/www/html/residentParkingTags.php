@@ -45,7 +45,8 @@
           var make = $(this).val();
           $.ajax({
             url:"https://hoaboardtime.com/get_model.php?make="+make,
-            method:"GET",
+            method:"POST",
+            data:{make:make},
             dataType:"text",
             success:function(data)
             {
