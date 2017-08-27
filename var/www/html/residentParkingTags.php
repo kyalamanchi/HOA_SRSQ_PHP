@@ -40,33 +40,21 @@
     <script scr='plugins/ckeditor/adapters/jquery.js'></script>
 
     <script type="text/javascript">
-      
       $(document).ready(function(){
-        
         $("#make").change(function(){
-
           var make = $(this).val();
-
           $.ajax({
-
             url:"get_model.php",
             method:"POST",
             data:{make:make},
             dataType:"text",
-            
             success:function(data)
             {
-
               $("#model").html(data);
-
             }
-
           });
-
         });
-
       });
-
     </script>
 
   </head>
