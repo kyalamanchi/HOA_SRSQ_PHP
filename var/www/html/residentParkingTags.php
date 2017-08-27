@@ -39,7 +39,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script scr='plugins/ckeditor/adapters/jquery.js'></script>
 
-    <script type="text/javascript">
+    <script>
       $(document).ready(function(){
         $('#make').change(function(){
           var make = $(this).val();
