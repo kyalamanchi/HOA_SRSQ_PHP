@@ -252,34 +252,32 @@
                           else
                             $email = $row2['email1'];
 
-                          $hoa_id = $row2['bank_pmt'];
-
-                          $result22 = pg_query("SELECT * FROM homeid WHERE home_id=(SELECT home_id FROM hoaid WHERE hoa_id=$hoa_id)");
-                          $row22 = pg_fetch_assoc($result22);
-
-                          $home_id = $row22['home_id'];
-                          $living_status = $row22['living_status'];
-
                           if($row2['mailing_address_visibility'] == 'NO')
                             $mailing_address = 'NOT PERMITTED';
                           else
                           {
-                            
-                            if($living_status)
-                              $mailing_address = $row22['address1'];
+                            $hoa_id = $row2['bank_pmt'];
+
+                            $result2 = pg_query("SELECT * FROM homeid WHERE home_id=(SELECT home_id FROM hoaid WHERE hoa_id=$hoa_id)");
+                            $row2 = pg_fetch_assoc($result2);
+
+                            $home_id = $row2['home_id'];
+
+                            if($row2['living_status'])
+                              $mailing_address = $row2['address1'];
                             else
                             {
-                              $result22 = pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id");
-                              $row22 = pg_fetch_assoc($result22);
+                              $result2 = pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id");
+                              $row2 = pg_fetch_assoc($result2);
 
-                              $mailing_address = $row22['address1'];
+                              $mailing_address = $row2['address1'];
                             }
                           }
 
-                          if($living_status)
-                            echo "<tr><td>".$name."</td><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
-                          else
-                            echo "<tr><td class='text-red'>".$name."</td><td class='text-red'>".$property."</td><td class='text-red'>".$mailing_address."</td><td class='text-red'>".$email."</td><td class='text-red'>".$cell."</td></tr>";
+                          $row100 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$property'"));
+                          $living_status = $row100['living_status'];
+
+                          echo "<tr><td>".$name."</td><td>".$property." $living_status</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
 
                         }
 
