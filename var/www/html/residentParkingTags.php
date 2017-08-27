@@ -387,7 +387,9 @@
 
                                         <center>
 
-                                          You are about to remove tag for <strong>$plate</strong>.<br><br><h4><b>Are you sure you want to continue?</b></h4><br><br><small>This action cannot be undone.</small>
+                                          You are about to remove tag for <strong>$plate</strong>.<br><br><h4><b>Are you sure you want to continue?</b></h4><br><small>This action cannot be undone.</small><br><br>
+
+                                          <button type='submit' class='btn btn-warning btn-sm'>Remove</button><button type='button' class='btn btn-success btn-sm' data-dismiss='modal'>Cancel</button>
 
                                         </center>
 
