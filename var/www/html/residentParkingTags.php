@@ -387,7 +387,7 @@
 
                                         <center>
 
-                                          You are about to remove tag for <strong>$plate</strong>.<br><br><b>Are you sure you want to continue?</b><br><br><small>This action cannot be undone.</small>
+                                          You are about to remove tag for <strong>$plate</strong>.<br><br><h4><b>Are you sure you want to continue?</b></h4><br><br><small>This action cannot be undone.</small>
 
                                         </center>
 
