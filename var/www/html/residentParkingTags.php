@@ -365,7 +365,7 @@
 
                           echo "
                           
-                          <div class='modal fade hmodal-success' id='deleteTag_".$plate."' role='dialog'  aria-hidden='true'>
+                          <div class='modal fade hmodal-success' id='removeTag_".$plate."' role='dialog'  aria-hidden='true'>
                                 
                             <div class='modal-dialog'>
                                               
@@ -375,7 +375,7 @@
                                   
                                   <div class='modal-header'>
                                                           
-                                    <h4 class='modal-title'>Delete Tag - ".$plate."</h4>
+                                    <h4 class='modal-title'>Remove Tag - ".$plate."</h4>
 
                                   </div>
 
@@ -383,7 +383,15 @@
                                                       
                                     <div class='modal-body'>
                                         
-                                      Delete Tag
+                                      <form method='POST' action=''>
+
+                                        <center>
+
+                                          You are about to remove tag for $plate.<br><br>Are you sure you want to continue?<br><br>This action cannot be undone.
+                                          
+                                        </center>
+
+                                      </form>
 
                                     </div>
 
@@ -397,7 +405,7 @@
 
                             ";
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#editTag_".$plate."' class='btn btn-link'>Edit</a></td><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td><td><a data-toggle='modal' data-target='#deleteTag_".$plate."' class='btn btn-link'>Remove</a></td></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#editTag_".$plate."' class='btn btn-link'>Edit</a></td><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td><td><a data-toggle='modal' data-target='#removeTag_".$plate."' class='btn btn-link'>Remove</a></td></tr>";
                           
                         }
 
