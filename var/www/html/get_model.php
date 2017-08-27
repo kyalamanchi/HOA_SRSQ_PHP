@@ -15,6 +15,8 @@
 		$name = $row['name'];
 
 		$output .= "<option id='".$id."'>".$name."</option>";
+
+		echo $name;
 	}
 
 	echo $output;
