@@ -42,7 +42,7 @@
       
       $(document).ready(function(){
         
-        $("$make").change(function(){
+        $("#make").change(function(){
 
           var make = $(this).val();
 
