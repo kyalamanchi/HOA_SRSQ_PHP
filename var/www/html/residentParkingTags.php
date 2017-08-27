@@ -42,11 +42,11 @@
     <script type="text/javascript">
       $(document).ready(function(){
         $('#make').change(function(){
-          var make_id = $(this).val();
+          var make = $(this).val();
           $.ajax({
             url:"https://hoaboardtime.com/get_model.php",
             method:"POST",
-            data:{makeId:make_id},
+            data:{make:make},
             dataType:"text",
             success:function(data)
             {
