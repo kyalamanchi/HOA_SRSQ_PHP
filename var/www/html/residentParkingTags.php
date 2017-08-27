@@ -389,7 +389,7 @@
                         
                           <td>
                             
-                            <select id='make' name='make' class='form-control' required>
+                            <select id='make' name='make' required>
 
                               <?php
 
@@ -413,7 +413,7 @@
 
                           <td>
                             
-                            <select id='model' name='model' class='form-control' required></select>
+                            <select id='model' name='model' required></select>
 
                           </td>
 
