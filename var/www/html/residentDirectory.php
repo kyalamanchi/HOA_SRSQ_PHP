@@ -277,7 +277,10 @@
                           $row100 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$property'"));
                           $living_status = $row100['living_status'];
 
-                          echo "<tr><td>".$name."</td><td>".$property." $living_status</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
+                          if($living_status)
+                            echo "<tr><td>".$name."</td><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
+                          else
+                            echo "<tr><td class='text-red'>".$name."</td><td class='text-red'>".$property."</td><td class='text-red'>".$mailing_address."</td><td class='text-red'>".$email."</td><td class='text-red'>".$cell."</td></tr>";
 
                         }
 
