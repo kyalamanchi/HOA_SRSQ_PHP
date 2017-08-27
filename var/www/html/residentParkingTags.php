@@ -41,16 +41,16 @@
 
     <script type="text/javascript">
       $(document).ready(function(){
-        $("#make").change(function(){
-          var make = $(this).val();
+        $('#make').change(function(){
+          var make_id = $(this).val();
           $.ajax({
-            url:"get_model.php",
+            url:"https://hoaboardtime.com/get_model.php",
             method:"POST",
-            data:{make:make},
+            data:{makeId:make_id},
             dataType:"text",
             success:function(data)
             {
-              $("#model").html(data);
+              $('#model').html(data);
             }
           });
         });
