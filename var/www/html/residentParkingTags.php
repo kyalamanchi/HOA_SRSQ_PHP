@@ -38,77 +38,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-    <script type='text/javascript'>
-      
-      function addFields(){
-              // Number of inputs to create
-              var number = document.getElementById("number_of_tags").value;
-              // Container <div> where dynamic content will be placed
-              var container = document.getElementById("tags");
-              // Clear previous contents of the container
-              while (container.hasChildNodes()) {
-                  container.removeChild(container.lastChild);
-              }
-        
-        for (i=0;i<number;i++){
-                  
-          // Append a node with a random text
-          container.appendChild(document.createTextNode("Tag " + (i+1) + " Make : "));
-          // Create an <input> element, set its type and name attributes
-          var input = document.createElement("select");
-          input.name = "tag_make" + i;
-          input.id = "tag_make" + i;
-          input.class = "form-control";
-          input.required = "required";
-          input.option = "BMW";
-          container.appendChild(input);
-          // Append a line break 
-          container.appendChild(document.createElement("br"));
-          container.appendChild(document.createElement("br"));
-
-          container.appendChild(document.createTextNode("Tag " + (i+1) + " Model : "));
-          var input2 = document.createElement("input");
-          input2.type = "text";
-          input2.name = "tag_model" + i;
-          input2.id = "tag_model" + i;
-          input2.class = "form-control";
-          input2.required = "required";
-          container.appendChild(input2);
-
-          container.appendChild(document.createElement("br"));
-          container.appendChild(document.createElement("br"));
-
-          container.appendChild(document.createTextNode("Tag " + (i+1) + " Color : "));
-          var input3 = document.createElement("input");
-          input3.type = "text";
-          input3.name = "tag_color" + i;
-          input3.id = "tag_color" + i;
-          input3.class = "form-control";
-          input3.required = "required";
-          container.appendChild(input3);
-
-          container.appendChild(document.createElement("br"));
-          container.appendChild(document.createElement("br"));
-
-          container.appendChild(document.createTextNode("Tag " + (i+1) + " Year : "));
-          var input4 = document.createElement("input");
-          input4.type = "number";
-          input4.name = "tag_year" + i;
-          input4.id = "tag_year" + i;
-          input4.class = "form-control";
-          input4.required = "required";
-          container.appendChild(input4);
-
-          container.appendChild(document.createElement("br"));
-          container.appendChild(document.createElement("br"));
-          container.appendChild(document.createElement("br"));
-        
-        }
-
-      }
-
-    </script>
-
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -278,78 +207,7 @@
 
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
-              <div class="modal fade hmodal-success" id="addParkingTags" role="dialog"  aria-hidden="true">
-                                
-                <div class="modal-dialog">
-                                    
-                  <div class="modal-content">
-                                        
-                    <div class="color-line"></div>
-                        
-                    <div class="modal-header">
-                                                
-                      <h4 class="modal-title"><strong>Add Parking Tags</strong></h4>
-
-                    </div>
-
-                    <form class='row' method='post' action='https://hoaboardtime.com/residentAddParkingTags.php'>
-                                            
-                      <div class='modal-body'>
-                                                
-                        <div class='container-fluid'>
-                              
-                          <div class='row container-fluid'>
-                            
-                            <div class="form-group">
-                              
-                              <label for="number_of_tags" class="control-label">Number of Tags <small><i>(Maximum 3)</i></small> :</label>
-                              <input type="number" min="1" max="3" onchange="addFields()" name="number_of_tags" id="number_of_tags" required>
-
-                              <br><br>
-
-                              <label class="control-label">Tags :</label>
-
-                              <div id="tags" class="form-group">
-                              </div>
-
-                            </div>
-
-                          </div>
-
-                          <br>
-
-                          <div class='row text-center'>
-
-                            <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Add Tags</button>
-                            <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Close</button>
-
-                          </div>
-                                                
-                        </div>
-
-                      </div>
-
-                    </form>
-
-                  </div>
-                  
-                </div>
-
-              </div>
-
               <div class="box">
-                
-                <div class="box-header">
-                  
-                  <i class="fa fa-"></i>
-
-                  <div class="box-tools pull-right">
-
-                    <a type="button" data-toggle="modal" data-target="#addParkingTags" class="btn bg-teal btn-xs">Add Parking Tag</a>
-
-                  </div>
-
-                </div>
 
                 <div class="box-body table-responsive">
                   
@@ -456,6 +314,98 @@
                         }
 
                       ?>
+                    
+                    </tbody>
+
+                    <tfoot>
+
+                      <tr>
+
+                        <th>Date Issued</th>
+                        <th>Valid From</th>
+                        <th>Valid Until</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Plate</th>
+
+                      </tr>
+
+                    </tfoot>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+        </section>
+
+        <section class="content-header">
+
+          <h1><strong>Add New Parking Tags</strong></h1>
+
+        </section>
+
+        <section class="content">
+          
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+
+              <div class="box">
+
+                <div class="box-body table-responsive">
+                  
+                  <table class="table table-bordered table-striped">
+                    
+                    <thead>
+                      
+                      <tr>
+                        
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Year</th>
+                        <th>Plate</th>
+                        <th></th>
+
+                      </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                      <tr>
+
+                        <td>
+                          
+                          <select id='' name='' class='form-control' required> 
+
+                            <?php
+
+                              $result1 = pg_query("SELECT * FROM car_make");
+
+                              while($row1 = pg_fetch_assoc($result1))
+                              {
+
+                                $id = $row1['id'];
+                                $name = $row1['name'];
+
+                              }
+
+                            ?>
+
+                          </select>
+
+                        </td>
+
+                      </tr>
                     
                     </tbody>
 
