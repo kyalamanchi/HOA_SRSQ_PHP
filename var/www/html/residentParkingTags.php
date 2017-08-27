@@ -55,8 +55,7 @@
           // Append a node with a random text
           container.appendChild(document.createTextNode("Tag " + (i+1) + " Make : "));
           // Create an <input> element, set its type and name attributes
-          var input = document.createElement("input");
-          input.type = "text";
+          var input = document.createElement("select");
           input.name = "tag_make" + i;
           input.id = "tag_make" + i;
           input.class = "form-control";
