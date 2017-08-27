@@ -393,7 +393,11 @@
 
                           </td>
 
-                          <td></td>
+                          <td>
+                            
+                            <select id='model' name='model' class='form-control' required></select>
+
+                          </td>
 
                           <td>
                             
