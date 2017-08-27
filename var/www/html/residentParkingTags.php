@@ -60,6 +60,7 @@
           input.id = "tag_make" + i;
           input.class = "form-control";
           input.required = "required";
+          input.option = "BMW";
           container.appendChild(input);
           // Append a line break 
           container.appendChild(document.createElement("br"));
