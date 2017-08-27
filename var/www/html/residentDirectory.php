@@ -277,7 +277,7 @@
                           $row100 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$property'"));
                           $living_status = $row100['living_status'];
 
-                          if($living_status)
+                          if($living_status == 't')
                             echo "<tr><td>".$name."</td><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
                           else
                             echo "<tr><td class='text-danger'>".$name."</td><td class='text-danger'>".$property."</td><td class='text-danger'>".$mailing_address."</td><td class='text-danger'>".$email."</td><td class='text-danger'>".$cell."</td></tr>";
