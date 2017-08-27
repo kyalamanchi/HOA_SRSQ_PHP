@@ -421,13 +421,13 @@
 
                           <td>
                             
-                            <input type='number' id='year' name='year' required>
+                            <input class='form-control' type='number' id='year' name='year' required>
 
                           </td>
 
                           <td>
                             
-                            <input type='text' name='plate' id='plate' required>
+                            <input class='form-control' type='text' name='plate' id='plate' required>
 
                           </td>
 
