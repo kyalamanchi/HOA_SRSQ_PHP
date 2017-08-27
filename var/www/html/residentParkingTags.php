@@ -381,13 +381,15 @@
 
                                   <div class='modal-body'>
                                         
-                                    <form method='POST' action=''>
+                                    <form method='POST' action='https://hoaboardtime.com/residentRemoveParkingTag.php'>
 
                                       <center>
 
-                                          <h4>You are about to remove tag for <strong>$plate</strong>.</h4><br><br><h3><b>Are you sure you want to continue?</b></h3><br><small>This action cannot be undone.</small><br><br>
+                                      <input type='hidden' name='plate' id='plate' value='".$plate."'>
 
-                                          <button type='submit' class='btn btn-warning btn-sm'>Remove</button> <button type='button' class='btn btn-success btn-sm' data-dismiss='modal'>Cancel</button>
+                                        <h4>You are about to remove tag for <strong>$plate</strong>.</h4><br><br><h3><b>Are you sure you want to continue?</b></h3><br><small>This action cannot be undone.</small><br><br>
+
+                                        <button type='submit' class='btn btn-warning btn-sm'>Remove</button> <button type='button' class='btn btn-success btn-sm' data-dismiss='modal'>Cancel</button>
 
                                       </center>
 
