@@ -12,8 +12,6 @@
 		$id = $row['id'];
 		$name = $row['name'];
 
-		echo $id." ".$name;
-
 		$output .= "<option value='$id'>$name - $id</option>";
 	}
 
