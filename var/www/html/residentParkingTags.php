@@ -56,7 +56,7 @@
             success:function(data)
             {
 
-              $("$model").html(data);
+              $("#model").html(data);
 
             }
 
