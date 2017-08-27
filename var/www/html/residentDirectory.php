@@ -279,7 +279,7 @@
                           if($living_status)
                             echo "<tr><td>".$name."</td><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
                           else
-                            echo "<tr class='text-red'><td>".$name."</td><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
+                            echo "<tr><td class='text-red'>".$name."</td><td class='text-red'>".$property."</td><td class='text-red'>".$mailing_address."</td><td class='text-red'>".$email."</td><td class='text-red'>".$cell."</td></tr>";
 
                         }
 
