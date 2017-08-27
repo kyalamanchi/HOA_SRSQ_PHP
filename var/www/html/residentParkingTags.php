@@ -37,20 +37,19 @@
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script scr='jquery.js'></script>
+    <script scr='plugins/ckeditor/adapters/jquery.js'></script>
 
     <script>
       $(document).ready(function(){
         $('#make').change(function(){
           var make_id = $(this).val();
           $.ajax({
-            url:"https://hoaboardtime.com/get_model.php",
-            method:"POST",
+            url:"get_model.php",
+            type:"POST",
             data:{make_id:make_id},
-            dataType:"text",
-            success:function(data)
+            success:function(html)
             {
-              $('#model').html(data);
+              $('#model').html(html);
             }
           });
         });
