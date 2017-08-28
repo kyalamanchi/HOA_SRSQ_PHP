@@ -356,72 +356,80 @@
                                         
                                       <div class='row container-fluid'>
 
-                                        <label>Make : </label>
-                                        <select name='edit_make' id='edit_make' required>";
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                        
+                                          <label>Make : </label>
+                                          <select class='form-control' name='edit_make' id='edit_make' required>";
 
-                                          $result100 = pg_query("SELECT * FROM car_make");
+                                            $result100 = pg_query("SELECT * FROM car_make");
 
-                                          while($row100 = pg_fetch_assoc($result100))
-                                          {
-                                            $id = $row100['id'];
-                                            $name = $row100['name'];
+                                            while($row100 = pg_fetch_assoc($result100))
+                                            {
+                                              $id = $row100['id'];
+                                              $name = $row100['name'];
 
-                                            echo "<option value='$id'";
+                                              echo "<option value='$id'";
 
-                                            if($make_id == $id)
-                                              echo " selected ";
+                                              if($make_id == $id)
+                                                echo " selected ";
 
-                                            echo ">$name</option>";
+                                              echo ">$name</option>";
 
-                                          }
+                                            }
 
-                                        echo "</select>
+                                          echo "</select>
 
-                                        <br>
+                                        </div>
 
-                                        <label>Model : </label>
-                                        <select name='edit_model' id='edit_model' required>";
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                        
+                                          <label>Model : </label>
+                                          <select class='form-control' name='edit_model' id='edit_model' required>";
 
-                                          $result100 = pg_query("SELECT * FROM car_model");
+                                            $result100 = pg_query("SELECT * FROM car_model");
 
-                                          while($row100 = pg_fetch_assoc($result100))
-                                          {
-                                            $id = $row100['id'];
-                                            $name = $row100['name'];
+                                            while($row100 = pg_fetch_assoc($result100))
+                                            {
+                                              $id = $row100['id'];
+                                              $name = $row100['name'];
 
-                                            echo "<option value='$id'";
+                                              echo "<option value='$id'";
 
-                                            if($make_id == $id)
-                                              echo " selected ";
+                                              if($make_id == $id)
+                                                echo " selected ";
 
-                                            echo ">$name</option>";
+                                              echo ">$name</option>";
 
-                                          }
+                                            }
 
-                                        echo "</select>
+                                          echo "</select>
 
-                                        <br>
+                                        </div>
 
-                                        <label>Color : </label>
-                                        <select name='edit_color' id='edit_color' required>";
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                        
+                                          <label>Color : </label>
+                                          <select class='form-control' name='edit_color' id='edit_color' required>";
 
-                                          $result100 = pg_query("SELECT * FROM car_color");
+                                            $result100 = pg_query("SELECT * FROM car_color");
 
-                                          while($row100 = pg_fetch_assoc($result100))
-                                          {
-                                            $id = $row100['id'];
-                                            $name = $row100['name'];
+                                            while($row100 = pg_fetch_assoc($result100))
+                                            {
+                                              $id = $row100['id'];
+                                              $name = $row100['name'];
 
-                                            echo "<option value='$id'";
+                                              echo "<option value='$id'";
 
-                                            if($make_id == $id)
-                                              echo " selected ";
+                                              if($make_id == $id)
+                                                echo " selected ";
 
-                                            echo ">$name</option>";
+                                              echo ">$name</option>";
 
-                                          }
+                                            }
 
-                                        echo "</select>
+                                          echo "</select>
+
+                                        </div>
 
                                       </div>
 
