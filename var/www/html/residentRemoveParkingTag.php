@@ -47,11 +47,14 @@
 		$plate = base64_decode($plate);
         $plate = decrypt_string($plate);
 
+        echo $plate."<br>";
+
         if($plate == $delete_plate)
         {
 
         	$flag = 1;
         	break;
+
         }
 	}
 
