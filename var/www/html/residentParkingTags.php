@@ -209,7 +209,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1");
+          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1 AND status='APPROVED'");
 
         ?>
         
@@ -290,6 +290,7 @@
                           $valid_from = $row['valid_from'];
                           $valid_until = $row['valid_until'];
                           $detail = $row['detail'];
+                          $tag_id = $row['id'];
 
                           if($issued_on != "")
                             $issued_on = date('m-d-Y', strtotime($issued_on));
@@ -385,9 +386,7 @@
 
                                       <center>
 
-                                        <input type='hidden' name='plate' id='plate' value='".$plate."'>
-
-                                        <input type='hidden' name='hoa_id' id='hoa_id' value='".$hoa_id."'>
+                                        <input type='hidden' name='tag_id' id='tag_id' value='".$tag_id."'>
 
                                         <h4>You are about to remove tag for <strong>$plate</strong>.</h4><br><br><h3><b>Are you sure you want to continue?</b></h3><br><small>This action cannot be undone.</small><br><br>
 
