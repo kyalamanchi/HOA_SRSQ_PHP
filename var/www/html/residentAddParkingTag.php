@@ -47,7 +47,7 @@
 	if($result)
 	{	
 		
-		$result = pg_query("INSERT INTO home_tags (detail, type, issued_to, valid_from, valid_until, hoa_id, community_id, status) VALUES ($id, 1, $user_id, '".date('Y-m-d')."', '".$year."-12-31', $hoa_id, $community_id, 'PENDING')");
+		$result = pg_query("INSERT INTO home_tags (detail, type, issued_to, hoa_id, community_id, status) VALUES ($id, 1, $user_id, $hoa_id, $community_id, 'PENDING')");
 
 		if($result)
 		{
