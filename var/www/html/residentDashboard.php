@@ -538,6 +538,53 @@
 
                       <?php
 
+                        $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$_SESSION['hoa_user_id'] AND community_id=$community_id"));
+
+                        if($my_documents > 0) 
+                          echo "<h2 class='text-green'><strong>$my_documents</strong></h2>"; 
+                        else 
+                          echo "<h2 class='text-info'><strong>$my_documents</strong></h2>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>My Documents</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
+              <a href='https://hoaboardtime.com/residentParkingTags.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php
+
                         $parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE hoa_id=$hoa_id AND community_id=$community_id AND type=1"));
 
                         if($parking_tags > 0) 
