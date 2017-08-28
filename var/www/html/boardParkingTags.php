@@ -461,7 +461,7 @@
                         else if($status == 'REMOVED')
                           echo "<tr style='color: grey;'><td>$name<br>($hoa_id)</td><td class='text-grey'>".$make."</td><td class='text-grey'>".$model."</td><td class='text-grey'>".$color."</td><td class='text-grey'>".$tag_year."</td><td class='text-grey'>".$plate."</td><td class='text-grey'>REMOVED</td></tr>";
                         else
-                          echo "<tr><td>$name<br>($hoa_id)</td><td class='text-green'>".$make."</td><td class='text-green'>".$model."</td><td class='text-green'>".$color."</td><td class='text-green'>".$tag_year."</td><td class='text-green'>".$plate."</td><td class='text-green'>APPROVED</td></tr>";
+                          echo "<tr><td class='text-green'>$name<br>($hoa_id)</td><td class='text-green'>".$make."</td><td class='text-green'>".$model."</td><td class='text-green'>".$color."</td><td class='text-green'>".$tag_year."</td><td class='text-green'>".$plate."</td><td class='text-green'>APPROVED</td></tr>";
                           
                       }
 
