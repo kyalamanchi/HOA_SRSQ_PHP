@@ -356,6 +356,7 @@
                                         
                                       <div class='row container-fluid'>
 
+                                        <label>Make : </label>
                                         <select name='edit_make' id='edit_make' required>";
 
                                           $result100 = pg_query("SELECT * FROM car_make");
@@ -370,7 +371,7 @@
                                             if($make_id == $id)
                                               echo " selected ";
 
-                                            echo "</option>";
+                                            echo ">$name</option>";
 
                                           }
 
@@ -378,6 +379,7 @@
 
                                         <br>
 
+                                        <label>Model : </label>
                                         <select name='edit_model' id='edit_model' required>";
 
                                           $result100 = pg_query("SELECT * FROM car_model");
@@ -392,7 +394,7 @@
                                             if($make_id == $id)
                                               echo " selected ";
 
-                                            echo "</option>";
+                                            echo ">$name</option>";
 
                                           }
 
@@ -400,6 +402,7 @@
 
                                         <br>
 
+                                        <label>Color : </label>
                                         <select name='edit_color' id='edit_color' required>";
 
                                           $result100 = pg_query("SELECT * FROM car_color");
@@ -414,7 +417,7 @@
                                             if($make_id == $id)
                                               echo " selected ";
 
-                                            echo "</option>";
+                                            echo ">$name</option>";
 
                                           }
 
