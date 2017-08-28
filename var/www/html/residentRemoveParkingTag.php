@@ -33,8 +33,6 @@
 	$hoa_id = $_POST['hoa_id'];
 	$flag = 0;
 
-	echo "POST : ".$delete_plate." - - - ".$hoa_id."<br>";
-
 	$result = pg_query("SELECT * FROM home_tags WHERE hoa_id=$hoa_id AND type=1");
 
 	while($row = pg_fetch_assoc($result))
@@ -71,6 +69,6 @@
 		echo "Not found";
 	}
 
-	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},9000);</script>";
+	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},3000);</script>";
 
 ?>
