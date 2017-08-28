@@ -9,7 +9,7 @@
 	$year = $_POST['edit_year'];
 	$plate = $_POST['edit_plate'];
 
-	$result = pg_query("UPDATE car_detail SET car_make_id=$make, car_model_id=$model, car_color_id=$color, year=$year, notes=$plate WHERE id=$car_id");
+	$result = pg_query("UPDATE car_detail SET car_make_id=$make, car_model_id=$model, car_color_id=$color, year=$year, notes='$plate' WHERE id=$car_id");
 
 	if($result)
 		echo "<br><br><br><center><h3>Car details updated.</h3></center>";
