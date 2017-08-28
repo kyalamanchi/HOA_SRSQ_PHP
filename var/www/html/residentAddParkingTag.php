@@ -23,7 +23,7 @@
 		return $encrypted;
 	}
 
-	$row = pg_fetch_assoc(pg_query("SELECT * FROM car_detail ORDER BY DESC"));
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM car_detail ORDER BY id DESC"));
 	$id = $row['id'];
 	$id++;
 
