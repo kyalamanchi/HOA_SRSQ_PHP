@@ -231,7 +231,7 @@
 
                         $document_id = $row['document_id'];
 
-                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id AND community_id=$community_id"));
+                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
 
                         $desc = $row1['description'];
                         $document_url = $row1['url'];
