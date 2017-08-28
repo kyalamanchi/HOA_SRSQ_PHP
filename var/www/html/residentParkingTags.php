@@ -441,7 +441,7 @@
                                         <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
 
                                           <label>Plate : </label>
-                                          <input type='number' class='form-control' name='edit_plate' id='edit_plate' value='$plate' required>
+                                          <input type='text' class='form-control' name='edit_plate' id='edit_plate' value='$plate' required>
 
                                         </div>
 
