@@ -363,7 +363,7 @@
                       <th>Color</th>
                       <th>Year</th>
                       <th>Plate</th>
-                      <th></th>
+                      <th>Status</th>
 
                     </tr>
 
@@ -457,7 +457,7 @@
                         }
 
                         if($status == 'PENDING')
-                          echo "<tr><td>$name<br>($hoa_id)</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-xs btn-info'>Approve</a></td></tr>";
+                          echo "<tr><td>$name<br>($hoa_id)</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-xs btn-info'>Approve Now</a></td></tr>";
                         else if($status == 'REMOVED')
                           echo "<tr style='color: grey;'><td>$name<br>($hoa_id)</td><td class='text-grey'>".$make."</td><td class='text-grey'>".$model."</td><td class='text-grey'>".$color."</td><td class='text-grey'>".$tag_year."</td><td class='text-grey'>".$plate."</td><td class='text-grey'>REMOVED</td></tr>";
                         else
@@ -479,7 +479,7 @@
                       <th>Color</th>
                       <th>Year</th>
                       <th>Plate</th>
-                      <th></th>
+                      <th>Status</th>
 
                     </tr>
 
