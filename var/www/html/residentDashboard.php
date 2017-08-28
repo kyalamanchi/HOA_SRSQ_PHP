@@ -19,6 +19,7 @@
 
         $hoa_id = $_SESSION['hoa_hoa_id'];
         $home_id = $_SESSION['hoa_home_id'];
+        $user_id = $_SESSION['hoa_user_id'];
 
     ?>
 
@@ -538,7 +539,7 @@
 
                       <?php
 
-                        $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$_SESSION['hoa_user_id']"));
+                        $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id"));
 
                         echo "<h2 class='text-info'><strong>$my_documents</strong></h2>";
 
