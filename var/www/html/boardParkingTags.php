@@ -357,6 +357,7 @@
                       
                     <tr>
                         
+                      <th>Name</th>
                       <th>Make</th>
                       <th>Model</th>
                       <th>Color</th>
@@ -407,6 +408,14 @@
                         $detail = $row['detail'];
                         $tag_id = $row['id'];
                         $status = $row['status'];
+                        $hoa_id = $row['hoa_id'];
+
+                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+
+                        $name = $row1['firstname'];
+                        $name .= " ";
+                        $name .= $row1['lastname'];
+                        $hoa_id = $row1['hoa_id'];
 
                         if($issued_on != "")
                           $issued_on = date('m-d-Y', strtotime($issued_on));
@@ -448,17 +457,33 @@
                         }
 
                         if($status == 'PENDING')
-                          echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-xs btn-info'>Approve</a></td></tr>";
+                          echo "<tr><td>$name<br>($hoa_id)</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-xs btn-info'>Approve</a></td></tr>";
                         else if($status == 'REMOVED')
-                          echo "<tr style='color: grey;'><td class='text-grey'>".$make."</td><td class='text-grey'>".$model."</td><td class='text-grey'>".$color."</td><td class='text-grey'>".$tag_year."</td><td class='text-grey'>".$plate."</td><td class='text-grey'>REMOVED</td></tr>";
+                          echo "<tr style='color: grey;'><td>$name<br>($hoa_id)</td><td class='text-grey'>".$make."</td><td class='text-grey'>".$model."</td><td class='text-grey'>".$color."</td><td class='text-grey'>".$tag_year."</td><td class='text-grey'>".$plate."</td><td class='text-grey'>REMOVED</td></tr>";
                         else
-                          echo "<tr><td class='text-green'>".$make."</td><td class='text-green'>".$model."</td><td class='text-green'>".$color."</td><td class='text-green'>".$tag_year."</td><td class='text-green'>".$plate."</td><td class='text-green'>APPROVED</td></tr>";
+                          echo "<tr><td>$name<br>($hoa_id)</td><td class='text-green'>".$make."</td><td class='text-green'>".$model."</td><td class='text-green'>".$color."</td><td class='text-green'>".$tag_year."</td><td class='text-green'>".$plate."</td><td class='text-green'>APPROVED</td></tr>";
                           
                       }
 
                     ?>
                     
                   </tbody>
+
+                  <tfoot>
+                      
+                    <tr>
+                        
+                      <th>Name</th>
+                      <th>Make</th>
+                      <th>Model</th>
+                      <th>Color</th>
+                      <th>Year</th>
+                      <th>Plate</th>
+                      <th></th>
+
+                    </tr>
+
+                  </tfoot>
 
                 </table>
 
