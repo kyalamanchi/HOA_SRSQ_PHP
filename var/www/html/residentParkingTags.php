@@ -406,6 +406,12 @@
 
                                         </div>
 
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row container-fluid'>
+
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Color : </label>
