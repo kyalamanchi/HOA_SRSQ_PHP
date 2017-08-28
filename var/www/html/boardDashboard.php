@@ -910,7 +910,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <h4><strong>Late Payments - <?php date("F"); ?></strong></h4>
+                    <h4><strong>Late Payments - <?php echo date("F"); ?></strong></h4>
 
                   </div>
 
