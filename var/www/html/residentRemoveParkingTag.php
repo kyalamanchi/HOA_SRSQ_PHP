@@ -70,7 +70,7 @@
 	}
 	else
 	{
-		echo "Not found";
+		echo "<br><br><br><center><h3>Some error occured.<br><br>Please try again later.</h3></center>";
 	}
 
 	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},3000);</script>";
