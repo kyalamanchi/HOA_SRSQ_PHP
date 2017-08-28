@@ -210,6 +210,8 @@
 
               <div class="row container-fluid table-responsive" style="background-color: white;">
 
+                <br>
+
                 <table id='example1' class="table table-stripped table-bordered">
 
                   <thead>
@@ -259,6 +261,8 @@
                   </tbody>
 
                 </table>
+
+                <br>
 
               </div>
 
