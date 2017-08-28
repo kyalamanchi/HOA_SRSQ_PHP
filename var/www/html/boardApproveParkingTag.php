@@ -1,10 +1,14 @@
 <?php
 
+	session_start();
+
+	$user_id = $_SESSION['hoa_user_id'];
+
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	$tag_id = $_POST['tag_id'];
 
-	$result = pg_query("UPDATE home_tags SET status='APPROVED' WHERE id=$tag_id");
+	$result = pg_query("UPDATE home_tags SET valid_from='".date('Y-m-d')."', valid_until='".date('Y')."-12-31', issued_on='".date('Y-m-d')."', issued_by=$user_id, status='APPROVED' WHERE id=$tag_id");
 
 	if($result)
 		echo "<br><br><br><center><h3>Parking tag approved.</h3></center>";
