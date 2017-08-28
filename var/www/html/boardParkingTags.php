@@ -447,7 +447,12 @@
 
                         }
 
-                        echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-sm btn-info'>Approve</a></td></tr>";
+                        if($status == 'PENDING')
+                          echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-xs btn-info'>Approve</a></td></tr>";
+                        else if($status == 'REMOVED')
+                          echo "<tr><td class='text-grey'>".$make."</td><td class='text-grey'>".$model."</td><td class='text-grey'>".$color."</td><td class='text-grey'>".$tag_year."</td><td class='text-grey'>".$plate."</td><td class='text-grey'>REMOVED</td></tr>";
+                        else
+                          echo "<tr><td class='text-green'>".$make."</td><td class='text-green'>".$model."</td><td class='text-green'>".$color."</td><td class='text-green'>".$tag_year."</td><td class='text-green'>".$plate."</td><td class='text-green'>APPROVED</td></tr>";
                           
                       }
 
