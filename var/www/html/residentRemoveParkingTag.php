@@ -49,7 +49,7 @@
 
 		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
 
-		$plate = $row1['plate'];
+		$plate = $row1['notes'];
 		$plate = base64_decode($plate);
         $plate = decrypt_string($plate);
 
