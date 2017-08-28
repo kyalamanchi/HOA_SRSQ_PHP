@@ -529,7 +529,7 @@
 
         </section>
 
-        <!--section class="content-header">
+        <section class="content-header">
 
           <h1><strong>Add New Parking Tags</strong></h1>
 
@@ -594,7 +594,25 @@
 
                           <td>
                             
-                            <select id='model' name='model' required></select>
+                            <select id='model' name='model' required>
+                              
+                              <?php
+
+                                $result1 = pg_query("SELECT * FROM car_make");
+
+                                while($row1 = pg_fetch_assoc($result1))
+                                {
+
+                                  $id = $row1['id'];
+                                  $name = $row1['name'];
+
+                                  echo "<option value='$id'>$name - $id</option>";
+
+                                }
+
+                              ?>
+                              
+                            </select>
 
                           </td>
 
@@ -656,7 +674,7 @@
 
           </div>
 
-        </section-->
+        </section>
 
       </div>
 
