@@ -575,11 +575,11 @@
 
                       <tr>
 
-                        <form rolw='form' method='POST' action=''>
+                        <form role='form' method='POST' action='https://hoaboardtime.com/residentAddParkingTag.php'>
                         
                           <td>
                             
-                            <select id='make' name='make' class='form-control' required>
+                            <select id='add_make' name='add_make' class='form-control' required>
 
                               <option value="" selected disabled>Select Make</option>
 
@@ -605,7 +605,7 @@
 
                           <td>
                             
-                            <select id='model' name='model' class='form-control' required>
+                            <select id='add_model' name='add_model' class='form-control' required>
 
                               <option value="" selected disabled>Select Model</option>
                               
@@ -631,7 +631,7 @@
 
                           <td>
                             
-                            <select id='color' name='color' class='form-control' required>
+                            <select id='add_color' name='add_color' class='form-control' required>
 
                               <option value="" selected disabled>Select Color</option>
 
@@ -657,19 +657,19 @@
 
                           <td>
                             
-                            <input class='form-control' type='number' id='year' name='year' required>
+                            <input class='form-control' type='number' id='add_year' name='add_year' required>
 
                           </td>
 
                           <td>
                             
-                            <input class='form-control' type='text' name='plate' id='plate' required>
+                            <input class='form-control' type='text' name='add_plate' id='add_plate' required>
 
                           </td>
 
-                          <td>
+                          <td class="text-center">
                             
-                            <button type='submit' class='btn-xs btn-info'>Add Tag</button>
+                            <button type='submit' class='btn btn-sm btn-info'>Add Tag</button>
 
                           </td>
 
