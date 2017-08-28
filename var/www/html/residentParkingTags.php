@@ -308,6 +308,7 @@
                           $color = $row1['car_color_id'];
                           $tag_year = $row1['year'];
                           $plate = $row1['notes'];
+                          $car_id = $row1['id'];
 
                           $make_id = $make;
                           $model_id = $model;
@@ -350,7 +351,7 @@
 
                                   </div>
 
-                                  <form class='row' method='post' action='https://hoaboardtime.com/boardEditParkingTag.php'>
+                                  <form class='row' method='post' action='https://hoaboardtime.com/residentEditParkingTag.php'>
                                                       
                                     <div class='modal-body'>
                                         
@@ -442,6 +443,8 @@
 
                                           <label>Plate : </label>
                                           <input type='text' class='form-control' name='edit_plate' id='edit_plate' value='$plate' required>
+
+                                          <input type='hidden' name='car_id' id='car_id' value='$car_id'>
 
                                         </div>
 
@@ -584,7 +587,7 @@
                                   $id = $row1['id'];
                                   $name = $row1['name'];
 
-                                  echo "<option value='$id'>$name</option>";
+                                  echo "<option value='$id'>$names</option>";
 
                                 }
 
