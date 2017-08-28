@@ -362,7 +362,7 @@
                                           <label>Make : </label>
                                           <select class='form-control' name='edit_make' id='edit_make' required>";
 
-                                            $result100 = pg_query("SELECT * FROM car_make");
+                                            $result100 = pg_query("SELECT * FROM car_make ORDER BY name");
 
                                             while($row100 = pg_fetch_assoc($result100))
                                             {
@@ -387,7 +387,7 @@
                                           <label>Model : </label>
                                           <select class='form-control' name='edit_model' id='edit_model' required>";
 
-                                            $result100 = pg_query("SELECT * FROM car_model");
+                                            $result100 = pg_query("SELECT * FROM car_model ORDER BY name");
 
                                             while($row100 = pg_fetch_assoc($result100))
                                             {
@@ -412,7 +412,7 @@
                                           <label>Color : </label>
                                           <select class='form-control' name='edit_color' id='edit_color' required>";
 
-                                            $result100 = pg_query("SELECT * FROM car_color");
+                                            $result100 = pg_query("SELECT * FROM car_color ORDER BY name");
 
                                             while($row100 = pg_fetch_assoc($result100))
                                             {
