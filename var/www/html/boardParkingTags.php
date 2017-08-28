@@ -447,7 +447,7 @@
 
                         }
 
-                        echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-sm btn-link btn-info'>Approve</a></td></tr>";
+                        echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-sm btn-info'>Approve</a></td></tr>";
                           
                       }
 
