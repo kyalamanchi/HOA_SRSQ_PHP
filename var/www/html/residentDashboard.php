@@ -154,7 +154,7 @@
             
             		<li class="treeview">
               
-              			<a>
+              			<a href='https://hoaboardtime.com/residentDocumentManagement.php'>
 
                 			<i class="glyphicon glyphicon-hdd"></i> <span>Document Management</span>
 
@@ -521,7 +521,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-              <a href='https://hoaboardtime.com/residentDocuments.php'>
+              <a href='https://hoaboardtime.com/residentDocumentManagement.php'>
 
                 <div class="row container-fluid text-left">
 
