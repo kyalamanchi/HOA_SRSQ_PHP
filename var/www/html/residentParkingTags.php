@@ -385,7 +385,9 @@
 
                                       <center>
 
-                                      <input type='hidden' name='plate' id='plate' value='".$plate."'>
+                                        <input type='hidden' name='plate' id='plate' value='".$plate."'>
+
+                                        <input type='hidden' name='hoa_id' id='hoa_id' value='".$hoa_id."'>
 
                                         <h4>You are about to remove tag for <strong>$plate</strong>.</h4><br><br><h3><b>Are you sure you want to continue?</b></h3><br><small>This action cannot be undone.</small><br><br>
 
