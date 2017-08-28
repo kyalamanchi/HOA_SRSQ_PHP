@@ -209,7 +209,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1 AND status='APPROVED'");
+          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1 AND (status='APPROVED' OR status='PENDING')");
 
         ?>
         
@@ -235,7 +235,6 @@
                       
                       <tr>
                         
-                        <th></th>
                         <th>Date Issued</th>
                         <th>Valid From</th>
                         <th>Valid Until</th>
@@ -244,6 +243,7 @@
                         <th>Color</th>
                         <th>Year</th>
                         <th>Plate</th>
+                        <th>Status</th>
                         <th></th>
 
                       </tr>
@@ -291,6 +291,7 @@
                           $valid_until = $row['valid_until'];
                           $detail = $row['detail'];
                           $tag_id = $row['id'];
+                          $status = $row['status'];
 
                           if($issued_on != "")
                             $issued_on = date('m-d-Y', strtotime($issued_on));
@@ -518,7 +519,7 @@
 
                             ";
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#editTag_".$plate."' class='btn btn-link'>Edit</a></td><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a data-toggle='modal' data-target='#removeTag_".$plate."' class='btn btn-link'>Remove</a></td></tr>";
+                          echo "<tr><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td>$status</td><td><a data-toggle='modal' data-target='#editTag_".$plate."' class='btn btn-link'>Edit</a><br><a data-toggle='modal' data-target='#removeTag_".$plate."' class='btn btn-link'>Remove</a></td></tr>";
                           
                         }
 
