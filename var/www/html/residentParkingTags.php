@@ -433,7 +433,8 @@
 
                                         <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
 
-                                          <input class='form-control' name='edit_year' id='edit_year' value='$tag_year' required>
+                                          <label>Year : </label>
+                                          <input type='number' class='form-control' name='edit_year' id='edit_year' value='$tag_year' required>
 
                                         </div>
 
