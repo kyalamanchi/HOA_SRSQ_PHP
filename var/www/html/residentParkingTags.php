@@ -509,7 +509,7 @@
 
                             ";
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#editTag_".$plate."' class='btn btn-link'>Edit</a></td><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$year."</td><td>".$plate."</td><td><a data-toggle='modal' data-target='#removeTag_".$plate."' class='btn btn-link'>Remove</a></td></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#editTag_".$plate."' class='btn btn-link'>Edit</a></td><td>".$issued_on."</td><td>".$valid_from."</td><td>".$valid_until."</td><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a data-toggle='modal' data-target='#removeTag_".$plate."' class='btn btn-link'>Remove</a></td></tr>";
                           
                         }
 
