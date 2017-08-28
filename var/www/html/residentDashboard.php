@@ -530,7 +530,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+                      <img src="documents.png" height=75 width=75 alt='My Documents'>
 
                     </div>
 
@@ -540,10 +540,7 @@
 
                         $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$_SESSION['hoa_user_id'] AND community_id=$community_id"));
 
-                        if($my_documents > 0) 
-                          echo "<h2 class='text-green'><strong>$my_documents</strong></h2>"; 
-                        else 
-                          echo "<h2 class='text-info'><strong>$my_documents</strong></h2>";
+                        echo "<h2 class='text-info'><strong>$my_documents</strong></h2>";
 
                       ?>
 
