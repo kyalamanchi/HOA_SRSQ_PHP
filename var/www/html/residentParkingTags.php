@@ -360,7 +360,9 @@
                                         <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Make : </label>
-                                          <select class='form-control' name='edit_make' id='edit_make' required>";
+                                          <select class='form-control' name='edit_make' id='edit_make' required>
+
+                                            <option value='' selected disabled>Select Make</option>";
 
                                             $result100 = pg_query("SELECT * FROM car_make ORDER BY name");
 
@@ -385,7 +387,9 @@
                                         <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Model : </label>
-                                          <select class='form-control' name='edit_model' id='edit_model' required>";
+                                          <select class='form-control' name='edit_model' id='edit_model' required>
+
+                                            <option value='' selected disabled>Select Model</option>";
 
                                             $result100 = pg_query("SELECT * FROM car_model ORDER BY name");
 
@@ -410,7 +414,9 @@
                                         <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Color : </label>
-                                          <select class='form-control' name='edit_color' id='edit_color' required>";
+                                          <select class='form-control' name='edit_color' id='edit_color' required>
+
+                                            <option value='' selected disabled>Select Color</option>";
 
                                             $result100 = pg_query("SELECT * FROM car_color ORDER BY name");
 
@@ -575,7 +581,7 @@
                             
                             <select id='make' name='make' class='form-control' required>
 
-                              <option value="" selected>Select Make</option>
+                              <option value="" selected disabled>Select Make</option>
 
                               <?php
 
