@@ -37,6 +37,8 @@
 
 	$result = pg_query("SELECT * FROM home_tags WHERE hoa_id=".$hoa_id." AND type=1");
 
+	echo pg_num_rows($result);
+
 	while($row = pg_fetch_assoc($result))
 	{
 
