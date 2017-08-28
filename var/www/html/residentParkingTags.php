@@ -309,6 +309,10 @@
                           $year = $row1['year'];
                           $plate = $row1['notes'];
 
+                          $make_id = $make;
+                          $model_id = $model;
+                          $color_id = $color;
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE id=$make"));
 
                           $make = $row1['name'];
@@ -350,7 +354,73 @@
                                                       
                                     <div class='modal-body'>
                                         
-                                      Edit Tag
+                                      <div class='row container-fluid'>
+
+                                        <select name='edit_make' id='edit_make' required>";
+
+                                          $result100 = pg_query("SELECT * FROM car_make");
+
+                                          while($row100 = pg_fetch_assoc($result100))
+                                          {
+                                            $id = $row100['id'];
+                                            $name = $row100['name'];
+
+                                            echo "<option value='$id'";
+
+                                            if($make_id == $id)
+                                              echo " selected ";
+
+                                            echo "</option>";
+
+                                          }
+
+                                        echo "</select>
+
+                                        <br>
+
+                                        <select name='edit_model' id='edit_model' required>";
+
+                                          $result100 = pg_query("SELECT * FROM car_model");
+
+                                          while($row100 = pg_fetch_assoc($result100))
+                                          {
+                                            $id = $row100['id'];
+                                            $name = $row100['name'];
+
+                                            echo "<option value='$id'";
+
+                                            if($make_id == $id)
+                                              echo " selected ";
+
+                                            echo "</option>";
+
+                                          }
+
+                                        echo "</select>
+
+                                        <br>
+
+                                        <select name='edit_color' id='edit_color' required>";
+
+                                          $result100 = pg_query("SELECT * FROM car_color");
+
+                                          while($row100 = pg_fetch_assoc($result100))
+                                          {
+                                            $id = $row100['id'];
+                                            $name = $row100['name'];
+
+                                            echo "<option value='$id'";
+
+                                            if($make_id == $id)
+                                              echo " selected ";
+
+                                            echo "</option>";
+
+                                          }
+
+                                        echo "</select>
+
+                                      </div>
 
                                     </div>
 
