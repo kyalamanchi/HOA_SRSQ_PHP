@@ -240,6 +240,7 @@
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
                           $agreement_id = $row['agreement_id'];
+                          $is_board_document = $row['is_board_document'];
                           $emails = array();
 
                           if($create_date != "")
@@ -259,7 +260,8 @@
 
                           }
 
-                          echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                          if(!$is_board_document)
+                            echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
 
