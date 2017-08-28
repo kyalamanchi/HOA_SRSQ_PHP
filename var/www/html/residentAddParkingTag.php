@@ -68,6 +68,6 @@
 	else
 		echo "<br><br><br><center><h3>Some error occured. Please try again later.</h3></center>";
 
-	echo "<br><br><center><a href='https://hoaboardtime.com/residentParkingTags.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},9000);</script>";
+	echo "<br><br><center><a href='https://hoaboardtime.com/residentParkingTags.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},2000);</script>";
 
 ?>
