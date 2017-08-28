@@ -42,7 +42,7 @@
 	$plate = encrypt_string($plate);
 	$plate = base64_encode($plate);
 
-	$result = pg_query("INSERT INTO car_detail (id, car_make_id, car_model_id, car_color_id, year, notes) VALUES ($make, $model, $color, $year, '$plate')");
+	$result = pg_query("INSERT INTO car_detail (id, car_make_id, car_model_id, car_color_id, year, notes) VALUES ($id, $make, $model, $color, $year, '$plate')");
 
 	if($result)
 	{	
