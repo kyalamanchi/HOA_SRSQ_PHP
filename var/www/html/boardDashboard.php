@@ -942,7 +942,7 @@
 
                       <?php 
 
-                        $row = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id"));
+                        $row = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
 
                         echo "<h2 class='text-info'><strong>".$row."</strong></h2>";
 
