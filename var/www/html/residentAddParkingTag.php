@@ -23,8 +23,8 @@
 		return $encrypted;
 	}
 
-	$id = pg_fetch_assoc(pg_query("SELECT id FROM car_detail ORDER BY DESC"));
-	$id = $id['id'];
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM car_detail ORDER BY DESC"));
+	$id = $row['id'];
 	$id++;
 
 	$make = $_POST['add_make'];
