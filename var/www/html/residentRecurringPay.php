@@ -144,7 +144,7 @@
             
                 <li class="treeview">
               
-                    <a>
+                    <a href='https://hoaboardtime.com/residentDocumentManagement.php'>
 
                       <i class="glyphicon glyphicon-hdd"></i> <span>Document Management</span>
 
