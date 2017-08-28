@@ -391,6 +391,42 @@
 
             </div>
 
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <a href='https://hoaboardtime.com/residentCommunityDeposit.php'>
+
+                <div class="row container-fluid">
+
+                  <br>
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="deposits.png" height=75 width=75 alt='Community Deposits'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Community Deposits</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/residentVendorDashboard.php'>
