@@ -587,7 +587,7 @@
                                   $id = $row1['id'];
                                   $name = $row1['name'];
 
-                                  echo "<option value='$id'>$names</option>";
+                                  echo "<option value='$id'>$name</option>";
 
                                 }
 
