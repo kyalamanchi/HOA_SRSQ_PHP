@@ -1,5 +1,7 @@
 <?php
 
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	function decrypt_string($input)
     {
                           
@@ -35,9 +37,7 @@
 
 	echo "POST : ".$delete_plate." - - - ".$hoa_id."<br>";
 
-	$result = pg_query("SELECT * FROM home_tags WHERE hoa_id=".$hoa_id);
-
-	echo "Num : ".pg_num_rows($result)."<br>";
+	$result = pg_query("SELECT * FROM home_tags WHERE hoa_id=".$hoa_id." AND type=1");
 
 	while($row = pg_fetch_assoc($result))
 	{
