@@ -570,7 +570,9 @@
                         
                           <td>
                             
-                            <select id='make' name='make' required>
+                            <select id='make' name='make' class='form-control' required>
+
+                              <option value="" selected>Select Make</option>
 
                               <?php
 
@@ -594,11 +596,13 @@
 
                           <td>
                             
-                            <select id='model' name='model' required>
+                            <select id='model' name='model' class='form-control' required>
+
+                              <option value="" selected>Select Model</option>
                               
                               <?php
 
-                                $result1 = pg_query("SELECT * FROM car_make");
+                                $result1 = pg_query("SELECT * FROM car_model");
 
                                 while($row1 = pg_fetch_assoc($result1))
                                 {
@@ -611,7 +615,7 @@
                                 }
 
                               ?>
-                              
+
                             </select>
 
                           </td>
@@ -619,6 +623,8 @@
                           <td>
                             
                             <select id='color' name='color' class='form-control' required>
+
+                              <option value="" selected>Select Color</option>
 
                               <?php
 
