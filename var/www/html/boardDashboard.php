@@ -427,6 +427,8 @@
 
           $inspections = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
 
+          $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
+
         ?>
         
         <section class="content-header">
@@ -723,6 +725,8 @@
                     </div>
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <h2 class="text-info"><strong><?php echo $deposits; ?></strong></h2>
 
                     </div>
 
