@@ -940,7 +940,13 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      
+                      <?php 
+
+                        $row = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id"));
+
+                        echo "<h2 class='text-info'><strong>".$row."</strong></h2>";
+
+                      ?>
 
                     </div>
 
