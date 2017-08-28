@@ -260,7 +260,7 @@
 
                           }
 
-                          if(!$is_board_document)
+                          if($is_board_document == 'f')
                             echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
