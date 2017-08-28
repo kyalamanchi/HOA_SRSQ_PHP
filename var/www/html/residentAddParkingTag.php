@@ -1,6 +1,8 @@
 <?php
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	session_start();
+
+    pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	function encrypt_string($input)
 	{
@@ -23,6 +25,10 @@
 		return $encrypted;
 	}
 
+	$hoa_id = $_SESSION['hoa_hoa_id'];
+	$user_id = $_SESSION['hoa_user_id'];
+	$community_id = $_SESSION['hoa_community_id'];
+
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM car_detail ORDER BY id DESC"));
 	$id = $row['id'];
 	$id++;
@@ -36,15 +42,32 @@
 	$plate = encrypt_string($plate);
 	$plate = base64_encode($plate);
 
-	echo $id." - - - ".$plate;
-
-	#$result = pg_query("INSERT INTO car_detail (id, car_make_id, car_model_id, car_color_id, year, notes) VALUES ($make, $model, $color, $year, '$plate')");
+	$result = pg_query("INSERT INTO car_detail (id, car_make_id, car_model_id, car_color_id, year, notes) VALUES ($make, $model, $color, $year, '$plate')");
 
 	if($result)
-		echo "<br><br><br><center><h3>Car tag added.</h3></center>";
+	{	
+		
+		$result = pg_query("INSERT INTO home_tags (detail, type, issued_to, valid_from, valid_until, hoa_id, community_id, status) VALUES ($id, 1, $user_id, '".date('Y-m-d')."', '".$year."-12-31', $hoa_id, $community_id, 'PENIDING')");
+
+		if($result)
+		{
+
+			echo "<br><br><br><center><h3>Car tag added successfully.</h3></center>";
+
+		}
+		else
+		{	
+
+			$result = pg_query("DELETE FROM car_detail WHERE id=$id");
+
+			echo "<br><br><br><center><h3>Some error occured. Please try again later 123.</h3></center>";
+
+		}
+
+	}
 	else
 		echo "<br><br><br><center><h3>Some error occured. Please try again later.</h3></center>";
 
-	echo "<br><br><center><a href='https://hoaboardtime.com/residentParkingTags.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},2000);</script>";
+	echo "<br><br><center><a href='https://hoaboardtime.com/residentParkingTags.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},9000);</script>";
 
 ?>
