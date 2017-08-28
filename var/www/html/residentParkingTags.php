@@ -607,7 +607,7 @@
                             
                             <select id='model' name='model' class='form-control' required>
 
-                              <option value="" selected>Select Model</option>
+                              <option value="" selected disabled>Select Model</option>
                               
                               <?php
 
@@ -633,7 +633,7 @@
                             
                             <select id='color' name='color' class='form-control' required>
 
-                              <option value="" selected>Select Color</option>
+                              <option value="" selected disabled>Select Color</option>
 
                               <?php
 
