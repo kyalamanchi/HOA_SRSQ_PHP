@@ -522,7 +522,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
+        $("#example1").DataTable({ "pageLength": 50, "order": [[6, 'asc']] });
       });
     </script>
 
