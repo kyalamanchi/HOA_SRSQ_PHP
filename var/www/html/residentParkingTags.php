@@ -306,7 +306,7 @@
                           $make = $row1['car_make_id'];
                           $model = $row1['car_model_id'];
                           $color = $row1['car_color_id'];
-                          $year = $row1['year'];
+                          $tag_year = $row1['year'];
                           $plate = $row1['notes'];
 
                           $make_id = $make;
@@ -356,7 +356,7 @@
                                         
                                       <div class='row container-fluid'>
 
-                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                        <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Make : </label>
                                           <select class='form-control' name='edit_make' id='edit_make' required>";
@@ -381,7 +381,7 @@
 
                                         </div>
 
-                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                        <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Model : </label>
                                           <select class='form-control' name='edit_model' id='edit_model' required>";
@@ -406,13 +406,7 @@
 
                                         </div>
 
-                                      </div>
-
-                                      <br>
-
-                                      <div class='row container-fluid'>
-
-                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                                        <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
                                         
                                           <label>Color : </label>
                                           <select class='form-control' name='edit_color' id='edit_color' required>";
@@ -434,6 +428,12 @@
                                             }
 
                                           echo "</select>
+
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12'>
+
+                                          <input class='form-control' name='edit_year' id='edit_year' value='$tag_year' required>
 
                                         </div>
 
