@@ -579,7 +579,7 @@
 
                               <?php
 
-                                $result1 = pg_query("SELECT * FROM car_make");
+                                $result1 = pg_query("SELECT * FROM car_make ORDER BY name");
 
                                 while($row1 = pg_fetch_assoc($result1))
                                 {
@@ -605,7 +605,7 @@
                               
                               <?php
 
-                                $result1 = pg_query("SELECT * FROM car_model");
+                                $result1 = pg_query("SELECT * FROM car_model ORDER BY name");
 
                                 while($row1 = pg_fetch_assoc($result1))
                                 {
@@ -631,7 +631,7 @@
 
                               <?php
 
-                                $result1 = pg_query("SELECT * FROM car_color");
+                                $result1 = pg_query("SELECT * FROM car_color ORDER BY name");
 
                                 while($row1 = pg_fetch_assoc($result1))
                                 {
