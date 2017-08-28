@@ -331,13 +331,13 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1");
+          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1");
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Pending Agreements</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Parking Tags</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
 
