@@ -331,7 +331,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+          $result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1 AND (status='APPROVED' OR status='PENDING')");
 
         ?>
         
@@ -447,7 +447,7 @@
 
                         }
 
-                        echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td>$status</td><td><a class='btn btn-link btn-info'>Approve</a></td></tr>";
+                        echo "<tr><td>".$make."</td><td>".$model."</td><td>".$color."</td><td>".$tag_year."</td><td>".$plate."</td><td><a class='btn btn-sm btn-link btn-info'>Approve</a></td></tr>";
                           
                       }
 
