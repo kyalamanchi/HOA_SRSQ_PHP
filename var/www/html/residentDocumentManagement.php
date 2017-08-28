@@ -210,7 +210,7 @@
 
               <div class="row container-fluid table-responsive" style="background-color: white;">
 
-                <table class="table table-stripped table-bordered">
+                <table id='example1' class="table table-stripped table-bordered">
 
                   <thead>
                     
