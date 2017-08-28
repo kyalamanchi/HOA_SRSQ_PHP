@@ -443,7 +443,7 @@
 
                                       <div class='row container-fluid text-center'>
 
-                                        <button type='submit' class='btn btn-green btn-sm'>Remove</button> <button type='button' class='btn btn-orange btn-sm' data-dismiss='modal'>Cancel</button>
+                                        <button type='submit' class='btn btn-success btn-sm'>Remove</button> <button type='button' class='btn btn-warning btn-sm' data-dismiss='modal'>Cancel</button>
 
                                       </div>
 
