@@ -41,13 +41,15 @@
 		$detail = $row['detail'];
 		$id = $row['id'];
 
+		echo "Detail : ".$detail." - - - ".$id."<br>";
+
 		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE id=$detail"));
 
 		$plate = $row1['plate'];
 		$plate = base64_decode($plate);
         $plate = decrypt_string($plate);
 
-        echo $plate."<br>";
+        echo "Plate : ".$plate."<br>";
 
         if($plate == $delete_plate)
         {
@@ -67,6 +69,6 @@
 		echo "Not found";
 	}
 
-	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},3000);</script>";
+	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentParkingTags.php'},9000);</script>";
 
 ?>
