@@ -19,6 +19,7 @@
 
         $hoa_id = $_SESSION['hoa_hoa_id'];
         $home_id = $_SESSION['hoa_home_id'];
+        $user_id = $_SESSION['hoa_user_id'];
 
     ?>
 
@@ -191,6 +192,8 @@
         	$month = date("m");
         	$end_date = date("t");
 
+          $result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id");
+
         ?>
         
         <section class="content-header">
@@ -201,11 +204,63 @@
 
         <section class="content">
           
-          <div class="row">
+          <div class="row container-fluid">
 
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
-              
+              <div class="row container-fluid table-responsive" style="background-color: white;">
+
+                <table class="table table-stripped table-bordered">
+
+                  <thead>
+                    
+                    <th>Date of Upload</th>
+                    <th>Description</th>
+                    <th>Category</th>
+
+                  </thead>
+
+                  <tbody>
+                    
+                    <?php
+                    
+                      while($row = pg_fetch_assoc($result))
+                      {
+
+                        $document_id = $row['document_id'];
+
+                        $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
+
+                        $desc = $row1['description'];
+                        $document_url = $row1['url'];
+                        $uploaded_date = $row1['uploaded_date'];
+                        $category = $row1['document_category_id'];
+
+                        if($category != '')
+                        {
+
+                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$category"));
+
+                          $category = $row11['document_category_name'];
+
+                        }
+                        else
+                          $category = 'Others';
+
+                        if($uploaded_date != "")
+                          $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
+
+                        echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
+
+                      }
+
+                    ?>
+
+                  </tbody>
+
+                </table>
+
+              </div>
 
             </section>
 
