@@ -538,7 +538,7 @@
 
                       <?php
 
-                        $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$_SESSION['hoa_user_id'] AND community_id=$community_id"));
+                        $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$_SESSION['hoa_user_id']"));
 
                         echo "<h2 class='text-info'><strong>$my_documents</strong></h2>";
 
