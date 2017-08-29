@@ -521,7 +521,7 @@
                             $month_payment += $payments_row['amount'];
                             $tdate = $payments_row['process_date'];
 
-                            echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$hoa_id."".$home_id."-".$home_id."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
+                            echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
 
                           }
 
