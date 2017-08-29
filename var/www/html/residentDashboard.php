@@ -288,11 +288,11 @@
                     <?php
 
                       if($balance <= 0)
-                        echo "<h2 class='text-green'><strong>$ ".$balance."</strong></h2>";
+                        echo "<h3 class='text-green'><strong>$ ".$balance."</strong></h3>";
                       else if($balance > 0 && $balance <= $monthly_assessment)
-                        echo "<h2 class='text-orange'><strong>$ ".$balance."</strong></h2>";
+                        echo "<h3 class='text-orange'><strong>$ ".$balance."</strong></h3>";
                       else if($balance > $monthly_assessment)
-                        echo "<h2 class='text-red'><strong>$ ".$balance."</strong></h2>";
+                        echo "<h3 class='text-red'><strong>$ ".$balance."</strong></h3>";
 
                     ?>
 
@@ -330,7 +330,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <h2 class="text-info"><strong><?php echo $year; ?></strong></h2>
+                      <h3 class="text-info"><strong><?php echo $year; ?></strong></h3>
 
                     </div>
 
@@ -372,7 +372,7 @@
 
                         $result = pg_query("SELECT * FROM board_committee_details WHERE community_id=");
 
-                        echo "<h2 class='text-info'><strong>".$bods."</strong></h2>";
+                        echo "<h3 class='text-info'><strong>".$bods."</strong></h3>";
 
                       ?>
 
@@ -412,7 +412,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <h2 class="text-info"><strong><?php echo $deposits; ?></strong></h2>
+                      <h3 class="text-info"><strong><?php echo $deposits; ?></strong></h3>
 
                     </div>
 
@@ -452,7 +452,7 @@
 
                       <?php
 
-                        echo "<h2 class='text-info'><strong>".$vendors."</strong></h2>";
+                        echo "<h3 class='text-info'><strong>".$vendors."</strong></h3>";
 
                       ?>
 
@@ -495,9 +495,9 @@
                       <?php
 
                         if($violations > 0) 
-                          echo "<h2 class='text-orange'><strong>$violations</strong></h2>"; 
+                          echo "<h3 class='text-orange'><strong>$violations</strong></h3>"; 
                         else 
-                          echo "<h2 class='text-info'><strong>$violations</strong></h2>";
+                          echo "<h3 class='text-info'><strong>$violations</strong></h3>";
 
                       ?>
 
@@ -541,7 +541,7 @@
 
                         $my_documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id"));
 
-                        echo "<h2 class='text-info'><strong>$my_documents</strong></h2>";
+                        echo "<h3 class='text-info'><strong>$my_documents</strong></h3>";
 
                       ?>
 
@@ -586,9 +586,9 @@
                         $parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE hoa_id=$hoa_id AND community_id=$community_id AND type=1"));
 
                         if($parking_tags > 0) 
-                          echo "<h2 class='text-green'><strong>$parking_tags</strong></h2>"; 
+                          echo "<h3 class='text-green'><strong>$parking_tags</strong></h3>"; 
                         else 
-                          echo "<h2 class='text-info'><strong>$parking_tags</strong></h2>";
+                          echo "<h3 class='text-info'><strong>$parking_tags</strong></h3>";
 
                       ?>
 
@@ -634,9 +634,9 @@
                         $pending_agreements = pg_num_rows($result);
 
                         if($pending_agreements == 0)
-                          echo "<h2 class='text-green'><strong>".$pending_agreements."</strong></h2>"; 
+                          echo "<h3 class='text-green'><strong>".$pending_agreements."</strong></h3>"; 
                         else
-                          echo "<h2 class='text-red'><strong>".$pending_agreements."</strong></h2>";
+                          echo "<h3 class='text-red'><strong>".$pending_agreements."</strong></h3>";
 
                       ?>
 
@@ -724,9 +724,9 @@
                         $signed_agreements = pg_num_rows($result);
 
                         if($signed_agreements == 0)
-                          echo "<h2 class='text-green'><strong>".$signed_agreements."</strong></h2>"; 
+                          echo "<h3 class='text-green'><strong>".$signed_agreements."</strong></h3>"; 
                         else
-                          echo "<h2 class='text-red'><strong>".$signed_agreements."</strong></h2>";
+                          echo "<h3 class='text-red'><strong>".$signed_agreements."</strong></h3>";
 
                       ?>
 
@@ -768,7 +768,7 @@
 
                       <?php
 
-                        echo "<h2 class='text-green'><strong>".$reminders."</strong></h2>";
+                        echo "<h3 class='text-green'><strong>".$reminders."</strong></h3>";
                                       
                       ?>
 
@@ -816,7 +816,7 @@
                         $row = pg_fetch_assoc($result);
                         $num = $row['count'];
 
-                        echo "<h2 class='text-green'><strong>".$num."</strong></h2>";
+                        echo "<h3 class='text-green'><strong>".$num."</strong></h3>";
                                       
                       ?>
 
