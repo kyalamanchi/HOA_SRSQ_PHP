@@ -1399,8 +1399,9 @@
 
                     <thead>
                       
-                      <th>Description</th>
                       <th>Uploaded On</th>
+                      <th>Description</th>
+                      <th>Category</th>
 
                     </thead>
 
@@ -1409,9 +1410,15 @@
                       <?php
 
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid=$hoa_id"));
+
+                        $member_id = $row['member_id'];
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE member_id=$member_id"));
+
+                        $user_id = $row['id'];
                         
 
-                        echo "<tr><td></td><td></td></tr>";
+                        echo "<tr><td>$member_id</td><td>$user_id</td><td></td></tr>";
 
                       ?>
                       
