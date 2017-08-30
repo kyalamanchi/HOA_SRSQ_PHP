@@ -1198,7 +1198,7 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td>".$document_to."<td></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                          echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
 
