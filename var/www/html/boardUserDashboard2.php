@@ -1379,20 +1379,6 @@
 
               <div class="box box-success">
 
-                <div class="box-header">
-
-                  <center><h4><strong>User Documents</strong></h4></center>
-                  
-                  <i class="fa fa-"></i>
-
-                  <div class="box-tools pull-right">
-
-                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
-
-                  </div>
-
-                </div>
-
                 <div class="box-body table-responsive">
                   
                   <table class="table table-bordered">
@@ -1418,7 +1404,7 @@
                         $user_id = $row['id'];
                         
 
-                        echo "<tr><td>$member_id</td><td>$user_id</td><td></td></tr>";
+                        echo "<tr><td>$member_id</td><td>$user_id</td><td>$hoa_id</td></tr>";
 
                       ?>
                       
