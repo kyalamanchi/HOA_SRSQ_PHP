@@ -11,6 +11,7 @@
 		$randkey = rand(1, 9); // Gets a random number between 1 and 9
 									 
 		$i = 0;
+		
 		while ($i < $inputlen)
 		{
 									 
