@@ -1177,7 +1177,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND (document_to='$email' OR hoa_id=$hoa_id");
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND (document_to='$email' OR hoa_id=$hoa_id)");
 
                         while($row = pg_fetch_assoc($result))
                         {
