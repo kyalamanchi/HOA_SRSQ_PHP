@@ -352,7 +352,7 @@
 
             <?php
 
-              $result = pg_query("SELECT * FROM community_survey WHERE community_id=$community_id");
+              $result = pg_query("SELECT * FROM community_surveys WHERE community_id=$community_id");
 
               while($row = pg_fetch_assoc($result))
               {
