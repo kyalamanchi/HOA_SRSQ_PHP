@@ -1481,7 +1481,7 @@
 
         $("#example3").DataTable({ "pageLength": 50 });
 
-        $("#example5").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example5").DataTable({ "pageLength": 25, "order": [[0, 'desc']] });
       });
     </script>
 
