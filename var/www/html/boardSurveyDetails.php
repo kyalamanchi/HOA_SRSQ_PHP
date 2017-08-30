@@ -346,6 +346,28 @@
 
         <section class="content">
 
+          <div class='row container-fluid' style="background-color: white;">
+
+            <?php
+
+              $result = pg_query("SELECT * FROM community_survey WHERE community_id=$community_id");
+
+              while($row = pg_fetch_assoc($result))
+              {
+                
+                $name = $row['survey_name'];
+
+                $result_url = $row['result_url'];
+
+                echo "<br><br>Name : ".$name." - - - "."URL : <a href='".$result_url."'>".$result_url."</a>";
+
+              }
+
+
+            ?>
+
+          </div>
+
           <?php
             
             if($community_id == 2)
