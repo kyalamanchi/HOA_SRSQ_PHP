@@ -1408,14 +1408,14 @@
                           
                           $document_id = $row['document_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE id=$document_id"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
 
                           $desc = $row1['description'];
                           $url = $row1['url'];
                           $category = $row1['document_category_id'];
                           $uploaded_date = $row1['uploaded_date'];
 
-                          echo "<tr><td>$uploaded_date</td><td>$description</td><td>$category</td></tr>";
+                          echo "<tr><td>$uploaded_date</td><td>$desc</td><td>$category</td></tr>";
 
                         }
 
