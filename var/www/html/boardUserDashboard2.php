@@ -1177,7 +1177,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'");
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND ");
 
                         while($row = pg_fetch_assoc($result))
                         {
@@ -1188,6 +1188,7 @@
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
                           $agreement_id = $row['agreement_id'];
+                          $is_board_document = $row['is_board_document'];
 
                           if($create_date != "")
                             $create_date = date('m-d-Y', strtotime($create_date));
@@ -1198,7 +1199,8 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                          if($is_board_document == 'f')
+                            echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
 
