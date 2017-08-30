@@ -1187,7 +1187,7 @@
                           $send_date = $row['send_date'];
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
-                          $emails = array();
+                          $agreement_id = $row['agreement_id'];
 
                           if($create_date != "")
                             $create_date = date('m-d-Y', strtotime($create_date));
@@ -1198,19 +1198,7 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          $emails = explode(';', $document_to);
-
-                          for($i = 0; $i < sizeof($emails); $i++)
-                          {  
-
-                            if($emails[$i] == $email)
-                            {  
-
-                              echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
-
-                            }
-
-                          }
+                          echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td>".$document_to."<td></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
 
