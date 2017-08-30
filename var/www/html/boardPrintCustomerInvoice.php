@@ -144,12 +144,12 @@
   $pdf->Cell(189, 6, " ", 0, 1);
 
 
-  $pdf->Cell(100, 6, "To :", 0, 0, L);
+  $pdf->Cell(130, 6, "To :", 0, 0, L);
   $pdf->Cell(100, 6, "Property Address :", 0, 1, L);
 
 
   $pdf->SetFont("Arial", "B", 12);
-  $pdf->Cell(100, 6, $cus_name, 0, 0, L);
+  $pdf->Cell(130, 6, $cus_name, 0, 0, L);
   $pdf->Cell(100, 6, $property, 0, 1, L);
   $pdf->SetFont("Arial", "", 12);
 
