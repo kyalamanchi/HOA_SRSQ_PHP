@@ -359,7 +359,7 @@
                 
                 $name = $row['survey_name'];
 
-                $result_url = $row['result_url'];
+                $result_url = $row['results_url'];
 
                 echo "<br><br>Name : ".$name." - - - "."URL : <a href='".$result_url."'>".$result_url."</a>";
 
