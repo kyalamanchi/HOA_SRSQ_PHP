@@ -44,6 +44,7 @@
   $row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
   $living_status = $row['living_status'];
+  $property = $row['address1'];
 
   if($living_status == 't')
   {
@@ -127,7 +128,7 @@
   $pdf->SetFont("Arial", "B", 12);
   $pdf->Cell(100, 6, $c_name, 0, 0, L);
   $pdf->SetFont("Arial", "", 12);
-  $pdf->Cell(85, 6, "Invoice No : ".$community_id."-".$home_id."-".$hoa_id."-".$year, 0, 1, R);
+  $pdf->Cell(85, 6, "HOA Account Number : ".$hoa_id, 0, 1, R);
 
 
   $pdf->Cell(100, 6, $pobox, 0, 0, L);
@@ -148,7 +149,8 @@
 
 
   $pdf->SetFont("Arial", "B", 12);
-  $pdf->Cell(100, 6, $cus_name, 0, 1, L);
+  $pdf->Cell(100, 6, $cus_name, 0, 0, L);
+  $pdf->Cell(100, 6, $property, 0, 1, L);
   $pdf->SetFont("Arial", "", 12);
 
 
