@@ -1396,15 +1396,28 @@
                       <?php
 
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid='$hoa_id'"));
-
                         $member_id = $row['member_id'];
 
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE member_id=$member_id"));
-
                         $user_id = $row['id'];
                         
+                        $result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id");
+                        
+                        while($row = pg_fetch_assoc($result))
+                        {
+                          
+                          $document_id = $row['document_id'];
 
-                        echo "<tr><td>$member_id</td><td>$user_id</td><td>$hoa_id</td></tr>";
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE id=$document_id"));
+
+                          $desc = $row1['description'];
+                          $url = $row1['url'];
+                          $category = $row1['document_category_id'];
+                          $uploaded_date = $row1['uploaded_date'];
+
+                          echo "<tr><td>$uploaded_date</td><td>$description</td><td>$category</td></tr>";
+
+                        }
 
                       ?>
                       
