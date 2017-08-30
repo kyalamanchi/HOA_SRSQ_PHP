@@ -79,6 +79,7 @@
 
           $row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
+          $property = $row['address1'];
           $living_status = $row['living_status'];
 
           if($living_status == 't')
@@ -133,7 +134,7 @@
 
                 <div class='col-xl-6 col-lg-6 col-md-6 col-xs-6 text-right'>
                       
-                  <span><strong>Invoice No : </strong><?php echo $community_id."-".$home_id."-".$hoa_id ?>-<script type='text/javascript'>document.write(new Date().getFullYear())</script></span><br>
+                  <span><strong>HOA Account Number : </strong><?php echo $hoa_id; ?></span>br>
                   <span><strong>Invoice Date : </strong><?php echo date("m-d-y", strtotime($adate)); ?></span><br>
                   <span><strong>Due Date : </strong><?php if(date("m", strtotime($adate)) == date("m"))$month = date("m"); else if(date("m", strtotime($adate)) < date("m")) $month = date("m")-1; else if(date("m", strtotime($adate)) > date("m")) $month = date("m")+1; echo $month."-15-".date("y"); ?></span>
                       
@@ -152,6 +153,18 @@
                   <address style="font-size: 14pt;">
                         
                     <?php echo "<strong>".$cus_name."</strong><br>".$cus_addr."<br>".$cus_city.", ".$cus_state." ".$cus_zip; ?>
+
+                  </address>
+
+                </div>
+
+                <div class='col-xl-6 col-lg-6 col-md-6 col-xs-6 text-right'>
+                      
+                  Property Address :
+
+                  <address style="font-size: 14pt;">
+                        
+                    <?php echo "<strong>".$property."</strong>"; ?>
 
                   </address>
 
