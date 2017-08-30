@@ -143,8 +143,8 @@
   $pdf->Cell(189, 6, " ", 0, 1);
 
 
-  $pdf->Cell(80, 6, "To :", 0, 0, L);
-  $pdf->Cell(80, 6, "Property Address :", 0, 1, L);
+  $pdf->Cell(100, 6, "To :", 0, 0, L);
+  $pdf->Cell(100, 6, "Property Address :", 0, 1, L);
 
 
   $pdf->SetFont("Arial", "B", 12);
