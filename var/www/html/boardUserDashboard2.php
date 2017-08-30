@@ -1415,6 +1415,15 @@
                           $category = $row1['document_category_id'];
                           $uploaded_date = $row1['uploaded_date'];
 
+                          if($uploaded_date != "")
+                            $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
+
+                          if($category != "")
+                          {
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$category"));
+                            $category = $row1['document_category_name'];
+                          }
+
                           echo "<tr><td>$uploaded_date</td><td>$desc</td><td>$category</td></tr>";
 
                         }
