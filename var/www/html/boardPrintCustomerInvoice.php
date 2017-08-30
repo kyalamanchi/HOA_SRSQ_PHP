@@ -128,7 +128,7 @@
   $pdf->SetFont("Arial", "B", 12);
   $pdf->Cell(100, 6, $c_name, 0, 0, L);
   $pdf->SetFont("Arial", "", 12);
-  $pdf->Cell(85, 6, "HOA Account Number : ".$hoa_id, 0, 1, R);
+  $pdf->Cell(85, 6, "HOA Account No. : ".$hoa_id, 0, 1, R);
 
 
   $pdf->Cell(100, 6, $pobox, 0, 0, L);
