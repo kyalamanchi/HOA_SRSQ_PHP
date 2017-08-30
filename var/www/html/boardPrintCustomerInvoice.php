@@ -134,7 +134,7 @@
 
                 <div class='col-xl-6 col-lg-6 col-md-6 col-xs-6 text-right'>
                       
-                  <span><strong>HOA Account Number : </strong><?php echo $hoa_id; ?></span>br>
+                  <span><strong>HOA Account Number : </strong><?php echo $hoa_id; ?></span><br>
                   <span><strong>Invoice Date : </strong><?php echo date("m-d-y", strtotime($adate)); ?></span><br>
                   <span><strong>Due Date : </strong><?php if(date("m", strtotime($adate)) == date("m"))$month = date("m"); else if(date("m", strtotime($adate)) < date("m")) $month = date("m")-1; else if(date("m", strtotime($adate)) > date("m")) $month = date("m")+1; echo $month."-15-".date("y"); ?></span>
                       
@@ -158,7 +158,7 @@
 
                 </div>
 
-                <div class='col-xl-6 col-lg-6 col-md-6 col-xs-6 text-right'>
+                <div class='col-xl-6 col-lg-6 col-md-6 col-xs-6'>
                       
                   Property Address :
 
