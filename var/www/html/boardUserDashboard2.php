@@ -1381,7 +1381,7 @@
 
                 <div class="box-body table-responsive">
                   
-                  <table class="table table-bordered">
+                  <table id='example5' class="table table-bordered">
 
                     <thead>
                       
@@ -1473,8 +1473,6 @@
 
     <script>
       $(function () {
-        $(".select2").select2();
-
         $("#example1").DataTable({ "pageLength": 50 });
 
         $("#example2").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
@@ -1482,6 +1480,8 @@
         $("#example4").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
         $("#example3").DataTable({ "pageLength": 50 });
+
+        $("#example5").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
       });
     </script>
 
