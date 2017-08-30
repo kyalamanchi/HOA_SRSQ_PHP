@@ -348,6 +348,8 @@
 
           <div class='row container-fluid' style="background-color: white;">
 
+            <br>
+
             <?php
 
               $result = pg_query("SELECT * FROM community_survey WHERE community_id=$community_id");
@@ -365,6 +367,8 @@
 
 
             ?>
+
+            <br>
 
           </div>
 
