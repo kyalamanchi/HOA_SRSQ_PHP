@@ -1177,7 +1177,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'");
+                        $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND document_to='$email'");
 
                         while($row = pg_fetch_assoc($result))
                         {
@@ -1199,7 +1199,7 @@
                           if($last_updated != "")
                             $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          if($is_board_document == 'f' && $document_to == $email)
+                          if($is_board_document == 'f')
                             echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                         }
