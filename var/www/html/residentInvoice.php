@@ -419,7 +419,7 @@
                 
                 <div class="col-xs-12">
                   
-                  <a href="https://hoaboardtime.com/residentInvoicePrint.php" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
+                  <a href="https://hoaboardtime.com/residentInvoicePrint.php?hoa_id=$hoa_id&home_id=$home_id" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
           
                 </div>
       
