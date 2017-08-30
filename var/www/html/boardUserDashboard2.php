@@ -1428,7 +1428,7 @@
                             $category = "Others";
 
                           if($community_id == $community)
-                            echo "<tr><td>$uploaded_date</td><td>$desc</td><td>$category</td></tr>";
+                            echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$url&desc=$desc' target='_blank'>'>$desc</a></td><td>$category</td></tr>";
 
                         }
 
