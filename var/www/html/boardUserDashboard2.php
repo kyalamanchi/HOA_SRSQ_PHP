@@ -1424,6 +1424,8 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$category"));
                             $category = $row1['document_category_name'];
                           }
+                          else
+                            $category = "Others";
 
                           if($community_id == $community)
                             echo "<tr><td>$uploaded_date</td><td>$desc</td><td>$category</td></tr>";
