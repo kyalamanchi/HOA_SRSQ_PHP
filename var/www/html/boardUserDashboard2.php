@@ -1408,12 +1408,13 @@
                           
                           $document_id = $row['document_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id AND community_id=$community_id"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
 
                           $desc = $row1['description'];
                           $url = $row1['url'];
                           $category = $row1['document_category_id'];
                           $uploaded_date = $row1['uploaded_date'];
+                          $community = $row1['community_id'];
 
                           if($uploaded_date != "")
                             $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
@@ -1424,7 +1425,8 @@
                             $category = $row1['document_category_name'];
                           }
 
-                          echo "<tr><td>$uploaded_date</td><td>$desc</td><td>$category</td></tr>";
+                          if($community_id == $community)
+                            echo "<tr><td>$uploaded_date</td><td>$desc</td><td>$category</td></tr>";
 
                         }
 
