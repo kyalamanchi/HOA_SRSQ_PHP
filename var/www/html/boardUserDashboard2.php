@@ -1395,7 +1395,7 @@
 
                       <?php
 
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid=$hoa_id"));
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid='$hoa_id'"));
 
                         $member_id = $row['member_id'];
 
