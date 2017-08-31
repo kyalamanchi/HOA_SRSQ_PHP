@@ -306,12 +306,16 @@
                                         <label>Date : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
+                                        <br>
+
                                       </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Notice : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+
+                                        <br>
 
                                       </div>
 
@@ -320,12 +324,16 @@
                                         <label>Inspection Initial Notice : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
+                                        <br>
+
                                       </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Compliance Date : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+
+                                        <br>
 
                                       </div>
 
@@ -334,12 +342,16 @@
                                         <label>Viewd From : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
+                                        <br>
+
                                       </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Item : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+
+                                        <br>
 
                                       </div>
 
@@ -348,12 +360,16 @@
                                         <label>Observation : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
+                                        <br>
+
                                       </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Home : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+
+                                        <br>
 
                                       </div>
 
@@ -362,6 +378,8 @@
                                         <label>Owner : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
+                                        <br>
+
                                       </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
@@ -369,12 +387,16 @@
                                         <label>Inspection Noticen Summary : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
+                                        <br>
+
                                       </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Subject : </label>
                                         <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+
+                                        <br>
 
                                       </div>
                                                             
