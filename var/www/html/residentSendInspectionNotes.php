@@ -73,19 +73,20 @@
 	        "async" => false
 	   	);
 
-	    if($to)
+	   	$ch = curl_init();
+	    $postString = json_encode($params);
+
+		curl_setopt($ch, CURLOPT_URL, $uri);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+
+		$result = curl_exec($ch);
+
+	    if($result)
 	    {
-	        $ch = curl_init();
-	        $postString = json_encode($params);
-
-	        curl_setopt($ch, CURLOPT_URL, $uri);
-	        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-	        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-	        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	        curl_setopt($ch, CURLOPT_POST, true);
-	        curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-	        $result = curl_exec($ch);
 
 	        echo "<br><br><center><h3>Email Sent.</h3></center>";
 	    }
