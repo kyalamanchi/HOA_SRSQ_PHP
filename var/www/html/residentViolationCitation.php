@@ -441,8 +441,9 @@
                           </div>
 
                           ";
-                          
-                          echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+
+                          if($status != 'Closed By Vendor' && $status !='Request Closed By Member' && $status!='Closed')  
+                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
