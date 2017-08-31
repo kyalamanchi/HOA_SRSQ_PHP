@@ -244,6 +244,7 @@
                           $id = $row['id'];
                           $home_id = $row['home_id'];
                           $hoa_id = $row['hoa_id'];
+                          $item = $row['item'];
                           $description = $row['description'];
                           $document = $row['document_id'];
                           $inspection_date = $row['inspection_date'];
@@ -362,7 +363,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Item : </label>
-                                        <input type='date' name='item' class='form-control' id='item' value='' readonly/>
+                                        <input type='date' name='item' class='form-control' id='item' value='".$item."' readonly/>
 
                                         <br>
 
