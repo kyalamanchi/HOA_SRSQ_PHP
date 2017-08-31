@@ -348,7 +348,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Viewed From : </label>
-                                        <textarea class='form-control' name='viewed_from' id='viewed_from' value='".$location."' required readonly></textarea>
+                                        <textarea class='form-control' name='viewed_from' id='viewed_from' required readonly>$location</textarea>
 
                                         <br>
 
@@ -370,7 +370,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Observation : </label>
-                                        <textarea class='form-control' name='observation' id='observation' value='".$description."' required readonly></textarea>
+                                        <textarea class='form-control' name='observation' id='observation' required readonly>$description</textarea>
 
                                         <br>
 
