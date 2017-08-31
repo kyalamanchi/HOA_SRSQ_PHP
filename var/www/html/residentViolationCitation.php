@@ -253,6 +253,7 @@
                           $notice_type = $row['inspection_notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
                           $status = $row['inspection_status_id'];
+                          $compliance_date = $row['compliance_date'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
 
@@ -275,6 +276,9 @@
 
                           if($date_of_upload != "")
                             $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+                          if($compliance_date != "")
+                            $compliance_date = date('m-d-Y', strtotime($compliance_date));
 
                           if($inspection_date != "")
                             $inspection_date = date('m-d-Y', strtotime($inspection_date));
@@ -313,7 +317,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Notice : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='date' name='date' class='form-control' id='date' value='' readonly/>
 
                                         <br>
 
@@ -326,7 +330,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Initial Notice : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='date' name='date' class='form-control' id='date' value='' readonly/>
 
                                         <br>
 
@@ -335,7 +339,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Compliance Date : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='date' name='date' class='form-control' id='date' value='".$compliance_date."' readonly/>
 
                                         <br>
 
@@ -357,7 +361,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Item : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='date' name='date' class='form-control' id='date' value='' readonly/>
 
                                         <br>
 
@@ -370,7 +374,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Observation : </label>
-                                        <textarea class='form-control' name='observation' id='observation' required readonly>$description</textarea>
+                                        <textarea class='form-control' name='observation' id='observation' readonly>$description</textarea>
 
                                         <br>
 
