@@ -18,4 +18,72 @@
 	$status_requested = $_POST['status_requested'];
 
 	echo $id." - - - ".$date." - - - ".$inspection_notice." - - - ".$initial_notice." - - - ".$compliance_date." - - - ".$viewed_from." - - - ".$item." - - - ".$observation." - - - ".$home." - - - ".$owner." - - - ".$notice_summary." - - - ".$status_requested;
+
+	$to = "geethchadalawada@gmail.com";
+
+	switch ($community_id) {
+        case 1:
+            $community = 'SRP';
+            $cnote = "Stoneridgeplace HOA";
+            $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+            $from = 'info@stoneridgeplace.org';
+            break;
+
+        case 2:
+            $community = 'SRSQ';
+            $cnote = "Stoneridge Square HOA";
+            $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+            $from = 'info@stoneridgesquare.org';
+            break;
+    }
+
+                
+                
+    $content = 'We received your HOA Payment ($'.$amount.') for account '.$hoa_id.' on '.date('m/d/Y', strtotime($process_date)).' and here is the confirmation code'.$document_num.'.';
+    $subject = 'HOA Payment Received for Account - '.$hoa_id;
+    $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
+    $content_text = strip_tags($content);
+
+
+    $params = array(
+        "key" => $api_key,
+        "message" => array(
+            "html" => $content,
+            "text" => $content_text,
+            "subject" => $subject,
+            "from_email" => $from,
+            "from_name" => $from,
+            "to" => array(
+                array("email" => $to, "name" => $to)
+            ),
+            "track_opens" => true,
+            "track_clicks" => true,
+            "auto_text" => true,
+            "url_strip_qs" => true,
+            "preserve_recipients" => true
+        ),
+        "async" => false
+   	);
+
+    if($to)
+    {
+        $ch = curl_init();
+        $postString = json_encode($params);
+
+        curl_setopt($ch, CURLOPT_URL, $uri);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+
+        $result = curl_exec($ch);
+
+        echo "<br><br><center><h3>Email Sent</h3></center>";
+    }
+    else
+		echo "<br><br><center><h3>Some error occured. Please try again.</h3></center>";
+
+
+	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentViolationCitation.php'},3000);</script>";
 ?>

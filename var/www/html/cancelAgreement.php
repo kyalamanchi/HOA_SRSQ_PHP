@@ -41,6 +41,8 @@
 
     ?>
 
+    <script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardDashboard.php'},3000);</script>
+
   </body>
 
 </html>
