@@ -280,7 +280,7 @@
 
                           echo "
 
-                          <div class='modal fade hmodal-success' id='sendInspectionReply' role='dialog'  aria-hidden='true'>
+                          <div class='modal fade hmodal-success' id='sendInspectionReply_$location' role='dialog'  aria-hidden='true'>
                                 
                             <div class='modal-dialog'>
                                                 
@@ -319,7 +319,7 @@
 
                           ";
                           
-                          echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply' class='btn-xs'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$location' class='btn-xs'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
