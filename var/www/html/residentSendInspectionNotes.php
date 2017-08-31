@@ -44,7 +44,7 @@
 
                 
                 
-    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'<br>Inspection Initial Notice : '.$initial_notice.'Compliance Date : '.$compliance_date.'<br>Viewed From : '.$location.'<br>Item : '.$item.'<br>Observation : '.$observation.'<br>Home : '.$home.'<br>Owner : '.$owner.'<br>Inspection Notes Summary : '.$notice_summary.'.';
+    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'<br>Inspection Initial Notice : '.$initial_notice.'Compliance Date : '.$compliance_date.'<br>Viewed From : '.$viewed_from.'<br>Item : '.$item.'<br>Observation : '.$observation.'<br>Home : '.$home.'<br>Owner : '.$owner.'<br>Inspection Notes Summary : '.$notice_summary.'.';
     $subject = $home.' requesting '.$status_requested;
     $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
     $content_text = strip_tags($content);
