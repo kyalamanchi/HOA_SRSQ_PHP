@@ -405,7 +405,12 @@
                                             $status_id = $row111['id'];
                                             $inspection_status_name = $row111['inspection_status'];
 
-                                            echo "<option value='".$status_id."'>".$inspection_status_name."</option>";
+                                            echo "<option value='".$status_id."'";
+
+                                            if($status == $inspection_status_name)
+                                              echo " selected ";
+
+                                            echo ">".$inspection_status_name."</option>";
                                           }
 
                                         echo "</select>
