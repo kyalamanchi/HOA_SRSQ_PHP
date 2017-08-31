@@ -301,9 +301,18 @@
                                                             
                                     <div class='row container-fluid'>
 
+                                      <div class='row container-fluid'>
+
+                                        <label>Date : </label>
+                                        <input type='date' name='date' id='date' value='".date('m-d-Y')."' readonly/>
+
+                                      </div>
+
                                       <div class='row text-center'>
+                                        
                                         <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Save Changes</button>
                                         <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+
                                       </div>
                                                             
                                     </div>
