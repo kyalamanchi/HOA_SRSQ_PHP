@@ -379,7 +379,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Home : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='text' name='home' class='form-control' id='home' value='".$_SESSION['hoa_address']."' readonly/>
 
                                         <br>
 
@@ -445,8 +445,8 @@
 
                                       <br>
                                         
-                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Save Changes</button>
-                                      <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Send</button>
+                                      <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
 
                                     </div>
 
