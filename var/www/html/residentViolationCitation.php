@@ -319,6 +319,10 @@
 
                                       </div>
 
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Initial Notice : </label>
@@ -336,6 +340,10 @@
                                         <br>
 
                                       </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
@@ -355,6 +363,10 @@
 
                                       </div>
 
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Observation : </label>
@@ -373,6 +385,10 @@
 
                                       </div>
 
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Owner : </label>
@@ -390,6 +406,10 @@
                                         <br>
 
                                       </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
