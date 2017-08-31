@@ -401,7 +401,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Noticen Summary : </label>
-                                        <textarea class='form-control' name='notice_summary' id='notice_summary' required maxlength='500'></textarea>
+                                        <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
 
                                         <br>
 
