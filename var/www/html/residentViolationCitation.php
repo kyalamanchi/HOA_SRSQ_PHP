@@ -394,7 +394,21 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Subject : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <select name='inspection_notice_subject' id='inspection_notice_subject' required>
+
+                                          <option value='' selected disabled>Select status</option>";
+
+                                          $result111 = pg_query("SELECT * FROM inspection_status");
+
+                                          while ($row111 = pg_fetch_assoc($result111)) 
+                                          {
+                                            $id = $row111['id'];
+                                            $inspection_status_name = $row111['inspection_status']
+
+                                            echo "<option value='".$id."'>".$inspection_status_name."</option>";
+                                          }
+
+                                        echo "</select>
 
                                         <br>
 
