@@ -27,7 +27,7 @@
 	if($result)
 	{
 
-		$to = "geethchadalawada@gmail.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
+		$to = "geethchadalawada@gmail";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
 
 		switch ($community_id) {
 	        case 1:
