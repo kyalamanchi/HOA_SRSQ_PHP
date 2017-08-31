@@ -301,14 +301,15 @@
 
                                 <div class='modal-body'>
 
-                                  <form method='post' action='https://hoaboardtime.com/residentSendInspectionReply.php'>
+                                  <form method='post' action='https://hoaboardtime.com/residentSendInspectionNotes.php'>
                                                             
                                     <div class='row container-fluid'>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Date : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly />
+                                        <input type='hidden' name='id' class='form-control' id='id' value='".$id."' />
 
                                         <br>
 
@@ -317,7 +318,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Notice : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='' readonly/>
+                                        <input type='text' name='inspection_notice' class='form-control' id='inspection_notice' value='' readonly />
 
                                         <br>
 
@@ -330,7 +331,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Initial Notice : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='' readonly/>
+                                        <input type='text' name='initial_notice' class='form-control' id='initial_notice' value='' readonly/>
 
                                         <br>
 
@@ -339,7 +340,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Compliance Date : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".$compliance_date."' readonly/>
+                                        <input type='date' name='compliance_date' class='form-control' id='compliance_date' value='".$compliance_date."' readonly/>
 
                                         <br>
 
@@ -361,7 +362,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Item : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='' readonly/>
+                                        <input type='date' name='item' class='form-control' id='item' value='' readonly/>
 
                                         <br>
 
