@@ -22,9 +22,7 @@
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=".$status_requested));
 	$status_requested = $row['inspection_status'];
 
-	echo $id." - - - ".$date." - - - ".$inspection_notice." - - - ".$initial_notice." - - - ".$compliance_date." - - - ".$viewed_from." - - - ".$item." - - - ".$observation." - - - ".$home." - - - ".$owner." - - - ".$notice_summary." - - - ".$status_requested;
-
-	$to = "geethchadalawada@gmail.com";
+	$to = "geethchadalawada@gmail.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
 
 	switch ($community_id) {
         case 1:
