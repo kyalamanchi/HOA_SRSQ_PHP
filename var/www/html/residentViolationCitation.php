@@ -304,7 +304,7 @@
                                       <div class='row container-fluid'>
 
                                         <label>Date : </label>
-                                        <input type='date' name='date' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
 
                                       </div>
 
