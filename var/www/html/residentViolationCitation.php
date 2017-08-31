@@ -385,7 +385,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Inspection Noticen Summary : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <textarea name='' id='' required max=500></textarea>
 
                                         <br>
 
