@@ -4,6 +4,8 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
+	$community_id = $_SESSION['hoa_community_id'];
+
 	$id = $_POST['id'];
 	$date = $_POST['date'];
 	$inspection_notice = $_POST['inspection_notice'];
@@ -39,8 +41,8 @@
 
                 
                 
-    $content = 'We received your HOA Payment ($'.$amount.') for account '.$hoa_id.' on '.date('m/d/Y', strtotime($process_date)).' and here is the confirmation code'.$document_num.'.';
-    $subject = 'HOA Payment Received for Account - '.$hoa_id;
+    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'.';
+    $subject = $home.' requesting '.$status_requested;
     $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
     $content_text = strip_tags($content);
 
@@ -79,11 +81,11 @@
 
         $result = curl_exec($ch);
 
-        echo "<br><br><center><h3>Email Sent</h3></center>";
+        echo "<br><br><center><h3>Email Sent.</h3></center>";
     }
     else
 		echo "<br><br><center><h3>Some error occured. Please try again.</h3></center>";
 
 
-	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentViolationCitation.php'},3000);</script>";
+	echo "<a href='https://hoaboardtime.com/residentViolationCitation.php'>Click here</a> if this page doesnot redirect automatically within 5 seconds.<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentViolationCitation.php'},3000);</script>";
 ?>

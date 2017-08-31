@@ -420,7 +420,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Status Requested : </label>
-                                        <select name='inspection_notice_status' class='form-control' id='inspection_notice_status' required>
+                                        <select name='status_requested' class='form-control' id='status_requested' required>
 
                                           <option value='' selected disabled>Select status</option>";
 
