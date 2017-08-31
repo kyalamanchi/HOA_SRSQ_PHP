@@ -290,7 +290,7 @@
                                     
                                 <div class='modal-header'>
                                                             
-                                  <h4 class='modal-title'><strong>Inspection Notice</strong></h4>
+                                  <h4 class='modal-title'><strong>Inspection Notice - $location</strong></h4>
 
                                 </div>
 
