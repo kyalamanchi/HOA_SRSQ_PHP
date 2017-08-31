@@ -277,8 +277,49 @@
 
                           if($inspection_date != "")
                             $inspection_date = date('m-d-Y', strtotime($inspection_date));
+
+                          echo "
+
+                          <div class='modal fade hmodal-success' id='sendInspectionReply' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                                
+                              <div class='modal-content'>
+                                                    
+                                <div class='color-line'></div>
+                                    
+                                <div class='modal-header'>
+                                                            
+                                  <h4 class='modal-title'><strong>Inspection Notice</strong></h4>
+
+                                </div>
+
+                                <div class='modal-body'>
+
+                                  <form method='post' action='https://hoaboardtime.com/residentSendInspectionReply.php'>
+                                                            
+                                    <div class='row container-fluid'>
+
+                                      <div class='row text-center'>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Save Changes</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                      </div>
+                                                            
+                                    </div>
+
+                                  </form>
+
+                                </div>
+
+                              </div>
+                              
+                            </div>
+
+                          </div>
+
+                          ";
                           
-                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                          echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply' class='btn-xs'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
