@@ -22,7 +22,9 @@
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=".$status_requested_id));
 	$status_requested = $row['inspection_status'];
 
-	if()
+	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail, status_requested_id) VALUES ($id, '$date', '$notice_summary', $status_requested_id)");
+
+	if($result)
 	{
 
 		$to = "geethchadalawada@gmail.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
