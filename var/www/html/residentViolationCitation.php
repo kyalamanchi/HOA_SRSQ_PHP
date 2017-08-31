@@ -347,8 +347,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Viewd From : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <label>Viewed From : </label>
+                                        <textarea class='form-control' name='viewed_from' id='viewed_from' value='".$location."' required readonly></textarea>
 
                                         <br>
 
@@ -370,7 +370,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Observation : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <textarea class='form-control' name='observation' id='observation' value='".$description."' required readonly></textarea>
 
                                         <br>
 
