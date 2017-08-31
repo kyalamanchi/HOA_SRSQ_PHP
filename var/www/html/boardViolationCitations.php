@@ -384,6 +384,7 @@
                         {
 
                           $id = $row['id'];
+                          $item = $row['item'];
                           $home_id = $row['home_id'];
                           $hoa_id = $row['hoa_id'];
                           $description = $row['description'];
