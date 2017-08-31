@@ -392,7 +392,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Owner : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly/>
+                                        <input type='text' name='owner' class='form-control' id='owner' value='".$_SESSION['hoa_username']."' readonly/>
 
                                         <br>
 
