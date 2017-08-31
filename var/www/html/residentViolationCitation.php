@@ -402,10 +402,10 @@
 
                                           while ($row111 = pg_fetch_assoc($result111)) 
                                           {
-                                            $id = $row111['id'];
+                                            $status_id = $row111['id'];
                                             $inspection_status_name = $row111['inspection_status'];
 
-                                            echo "<option value='".$id."'>".$inspection_status_name."</option>";
+                                            echo "<option value='".$status_id."'>".$inspection_status_name."</option>";
                                           }
 
                                         echo "</select>
