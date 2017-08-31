@@ -241,8 +241,10 @@
                         while($row = pg_fetch_assoc($result))
                         {
 
+                          $id = $row['id'];
                           $home_id = $row['home_id'];
                           $hoa_id = $row['hoa_id'];
+                          $item = $row['item'];
                           $description = $row['description'];
                           $document = $row['document_id'];
                           $inspection_date = $row['inspection_date'];
@@ -252,6 +254,7 @@
                           $notice_type = $row['inspection_notice_type_id'];
                           $date_of_upload = $row['date_of_upload'];
                           $status = $row['inspection_status_id'];
+                          $compliance_date = $row['compliance_date'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
 
@@ -275,10 +278,198 @@
                           if($date_of_upload != "")
                             $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
 
+                          if($compliance_date != "")
+                            $compliance_date = date('m-d-Y', strtotime($compliance_date));
+
                           if($inspection_date != "")
                             $inspection_date = date('m-d-Y', strtotime($inspection_date));
-                          
-                          echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+
+                          echo "
+
+                          <div class='modal fade hmodal-success' id='sendInspectionReply_$id' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                                
+                              <div class='modal-content'>
+                                                    
+                                <div class='color-line'></div>
+                                    
+                                <div class='modal-header'>
+                                                            
+                                  <h4 class='modal-title'><strong>Inspection Notice - $location</strong></h4>
+
+                                </div>
+
+                                <div class='modal-body'>
+
+                                  <form method='post' action='https://hoaboardtime.com/residentSendInspectionNotes.php'>
+                                                            
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Date : </label>
+                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly />
+                                        <input type='hidden' name='id' class='form-control' id='id' value='".$id."' />
+
+                                        <br>
+
+                                      </div>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Inspection Notice : </label>
+                                        <input type='text' name='inspection_notice' class='form-control' id='inspection_notice' value='' readonly />
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Inspection Initial Notice : </label>
+                                        <input type='text' name='initial_notice' class='form-control' id='initial_notice' value='' readonly/>
+
+                                        <br>
+
+                                      </div>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Compliance Date : </label>
+                                        <input type='date' name='compliance_date' class='form-control' id='compliance_date' value='".$compliance_date."' readonly/>
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Viewed From : </label>
+                                        <textarea class='form-control' name='viewed_from' id='viewed_from' required readonly>$location</textarea>
+
+                                        <br>
+
+                                      </div>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Item : </label>
+                                        <input type='date' name='item' class='form-control' id='item' value='".$item."' readonly/>
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Observation : </label>
+                                        <textarea class='form-control' name='observation' id='observation' readonly>$description</textarea>
+
+                                        <br>
+
+                                      </div>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Home : </label>
+                                        <input type='text' name='home' class='form-control' id='home' value='".$_SESSION['hoa_address']."' readonly/>
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Owner : </label>
+                                        <input type='text' name='owner' class='form-control' id='owner' value='".$_SESSION['hoa_username']."' readonly/>
+
+                                        <br>
+
+                                      </div>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Inspection Noticen Summary : </label>
+                                        <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Status Requested : </label>
+                                        <select name='status_requested' class='form-control' id='status_requested' required>
+
+                                          <option value='' selected disabled>Select status</option>";
+
+                                          $result111 = pg_query("SELECT * FROM inspection_status");
+
+                                          while ($row111 = pg_fetch_assoc($result111)) 
+                                          {
+                                            $status_id = $row111['id'];
+                                            $inspection_status_name = $row111['inspection_status'];
+
+                                            echo "<option value='".$status_id."'";
+
+                                            if($status == $inspection_status_name)
+                                              echo " selected ";
+
+                                            echo ">".$inspection_status_name."</option>";
+                                          }
+
+                                        echo "</select>
+
+                                        <br>
+
+                                      </div>
+                                                            
+                                    </div>
+
+                                    <div class='row text-center'>
+
+                                      <br>
+                                        
+                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Send</button>
+                                      <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+
+                                    </div>
+
+                                  </form>
+
+                                </div>
+
+                              </div>
+                              
+                            </div>
+
+                          </div>
+
+                          ";
+
+                          if($status != 'Closed By Vendor' && $status !='Request Closed By Member' && $status!='Closed')  
+                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
                           
                         }
 
