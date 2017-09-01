@@ -155,7 +155,7 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
 $zip->addFile('data.pdf', 'data.pdf');
 $zip->addFile('data.tab', 'data.tab');
 $zip->close();
-        if (file_get_contents('data.pdf')){
+        if (file_get_contents('data.zip')){
 
         }
         else {
