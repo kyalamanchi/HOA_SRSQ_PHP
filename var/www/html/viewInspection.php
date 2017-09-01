@@ -176,7 +176,7 @@ catch (Exception $exe){
 </div>
 </center>
 <div style="width: 100%; height: 100%">
-<embed src="data.pdf" width="100%" height="100%"></embed>
+<embed src="data.pdf" width="100%" height="800"></embed>
 </div>
 </body>
 </html>
