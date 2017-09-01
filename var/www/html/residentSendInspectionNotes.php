@@ -111,7 +111,7 @@
 			$result = json_decode($result, true);
 
 		}
-		else if($send == 2)
+		else if($submit == 2)
 		{
 			$postString = json_encode($params2);
 
@@ -129,7 +129,7 @@
 			print_r($result);
 
 		}
-		else if($send == 3)
+		else if($submit == 3)
 		{
 
 			$postString = json_encode($params1);
