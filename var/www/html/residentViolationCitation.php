@@ -379,6 +379,8 @@
                                         <label>Inspection Notice Summary : </label>
                                         <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
 
+                                        <br>
+
                                       </div>
 
                                     </div>
@@ -423,9 +425,9 @@
                           ";
 
                           if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS')  # && $status != 'Resolved'
-                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$status."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$location."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$description."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$violation_category."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$document."</a></td></tr>";
                           else
-                            echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                            echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
                           
                         }
 
