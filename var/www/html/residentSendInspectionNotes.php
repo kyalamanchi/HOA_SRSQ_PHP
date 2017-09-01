@@ -83,13 +83,13 @@
 
 		$result = curl_exec($ch);
 
-		$result = json_decode($result);
+		#$result = json_decode($result, true);
 
 		print_r($result);
 
 		echo "<br><br>".$result[0][1];
 
-	    if($result[0]['status'] != 'invalid')
+	    if($result[0][1] != 'invalid')
 	    {
 
 	        echo "<br><br><center><h3>Email Sent.</h3></center>";
