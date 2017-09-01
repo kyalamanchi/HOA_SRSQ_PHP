@@ -159,8 +159,7 @@ $zip->close();
 catch(Exception $r){
     print_r($r.getMessage());
 }
-        if (file_get_contents($violationID.'.tab')){
-
+        if (file_get_contents($violationID.'.zip') ) {
         }
         else {
             echo "File not found";
@@ -186,7 +185,7 @@ catch (Exception $exe){
 <br>
 <center>
 <div>
-<button type="button" class="btn btn-primary" onclick="Download();">Generate for South Data</button><br><br>
+<button type="button" class="btn btn-primary" onclick="Download();">Upload to Dropbox</button><br><br>
 </div>
 </center>
 <div style="width: 100%; height: 100%">
@@ -195,7 +194,24 @@ catch (Exception $exe){
 </body>
 <script>
 function Download(url) {
-    document.getElementById('my_iframe').src = <?php echo $violationID.'.zip'?>;
+    <?php
+    $url = 'https://content.dropboxapi.com/2/files/upload';
+$fileContents = file_get_contents($violationID.'.zip');
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/'.date('Y').'/'.$violationID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+$response = curl_exec($ch);
+curl_close($ch);
+echo 'window.alert('.(json_decode($response)).')';
+unlink($violationID.'.zip');
+unlink('data.pdf');
+unlink('data.tab');
+unlink($violationID.'.zip');
+
+
+    ?>
 };
 </script>
 </html>
