@@ -388,7 +388,8 @@
                                       <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
                                         <label>Status Requested : </label>
-                                        <input type='radio' name='status_requested' id='status_requested' value='10' /> Request Board Review
+                                        <br>
+                                        <input type='radio' name='status_requested' id='status_requested' value='10' selected/> Request Board Review
                                         <br>
                                         <input type='radio' name='status_requested' id='status_requested' value='11' /> Request Vendor Review
                                         <br>
