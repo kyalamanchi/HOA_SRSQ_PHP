@@ -388,26 +388,9 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Status Requested : </label>
-                                        <select name='status_requested' class='form-control' id='status_requested' required>
-
-                                          <option value='' selected disabled>Select status</option>";
-
-                                          $result111 = pg_query("SELECT * FROM inspection_status");
-
-                                          while ($row111 = pg_fetch_assoc($result111)) 
-                                          {
-                                            $status_id = $row111['id'];
-                                            $inspection_status_name = $row111['inspection_status'];
-
-                                            echo "<option value='".$status_id."'";
-
-                                            if($status == $inspection_status_name)
-                                              echo " selected ";
-
-                                            echo ">".$inspection_status_name."</option>";
-                                          }
-
-                                        echo "</select>
+                                        <input type='radio' name='status_requested' id='status_requested' value='10' /> Request Board Review
+                                        <input type='radio' name='status_requested' id='status_requested' value='11' /> Request Vendor Review
+                                        <input type='radio' name='status_requested' id='status_requested' value='12' /> Resolved
 
                                         <br>
 
