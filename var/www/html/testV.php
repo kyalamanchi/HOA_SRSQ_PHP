@@ -127,6 +127,7 @@ $pdf->MultiCell(0,3.5,"\n\nDear ".$firstName." ".$lastName." OR Current Resident
 \n\nBy now you have probably already corrected the following issue at ".$homeAddress1.". If not, then this is a courtesy reminder from Stoneridge Square.\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDoneDate))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
 $pdf->WriteHTML("<br><b> This violation specifically regards the following item(s): ".$inspectionSubjectFinal."</b>. It was noted that this violation occurred in the following location: ".$locationDetails[$locationFound].".<br><br>The Governing Documents, specifically<b> Rules and Regulations, Section 5.13 (3) </b>of the Declaration of Covenants, Conditions, and Restrictions (Deed Restrictions) for Stoneridge Square Association states, in part:");
 $pdf->Ln();
+
         }
          catch(Exception $ex)   {
             print_r($ex->getMessage());
