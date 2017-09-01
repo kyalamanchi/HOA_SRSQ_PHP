@@ -126,8 +126,6 @@
 
 			$result = json_decode($result, true);
 
-			print_r($result);
-
 		}
 		else if($submit == 3)
 		{
