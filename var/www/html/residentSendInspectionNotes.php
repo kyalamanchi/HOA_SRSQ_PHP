@@ -89,7 +89,7 @@
 
 		echo "<br><br>".$result[0]['status'];
 
-	    if($result['status'] != 'invalid')
+	    if($result[0]['status'] != 'invalid')
 	    {
 
 	        echo "<br><br><center><h3>Email Sent.</h3></center>";
