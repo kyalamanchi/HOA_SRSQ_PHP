@@ -32,6 +32,8 @@
 
 		echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description." - - - ".$inspection_date." - - - ".$status." - - - ".$location."<br><br><br><br><br>";
 
+		#$result = pg_query("INSERT INTO inspection_notices (inspection_date, description, community_id, home_id, date_of_upload, location_id, inspection_status_id, compliance_date, updated_date, updated_by, sent_by_vendor, item) VALUES ('$inspection_date', '$description', 2, $home_id, '".date('Y-m-d')."', $location_id, $inspection_status_id, '$compliance_date', '".date('Y-m-d')."', 258, TRUE, '$item');
+
 	}
 
 ?>
