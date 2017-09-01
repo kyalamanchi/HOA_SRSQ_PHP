@@ -1,122 +1,19 @@
 <?php
 
     
-    session_start();
-
-    $community_id = $_SESSION['hoa_community_id'];
-
-    pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
-    
-    $year = date("Y");
-    $month = date("m");
-    $end_date = date("t");
-
-    $home_id = $_REQUEST['home_id'];#$_SESSION['hoa_home_id'];
-    $hoa_id = $_REQUEST['hoa_id'];#$_SESSION['hoa_hoa_id'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-
-    $cus_name = $row['firstname'];
-    $cus_name .= " ";
-    $cus_name .= $row['lastname'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
-
-    $city = $row['payment_city'];
-    $c_name = $row['legal_name'];
-    $pobox = $row['remit_payment_address'];
-    $state = $row['payment_addr_state'];
-    $zip = $row['payment_addr_zip'];
-    $tax_id = $row['taxid'];
-    $c_email = $row['email'];
-    $c_website = $row['community_website_url'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$state"));
-    $state = $row['state_code'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$city"));
-    $city = $row['city_name'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$zip"));
-    $zip = $row['zip_code'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-
-    $living_status = $row['living_status'];
-
-    if($living_status == 't')
-    {
-        $cus_addr = $row['address1'];
-        $cus_state = $row['state_id'];
-        $cus_city = $row['city_id'];
-        $cus_zip = $row['zip_id'];
-    }
-    else
-    {
-            
-        $result = pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id");
-
-        $row = pg_fetch_assoc($result);
-
-        $cus_addr = $row['address1'];
-        $cus_state = $row['state_id'];
-        $cus_city = $row['city_id'];
-        $cus_zip = $row['zip_id'];
-          
-    }
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$cus_state"));
-    $cus_state = $row['state_code'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$cus_city"));
-    $cus_city = $row['city_name'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$cus_zip"));
-    $cus_zip = $row['zip_code'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
-    $assessment_amount = $row['amount'];
-
-    $result = pg_query("SELECT * FROM current_charges WHERE home_id=".$home_id." ORDER BY assessment_date DESC LIMIT 1");
-
-    $row = pg_fetch_assoc($result);
-    $adate = $row['assessment_date'];
-
-    $adate = date("m-d-y", strtotime($adate));
-
-    if(date("m", strtotime($adate)) == date("m"))
-        $month = date("m"); 
-    else if(date("m", strtotime($adate)) < date("m")) 
-        $month = date("m")-1; 
-    else if(date("m", strtotime($adate)) > date("m")) 
-        $month = date("m")+1; 
-
-    $ddate = $month."-15-".date("y");
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-    $total_charges = $row['sum'];
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
-    $total_payments = $row['sum'];
-
-    $total = $total_charges - $total_payments;
-
-
-    require("fpdf/mc_table.php");
-
-
-    header ( "Content-Type: application/vnd.x-pdf" );
-    header ( "Content-disposition: attachment; filename=Testing_PDF-_".date('m-d-Y H:i:s').".pdf" );
-    header ( "Content-Type: application/force-download" );
-    header ( "Content-Transfer-Encoding: binary" );
-    header ( "Pragma: no-cache" );
-    header ( "Expires: 0" );
 
 
     $pdf = new PDF_MC_Table();
     $pdf->AddPage();
-
+    
+    $pdf->SetTextColor(0,0,128);
+$pdf->Ln();
+$pdf->SetTextColor(0,0,0);
+$pdf->SetFont('Arial','B',8);
+$pdf->MultiCell(0,6,'CommunityName',0,'0',false);
+$pdf->SetFont('Arial','',8);
+$pdf->MultiCell(0,3,'mailing address'."\n".'Mailing address'."\n".'mailing address'." ".'Mailing address',0,'0',false);
+$pdf->Ln();
 
     $pdf->SetFont("Arial", "", 12);
 
