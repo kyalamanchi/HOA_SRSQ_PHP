@@ -149,16 +149,18 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
         $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
         fwrite($handler, $finalWriteData);
         fclose($handler);
-        try{
+        echo "Message1";
         $zip = new ZipArchive;
+        echo "Message2";
+        try{
         if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
-$zip->addFile('data.pdf', 'data.pdf');
-$zip->addFile('data.tab', 'data.tab');
-$zip->close();
-}
-catch(Exception $r){
-    print_r($r.getMessage());
-}
+            $zip->addFile('data.pdf', 'data.pdf');
+            $zip->addFile('data.tab', 'data.tab');
+            $zip->close();
+        }
+        catch(Exception $r){
+                print_r($r.getMessage());
+        }
         if (file_get_contents($violationID.'.zip') ) {
         }
         else {
@@ -209,8 +211,6 @@ unlink($violationID.'.zip');
 unlink('data.pdf');
 unlink('data.tab');
 unlink($violationID.'.zip');
-
-
     ?>
 };
 </script>
