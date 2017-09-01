@@ -1,6 +1,9 @@
 <?php
     if( file_get_contents('mc_table.php') ){
-        echo "Found file";
+        require('mc_table.php');
+        $pdf = new PDF_MC_Table();
+        $pdf->AddPage();
+        $pdf->output();
     }
     else{
         echo "Could not load file";
