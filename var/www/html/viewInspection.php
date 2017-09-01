@@ -210,9 +210,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
-unlink($violationID.'.zip');
-unlink('data.pdf');
-unlink('data.tab');
+// unlink($violationID.'.zip');
+// unlink('data.pdf');
+// unlink('data.tab');
 unlink($violationID.'.zip');
 echo 'alert("File uploaded to dropbox")';
     ?>
