@@ -116,6 +116,17 @@ $pdf->Row(array('Violation Notice ID',$violationID));
 $pdf->SetX(113);
 $pdf->Row(array('Notice Type', $inspectionType));
 $pdf->Ln();
+$pdf->SetY(52.5);
+$pdf->MultiCell(0,6,$firstName." ".$lastName." OR Current Resident",0,'0',false);
+$pdf->SetFont('','',9);
+$pdf->MultiCell(0,3.5,$homeAddress1."\n".$cityDetails[$homeAddress2].", ".$stateDetails[$homeAddress3].",".$zipDetails[$homeAddress4]."\n\n\n".date('M d,Y',strtotime($inspectionDoneDate))."",0,'0',false);
+$pdf->SetFont('','B',9);
+$pdf->MultiCell(0,3.5,"\n\nRE: ".$inspectionSubjectFinal." ",0,'0',false);
+$pdf->SetFont('','',9);
+$pdf->MultiCell(0,3.5,"\n\nDear ".$firstName." ".$lastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
+\n\nBy now you have probably already corrected the following issue at ".$homeAddress1.". If not, then this is a courtesy reminder from Stoneridge Square.\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDoneDate))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
+$pdf->WriteHTML("<br><b> This violation specifically regards the following item(s): ".$inspectionSubjectFinal."</b>. It was noted that this violation occurred in the following location: ".$locationDetails[$locationFound].".<br><br>The Governing Documents, specifically<b> Rules and Regulations, Section 5.13 (3) </b>of the Declaration of Covenants, Conditions, and Restrictions (Deed Restrictions) for Stoneridge Square Association states, in part:");
+$pdf->Ln();
         }
          catch(Exception $ex)   {
             print_r($ex->getMessage());
