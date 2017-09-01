@@ -419,7 +419,7 @@
                           ";
 
                           if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS')  # && $status != 'Resolved'
-                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$status."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$location."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$description."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$violation_category."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$document."</a></td></tr>";
+                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$inspection_date."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$status."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$location."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$description."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$violation_category."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$document."</a></td></tr>";
                           else
                             echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
                           
