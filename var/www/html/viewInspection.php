@@ -175,6 +175,8 @@ catch (Exception $exe){
 <button type="button" class="btn btn-primary" onclick="generateForSouthData();">Generate for South Data</button><br><br>
 </div>
 </center>
-<embed src="data.pdf" width="100%" height="750"></embed>
+<div style="width: 100%; height: 100%">
+<embed src="data.pdf" width="100%" height="100%"></embed>
+</div>
 </body>
 </html>
