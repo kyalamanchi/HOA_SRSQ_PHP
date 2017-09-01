@@ -139,7 +139,7 @@ $pdf->MultiCell(0,3.5,"\n\nDear ".$firstName." ".$lastName." OR Current Resident
 \n\nBy now you have probably already corrected the following issue at ".$homeAddress1.". If not, then this is a courtesy reminder from Stoneridge Square.\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDoneDate))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
 $pdf->WriteHTML("<br><b> This violation specifically regards the following item(s): ".$inspectionSubjectFinal."</b>. It was noted that this violation occurred in the following location: ".$locationDetails[$locationFound].".<br><br>The Governing Documents, specifically<b> Rules and Regulations, Section 5.13 (3) </b>of the Declaration of Covenants, Conditions, and Restrictions (Deed Restrictions) for Stoneridge Square Association states, in part:");
 $pdf->Ln();
-$pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers shall be stored within the garage or screened from view by an appropriate fence in a side yard area except on pick-up day when such containers may be relocated to pick-up areas designated by the City for such purposes. All such containers shall be removed from public view by the end of the day of refuse pick-up provided by the waste disposal service company.</i><br><br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of Stoneridge Square. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
+$pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers shall be stored within the garage or screened from view by an appropriate fence in a side yard area except on pick-up day when such containers may be relocated to pick-up areas designated by the City for such purposes. All such containers shall be removed from public view by the end of the day of refuse pick-up provided by the waste disposal service company.</i><br><br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of Stoneridge Square. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com .</a><br><br>'.$communityLegalName);
         }
          catch(Exception $ex)   {
             print_r($ex->getMessage());
@@ -149,17 +149,17 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
         $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
         fwrite($handler, $finalWriteData);
         fclose($handler);
-//         try{
-//         $zip = new ZipArchive;
-//         if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
-// $zip->addFile('data.pdf', 'data.pdf');
-// $zip->addFile('data.tab', 'data.tab');
-// $zip->close();
-// }
-// catch(Exception $r){
-//     print_r($r.getMessage());
-// }
-        if (file_get_contents('data.tab')){
+        try{
+        $zip = new ZipArchive;
+        if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
+$zip->addFile('data.pdf', 'data.pdf');
+$zip->addFile('data.tab', 'data.tab');
+$zip->close();
+}
+catch(Exception $r){
+    print_r($r.getMessage());
+}
+        if (file_get_contents($violationID.'.tab')){
 
         }
         else {
@@ -195,7 +195,7 @@ catch (Exception $exe){
 </body>
 <script>
 function Download(url) {
-    document.getElementById('my_iframe').src = 'data.zip';
+    document.getElementById('my_iframe').src = <?php echo $violationID.'.zip'?>;
 };
 </script>
 </html>
