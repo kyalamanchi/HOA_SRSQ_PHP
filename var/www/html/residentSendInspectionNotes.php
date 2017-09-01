@@ -83,6 +83,8 @@
 
 		$result = curl_exec($ch);
 
+		$result = json_decode($result);
+
 		print_r($result);
 
 	    if($result)
