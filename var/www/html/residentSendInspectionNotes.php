@@ -87,9 +87,9 @@
 
 		print_r($result);
 
-		echo "<br><br>".$result[0][1];
+		echo "<br><br>".$result['status'];
 
-	    if($result[0][1] != 'invalid')
+	    if($result['status'] != 'invalid')
 	    {
 
 	        echo "<br><br><center><h3>Email Sent.</h3></center>";
