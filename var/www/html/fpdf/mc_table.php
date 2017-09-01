@@ -1,5 +1,5 @@
 <?php
-require('fpdf.php');
+require('/fpdf.php');
 function hex2dec($couleur = "#000000"){
     $R = substr($couleur, 1, 2);
     $rouge = hexdec($R);
