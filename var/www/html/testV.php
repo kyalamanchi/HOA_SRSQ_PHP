@@ -88,7 +88,6 @@ if ( $connection ){
     $inspectionSubjectQueryResult = pg_query($inspectionSubjectQuery);
     $row = pg_fetch_assoc($inspectionSubjectQueryResult);
     $inspectionSubjectFinal =$row['desc'];
-}
     if( file_get_contents('mc_table.php') ){
         require('mc_table.php');
         $pdf = new PDF_MC_Table();
@@ -111,6 +110,11 @@ if ( $connection ){
     else{
         echo "Could not load file";
     }
+
+}
+else {
+    echo "Failed to connect to database";
+}
     // require('mc_table.php');
     // $pdf = new PDF_MC_Table();
     // $pdf->AddPage();
