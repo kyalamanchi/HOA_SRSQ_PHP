@@ -145,7 +145,6 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
             print_r($ex->getMessage());
         }
         $pdf->Output('data.pdf','F');
-        echo "Message1";
         $handler = fopen('data.tab', 'w');
         $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
         fwrite($handler, $finalWriteData);
@@ -156,7 +155,6 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
         $zip->addFile('data.pdf', 'data.pdf');
         $zip->addFile('data.tab', 'data.tab');
         $zip->close();
-        echo "Message2";
         // try{
             // $zip = new ZipArchive;
         // if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
@@ -212,11 +210,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
-echo 'window.alert('.(json_decode($response)).')';
 unlink($violationID.'.zip');
 unlink('data.pdf');
 unlink('data.tab');
 unlink($violationID.'.zip');
+echo 'alert("File uploaded to dropbox")';
     ?>
 };
 </script>
