@@ -103,7 +103,7 @@
     $total = $total_charges - $total_payments;
 
 
-    require("fpdf/fpdf.php");
+    require("fpdf/mc_table.php");
 
 
     header ( "Content-Type: application/vnd.x-pdf" );
