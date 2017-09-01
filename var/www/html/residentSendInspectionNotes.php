@@ -85,10 +85,6 @@
 
 		$result = json_decode($result, true);
 
-		print_r($result);
-
-		echo "<br><br>".$result[0]['status'];
-
 	    if($result[0]['status'] != 'invalid')
 	    {
 
