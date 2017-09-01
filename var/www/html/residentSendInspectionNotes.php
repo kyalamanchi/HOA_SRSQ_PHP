@@ -25,6 +25,10 @@
 
 	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail, status_requested_id) VALUES ($id, '$date', '$notice_summary', $status_requested_id)");
 
+	echo $id." - - - ".$date." - - - ".$notice_summary." - - - "$status_requested_id;
+
+	die();
+
 	if($result)
 	{
 
@@ -99,7 +103,7 @@
 
 	}
 	else
-		echo "<br><br><center><h3>Some error occured. Please try again.</h3></center>";
+		echo "<br><br><center><h3>Some error occured. Please try again1.</h3></center>";
 
-	echo "<center><a href='https://hoaboardtime.com/residentViolationCitation.php'>Click here</a> if this page doesnot redirect automatically within 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentViolationCitation.php'},3000);</script>";
+	echo "<center><a href='https://hoaboardtime.com/residentViolationCitation.php'>Click here</a> if this page doesnot redirect automatically within 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentViolationCitation.php'},300000);</script>";
 ?>
