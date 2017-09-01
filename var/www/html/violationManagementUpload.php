@@ -30,7 +30,7 @@
 		$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$home'"));
 		$home_id = $row['home_id'];
 
-		echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description." - - - ".$inspection_date."<br><br>";
+		echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description." - - - ".$inspection_date." - - - ".$status.." - - - ".$location."<br><br><br><br><br>";
 
 	}
 
