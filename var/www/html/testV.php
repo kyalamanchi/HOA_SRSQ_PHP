@@ -132,7 +132,14 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
          catch(Exception $ex)   {
             print_r($ex->getMessage());
         }
-        $pdf->output();
+        // $pdf->output();
+        $pdf->Output('data.pdf','F');
+        if (file_get_contents('data.pdf')){
+
+        }
+        else {
+            echo "File not found";
+        }
     }
     else{
         echo "Could not load file";
