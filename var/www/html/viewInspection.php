@@ -152,6 +152,7 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
         fclose($handler);
         
         $zip = new ZipArchive;
+        $zip->open($violationID.'.zip',  ZipArchive::CREATE)
         echo "Message2";
         // try{
             // $zip = new ZipArchive;
