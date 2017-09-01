@@ -29,7 +29,7 @@
 	{
 
 		$board_to = "geethchadalawada@gmail.com";
-		$vendor_to = 'chgeethsekhar.13.it@anits.edu.in';#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
+		$vendor_to = "ravindranallabilli@gmail.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
 
 		switch ($community_id) {
 	        case 1:
