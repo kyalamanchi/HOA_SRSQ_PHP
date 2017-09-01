@@ -21,13 +21,13 @@
 		$status = $json['Inspection_Data_Input_Form'][$i]['Status'];
 		$compliance_date = $json['Inspection_Data_Input_Form'][$i]['Compliance_Date'];
 
-		$row = pg_query("SELECT * FROM inspection_status WHERE inspection_status='$status'");
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE inspection_status='$status'"));
 		$inspection_status_id = $row['id'];
 
-		$row = pg_query("SELECT * FROM locations_in_community WHERE location='$location'");
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location='$location'"));
 		$location_id = $row['location_id'];
 
-		$row = pg_query("SELECT * FROM inspection_category WHERE name='$category'");
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE name='$category'"));
 		$category_id = $row['id'];
 
 		if($compliance_date != "")
