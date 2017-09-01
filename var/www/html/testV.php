@@ -1,4 +1,5 @@
 <?php
+    require('fpdf/mc_table.php');
     $pdf = new PDF_MC_Table();
     header ( "Content-Type: application/vnd.x-pdf" );
     header ( "Content-disposition: attachment; filename=Testing_PDF-_".date('m-d-Y H:i:s').".pdf" );
