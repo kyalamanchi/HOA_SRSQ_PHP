@@ -25,10 +25,6 @@
 
 	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail, status_requested_id) VALUES ($id, '$date', '$notice_summary', $status_requested_id)");
 
-	echo "Values : ".$id." - - - ".$date." - - - ".$notice_summary." - - - ".$status_requested_id;
-
-	die();
-
 	if($result)
 	{
 
