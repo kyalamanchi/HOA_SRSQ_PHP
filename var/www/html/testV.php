@@ -114,7 +114,7 @@
     header ( "Expires: 0" );
 
 
-    $pdf = new FPDF();
+    $pdf = new PDF_MC_Table();
     $pdf->AddPage();
 
 
