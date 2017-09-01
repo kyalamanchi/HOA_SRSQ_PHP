@@ -308,8 +308,10 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Date : ".date('m-d-Y')."</label>
+                                        <label>Date : </label>".date('m-d-Y')."
                                         <input type='hidden' name='id' id='id' value='".$id."' />
+                                        <input type='hidden' name='home' id='home' value='".$_SESSION['hoa_address']."' />
+                                        <input type='hidden' name='owner' id='owner' value='".$_SESSION['hoa_username']."' />
 
                                         <br>
 
@@ -317,7 +319,7 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Inspection Notice : $id</label>
+                                        <label>Inspection Notice : </label>$id
                                         <input type='hidden' name='inspection_notice' id='inspection_notice' value='$id' />
 
                                         <br>
@@ -330,7 +332,7 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Compliance Date : $compliance_date</label>
+                                        <label>Compliance Date : </label>$compliance_date
                                         <input type='hidden' name='compliance_date' id='compliance_date' value='".$compliance_date."' />
 
                                         <br>
@@ -339,7 +341,7 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Viewed From : $location</label>
+                                        <label>Viewed From : </label>$location
                                         <input type='hidden' name='viewed_from' id='viewed_from' value='$location' />
 
                                         <br>
@@ -352,7 +354,7 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Item : $item</label>
+                                        <label>Item : </label>$item
                                         <input type='hidden' name='item' id='item' value='".$item."' />
 
                                         <br>
@@ -365,17 +367,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Observation : $description</label>
+                                        <label>Observation : </label>$description
                                         <input type='hidden' name='observation' id='observation' value='".$description."' />
-
-                                        <br>
-
-                                      </div>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Home : </label>
-                                        <input type='hidden' name='home' id='home' value='".$_SESSION['hoa_address']."' />
 
                                         <br>
 
@@ -384,15 +377,6 @@
                                     </div>
 
                                     <div class='row container-fluid'>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Owner : </label>
-                                        <input type='hidden' name='owner' id='owner' value='".$_SESSION['hoa_username']."' />
-
-                                        <br>
-
-                                      </div>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
