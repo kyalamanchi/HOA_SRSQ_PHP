@@ -374,8 +374,12 @@
 
                                     <div class='row container-fluid'>
 
-                                      <label>Inspection Notice Summary : </label>
-                                      <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
+                                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                        <label>Inspection Notice Summary : </label>
+                                        <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
+
+                                      </div>
 
                                     </div>
 
