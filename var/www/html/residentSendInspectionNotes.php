@@ -124,6 +124,8 @@
 
 			$result = curl_exec($ch);
 
+			$result = json_decode($result, true);
+
 		}
 		else if($send == 3)
 		{
@@ -139,6 +141,8 @@
 
 			$result = curl_exec($ch);
 
+			$result = json_decode($result, true);
+
 			$postString = json_encode($params2);
 
 			curl_setopt($ch, CURLOPT_URL, $uri);
@@ -149,6 +153,8 @@
 			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 
 			$result = curl_exec($ch);
+
+			$result = json_decode($result, true);
 
 		}
 
