@@ -308,9 +308,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Date : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly />
-                                        <input type='hidden' name='id' class='form-control' id='id' value='".$id."' />
+                                        <label>Date : ".date('m-d-Y')."</label>
+                                        <input type='hidden' name='id' id='id' value='".$id."' />
 
                                         <br>
 
@@ -318,30 +317,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Inspection Notice : </label>
-                                        <input type='text' name='inspection_notice' class='form-control' id='inspection_notice' value='$id' readonly />
-
-                                        <br>
-
-                                      </div>
-
-                                    </div>
-
-                                    <div class='row container-fluid'>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Inspection Initial Notice : </label>
-                                        <input type='text' name='initial_notice' class='form-control' id='initial_notice' value='' readonly/>
-
-                                        <br>
-
-                                      </div>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Compliance Date : </label>
-                                        <input type='date' name='compliance_date' class='form-control' id='compliance_date' value='".$compliance_date."' readonly/>
+                                        <label>Inspection Notice : $id</label>
+                                        <input type='hidden' name='inspection_notice' id='inspection_notice' value='$id' />
 
                                         <br>
 
@@ -353,8 +330,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Viewed From : </label>
-                                        <textarea class='form-control' name='viewed_from' id='viewed_from' required readonly>$location</textarea>
+                                        <label>Compliance Date : $compliance_date</label>
+                                        <input type='hidden' name='compliance_date' id='compliance_date' value='".$compliance_date."' />
 
                                         <br>
 
@@ -362,8 +339,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Item : </label>
-                                        <input type='date' name='item' class='form-control' id='item' value='".$item."' readonly/>
+                                        <label>Viewed From : $location</label>
+                                        <input type='hidden' name='viewed_from' id='viewed_from' value='$location' />
 
                                         <br>
 
@@ -375,8 +352,21 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Observation : </label>
-                                        <textarea class='form-control' name='observation' id='observation' readonly>$description</textarea>
+                                        <label>Item : $item</label>
+                                        <input type='hidden' name='item' id='item' value='".$item."' />
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                        <label>Observation : $description</label>
+                                        <input type='hidden' name='observation' id='observation' value='".$description."' />
 
                                         <br>
 
@@ -385,7 +375,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Home : </label>
-                                        <input type='text' name='home' class='form-control' id='home' value='".$_SESSION['hoa_address']."' readonly/>
+                                        <input type='hidden' name='home' id='home' value='".$_SESSION['hoa_address']."' />
 
                                         <br>
 
@@ -398,7 +388,7 @@
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                         <label>Owner : </label>
-                                        <input type='text' name='owner' class='form-control' id='owner' value='".$_SESSION['hoa_username']."' readonly/>
+                                        <input type='hidden' name='owner' id='owner' value='".$_SESSION['hoa_username']."' />
 
                                         <br>
 
