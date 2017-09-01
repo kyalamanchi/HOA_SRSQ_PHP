@@ -1,16 +1,9 @@
 <?php
-    require('fpdf/mc_table.php');
-    $pdf = new PDF_MC_Table();
-    header ( "Content-Type: application/vnd.x-pdf" );
-    header ( "Content-disposition: attachment; filename=Testing_PDF-_".date('m-d-Y H:i:s').".pdf" );
-    header ( "Content-Type: application/force-download" );
-    header ( "Content-Transfer-Encoding: binary" );
-    header ( "Pragma: no-cache" );
+    require('mc_table.php');
     header ( "Expires: 0" );
     $pdf = new PDF_MC_Table();
     $pdf->AddPage();
     $pdf->MultiCell(0,6,'Looooooooong messasasasasasas',0,'0',false);
-
     $pdf->SetFont("Arial", "", 12);
 
 
