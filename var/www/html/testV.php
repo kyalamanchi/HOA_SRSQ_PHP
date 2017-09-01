@@ -102,6 +102,20 @@ if ( $connection ){
         $pdf->SetFont('Arial','',8);
         $pdf->MultiCell(0,3,$communityMailingAddress."\n".$communityMailingAddress2."\n".$communityMailingAddress3." ".$communityMailingAddress4,0,'0',false);
         $pdf->Ln();
+        $pdf->SetX(113);
+$pdf->SetWidths(array(40,50));
+$pdf->SetTextColor(0,0,0);
+$pdf->SetFont('Arial','B',9);
+$pdf->Row(array('Account Number',$accountNumber));
+$pdf->SetX(113);
+$pdf->Row(array('Community ID',$communityCode));
+$pdf->SetX(113);
+$pdf->Row(array('Property Address',$propertyAddress));
+$pdf->SetX(113);
+$pdf->Row(array('Violation Notice ID',$violationID));
+$pdf->SetX(113);
+$pdf->Row(array('Notice Type', $inspectionType));
+$pdf->Ln();
         }
          catch(Exception $ex)   {
             print_r($ex->getMessage());
