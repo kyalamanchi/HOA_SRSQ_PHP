@@ -222,13 +222,7 @@
                         <th>Location</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th>Sub Category</th>
-                        <th>Sub Category Rule</th>
-                        <th>Sub Category Rule Description</th>
-                        <th>Sub Category Rule Explanation</th>
-                        <th>Notice Type</th>
                         <th>Document</th>
-                        <th>Date of Upload</th>
 
                       </tr>
 
@@ -444,13 +438,7 @@
                         <th>Location</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th>Sub Category</th>
-                        <th>Sub Category Rule</th>
-                        <th>Sub Category Rule Description</th>
-                        <th>Sub Category Rule Explanation</th>
-                        <th>Notice Type</th>
                         <th>Document</th>
-                        <th>Date of Upload</th>
 
                       </tr>
 
