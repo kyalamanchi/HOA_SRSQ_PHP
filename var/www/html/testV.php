@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+try{
 if ( $connection ){
     $inspectionNoticeQuery= "SELECT * FROM INSPECTION_NOTICES WHERE ID=".$_GET['id'];
     $inspectionNoticeQueryResult = pg_query($inspectionNoticeQuery);
@@ -97,7 +98,7 @@ if ( $connection ){
         $pdf->SetTextColor(0,0,0);
         $pdf->SetFont('Arial','B',8);
         try{
-        $pdf->MultiCell(0,6,$communityLegalName,0,'0',false);
+        $pdf->MultiCell(0,6,'Place name',0,'0',false);
         $pdf->SetFont('Arial','',8);
         $pdf->MultiCell(0,3,$communityMailingAddress."\n".$communityMailingAddress2."\n".$communityMailingAddress3." ".$communityMailingAddress4,0,'0',false);
         $pdf->Ln();
@@ -114,6 +115,10 @@ if ( $connection ){
 }
 else {
     echo "Failed to connect to database";
+}
+}
+catch (Exception $exe){
+    print_r($exe->getMessage());
 }
     // require('mc_table.php');
     // $pdf = new PDF_MC_Table();
