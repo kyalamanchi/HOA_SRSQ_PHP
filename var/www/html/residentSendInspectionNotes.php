@@ -87,7 +87,7 @@
 
 		print_r($result);
 
-		echo "<br><br>".$result['status'];
+		echo "<br><br>".$result[0]['status'];
 
 	    if($result['status'] != 'invalid')
 	    {
