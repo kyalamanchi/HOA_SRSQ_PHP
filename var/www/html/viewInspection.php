@@ -144,12 +144,11 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
          catch(Exception $ex)   {
             print_r($ex->getMessage());
         }
-        // $pdf->output();
         $pdf->Output('data.pdf','F');
-//         $handler = fopen('data.tab', 'w');
-//         $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
-//         fwrite($handler, $finalWriteData);
-//         fclose($handler);
+        $handler = fopen('data.tab', 'w');
+        $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
+        fwrite($handler, $finalWriteData);
+        fclose($handler);
 //         try{
 //         $zip = new ZipArchive;
 //         if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
@@ -160,7 +159,7 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
 // catch(Exception $r){
 //     print_r($r.getMessage());
 // }
-        if (file_get_contents('data.zip')){
+        if (file_get_contents('data.tab')){
 
         }
         else {
