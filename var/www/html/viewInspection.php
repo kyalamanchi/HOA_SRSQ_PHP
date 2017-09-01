@@ -146,6 +146,15 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
         }
         // $pdf->output();
         $pdf->Output('data.pdf','F');
+        $handler = fopen('data.tab', 'w');
+        $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
+        fwrite($handler, $finalWriteData);
+        fclose($handler);
+        $zip = new ZipArchive;
+        if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
+$zip->addFile('data.pdf', 'data.pdf');
+$zip->addFile('data.tab', 'data.tab');
+$zip->close();
         if (file_get_contents('data.pdf')){
 
         }
@@ -168,15 +177,21 @@ catch (Exception $exe){
    
 
 ?>
+<iframe id="my_iframe" style="display:none;"></iframe>
 <br>
 <br>
 <center>
 <div>
-<button type="button" class="btn btn-primary" onclick="generateForSouthData();">Generate for South Data</button><br><br>
+<button type="button" class="btn btn-primary" onclick="Download();">Generate for South Data</button><br><br>
 </div>
 </center>
 <div style="width: 100%; height: 100%">
 <embed src="data.pdf" width="100%" height="800" style="border: 3px solid #EEE;"></embed>
 </div>
 </body>
+<script>
+function Download(url) {
+    document.getElementById('my_iframe').src = 'data.zip';
+};
+</script>
 </html>
