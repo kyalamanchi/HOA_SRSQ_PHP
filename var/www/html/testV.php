@@ -3,6 +3,7 @@
         require('mc_table.php');
         $pdf = new PDF_MC_Table();
         $pdf->AddPage();
+        $pdf->MultiCell(10,10,'Message',L,false);
         $pdf->output();
     }
     else{
