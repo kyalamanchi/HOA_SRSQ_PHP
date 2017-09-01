@@ -41,8 +41,8 @@
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
     <!-- fullCalendar 2.2.5-->
-    <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
+    <link rel="stylesheet" href="plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="plugins/fullcalendar/fullcalendar.print.css" media="print">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
