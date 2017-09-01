@@ -29,7 +29,7 @@
 	{
 
 		$board_to = "geethchadalawada@gmail.com";
-		$vendor_to = "ravindranallabilli@gmail.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
+		$vendor_to = "yalamanchi_k@yahoo.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
 
 		switch ($community_id) {
 	        case 1:
@@ -145,10 +145,6 @@
 
 			$result = json_decode($result, true);
 
-			echo "<br>";
-
-			print_r($result);
-
 			$postString = json_encode($params2);
 
 			curl_setopt($ch, CURLOPT_URL, $uri);
@@ -161,10 +157,6 @@
 			$result = curl_exec($ch);
 
 			$result = json_decode($result, true);
-
-			echo "<br>";
-
-			print_r($result);
 
 		}
 
