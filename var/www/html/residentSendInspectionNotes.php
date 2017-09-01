@@ -87,7 +87,7 @@
 
 		print_r($result);
 
-	    if($result)
+	    if($result[0]['status'] != 'invalid')
 	    {
 
 	        echo "<br><br><center><h3>Email Sent.</h3></center>";
