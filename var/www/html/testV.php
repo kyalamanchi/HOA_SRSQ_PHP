@@ -10,9 +10,9 @@
 $pdf->Ln();
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont('Arial','B',8);
-$pdf->MultiCell(0,6,'CommunityName',0,'0',false);
+// $pdf->MultiCell(0,6,'CommunityName',0,'0',false);
 $pdf->SetFont('Arial','',8);
-$pdf->MultiCell(0,3,'mailing address'."\n".'Mailing address'."\n".'mailing address'." ".'Mailing address',0,'0',false);
+// $pdf->MultiCell(0,3,'mailing address'."\n".'Mailing address'."\n".'mailing address'." ".'Mailing address',0,'0',false);
 $pdf->Ln();
 
     $pdf->SetFont("Arial", "", 12);
