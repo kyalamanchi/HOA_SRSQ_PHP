@@ -15,6 +15,8 @@
 		$category = $json['Inspection_Data_Input_Form'][$i]['Category'];
 		$compliance_date = $json['Inspection_Data_Input_Form'][$i]['Compliance_Date'];
 
+		$compliance_date = date('Y-m-d', $compliance_date);
+
 		echo ($i+1)." - - - ".$home." - - - ".$item." - - - ".$category." - - - ".$compliance_date."<br><br>";
 
 	}
