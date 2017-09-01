@@ -278,6 +278,8 @@
                           if($inspection_date != "")
                             $inspection_date = date('m-d-Y', strtotime($inspection_date));
 
+                          $date = date('m-d-Y');
+
                           echo "
 
                           <div class='modal fade hmodal-success' id='sendInspectionReply_$id' role='dialog'  aria-hidden='true'>
@@ -302,10 +304,11 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Date : </label> ".date('m-d-Y')."
+                                        <label>Date : </label> $date
                                         <input type='hidden' name='id' id='id' value='".$id."' />
                                         <input type='hidden' name='home' id='home' value='".$_SESSION['hoa_address']."' />
                                         <input type='hidden' name='owner' id='owner' value='".$_SESSION['hoa_username']."' />
+                                        <input type='hidden' name='date' id='date' value='$date' />
 
                                         <br>
 
