@@ -3,6 +3,7 @@
         require('mc_table.php');
         $pdf = new PDF_MC_Table();
         $pdf->AddPage();
+        $pdf->SetFont("Arial", "", 12);
         try{
         $pdf->MultiCell(10,10,'Message',0,0,false);
         }
