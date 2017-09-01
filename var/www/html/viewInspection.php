@@ -151,7 +151,7 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
         fwrite($handler, $finalWriteData);
         fclose($handler);
         
-        
+        $zip = new ZipArchive;
         echo "Message2";
         // try{
             // $zip = new ZipArchive;
