@@ -1,5 +1,7 @@
 <?php
 
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	$jsonData = file_get_contents("HOAView.json");
 	$json = json_decode($jsonData, true);
 
@@ -17,7 +19,10 @@
 
 		$compliance_date = date('Y-m-d', strtotime($compliance_date));
 
-		echo ($i+1)." - - - ".$home." - - - ".$item." - - - ".$category." - - - ".$compliance_date."<br><br>";
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$home'"));
+		$home_id = $row['home_id'];
+
+		echo ($i+1)." - - - ".$home."(".$home_id.") - - - ".$item." - - - ".$category." - - - ".$compliance_date."<br><br>";
 
 	}
 
