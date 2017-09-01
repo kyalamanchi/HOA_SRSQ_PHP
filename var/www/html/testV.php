@@ -6,7 +6,9 @@
     header ( "Content-Transfer-Encoding: binary" );
     header ( "Pragma: no-cache" );
     header ( "Expires: 0" );
+    $pdf = new FPDF();
     $pdf->AddPage();
+
 
     $pdf->SetFont("Arial", "", 12);
 
