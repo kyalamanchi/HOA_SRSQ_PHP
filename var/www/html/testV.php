@@ -98,7 +98,7 @@ if ( $connection ){
         $pdf->SetTextColor(0,0,0);
         $pdf->SetFont('Arial','B',8);
         try{
-        $pdf->MultiCell(0,6,'Place name',0,'0',false);
+        $pdf->MultiCell(0,6,$communityLegalName,0,'0',false);
         $pdf->SetFont('Arial','',8);
         $pdf->MultiCell(0,3,$communityMailingAddress."\n".$communityMailingAddress2."\n".$communityMailingAddress3." ".$communityMailingAddress4,0,'0',false);
         $pdf->Ln();
