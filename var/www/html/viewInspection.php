@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
+    <title>Inspection Notice</title>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <?php
@@ -169,6 +175,6 @@ catch (Exception $exe){
 <button type="button" class="btn btn-primary" onclick="generateForSouthData();">Generate for South Data</button><br><br>
 </div>
 </center>
-<embed src="data.pdf" width="100%" height="1000"></embed>
+<embed src="data.pdf" width="100%" height="750"></embed>
 </body>
 </html>
