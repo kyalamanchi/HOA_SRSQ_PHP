@@ -27,6 +27,9 @@
 		$row = pg_query("SELECT * FROM locations_in_community WHERE location='$location'");
 		$location_id = $row['location_id'];
 
+		$row = pg_query("SELECT * FROM inspection_category WHERE name='$category'");
+		$category_id = $row['id'];
+
 		if($compliance_date != "")
 			$compliance_date = date('Y-m-d', strtotime($compliance_date));
 
@@ -36,9 +39,12 @@
 		$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$home'"));
 		$home_id = $row['home_id'];
 
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
+		$hoa_id = $row['hoa_id'];
+
 		#echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description." - - - ".$inspection_date." - - - ".$status." - - - ".$location."<br><br><br><br><br>";
 
-		$result = pg_query("INSERT INTO inspection_notices (inspection_date, description, community_id, home_id, date_of_upload, location_id, inspection_status_id, compliance_date, updated_date, updated_by, sent_by_vendor, item) VALUES ('$inspection_date', '$description', 2, $home_id, '".date('Y-m-d')."', $location_id, $inspection_status_id, '$compliance_date', '".date('Y-m-d')."', 258, TRUE, '$item'");
+		$result = pg_query("INSERT INTO inspection_notices (inspection_date, description, community_id, home_id, date_of_upload, location_id, inspection_category_id, hoa_id, inspection_status_id, compliance_date, updated_date, updated_by, item) VALUES ('$inspection_date', '$description', 2, $home_id, '".date('Y-m-d')."', $location_id, $category_id, $inspection_status_id, '$compliance_date', '".date('Y-m-d')."', 258, '$item'");
 
 		if($result)
 			echo ($i+1)." - - - Success<br><br>";
