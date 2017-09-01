@@ -17,8 +17,8 @@
 		$category = $json['Inspection_Data_Input_Form'][$i]['Category'];
 		$inspection_date = $json['Inspection_Data_Input_Form'][$i]['Filed_Date'];
 		$description = $json['Inspection_Data_Input_Form'][$i]['Item_Notes'];
-		$location = $json['Inspection_Data_Input_Form'][$i]['Viewed_From']
-		$status = $json['Inspection_Data_Input_Form'][$i]['Status']
+		$location = $json['Inspection_Data_Input_Form'][$i]['Viewed_From'];
+		$status = $json['Inspection_Data_Input_Form'][$i]['Status'];
 		$compliance_date = $json['Inspection_Data_Input_Form'][$i]['Compliance_Date'];
 
 		if($compliance_date != "")
