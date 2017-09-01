@@ -1,6 +1,5 @@
 <?php
     require('mc_table.php');
-    header ( "Expires: 0" );
     $pdf = new PDF_MC_Table();
     $pdf->AddPage();
     $pdf->MultiCell(0,6,'Looooooooong messasasasasasas',0,'0',false);
