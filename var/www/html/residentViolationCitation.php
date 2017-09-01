@@ -389,7 +389,7 @@
 
                                         <label>Status Requested : </label>
                                         <br>
-                                        <input type='radio' name='status_requested' id='status_requested' value='10' selected/> Request Board Review
+                                        <input type='radio' name='status_requested' id='status_requested' value='10' checked/> Request Board Review
                                         <br>
                                         <input type='radio' name='status_requested' id='status_requested' value='11' /> Request Vendor Review
                                         <br>
