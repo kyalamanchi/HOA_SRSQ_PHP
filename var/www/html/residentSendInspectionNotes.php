@@ -94,10 +94,10 @@
 
 	   	$ch = curl_init();
 
-	   	if($send == 1)
+	   	if($submit == 1)
 	    {
 
-	    	$postString = json_encode($params);
+	    	$postString = json_encode($params1);
 
 			curl_setopt($ch, CURLOPT_URL, $uri);
 			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
