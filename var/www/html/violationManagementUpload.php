@@ -44,14 +44,14 @@
 
 		$date = date('Y-m-d');
 
-		#echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description." - - - ".$inspection_date." - - - ".$status." - - - ".$location."<br><br><br><br><br>";
+		echo $inspection_date." - - - ".$description." - - - ".$home_id." - - - ".$date." - - - ".$location_id." - - - ".$category_id." - - - ".$inspection_status_id." - - - ".$compliance_date." - - - ".$item."<br>";
 
 		$result = pg_query("INSERT INTO inspection_notices (inspection_date, description, community_id, home_id, date_of_upload, location_id, inspection_category_id, hoa_id, inspection_status_id, compliance_date, updated_date, updated_by, item) VALUES ('$inspection_date', '$description', 2, $home_id, '$date', $location_id, $category_id, $inspection_status_id, '$compliance_date', '$date', 258, '$item'");
 
 		if($result)
-			echo ($i+1)." - - - Success<br><br>";
+			echo ($i+1)." - - - Success<br><br><br><br><br>";
 		else
-			echo ($i+1)." - - - Failed<br><br>";
+			echo ($i+1)." - - - Failed<br><br><br><br><br>";
 
 	}
 
