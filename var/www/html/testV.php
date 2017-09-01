@@ -145,7 +145,7 @@ $pdf->WriteHTML("<br><b> This violation specifically regards the following item(
 $pdf->Ln();
 $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers shall be stored within the garage or screened from view by an appropriate fence in a side yard area except on pick-up day when such containers may be relocated to pick-up areas designated by the City for such purposes. All such containers shall be removed from public view by the end of the day of refuse pick-up provided by the waste disposal service company.</i><br><br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of Stoneridge Square. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
 $pdf->Rect($pdf->w,$pdf->h,100,1);
-$pdf->Output('data.pdf','F');
+$pdf->Output();
 ?>
 <br>
 <br>
