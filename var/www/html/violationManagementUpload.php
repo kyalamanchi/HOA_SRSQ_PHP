@@ -15,15 +15,20 @@
 		$home = $json['Inspection_Data_Input_Form'][$i]['Address1'];
 		$item = $json['Inspection_Data_Input_Form'][$i]['Lookup_1'];
 		$category = $json['Inspection_Data_Input_Form'][$i]['Category'];
+		$inspection_date = $json['Inspection_Data_Input_Form'][$i]['Filed_Date'];
 		$description = $json['Inspection_Data_Input_Form'][$i]['Item_Notes'];
 		$compliance_date = $json['Inspection_Data_Input_Form'][$i]['Compliance_Date'];
 
-		$compliance_date = date('Y-m-d', strtotime($compliance_date));
+		if($compliance_date != "")
+			$compliance_date = date('Y-m-d', strtotime($compliance_date));
+
+		if($inspection_date != "")
+			$inspection_date = date('Y-m-d', strtotime($inspection_date));
 
 		$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='$home'"));
 		$home_id = $row['home_id'];
 
-		echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description."<br><br>";
+		echo ($i+1)." - - - ".$home." - - - ".$home_id." - - - ".$item." - - - ".$category." - - - ".$compliance_date." - - - ".$description." - - - ".$inspection_date."<br><br>";
 
 	}
 
