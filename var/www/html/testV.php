@@ -3,9 +3,14 @@
         require('mc_table.php');
         $pdf = new PDF_MC_Table();
         $pdf->AddPage();
-        $pdf->SetFont("Arial", "", 12);
+        $pdf->SetTextColor(0,0,128);
+        $pdf->Ln();
+        $pdf->SetTextColor(0,0,0);
+        $pdf->SetFont('Arial','B',8);
         try{
-        $pdf->MultiCell(10,10,'Message',0,0,false);
+        $pdf->MultiCell(0,6,'Name',0,'0',false);
+        $pdf->SetFont('Arial','',8);
+        $pdf->MultiCell(0,3,'Adress'."\n".'Address'."\n".'Address'." ".'Address',0,'0',false);
         }
          catch(Exception $ex)   {
             print_r($ex->getMessage());
