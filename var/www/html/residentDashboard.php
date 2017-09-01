@@ -845,6 +845,8 @@
 
           </div>
 
+          <br><br>
+
           <div class='row container-fluid'>
 
             <div class="box box-primary">
