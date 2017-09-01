@@ -20,10 +20,6 @@
 	$submit = $_POST['submit'];
 	$status_requested_id = $_POST['status_requested'];
 
-	echo $submit; 
-
-	die();
-
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=".$status_requested_id));
 	$status_requested = $row['inspection_status'];
 
