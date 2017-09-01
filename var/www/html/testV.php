@@ -1,5 +1,5 @@
 <?php
-require('mc_table.php');
+require('fpdf/mc_table.php');
 
 function GenerateWord()
 {
