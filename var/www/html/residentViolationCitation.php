@@ -401,11 +401,11 @@
 
                                       <br>
                                         
-                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'>Send to Board</button>
+                                      <button type='submit' name='submit' id='submit' value='1' class='btn btn-success btn-xs'>Send to Board</button>
 
-                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'>Send to Vendor</button>
+                                      <button type='submit' name='submit' id='submit' value='2' class='btn btn-success btn-xs'>Send to Vendor</button>
 
-                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'>Send to Board & Vendor</button>
+                                      <button type='submit' name='submit' id='submit' value='3' class='btn btn-success btn-xs'>Send to Board & Vendor</button>
 
                                       <br><br>
 
