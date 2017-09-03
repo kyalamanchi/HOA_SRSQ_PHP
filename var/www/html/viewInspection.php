@@ -11,9 +11,17 @@
 </head>
 <body>
 <?php
+
+if( file_get_contents('data.pdf')){
 unlink('data.pdf');
+}
+if (file_get_contents('data.zip')){
 unlink('data.zip');
+}
+if(file_get_contents('data.tab')){
 unlink('data.tab');
+}
+
 date_default_timezone_set('America/Los_Angeles');
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 try{
