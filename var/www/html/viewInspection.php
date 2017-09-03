@@ -6,21 +6,18 @@
         while($row = pg_fetch_assoc($cityQueryResult)){
                 $cityArray[$row['city_id']] = $row['city_name'];
         }
-        
         $zipArray = array();
         $zipQuery = "SELECT * FROM ZIP";
         $zipQueryResult = pg_query($zipQuery);
         while($row = pg_fetch_assoc($zipQueryResult)){
             $zipArray[$row['zip_id']] = $row['zip_code'];
-        }
-        
+        } 
         $stateQuery = "SELECT * FROM STATE";
         $stateQueryResult = pg_query($stateQuery);
         $stateArray = array();
         while($row = pg_fetch_assoc($stateQueryResult)){
             $stateArray[$row['state_id']] = $row['state_name'];
         }
-        
         $locationArray = array();
         $locationQuery = "SELECT * FROM LOCATIONS_IN_COMMUNITY";
         $locationQueryResult = pg_query($locationQuery);
