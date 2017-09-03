@@ -14,8 +14,9 @@
 date_default_timezone_set('America/Los_Angeles');
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 try{
+    unlink('data.tab');
+    unlink('data.pdf');
 if ( $connection ){
-
     $inspectionNoticeQuery= "SELECT * FROM INSPECTION_NOTICES WHERE ID=".$_GET['id'];
     $inspectionNoticeQueryResult = pg_query($inspectionNoticeQuery);
     while ($row = pg_fetch_assoc($inspectionNoticeQueryResult)) {
@@ -49,7 +50,7 @@ if ( $connection ){
         $inspectionType = $inspectionTypeDetails[$key->inspection_notice_type_id];
         $inspectionDoneDate = $key->inspection_date;
         $locationFound = $key->location_id;
-    
+
 
     }
     $homeIDQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeIDValue;
