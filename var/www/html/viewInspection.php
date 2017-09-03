@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 </head>
 <body>
 <?php
@@ -120,27 +119,33 @@ if ( $connection ){
         $pdf->MultiCell(0,3,$communityMailingAddress."\n".$communityMailingAddress2."\n".$communityMailingAddress3." ".$communityMailingAddress4,0,'0',false);
         $pdf->Ln();
         $pdf->SetX(113);
-$pdf->SetWidths(array(40,50));
-$pdf->SetTextColor(0,0,0);
-$pdf->SetFont('Arial','B',9);
-$pdf->Row(array('Account Number',$key->hoa_id));
-$pdf->SetX(113);
-$pdf->Row(array('Community ID',$communityCode));
-$pdf->SetX(113);
-$pdf->Row(array('Property Address',$propertyAddress));
-$pdf->SetX(113);
-$pdf->Row(array('Violation Notice ID',$violationID));
-$pdf->SetX(113);
-$pdf->Row(array('Notice Type', $inspectionType));
-$pdf->Ln();
-$pdf->SetY(52.5);
-$pdf->MultiCell(0,6,$firstName." ".$lastName." OR Current Resident",0,'0',false);
-$pdf->SetFont('','',9);
-$pdf->MultiCell(0,3.5,$homeAddress1."\n".$cityDetails[$homeAddress2].", ".$stateDetails[$homeAddress3].",".$zipDetails[$homeAddress4]."\n\n\n".date('M d,Y',strtotime($inspectionDoneDate))."",0,'0',false);
-$pdf->SetFont('','B',9);
-$pdf->MultiCell(0,3.5,"\n\nRE: ".$inspectionSubjectFinal." ",0,'0',false);
-$pdf->SetFont('','',9);
-$pdf->MultiCell(0,3.5,"\n\nDear ".$firstName." ".$lastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
+		$pdf->SetWidths(array(40,50));
+		$pdf->SetTextColor(0,0,0);
+		$pdf->SetFont('Arial','B',9);
+		$pdf->Row(array('Account Number',$key->hoa_id));
+		print_r($key->hoa_id);
+		$pdf->SetX(113);
+		$pdf->Row(array('Community ID',$communityCode));
+		print_r('Community Code is '.$communityCode);
+		print_r(nl2br("\n"));
+		$pdf->SetX(113);
+		$pdf->Row(array('Property Address',$propertyAddress));
+		print_r($propertyAddress.nl2br("\n"));
+		$pdf->SetX(113);
+		$pdf->Row(array('Violation Notice ID',$violationID));
+		print_r($violationID.nl2br("\n"));
+		$pdf->SetX(113);
+		$pdf->Row(array('Notice Type', $inspectionType));
+		print_r($inspectionType.nl2br("\n"));
+		$pdf->Ln();
+		$pdf->SetY(52.5);
+		$pdf->MultiCell(0,6,$firstName." ".$lastName." OR Current Resident",0,'0',false);
+		$pdf->SetFont('','',9);
+		$pdf->MultiCell(0,3.5,$homeAddress1."\n".$cityDetails[$homeAddress2].", ".$stateDetails[$homeAddress3].",".$zipDetails[$homeAddress4]."\n\n\n".date('M d,Y',strtotime($inspectionDoneDate))."",0,'0',false);
+		$pdf->SetFont('','B',9);
+		$pdf->MultiCell(0,3.5,"\n\nRE: ".$inspectionSubjectFinal." ",0,'0',false);
+		$pdf->SetFont('','',9);
+		$pdf->MultiCell(0,3.5,"\n\nDear ".$firstName." ".$lastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
 \n\nBy now you have probably already corrected the following issue at ".$homeAddress1.". If not, then this is a courtesy reminder from Stoneridge Square.\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDoneDate))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
 $pdf->WriteHTML("<br><b> This violation specifically regards the following item(s): ".$inspectionSubjectFinal."</b>. It was noted that this violation occurred in the following location: ".$locationDetails[$locationFound].".<br><br>The Governing Documents, specifically<b> Rules and Regulations, Section 5.13 (3) </b>of the Declaration of Covenants, Conditions, and Restrictions (Deed Restrictions) for Stoneridge Square Association states, in part:");
 $pdf->Ln();
@@ -149,7 +154,7 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
          catch(Exception $ex)   {
             print_r($ex->getMessage());
         }
-        $pdf->Output();
+        // $pdf->Output();
         // $handler = fopen('data.tab', 'w');
         // $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
         // fwrite($handler, $finalWriteData);
@@ -200,8 +205,8 @@ catch (Exception $exe){
 </div>
 </center>
 <div style="width: 100%; height: 100%">
-<embed src="data.pdf" width="100%" height="800" style="border: 3px solid #EEE;"></embed>
-</div>
+<!-- <embed src="data.pdf" width="100%" height="800" style="border: 3px solid #EEE;"></embed>
+ --></div>
 </body>
 <script>
 function Download(url) {
