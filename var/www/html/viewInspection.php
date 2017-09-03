@@ -66,7 +66,7 @@ ini_set('display_errors', 1);
         $communityMailingAddressCity  = $row['mailing_addr_city'];
         $communityMailingAddressState = $row['mailing_addr_state'];
         $communityMailingAddressZip = $row['mailing_addr_zip'];
-       
+        $inspectionTypeNameFinal = "";
         if($inspectionTypeID)
         {
         $inspectionNoticeTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE WHERE ID =".$inspectionTypeID;
