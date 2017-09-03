@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 <?php 
     $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
         $cityQuery = "SELECT * FROM CITY";
@@ -137,5 +131,3 @@ $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please
 $pdf->Rect($pdf->w,$pdf->h,100,1);
 $pdf->Output();
 ?>
-</body>
-</html>
