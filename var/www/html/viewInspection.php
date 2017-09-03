@@ -123,20 +123,19 @@ if ( $connection ){
 		$pdf->SetTextColor(0,0,0);
 		$pdf->SetFont('Arial','B',9);
 		$pdf->Row(array('Account Number',$key->hoa_id));
-		print_r($key->hoa_id);
+	
 		$pdf->SetX(113);
 		$pdf->Row(array('Community ID',$communityCode));
-		print_r('Community Code is '.$communityCode);
-		print_r(nl2br("\n"));
+
 		$pdf->SetX(113);
 		$pdf->Row(array('Property Address',$propertyAddress));
-		print_r($propertyAddress.nl2br("\n"));
+		
 		$pdf->SetX(113);
 		$pdf->Row(array('Violation Notice ID',$violationID));
-		print_r($violationID.nl2br("\n"));
+		
 		$pdf->SetX(113);
 		$pdf->Row(array('Notice Type', $inspectionType));
-		print_r($inspectionType.nl2br("\n"));
+		
 		$pdf->Ln();
 		$pdf->SetY(52.5);
 		$pdf->MultiCell(0,6,$firstName." ".$lastName." OR Current Resident",0,'0',false);
@@ -154,7 +153,7 @@ $pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers s
          catch(Exception $ex)   {
             print_r($ex->getMessage());
         }
-        // $pdf->Output();
+        $pdf->Output();
         // $handler = fopen('data.tab', 'w');
         // $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
         // fwrite($handler, $finalWriteData);
