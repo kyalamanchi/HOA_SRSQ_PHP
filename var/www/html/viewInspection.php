@@ -26,6 +26,7 @@ if ( $connection ){
         array_push($insideData, $row);  
     }
     $inspectionTypeDetails = array();
+    print_r($inspectionTypeDetails);
     $inspectionTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE";
     $inspectionTypeQueryResult = pg_query($inspectionTypeQuery);
     while ($row = pg_fetch_assoc($inspectionTypeQueryResult)) {
