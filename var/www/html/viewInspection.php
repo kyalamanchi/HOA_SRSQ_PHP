@@ -42,7 +42,7 @@ if ( $connection ){
     
     $inspectionNoticeInfo = json_encode($inspectionNoticeInfo);
     $inspectionNoticeInfo = json_decode($inspectionNoticeInfo);
-    foreach ($inspectionNoticeInfo->InspectionData as $key) {
+     $key = $inspectionNoticeInfo->InspectionData 
         $accountNumber = $key->hoa_id;
         $communityID = $key->community_id;
         $propertyAddress = $homeDetails[$key->home_id];
@@ -51,9 +51,7 @@ if ( $connection ){
         $inspectionType = $inspectionTypeDetails[$key->inspection_notice_type_id];
         $inspectionDoneDate = $key->inspection_date;
         $locationFound = $key->location_id;
-        print_r($key);
-
-    }
+        print_r('Key value is'.$key);
     $homeIDQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeIDValue;
     $homeIDQueryResult = pg_query($homeIDQuery);
 
