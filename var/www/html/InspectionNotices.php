@@ -149,7 +149,7 @@
                                 echo $inspectionNoticeTypeArray[$key->inspection_notice_type_id];
                                 echo '</td>';
                                 echo '<td>';
-                                echo '<a href="http://hoaboardtime.com/viewInspection.php?id='.$key->id.'"><input type="button" id="'.$key->id.'" value="Generate PDF" ></a>';
+                                echo '<a href="https://hoaboardtime.com/viewInspection.php?id='.$key->id.'"><input type="button" id="'.$key->id.'" value="Generate PDF" ></a>';
                                 echo '</td>';
                                 echo '<td>';
                                 echo '</td>';
