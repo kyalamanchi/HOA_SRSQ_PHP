@@ -21,6 +21,7 @@ if ( $connection ){
     print_r($_GET['id']);
     $inspectionNoticeQuery= "SELECT * FROM INSPECTION_NOTICES WHERE ID=".$_GET['id'];
     $inspectionNoticeQueryResult = pg_query($inspectionNoticeQuery);
+    print_r($inspectionNoticeQueryResult);
     while ($row = pg_fetch_assoc($inspectionNoticeQueryResult)) {
         $insideData = array();
         array_push($insideData, $row);  
