@@ -24,7 +24,6 @@ function txtentities($html){
     $trans = array_flip($trans);
     return strtr($html, $trans);
 }
-
 class PDF_MC_Table extends FPDF
 {
 
@@ -35,6 +34,10 @@ protected $HREF;
 protected $fontList;
 protected $issetfont;
 protected $issetcolor;
+
+var $widths;
+var $aligns;
+
 function __construct($orientation='P', $unit='mm', $format='A4')
 {
     //Call parent constructor
@@ -48,7 +51,6 @@ function __construct($orientation='P', $unit='mm', $format='A4')
     $this->issetfont=false;
     $this->issetcolor=false;
 }
-
 function WriteHTML($html)
 {
     //HTML parser
@@ -86,7 +88,6 @@ function WriteHTML($html)
         }
     }
 }
-
 function OpenTag($tag, $attr)
 {
     //Opening tag
@@ -135,7 +136,6 @@ function OpenTag($tag, $attr)
             break;
     }
 }
-
 function CloseTag($tag)
 {
     //Closing tag
@@ -170,7 +170,6 @@ function SetStyle($tag, $enable)
     }
     $this->SetFont('',$style);
 }
-
 function PutLink($URL, $txt)
 {
     //Put a hyperlink
@@ -181,12 +180,6 @@ function PutLink($URL, $txt)
     $this->SetTextColor(0);
 }
 
-
-
-
-
-var $widths;
-var $aligns;
 
 function SetWidths($w)
 {
