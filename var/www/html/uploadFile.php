@@ -9,9 +9,11 @@
 
 	if($type == "application/json")
 	{
+		move_uploaded_file($temp, $name);
+
 		echo "<br>Success";
 	}
 	else
-		echo "<br><br><br><center><h3>Invalid file format. Please use .JSON format files only.</h3></center>";
+		echo "<br><br><br><center><h3>Invalid file format. Please use \".json\" format files only.</h3></center>";
 
 ?>
