@@ -24,6 +24,7 @@ if ( $connection ){
     print_r($inspectionNoticeQueryResult);
     while ($row = pg_fetch_assoc($inspectionNoticeQueryResult)) {
         $insideData = array();
+        print_r($row);
         array_push($insideData, $row);  
     }
     $inspectionTypeDetails = array();
