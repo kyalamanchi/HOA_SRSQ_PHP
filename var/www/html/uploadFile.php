@@ -7,4 +7,11 @@
 
 	echo $name." - - - ".$temp." - - - ".$type." - - - ".$size;
 
+	if($type == "application/json")
+	{
+		echo "<br>Success";
+	}
+	else
+		echo "<br><br><br><center><h3>Invalid file format. Please use .JSON format files only.</h3></center>";
+
 ?>
