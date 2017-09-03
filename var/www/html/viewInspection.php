@@ -139,6 +139,6 @@ $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please
 $pdf->Rect($pdf->w,$pdf->h,100,1);
 $pdf->Output('data.pdf','F');
 ?>
-
+<embed src="data.pdf" width="800px" height="2100px" />
 </body>
 </html>
