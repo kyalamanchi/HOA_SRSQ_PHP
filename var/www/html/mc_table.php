@@ -1,5 +1,5 @@
 <?php
-require('fpdf/fpdf.php');
+require('fpdf.php');
 function hex2dec($couleur = "#000000"){
     $R = substr($couleur, 1, 2);
     $rouge = hexdec($R);
@@ -26,7 +26,8 @@ function txtentities($html){
 }
 class PDF_MC_Table extends FPDF
 {
-
+var $widths;
+var $aligns;
 protected $B;
 protected $I;
 protected $U;
@@ -34,10 +35,6 @@ protected $HREF;
 protected $fontList;
 protected $issetfont;
 protected $issetcolor;
-
-var $widths;
-var $aligns;
-
 function __construct($orientation='P', $unit='mm', $format='A4')
 {
     //Call parent constructor
@@ -51,6 +48,7 @@ function __construct($orientation='P', $unit='mm', $format='A4')
     $this->issetfont=false;
     $this->issetcolor=false;
 }
+
 function WriteHTML($html)
 {
     //HTML parser
@@ -88,6 +86,7 @@ function WriteHTML($html)
         }
     }
 }
+
 function OpenTag($tag, $attr)
 {
     //Opening tag
@@ -136,6 +135,7 @@ function OpenTag($tag, $attr)
             break;
     }
 }
+
 function CloseTag($tag)
 {
     //Closing tag
@@ -170,6 +170,7 @@ function SetStyle($tag, $enable)
     }
     $this->SetFont('',$style);
 }
+
 function PutLink($URL, $txt)
 {
     //Put a hyperlink
@@ -179,7 +180,6 @@ function PutLink($URL, $txt)
     $this->SetStyle('U',false);
     $this->SetTextColor(0);
 }
-
 
 function SetWidths($w)
 {
