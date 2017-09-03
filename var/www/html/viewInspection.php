@@ -49,7 +49,7 @@ if ( $connection ){
         $inspectionType = $inspectionTypeDetails[$key->inspection_notice_type_id];
         $inspectionDoneDate = $key->inspection_date;
         $locationFound = $key->location_id;
-        print_r($key);
+    
 
     }
     $homeIDQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeIDValue;
