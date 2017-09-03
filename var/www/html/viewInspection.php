@@ -27,8 +27,9 @@ if ( $connection ){
         print_r($row);
         array_push($insideData, $row);  
     }
+    $inspectionNoticeInfo = array("InspectionData"=>$insideData);
+    print_r($inspectionNoticeInfo);
     $inspectionTypeDetails = array();
-    print_r($inspectionTypeDetails);
     $inspectionTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE";
     $inspectionTypeQueryResult = pg_query($inspectionTypeQuery);
     while ($row = pg_fetch_assoc($inspectionTypeQueryResult)) {
@@ -41,7 +42,7 @@ if ( $connection ){
         $homeDetails[$row['home_id']] = $row['address1'];
         $livingStatus = $row['living_status'];
     }
-    $inspectionNoticeInfo = array("InspectionData"=>$insideData);
+    
     $inspectionNoticeInfo = json_encode($inspectionNoticeInfo);
     $inspectionNoticeInfo = json_decode($inspectionNoticeInfo);
     foreach ($inspectionNoticeInfo->InspectionData as $key) {
