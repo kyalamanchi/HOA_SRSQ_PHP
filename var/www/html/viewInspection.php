@@ -123,7 +123,7 @@ if ( $connection ){
 $pdf->SetWidths(array(40,50));
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont('Arial','B',9);
-$pdf->Row(array('Account Number',$accountNumber));
+$pdf->Row(array('Account Number',$key->hoa_id));
 $pdf->SetX(113);
 $pdf->Row(array('Community ID',$communityCode));
 $pdf->SetX(113);
