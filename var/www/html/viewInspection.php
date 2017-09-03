@@ -1,230 +1,144 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Inspection Notice</title>
-    <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title></title>
 </head>
 <body>
-<?php
-date_default_timezone_set('America/Los_Angeles');
-$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
-try{
-    // unlink('data.tab');
-    // unlink('data.pdf');
-if ( $connection ){
-    $inspectionNoticeQuery= "SELECT * FROM INSPECTION_NOTICES WHERE ID=".$_GET['id'];
-    $inspectionNoticeQueryResult = pg_query($inspectionNoticeQuery);
-    while ($row = pg_fetch_assoc($inspectionNoticeQueryResult)) {
-        $insideData = array();
-        array_push($insideData, $row);  
-    }
-    $inspectionNoticeInfo = array("InspectionData"=>$insideData);
- 
-    $inspectionTypeDetails = array();
-    $inspectionTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE";
-    $inspectionTypeQueryResult = pg_query($inspectionTypeQuery);
-    while ($row = pg_fetch_assoc($inspectionTypeQueryResult)) {
-        $inspectionTypeDetails[$row['id']] = $row['name'];
-    }
-    $homeQuery = "SELECT * FROM HOMEID";
-    $homeQueryResult = pg_query($homeQuery);
-    $homeDetails = array();
-    while ($row = pg_fetch_assoc($homeQueryResult)) {
-        $homeDetails[$row['home_id']] = $row['address1'];
-        $livingStatus = $row['living_status'];
-    }
-    
-    $inspectionNoticeInfo = json_encode($inspectionNoticeInfo);
-    $inspectionNoticeInfo = json_decode($inspectionNoticeInfo);
-    foreach ($inspectionNoticeInfo->InspectionData as $key) {
-        $accountNumber = $key->hoa_id;
-        $communityID = $key->community_id;
-        $propertyAddress = $homeDetails[$key->home_id];
-        $violationID = $key->id;
-        $homeIDValue = $key->home_id;
-        $inspectionType = $inspectionTypeDetails[$key->inspection_notice_type_id];
-        $inspectionDoneDate = $key->inspection_date;
-        $locationFound = $key->location_id;
 
 
-    }
-    $homeIDQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeIDValue;
-    $homeIDQueryResult = pg_query($homeIDQuery);
-
-    while ($row = pg_fetch_assoc($homeIDQueryResult)) {
-        $homeAddress1 = $row['address1'];
-        $homeAddress2 = $row['city_id'];
-        $homeAddress3 = $row['state_id'];
-        $homeAddress4 = $row['zip_id'];
-    }
-    $hoaIDQuery = "SELECT * FROM HOAID WHERE HOA_ID=".$accountNumber;
-    $hoaIDQueryResult = pg_query($hoaIDQuery);
-    while ($row = pg_fetch_assoc($hoaIDQueryResult)) {
-        $firstName  = $row['firstname'];
-        $lastName = $row ['lastname'];
-    }
-    $communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
-    $communityQueryResult = pg_query($communityQuery);
-    $cityInfoQuery = "SELECT * FROM CITY";
-    $cityInfoQueryResult = pg_query($cityInfoQuery);
-    $cityDetails = array();
-    while ($row = pg_fetch_assoc($cityInfoQueryResult)) {
-        $cityDetails[$row['city_id']] = $row['city_name'];
-    }
-    $stateDetails = array();
-    $stateQuery= "  SELECT * FROM STATE";
-    $stateQueryResult = pg_query($stateQuery);
-    while ($row = pg_fetch_assoc($stateQueryResult)) {
-        $stateDetails[$row['state_id']] =  $row['state_code'];
-    }
-    $zipDetails = array();
-    $zipQuery = "SELECT * FROM ZIP";
-    $zipQueryResult = pg_query($zipQuery);
-    while ($row = pg_fetch_assoc($zipQueryResult)) {
-        $zipDetails[$row['zip_id']] = $row['zip_code'];
-    }
-    while ($row = pg_fetch_assoc($communityQueryResult)) {
-        $communityCode = $row['community_code'];
-        $communityLegalName = $row['legal_name'];
-        $communityMailingAddress = $row['mailing_address'];
-        $communityMailingAddress2 = $cityDetails[$row['mailing_addr_city']];
-        $communityMailingAddress3 = $stateDetails[$row['mailing_addr_state']];
-        $communityMailingAddress4 = $zipDetails[$row['mailing_addr_zip']];
-    }
-    $locationQuery = "SELECT * FROM LOCATIONS_IN_COMMUNITY ";
-    $locationQueryResult = pg_query($locationQuery);
-    $locationDetails = array();
-    while ($row = pg_fetch_assoc($locationQueryResult)) {
-            $locationDetails[$row['location_id']] = $row['location'];
-    }
-    $inspectionSubjectQuery = "SELECT * FROM INSPECTION_NOTICE_SUBJECT WHERE ID=1";
-    $inspectionSubjectQueryResult = pg_query($inspectionSubjectQuery);
-    $row = pg_fetch_assoc($inspectionSubjectQueryResult);
-    $inspectionSubjectFinal =$row['desc'];
-    if( file_get_contents('mc_table.php') ){
-        require('mc_table.php');
-        $pdf = new PDF_MC_Table();
-        $pdf->AddPage();
-        $pdf->SetTextColor(0,0,128);
-        $pdf->Ln();
-        $pdf->SetTextColor(0,0,0);
-        $pdf->SetFont('Arial','B',8);
-        try{
-        $pdf->MultiCell(0,6,$communityLegalName,0,'0',false);
-        $pdf->SetFont('Arial','',8);
-        $pdf->MultiCell(0,3,$communityMailingAddress."\n".$communityMailingAddress2."\n".$communityMailingAddress3." ".$communityMailingAddress4,0,'0',false);
-        $pdf->Ln();
-        $pdf->SetX(113);
-		$pdf->SetWidths(array(40,50));
-		$pdf->SetTextColor(0,0,0);
-		$pdf->SetFont('Arial','B',9);
-		$pdf->Row(array('Account Number',$key->hoa_id));
-	
-		$pdf->SetX(113);
-		$pdf->Row(array('Community ID',$communityCode));
-
-		$pdf->SetX(113);
-		$pdf->Row(array('Property Address',$propertyAddress));
-		
-		$pdf->SetX(113);
-		$pdf->Row(array('Violation Notice ID',$violationID));
-		
-		$pdf->SetX(113);
-		$pdf->Row(array('Notice Type', $inspectionType));
-		
-		$pdf->Ln();
-		$pdf->SetY(52.5);
-		$pdf->MultiCell(0,6,$firstName." ".$lastName." OR Current Resident",0,'0',false);
-		$pdf->SetFont('','',9);
-		$pdf->MultiCell(0,3.5,$homeAddress1."\n".$cityDetails[$homeAddress2].", ".$stateDetails[$homeAddress3].",".$zipDetails[$homeAddress4]."\n\n\n".date('M d,Y',strtotime($inspectionDoneDate))."",0,'0',false);
-		$pdf->SetFont('','B',9);
-		$pdf->MultiCell(0,3.5,"\n\nRE: ".$inspectionSubjectFinal." ",0,'0',false);
-		$pdf->SetFont('','',9);
-		$pdf->MultiCell(0,3.5,"\n\nDear ".$firstName." ".$lastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
-\n\nBy now you have probably already corrected the following issue at ".$homeAddress1.". If not, then this is a courtesy reminder from Stoneridge Square.\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDoneDate))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
-$pdf->WriteHTML("<br><b> This violation specifically regards the following item(s): ".$inspectionSubjectFinal."</b>. It was noted that this violation occurred in the following location: ".$locationDetails[$locationFound].".<br><br>The Governing Documents, specifically<b> Rules and Regulations, Section 5.13 (3) </b>of the Declaration of Covenants, Conditions, and Restrictions (Deed Restrictions) for Stoneridge Square Association states, in part:");
-$pdf->Ln();
-$pdf->WriteHTML('<br><i>Trash cans, refuse containers and recycling containers shall be stored within the garage or screened from view by an appropriate fence in a side yard area except on pick-up day when such containers may be relocated to pick-up areas designated by the City for such purposes. All such containers shall be removed from public view by the end of the day of refuse pick-up provided by the waste disposal service company.</i><br><br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of Stoneridge Square. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com .</a><br><br>'.$communityLegalName);
+<?php    
+    $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+        $cityQuery = "SELECT * FROM CITY";
+        $cityQueryResult = pg_query($cityQuery);
+        $cityArray = array();
+        while($row = pg_fetch_assoc($cityQueryResult)){
+                $cityArray[$row['city_id']] = $row['city_name'];
         }
-         catch(Exception $ex)   {
-            print_r($ex->getMessage());
-        }
-        $pdf->Output();
-        // $handler = fopen('data.tab', 'w');
-        // $finalWriteData = "1"."\t".$firstName.' '.$lastName."\t".$homeAddress1."\t".''."\t".$cityDetails[$homeAddress2].' '.$stateDetails[$homeAddress3].' '.$zipDetails[$homeAddress4]."\t".''."\t1\t"."1"."\t"."data.pdf\t".$communityLegalName."\t".$communityMailingAddress."\t".$communityMailingAddress2." ".$communityMailingAddress3.' '.$communityMailingAddress4."\t"."\t".$communityLegalName;
-        // fwrite($handler, $finalWriteData);
-        // fclose($handler);
         
-        // $zip = new ZipArchive;
-        // $zip->open($violationID.'.zip',  ZipArchive::CREATE);
-        // $zip->addFile('data.pdf', 'data.pdf');
-        // $zip->addFile('data.tab', 'data.tab');
-        // $zip->close();
-        // try{
-            // $zip = new ZipArchive;
-        // if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
-        //     $zip->addFile('data.pdf', 'data.pdf');
-        //     $zip->addFile('data.tab', 'data.tab');
-        //     $zip->close();
-        // }
-        // catch(Exception $r){
-        //         print_r($r.getMessage());
-        // }
-        // if (file_get_contents($violationID.'.zip') ) {
-        // }
-        // else {
-        //     echo "File not found";
-        // }
-    }
-    else{
-        echo "Could not load file";
-    }
+        $zipArray = array();
+        $zipQuery = "SELECT * FROM ZIP";
+        $zipQueryResult = pg_query($zipQuery);
+        while($row = pg_fetch_assoc($zipQueryResult)){
+            $zipArray[$row['zip_id']] = $row['zip_code'];
+        }
+        
+        $stateQuery = "SELECT * FROM STATE";
+        $stateQueryResult = pg_query($stateQuery);
+        $stateArray = array();
+        while($row = pg_fetch_assoc($stateQueryResult)){
+            $stateArray[$row['state_id']] = $row['state_name'];
+        }
+        
+        $locationArray = array();
+        $locationQuery = "SELECT * FROM LOCATIONS_IN_COMMUNITY";
+        $locationQueryResult = pg_query($locationQuery);
+        while($row = pg_fetch_assoc($locationQueryResult)){
+            $locationArray[$row['location_id']] = $row['location'];
+        }
+        $id = $_GET['id'];
+        $inspectionQuery = "SELECT * FROM INSPECTION_NOTICES WHERE ID=".$id;
+        $inspectionQueryResult = pg_query($inspectionQuery);
+        $inspectionData  = array();
+        $row = pg_fetch_assoc($inspectionQueryResult);
+        $inspectionDateFinal = $row['inspection_date'];
+        $inspectionDescriptionFinal = $row['description'];
+        $inspectionNoticeTypeFinal  = $row['inspection_notice_type_id'];
+        $inspectionCommunityIDFinal = $row['community_id'];
+        $inspectionCategoryID = $row['inspection_category_id'];
+        $inspectionLocationID = $row['location_id'];
+        $inspectionSubCategoryID = $row['inspection_sub_category_id'];
+        $inspectionHOAID = $row['hoa_id'];
+        $inspectionTypeID = $row['inspection_notice_type_id'];
+        $inspectionHomeID =  $row['home_id'];
+        $homeDetailsQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$inspectionHomeID;
+        $homeDetailsQueryResult = pg_query($homeDetailsQuery);
+        $hoaDetailsQuery = "SELECT * FROM HOAID WHERE HOA_ID=".$inspectionHOAID;
+        $hoaDetailsQueryResult = pg_query($hoaDetailsQuery);
+        $row = pg_fetch_assoc($hoaDetailsQueryResult);
+        $personFirstName = $row['firstname'];
+        $personLastName = $row['lastname'];
+        $row = pg_fetch_assoc($homeDetailsQueryResult);
+        $homeAddress1Final = $row['address1'];
+        $homeAddressCityFinal  =$row['city_id'];
+        $homeAddressStateFinal  = $row['state_id'];
+        $homeAddressDistrictFinal  = $row['district_id'];
+        $homeAddressZipFinal  = $row['zip_id'];
+        $homeAddressCommunityIdFinal = $row['community_id'];
+        $currentLivingStatus = $row['living_status'];
+        $communityInfoQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$inspectionCommunityIDFinal;
+        $communityInfoQueryResult = pg_query($communityInfoQuery);
+        $row = pg_fetch_assoc($communityInfoQueryResult);
+        $communityLegalName = $row['legal_name'];
+        $communityCodeName = $row['community_code'];
+        $communityMailingAddress = $row['mailing_address'];
+        $communityMailingAddressCity  = $row['mailing_addr_city'];
+        $communityMailingAddressState = $row['mailing_addr_state'];
+        $communityMailingAddressZip = $row['mailing_addr_zip'];
+       
+        if($inspectionTypeID)
+        {
+        $inspectionNoticeTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE WHERE ID =".$inspectionTypeID;
+        $inspectionNoticeTypeQueryResult = pg_query($inspectionNoticeTypeQuery);
+        $row = pg_fetch_assoc($inspectionNoticeTypeQueryResult);
+        $inspectionTypeNameFinal = $row['name'];
+        }
+        if ( $inspectionCategoryID ){
+        $inspectionCategoryIDQuery = "SELECT * FROM INSPECTION_CATEGORY WHERE ID=".$inspectionCategoryID." AND IS_ACTIVE='YES'";
+        $inspectionCategoryIDQueryResult = pg_query($inspectionCategoryIDQuery);
+        $row = pg_fetch_assoc($inspectionCategoryIDQueryResult);
+        $inspectionCategoryName =  $row['name'];
+        }
 
-}
-else {
-    echo "Failed to connect to database";
-}
-}
-catch (Exception $exe){
-    print_r($exe->getMessage());
-}
-   
-
+        if ($inspectionSubCategoryID ){
+        $inspectionSubCategoryIDQuery = "SELECT * FROM INSPECTION_SUB_CATEGORY WHERE ID=".$inspectionSubCategoryID." AND IS_ACTIVE='YES'";
+        $inspectionSubCategoryIDQueryResult = pg_query($inspectionSubCategoryIDQuery);
+        $row = pg_fetch_assoc($inspectionSubCategoryIDQueryResult);
+        $inspectionSubCategoryNameFinal  = $row['name'];
+        $inspectionSubCategoryRuleDescription = $row['rule_description'];
+        $inspectionSubCategoryExplanation = $row['explanation'];
+        }
+        date_default_timezone_set('America/Los_Angeles');
+        require('mc_table.php');
+        $pdf=new PDF_MC_Table();
+        $pdf->SetFont('Arial','B',8);
+        $pdf->AddPage();
+$pdf->SetTextColor(0,0,128);
+$pdf->Ln();
+$pdf->SetTextColor(0,0,0);
+$pdf->SetFont('Arial','B',8);
+$pdf->MultiCell(0,6,$communityLegalName,0,'0',false);
+$pdf->SetFont('Arial','',8);
+$pdf->MultiCell(0,3,$communityMailingAddress."\n".$cityArray[$communityMailingAddressCity]."\n".$stateArray[$communityMailingAddressState]." ".$zipArray[$communityMailingAddressZip],0,'0',false);
+$pdf->Ln();
+$pdf->SetX(113);
+$pdf->SetWidths(array(40,50));
+$pdf->SetTextColor(0,0,0);
+$pdf->SetFont('Arial','B',9);
+$pdf->Row(array('Account Number',$inspectionHOAID));
+$pdf->SetX(113);
+$pdf->Row(array('Community ID',$communityCodeName));
+$pdf->SetX(113);
+$pdf->Row(array('Property Address',$homeAddress1Final));
+$pdf->SetX(113);
+$pdf->Row(array('Violation Notice ID',$id));
+$pdf->SetX(113);
+$pdf->Row(array('Notice Type', $inspectionTypeNameFinal));
+$pdf->Ln();
+$pdf->SetY(52.5);
+$pdf->MultiCell(0,6,$personFirstName." ".$personLastName." OR Current Resident",0,'0',false);
+$pdf->SetFont('','',9);
+$pdf->MultiCell(0,3.5,$homeAddress1Final."\n".$cityArray[$homeAddressCityFinal].", ".$stateArray[$homeAddressStateFinal].",".$zipArray[$homeAddressZipFinal]."\n\n\n".date('M d,Y',strtotime($inspectionDateFinal))."",0,'0',false);
+$pdf->SetFont('','B',9);
+$pdf->MultiCell(0,3.5,"\n\nRE: ".$inspectionCategoryName." ",0,'0',false);
+$pdf->SetFont('','',9);
+$pdf->MultiCell(0,3.5,"\n\nDear ".$personFirstName." ".$personLastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
+\n\nBy now you have probably already corrected the following issue at ".$homeAddress1Final.". If not, then this is a courtesy reminder from ".$communityLegalName.".\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDateFinal))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
+$pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b>. It was noted that this violation occurred in the following location: ".$locationArray[$inspectionLocationID]."");
+$pdf->Ln();
+$pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
+$pdf->Rect($pdf->w,$pdf->h,100,1);
+$pdf->Output('data.pdf','F');
 ?>
-<iframe id="my_iframe" style="display:none;"></iframe>
-<br>
-<br>
-<center>
-<div>
-<button type="button" class="btn btn-primary" onclick="Download();">Upload to Dropbox</button><br><br>
-</div>
-</center>
-<div style="width: 100%; height: 100%">
-<!-- <embed src="data.pdf" width="100%" height="800" style="border: 3px solid #EEE;"></embed>
- --></div>
+
 </body>
-<script>
-function Download(url) {
-    <?php
-    $url = 'https://content.dropboxapi.com/2/files/upload';
-$fileContents = file_get_contents($violationID.'.zip');
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/'.date('Y').'/'.$violationID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
-curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-$response = curl_exec($ch);
-curl_close($ch);
-// unlink($violationID.'.zip');
-// unlink('data.pdf');
-// unlink('data.tab');
-unlink($violationID.'.zip');
-echo 'alert("File uploaded to dropbox")';
-    ?>
-};
-</script>
 </html>
