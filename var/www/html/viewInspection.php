@@ -33,6 +33,7 @@ ini_set('display_errors', 1);
         $inspectionData  = array();
         $row = pg_fetch_assoc($inspectionQueryResult);
         $inspectionDateFinal = $row['inspection_date'];
+        $inspectionStatusIDFinal = $row['inspection_status_id'];
         $inspectionDescriptionFinal = $row['description'];
         $inspectionNoticeTypeFinal  = $row['inspection_notice_type_id'];
         $inspectionCommunityIDFinal = $row['community_id'];
@@ -67,6 +68,15 @@ ini_set('display_errors', 1);
         $communityMailingAddressState = $row['mailing_addr_state'];
         $communityMailingAddressZip = $row['mailing_addr_zip'];
         $inspectionTypeNameFinal = "";
+
+        $inspectionStatusQuery = "SELECT * FROM INSPECTION_STATUS WHERE ID=".$inspectionStatusIDFinal;
+        $inspectionStatusQueryResult = pg_query($inspectionStatusQuery);
+
+        $roww = pg_fetch_assoc($inspectionStatusQueryResult);
+        $inspectionStatusTextFinal = $roww['inspection_status'];
+        
+
+
         if($inspectionTypeID)
         {
         $inspectionNoticeTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE WHERE ID =".$inspectionTypeID;
@@ -122,7 +132,7 @@ $pdf->MultiCell(0,6,$personFirstName." ".$personLastName." OR Current Resident",
 $pdf->SetFont('','',9);
 $pdf->MultiCell(0,3.5,$homeAddress1Final."\n".$cityArray[$homeAddressCityFinal].", ".$stateArray[$homeAddressStateFinal].",".$zipArray[$homeAddressZipFinal]."\n\n\n".date('M d,Y',strtotime($inspectionDateFinal))."",0,'0',false);
 $pdf->SetFont('','B',9);
-$pdf->MultiCell(0,3.5,"\n\nRE: ".$re[0]."-".$inspectionSubCategoryNameFinal." ",0,'0',false);
+$pdf->MultiCell(0,3.5,"\n\nRE: ".$re[0]." ".$inspectionStatusTextFinal." ",0,'0',false);
 $pdf->SetFont('','',9);
 $pdf->MultiCell(0,3.5,"\n\nDear ".$personFirstName." ".$personLastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
 \n\nBy now you have probably already corrected the following issue at ".$homeAddress1Final.". If not, then this is a courtesy reminder from ".$communityLegalName.".\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDateFinal))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
