@@ -133,7 +133,7 @@ $fileData =  $pdf->Output();
 $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.pdf","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.pdf","mode": "overwrite","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $pdf->Output()); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
