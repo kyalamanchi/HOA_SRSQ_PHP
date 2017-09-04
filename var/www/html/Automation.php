@@ -13,6 +13,7 @@
             var request = new XMLHttpRequest();
             request.open("POST","https://hoaboardtime.com/forteTransactions.php",true);
             request.send(null);
+            alert("Transaction will be updated in background");
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
             }
@@ -34,6 +35,7 @@
             var request = new XMLHttpRequest();
             request.open("POST","https://hoaboardtime.com/updateHomePayMethodSRP.php",true);
             request.send(null);
+            alert("Paymethods will be updated in background");
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
             }
@@ -55,6 +57,7 @@
             var request = new XMLHttpRequest();
             request.open("POST","https://hoaboardtime.com/updateAgreementsSRP.php",true);
             request.send(null);
+            alert("Agreements will be updated in background");
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
             }
@@ -76,6 +79,7 @@
             var request = new XMLHttpRequest();
             request.open("POST","https://hoaboardtime.com/updateMegaSignAgreementsSRP.php",true);
             request.send(null);
+            alert("Mega Signs will be updated in background");
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
                 
@@ -99,6 +103,7 @@
             var request = new XMLHttpRequest();
             request.open("POST","https://hoaboardtime.com/billingStatementsSRP.php",true);
             request.send(null);
+            alert("Billing Statements will be generated and uploaded to Dropbox in background");
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
             }
@@ -118,8 +123,9 @@
         }
         function generateInspectionNotices(){
             var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateHomePayMethodSRP.php",true);
+            request.open("POST","https://hoaboardtime.com/generateAllInspectionNotices.php",true);
             request.send(null);
+            alert("Inspection Notices  will be generated and uploaded to Dropbox in background");
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
                 alert("Inspection Notices Generated");
