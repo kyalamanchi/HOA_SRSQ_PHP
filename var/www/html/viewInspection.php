@@ -133,8 +133,9 @@ $pdf->Rect($pdf->w,$pdf->h,100,1);
 
  if (file_exists('data.pdf')) { 
     unlink ('data.pdf'); 
-    $pdf->Output('data.pdf','F');
+    
 }
+$pdf->Output('data.pdf','F');
 
 $fileData = file_get_contents('data.pdf');
 
