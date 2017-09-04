@@ -129,7 +129,15 @@ $pdf->WriteHTML("<br><b>This violation specifically regards the following item(s
 $pdf->Ln();
 $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
 $pdf->Rect($pdf->w,$pdf->h,100,1);
-$pdf->Output();
+$fileData =  $pdf->Output();
+$url = 'https://content.dropboxapi.com/2/files/upload';
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.pdf","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($ch);
+    curl_close($ch);
 }
 catch( Exception $ex){
     print_r($ex->getMessage());
