@@ -160,7 +160,9 @@
                                 ?>
         </tbody>
         </table>
-        <br><br>
+        <br>
+        Click<a href=""> here </a> to generate notices for all inspection notices.
+        <br>
         <script type="text/javascript">
         $(document).ready(function() {
               $('#example').DataTable( {
