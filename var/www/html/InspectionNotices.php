@@ -163,7 +163,7 @@
         </tbody>
         </table>
         <br>
-        Click<a onclick=""> here </a> to generate notices for all inspection notices.
+        Click<a onclick="generateForAllNotices();"> here </a> to generate notices for all inspection notices.
         <br>
         <script type="text/javascript">
         $(document).ready(function() {
