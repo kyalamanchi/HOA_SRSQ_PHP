@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <?php
+<?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
     try{
@@ -159,6 +153,3 @@ catch( Exception $ex){
     print_r($ex->getMessage());
 }
 ?>
-
-</body>
-</html>
