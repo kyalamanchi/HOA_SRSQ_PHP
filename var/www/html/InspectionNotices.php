@@ -27,7 +27,9 @@
 //   xhr.open('GET', 'http://localhost/CA/getBoardEmails.php', true);
 //   xhr.send(null);
 //   }
-  
+  function generateForAllNotices(){
+    window.alert("Message");
+  }
   </script>
     </head>
     <body>
@@ -161,7 +163,7 @@
         </tbody>
         </table>
         <br>
-        Click<a href=""> here </a> to generate notices for all inspection notices.
+        Click<a onclick=""> here </a> to generate notices for all inspection notices.
         <br>
         <script type="text/javascript">
         $(document).ready(function() {
