@@ -162,8 +162,8 @@
                                 ?>
         </tbody>
         </table>
-        <br>
-        Click<a onclick="generateForAllNotices();"> here </a> to generate notices for all inspection notices.
+        <br><h4>
+        Click<a onclick="generateForAllNotices();"> here </a> to generate notices for all inspection notices.</h4>
         <br>
         <script type="text/javascript">
         $(document).ready(function() {
