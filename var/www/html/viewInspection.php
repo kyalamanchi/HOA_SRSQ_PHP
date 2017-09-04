@@ -153,7 +153,7 @@ $fileData = file_get_contents('data.pdf');
 $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/PDFS/'.$inspectionHOAID.'-'.$inspectionHomeID.'-'.$id.
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/PDF/'.$inspectionHOAID.'-'.$inspectionHomeID.'-'.$id.
         '-'.$inspectionDateFinal.'.pdf","mode": "overwrite","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
