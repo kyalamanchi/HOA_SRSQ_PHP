@@ -13,22 +13,31 @@
 
     #print_r($json_decode);
 
-    echo sizeof($json_decode['members'])."<br><br>";
+    $total = sizeof($json_decode['members']);
 
-    print_r($json_decode['members'][0]['email_address']);
+    echo "<table border=2>";
 
-    echo "<br>";
+    for ($i = 0; $i < $total; $i++) {
+    	echo "<tr><td>";
 
-    print_r($json_decode['members'][0]['merge_fields']['FNAME']);
+    	print_r($json_decode['members'][$i]['email_address']);
 
-    echo "<br>";
+	    echo "</td><td>";
 
-    print_r($json_decode['members'][0]['merge_fields']['LNAME']);
+	    print_r($json_decode['members'][$i]['merge_fields']['FNAME']);
 
-    echo "<br>";
+	    echo "</td><td>";
 
-    print_r($json_decode['members'][0]['merge_fields']['LINKID']);
+	    print_r($json_decode['members'][$i]['merge_fields']['LNAME']);
 
-    echo "<br>";
+	    echo "</td><td>";
+
+	    print_r($json_decode['members'][$i]['merge_fields']['LINKID']);
+
+	    echo "</td></tr>";
+
+	}
+
+	echo "</table>";
 
 ?>
