@@ -456,7 +456,7 @@
                                           
                                       <div class='modal-header'>
                                                                   
-                                        <h4 class='modal-title'><strong>Agreement sent to ".$document_to."</strong></h4>
+                                        <h4 class='modal-title'>Agreement sent to <strong>".$document_to."</strong></h4>
 
                                       </div>
 
@@ -468,28 +468,28 @@
 
                                             <div class='row container-fluid'>
 
-                                              <center>
+                                              <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                               
-                                              <select class='form-contril select2' name='select_hoa' id='select_hoa' required >
+                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' required >
 
-                                                <option value='' disabled selected>Select User</option>";
+                                                  <option value='' disabled selected>Select User</option>";
 
-                                                $result000 = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id ORDER BY firstname");
+                                                  $result000 = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id ORDER BY firstname");
 
-                                                while($row000 = pg_fetch_assoc($result000))
-                                                {
+                                                  while($row000 = pg_fetch_assoc($result000))
+                                                  {
 
-                                                  $add_hoa_id = $row000['hoa_id'];
-                                                  $name = $row000['firstname'];
-                                                  $name .= " ";
-                                                  $name .= $row000['lastname'];
+                                                    $add_hoa_id = $row000['hoa_id'];
+                                                    $name = $row000['firstname'];
+                                                    $name .= " ";
+                                                    $name .= $row000['lastname'];
 
-                                                  echo "<option value='".$hoa_id."'>".$name."</option>";
-                                                }
+                                                    echo "<option value='".$hoa_id."'>".$name."</option>";
+                                                  }
 
-                                              echo "</select>
+                                                echo "</select>
 
-                                              </center>
+                                              </div>
 
                                             </div>
 
