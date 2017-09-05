@@ -6,6 +6,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
         <title>Inspection Notices</title>
   <style >     
       .btn:hover {
@@ -16,18 +21,17 @@
   }
   </style>
   <script type="text/javascript">
-//   window.onload = function(){
-// var xhr = new XMLHttpRequest();
-//   xhr.onreadystatechange = function() {
-//     if (xhr.readyState == XMLHttpRequest.DONE) {
-//         var jsonRespons = JSON.parse(xhr.responseText);
-//        alert(jsonRespons);
-//     }
-//   }
-//   xhr.open('GET', 'http://localhost/CA/getBoardEmails.php', true);
-//   xhr.send(null);
-//   }
-  
+        function generateForAllNotices(){
+    var request = new XMLHttpRequest();
+  request.open("POST","https://hoaboardtime.com/generateAllInspectionNotices.php",true);
+  request.send(null);
+  window.alert("Files will be created and uploaded to dropbox in background. You may close this page.")
+  request.onreadystatechange = function (){
+      if (request.readyState == XMLHttpRequest.DONE) {
+          alert("All files uploaded successfully");
+        }
+    }
+}
   </script>
     </head>
     <body>
@@ -160,7 +164,9 @@
                                 ?>
         </tbody>
         </table>
-        <br><br>
+        <br><h4>
+        Click<a onclick="generateForAllNotices();"> here </a> to generate for all inspection notices.</h4>
+        <br>
         <script type="text/javascript">
         $(document).ready(function() {
               $('#example').DataTable( {
@@ -189,10 +195,7 @@
                 length_sel.addClass('form-control input-sm');
             });
         </script>
-        <script src='vendor/slimScroll/jquery.slimscroll.min.js'></script>
-        <script src='vendor/metisMenu/dist/metisMenu.min.js'></script>
-        <script src='scripts/homer.js'></script>
-        <script src='//code.jquery.com/jquery-1.12.4.js'></script>
+        <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
         <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
         <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
         <script type="text/javascript">
@@ -206,22 +209,5 @@
         else if (!el.checked) el.readOnly=el.indeterminate=true;
     }
 </script>
-    <script src='scripts/homer.js'></script>
-          <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is a small modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
     </body>
 </html>

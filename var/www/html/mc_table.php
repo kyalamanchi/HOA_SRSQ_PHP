@@ -24,10 +24,10 @@ function txtentities($html){
     $trans = array_flip($trans);
     return strtr($html, $trans);
 }
-
 class PDF_MC_Table extends FPDF
 {
-
+var $widths;
+var $aligns;
 protected $B;
 protected $I;
 protected $U;
@@ -180,13 +180,6 @@ function PutLink($URL, $txt)
     $this->SetStyle('U',false);
     $this->SetTextColor(0);
 }
-
-
-
-
-
-var $widths;
-var $aligns;
 
 function SetWidths($w)
 {
