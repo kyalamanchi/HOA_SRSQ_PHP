@@ -17,20 +17,16 @@
 
     echo "<br>";
 
-    print_r($json_decode['members'][0]['FNAME']);
+    print_r($json_decode['members'][0]['merge_fields']['FNAME']);
 
     echo "<br>";
 
-    print_r($json_decode['members'][0]['LNAME']);
+    print_r($json_decode['members'][0]['merge_fields']['LNAME']);
 
     echo "<br>";
 
-    print_r($json_decode['members'][0]['LINKID']);
+    print_r($json_decode['members'][0]['merge_fields']['LINKID']);
 
     echo "<br>";
-
-    $json_decode = json_encode($result,TRUE);
-
-    print_r($json_decode);
 
 ?>
