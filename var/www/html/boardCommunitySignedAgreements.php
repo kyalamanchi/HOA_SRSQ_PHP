@@ -470,15 +470,20 @@
 
                                               <select class='form-contril select2' name='select_hoa' id='select_hoa' required >
 
-                                                <option value='' disabled selected>Select User</option>
+                                                <option value='' disabled selected>Select User</option>";
 
-                                                <option value='1'>Geeth</option>
+                                                $result000 = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id ORDER BY firstname");
 
-                                                <option value='2'>Ravi</option>
+                                                while($row000 = pg_fetch_assoc($result000))
+                                                {
 
-                                                <option value='3'>dhivysh</option>
+                                                  $add_hoa_id = $row000['hoa_id'];
+                                                  $name = $row000['firstname'];
+                                                  $name .= " ";
+                                                  $name .= $row000['lastname'];
 
-                                                <option value='4'>Mrunal</option>";
+                                                  echo "<option value='".$hoa_id."'>".$name."</option>";
+                                                }
 
                                               echo "</select>
 
