@@ -13,6 +13,20 @@
 
     #print_r($json_decode);
 
-    print_r($json_decode['members'][0]);
+    print_r($json_decode['members'][0]['email_address']);
+
+    echo "<br>";
+
+    print_r($json_decode['members'][0]['FNAME']);
+
+    echo "<br>";
+
+    print_r($json_decode['members'][0]['LNAME']);
+
+    echo "<br>";
+
+    print_r($json_decode['members'][0]['LINKID']);
+
+    echo "<br>";
 
 ?>
