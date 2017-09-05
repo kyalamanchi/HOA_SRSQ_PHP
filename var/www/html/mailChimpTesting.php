@@ -11,6 +11,8 @@
     $result = curl_exec($ch);
     $json_decode = json_decode($result,TRUE);
 
-    print_r($json_decode);
+    #print_r($json_decode);
+
+    print_r($json_decode['members'][0]);
 
 ?>
