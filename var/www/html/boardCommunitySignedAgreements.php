@@ -431,7 +431,7 @@
                                 
                                 $k++;
 
-                                echo "<div class='modal fade hmodal-success' id='addHOAId_".$document_to."' role='dialog'  aria-hidden='true'>
+                                echo "<div class='modal fade hmodal-success' id='addHOAId_".$k."' role='dialog'  aria-hidden='true'>
                                 
                                   <div class='modal-dialog'>
                                                     
@@ -441,7 +441,7 @@
                                         
                                         <div class='modal-header'>
                                                                 
-                                          <h4 class='modal-title'>Agreement sent to - ".$k."</h4>
+                                          <h4 class='modal-title'>Agreement sent to - ".$document_to."</h4>
 
                                         </div>
 
