@@ -376,6 +376,8 @@
 
                         while($row = pg_fetch_assoc($result))
                         {
+                          
+                          $k++;
 
                           $document_to = $row['document_to'];
                           $create_date = $row['create_date'];
@@ -395,6 +397,43 @@
 
                           if($document_to != "")
                           {  
+
+                            echo "<div class='modal fade hmodal-success' id='addHOAId_".$k."' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Document sent to ".$document_to."</h4>
+
+                                  </div>
+
+                                  <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
+                                                      
+                                    <div class='modal-body'>
+                                        
+                                        
+
+                                        <br><br>
+
+                                        <center>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                        </center>
+
+                                    </div>
+
+                                  </form>
+
+                                </div>
+                            
+                              </div>
+
+                            </div>";
 
                             echo "<tr>";
                               
@@ -427,48 +466,7 @@
 
                               }
                               else
-                              {  
-                                
-                                $k++;
-
-                                echo "<div class='modal fade hmodal-success' id='addHOAId_".$k."' role='dialog'  aria-hidden='true'>
-                                
-                                  <div class='modal-dialog'>
-                                                    
-                                    <div class='modal-content'>
-                                                        
-                                      <div class='color-line'></div>
-                                        
-                                        <div class='modal-header'>
-                                                                
-                                          <h4 class='modal-title'>Agreement sent to - ".$document_to."</h4>
-
-                                        </div>
-
-                                        <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
-                                                            
-                                          <div class='modal-body'>
-
-                                              <br><br>
-
-                                              <center>
-                                              <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
-                                              <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
-                                              </center>
-
-                                          </div>
-
-                                        </form>
-
-                                      </div>
-                                  
-                                    </div>
-
-                                  </div>";
-
                                 echo "<td><a data-toggle='modal' data-target='#addHOAId_'".$k.">N/A</a></td>";
-
-                              }
                               
                             }
 
