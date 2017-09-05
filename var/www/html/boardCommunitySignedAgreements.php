@@ -460,7 +460,7 @@
 
                                       </div>
 
-                                      <form class='row' method='post' action='https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php'>
+                                      <form class='row' method='post' action='https://hoaboardtime.com/addAgreementHOAID.php'>
                                                               
                                         <div class='modal-body'>
                                                                   
@@ -488,6 +488,8 @@
                                                   }
 
                                                 echo "</select>
+
+                                                <input type='hidden' name='document_to' id='document_to' value='".$document_to."'>
 
                                               </div>
 
