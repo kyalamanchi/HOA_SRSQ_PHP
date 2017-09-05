@@ -425,7 +425,45 @@
 
                               }
                               else
-                                echo "<td>N/A</td>";
+                              {  
+                                echo "<div class='modal fade hmodal-success' id='addHOAId_".$document_to."' role='dialog'  aria-hidden='true'>
+                                
+                                  <div class='modal-dialog'>
+                                                    
+                                    <div class='modal-content'>
+                                                        
+                                      <div class='color-line'></div>
+                                        
+                                        <div class='modal-header'>
+                                                                
+                                          <h4 class='modal-title'>Agreement sent to - ".$document_to."</h4>
+
+                                        </div>
+
+                                        <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
+                                                            
+                                          <div class='modal-body'>
+
+                                              <br><br>
+
+                                              <center>
+                                              <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
+                                              <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                              </center>
+
+                                          </div>
+
+                                        </form>
+
+                                      </div>
+                                  
+                                    </div>
+
+                                  </div>";
+
+                                echo "<td><a data-toggle='modal' data-target='#addHOAId_'".$document_to.">N/A</a></td>";
+
+                              }
                               
                             }
 
