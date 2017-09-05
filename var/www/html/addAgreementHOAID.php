@@ -13,7 +13,7 @@
 	if($vendor_id != "" && $hoa_id != "")
 	{
 
-		echo "<br><br><br><br>Select either user or vendor only.<h3></h3>";
+		echo "<br><br><br><br><h3><center>Select either user or vendor only.</center></h3>";
 
 	}
 	else if($vendor_id == "" && $hoa_id != "")
@@ -21,24 +21,29 @@
 		
 		$result = pg_query("UPDATE community_sign_agreements SET hoa_id=$hoa_id WHERE id=$id");
 
+		if($result)
+			echo "<br><br><br><br><center><h3>HOA ID added successfully.</h3></center>";
+		else
+			echo "<br><br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
+
 	}
 	else if($vendor_id != "" && $hoa_id == "")
 	{
 		
 		$result = pg_query("UPDATE community_sign_agreements SET vendor_id=$vendor_id WHERE id=$id");
 
+		if($result)
+			echo "<br><br><br><br><center><h3>HOA ID added successfully.</h3></center>";
+		else
+			echo "<br><br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
+
 	}
 	else if($vendor_id == "" && $hoa_id == "")
 	{
 
-		echo "<br><br><br><br>No user or vendor selected.<h3></h3>";
+		echo "<br><br><br><br><h3><center>No user or vendor selected.</center></h3>";
 
 	}
-
-	if($result)
-		echo "<br><br><br><br><center><h3>HOA ID added successfully.</h3></center>";
-	else
-		echo "<br><br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
 
 	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'},1000);</script>"
 ?>
