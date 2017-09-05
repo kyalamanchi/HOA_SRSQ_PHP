@@ -484,7 +484,7 @@
                                                     $name .= " ";
                                                     $name .= $row000['lastname'];
 
-                                                    echo "<option value='".$hoa_id."'>".$name."</option>";
+                                                    echo "<option value='".$add_hoa_id."'>".$name."</option>";
                                                   }
 
                                                 echo "</select>
