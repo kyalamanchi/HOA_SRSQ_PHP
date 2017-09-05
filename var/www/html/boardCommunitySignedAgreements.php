@@ -441,7 +441,7 @@
                                           
                                       <div class='modal-header'>
                                                                   
-                                        <h4 class='modal-title'><strong>Current Year Payments Processed</strong></h4>
+                                        <h4 class='modal-title'><strong>Agreement sent to ".$document_to."</strong></h4>
 
                                       </div>
 
