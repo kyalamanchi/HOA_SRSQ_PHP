@@ -373,11 +373,10 @@
 
                       <?php 
 
-                        $k = 0;
-
                         while($row = pg_fetch_assoc($result))
                         {
                           
+                          $id = $row['id'];
                           $document_to = $row['document_to'];
                           $create_date = $row['create_date'];
                           $send_date = $row['send_date'];
@@ -448,7 +447,7 @@
 
                                 echo "
 
-                                <div class='modal fade hmodal-success' id='addHOAId_".$k."' role='dialog'  aria-hidden='true'>
+                                <div class='modal fade hmodal-success' id='addHOAId_".$id."' role='dialog'  aria-hidden='true'>
                                 
                                   <div class='modal-dialog'>
                                                       
@@ -494,6 +493,7 @@
                                                 echo "</select>
 
                                                 <input type='hidden' name='document_to' id='document_to' value='".$document_to."'>
+                                                <input type='hidden' name='id' id='id' value='".$id."'>
 
                                                 <br><br><center>OR</center><br><br>
 
@@ -501,7 +501,7 @@
 
                                                 <br>
                                                 
-                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' required >
+                                                <select class='form-contril select2' name='select_vendor' id='select_vendor' style='width: 100%;' required >
 
                                                   <option value='' disabled selected>Select Vendor</option>";
 
@@ -543,7 +543,7 @@
 
                                 ";
 
-                                echo "<td><a data-toggle='modal' data-target='#addHOAId_".$k."'>N/A</a></td>";
+                                echo "<td><a data-toggle='modal' data-target='#addHOAId_".$id."'>N/A</a></td>";
 
                               }
                               

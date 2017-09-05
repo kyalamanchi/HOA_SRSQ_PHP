@@ -6,9 +6,34 @@
 
     $community_id = $_SESSION['hoa_community_id'];
     $hoa_id = $_POST['select_hoa'];
+    $vendor_id = $_POST['select_vendor'];
 	$document_to = $_POST['document_to'];
+	$id = $_POST['id'];
 
-	$result = pg_query("UPDATE community_sign_agreements SET hoa_id=$hoa_id WHERE community_id=$community_id AND document_to='$document_to'");
+	if($vendor_id != "" && $hoa_id != "")
+	{
+
+		echo "<br><br><br><br>Select either user or vendor only.<h3></h3>";
+
+	}
+	else if($vendor_id == "" && $hoa_id != "")
+	{
+		
+		$result = pg_query("UPDATE community_sign_agreements SET hoa_id=$hoa_id WHERE id=$id");
+
+	}
+	else if($vendor_id != "" && $hoa_id == "")
+	{
+		
+		$result = pg_query("UPDATE community_sign_agreements SET vendor_id=$vendor_id WHERE id=$id");
+
+	}
+	else if($vendor_id == "" && $hoa_id == "")
+	{
+
+		echo "<br><br><br><br>No user or vendor selected.<h3></h3>";
+
+	}
 
 	if($result)
 		echo "<br><br><br><br><center><h3>HOA ID added successfully.</h3></center>";
