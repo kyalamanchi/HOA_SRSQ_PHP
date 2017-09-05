@@ -29,4 +29,6 @@
 
     echo "<br>";
 
+    print_r($json_decode['members'][0]);
+
 ?>
