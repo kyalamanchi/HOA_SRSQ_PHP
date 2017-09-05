@@ -498,10 +498,12 @@
                                                 <br><br><center>OR</center><br><br>
 
                                                 <center>Select Vendor</center>
+
+                                                <br>
                                                 
                                                 <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' required >
 
-                                                  <option value='' disabled selected>Select User</option>";
+                                                  <option value='' disabled selected>Select Vendor</option>";
 
                                                   $result000 = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id ORDER BY vendor_name");
 
@@ -523,7 +525,7 @@
                                             <br>
 
                                             <div class='row container-fluid text-center'>
-                                              <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
+                                              <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
                                               <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
                                             </div>
 
