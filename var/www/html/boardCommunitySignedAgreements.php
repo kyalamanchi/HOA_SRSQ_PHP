@@ -444,7 +444,7 @@
                               else
                               {  
 
-                                $k++;
+                                $k = $k+1;
 
                                 echo "
 
@@ -470,7 +470,7 @@
 
                                               <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                               
-                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' required >
+                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' required >
 
                                                   <option value='' disabled selected>Select User</option>";
 
