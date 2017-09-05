@@ -448,7 +448,7 @@
 
                                 echo "
 
-                                <div class='modal fade hmodal-success' id='addHOAId_'".$k." role='dialog'  aria-hidden='true'>
+                                <div class='modal fade hmodal-success' id='addHOAId_".$k."' role='dialog'  aria-hidden='true'>
                                 
                                   <div class='modal-dialog'>
                                                       
@@ -516,7 +516,7 @@
 
                                 ";
 
-                                echo "<td><a data-toggle='modal' data-target='#addHOAId_'".$k.">N/A</a></td>";
+                                echo "<td><a data-toggle='modal' data-target='#addHOAId_".$k."'>N/A</a></td>";
 
                               }
                               
