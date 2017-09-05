@@ -13,6 +13,8 @@
 
     #print_r($json_decode);
 
+    echo sizeof($json_decode['members'])."<br><br>";
+
     print_r($json_decode['members'][0]['email_address']);
 
     echo "<br>";
