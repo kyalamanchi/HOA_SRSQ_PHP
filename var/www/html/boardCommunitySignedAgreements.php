@@ -466,8 +466,10 @@
                                                                   
                                           <div class='container-fluid'>
 
-                                            <div class=''>
+                                            <div class='row container-fluid'>
 
+                                              <center>
+                                              
                                               <select class='form-contril select2' name='select_hoa' id='select_hoa' required >
 
                                                 <option value='' disabled selected>Select User</option>";
@@ -487,11 +489,13 @@
 
                                               echo "</select>
 
+                                              </center>
+
                                             </div>
 
                                             <br>
 
-                                            <div class='row text-center'>
+                                            <div class='row container-fluid text-center'>
                                               <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
                                               <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
                                             </div>
