@@ -372,6 +372,8 @@
 
                       <?php 
 
+                        $k = 0;
+
                         while($row = pg_fetch_assoc($result))
                         {
 
@@ -426,6 +428,9 @@
                               }
                               else
                               {  
+                                
+                                $k++;
+
                                 echo "<div class='modal fade hmodal-success' id='addHOAId_".$document_to."' role='dialog'  aria-hidden='true'>
                                 
                                   <div class='modal-dialog'>
@@ -436,7 +441,7 @@
                                         
                                         <div class='modal-header'>
                                                                 
-                                          <h4 class='modal-title'>Agreement sent to - ".$document_to."</h4>
+                                          <h4 class='modal-title'>Agreement sent to - ".$k."</h4>
 
                                         </div>
 
@@ -461,7 +466,7 @@
 
                                   </div>";
 
-                                echo "<td><a data-toggle='modal' data-target='#addHOAId_'".$document_to.">N/A</a></td>";
+                                echo "<td><a data-toggle='modal' data-target='#addHOAId_'".$k.">N/A</a></td>";
 
                               }
                               
