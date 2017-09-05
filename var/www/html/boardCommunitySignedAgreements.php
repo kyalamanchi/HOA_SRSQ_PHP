@@ -460,16 +460,20 @@
 
                                       </div>
 
-                                      <form class='row' method='post' action='https://hoaboardtime.com/addAgreementHOAID.php'>
-                                                              
-                                        <div class='modal-body'>
+                                      <div class='modal-body'>
                                                                   
-                                          <div class='container-fluid'>
+                                        <div class='container-fluid'>
+
+                                          <form class='row' method='post' action='https://hoaboardtime.com/addAgreementHOAID.php'>
 
                                             <div class='row container-fluid'>
 
                                               <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
                                               
+                                                <center>Select User</center>
+
+                                                <br>
+
                                                 <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' required >
 
                                                   <option value='' disabled selected>Select User</option>";
@@ -491,6 +495,27 @@
 
                                                 <input type='hidden' name='document_to' id='document_to' value='".$document_to."'>
 
+                                                <br><br><center>OR</center><br><br>
+
+                                                <center>Select Vendor</center>
+                                                
+                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' required >
+
+                                                  <option value='' disabled selected>Select User</option>";
+
+                                                  $result000 = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id ORDER BY vendor_name");
+
+                                                  while($row000 = pg_fetch_assoc($result000))
+                                                  {
+
+                                                    $add_vendor_id = $row000['vendor_id'];
+                                                    $vendor_name = $row000['vendor_name'];
+
+                                                    echo "<option value='".$add_vendor_id."'>".$vendor_name."</option>";
+                                                  }
+
+                                                echo "</select>
+
                                               </div>
 
                                             </div>
@@ -501,12 +526,12 @@
                                               <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
                                               <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
                                             </div>
-                                                                  
-                                          </div>
 
+                                          </form>
+                                                                  
                                         </div>
 
-                                      </form>
+                                      </div>
 
                                     </div>
                                     
