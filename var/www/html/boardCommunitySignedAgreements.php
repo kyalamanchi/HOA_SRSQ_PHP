@@ -470,7 +470,15 @@
 
                                               <select class='form-contril select2' name='select_hoa' id='select_hoa' required >
 
-                                                <option value='' disabled selected>Select User</option>";
+                                                <option value='' disabled selected>Select User</option>
+
+                                                <option value='1' disabled selected>Geeth</option>
+
+                                                <option value='2' disabled selected>Ravi</option>
+
+                                                <option value='3' disabled selected>dhivysh</option>
+
+                                                <option value='4' disabled selected>Mrunal</option>";
 
                                               echo "</select>
 
