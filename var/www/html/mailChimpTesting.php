@@ -20,6 +20,10 @@
     for ($i = 0; $i < $total; $i++) {
     	echo "<tr><td>";
 
+    	print_r($json_decode['members'][$i]['id']);
+
+    	echo "</td><td>";
+
     	print_r($json_decode['members'][$i]['email_address']);
 
 	    echo "</td><td>";
