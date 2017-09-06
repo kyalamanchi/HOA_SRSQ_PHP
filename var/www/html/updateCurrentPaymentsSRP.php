@@ -153,6 +153,6 @@ function get_client_ip() {
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-        $scheduleUpdateQuery = "INSERT INTO SCHEDULED_JOBS(\"JOB_TITLE\",\"START_TIME\",\"RUN_BY\",\"IP_ADDRESS\") VALUES('CURRENT PAYMENTS SRP','".date('Y-m-d H:i:s')."','SCHEDULE','".get_client_ip()."')";
+        $scheduleUpdateQuery = "INSERT INTO SCHEDULED_JOBS(\"JOB_TITLE\",\"START_TIME\",\"RUN_BY\",\"IP_ADDRESS\") VALUES('CURRENT PAYMENTS SRP','".date('Y-m-d H:i:s')."','MANUAL','".get_client_ip()."')";
         pg_query($scheduleUpdateQuery);
 ?>
