@@ -168,7 +168,7 @@
             echo "<br>";
         }
         else {
-            if ( is_set($_GET['date'])){
+            if ( isset($_GET['date'])){
             $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=received_date eq '.$date.'&page_size='.$result['number_results'];
             $url = str_replace(' ', '%20',$url);
         }
