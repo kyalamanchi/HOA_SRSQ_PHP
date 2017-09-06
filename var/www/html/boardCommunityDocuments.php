@@ -507,7 +507,6 @@
 
                               <th>Date of Upload</th>
                               <th>Description</th>
-                              <th>Category</th>
 
                             </thead>
 
@@ -537,7 +536,7 @@
                                 else
                                   $category = 'Others';
 
-                                echo "<tr><td>$date_of_upload</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
+                                echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$date_of_upload</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td></tr>";
 
                               }
 
@@ -547,7 +546,6 @@
 
                               <th>Date of Upload</th>
                               <th>Description</th>
-                              <th>Category</th>
 
                             </tfoot>
 
