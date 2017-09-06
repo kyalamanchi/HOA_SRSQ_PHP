@@ -114,7 +114,7 @@
                                         <th>Category</th>
                                         <th>SubCategory</th>
                                         <th>Location</th>
-                                        
+                                        <th> Type </th>
                                         <th></th>
                                         <th></th>
                                         <th></th>
