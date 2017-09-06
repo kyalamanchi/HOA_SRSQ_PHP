@@ -795,9 +795,6 @@
                       <th>Uploaded Date</th>
                       <th>Description</th>
                       <th>Month &amp; Year of Upload</th>
-                      <th>Document Category</th>
-                      <th>Document Type</th>
-                      <th>Document Upload Type</th>
 
                     </thead>
 
@@ -834,12 +831,7 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_upload_type WHERE document_upload_type_id=$document_upload_type"));
                             $document_upload_type = $row1['name'];
 
-                            if($document_url == "")
-                              $description = "N/A";
-                            else
-                              $description = "<a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a>";
-
-                            echo "<tr><td>$uploaded_date</td><td>$description</td><td>$month_of_upload, $year_of_upload</td><td>$document_category</td><td>$document_type</td><td>$document_upload_type</td></tr>";
+                            echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$uploaded_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td><td>$month_of_upload, $year_of_upload</td></tr>";
 
                           }
 
