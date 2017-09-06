@@ -19,7 +19,7 @@
 
     for ($i = 0; $i < $total; $i++) {
 
-    	$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=".$json_decode['members'][$i]['merge_fields']['LINKID']));
+    	$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE email='".$json_decode['members'][$i]['email_address']."' OR hoa_id=".$json_decode['members'][$i]['merge_fields']['LINKID']));
     	echo "<tr><td>";
 
     	print_r($json_decode['members'][$i]['id']);
@@ -38,7 +38,7 @@
 
 	    echo "</td><td>";
 
-	    print_r($json_decode['members'][$i]['merge_fields']['LINKID']);
+	    print_r($row['hoa_id']);
 
 	    echo "</td><td>";
 
