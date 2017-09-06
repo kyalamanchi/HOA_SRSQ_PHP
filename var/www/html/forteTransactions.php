@@ -148,7 +148,7 @@
                                $paymentStatusIDS = array();
                                $paymentStatusInformation = array();
                                $paymentTransactionIDS = array();
-                                if ( !$_GET['date']) {
+                                if ( !is_set($_GET['date'])) {
                                 $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=start_received_date+eq+'.$d.'+and+end_received_date+eq+'.$date.'';
                                 }
                                 else {
@@ -168,7 +168,7 @@
             echo "<br>";
         }
         else {
-            if ( $_GET['date']){
+            if ( is_set($_GET['date'])){
             $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=received_date eq '.$date.'&page_size='.$result['number_results'];
             $url = str_replace(' ', '%20',$url);
         }
@@ -183,7 +183,7 @@
             $result = curl_exec($ch);
             $result = json_decode($result,TRUE);
             curl_close($ch);
-            if ( $_GET['date']) {
+            if ( isset($_GET['date'])) {
             echo "<center><b><h3>A total of  ".$result['number_results']." payments were received on ".$date."</h3></b></center>";
             }
             else {
