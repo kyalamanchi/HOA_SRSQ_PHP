@@ -110,6 +110,7 @@ if (!empty($failedTransactionIDS)){
 		curl_close($ch);
 		$transactionresult = json_decode($transactionresult);
 		$paymentStatusID = 0;
+
 		if ( $transactionresult->status == 'funded' || $transactionresult->status == 'FUNDED'){
 			$paymentStatusID = 1;
 		}
@@ -122,11 +123,19 @@ if (!empty($failedTransactionIDS)){
 		else if ( $transactionresult->status == 'ready'){
 			$paymentStatusID = 10;
 		}
+
+		if ($transactionresult->action == 'credit' || $transactionresult->action == 'CREDIT'){
+			$transactionAmount = -$transactionresult->authorization_amount;
+		}
+		else {
+			$transactionAmount = $transactionresult->authorization_amount;
+		}
+		
 		if ( is_numeric($transactionresult->echeck->item_description) ){
 			print_r("Found hoa id in echeck object");
 			$hoaID = $transactionresult->echeck->item_description;
 			$paymentID = $hoaID.$hoaIDSArray[$hoaID];
-			$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionresult->authorization_amount.",'".$transactionresult->received_date."',".$transactionresult->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transactionresult->transaction_id."')";
+			$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionAmount.",'".$transactionresult->received_date."',".$transactionresult->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transactionresult->transaction_id."')";
 			pg_query($insertQuery);
 			print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
 		}
@@ -156,6 +165,6 @@ function get_client_ip() {
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-        $scheduleUpdateQuery = "INSERT INTO SCHEDULED_JOBS(\"JOB_TITLE\",\"START_TIME\",\"RUN_BY\",\"IP_ADDRESS\") VALUES('CURRENT PAYMENTS SRP','".date('Y-m-d H:i:s')."','MANUAL','".get_client_ip()."')";
+        $scheduleUpdateQuery = "INSERT INTO SCHEDULED_JOBS(\"JOB_TITLE\",\"START_TIME\",\"RUN_BY\",\"IP_ADDRESS\") VALUES('CURRENT PAYMENTS SRP','".date('Y-m-d H:i:s')."','SCHEDULE','".get_client_ip()."')";
         pg_query($scheduleUpdateQuery);
 ?>
