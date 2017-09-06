@@ -300,7 +300,7 @@
                         array_push($homeIDS, $userData[$transaction['customer_id']]);
                         array_push($payment_type_ids, 1);
                         array_push($paymentAmount, $transaction['authorization_amount']);
-                        if ( $_GET['date']){
+                        if ( isset($_GET['date'])){
                         array_push($paymentProcessDate,$_GET['date']);
                         }
                         else {
