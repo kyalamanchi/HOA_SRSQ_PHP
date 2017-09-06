@@ -84,7 +84,7 @@ function updateData(){
    var subject = document.getElementById("subject").value;
   var body = document.getElementById("desc").value;
   var loc  = document.getElementById("loc").value;
-  var string = "http://localhost/viewInvoice2.php?id=".concat(<?php echo $_GET['id'];?>).concat("&sub=").concat(subject).concat("&bod=").concat(body).concat("&loc=").concat(loc);;
+  var string = "https://hoaboardtime.com/viewInvoice2.php?id=".concat(<?php echo $_GET['id'];?>).concat("&sub=").concat(subject).concat("&bod=").concat(body).concat("&loc=").concat(loc);;
   window.location = string;
   
 }
@@ -92,7 +92,7 @@ function sendData(){
   var subject = document.getElementById("subject").value;
   var body = document.getElementById("desc").value;
   var loc  = document.getElementById("loc").value;
-  var string = "http://localhost/viewInvoice1.php?id=".concat(<?php echo $_GET['id'];?>).concat("&sub=").concat(subject).concat("&bod=").concat(body).concat("&loc=").concat(loc);
+  var string = "https://hoaboardtime.com/viewInvoice1.php?id=".concat(<?php echo $_GET['id'];?>).concat("&sub=").concat(subject).concat("&bod=").concat(body).concat("&loc=").concat(loc);
   window.location = string;
 }
 </script>
