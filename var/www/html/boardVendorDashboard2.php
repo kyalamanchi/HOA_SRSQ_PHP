@@ -822,15 +822,6 @@
                             if($uploaded_date != '')
                               $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
 
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$document_category"));
-                            $document_category = $row1['document_category_name'];
-
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_type WHERE document_type_id=$document_type"));
-                            $document_type = $row1['document_type_name'];
-
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_upload_type WHERE document_upload_type_id=$document_upload_type"));
-                            $document_upload_type = $row1['name'];
-
                             echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$uploaded_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td><td>$month_of_upload, $year_of_upload</td></tr>";
 
                           }
@@ -865,7 +856,7 @@
 
                 <div class="box-body table-responsive">
                   
-                  <table id='example1' class="table table-bordered">
+                  <table id='example2' class="table table-bordered">
 
                     <thead>
                       
@@ -873,7 +864,6 @@
                       <th>Active Until</th>
                       <th>Yearly Amount</th>
                       <th>Description</th>
-                      <th>Document</th>
 
                     </thead>
 
@@ -907,16 +897,11 @@
 
                               $document_url = $row1['url'];
 
-                              if($document_url == "")
-                                $document_url = "N/A";
-                              else
-                                $document_url = "<a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'><i class='fa fa-file-pdf-o'></i></a>";
-
                             }
                             else
                               $document_url = "N/A";
 
-                            echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td>$desc</td><td>$document_url</td></tr>";
+                            echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td></tr>";
 
                           }
 
@@ -967,6 +952,8 @@
         $("#example").DataTable({ "pageLength": 50 });
 
         $("#example1").DataTable({ "pageLength": 50 });
+
+        $("#example2").DataTable({ "pageLength": 50 });
       });
     </script>
 
