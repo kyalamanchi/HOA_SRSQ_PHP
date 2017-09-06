@@ -410,7 +410,7 @@
         $ipaddress = 'UNKNOWN';
     return $ipaddress;
 }
-        $scheduleUpdateQuery = "INSERT INTO SCHEDULED_JOBS(\"JOB_TITLE\",\"START_TIME\",\"RUN_BY\") VALUES('SRSQ FORTE TRANSACTIONS','".date('Y-m-d H:i:s')."','MANUAL','".get_client_ip()."')";
+        $scheduleUpdateQuery = "INSERT INTO SCHEDULED_JOBS(\"JOB_TITLE\",\"START_TIME\",\"RUN_BY\",\"IP_ADDRESS\") VALUES('SRSQ FORTE TRANSACTIONS','".date('Y-m-d H:i:s')."','MANUAL','".get_client_ip()."')";
         pg_query($scheduleUpdateQuery);
 ?>
         </tbody>
