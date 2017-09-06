@@ -11,7 +11,7 @@
     <script type="text/javascript">
         function updateTransactions1(){
             var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/forteTransactions.php",true);
+            request.open("POST","https://hoaboardtime.com/updateCurrentPaymentsSRSQ.php",true);
             request.send(null);
             alert("Transaction will be updated in background");
             request.onreadystatechange = function (){
@@ -22,7 +22,7 @@
         }
         function updateTransactions2(){
             var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/srpforteTransactions.php",true);
+            request.open("POST","https://hoaboardtime.com/updateCurrentPaymentsSRP.php",true);
             request.send(null);
             request.onreadystatechange = function (){
             if (request.readyState == XMLHttpRequest.DONE) {
