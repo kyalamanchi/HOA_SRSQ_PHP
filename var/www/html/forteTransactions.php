@@ -148,7 +148,7 @@
                                $paymentStatusIDS = array();
                                $paymentStatusInformation = array();
                                $paymentTransactionIDS = array();
-                                if ( !is_set($_GET['date'])) {
+                                if ( !isset($_GET['date'])) {
                                 $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=start_received_date+eq+'.$d.'+and+end_received_date+eq+'.$date.'';
                                 }
                                 else {
