@@ -129,14 +129,12 @@
                 }
             }
                                 }
-                                try{
-                                if ( $_GET['date'] ) {
+                                
+                                if (isset($_GET['date'])) {
                                 $date = $_GET['date'];
                                }
-                                }
-                                catch(Exception $ex){
-                                    
-                                }
+
+
                                 $date = date('Y-m-d');
                                
                                $homeIDS = array();
