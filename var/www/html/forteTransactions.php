@@ -129,11 +129,16 @@
                 }
             }
                                 }
-
-                                $date = date('Y-m-d');
-                               if ( $_GET['date']) {
+                                try{
+                                if ( $_GET['date'] ) {
                                 $date = $_GET['date'];
                                }
+                                }
+                                catch(Exception $ex){
+                                    
+                                }
+                                $date = date('Y-m-d');
+                               
                                $homeIDS = array();
                                $hoaIDS = array();
                                $paymentCustomerIDSDetails = array();
