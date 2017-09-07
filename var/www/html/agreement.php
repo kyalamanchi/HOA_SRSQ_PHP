@@ -247,9 +247,12 @@ else {
 }
 updateName();
 }
+function clearValue(){
+  document.getElementById("customMessage").value = "";
+}
 </script>
   </head>
-  <body>
+  <body onload="clearValue();">
   <div class="container">
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
