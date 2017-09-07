@@ -175,7 +175,7 @@ function sendData(){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "http://localhost/adobeSign2.php", true);
+  request.open("POST", "https://hoaboardtime.com/adobeSign2.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   showPleaseWait();
