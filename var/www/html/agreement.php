@@ -346,7 +346,7 @@ updateName();
         <input type="checkbox" id="enablePassword" onclick="calc();" disabled="disabled">
         <span class="slider round"></span>
       </label>
-      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
+      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="" disabled="disabled" style="width: 35%">
       <small id="passwordhelp" class="form-text text-muted">Signer needs to enter this password berfore signing</small>
       </div>
       <div style="clear: both;"></div>
