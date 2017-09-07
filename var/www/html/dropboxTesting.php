@@ -18,14 +18,12 @@
                     'Dropbox-API-Arg: {"path":"/'.$path.'", "mode":"add"}');
 
 		$ch = curl_init('https://api.dropboxapi.com/2/files/list_folder');
-		
+
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $cheaders);
 		curl_setopt($ch, CURLOPT_PUT, true);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($ch, CURLOPT_INFILE, $fp);
-		curl_setopt($ch, CURLOPT_INFILESIZE, $size);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		
+
 		$response = curl_exec($ch);
 
 		echo $response;
