@@ -13,9 +13,7 @@
 
 	<?php
 
-		$cheaders = array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF',
-                    'Content-Type: application/octet-stream',
-                    'Dropbox-API-Arg: {"path":"/'.$path.'", "mode":"add"}');
+		$cheaders = array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF');
 
 		$ch = curl_init('https://api.dropboxapi.com/2/files/list_folder');
 
