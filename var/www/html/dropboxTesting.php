@@ -17,7 +17,7 @@
                     'Content-Type: application/octet-stream',
                     'Dropbox-API-Arg: {"path":"/'.$path.'", "mode":"add"}');
 
-		$ch = curl_init('https://content.dropboxapi.com/2/files/upload');
+		$ch = curl_init('https://api.dropboxapi.com/2/files/list_folder');
 		
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $cheaders);
 		curl_setopt($ch, CURLOPT_PUT, true);
