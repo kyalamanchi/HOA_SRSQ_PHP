@@ -331,7 +331,7 @@ updateName();
     <div style="clear: both;padding-left: 10dp;"></div>
     <div class="form-group">
           <h4>Custom Message</h4>
-          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%"></textarea>
+          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%" value=""></textarea>
     </div>
       <div>
       <h4>Complete in order</h4>
@@ -343,7 +343,7 @@ updateName();
       <div>
       <h4>Enable Password ?</h4>
       <label class="switch" >
-        <input type="checkbox" id="enablePassword" onclick="calc();" disabled="disabled">
+        <input type="checkbox" id="enablePassword" onclick="calc();" disabled="disabled" value="">
         <span class="slider round"></span>
       </label>
       <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="" disabled="disabled" style="width: 35%">
