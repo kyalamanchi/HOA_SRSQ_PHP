@@ -343,7 +343,7 @@ updateName();
       <div>
       <h4>Enable Password ?</h4>
       <label class="switch" >
-        <input type="checkbox" id="enablePassword" onclick="calc();">
+        <input type="checkbox" id="enablePassword" onclick="calc();" disabled="disabled">
         <span class="slider round"></span>
       </label>
       <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
