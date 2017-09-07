@@ -249,6 +249,7 @@ updateName();
 }
 </script>
   </head>
+  <body>
   <div class="container">
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
@@ -353,6 +354,6 @@ updateName();
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
-
+</body>
   
 </html>
