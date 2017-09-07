@@ -66,7 +66,7 @@
         $homeIDQuery = "SELECT * FROM HOMEID WHERE COMMUNITY_ID =2";
         $hoaIDQueryResult = pg_query($hoaIDQuery);
         $homeIDQueryResult = pg_query($homeIDQuery);
-        $inspectionQuery = "SELECT * FROM INSPECTION_NOTICES WHERE COMMUNITY_ID=2";
+        $inspectionQuery = "SELECT * FROM INSPECTION_NOTICES WHERE INSPECTION_STATUS_ID != 6 AND INSPECTION_STATUS_ID !=14 AND INSPECTION_STATUS_ID != 2 AND COMMUNITY_ID=2";
         $inspectionQueryResult = pg_query($inspectionQuery);
         $insideData = array();
         while ($row = pg_fetch_assoc($inspectionQueryResult)) {
