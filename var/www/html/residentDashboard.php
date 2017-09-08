@@ -255,6 +255,31 @@
 
           $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
 
+          $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hoa_id=$hoa_id"));
+
+          $account_id = $row['account_id'];
+
+          $row = pg_fetch_assoc(pg_query("SELECT * FROM account_info WHERE account_id=$account_id"));
+
+          $email_visibility = $row['email_visibility'];
+          $cell_visibility = $row['cell_visibility'];
+          $mailing_visibility = $row['mailing_address_visibility'];
+
+          if($email_visibility == "")
+            $email_visibility = "<i class='fa fa-remove text-red'></i>";
+          else
+            $email_visibility = "<i class='fa fa-check text-green'></i>";
+
+          if($cell_visibility == "")
+            $cell_visibility = "<i class='fa fa-remove text-red'></i>";
+          else
+            $cell_visibility = "<i class='fa fa-check text-green'></i>";
+
+          if($mailing_visibility == "")
+            $mailing_visibility = "<i class='fa fa-remove text-red'></i>";
+          else
+            $mailing_visibility = "<i class='fa fa-check text-green'></i>";
+
         ?>
         
         <section class="content-header">
@@ -858,7 +883,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong><br><strong><i class='fa fa-home'></i> : $email</strong></h4>";
+                        echo "<h4 class='text-green'><strong><i class='fa fa-home'></i> : $mailing_visibility</strong><br><strong><i class='fa fa-phone'></i> : $cell_visibility</strong><br><strong><i class='fa fa-at'></i> : $email_visibility</strong></h4>";
 
                       ?>
 
