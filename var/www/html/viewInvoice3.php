@@ -142,18 +142,17 @@ ini_set('display_errors', 1);
         $pdf->Rect($pdf->w,$pdf->h,100,1);
     }
         $pdf->Output();
-        // if (file_exists('data.pdf')) { 
-        //     unlink ('data.pdf');
-        // }
-        // $pdf->Output('data.pdf','F');
-        // $fileData = file_get_contents('data.pdf');
-        // $url = 'https://content.dropboxapi.com/2/files/upload';
-        // $ch = curl_init($url);
-        // curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        // curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/PDF/'.$inspectionHOAID.'-'.$inspectionHomeID.'-'.$id.
-        // '-'.$inspectionDateFinal.'.pdf","mode": "overwrite","autorename": true,"mute": false}'));
-        // curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
-        // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        // $response = curl_exec($ch);
-        // curl_close($ch);
+        if (file_exists('data.pdf')) { 
+            unlink ('data.pdf');
+        }
+        $pdf->Output('data.pdf','F');
+        $fileData = file_get_contents('data.pdf');
+        $url = 'https://content.dropboxapi.com/2/files/upload';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/PDF/'.$_GET['id'].'.pdf","mode": "overwrite","autorename": true,"mute": false}'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($ch);
+        curl_close($ch);
 ?>
