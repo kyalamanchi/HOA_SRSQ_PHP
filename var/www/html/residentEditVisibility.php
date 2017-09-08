@@ -11,7 +11,7 @@
 	$change_email_visibility = $_POST['change_email_visibility'];
 	$account_id = $_POST['account_id'];
 
-	$result = pg_query("UPDATE TABLE account_info SET cell_visibility='$change_cell_visibility', email_visibility='$change_email_visibility', mailing_address_visibility='$change_mailing_address_visibility' WHERE account_id=$account_id");
+	$result = pg_query("UPDATE account_info SET cell_visibility='$change_cell_visibility', email_visibility='$change_email_visibility', mailing_address_visibility='$change_mailing_address_visibility' WHERE account_id=$account_id");
 
 	if($result)
 		echo "<br><br><br><br><center><h3>Visibility Updated.</h3></center>";
