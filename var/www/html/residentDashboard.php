@@ -265,17 +265,17 @@
           $cell_visibility = $row['cell_visibility'];
           $mailing_visibility = $row['mailing_address_visibility'];
 
-          if($email_visibility == "")
+          if($email_visibility == "f")
             $email_visibility = "<i class='fa fa-remove text-red'></i>";
           else
             $email_visibility = "<i class='fa fa-check text-green'></i>";
 
-          if($cell_visibility == "")
+          if($cell_visibility == "f")
             $cell_visibility = "<i class='fa fa-remove text-red'></i>";
           else
             $cell_visibility = "<i class='fa fa-check text-green'></i>";
 
-          if($mailing_visibility == "")
+          if($mailing_visibility == "f")
             $mailing_visibility = "<i class='fa fa-remove text-red'></i>";
           else
             $mailing_visibility = "<i class='fa fa-check text-green'></i>";
