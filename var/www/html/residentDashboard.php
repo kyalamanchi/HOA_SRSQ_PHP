@@ -852,7 +852,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong></h4>";
+                        echo "<h5 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong></h5>";
 
                       ?>
 
@@ -862,7 +862,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-at'></i> : $email</strong></h4>";
+                        echo "<h5 class='text-green'><strong><i class='fa fa-at'></i> : $email</strong></h5>";
 
                       ?>
 
@@ -872,7 +872,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-home'></i> : $email</strong></h4>";
+                        echo "<h5 class='text-green'><strong><i class='fa fa-home'></i> : $email</strong></h5>";
 
                       ?>
 
