@@ -13,9 +13,9 @@
 
 	<?php
 
-		$cheaders = array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF');
+                    'Content-Type: application/json');
 
-		$ch = curl_init('https://api.dropboxapi.com/2/files/list_folder');
+		$ch = curl_init('https://api.dropboxapi.com/2/paper/docs/list');
 
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $cheaders);
 		curl_setopt($ch, CURLOPT_PUT, true);

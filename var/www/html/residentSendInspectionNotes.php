@@ -18,12 +18,14 @@
 	$owner = $_POST['owner'];
 	$notice_summary = $_POST['notice_summary'];
 	$submit = $_POST['submit'];
-	$status_requested_id = $_POST['status_requested'];
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=".$status_requested_id));
 	$status_requested = $row['inspection_status'];
 
-	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail, status_requested_id) VALUES ($id, '$date', '$notice_summary', $status_requested_id)");
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='".$home."'"));
+	$home_id = $row['home_id'];
+
+	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail) VALUES ($id, '$date', '$notice_summary')");
 
 	if($result)
 	{
@@ -47,8 +49,16 @@
 	            break;
 	    }
    
-	    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'<br>Compliance Date : '.$compliance_date.'<br>Viewed From : '.$viewed_from.'<br>Item : '.$item.'<br>Observation : '.$observation.'<br>Home : '.$home.'<br>Owner : '.$owner.'<br>Inspection Notes Summary : '.$notice_summary.'.';
-	    $subject = $home.' requesting '.$status_requested;
+	    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'<br>Compliance Date : '.$compliance_date.'<br>Viewed From : '.$viewed_from.'<br>Item : '.$item.'<br>Observation : '.$observation.'<br>Home : '.$home.'<br>Owner : '.$owner.'<br>Inspection Notes Summary : '.$notice_summary;
+
+	    $count = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+
+	    if($count)
+	    	$content .= "<br>Occupied By : Tenant";
+
+	    $content .= '.';
+
+	    $subject = $home.' posted a question';
 	    $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
 	    $content_text = strip_tags($content);
 
