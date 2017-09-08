@@ -703,7 +703,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong></h4>";
+                        echo "<h4 class='text-info'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong></h4>";
 
                       ?>
 
@@ -883,7 +883,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-home'></i> : $mailing_visibility</strong><br><strong><i class='fa fa-phone'></i> : $cell_visibility</strong><br><strong><i class='fa fa-at'></i> : $email_visibility</strong></h4>";
+                        echo "<h4 class='text-info'><strong><i class='fa fa-home'></i> : $mailing_visibility</strong><br><strong><i class='fa fa-phone'></i> : $cell_visibility</strong><br><strong><i class='fa fa-at'></i> : $email_visibility</strong></h4>";
 
                       ?>
 
