@@ -53,6 +53,8 @@
 
 	    $count = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
 
+	    $count = 1;
+
 	    if($count)
 	    	$content .= "<br>Occupied By : Tenant";
 
