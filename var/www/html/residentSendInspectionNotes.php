@@ -18,18 +18,19 @@
 	$owner = $_POST['owner'];
 	$notice_summary = $_POST['notice_summary'];
 	$submit = $_POST['submit'];
-	$status_requested_id = $_POST['status_requested'];
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=".$status_requested_id));
 	$status_requested = $row['inspection_status'];
 
-	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail, status_requested_id) VALUES ($id, '$date', '$notice_summary', $status_requested_id)");
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE address1='".$home."'"));
+	$home_id = $row['home_id'];
+
+	$result = pg_query("INSERT INTO inspection_notes (inspection_notices_id, notes_date, detail) VALUES ($id, '$date', '$notice_summary')");
 
 	if($result)
 	{
 
-		$board_to = "geethchadalawada@gmail.com";
-		$vendor_to = "yalamanchi_k@yahoo.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
+		$vendor_to = "project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
 
 		switch ($community_id) {
 	        case 1:
@@ -47,32 +48,20 @@
 	            break;
 	    }
    
-	    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'<br>Compliance Date : '.$compliance_date.'<br>Viewed From : '.$viewed_from.'<br>Item : '.$item.'<br>Observation : '.$observation.'<br>Home : '.$home.'<br>Owner : '.$owner.'<br>Inspection Notes Summary : '.$notice_summary.'.';
-	    $subject = $home.' requesting '.$status_requested;
+	    $content = 'Date : '.$date.'<br>Inspection Notice : '.$inspection_notice.'<br>Compliance Date : '.$compliance_date.'<br>Viewed From : '.$viewed_from.'<br>Item : '.$item.'<br>Observation : '.$observation.'<br>Home : '.$home.'<br>Owner : '.$owner.'<br>Inspection Notes Summary : '.$notice_summary;
+
+	    $count = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+
+	    if($count)
+	    	$content .= "<br>Occupied By : Tenant";
+
+	    $content .= '.';
+
+	    $subject = $home.' posted a question';
 	    $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
 	    $content_text = strip_tags($content);
 
-	    $params1 = array(
-	        "key" => $api_key,
-	        "message" => array(
-	            "html" => $content,
-	            "text" => $content_text,
-	            "subject" => $subject,
-	            "from_email" => $from,
-	            "from_name" => $from,
-	            "to" => array(
-	                array("email" => $board_to, "name" => $board_to)
-	            ),
-	            "track_opens" => true,
-	            "track_clicks" => true,
-	            "auto_text" => true,
-	            "url_strip_qs" => true,
-	            "preserve_recipients" => true
-	        ),
-	        "async" => false
-	   	);
-
-	   	$params2 = array(
+	    $params2 = array(
 	        "key" => $api_key,
 	        "message" => array(
 	            "html" => $content,
@@ -94,69 +83,18 @@
 
 	   	$ch = curl_init();
 
-	   	if($submit == 1)
-	    {
+	   	$postString = json_encode($params2);
 
-	    	$postString = json_encode($params1);
+		curl_setopt($ch, CURLOPT_URL, $uri);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+		$result = curl_exec($ch);
 
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-		}
-		else if($submit == 2)
-		{
-			$postString = json_encode($params2);
-
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-		}
-		else if($submit == 3)
-		{
-
-			$postString = json_encode($params1);
-
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-			$postString = json_encode($params2);
-
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-		}
+		$result = json_decode($result, true);
 
 	    echo "<br><br><center><h3>Email Sent.</h3></center>";
 

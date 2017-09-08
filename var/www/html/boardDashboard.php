@@ -1149,7 +1149,7 @@
 
                     </div>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <?php 
 

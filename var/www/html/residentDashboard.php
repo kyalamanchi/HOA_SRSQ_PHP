@@ -255,6 +255,31 @@
 
           $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
 
+          $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hoa_id=$hoa_id"));
+
+          $account_id = $row['account_id'];
+
+          $row = pg_fetch_assoc(pg_query("SELECT * FROM account_info WHERE account_id=$account_id"));
+
+          $email_visibility = $row['email_visibility'];
+          $cell_visibility = $row['cell_visibility'];
+          $mailing_visibility = $row['mailing_address_visibility'];
+
+          if($email_visibility == 'NO')
+            $email_visibility = "<i class='fa fa-eye-slash text-red'></i>";
+          else
+            $email_visibility = "<i class='fa fa-eye text-green'></i>";
+
+          if($cell_visibility == 'NO')
+            $cell_visibility = "<i class='fa fa-eye-slash text-red'></i>";
+          else
+            $cell_visibility = "<i class='fa fa-eye text-green'></i>";
+
+          if($mailing_visibility == 'NO')
+            $mailing_visibility = "<i class='fa fa-eye-slash text-red'></i>";
+          else
+            $mailing_visibility = "<i class='fa fa-eye text-green'></i>";
+
         ?>
         
         <section class="content-header">
@@ -268,6 +293,117 @@
           <div class='row container-fluid' style="background-color: #ffffff;">
 
             <br>
+
+            <div class="modal fade hmodal-success" id="editContactVisibility" role="dialog"  aria-hidden="true">
+                                
+              <div class="modal-dialog">
+                                    
+                <div class="modal-content">
+                                        
+                  <div class="modal-header">
+                                                
+                    <h4 class="modal-title"><strong>Change Visibility</strong></h4>
+
+                  </div>
+
+                  <div class="modal-body">
+                                                
+                    <form class="row" method="post" action="https://hoaboardtime.com/residentEditVisibility.php">
+                                            
+                      <div class="container-fluid">
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <label>Mailing Address</label>
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_mailing_address_visibility" value='YES' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye text-green'></i>") echo "checked "; ?>> YES
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_mailing_address_visibility" value='NO' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
+
+                          </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <label>Phone</label>
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_cell_visibility" value='YES' id="change_cell_visibility" <?php if($cell_visibility == "<i class='fa fa-eye text-green'></i>") echo "checked "; ?>> YES
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_cell_visibility" value='NO' id="change_cell_visibility" <?php if($cell_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
+
+                          </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <label>Email</label>
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_email_visibility" value='YES' id="change_email_visibility" <?php if($email_visibility == "<i class='fa fa-eye text-green'></i>") echo "checked "; ?>> YES
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_email_visibility" value='NO' id="change_email_visibility" <?php if($email_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
+
+                            <input type="hidden" name="account_id" id='account_id' value="<?php echo $account_id; ?>">
+
+                          </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class="row text-center">
+                          
+                          <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i>Save Changes</button>
+                          <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i>Cancel</button>
+                        
+                        </div>
+                                                
+                      </div>
+
+                    </form>
+
+                  </div>
+
+                </div>
+                  
+              </div>
+
+            </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
@@ -463,6 +599,48 @@
                   <div class="row container-fluid text-left">
 
                     <h4><strong>Community Vendors</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
+
+              <a  data-toggle='modal' data-target='#editContactVisibility'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="pending_payments.png" height=70 width=70 alt='Contact Visibility'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        echo "<h5 class='text-info'><strong><i class='fa fa-home'></i> : $mailing_visibility</strong><br><strong><i class='fa fa-phone'></i> : $cell_visibility</strong><br><strong><i class='fa fa-at'></i> : $email_visibility</strong></h5>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Contact Visibility</strong></h4>
 
                   </div>
 
@@ -678,7 +856,7 @@
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong></h4>";
+                        echo "<h4 class='text-info'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong></h4>";
 
                       ?>
 
