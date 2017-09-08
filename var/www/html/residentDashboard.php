@@ -322,13 +322,13 @@
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_mailing_address_visibility" value='YES' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye text-green'></i>") echo "selected "; ?>> YES
+                            <input type="radio" name="change_mailing_address_visibility" value='YES' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye text-green'></i>") echo "checked "; ?>> YES
 
                           </div>
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_mailing_address_visibility" value='NO' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "selected "; ?>> NO
+                            <input type="radio" name="change_mailing_address_visibility" value='NO' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
 
                           </div>
 
@@ -346,13 +346,13 @@
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_cell_visibility" value='YES' id="change_cell_visibility" <?php if($cell_visibility == 'YES') echo "selected "; ?>> YES
+                            <input type="radio" name="change_cell_visibility" value='YES' id="change_cell_visibility" <?php if($cell_visibility == "<i class='fa fa-eye text-green'></i>") echo "checked "; ?>> YES
 
                           </div>
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_cell_visibility" value='NO' id="change_cell_visibility" <?php if($cell_visibility == 'NO') echo "selected "; ?>> NO
+                            <input type="radio" name="change_cell_visibility" value='NO' id="change_cell_visibility" <?php if($cell_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
 
                           </div>
 
@@ -370,13 +370,13 @@
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_email_visibility" value='YES' id="change_email_visibility" <?php if($email_visibility == 'YES') echo "selected "; ?>> YES
+                            <input type="radio" name="change_email_visibility" value='YES' id="change_email_visibility" <?php if($email_visibility == "<i class='fa fa-eye text-green'></i>") echo "checked "; ?>> YES
 
                           </div>
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_email_visibility" value='NO' id="change_email_visibility" <?php if($email_visibility == 'NO') echo "selected "; ?>> NO
+                            <input type="radio" name="change_email_visibility" value='NO' id="change_email_visibility" <?php if($email_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
 
                           </div>
 
