@@ -848,17 +848,31 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Contact Visibility'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-left">
 
                       <?php 
 
-                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong><br><strong><i class='fa fa-at'></i> : $email</strong><br><strong><i class='fa fa-home'></i> : $email</strong></h4>";
+                        echo "<h4 class='text-green'><strong><i class='fa fa-phone'></i> : $cell</strong></h4>";
+
+                      ?>
+
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-left">
+
+                      <?php 
+
+                        echo "<h4 class='text-green'><strong><i class='fa fa-at'></i> : $email</strong></h4>";
+
+                      ?>
+
+                    </div>
+
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-left">
+
+                      <?php 
+
+                        echo "<h4 class='text-green'><strong><i class='fa fa-home'></i> : $email</strong></h4>";
 
                       ?>
 
