@@ -47,11 +47,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-    <link href="bootstrap.css" rel="stylesheet">
-<link href="bootstrap-switch.css" rel="stylesheet">
-<script src="jquery.js"></script>
-<script src="bootstrap-switch.js"></script>
-
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
@@ -317,9 +312,77 @@
                                             
                       <div class="container-fluid">
 
-                      <input type="checkbox" name="my-checkbox" checked>
+                        <div class='row container-fluid'>
 
-                          <br>
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <label>Mailing Address</label>
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_mailing_address_visibility" value='YES' id="change_mailing_address_visibility" <?php if($mailing_visibility == 'YES') echo "checked "; ?>> YES
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_mailing_address_visibility" value='NO' id="change_mailing_address_visibility" <?php if($mailing_visibility == 'NO') echo "checked "; ?>> NO
+
+                          </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <label>Phone</label>
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_cell_visibility" value='YES' id="change_cell_visibility" <?php if($cell_visibility == 'YES') echo "checked "; ?>> YES
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_cell_visibility" value='NO' id="change_cell_visibility" <?php if($cell_visibility == 'NO') echo "checked "; ?>> NO
+
+                          </div>
+
+                        </div>
+
+                        <br>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <label>Email</label>
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_email_visibility" value='YES' id="change_email_visibility" <?php if($email_visibility == 'YES') echo "checked "; ?>> YES
+
+                          </div>
+
+                          <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                            <input type="radio" name="change_email_visibility" value='NO' id="change_email_visibility" <?php if($email_visibility == 'NO') echo "checked "; ?>> NO
+
+                          </div>
+
+                        </div>
+
+                        <br>
 
                         <div class="row text-center">
                           
@@ -1574,12 +1637,6 @@
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
-
-    <script type="text/javascript">
-      
-      $("[name='my-checkbox']").bootstrapSwitch();
-
-    </script>
 
   </body>
 
