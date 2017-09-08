@@ -11,8 +11,13 @@
 	$change_email_visibility = $_POST['change_email_visibility'];
 	$account_id = $_POST['account_id'];
 
-	echo $change_mailing_address_visibility." - - - ".$change_cell_visibility." - - - ".$change_email_visibility;
+	$result = pg_query("UPDATE TABLE account_info SET cell_visibility='$change_cell_visibility', email_visibility='$change_email_visibility', mailing_address_visibility='$change_mailing_address_visibility' WHERE account_id=$account_id");
 
-	echo "<a href='https://hoaboardtime.com/residentDashboard.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentDashboard.php'},2000);</script>"
+	if($result)
+		echo "<br><br><br><br><center><h3>Visibility Updated.</h3></center>";
+	else
+		echo "<br><br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
+
+	echo "<br><br><br><center><a href='https://hoaboardtime.com/residentDashboard.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentDashboard.php'},2000);</script>"
 
 ?>
