@@ -322,13 +322,13 @@
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_mailing_address_visibility" value='YES' id="change_mailing_address_visibility" <?php if($mailing_visibility == 'YES') echo "selected "; ?>> YES
+                            <input type="radio" name="change_mailing_address_visibility" value='YES' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye text-green'></i>") echo "selected "; ?>> YES
 
                           </div>
 
                           <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-                            <input type="radio" name="change_mailing_address_visibility" value='NO' id="change_mailing_address_visibility" <?php if($mailing_visibility == 'NO') echo "selected "; ?>> NO
+                            <input type="radio" name="change_mailing_address_visibility" value='NO' id="change_mailing_address_visibility" <?php if($mailing_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "selected "; ?>> NO
 
                           </div>
 
