@@ -378,6 +378,8 @@
 
                             <input type="radio" name="change_email_visibility" value='NO' id="change_email_visibility" <?php if($email_visibility == "<i class='fa fa-eye-slash text-red'></i>") echo "checked "; ?>> NO
 
+                            <input type="hidden" name="account_id" id='account_id' value="<?php echo $account_id; ?>">
+
                           </div>
 
                         </div>
