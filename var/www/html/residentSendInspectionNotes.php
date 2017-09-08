@@ -30,8 +30,7 @@
 	if($result)
 	{
 
-		$board_to = "geethchadalawada@gmail.com";
-		$vendor_to = "yalamanchi_k@yahoo.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
+		$vendor_to = "geethchadalawada@gmail.com";#"project-13225888-c32e66904296f8f2b2f5c19f@basecamp.com";
 
 		switch ($community_id) {
 	        case 1:
@@ -62,27 +61,7 @@
 	    $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
 	    $content_text = strip_tags($content);
 
-	    $params1 = array(
-	        "key" => $api_key,
-	        "message" => array(
-	            "html" => $content,
-	            "text" => $content_text,
-	            "subject" => $subject,
-	            "from_email" => $from,
-	            "from_name" => $from,
-	            "to" => array(
-	                array("email" => $board_to, "name" => $board_to)
-	            ),
-	            "track_opens" => true,
-	            "track_clicks" => true,
-	            "auto_text" => true,
-	            "url_strip_qs" => true,
-	            "preserve_recipients" => true
-	        ),
-	        "async" => false
-	   	);
-
-	   	$params2 = array(
+	    $params2 = array(
 	        "key" => $api_key,
 	        "message" => array(
 	            "html" => $content,
@@ -104,69 +83,18 @@
 
 	   	$ch = curl_init();
 
-	   	if($submit == 1)
-	    {
+	   	$postString = json_encode($params2);
 
-	    	$postString = json_encode($params1);
+		curl_setopt($ch, CURLOPT_URL, $uri);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+		$result = curl_exec($ch);
 
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-		}
-		else if($submit == 2)
-		{
-			$postString = json_encode($params2);
-
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-		}
-		else if($submit == 3)
-		{
-
-			$postString = json_encode($params1);
-
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-			$postString = json_encode($params2);
-
-			curl_setopt($ch, CURLOPT_URL, $uri);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_POST, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
-
-			$result = curl_exec($ch);
-
-			$result = json_decode($result, true);
-
-		}
+		$result = json_decode($result, true);
 
 	    echo "<br><br><center><h3>Email Sent.</h3></center>";
 
