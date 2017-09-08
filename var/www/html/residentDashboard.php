@@ -266,19 +266,19 @@
           $mailing_visibility = $row['mailing_address_visibility'];
 
           if($email_visibility == 'NO')
-            $email_visibility = "<i class='fa fa-remove text-red'></i>";
+            $email_visibility = "<i class='fa fa-eye-slash text-red'></i>";
           else
-            $email_visibility = "<i class='fa fa-check text-green'></i>";
+            $email_visibility = "<i class='fa fa-eye text-green'></i>";
 
           if($cell_visibility == 'NO')
-            $cell_visibility = "<i class='fa fa-remove text-red'></i>";
+            $cell_visibility = "<i class='fa fa-eye-slash text-red'></i>";
           else
-            $cell_visibility = "<i class='fa fa-check text-green'></i>";
+            $cell_visibility = "<i class='fa fa-eye text-green'></i>";
 
           if($mailing_visibility == 'NO')
-            $mailing_visibility = "<i class='fa fa-remove text-red'></i>";
+            $mailing_visibility = "<i class='fa fa-eye-slash text-red'></i>";
           else
-            $mailing_visibility = "<i class='fa fa-check text-green'></i>";
+            $mailing_visibility = "<i class='fa fa-eye text-green'></i>";
 
         ?>
         
