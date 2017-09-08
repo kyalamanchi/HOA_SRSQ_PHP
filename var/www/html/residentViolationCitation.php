@@ -373,31 +373,13 @@
 
                                       <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                        <label>Inspection Notice Summary : </label>
+                                        <label>Followup Questions / Comments : </label>
                                         <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
 
                                         <br>
 
                                       </div>
 
-                                    </div>
-
-                                    <div class='row container-fluid'>
-
-                                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-                                        <label>Status Requested : </label>
-                                        <br>
-                                        <input type='radio' name='status_requested' id='status_requested' value='10' checked/> Request Board Review
-                                        <br>
-                                        <input type='radio' name='status_requested' id='status_requested' value='11' /> Request Vendor Review
-                                        <br>
-                                        <input type='radio' name='status_requested' id='status_requested' value='12' /> Resolved
-
-                                        <br>
-
-                                      </div>
-                                                            
                                     </div>
 
                                     <div class='row text-center'>
