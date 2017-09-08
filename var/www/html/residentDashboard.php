@@ -47,6 +47,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    <link href="bootstrap.css" rel="stylesheet">
+<link href="bootstrap-switch.css" rel="stylesheet">
+<script src="jquery.js"></script>
+<script src="bootstrap-switch.js"></script>
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
@@ -302,7 +307,7 @@
                                         
                   <div class="modal-header">
                                                 
-                    <h4 class="modal-title"><strong>User Details</strong></h4>
+                    <h4 class="modal-title"><strong>Change Visibility</strong></h4>
 
                   </div>
 
@@ -311,6 +316,8 @@
                     <form class="row" method="post" action="https://hoaboardtime.com/residentEditVisibility.php">
                                             
                       <div class="container-fluid">
+
+                      <input type="checkbox" name="my-checkbox" checked>
 
                           <br>
 
@@ -1567,6 +1574,12 @@
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
+
+    <script type="text/javascript">
+      
+      $("[name='my-checkbox']").bootstrapSwitch();
+
+    </script>
 
   </body>
 
