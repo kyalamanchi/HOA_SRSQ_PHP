@@ -527,7 +527,9 @@
         echo '<div class="pull-right box-tools">';
         echo '<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>';
 		echo '</div>';
+		echo '<div class="row">';
 		echo '<small><em>Posted on '.$date.'</em></small></p>';
+        echo '</div>';
         echo '</div>';
 		echo '<div class="box-body container-fluid" style="text-align: justify;">';
 		echo '<p>'.$description.'</p>';
