@@ -519,9 +519,11 @@
 		$description = $feed[$x]['desc'];
 		$date = date('l F d, Y', strtotime($feed[$x]['date']));
 		echo '<div class="row">';
+		echo '<section class="col-lg-8">';
 		echo '<p><strong><a href="'.$link.'" title="'.$title.'">'.$title.'</a></strong><br />';
 		echo '<small><em>Posted on '.$date.'</em></small></p>';
 		echo '<p>'.$description.'</p>';
+		echo '</section>';
 		echo '</div>';
 	}
 ?>
