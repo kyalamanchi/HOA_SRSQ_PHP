@@ -831,6 +831,53 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
+              <!--a href='https://hoaboardtime.com/boardViolationCitations.php'-->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="inspections.png" height=75 width=75 alt='Inspection Notices'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $inspection_homes = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id"));
+
+                        if($inspection_homes > 0)
+                          echo "<h3 class='text-orange'><strong>".$inspection_homes."</strong></h3>"; 
+                        else
+                          echo "<h3 class='text-green'><strong>".$inspection_homes."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Inspection Homes</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              <!--/a-->
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
               <a href='https://hoaboardtime.com/boardViolationCitations.php'>
 
                 <div class="row container-fluid text-left">
