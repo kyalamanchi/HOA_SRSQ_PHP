@@ -396,7 +396,7 @@
                               $num++;
                           }
                           
-                          echo "<tr><td>".$name."<br>($hoa_id)</td><td>".$address."<br>($home_id)</td><td>".$num."</td></tr>";
+                          echo "<tr><td>".$name." ($hoa_id)</td><td>".$address." ($home_id)</td><td>".$num."</td></tr>";
                           
                         }
 
