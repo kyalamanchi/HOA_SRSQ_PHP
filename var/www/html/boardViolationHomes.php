@@ -392,7 +392,7 @@
 
                           while($ro = pg_fetch_assoc($res))
                           {
-                            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
+                            //if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
                               $num++;
                           }
                           
