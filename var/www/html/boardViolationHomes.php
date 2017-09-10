@@ -453,7 +453,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+        $("#example1").DataTable({ "pageLength": 50 });
       });
     </script>
 
