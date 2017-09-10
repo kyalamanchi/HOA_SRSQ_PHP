@@ -373,6 +373,7 @@
                         {
 
                           $home_id = $row['home_id'];
+                          $status = $row['inspection_status_id']
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -391,7 +392,7 @@
 
                           while($ro = pg_fetch_assoc($res))
                           {
-                            if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
+                            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
                               $num++;
                           }
                           
