@@ -634,6 +634,14 @@
 
                   <center><h4><strong>Persons</strong></h4></center>
 
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Add Person</a>
+
+                  </div>
+
                 </div>
 
                 <div class="box-body table-responsive">
@@ -653,6 +661,8 @@
                       <th>Relationship</th>
                       <th>Email</th>
                       <th>Cell</th>
+                      <th></th>
+                      <th></th>
 
                     </thead>
 
@@ -680,7 +690,7 @@
                           $r1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
                           $relationship = $r1['name'];
 
-                          echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
+                          echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td><td><a >Edit</a></td><td><a >Delete</a></td></tr>";
                         }
 
                       ?>

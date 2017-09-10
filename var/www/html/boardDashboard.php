@@ -1065,7 +1065,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <h4><strong>Pending Agreemnts</strong></h4>
+                    <h4><strong>Pending Agreements</strong></h4>
 
                   </div>
 
@@ -1232,7 +1232,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <h4><strong>Signed Agreemnts</strong></h4>
+                    <h4><strong>Signed Agreements</strong></h4>
 
                   </div>
 
