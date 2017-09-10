@@ -866,7 +866,7 @@
                         {
                           $status = $r['inspection_status_id'];
 
-                          if($status != 2 && $status != 6 && $status != 9 && $status != 14)
+                          if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
                             $inspection_homes++;
                         }
 
