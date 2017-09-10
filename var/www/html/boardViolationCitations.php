@@ -455,15 +455,17 @@
 
                                 <div class='modal-body'>
 
-                                  <form method='post' action='https://hoaboardtime.com/residentSendInspectionNotes.php'>
+                                  <form method='post' action='https://hoaboardtime.com/boardSendInspectionNotes.php'>
                                                             
                                     <div class='row container-fluid'>
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Date : </label>
-                                        <input type='date' name='date' class='form-control' id='date' value='".date('m-d-Y')."' readonly />
-                                        <input type='hidden' name='id' class='form-control' id='id' value='".$id."' />
+                                        <label>Date : </label> $date
+                                        <input type='hidden' name='id' id='id' value='".$id."' />
+                                        <input type='hidden' name='home' id='home' value='".$_SESSION['hoa_address']."' />
+                                        <input type='hidden' name='owner' id='owner' value='".$_SESSION['hoa_username']."' />
+                                        <input type='hidden' name='date' id='date' value='$date' />
 
                                         <br>
 
@@ -471,30 +473,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Inspection Notice : </label>
-                                        <input type='text' name='inspection_notice' class='form-control' id='inspection_notice' value='' readonly />
-
-                                        <br>
-
-                                      </div>
-
-                                    </div>
-
-                                    <div class='row container-fluid'>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Inspection Initial Notice : </label>
-                                        <input type='text' name='initial_notice' class='form-control' id='initial_notice' value='' readonly/>
-
-                                        <br>
-
-                                      </div>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Compliance Date : </label>
-                                        <input type='date' name='compliance_date' class='form-control' id='compliance_date' value='".$compliance_date."' readonly/>
+                                        <label>Inspection Notice : </label> $id
+                                        <input type='hidden' name='inspection_notice' id='inspection_notice' value='$id' />
 
                                         <br>
 
@@ -506,8 +486,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Viewed From : </label>
-                                        <textarea class='form-control' name='viewed_from' id='viewed_from' required readonly>$location</textarea>
+                                        <label>Compliance Date : </label> $compliance_date
+                                        <input type='hidden' name='compliance_date' id='compliance_date' value='".$compliance_date."' />
 
                                         <br>
 
@@ -515,30 +495,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Item : </label>
-                                        <input type='date' name='item' class='form-control' id='item' value='".$item."' readonly/>
-
-                                        <br>
-
-                                      </div>
-
-                                    </div>
-
-                                    <div class='row container-fluid'>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Observation : </label>
-                                        <textarea class='form-control' name='observation' id='observation' readonly>$description</textarea>
-
-                                        <br>
-
-                                      </div>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Home : </label>
-                                        <input type='text' name='home' class='form-control' id='home' value='".$_SESSION['hoa_address']."' readonly/>
+                                        <label>Viewed From : </label> $location
+                                        <input type='hidden' name='viewed_from' id='viewed_from' value='$location' />
 
                                         <br>
 
@@ -550,8 +508,8 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Owner : </label>
-                                        <input type='text' name='owner' class='form-control' id='owner' value='".$_SESSION['hoa_username']."' readonly/>
+                                        <label>Item : </label> $item
+                                        <input type='hidden' name='item' id='item' value='".$item."' />
 
                                         <br>
 
@@ -559,7 +517,20 @@
 
                                       <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                        <label>Inspection Noticen Summary : </label>
+                                        <label>Observation : </label> $description
+                                        <input type='hidden' name='observation' id='observation' value='".$description."' />
+
+                                        <br>
+
+                                      </div>
+
+                                    </div>
+
+                                    <div class='row container-fluid'>
+
+                                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                        <label>Followup Questions / Comments : </label>
                                         <textarea class='form-control' name='notice_summary' placeholder='Max 500 characters' id='notice_summary' required maxlength='500'></textarea>
 
                                         <br>
@@ -568,44 +539,13 @@
 
                                     </div>
 
-                                    <div class='row container-fluid'>
-
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                        <label>Status Requested : </label>
-                                        <select name='status_requested' class='form-control' id='status_requested' required>
-
-                                          <option value='' selected disabled>Select status</option>";
-
-                                          $result111 = pg_query("SELECT * FROM inspection_status");
-
-                                          while ($row111 = pg_fetch_assoc($result111)) 
-                                          {
-                                            $status_id = $row111['id'];
-                                            $inspection_status_name = $row111['inspection_status'];
-
-                                            echo "<option value='".$status_id."'";
-
-                                            if($status == $inspection_status_name)
-                                              echo " selected ";
-
-                                            echo ">".$inspection_status_name."</option>";
-                                          }
-
-                                        echo "</select>
-
-                                        <br>
-
-                                      </div>
-                                                            
-                                    </div>
-
                                     <div class='row text-center'>
 
                                       <br>
                                         
-                                      <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Send</button>
-                                      <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+                                      <button type='submit' name='submit' id='submit' value='3' class='btn btn-success btn-xs'>Send</button>
+
+                                      <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'>Cancel</button>
 
                                     </div>
 
