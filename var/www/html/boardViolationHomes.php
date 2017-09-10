@@ -373,7 +373,7 @@
                         {
 
                           $home_id = $row['home_id'];
-                          $status = $row['inspection_status_id']
+                          $status = $row['inspection_status_id'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
