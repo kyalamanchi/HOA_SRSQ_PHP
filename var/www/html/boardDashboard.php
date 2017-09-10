@@ -425,7 +425,17 @@
           $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='OUT_FOR_SIGNATURE'");
           $pending_agreements = pg_num_rows($result);
 
-          $inspections = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
+          $inspections = 0;
+
+          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'");
+
+          while($row = pg_fetch_assoc($result))
+          {
+            $status = $row['inspection_status_id'];
+
+            if($status != 2 && $status != 6 && $status != 9 && $status != 14)
+              $inspections++;
+          }
 
           $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
 
