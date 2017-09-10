@@ -9,7 +9,7 @@
       	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       	if(@!$_SESSION['hoa_username'])
-      		header("Location: https://hoaboardtime.com/logout.php");
+      		header("Location: logout.php");
 
       	$community_id = $_SESSION['hoa_community_id'];
       	$user_id=$_SESSION['hoa_user_id'];
@@ -18,7 +18,7 @@
     		$num_row = pg_num_rows($result);
 
     		if($num_row == 0)
-    			header("Location: https://hoaboardtime.com/residentDashboard.php");
+    			header("Location: residentDashboard.php");
 
     ?>
 
@@ -46,7 +46,7 @@
 
       	<header class="main-header">
         
-        	<a href="srsq.php" class="logo">
+        	<a class="logo">
           
           		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
           
@@ -331,14 +331,13 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
-          $total_customers = pg_num_rows($result);
+          $result = pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id");
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Members Paid</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Inspection Notices</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
 
@@ -349,7 +348,7 @@
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
-                
+
                 <div class="box-body table-responsive">
                   
                   <table id="example1" class="table table-bordered table-striped">
@@ -358,13 +357,9 @@
                       
                       <tr>
                         
-                        <th>Payment Date</th>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>Confirmation Number</th>
-                        <th>Pay Method</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
+                        <th>Number of Violations</th>
 
                       </tr>
 
@@ -378,7 +373,7 @@
                         {
 
                           $home_id = $row['home_id'];
-                          $address = $row['address1'];
+                          $status = $row['inspection_status_id'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -387,52 +382,22 @@
                           $name .= " ";
                           $name .= $row1['lastname'];
 
-                          $result2 = pg_query("SELECT * FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'");
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
-                          if($result2)
+                          $address = $row1['address1'];
+
+                          $num = 0;
+
+                          $res = pg_query("SELECT * FROM inspection_notices WHERE home_id=$home_id AND hoa_id=$hoa_id");
+
+                          while($ro = pg_fetch_assoc($res))
                           {
-                            
-                            while($row1 = pg_fetch_assoc($result2))
-                            {
-                              
-                              $amount = $row1['amount'];
-                              $confirmation = $row1['document_num'];
-                              $process_date = $row1['process_date'];
-                              $pay_method = $row1['payment_type_id'];
-
-                              $row2 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$pay_method"));
-
-                              $pay_method = $row2['payment_type_name'];
-
-                              if($confirmation == "")
-                                $confirmation = "N/A";
-
-                              $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id"));
-                              $charge = $row2['sum'];
-
-                              $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND home_id=$home_id"));
-                              $payment = $row2['sum'];
-
-                              $balance = $charge - $payment;
-
-                              echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
-
-                            }
-
+                            //if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
+                              $num++;
                           }
-                          else
-                          {  
-                            $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id"));
-                            $charge = $row2['sum'];
-
-                            $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND home_id=$home_id"));
-                            $payment = $row2['sum'];
-
-                            $balance = $charge - $payment;
-
-                            echo "<tr class='text-danger'><td></td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td></td><td></td><td></td><td>$ ".$balance."</td></tr>";
-                          }
-
+                          
+                          echo "<tr><td>".$name." ($hoa_id)</td><td>".$address." ($home_id)</td><td>".$num."</td></tr>";
+                          
                         }
 
                       ?>
@@ -443,13 +408,9 @@
 
                       <tr>
 
-                        <th>Payment Date</th>
                         <th>Name</th>
                         <th>Address</th>
-                        <th>Confirmation Number</th>
-                        <th>Pay Method</th>
-                        <th>Amount</th>
-                        <th>Balance</th>
+                        <th>Number of Active Violations</th>
 
                       </tr>
 

@@ -173,6 +173,17 @@
 
       $violations = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
 
+      $inspections_resolved = 0;
+
+      $res = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id");
+      while ($r = pg_fetch_assoc($res)) 
+      {
+        $status = $r['inspection_status_id'];
+
+        if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
+          $inspection_resolved++;
+      }
+
       $result = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id"));
       $assets = $result['sum'];
 
@@ -675,9 +686,31 @@
                     
                     <div class="inner">
                       
-                      <h3><?php echo $violations; ?></h3>
+                      <h3><?php echo $violations-$inspection_resolved; ?></h3>
 
-                      <p>Inspection Notices(<?php echo $year; ?>)</p>
+                      <p>Inspection Notices(Resolved)</p>
+
+                    </div>
+
+                    <div class="icon">
+
+                      <i style="font-size: 55px;" class="fa fa-exclamation"></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Login to view details'>
+                  
+                  <div class="small-box bg-red">
+                    
+                    <div class="inner">
+                      
+                      <h3><?php echo $inspection_resolved; ?></h3>
+
+                      <p>Inspection Notices(Pending)</p>
 
                     </div>
 

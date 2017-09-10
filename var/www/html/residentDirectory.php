@@ -263,7 +263,7 @@
 
                             $home_id = $row2['home_id'];
 
-                            if($row2['living_status'])
+                            if($row2['living_status'] == 't')
                               $mailing_address = $row2['address1'];
                             else
                             {

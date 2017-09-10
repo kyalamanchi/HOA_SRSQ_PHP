@@ -425,9 +425,21 @@
           $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='OUT_FOR_SIGNATURE'");
           $pending_agreements = pg_num_rows($result);
 
-          $inspections = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND inspection_date>='$year-01-01' AND inspection_date<='$year-12-31'"));
+          $inspections = 0;
+
+          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id");
+
+          while($row = pg_fetch_assoc($result))
+          {
+            $status = $row['inspection_status_id'];
+
+            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
+              $inspections++;
+          }
 
           $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
+
+          $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"))
 
         ?>
         
@@ -646,9 +658,9 @@
 
                   <?php 
 
-                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Amount Received</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Paid Customers</div></div><div class='row text-center'>";
+                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Amount<br>Received</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Paid<br>Customers</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Settling<br>Payments</div></div><div class='row text-center'>";
 
-                    echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCurrentMonthAmountRecieved.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCurrentMonthPaidMembers.php'>".$paid_customers."</a></strong></div>";
+                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthAmountRecieved.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthPaidMembers.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthSettlingMembers.php'>".$settling_customers."</a></strong></div>";
                   ?>
 
                   <br><br>
@@ -831,7 +843,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardViolationCitations.php'>
+              <a href='https://hoaboardtime.com/boardViolationHomes.php'>
 
                 <div class="row container-fluid text-left">
 
@@ -842,6 +854,62 @@
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
                       <img src="inspections.png" height=75 width=75 alt='Inspection Notices'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $inspection_homes = 0;
+                        $res = pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id");
+
+                        while ($r = pg_fetch_assoc($res)) 
+                        {
+                          $status = $r['inspection_status_id'];
+
+                          if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
+                            $inspection_homes++;
+                        }
+
+                        if($inspection_homes > 0)
+                          echo "<h3 class='text-orange'><strong>".$inspection_homes."</strong></h3>"; 
+                        else
+                          echo "<h3 class='text-green'><strong>".$inspection_homes."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <h4><strong>Inspection Homes</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <a href='https://hoaboardtime.com/boardViolationCitations.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Inspection Notices'>
 
                     </div>
 
@@ -999,7 +1067,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <h4><strong>Pending Agreemnts</strong></h4>
+                    <h4><strong>Pending Agreements</strong></h4>
 
                   </div>
 
@@ -1166,7 +1234,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <h4><strong>Signed Agreemnts</strong></h4>
+                    <h4><strong>Signed Agreements</strong></h4>
 
                   </div>
 

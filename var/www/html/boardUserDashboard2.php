@@ -357,7 +357,7 @@
 
                 <div class="box-header">
 
-                  <center><h4><strong>User Details</strong></h4></center>
+                  <center><h4><strong>Owner Details</strong></h4></center>
                   
                   <i class="fa fa-"></i>
 
@@ -609,6 +609,89 @@
                           echo "<td>$address, $city, $state $zip</td>";
 
                         echo "</tr>";
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-success">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Persons</strong></h4></center>
+
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Add Person</a>
+
+                  </div>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table class="table table-bordered">
+
+                    <thead>
+                      <?php
+
+                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+
+                      ?>
+                      
+                      <th>Name</th>
+                      <th>Home</th>
+                      <th>Role</th>
+                      <th>Relationship</th>
+                      <th>Email</th>
+                      <th>Cell</th>
+                      <th></th>
+                      <th></th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        while($r = pg_fetch_assoc($res))
+                        {
+
+                          $role_type = $r['role_type_id'];
+                          $relationship = $r['relationship_id'];
+                          $email = $r['email'];
+                          $cell_no = $r['cell_no'];
+                          $fname = $r['fname'];
+                          $lname = $r['lname'];
+                          $person_home_id = $r['home_id'];
+
+                          $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
+                          $address = $r1['address1'];
+
+                          $r1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
+                          $role_type = $r1['name'];
+
+                          $r1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
+                          $relationship = $r1['name'];
+
+                          echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td><td><a >Edit</a></td><td><a >Delete</a></td></tr>";
+                        }
 
                       ?>
                       
@@ -1044,7 +1127,12 @@
                           $obj = json_decode($result);
 
                           foreach ($obj->results as $key) 
-                            echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
+                          {  
+
+                            if($key->customer_id == $hoa_id)
+                              echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
+                          }
+
                                                                       
                           curl_close($ch);
                           

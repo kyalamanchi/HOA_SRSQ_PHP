@@ -338,7 +338,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Members Paid</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Settling Payments</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
@@ -387,7 +387,7 @@
                           $name .= " ";
                           $name .= $row1['lastname'];
 
-                          $result2 = pg_query("SELECT * FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'");
+                          $result2 = pg_query("SELECT * FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id  AND payment_status_id=8 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'");
 
                           if($result2)
                           {
