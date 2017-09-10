@@ -849,7 +849,16 @@
 
                       <?php 
 
-                        $inspection_homes = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id"));
+                        $inspection_homes = 0;
+                        $res = pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id");
+
+                        while ($r = pg_fetch_assoc($res)) 
+                        {
+                          $status = $r['inspection_status_id'];
+
+                          if($status != 2 && $status != 6 && $status != 9 && $status != 14)
+                            $inspection_homes++;
+                        }
 
                         if($inspection_homes > 0)
                           echo "<h3 class='text-orange'><strong>".$inspection_homes."</strong></h3>"; 
