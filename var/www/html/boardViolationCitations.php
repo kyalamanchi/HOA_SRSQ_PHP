@@ -364,13 +364,7 @@
                         <th>Location</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th>Sub Category</th>
-                        <th>Sub Category Rule</th>
-                        <th>Sub Category Rule Description</th>
-                        <th>Sub Category Rule Explanation</th>
-                        <th>Notice Type</th>
                         <th>Document</th>
-                        <th>Date of Upload</th>
 
                       </tr>
 
@@ -564,7 +558,7 @@
                           if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
                             echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$inspection_date."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$status."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$name."<br>($hoa_id)</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$address."<br>($home_id)</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$location."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$description."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$violation_category."</a></td><td><a data-toggle='modal' data-target='#sendInspectionReply_$id' class='btn-sm'>".$document."</a></td></tr>";
                           else
-                            echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$name."<br>($hoa_id)</td><td>".$address."<br>($home_id)</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                            echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$name."<br>($hoa_id)</td><td>".$address."<br>($home_id)</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
                           
                         }
 
@@ -583,13 +577,7 @@
                         <th>Location</th>
                         <th>Description</th>
                         <th>Category</th>
-                        <th>Sub Category</th>
-                        <th>Sub Category Rule</th>
-                        <th>Sub Category Rule Description</th>
-                        <th>Sub Category Rule Explanation</th>
-                        <th>Notice Type</th>
                         <th>Document</th>
-                        <th>Date of Upload</th>
 
                       </tr>
 
