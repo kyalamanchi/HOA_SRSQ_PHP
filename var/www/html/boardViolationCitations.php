@@ -420,13 +420,6 @@
 
                           $violation_category = $row1['name'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_sub_category WHERE id=$violation_sub_category"));
-
-                          $violation_sub_category = $row1['name'];
-                          $violation_sub_category_rule = $row1['rule'];
-                          $violation_sub_category_rule_description = $row1['rule_description'];
-                          $violation_sub_category_rule_explanation = $row1['explanation'];
-
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
 
                           $location = $row1['location'];
