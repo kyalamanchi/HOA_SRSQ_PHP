@@ -1,6 +1,6 @@
 <?php
 	$rss = new DOMDocument();
-	$rss->load('http://stonerdigesquare.org/feed/');
+	$rss->load('https://stoneridgesquare.org/feed/');
 	$feed = array();
 	foreach ($rss->getElementsByTagName('item') as $node) {
 		$item = array ( 
