@@ -632,6 +632,79 @@
 
                 <div class="box-header">
 
+                  <center><h4><strong>Persons</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table class="table table-bordered">
+
+                    <thead>
+                      <?php
+
+                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+
+                      ?>
+                      
+                      <th>Name</th>
+                      <th>Home</th>
+                      <th>Role</th>
+                      <th>Relationship</th>
+                      <th>Email</th>
+                      <th>Cell</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        while($r = pg_fetch_assoc($res))
+                        {
+
+                          $role_type = $row['role_type_id'];
+                          $relationship = $row['relationship_id'];
+                          $email = $row['email'];
+                          $cell_no = $row['cell_no'];
+                          $fname = $row['fname'];
+                          $lname = $row['lname'];
+                          $person_home_id = $row['home_id'];
+
+                          $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
+                          $address = $row['address1'];
+
+                          $r1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
+                          $role_type = $row['name'];
+
+                          $r1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
+                          $relationship = $row['name'];
+
+                          echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
+                        }
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-success">
+
+                <div class="box-header">
+
                   <center><h4><strong>Payment Details</strong></h4></center>
 
                 </div>
