@@ -524,9 +524,8 @@
 		echo '<div class="box-header">';
         echo '<i class="fa fa-comments-o"></i>';
 		echo '<h3 class="box-title">'.$title.'</h3>';
-		echo '<div class="row">';
+		echo '<br>';
 		echo '<small><em>Posted on '.$date.'</em></small></p>';
-        echo '</div>';		
         echo '<div class="pull-right box-tools">';
         echo '<button type="button" class="btn btn-info btn-sm pull-right" data-widget="collapse" data-toggle="tooltip" title="Collapse" style="margin-right: 5px;"><i class="fa fa-minus"></i></button>';
 		echo '</div>';
