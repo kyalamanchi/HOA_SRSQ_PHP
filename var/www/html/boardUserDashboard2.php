@@ -357,7 +357,7 @@
 
                 <div class="box-header">
 
-                  <center><h4><strong>User Details</strong></h4></center>
+                  <center><h4><strong>Owner Details</strong></h4></center>
                   
                   <i class="fa fa-"></i>
 
