@@ -663,22 +663,22 @@
                         while($r = pg_fetch_assoc($res))
                         {
 
-                          $role_type = $row['role_type_id'];
-                          $relationship = $row['relationship_id'];
-                          $email = $row['email'];
-                          $cell_no = $row['cell_no'];
-                          $fname = $row['fname'];
-                          $lname = $row['lname'];
-                          $person_home_id = $row['home_id'];
+                          $role_type = $r['role_type_id'];
+                          $relationship = $r['relationship_id'];
+                          $email = $r['email'];
+                          $cell_no = $r['cell_no'];
+                          $fname = $r['fname'];
+                          $lname = $r['lname'];
+                          $person_home_id = $r['home_id'];
 
                           $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
-                          $address = $row['address1'];
+                          $address = $r1['address1'];
 
                           $r1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
-                          $role_type = $row['name'];
+                          $role_type = $r1['name'];
 
                           $r1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
-                          $relationship = $row['name'];
+                          $relationship = $r1['name'];
 
                           echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
                         }
