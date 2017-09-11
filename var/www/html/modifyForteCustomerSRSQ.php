@@ -55,7 +55,7 @@ function hidePleaseWait() {
         echo '<label for="fname">First Name:</label>';
         echo '<input type="text" class="form-control" id="fname" style="width: 35%;" value="'.$jsonResult->first_name.'">';
         echo '<label for="lname">Last Name:</label>';
-        echo '<input type="text" class="form-control" id="lname" style="width: 35%;" value="'.$jsonResult->first_name.'">';
+        echo '<input type="text" class="form-control" id="lname" style="width: 35%;" value="'.$jsonResult->last_name.'">';
         echo '</div>';
       ?>   
 </div>
