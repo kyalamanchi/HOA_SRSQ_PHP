@@ -140,7 +140,7 @@ function deleteCustomer(obj){
   // showPleaseWait();
   request.onreadystatechange = function(){
     if(request.readyState == XMLHttpRequest.DONE){
-      hidePleaseWait();
+      // hidePleaseWait();
       alert(request.responseText);
     }
   }
