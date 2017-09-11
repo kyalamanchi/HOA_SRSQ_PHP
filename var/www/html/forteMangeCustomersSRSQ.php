@@ -38,12 +38,22 @@
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
+
+function modifyCustomer(button){
+  window.alert(button.value);
+}
+
+function deleteCustomer(button){
+  window.alert(button.value);
+}
+
+
+
 </script>
 </head>
 <body>
 <div class="container">
   <h2>Forte Mange Customers</h2>
-  <button onclick="showPleaseWait();"></button>
 </div>
 <div class="container"> 
         <table id="example" class="table table-striped" cellspacing="0" width="100%" >
