@@ -44,6 +44,7 @@ function modifyCustomer(button){
 }
 
 function deleteCustomer(button){
+  showPleaseWait();
   jsonObj = [];
   item = {};
   item["customer_token"] = button.id;
@@ -53,7 +54,6 @@ function deleteCustomer(button){
   request.open("POST", "https://hoaboardtime.com/deleteSrsqForteCustomer.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
-  showPleaseWait();
   request.onreadystatechange = function () {
         if (request.readyState == XMLHttpRequest.DONE) {
             hidePleaseWait();
