@@ -204,7 +204,7 @@ function modifyCustomer(obj){
           echo '</td>';
           echo '<td>';
           echo '<input type="button" id="'.$customerToken.'" value="Modify" onclick="modifyCustomer(this);">';
-          echo '<input type="button" id="'.$customerToken.'" value="Delete" onclick="deleteCustomer(this);">';
+          echo '<input type="button" id="'.$customerToken.'" value="Modify" onclick="modifyCustomer(this);">';
           echo '</td>';
           echo '</tr>';
         }
