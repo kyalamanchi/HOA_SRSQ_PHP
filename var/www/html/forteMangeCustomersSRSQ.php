@@ -99,6 +99,9 @@ input:checked + .slider:before {
 }
 </style>
 <script type="text/javascript">
+<?php
+  
+?>
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -122,16 +125,6 @@ function showPleaseWait() {
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
-<?php
-$url = "https://api.forte.net/v3/organizations/org_332536/customers?page_size=1000";
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        $result = curl_exec($ch);
-        curl_close($ch);
-        $jsonResult = json_decode($result);
-?>
 function deleteCustomer(obj){
   var customerToken = obj.id;
   jsonObj = [];
@@ -178,6 +171,14 @@ function modifyCustomer(obj){
         </thead>  
         <tbody>  
           <?php
+          $url = "https://api.forte.net/v3/organizations/org_332536/customers?page_size=1000";
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $jsonResult = json_decode($result);
           foreach ($jsonResult->results as $customer) {
           $customerToken = $customer->customer_token;
           echo '<tr>';
