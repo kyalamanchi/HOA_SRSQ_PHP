@@ -31,15 +31,78 @@
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
-  function test(){
-  showPleaseWait();
-  }
-  </script>
+</script>
 </head>
 <body>
 <div class="container">
   <h2>Forte Mange Customers</h2>
-  <button type="button" onclick="test();">Open Modal</button>
+  <button onclick="showPleaseWait();"></button>
+</div>
+<div class="container"> 
+        <table id="example" class="table table-striped" cellspacing="0" width="100%" >
+                                <thead>
+                                    <tr>
+                                       <center>
+                                       <th>Customer ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                       </center>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td>
+                                    1
+                                  </td>
+                                  <td>
+                                    1
+                                  </td>
+                                  <td>
+                                    1
+                                  </td>
+                                  <td>
+                                    1
+                                  </td>
+                                  <td>
+                                    1
+                                  </td>
+                                  <td>
+                                    1
+                                  </td>
+                                </tr>
+</tbody>
+</table>
+<script type="text/javascript">
+        $(document).ready(function() {
+              $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'My button',
+                action: function ( e, dt, node, config ) {
+                    alert( 'Button activated' );
+                }
+            }
+            ]
+            } ); 
+            var table = $('#example').DataTable({
+            dom: 'l<"toolbar">frtip',
+            initComplete: function(){
+            $('.datatable').dataTable({
+                "sPaginationType": "bs_four_button"
+            }); 
+            $('.datatable').each(function(){
+                var datatable = $(this);
+                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+                search_input.attr('placeholder', 'Search');
+                search_input.addClass('form-control input-sm');
+                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+                length_sel.addClass('form-control input-sm');
+            });
+</script>
 </div>
 </body>
 </html>
