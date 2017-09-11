@@ -33,8 +33,6 @@
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
-
-
 </script>
 </head>
 <body>
