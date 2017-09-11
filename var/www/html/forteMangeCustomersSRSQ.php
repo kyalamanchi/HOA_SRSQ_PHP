@@ -171,6 +171,8 @@ function modifyCustomer(obj){
         </thead>  
         <tbody>  
           <?php
+          error_reporting(E_ALL);
+          ini_set('display_errors', 1);
           $url = "https://api.forte.net/v3/organizations/org_332536/customers?page_size=1000";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -193,7 +195,6 @@ function modifyCustomer(obj){
           echo '</td>';
           echo '<td>';
           echo $customer->addresses[0]->physical_address->street_line1;
-          // echo $customer->addresses[0]->physical_address->street_line1.' '.$customer->addresses[0]->physical_address->locality.' '.$customer->addresses[0]->physical_address->region.' '.$customer->addresses[0]->physical_address->postal_code;
           echo '</td>';
           echo '<td>';
           echo $customer->status;
