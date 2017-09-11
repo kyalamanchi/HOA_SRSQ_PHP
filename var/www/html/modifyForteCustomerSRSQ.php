@@ -50,7 +50,7 @@ function hidePleaseWait() {
         $result = curl_exec($ch);
         $jsonResult = json_decode($result);
         echo '<h4 style="float:left;">'.$jsonResult->display_name.'</h2>';
-        echo '<h4 style="float:right;">Last Updated Date: '.date('Y-m-d H:i:s',strtotime($jsonResult->updated_date)).'</h2>';
+        echo '<h4 style="float:right;">Last Updated : '.date('Y-m-d H:i:s',strtotime($jsonResult->updated_date)).'</h2>';
         echo '<hr style="clear:both;">';
         echo '<div class="form-group">';
         echo '<label for="fname">First Name:</label>';
@@ -62,7 +62,8 @@ function hidePleaseWait() {
         echo '<label for="customerid">Customer ID</label>';
         echo '<input type="text" class="form-control" id="customerid" style="width: 35%;" value="'.$jsonResult->customer_id.'">';
         echo '<br>';
-        echo '<select class="selectpicker" data-show-subtext="true" data-live-search="true" id="signatureFlow">
+        echo '<label for="status">Status (Current Status : '.$jsonResult->status.')</label>';
+        echo '<select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status">
         <option data-subtext="">ACTIVE</option>
         <option data-subtext="">SUSPENDED</option>
       </select>';
