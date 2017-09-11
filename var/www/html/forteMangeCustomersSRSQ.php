@@ -3,6 +3,7 @@
   <title>Forte Mange Customers - SRSQ</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
 <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script><style>
