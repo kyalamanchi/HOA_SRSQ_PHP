@@ -49,8 +49,9 @@ function hidePleaseWait() {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $result = curl_exec($ch);
         $jsonResult = json_decode($result);
-        echo '<h4>'.$jsonResult->display_name.'</h2>';
-        echo '<hr>';
+        echo '<h4 style="float:left;">'.$jsonResult->display_name.'</h2>';
+        echo '<h4 style="float:right;">Last Updated Date: '.$jsonResult->updated_date.'</h2>';
+        echo '<hr style="clear:both;">';
         echo '<div class="form-group">';
         echo '<label for="fname">First Name:</label>';
         echo '<input type="text" class="form-control" id="fname" style="width: 35%;" value="'.$jsonResult->first_name.'">';
