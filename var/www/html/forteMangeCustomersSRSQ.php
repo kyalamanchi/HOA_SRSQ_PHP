@@ -44,10 +44,22 @@ function modifyCustomer(button){
 }
 
 function deleteCustomer(button){
-  window.alert(button.id);
+  jsonObj = [];
+  item = {};
+  item["customer_token"] = button.id;
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://hoaboardtime.com/deleteSrsqForteCustomer.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(lol);
+  showPleaseWait();
+  request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            hidePleaseWait();
+            alert(request.responseText);
+        }
+        }
+
 }
-
-
 
 </script>
 </head>
@@ -91,10 +103,20 @@ function deleteCustomer(button){
           echo $customer->display_name;
           echo '</td>';
           echo '<td>';
+          if ($customer->addresses[0]->email){
           echo $customer->addresses[0]->email;
+          }
+          else {
+          echo "";
+          }
           echo '</td>';
           echo '<td>';
+          if ($customer->addresses[0]->physical_address->street_line1){
           echo $customer->addresses[0]->physical_address->street_line1;
+          }
+          else {
+          echo "";
+          }
           echo '</td>';
           echo '<td>';
           echo $customer->status;
