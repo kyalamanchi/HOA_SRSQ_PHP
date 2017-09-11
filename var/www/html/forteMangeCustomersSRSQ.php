@@ -128,7 +128,6 @@ function hidePleaseWait() {
 function deleteCustomer(obj){
   var customerToken = obj.id;
   window.alert(customerToken);
-
   jsonObj = [];
   item = {};
   item['customer_token']  = customerToken;
