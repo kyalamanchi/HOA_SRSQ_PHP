@@ -40,11 +40,11 @@ function hidePleaseWait() {
 }
 
 function modifyCustomer(button){
-  window.alert(button.value);
+  window.alert(button.id);
 }
 
 function deleteCustomer(button){
-  window.alert(button.value);
+  window.alert(button.id);
 }
 
 
