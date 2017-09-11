@@ -8,7 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
+  <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
 
 
 
@@ -60,46 +60,42 @@ function hidePleaseWait() {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                  <td>
-                                    1
-                                  </td>
-                                </tr>
+                                <?php
+          error_reporting(E_ALL);
+          ini_set('display_errors', 1);
+          $url = "https://api.forte.net/v3/organizations/org_332536/customers?page_size=1000";
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $result = curl_exec($ch);
+        curl_close($ch);
+        $jsonResult = json_decode($result);
+          foreach ($jsonResult->results as $customer) {
+          $customerToken = $customer->customer_token;
+          echo '<tr>';
+          echo '<td>';
+          echo $customer->customer_id;
+          echo '</td>';
+          echo '<td>';
+          echo $customer->display_name;
+          echo '</td>';
+          echo '<td>';
+          echo $customer->addresses[0]->email;
+          echo '</td>';
+          echo '<td>';
+          echo $customer->addresses[0]->physical_address->street_line1;
+          echo '</td>';
+          echo '<td>';
+          echo $customer->status;
+          echo '</td>';
+          echo '<td>';
+          echo '<input type="button" id="'.$customerToken.'" value="Modify" onclick="modifyCustomer(this);">';
+          echo '<input type="button" id="'.$customerToken.'" value="Delete" onclick="deleteCustomer(this);">';
+          echo '</td>';
+          echo '</tr>';
+        }
+          ?>
 </tbody>
 </table>
 <script type="text/javascript">
