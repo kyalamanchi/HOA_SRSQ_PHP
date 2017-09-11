@@ -129,22 +129,22 @@ function deleteCustomer(obj){
   var customerToken = obj.id;
   window.alert(customerToken);
 
-  // jsonObj = [];
-  // item = {};
-  // item['customer_token']  = customerToken;
-  // jsonObj.push(item);
-  // jsonString = JSON.stringify(jsonObj);
-  // var request = new XMLHttpRequest();
-  // request.open("POST","https://hoaboardtime.com/deleteSrsqForteCustomer.php",true);
-  // request.setRequestHeader("Content-type","application/json");
-  // request.send(jsonString);
+  jsonObj = [];
+  item = {};
+  item['customer_token']  = customerToken;
+  jsonObj.push(item);
+  jsonString = JSON.stringify(jsonObj);
+  var request = new XMLHttpRequest();
+  request.open("POST","https://hoaboardtime.com/deleteSrsqForteCustomer.php",true);
+  request.setRequestHeader("Content-type","application/json");
+  request.send(jsonString);
   // showPleaseWait();
-  // request.onreadystatechange = function(){
-  //   if(request.readyState == XMLHttpRequest.DONE){
-  //     hidePleaseWait();
-  //     alert(request.responseText);
-  //   }
-  // }
+  request.onreadystatechange = function(){
+    if(request.readyState == XMLHttpRequest.DONE){
+      hidePleaseWait();
+      alert(request.responseText);
+    }
+  }
 }
 function modifyCustomer(obj){
   showPleaseWait();
