@@ -47,6 +47,8 @@ function deleteCustomer(button){
   jsonObj = [];
   item = {};
   item["customer_token"] = button.id;
+  jsonObj.push(item);
+  lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
   request.open("POST", "https://hoaboardtime.com/deleteSrsqForteCustomer.php", true);
   request.setRequestHeader("Content-type", "application/json");
