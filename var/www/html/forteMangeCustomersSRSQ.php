@@ -127,7 +127,6 @@ function hidePleaseWait() {
 }
 function deleteCustomer(obj){
   var customerToken = obj.id;
-  showPleaseWait();
   window.alert(customerToken);
 
   // jsonObj = [];
@@ -148,7 +147,7 @@ function deleteCustomer(obj){
   // }
 }
 function modifyCustomer(obj){
-  // showPleaseWait();
+  showPleaseWait();
   window.alert(obj.id);
 }
 
@@ -204,7 +203,7 @@ function modifyCustomer(obj){
           echo '</td>';
           echo '<td>';
           echo '<input type="button" id="'.$customerToken.'" value="Modify" onclick="modifyCustomer(this);">';
-          echo '<input type="button" id="'.$customerToken.'" value="Modify" onclick="modifyCustomer(this);">';
+          echo '<input type="button" id="'.$customerToken.'" value="Delete" onclick="deleteCustomer(this);">';
           echo '</td>';
           echo '</tr>';
         }
