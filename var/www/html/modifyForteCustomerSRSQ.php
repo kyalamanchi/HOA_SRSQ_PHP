@@ -63,6 +63,7 @@ function hidePleaseWait() {
         echo '<input type="text" class="form-control" id="customerid" style="width: 35%;" value="'.$jsonResult->customer_id.'">';
         echo '<br>';
         echo '<label for="status">Status (Current Status : '.$jsonResult->status.')</label>';
+        echo '<br>';
         echo '<select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status">
         <option data-subtext="">ACTIVE</option>
         <option data-subtext="">SUSPENDED</option>
