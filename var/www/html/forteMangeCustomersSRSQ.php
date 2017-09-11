@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Forte Mange Customers</title>
+  <title>Forte Manage Customers</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -40,7 +40,9 @@ function hidePleaseWait() {
 }
 
 function modifyCustomer(button){
-  window.alert(button.id);
+  // window.alert(button.id);
+  var url  = "https://hoaboardtime.com/modifyForteCustomerSRSQ.php?id="+button.id;
+  window.alert(url);
 }
 
 function deleteCustomer(button){
@@ -68,6 +70,7 @@ function deleteCustomer(button){
 <body>
 <div class="container">
   <h2>Forte Mange Customers</h2>
+  <hr>
 </div>
 <div class="container"> 
         <table id="example" class="table table-striped" cellspacing="0" width="100%" >
