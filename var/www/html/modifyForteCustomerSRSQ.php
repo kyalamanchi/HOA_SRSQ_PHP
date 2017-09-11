@@ -48,7 +48,10 @@ function hidePleaseWait() {
           curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $result = curl_exec($ch);
-        print_r($result);
+        $jsonResult = json_decode($result);
+        echo '<h4>'.$jsonResult->display_name.'</h2>';
+        echo '<hr>';
+
       ?>   
 </div>
 </body>
