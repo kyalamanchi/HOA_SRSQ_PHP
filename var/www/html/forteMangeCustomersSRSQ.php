@@ -156,20 +156,21 @@ function modifyCustomer(obj){
       <hr style="clear: both;">
     </div>
     <div>
-      <table id="myTable" class="table table-striped" style="font-size: 14">  
-        <thead>  
-          <tr>  
-            <th>Customer ID</th>  
-            <th>Name</th>  
-            <th>Email</th>  
-            <th>Address</th> 
-            <th>Status</th>
-            <th></th>
-          </tr>  
-        </thead>  
-        <tbody>  
-          <tr>
-            
+      <table id="example" class="table table-striped" cellspacing="0" width="100%" >
+                                <thead>
+                                    <tr>
+                                       <center>
+                                       <th>Customer ID</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                       </center>
+                                    </tr>
+                                </thead>
+                                <tbody>
+          <tr>            
             <td>1</td>
             <td>2</td>
             <td>2</td>
@@ -177,12 +178,48 @@ function modifyCustomer(obj){
             <td>2</td>
           </tr>
         </tbody>  
-      </table>  
-
-      <script>
-$(document).ready(function(){
-    $('#myTable').dataTable();
-});
+      </table>
+      <script type="text/javascript">
+        $(document).ready(function() {
+              $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'My button',
+                action: function ( e, dt, node, config ) {
+                    alert( 'Button activated' );
+                }
+            }
+            ]
+            } ); 
+            var table = $('#example').DataTable({
+            dom: 'l<"toolbar">frtip',
+            initComplete: function(){
+            $('.datatable').dataTable({
+                "sPaginationType": "bs_four_button"
+            }); 
+            $('.datatable').each(function(){
+                var datatable = $(this);
+                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
+                search_input.attr('placeholder', 'Search');
+                search_input.addClass('form-control input-sm');
+                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
+                length_sel.addClass('form-control input-sm');
+            });
+        </script>
+        <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
+        <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
+        <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#example').DataTable();
+            } );
+        </script> 
+<script type="text/javascript">
+    function changeState(el) {
+        if (el.readOnly) el.checked=el.readOnly=false;
+        else if (!el.checked) el.readOnly=el.indeterminate=true;
+    }
 </script>
     </div>
   </div>
