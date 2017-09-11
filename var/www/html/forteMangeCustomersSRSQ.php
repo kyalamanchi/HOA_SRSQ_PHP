@@ -176,6 +176,7 @@ function modifyCustomer(obj){
             <td>2</td>
             <td>2</td>
             <td>2</td>
+            <td>2</td>
           </tr>
         </tbody>  
       </table>
