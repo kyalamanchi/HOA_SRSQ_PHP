@@ -236,9 +236,6 @@ function modifyCustomer(obj){
                 length_sel.addClass('form-control input-sm');
             });
         </script>
-        <script src='https://code.jquery.com/jquery-1.12.4.js'></script>
-        <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
-        <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('#example').DataTable();
