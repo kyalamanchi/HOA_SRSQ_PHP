@@ -53,7 +53,7 @@ function hidePleaseWait() {
         echo '<hr>';
         echo '<div class="form-group">';
         echo '<label for="fname">First Name:</label>';
-        echo '<input type="text" class="form-control" id="fname">';
+        echo '<input type="text" class="form-control" id="fname" style="width: 45%;">';
         echo '</div>';
       ?>   
 </div>
