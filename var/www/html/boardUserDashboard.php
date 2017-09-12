@@ -367,6 +367,8 @@
 
                           <th>Name</th>
                           <th>HOA ID</th>
+                          <th>Address</th>
+                          <th>Home ID</th>
 
                         </thead>
 
@@ -381,6 +383,7 @@
                             while($row = pg_fetch_assoc($result))
                             {
                               $home_id = $row['home_id'];
+                              $address = $row['address1'];
 
                               $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -388,7 +391,7 @@
                               $firstname = $row1['firstname'];
                               $lastname = $row1['lastname'];
 
-                              echo "<tr><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$hoa_id."</a></td></tr>";
+                              echo "<tr><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$address."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$home_id."</a></td></tr>";
                             }
 
                           ?>
