@@ -432,7 +432,7 @@
                               if($living_status != 't')
                                 echo " class='text-red' ";
 
-                              echo "><td><input type='checkbox' name='recipients[]' id='recipients' value='$home_id'></td><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$home_pay_method</td><td>$ $balance</td></tr>";
+                              echo "><td><input type='checkbox' name='recipients[]' id='recipients' value='$home_id'></td><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$home_pay_method</td><td>$ $balance</td></tr>";
                             }
 
                           }
