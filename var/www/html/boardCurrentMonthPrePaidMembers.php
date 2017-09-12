@@ -380,6 +380,7 @@
 
                           $home_id = $row['home_id'];
                           $address = $row['address1'];
+                          $living_status = $row['living_status'];
                           
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -398,7 +399,12 @@
 
                           $balance = $charges - $payments;
 
-                          echo "<tr><td>".$name." ( $hoa_id )</td><td>".$address." ( $home_id )</td><td>$ ".$balance."</td></tr>";
+                          echo "<tr";
+
+                          if($living_status != 't')
+                            echo " class='text-red'";
+
+                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name." ( $hoa_id )</a></td><td>".$address." ( $home_id )</td><td>$ ".$balance."</td></tr>";
                           
                         }
 
