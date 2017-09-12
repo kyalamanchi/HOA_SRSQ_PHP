@@ -385,6 +385,7 @@
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                           $address = $row1['address1'];
+                          $living_status = $row1['living_status'];
 
                           $num = 0;
 
@@ -396,7 +397,12 @@
                               $num++;
                           }
                           
-                          echo "<tr><td>".$name." ($hoa_id)</td><td>".$address." ($home_id)</td><td>".$num."</td></tr>";
+                          echo "<tr";
+
+                          if($living_status != 't')
+                            echo " class='text-red' ";
+
+                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name." ($hoa_id)</a></td><td>".$address." ($home_id)</td><td>".$num."</td></tr>";
                           
                         }
 
