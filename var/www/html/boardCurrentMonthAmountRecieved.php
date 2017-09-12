@@ -429,6 +429,7 @@
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                           $address = $row1['address1'];
+                          $living_status = $row1['living_status'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$pay_method"));
 
@@ -437,7 +438,12 @@
                           if($confirmation == "")
                             $confirmation = "N/A";
 
-                          echo "<tr><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
+                          echo "<tr";
+
+                          if($living_status != 't')
+                            echo " class='red-text' ";
+
+                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
 
                         }
 
