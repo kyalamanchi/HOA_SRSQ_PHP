@@ -727,12 +727,12 @@
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                               <label>First Name</label>
-                              <input type='text' class="form-control" name='edit_firstname' id='edit_firstname' value="<?php echo $firstname; ?>" required>
+                              <input type='text' class="form-control" name='person_firstname' id='person_firstname' required>
                             </div>
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                               <label>Last Name</label>
-                              <input type='text' class="form-control" name='edit_lastname' id='edit_lastname' value="<?php echo $lastname; ?>" required>
+                              <input type='text' class="form-control" name='person_lastname' id='person_lastname' required>
                             </div>
 
                           </div>
@@ -743,12 +743,12 @@
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                               <label>Phone</label>
-                              <input type='number' class="form-control" name='edit_cell_no' id='edit_cell_no' value="<?php echo $cell_no; ?>" required>
+                              <input type='number' class="form-control" name='person_cell_no' id='person_cell_no' required>
                             </div>
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                               <label>Email</label>
-                              <input type='email' class="form-control" name='edit_email' id='edit_email' value="<?php echo $email; ?>" required>
+                              <input type='email' class="form-control" name='person_email' id='person_email' required>
                             </div>
 
                           </div>
@@ -759,7 +759,7 @@
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                               <label>Role Type</label>
-                              <select name='role_type' id='role_type' required>
+                              <select class="form-control" name='role_type' id='role_type' required>
                                 <option value="" selected disabled>Select Role Type</option>
                                 <?php
                                   $res = pg_query("SELECT * FROM role_type");
@@ -777,7 +777,7 @@
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                               <label>Relationship</label>
-                              <select name='relationship' id='relationship' required>
+                              <select class="form-control" name='relationship' id='relationship' required>
                                 <option value="" selected disabled>Select Relationship</option>
                                 <?php
                                   $res = pg_query("SELECT * FROM relationship");
