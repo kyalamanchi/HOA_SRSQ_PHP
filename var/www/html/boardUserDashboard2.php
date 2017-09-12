@@ -790,7 +790,7 @@
                                             
                                           echo "</select>
 
-                                          <input type='text' name='person_id' id='person_id' value='$person_id'>
+                                          <input type='hidden' name='person_id' id='person_id' value='$person_id'>
                                         </div>
 
                                       </div>
@@ -888,7 +888,7 @@
                               <select class="form-control" name='role_type' id='role_type' required>
                                 <option value="" selected disabled>Select Role Type</option>
                                 <?php
-                                  $res = pg_query("SELECT * FROM role_type");
+                                  $res = pg_query("SELECT * FROM role_type ORDER BY name");
 
                                   while ($r = pg_fetch_assoc($res)) 
                                   {
@@ -906,7 +906,7 @@
                               <select class="form-control" name='relationship' id='relationship' required>
                                 <option value="" selected disabled>Select Relationship</option>
                                 <?php
-                                  $res = pg_query("SELECT * FROM relationship");
+                                  $res = pg_query("SELECT * FROM relationship ORDER BY name");
 
                                   while ($r = pg_fetch_assoc($res)) 
                                   {
