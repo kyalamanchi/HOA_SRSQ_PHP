@@ -583,8 +583,6 @@
 
             <div class="box-header">
 
-              <center><h4><strong>Persons</strong></h4></center>
-
               <i class="fa fa-"></i>
 
               <div class="box-tools pull-right">
@@ -811,7 +809,7 @@
 
                         ";
 
-                    echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
+                    echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role_type</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
                   }
 
                 ?>
