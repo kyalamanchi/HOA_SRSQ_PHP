@@ -153,7 +153,7 @@ function cancel(){
       </div>
       <div style="clear: both;"></div>
       <div class="row-fluid" style="float: left;padding-left: 10">
-      <h4>Card Type</h4>
+      <h6>Card Type</h6>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="ctype">
         <option data-subtext="">visa</option>
         <option data-subtext="">amex</option>
@@ -163,6 +163,9 @@ function cancel(){
         <option data-subtext="">jcb</option>
       </select>
     </div>
+    <br>
+    <br>
+    <br>
       
 </div>
 </body>
