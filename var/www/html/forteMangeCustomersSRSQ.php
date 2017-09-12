@@ -10,10 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
 
-
-
-
-
   <script type="text/javascript">
   function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
@@ -63,6 +59,9 @@ function deleteCustomer(button){
         }
         }
 }
+function createCustomer(){
+  alert("Creating customer");
+}
 </script>
 </head>
 <body>
@@ -71,6 +70,7 @@ function deleteCustomer(button){
   <hr>
 </div>
 <div class="container"> 
+<button type="button" class="btn btn-primary" onclick="createCustomer();">Create Customer</button>
         <table id="example" class="table table-striped" cellspacing="0" width="100%" >
                                 <thead>
                                     <tr>
@@ -85,9 +85,7 @@ function deleteCustomer(button){
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <?php
-          // error_reporting(E_ALL);
-          // ini_set('display_errors', 1);
+<?php
           $url = "https://api.forte.net/v3/organizations/org_332536/customers?page_size=1000";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -145,7 +143,7 @@ function deleteCustomer(button){
                 }
             }
             ]
-            } ); 
+            }); 
             var table = $('#example').DataTable({
             dom: 'l<"toolbar">frtip',
             initComplete: function(){
