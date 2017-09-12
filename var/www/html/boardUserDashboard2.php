@@ -790,7 +790,7 @@
                                             
                                           echo "</select>
 
-                                          <input type='text' name='person_id' id='person_id' value='$person_id>'>
+                                          <input type='text' name='person_id' id='person_id' value='$person_id'>
                                         </div>
 
                                       </div>
@@ -843,7 +843,7 @@
 
                     </div>
 
-                    <form class="row" method="post" action="https://hoaboardtime.com/boardEditHOAID.php">
+                    <form class="row" method="post" action="https://hoaboardtime.com/boardAddPerson.php">
                                             
                       <div class="modal-body">
                                                 
@@ -919,6 +919,7 @@
                               </select>
 
                               <input type='hidden' name='hoa_id' id='hoa_id' value="<?php echo $hoa_id; ?>">
+                              <input type='hidden' name='home_id' id='home_id' value="<?php echo $home_id; ?>">
                             </div>
 
                           </div>
