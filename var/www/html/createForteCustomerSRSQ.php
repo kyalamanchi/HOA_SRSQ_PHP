@@ -95,7 +95,7 @@ function cancel(){
       </div>
       <div style="clear: both;"></div>
       <br>
-      <div class="form-group" style="float: left; padding-left:10px">
+      <div class="form-group" style="float: left;">
         <label for="satype">Shipping Address Type</label>
         <input type="text" class="form-control" id="satype" >
       </div>
@@ -105,6 +105,53 @@ function cancel(){
       </div>
       <div style="clear: both;"></div>
       <br>
+      <div class="form-group"">
+        <label for="ad1">Address Line 1</label>
+        <input type="text" class="form-control" id="ad1" >
+      </div>
+      <br>
+      <div class="form-group"">
+        <label for="ad2">Address Line 2</label>
+        <input type="text" class="form-control" id="ad2" >
+      </div>
+      <br>
+      <div class="form-group"">
+        <label for="locality">Locality</label>
+        <input type="text" class="form-control" id="locality" >
+      </div>
+      <div class="form-group"">
+        <label for="region">Region</label>
+        <input type="text" class="form-control" id="region" >
+      </div>
+      <div class="form-group"">
+        <label for="pcode">Postal Code</label>
+        <input type="text" class="form-control" id="pcode" >
+      </div>
+      <br>
+      <h3>Paymethod</h3>
+      <div class="form-group"">
+        <label for="paylabel">Label</label>
+        <input type="text" class="form-control" id="paylabel">
+      </div>
+      <br>
+      <div class="form-group"">
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" id="notes" >
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="acnum">Account Number</label>
+        <input type="text" class="form-control" id="acnum" >
+      </div>
+      <div class="form-group" style="float: left;">
+        <label for="month">Expiry Month</label>
+        <input type="text" class="form-control" id="month" >
+      </div>
+      <div class="form-group" style="float: left;padding-left: 10px;">
+        <label for="year">Expiry Year</label>
+        <input type="text" class="form-control" id="year" >
+      </div>
+      
 
 
       
