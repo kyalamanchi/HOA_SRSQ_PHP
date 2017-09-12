@@ -443,8 +443,6 @@
                               else
                               {  
 
-                                $k = $k+1;
-
                                 echo "
 
                                 <div class='modal fade hmodal-success' id='addHOAId_".$id."' role='dialog'  aria-hidden='true'>
@@ -521,6 +519,8 @@
                                                 <br><br>
 
                                                 <center><input type='checkbox' name='board_document' id='board_document' value='Yes'> <label> Is board document?</label></center>
+
+                                                <input type='hidden' name='flag' id='flag' value='1'>
 
                                               </div>
 

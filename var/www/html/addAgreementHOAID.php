@@ -9,6 +9,7 @@
     $vendor_id = $_POST['select_vendor'];
 	$document_to = $_POST['document_to'];
 	$is_board_document = $_POST['board_document'];
+	$flag = $_POST['flag'];
 
 	if($is_board_document == "Yes")
 		$is_board_document = 't';
@@ -52,5 +53,8 @@
 
 	}
 
-	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'},1000);</script>"
+	if($flag == 1)
+		echo "<br><br><br><center><a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'},1000);</script>";
+	else if($flag == 2)
+		echo "<br><br><br><center><a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'},1000);</script>";
 ?>
