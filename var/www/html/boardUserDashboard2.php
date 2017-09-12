@@ -791,6 +791,7 @@
                                           echo "</select>
 
                                           <input type='hidden' name='person_id' id='person_id' value='$person_id'>
+                                          <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
                                         </div>
 
                                       </div>
