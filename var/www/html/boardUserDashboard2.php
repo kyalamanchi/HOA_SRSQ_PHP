@@ -1109,7 +1109,16 @@
                           $header = array();
                           $header[] = 'Content-Type: application/json';
                           
-                          if($community_id == 2)
+                          if($community_id == 1)
+                          {
+
+                            $header[] = "X-Forte-Auth-Organization-Id:org_335357";
+                            $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
+                                                                      
+                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
+
+                          }
+                          else if($community_id == 2)
                           {
                               
                             $header[] = "X-Forte-Auth-Organization-Id:org_332536";
