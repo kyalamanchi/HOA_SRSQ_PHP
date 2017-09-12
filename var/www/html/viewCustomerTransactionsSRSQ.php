@@ -70,7 +70,12 @@ function hidePleaseWait() {
           echo '<tr>';
 
           echo '<td>';
+              if($transactions->origination_date){
               echo date('Y-m-d',strtotime($transactions->origination_date));
+              }
+              else {
+                echo "";
+              }
           echo '</td>';
 
           echo '<td>';
