@@ -816,7 +816,7 @@
 
                           ";
 
-                          echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id' class='btn-xs'>Edit</a></td><td><a >Delete</a></td></tr>";
+                          echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id' class='btn-xs'>Edit</a></td><td><a >Delete</a></td></tr>";
                         }
 
                       ?>
