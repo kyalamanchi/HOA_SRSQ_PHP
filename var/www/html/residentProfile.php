@@ -579,50 +579,50 @@
 
         <section class="content">
           
-          <div class="box box-success">
+          <div class="box box-info">
 
-                <div class="box-header">
+            <div class="box-header">
 
-                  <center><h4><strong>Persons</strong></h4></center>
+              <center><h4><strong>Persons</strong></h4></center>
 
-                  <i class="fa fa-"></i>
+              <i class="fa fa-"></i>
 
-                  <div class="box-tools pull-right">
+              <div class="box-tools pull-right">
 
-                    <a data-toggle="modal" data-target="#addPerson" class='btn-xs'><i class='fa fa-plus'></i> Add Person</a>
+                <a data-toggle="modal" data-target="#addPerson" class='btn-xs'><i class='fa fa-plus'></i> Add Person</a>
 
-                  </div>
+              </div>
 
-                </div>
+            </div>
 
-                <div class="box-body table-responsive">
+            <div class="box-body table-responsive">
                   
-                  <table class="table table-bordered">
+              <table class="table table-bordered">
 
-                    <thead>
-                      <?php
+                <thead>
+                  <?php
 
-                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
+                    $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
 
-                      ?>
+                  ?>
                       
-                      <th>Name</th>
-                      <th>Home</th>
-                      <th>Role</th>
-                      <th>Relationship</th>
-                      <th>Email</th>
-                      <th>Cell</th>
-                      <th></th>
-                      <th></th>
+                  <th>Name</th>
+                  <th>Home</th>
+                  <th>Role</th>
+                  <th>Relationship</th>
+                  <th>Email</th>
+                  <th>Cell</th>
+                  <th></th>
+                  <th></th>
 
-                    </thead>
+                </thead>
 
-                    <tbody>
+                <tbody>
 
-                      <?php
+                  <?php
 
-                        while($r = pg_fetch_assoc($res))
-                        {
+                    while($r = pg_fetch_assoc($res))
+                    {
 
                           $role_type = $r['role_type_id'];
                           $relationship = $r['relationship_id'];
@@ -656,7 +656,7 @@
 
                                 </div>
 
-                                <form class='row' method='post' action='https://hoaboardtime.com/boardEditPerson.php'>
+                                <form class='row' method='post' action='https://hoaboardtime.com/residentEditPerson.php'>
                                                         
                                   <div class='modal-body'>
                                                             
@@ -784,7 +784,7 @@
 
                                   <div class='modal-body'>
                                         
-                                    <form method='POST' action='https://hoaboardtime.com/boardRemovePerson.php'>
+                                    <form method='POST' action='https://hoaboardtime.com/residentRemovePerson.php'>
 
                                       <center>
 
@@ -836,7 +836,7 @@
 
                     </div>
 
-                    <form class="row" method="post" action="https://hoaboardtime.com/boardAddPerson.php">
+                    <form class="row" method="post" action="https://hoaboardtime.com/residentAddPerson.php">
                                             
                       <div class="modal-body">
                                                 
