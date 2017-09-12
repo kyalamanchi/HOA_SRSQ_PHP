@@ -482,7 +482,7 @@
                           $address1 = $row2['address1'];
 
                           if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
-                            echo "<tr><td>".$firstname." ".$lastname."</td><td> ".$address1."</td><td>$ ".$balance."</td><td>".$cell_no."</td><td>".$email."</td></tr>";
+                            echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$firstname." ".$lastname."</a></td><td> ".$address1."</td><td>$ ".$balance."</td><td>".$cell_no."</td><td>".$email."</td></tr>";
 
                         }
 

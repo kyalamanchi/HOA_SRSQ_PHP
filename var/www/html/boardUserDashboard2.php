@@ -496,7 +496,7 @@
                             <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i>Cancel</button>
                           </div>
                                                 
-                        </div class="container-fluid">
+                        </div>
 
                       </div>
 
@@ -638,7 +638,7 @@
 
                   <div class="box-tools pull-right">
 
-                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Add Person</a>
+                    <a data-toggle="modal" data-target="#addPerson" class='btn-xs'><i class='fa fa-plus'></i> Add Person</a>
 
                   </div>
 
@@ -651,7 +651,7 @@
                     <thead>
                       <?php
 
-                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
 
                       ?>
                       
@@ -675,11 +675,12 @@
 
                           $role_type = $r['role_type_id'];
                           $relationship = $r['relationship_id'];
-                          $email = $r['email'];
-                          $cell_no = $r['cell_no'];
-                          $fname = $r['fname'];
-                          $lname = $r['lname'];
+                          $person_email = $r['email'];
+                          $person_cell_no = $r['cell_no'];
+                          $person_fname = $r['fname'];
+                          $person_lname = $r['lname'];
                           $person_home_id = $r['home_id'];
+                          $person_id = $r['id'];
 
                           $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
                           $address = $r1['address1'];
@@ -690,7 +691,132 @@
                           $r1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
                           $relationship = $r1['name'];
 
-                          echo "<tr><td>$fname $lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td><td><a >Edit</a></td><td><a >Delete</a></td></tr>";
+                          echo "
+
+                          <div class='modal fade hmodal-success' id='editPerson_$person_id' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                                
+                              <div class='modal-content'>
+                                    
+                                <div class='modal-header'>
+                                                            
+                                  <h4 class='modal-title'><strong>Edit Person - $person_fname $person_lname</strong></h4>
+
+                                </div>
+
+                                <form class='row' method='post' action='https://hoaboardtime.com/boardEditPerson.php'>
+                                                        
+                                  <div class='modal-body'>
+                                                            
+                                    <div class='container-fluid'>
+                                          
+                                      <div class='row container-fluid'>
+                                            
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <label>First Name</label>
+                                          <input type='text' class='form-control' name='person_firstname' id='person_firstname' value='$person_fname' required>
+                                        </div>
+                                            
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <label>Last Name</label>
+                                          <input type='text' class='form-control' name='person_lastname' id='person_lastname' value='$person_lname' required>
+                                        </div>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row container-fluid'>
+                                            
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <label>Phone</label>
+                                          <input type='number' class='form-control' name='person_cell_no' id='person_cell_no' value='$person_cell_no' required>
+                                        </div>
+                                            
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <label>Email</label>
+                                          <input type='email' class='form-control' name='person_email' id='person_email' value='$person_email' required>
+                                        </div>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row container-fluid'>
+                                            
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <label>Role Type</label>
+                                          <select class='form-control' name='role_type' id='role_type' required>
+                                            <option value='' selected disabled>Select Role Type</option>";
+                                              
+                                              $res1 = pg_query("SELECT * FROM role_type ORDER BY name");
+
+                                              while ($r1 = pg_fetch_assoc($res1)) 
+                                              {
+                                                $name = $r1['name'];
+                                                $id = $r1['role_type_id'];
+
+                                                echo "<option value='$id'";
+
+                                                  if($role_type == $name)
+                                                    echo " selected ";
+
+                                                echo ">$name</option>";
+                                              }
+
+                                          echo "</select>
+                                        </div>
+                                            
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <label>Relationship</label>
+                                          <select class='form-control' name='relationship' id='relationship' required>
+                                            <option value='' selected disabled>Select Relationship</option>";
+
+                                              $res1 = pg_query("SELECT * FROM relationship ORDER BY name");
+
+                                              while ($r1 = pg_fetch_assoc($res1)) 
+                                              {
+                                                $name = $r1['name'];
+                                                $id = $r1['id'];
+
+                                                echo "<option value='$id'";
+
+                                                  if($relationship == $name)
+                                                    echo " selected ";
+
+                                                echo ">$name</option>";
+                                              }
+                                            
+                                          echo "</select>
+
+                                          <input type='hidden' name='person_id' id='person_id' value='$person_id'>
+                                        </div>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row text-center'>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+                                      </div>
+                                                            
+                                    </div>
+
+                                  </div>
+
+                                </form>
+
+                              </div>
+                              
+                            </div>
+
+                          </div>
+
+                          ";
+
+                          echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id' class='btn-xs'>Edit</a></td><td><a >Delete</a></td></tr>";
                         }
 
                       ?>
@@ -699,6 +825,120 @@
                     
                   </table>
 
+                </div>
+
+              </div>
+
+              <div class="modal fade hmodal-success" id="addPerson" role="dialog"  aria-hidden="true">
+                                
+                <div class="modal-dialog">
+                                    
+                  <div class="modal-content">
+                                        
+                    <div class="color-line"></div>
+                        
+                    <div class="modal-header">
+                                                
+                      <h4 class="modal-title"><strong>Add Person</strong></h4>
+
+                    </div>
+
+                    <form class="row" method="post" action="https://hoaboardtime.com/boardAddPerson.php">
+                                            
+                      <div class="modal-body">
+                                                
+                        <div class="container-fluid">
+                              
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>First Name</label>
+                              <input type='text' class="form-control" name='person_firstname' id='person_firstname' required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Last Name</label>
+                              <input type='text' class="form-control" name='person_lastname' id='person_lastname' required>
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Phone</label>
+                              <input type='number' class="form-control" name='person_cell_no' id='person_cell_no' required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Email</label>
+                              <input type='email' class="form-control" name='person_email' id='person_email' required>
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Role Type</label>
+                              <select class="form-control" name='role_type' id='role_type' required>
+                                <option value="" selected disabled>Select Role Type</option>
+                                <?php
+                                  $res = pg_query("SELECT * FROM role_type ORDER BY name");
+
+                                  while ($r = pg_fetch_assoc($res)) 
+                                  {
+                                    $name = $r['name'];
+                                    $id = $r['role_type_id'];
+
+                                    echo "<option value='$id'>$name</option>";
+                                  }
+                                ?>
+                              </select>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Relationship</label>
+                              <select class="form-control" name='relationship' id='relationship' required>
+                                <option value="" selected disabled>Select Relationship</option>
+                                <?php
+                                  $res = pg_query("SELECT * FROM relationship ORDER BY name");
+
+                                  while ($r = pg_fetch_assoc($res)) 
+                                  {
+                                    $name = $r['name'];
+                                    $id = $r['id'];
+
+                                    echo "<option value='$id'>$name</option>";
+                                  }
+                                ?>
+                              </select>
+
+                              <input type='hidden' name='hoa_id' id='hoa_id' value="<?php echo $hoa_id; ?>">
+                              <input type='hidden' name='home_id' id='home_id' value="<?php echo $home_id; ?>">
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row text-center">
+                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Add</button>
+                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
+                          </div>
+                                                
+                        </div>
+
+                      </div>
+
+                    </form>
+
+                  </div>
+                  
                 </div>
 
               </div>
@@ -1109,7 +1349,16 @@
                           $header = array();
                           $header[] = 'Content-Type: application/json';
                           
-                          if($community_id == 2)
+                          if($community_id == 1)
+                          {
+
+                            $header[] = "X-Forte-Auth-Organization-Id:org_335357";
+                            $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
+                                                                      
+                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
+
+                          }
+                          else if($community_id == 2)
                           {
                               
                             $header[] = "X-Forte-Auth-Organization-Id:org_332536";
