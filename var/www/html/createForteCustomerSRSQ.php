@@ -128,6 +128,7 @@ function cancel(){
         <input type="text" class="form-control" id="pcode" >
       </div>
       <br>
+      <hr>
       <h3>Paymethod</h3>
       <div class="form-group"">
         <label for="paylabel">Label</label>
