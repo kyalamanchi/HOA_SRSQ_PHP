@@ -64,7 +64,7 @@ function cancel(){
       
       <h3>Address</h3>
       <hr>
-      <div class="form-group" >
+      <div class="form-group" style="width: 40%">
         <label for="adlabel">Address Label:</label>
         <input type="text" class="form-control" id="adlabel" >
       </div>
@@ -104,7 +104,7 @@ function cancel(){
       <div style="clear: both;"></div>
       <br>
 
-      
+
       
 </div>
 </body>
