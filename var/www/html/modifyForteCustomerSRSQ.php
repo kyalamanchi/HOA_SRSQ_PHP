@@ -40,23 +40,26 @@ function updateCustomerData(button){
   var customerID = document.getElementById('customerid').value;
   var e = document.getElementById("status");
   var status = e.options[e.selectedIndex].text;
-  alert(status);
-  // showPleaseWait();
-  // jsonObj = [];
-  // item = {};
-  // item["customer_token"] = customerID;
-  // jsonObj.push(item);
-  // lol =  JSON.stringify(jsonObj);
-  // var request= new XMLHttpRequest();
-  // request.open("POST", "https://hoaboardtime.com/updateCustomerDataBGSRSQ.php", true);
-  // request.setRequestHeader("Content-type", "application/json");
-  // request.send(lol);
-  // request.onreadystatechange = function () {
-  //       if (request.readyState == XMLHttpRequest.DONE) {
-  //           hidePleaseWait();
-  //           alert(request.responseText);
-  //       }
-  // }
+  showPleaseWait();
+  jsonObj = [];
+  item = {};
+  item["customer_token"] = customerToken;
+  item["customer_id"] = customerID;
+  item["status"] = status;
+  item["first_name"] = customerFname;
+  item["last_name"] = customerLname;
+  jsonObj.push(item);
+  lol =  JSON.stringify(jsonObj);
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://hoaboardtime.com/updateCustomerDataBGSRSQ.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(lol);
+  request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            hidePleaseWait();
+            alert(request.responseText);
+        }
+  }
 }
 function cancel(){
   window.location = "https://hoaboardtime.com/forteMangeCustomersSRSQ.php";
@@ -95,8 +98,8 @@ function cancel(){
         echo '<label for="status">Status (Current Status : '.$jsonResult->status.')</label>';
         echo '<br>';
         echo '<select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status">
-        <option data-subtext="">ACTIVE</option>
-        <option data-subtext="">SUSPENDED</option>
+        <option data-subtext="">active</option>
+        <option data-subtext="">suspended</option>
       </select>';
       echo '<br>';
       echo '<br>';

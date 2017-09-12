@@ -1,3 +1,5 @@
 <?php
-  echo "Some message";
+  
+
+  echo "Some sample response";
 ?>
