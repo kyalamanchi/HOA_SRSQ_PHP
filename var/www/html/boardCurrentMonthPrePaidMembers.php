@@ -337,7 +337,7 @@
 
           $assessment_amount = 0 - $assessment_amount;
 
-          $result = pg_query("SELECT h.home_id, h.address1 FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$assessment_amount");
+          $result = pg_query("SELECT h.home_id, h.address1, h.living_status FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$assessment_amount");
 
         ?>
         
