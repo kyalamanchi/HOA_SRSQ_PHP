@@ -35,8 +35,9 @@ function hidePleaseWait() {
 }
 function updateCustomerData(){
   showPleaseWait();
-  window.alert("Updated successfully");
-  hidePleaseWait();
+}
+function cancel(){
+  window.location = "https://hoaboardtime.com/forteMangeCustomersSRSQ.php";
 }
 </script>
 </head>
@@ -78,7 +79,7 @@ function updateCustomerData(){
       echo '<br>';
       echo '<br>';
       echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Update</button>';
-      echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Cancel</button>';
+      echo '<button type="button" class="btn btn-primary" onclick="cancel();">Cancel</button>';
       echo '</div>';
       ?>   
 </div>
