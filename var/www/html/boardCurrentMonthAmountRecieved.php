@@ -443,7 +443,7 @@
                           if($living_status != 't')
                             echo " class='red-text' ";
 
-                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
+                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
 
                         }
 
