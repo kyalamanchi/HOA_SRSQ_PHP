@@ -418,7 +418,8 @@
 
                               echo "<tr";
 
-                              echo " style='background:green;' ";
+                              if($living_status != 't')
+                                echo " class='text-red' ";
 
                               echo "><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
 
@@ -435,7 +436,12 @@
 
                             $balance = $charge - $payment;
 
-                            echo "<tr class='text-danger'><td></td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td></td><td></td><td></td><td>$ ".$balance."</td></tr>";
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "style='background:orange;'><td></td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td></td><td></td><td></td><td>$ ".$balance."</td></tr>";
                           }
 
                         }
