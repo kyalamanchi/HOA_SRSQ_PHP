@@ -42,7 +42,6 @@ function hidePleaseWait() {
   <hr>
 </div>
 <div class="container"> 
-<button type="button" class="btn btn-primary" onclick="createCustomer();" style="float: right;">Create Customer</button>
 <br style="clear: both;">
         <table id="example" class="table table-striped" cellspacing="0" width="100%" >
                                 <thead>
