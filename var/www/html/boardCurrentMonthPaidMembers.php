@@ -416,7 +416,11 @@
 
                               $balance = $charge - $payment;
 
-                              echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
+                              echo "<tr";
+
+                              echo " style='background:green;' ";
+
+                              echo "><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
 
                             }
 
