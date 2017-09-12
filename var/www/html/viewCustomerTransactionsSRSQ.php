@@ -43,7 +43,6 @@ function hidePleaseWait() {
 </div>
 <div class="container"> 
 <br style="clear: both;">
-  <h3>Customer Token : <?echo $_GET['id']; ?></h3>
     <br>
         <table id="example" class="table table-striped" cellspacing="0" width="100%" >
                                 <thead>
