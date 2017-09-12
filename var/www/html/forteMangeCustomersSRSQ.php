@@ -62,9 +62,7 @@ function deleteCustomer(button){
             alert(request.responseText);
         }
         }
-
 }
-
 </script>
 </head>
 <body>
