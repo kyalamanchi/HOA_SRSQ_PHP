@@ -51,16 +51,60 @@ function cancel(){
         <label for="fname">First Name:</label>
         <input type="text" class="form-control" id="fname" >
       </div>
-      <div class="form-group" style="float: left;">
+      <div class="form-group" style="float: left; padding-left: 10">
         <label for="lname">Last Name:</label>
         <input type="text" class="form-control" id="lname" >
       </div>
-      <div class="form-group" style="float: left;">
+      <div class="form-group" style="float: left; padding-left:  10">
         <label for="cname">Company Name:</label>
         <input type="text" class="form-control" id="cname" >
       </div>
       <div style="clear: both;"></div>
+      <br>
+      
+      <h3>Address</h3>
+      <hr>
+      <div class="form-group" >
+        <label for="adlabel">Address Label:</label>
+        <input type="text" class="form-control" id="adlabel" >
+      </div>
+      <br>
 
+      <div class="form-group" style="float: left;">
+        <label for="afname">First Name:</label>
+        <input type="text" class="form-control" id="afname" >
+      </div>
+      <div class="form-group" style="float: left; padding-left: 10">
+        <label for="alname">Last Name:</label>
+        <input type="text" class="form-control" id="alname" >
+      </div>
+      <div class="form-group" style="float: left; padding-left:  10">
+        <label for="acname">Company Name:</label>
+        <input type="text" class="form-control" id="acname" >
+      </div>
+      <div style="clear: both;"></div>
+      <br>
+
+      <div class="form-group" style="float: left;">
+        <label for="phone">Phone:</label>
+        <input type="text" class="form-control" id="phones" >
+      </div>
+      <div class="form-group" style="float: left; padding-left: 10">
+        <label for="email">Email:</label>
+        <input type="text" class="form-control" id="email" >
+      </div>
+      <div class="form-group" style="float: left; padding-left:  10">
+        <label for="satype">Shipping Address Type</label>
+        <input type="text" class="form-control" id="satype" >
+      </div>
+      <div class="form-group" style="float: left; padding-left:  10">
+        <label for="atype"> Address Type</label>
+        <input type="text" class="form-control" id="atype" >
+      </div>
+      <div style="clear: both;"></div>
+      <br>
+
+      
       
 </div>
 </body>
