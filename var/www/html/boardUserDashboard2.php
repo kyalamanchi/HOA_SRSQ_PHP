@@ -758,13 +758,39 @@
                           <div class="row container-fluid">
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                              <label>Resident Since</label>
-                              <input type='date' class="form-control" name='edit_valid_from' id='edit_valid_from' value="<?php echo $valid_from; ?>" required>
+                              <label>Role Type</label>
+                              <select name='role_type' id='role_type' required>
+                                <option value="" selected disabled>Select Role Type</option>
+                                <?php
+                                  $res = pg_query("SELECT * FROM role_type");
+
+                                  while ($r = pg_fetch_assoc($res)) 
+                                  {
+                                    $name = $r['name'];
+                                    $id = $r['role_type_id'];
+
+                                    echo "<option value='$id'>$name</option>";
+                                  }
+                                ?>
+                              </select>
                             </div>
                                 
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                              <label>Resident Until</label>
-                              <input type='date' class="form-control" name='edit_valid_until' id='edit_valid_until' value="<?php echo $valid_until; ?>" >
+                              <label>Relationship</label>
+                              <select name='relationship' id='relationship' required>
+                                <option value="" selected disabled>Select Relationship</option>
+                                <?php
+                                  $res = pg_query("SELECT * FROM relationship");
+
+                                  while ($r = pg_fetch_assoc($res)) 
+                                  {
+                                    $name = $r['name'];
+                                    $id = $r['id'];
+
+                                    echo "<option value='$id'>$name</option>";
+                                  }
+                                ?>
+                              </select>
 
                               <input type='hidden' name='hoa_id' id='hoa_id' value="<?php echo $hoa_id; ?>">
                             </div>
@@ -774,8 +800,8 @@
                           <br>
 
                           <div class="row text-center">
-                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i>Save Changes</button>
-                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i>Cancel</button>
+                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Add</button>
+                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
                           </div>
                                                 
                         </div class="container-fluid">
