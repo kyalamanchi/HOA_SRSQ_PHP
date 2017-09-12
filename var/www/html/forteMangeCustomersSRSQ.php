@@ -86,8 +86,8 @@ function deleteCustomer(button){
                                 </thead>
                                 <tbody>
                                 <?php
-          error_reporting(E_ALL);
-          ini_set('display_errors', 1);
+          // error_reporting(E_ALL);
+          // ini_set('display_errors', 1);
           $url = "https://api.forte.net/v3/organizations/org_332536/customers?page_size=1000";
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
