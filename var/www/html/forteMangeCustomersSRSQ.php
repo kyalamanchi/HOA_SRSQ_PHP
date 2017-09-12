@@ -70,7 +70,8 @@ function createCustomer(){
   <hr>
 </div>
 <div class="container"> 
-<button type="button" class="btn btn-primary" onclick="createCustomer();">Create Customer</button>
+<button type="button" class="btn btn-primary" onclick="createCustomer();" style="float: left;">Create Customer</button>
+<br style="clear: both;">
         <table id="example" class="table table-striped" cellspacing="0" width="100%" >
                                 <thead>
                                     <tr>
