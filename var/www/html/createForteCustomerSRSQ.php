@@ -104,7 +104,6 @@ function cancel(){
         <input type="text" class="form-control" id="atype" >
       </div>
       <div style="clear: both;"></div>
-      <br>
       <div class="form-group"">
         <label for="ad1">Address Line 1</label>
         <input type="text" class="form-control" id="ad1" >
@@ -127,8 +126,6 @@ function cancel(){
         <label for="pcode">Postal Code</label>
         <input type="text" class="form-control" id="pcode" >
       </div>
-      <br>
-      <hr>
       <h3>Paymethod</h3>
       <div class="form-group"">
         <label for="paylabel">Label</label>
