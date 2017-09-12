@@ -65,7 +65,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$finalHoaID = $schedule->xdata->xdata_1;
 		}
 
-		$updateQuery = "UPDATE home_pay_method SET community_id=2,hoa_id=".$finalHoaID.",clientid='".$schedule->customer_token."',sch_start='".date('Y-m-d',strtotime($schedule->schedule_start_date))."',sch_end='".$scheduleExpiry."',sch_expires='".$scheduleExpiry."',next_sch='".date('Y-m-d',strtotime($schedule->schedule_summary->schedule_next_date))."',sch_create_date='".date('Y-m-d',strtotime($schedule->schedule_created_date))."',schedule_qty='".$schedule->schedule_quantity."',no_sch_succ_compltd='".$schedule->schedule_summary->schedule_successful_quantity."',sch_amt=".$schedule->schedule_amount.",sch_status='".$schedule->schedule_status."',sch_frequency='".$schedule->schedule_frequency."',updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE home_id=".$finalHoaID;
+		$updateQuery = "UPDATE home_pay_method SET community_id=2,hoa_id=".$finalHoaID.",clientid='".$schedule->customer_token."',sch_start='".date('Y-m-d',strtotime($schedule->schedule_start_date))."',sch_end='".$scheduleExpiry."',sch_expires='".$scheduleExpiry."',next_sch='".date('Y-m-d',strtotime($schedule->schedule_summary->schedule_next_date))."',sch_create_date='".date('Y-m-d',strtotime($schedule->schedule_created_date))."',schedule_qty='".$schedule->schedule_quantity."',no_sch_succ_compltd='".$schedule->schedule_summary->schedule_successful_quantity."',sch_amt=".$schedule->schedule_amount.",sch_status='".$schedule->schedule_status."',sch_frequency='".$schedule->schedule_frequency."',updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE home_id=".$homeIDSARRAY[$finalHoaID];
 		
 		if (pg_query($updateQuery)){
 
