@@ -147,6 +147,13 @@
         <div class="col-md-3" style="float: left; padding-left: 40">
             <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updatePayMethods1();">Update Pay Methods</a>
         </div>
+        <div class="col-md-3" style="float: left; padding-left: 40">
+            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundings();">Update Fundings</a>
+        </div>
+        <div class="col-md-3" style="float: left; padding-left: 40">
+            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundingsTransactions1();">Update Funding Transaction</a>
+        </div>
+
         <div style="clear: both;"></div>
         <br>
         </div>
