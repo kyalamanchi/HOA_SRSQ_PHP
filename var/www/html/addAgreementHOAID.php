@@ -10,11 +10,11 @@
 	$document_to = $_POST['document_to'];
 	$is_board_document = $_POST['board_document'];
 
-	echo $is_board_document;
+	if($is_board_document == "Yes")
+		$is_board_document = 't';
+	else
+		$is_board_document = 'f';
 
-	die();
-
-	
 	$id = $_POST['id'];
 
 	if($vendor_id != "" && $hoa_id != "")
@@ -26,7 +26,7 @@
 	else if($vendor_id == "" && $hoa_id != "")
 	{
 		
-		$result = pg_query("UPDATE community_sign_agreements SET hoa_id=$hoa_id WHERE id=$id");
+		$result = pg_query("UPDATE community_sign_agreements SET hoa_id=$hoa_id, is_board_document='$is_board_document' WHERE id=$id");
 
 		if($result)
 			echo "<br><br><br><br><center><h3>HOA ID added successfully.</h3></center>";
@@ -37,7 +37,7 @@
 	else if($vendor_id != "" && $hoa_id == "")
 	{
 		
-		$result = pg_query("UPDATE community_sign_agreements SET vendor_id=$vendor_id WHERE id=$id");
+		$result = pg_query("UPDATE community_sign_agreements SET vendor_id=$vendor_id, is_board_document='$is_board_document' WHERE id=$id");
 
 		if($result)
 			echo "<br><br><br><br><center><h3>Vendor ID added successfully.</h3></center>";
