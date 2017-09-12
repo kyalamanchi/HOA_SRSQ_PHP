@@ -60,7 +60,7 @@ function deleteCustomer(button){
         }
 }
 function createCustomer(){
-  alert("Creating customer");
+  window.location = "https://hoaboardtime.com/createForteCustomerSRSQ.php";
 }
 </script>
 </head>

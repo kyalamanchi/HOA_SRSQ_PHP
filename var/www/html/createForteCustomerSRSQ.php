@@ -41,7 +41,7 @@ function cancel(){
 </head>
 <body>
 <div class="container">
-  <h2>Forte Edit Customer</h2>
+  <h2>Forte Create Customer</h2>
   <hr>
 </div>
 <div class="container"> 
