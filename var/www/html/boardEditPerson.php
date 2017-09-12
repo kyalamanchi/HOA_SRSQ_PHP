@@ -13,7 +13,7 @@
 	$person_id = $_POST['person_id'];
 	$hoa_id = $_POST['hoa_id'];
 
-	$result = pg_query("UPDATE person SET fname='$fname', lname='$lname', email='$email', cell_no=$cell_no, role_type=$role_type, relationship=$relationship WHERE id=$person_id");
+	$result = pg_query("UPDATE person SET fname='$fname', lname='$lname', email='$email', cell_no=$cell_no, role_type_id=$role_type, relationship_id=$relationship WHERE id=$person_id");
 
 	if($result)
 		echo "<br><br><br><br><center><h3>Person details updated successfully.</h3></center>";
