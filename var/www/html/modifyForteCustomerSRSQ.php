@@ -38,9 +38,9 @@ function updateCustomerData(button){
   var customerFname = document.getElementById('fname').value;
   var customerLname = document.getElementById('lname').value;
   var customerID = document.getElementById('customerid').value;
-  alert(customerFname);
-  alert(customerLname);
-  alert(customerID);
+  var e = document.getElementById("status");
+  var status = e.options[e.selectedIndex].text;
+  alert(status);
   // showPleaseWait();
   // jsonObj = [];
   // item = {};
