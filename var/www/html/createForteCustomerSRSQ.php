@@ -152,8 +152,17 @@ function cancel(){
         <input type="text" class="form-control" id="cvv" >
       </div>
       <div style="clear: both;"></div>
-
-
+      <div class="row-fluid" style="float: left;padding-left: 10">
+      <h4>Card Type</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="ctype">
+        <option data-subtext="">visa</option>
+        <option data-subtext="">amex</option>
+        <option data-subtext="">mast</option>
+        <option data-subtext="">disc</option>
+        <option data-subtext="">dine</option>
+        <option data-subtext="">jcb</option>
+      </select>
+    </div>
       
 </div>
 </body>
