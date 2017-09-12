@@ -520,7 +520,7 @@
 
                                                 <br><br>
 
-                                                <center><input type='checkbox' name='board_document' id='board_document' value='Yes'> <label>Is board document?</label></center>
+                                                <center><input type='checkbox' name='board_document' id='board_document' value='Yes'> <label> Is board document?</label></center>
 
                                               </div>
 

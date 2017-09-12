@@ -8,6 +8,13 @@
     $hoa_id = $_POST['select_hoa'];
     $vendor_id = $_POST['select_vendor'];
 	$document_to = $_POST['document_to'];
+	$is_board_document = $_POST['board_document'];
+
+	echo $is_board_document;
+
+	die();
+
+	
 	$id = $_POST['id'];
 
 	if($vendor_id != "" && $hoa_id != "")
