@@ -163,10 +163,15 @@ function cancel(){
         <option data-subtext="">jcb</option>
       </select>
     </div>
+    <div class="form-group">
+        <label for="nc">Name On Card</label>
+        <input type="text" class="form-control" id="nc" >
+      </div>
+    <br>
+    <button type="button" class="btn btn-primary" onclick="createCustomer();">Create Customer</button>
     <br>
     <br>
     <br>
-      
 </div>
 </body>
 </html>
