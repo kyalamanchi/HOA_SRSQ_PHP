@@ -48,6 +48,19 @@
    
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="dist/js/googleanalytics.js"></script>
+
+    <script type="text/javascript">
+      var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
+      var dimensionValue2 = "${communityInfo.communityCode}";
+      if(<?php echo $community_id; ?> == 1)
+        ga('create', 'UA-102881886-1', 'auto');
+      else if(<?php echo $community_id; ?> == 2)
+        ga('create', 'UA-102881886-2', 'auto');
+      ga('set', 'dimension1', dimensionValue1);
+      ga('set', 'dimension2', dimensionValue2);
+      ga('send', 'pageview');
+    </script>
 
   </head>
 
@@ -439,7 +452,7 @@
 
           $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
 
-          $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"))
+          $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date' AND payment_status_id=8"))
 
         ?>
         

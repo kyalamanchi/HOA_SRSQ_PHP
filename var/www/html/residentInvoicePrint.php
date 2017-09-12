@@ -84,7 +84,7 @@
   $row = pg_fetch_assoc($result);
   $adate = $row['assessment_date'];
 
-  $adate = date("m-d-y", strtotime($adate));
+  
 
   if(date("m", strtotime($adate)) == date("m"))
     $month = date("m"); 
@@ -94,6 +94,8 @@
     $month = date("m")+1; 
 
   $ddate = $month."-15-".date("y");
+
+  $adate = date("m-d-y", strtotime($adate));
 
   $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
   $total_charges = $row['sum'];
