@@ -638,7 +638,7 @@
 
                   <div class="box-tools pull-right">
 
-                    <a data-toggle="modal" data-target="#addPerson" class='btn-xs'><i class='fa fa-edit'></i> Add Person</a>
+                    <a data-toggle="modal" data-target="#addPerson" class='btn-xs'><i class='fa fa-plus'></i> Add Person</a>
 
                   </div>
 
