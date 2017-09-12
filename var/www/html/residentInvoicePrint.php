@@ -93,6 +93,15 @@
   else if(date("m", strtotime($adate)) > date("m")) 
     $month = date("m")+1; 
 
+  //$ddate = $month."-15-".date("y");
+
+  if(date("m", strtotime($adate)) == date("m"))
+    $month = date("m"); 
+  else if(date("m", strtotime($adate)) < date("m")) 
+    $month = date("m")-1; 
+  else if(date("m", strtotime($adate)) > date("m")) 
+    $month = date("m")+1; 
+
   $ddate = $month."-15-".date("y");
 
   $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
