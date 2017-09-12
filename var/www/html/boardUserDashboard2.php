@@ -651,7 +651,7 @@
                     <thead>
                       <?php
 
-                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+                        $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
 
                       ?>
                       
