@@ -518,6 +518,10 @@
 
                                                 echo "</select>
 
+                                                <br><br>
+
+                                                <label>Is board document?</label> <input type='checkbox' name='board_document' id='board_document' value='Yes'>
+
                                               </div>
 
                                             </div>
