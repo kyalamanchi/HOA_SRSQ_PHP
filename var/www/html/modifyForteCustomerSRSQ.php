@@ -68,6 +68,7 @@ function hidePleaseWait() {
         <option data-subtext="">ACTIVE</option>
         <option data-subtext="">SUSPENDED</option>
       </select>';
+      echo'<textarea class="form-control" rows="5" id="comment" style="float:left;width:35%" value="'.$address.'"></textarea>';
       echo '<h4>Address<h4>';
         foreach ($jsonResult->addresses as $address) {
           // echo'<textarea class="form-control" rows="5" id="comment" style="float:left;width:35%" value="'.$address.'"></textarea>';
