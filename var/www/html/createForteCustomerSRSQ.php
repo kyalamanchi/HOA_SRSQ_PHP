@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Forte Edit Customer</title>
+  <title>Forte Create Customer</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -49,15 +49,15 @@ function cancel(){
       <hr>
       <div class="form-group" style="float: left;">
         <label for="fname">First Name:</label>
-        <input type="text" class="form-control" id="fname" style="width: 35%;">
+        <input type="text" class="form-control" id="fname" >
       </div>
       <div class="form-group" style="float: left;">
         <label for="lname">Last Name:</label>
-        <input type="text" class="form-control" id="lname" style="width: 35%;">
+        <input type="text" class="form-control" id="lname" >
       </div>
       <div class="form-group" style="float: left;">
         <label for="cname">Company Name:</label>
-        <input type="text" class="form-control" id="cname" style="width: 35%;">
+        <input type="text" class="form-control" id="cname" >
       </div>
       <div style="clear: both;"></div>
 
