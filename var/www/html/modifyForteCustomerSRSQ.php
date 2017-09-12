@@ -70,8 +70,11 @@ function hidePleaseWait() {
       </select>';
       echo '<br>';
       echo '<h4>Address<h4>';
+
         foreach ($jsonResult->addresses as $address) {
-          echo'<textarea class="form-control" rows="5" id="comment" style="float:left;width:35%" value="'.$address.'"></textarea>';
+          print_r($address);
+          echo '<br>';    
+          
         }
         echo '</div>';
       ?>   
