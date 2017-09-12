@@ -376,6 +376,7 @@
                         while($row = pg_fetch_assoc($result))
                         {
 
+                          $id = $row['id'];
                           $document_to = $row['document_to'];
                           $create_date = $row['create_date'];
                           $send_date = $row['send_date'];
