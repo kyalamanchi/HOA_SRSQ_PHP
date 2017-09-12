@@ -31,6 +31,55 @@
             }
         }
         
+        function updateFundings1(){
+            var request = new XMLHttpRequest();
+            request.open("POST","https://hoaboardtime.com/communityDeposits.php",true);
+            request.send(null);
+            alert("Fundings will be updated in background");
+            request.onreadystatechange = function (){
+            if (request.readyState == XMLHttpRequest.DONE) {
+            }
+            }
+            updateFundings2();
+
+        }
+        function updateFundings2(){
+            var request = new XMLHttpRequest();
+            request.open("POST","https://hoaboardtime.com/srpcommunityDeposits.php",true);
+            request.send(null);
+            request.onreadystatechange = function (){
+            if (request.readyState == XMLHttpRequest.DONE) {
+                alert("Update Fundings Request Completed");
+            }
+            }
+
+        }
+        function updateFundingsTransactions1(){
+            var request = new XMLHttpRequest();
+            request.open("POST","https://hoaboardtime.com/communityDepositsTransactions.php",true);
+            request.send(null);
+            alert("Funding Transactions will be updated in background");
+            request.onreadystatechange = function (){
+            if (request.readyState == XMLHttpRequest.DONE) {
+            }
+            }
+            updateFundingsTransactions2();
+
+        }
+        function updateFundingsTransactions2(){
+
+                var request = new XMLHttpRequest();
+            request.open("POST","https://hoaboardtime.com/srpcommunityDepositsTransactions.php",true);
+            request.send(null);
+            request.onreadystatechange = function (){
+            if (request.readyState == XMLHttpRequest.DONE) {
+                alert("Update Fundings Transactions Request Completed");
+            }
+            }
+        }
+
+
+
         function updatePayMethods1(){
             var request = new XMLHttpRequest();
             request.open("POST","https://hoaboardtime.com/updateHomePayMethodSRP.php",true);
@@ -148,7 +197,7 @@
             <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updatePayMethods1();">Update Pay Methods</a>
         </div>
         <div class="col-md-3" style="float: left; padding-left: 40">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundings();">Update Fundings</a>
+            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundings1();">Update Fundings</a>
         </div>
         <div class="col-md-3" style="float: left; padding-left: 40">
             <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundingsTransactions1();">Update Funding Transaction</a>
