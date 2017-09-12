@@ -379,6 +379,7 @@
 
                           $home_id = $row['home_id'];
                           $address = $row['address1'];
+                          $living_status = $row['living_status'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -415,22 +416,15 @@
 
                               $balance = $charge - $payment;
 
-                              echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
+                              echo "<tr";
+
+                              if($living_status != 't')
+                                echo " class='text-red' ";
+
+                              echo "><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
 
                             }
 
-                          }
-                          else
-                          {  
-                            $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id"));
-                            $charge = $row2['sum'];
-
-                            $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND home_id=$home_id"));
-                            $payment = $row2['sum'];
-
-                            $balance = $charge - $payment;
-
-                            echo "<tr class='text-danger'><td></td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td></td><td></td><td></td><td>$ ".$balance."</td></tr>";
                           }
 
                         }
