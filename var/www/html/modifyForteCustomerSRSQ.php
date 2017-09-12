@@ -69,13 +69,17 @@ function hidePleaseWait() {
         <option data-subtext="">SUSPENDED</option>
       </select>';
       echo '<br>';
-      echo '<h4>Address<h4>';
+      // echo '<h4>Address</h4>';
 
-        foreach ($jsonResult->addresses as $address) {
-          print_r($address);
-          echo '<br>';    
-          
-        }
+      //   foreach ($jsonResult->addresses as $address) {
+      //     print_r('First Name : '.$address['first_name']);
+      //     print_r('Last Name : '.$address['last_name']);
+      //     print_r('Address1 : '.$address['address1']);
+      //     print_r(expression)
+
+      //     echo '<br>';    
+
+      //   }
         echo '</div>';
       ?>   
 </div>
