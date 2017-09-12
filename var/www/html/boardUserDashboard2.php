@@ -675,10 +675,10 @@
 
                           $role_type = $r['role_type_id'];
                           $relationship = $r['relationship_id'];
-                          $email = $r['email'];
-                          $cell_no = $r['cell_no'];
-                          $fname = $r['fname'];
-                          $lname = $r['lname'];
+                          $person_email = $r['email'];
+                          $person_cell_no = $r['cell_no'];
+                          $person_fname = $r['fname'];
+                          $person_lname = $r['lname'];
                           $person_home_id = $r['home_id'];
                           $person_id = $r['id'];
 
@@ -701,7 +701,7 @@
                                     
                                 <div class='modal-header'>
                                                             
-                                  <h4 class='modal-title'><strong>Edit Person - $fname $lname</strong></h4>
+                                  <h4 class='modal-title'><strong>Edit Person - $person_fname $person_lname</strong></h4>
 
                                 </div>
 
@@ -715,12 +715,12 @@
                                             
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
                                           <label>First Name</label>
-                                          <input type='text' class='form-control' name='person_firstname' id='person_firstname' required>
+                                          <input type='text' class='form-control' name='person_firstname' id='person_firstname' value='$person_fname' required>
                                         </div>
                                             
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
                                           <label>Last Name</label>
-                                          <input type='text' class='form-control' name='person_lastname' id='person_lastname' required>
+                                          <input type='text' class='form-control' name='person_lastname' id='person_lastname' value='$person_lname' required>
                                         </div>
 
                                       </div>
@@ -731,12 +731,12 @@
                                             
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
                                           <label>Phone</label>
-                                          <input type='number' class='form-control' name='person_cell_no' id='person_cell_no' required>
+                                          <input type='number' class='form-control' name='person_cell_no' id='person_cell_no' value='$person_cell_no' required>
                                         </div>
                                             
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
                                           <label>Email</label>
-                                          <input type='email' class='form-control' name='person_email' id='person_email' required>
+                                          <input type='email' class='form-control' name='person_email' id='person_email' value='$person_email' required>
                                         </div>
 
                                       </div>
@@ -757,7 +757,12 @@
                                                 $name = $r1['name'];
                                                 $id = $r1['role_type_id'];
 
-                                                echo "<option value='$id'>$name</option>";
+                                                echo "<option value='$id'";
+
+                                                  if($role_type == $name)
+                                                    echo " selected ";
+
+                                                echo ">$name</option>";
                                               }
 
                                           echo "</select>
@@ -775,12 +780,17 @@
                                                 $name = $r1['name'];
                                                 $id = $r1['id'];
 
-                                                echo "<option value='$id'>$name</option>";
+                                                echo "<option value='$id'";
+
+                                                  if($relationship == $name)
+                                                    echo " selected ";
+
+                                                echo ">$name</option>";
                                               }
                                             
                                           echo "</select>
 
-                                          <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id>'>
+                                          <input type='text' name='person_id' id='person_id' value='$person_id>'>
                                         </div>
 
                                       </div>
