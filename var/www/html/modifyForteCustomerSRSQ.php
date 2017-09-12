@@ -33,8 +33,24 @@
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
-function updateCustomerData(){
-  showPleaseWait();
+function updateCustomerData(button){
+  alert(button.id);
+  // showPleaseWait();
+  // jsonObj = [];
+  // item = {};
+  // item["customer_token"] = button.id;
+  // jsonObj.push(item);
+  // lol =  JSON.stringify(jsonObj);
+  // var request= new XMLHttpRequest();
+  // request.open("POST", "https://hoaboardtime.com/deleteSrsqForteCustomer.php", true);
+  // request.setRequestHeader("Content-type", "application/json");
+  // request.send(lol);
+  // request.onreadystatechange = function () {
+  //       if (request.readyState == XMLHttpRequest.DONE) {
+  //           hidePleaseWait();
+  //           alert(request.responseText);
+  //       }
+  // }
 }
 function cancel(){
   window.location = "https://hoaboardtime.com/forteMangeCustomersSRSQ.php";
@@ -78,7 +94,7 @@ function cancel(){
       </select>';
       echo '<br>';
       echo '<br>';
-      echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Update</button>';
+      echo '<button type="button" class="btn btn-primary" id="'.$_GET['id'].'" onclick="updateCustomerData(this);">Update</button>';
       echo '<button type="button" class="btn btn-primary" onclick="cancel();">Cancel</button>';
       echo '</div>';
       ?>   
