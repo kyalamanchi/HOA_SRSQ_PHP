@@ -60,8 +60,6 @@ function cancel(){
         <input type="text" class="form-control" id="cname" >
       </div>
       <div style="clear: both;"></div>
-      <br>
-      
       <h3>Address</h3>
       <hr>
       <div class="form-group" style="width: 40%">
