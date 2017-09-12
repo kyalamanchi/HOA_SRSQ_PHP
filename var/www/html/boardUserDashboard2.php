@@ -815,9 +815,50 @@
 
                           </div>
 
-                          ";
+                          ";echo "
+                          
+                          <div class='modal fade hmodal-success' id='removePerson_$person_id' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Remove Person - $person_fname $person_lname</h4>
 
-                          echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id' class='btn-xs'>Edit</a></td><td><a >Delete</a></td></tr>";
+                                  </div>
+
+                                  <div class='modal-body'>
+                                        
+                                    <form method='POST' action='https://hoaboardtime.com/boardRemovePerson.php'>
+
+                                      <center>
+
+                                        <input type='hidden' name='person_id' id='person_id' value='$person_id'>
+                                        <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+
+                                        <h4>You are about to remove <strong>$person_fname $person_lname</strong>.</h4><br><br><h3><b>Are you sure you want to continue?</b></h3><br><small>This action cannot be undone.</small><br><br>
+
+                                        <button type='submit' class='btn btn-warning btn-sm'>Remove</button> <button type='button' class='btn btn-success btn-sm' data-dismiss='modal'>Cancel</button>
+
+                                      </center>
+
+                                    </form>
+
+                                  </div>
+
+                                </div>
+                            
+                              </div>
+
+                            </div>
+
+                            ";
+
+                          echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
                         }
 
                       ?>

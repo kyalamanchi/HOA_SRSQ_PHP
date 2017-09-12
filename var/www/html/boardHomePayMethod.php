@@ -432,6 +432,7 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                             $address = $row1['address1'];
+                            $living_status = $row1['living_status'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
@@ -452,7 +453,12 @@
 
                             $balance = $total_charges - $total_payments;
 
-                            echo "<tr><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$recurring_pay</td><td>$sch_start</td><td>$sch_end</td><td>$continous</td><td>$sch_expires</td><td>$next_sch</td><td>$sch_frequency</td><td>$ $balance</td></tr>";
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$address<br>($home_id)</td><td>$recurring_pay</td><td>$sch_start</td><td>$sch_end</td><td>$continous</td><td>$sch_expires</td><td>$next_sch</td><td>$sch_frequency</td><td>$ $balance</td></tr>";
 
                           }
 
@@ -525,6 +531,7 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                             $address = $row1['address1'];
+                            $living_status = $row1['living_status'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
@@ -545,7 +552,12 @@
 
                             $balance = $total_charges - $total_payments;
 
-                            echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$ $balance</td></tr>";
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name</a></td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$ $balance</td></tr>";
 
                           }
 
@@ -618,6 +630,7 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                             $address = $row1['address1'];
+                            $living_status = $row1['living_status'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
@@ -638,7 +651,12 @@
 
                             $balance = $total_charges - $total_payments;
 
-                            echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$ $balance</td></tr>";
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name</a></td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$ $balance</td></tr>";
 
                           }
 
@@ -717,6 +735,7 @@
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                             $address = $row1['address1'];
+                            $living_status = $row1['living_status'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
@@ -737,7 +756,12 @@
 
                             $balance = $total_charges - $total_payments;
 
-                            echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$payment_type</td><td>$ $balance</td></tr>";
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name</a></td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$payment_type</td><td>$ $balance</td></tr>";
 
                           }
 

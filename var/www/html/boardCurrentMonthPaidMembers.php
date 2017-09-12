@@ -379,6 +379,7 @@
 
                           $home_id = $row['home_id'];
                           $address = $row['address1'];
+                          $living_status = $row['living_status'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -415,7 +416,12 @@
 
                               $balance = $charge - $payment;
 
-                              echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
+                              echo "<tr";
+
+                              if($living_status != 't')
+                                echo " class='text-red' ";
+
+                              echo "><td>".date('m-d-Y', strtotime($process_date))."</td><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
 
                             }
 
@@ -430,7 +436,12 @@
 
                             $balance = $charge - $payment;
 
-                            echo "<tr class='text-danger'><td></td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td></td><td></td><td></td><td>$ ".$balance."</td></tr>";
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "style='background:orange;'><td></td><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td></td><td></td><td></td><td>$ ".$balance."</td></tr>";
                           }
 
                         }
