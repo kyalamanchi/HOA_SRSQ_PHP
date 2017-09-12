@@ -152,6 +152,10 @@ function cancel(){
         <label for="year">Expiry Year</label>
         <input type="text" class="form-control" id="year" >
       </div>
+      <div class="form-group" style="float: left;padding-left: 10px;">
+        <label for="cvv">CVV</label>
+        <input type="text" class="form-control" id="cvv" >
+      </div>
       <div style="clear: both;"></div>
 
 
