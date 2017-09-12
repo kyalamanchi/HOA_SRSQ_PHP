@@ -383,6 +383,7 @@
                           $agreement_name = $row['agreement_name'];
                           $last_updated = $row['last_updated'];
                           $agreement_id = $row['agreement_id'];
+                          $hoa_id = $row['hoa_id'];
 
                           if($create_date != "")
                             $create_date = date('m-d-Y', strtotime($create_date));
@@ -398,7 +399,7 @@
 
                             echo "<tr>";
                               
-                            $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$document_to."'");
+                            $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$document_to."' OR ");
 
                             if(pg_num_rows($result1))
                             {
@@ -412,6 +413,19 @@
 
                               echo "<td>".$name."<br>($hoa_id)</td>";
 
+                            }
+                            else if($hoa_id != "")
+                            {
+
+                              $result1 = pg_query("SELECT * FROM hoaid WHERE hoa_id='".$hoa_id."'");
+
+                              $row1 = pg_fetch_assoc($result1);
+                                
+                              $name = $row1['firstname'];
+                              $name .= " ";
+                              $name .= $row1['lastname'];
+
+                              echo "<td>".$name."<br>($hoa_id)</td>";
                             }
                             else
                             {
