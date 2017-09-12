@@ -76,8 +76,9 @@ function updateCustomerData(){
         <option data-subtext="">SUSPENDED</option>
       </select>';
       echo '<br>';
-      echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Primary</button>';
-        echo '</div>';
+      echo '<br>';
+      echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Update</button>';
+      echo '</div>';
       ?>   
 </div>
 </body>
