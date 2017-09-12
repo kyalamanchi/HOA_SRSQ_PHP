@@ -163,6 +163,7 @@ function cancel(){
         <option data-subtext="">jcb</option>
       </select>
     </div>
+    <br>
     <div class="form-group">
         <label for="nc">Name On Card</label>
         <input type="text" class="form-control" id="nc" >
