@@ -93,6 +93,8 @@ function cancel(){
         <label for="email">Email:</label>
         <input type="text" class="form-control" id="email" >
       </div>
+      <div style="clear: both;"></div>
+      <br>
       <div class="form-group" style="float: left; padding-left:  10">
         <label for="satype">Shipping Address Type</label>
         <input type="text" class="form-control" id="satype" >
