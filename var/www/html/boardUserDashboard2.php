@@ -701,7 +701,7 @@
                                     
                                 <div class='modal-header'>
                                                             
-                                  <h4 class='modal-title'><strong>Add Person</strong></h4>
+                                  <h4 class='modal-title'><strong>Edit Person - $fname $lname</strong></h4>
 
                                 </div>
 
