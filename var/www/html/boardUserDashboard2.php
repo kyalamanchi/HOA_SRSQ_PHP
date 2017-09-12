@@ -750,7 +750,7 @@
                                           <select class='form-control' name='role_type' id='role_type' required>
                                             <option value='' selected disabled>Select Role Type</option>";
                                               
-                                              $res1 = pg_query("SELECT * FROM role_type");
+                                              $res1 = pg_query("SELECT * FROM role_type ORDER BY name");
 
                                               while ($r1 = pg_fetch_assoc($res1)) 
                                               {
@@ -773,7 +773,7 @@
                                           <select class='form-control' name='relationship' id='relationship' required>
                                             <option value='' selected disabled>Select Relationship</option>";
 
-                                              $res1 = pg_query("SELECT * FROM relationship");
+                                              $res1 = pg_query("SELECT * FROM relationship ORDER BY name");
 
                                               while ($r1 = pg_fetch_assoc($res1)) 
                                               {
