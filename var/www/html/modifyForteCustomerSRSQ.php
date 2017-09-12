@@ -78,6 +78,7 @@ function updateCustomerData(){
       echo '<br>';
       echo '<br>';
       echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Update</button>';
+      echo '<button type="button" class="btn btn-primary" onclick="updateCustomerData();">Cancel</button>';
       echo '</div>';
       ?>   
 </div>
