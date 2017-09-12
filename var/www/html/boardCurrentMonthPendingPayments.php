@@ -399,6 +399,7 @@
 
                             $home_id = $row['home_id'];
                             $address = $row['address1'];
+                            $living_status = $row['living_status'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
@@ -424,7 +425,15 @@
                             $home_pay_method = $row1['payment_type_name'];
 
                             if($balance > 0)
-                              echo "<tr><td><input type='checkbox' name='recipients[]' id='recipients' value='$home_id'></td><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$home_pay_method</td><td>$ $balance</td></tr>";
+                            {  
+
+                              echo "<tr";
+
+                              if($living_status != 't')
+                                echo " class='text-red' ";
+
+                              echo "><td><input type='checkbox' name='recipients[]' id='recipients' value='$home_id'></td><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$home_pay_method</td><td>$ $balance</td></tr>";
+                            }
 
                           }
 
