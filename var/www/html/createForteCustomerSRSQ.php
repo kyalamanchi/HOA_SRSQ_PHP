@@ -74,7 +74,7 @@ function cancel(){
         <label for="afname">First Name:</label>
         <input type="text" class="form-control" id="afname" >
       </div>
-      <div class="form-group" style="float: left; padding-left: 10">
+      <div class="form-group" style="float: left; padding-left:20">
         <label for="alname">Last Name:</label>
         <input type="text" class="form-control" id="alname" >
       </div>
