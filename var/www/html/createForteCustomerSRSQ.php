@@ -74,11 +74,11 @@ function cancel(){
         <label for="afname">First Name:</label>
         <input type="text" class="form-control" id="afname" >
       </div>
-      <div class="form-group" style="float: left; padding-left:20">
+      <div class="form-group" style="float: left; padding-left:10px">
         <label for="alname">Last Name:</label>
         <input type="text" class="form-control" id="alname" >
       </div>
-      <div class="form-group" style="float: left; padding-left:  10">
+      <div class="form-group" style="float: left; padding-left:10px">
         <label for="acname">Company Name:</label>
         <input type="text" class="form-control" id="acname" >
       </div>
@@ -89,13 +89,13 @@ function cancel(){
         <label for="phone">Phone:</label>
         <input type="text" class="form-control" id="phones" >
       </div>
-      <div class="form-group" style="float: left; padding-left: 10">
+      <div class="form-group" style="float: left; margin-top: 10px;">
         <label for="email">Email:</label>
         <input type="text" class="form-control" id="email" >
       </div>
       <div style="clear: both;"></div>
       <br>
-      <div class="form-group" style="float: left; padding-left:  10">
+      <div class="form-group" style="float: left; margin-top: 10px;">
         <label for="satype">Shipping Address Type</label>
         <input type="text" class="form-control" id="satype" >
       </div>
