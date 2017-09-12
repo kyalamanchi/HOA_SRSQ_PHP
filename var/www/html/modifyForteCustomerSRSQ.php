@@ -34,15 +34,21 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
 function updateCustomerData(button){
-  alert(button.id);
+  var customerToken = button.id;
+  var customerFname = document.getElementById('fname').value;
+  var customerLname = document.getElementById('lname').value;
+  var customerID = document.getElementById('customerid').value;
+  alert(customerFname);
+  alert(customerLname);
+  alert(customerID);
   // showPleaseWait();
   // jsonObj = [];
   // item = {};
-  // item["customer_token"] = button.id;
+  // item["customer_token"] = customerID;
   // jsonObj.push(item);
   // lol =  JSON.stringify(jsonObj);
   // var request= new XMLHttpRequest();
-  // request.open("POST", "https://hoaboardtime.com/deleteSrsqForteCustomer.php", true);
+  // request.open("POST", "https://hoaboardtime.com/updateCustomerDataBGSRSQ.php", true);
   // request.setRequestHeader("Content-type", "application/json");
   // request.send(lol);
   // request.onreadystatechange = function () {
