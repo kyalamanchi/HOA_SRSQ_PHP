@@ -345,7 +345,7 @@
           
           <div class="row">
 
-            <section class="col-xl-offset-3 col-lg-offset-3 col-md-offset-2 col-lg-6 col-xl-6 col-md-8 col-xs-12">
+            <section class="col-xl-offset-2 col-lg-offset-2 col-md-offset-1 col-lg-8 col-xl-8 col-md-10 col-xs-12">
 
               <div class="box">
 
