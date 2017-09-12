@@ -638,7 +638,7 @@
 
                   <div class="box-tools pull-right">
 
-                    <a data-toggle="modal" data-target="#editUserDetails" class='btn-xs'><i class='fa fa-edit'></i> Add Person</a>
+                    <a data-toggle="modal" data-target="#addPerson" class='btn-xs'><i class='fa fa-edit'></i> Add Person</a>
 
                   </div>
 
@@ -699,6 +699,93 @@
                     
                   </table>
 
+                </div>
+
+              </div>
+
+              <div class="modal fade hmodal-success" id="addPerson" role="dialog"  aria-hidden="true">
+                                
+                <div class="modal-dialog">
+                                    
+                  <div class="modal-content">
+                                        
+                    <div class="color-line"></div>
+                        
+                    <div class="modal-header">
+                                                
+                      <h4 class="modal-title"><strong>Add Person</strong></h4>
+
+                    </div>
+
+                    <form class="row" method="post" action="https://hoaboardtime.com/boardEditHOAID.php">
+                                            
+                      <div class="modal-body">
+                                                
+                        <div class="container-fluid">
+                              
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>First Name</label>
+                              <input type='text' class="form-control" name='edit_firstname' id='edit_firstname' value="<?php echo $firstname; ?>" required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Last Name</label>
+                              <input type='text' class="form-control" name='edit_lastname' id='edit_lastname' value="<?php echo $lastname; ?>" required>
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Phone</label>
+                              <input type='number' class="form-control" name='edit_cell_no' id='edit_cell_no' value="<?php echo $cell_no; ?>" required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Email</label>
+                              <input type='email' class="form-control" name='edit_email' id='edit_email' value="<?php echo $email; ?>" required>
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row container-fluid">
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Resident Since</label>
+                              <input type='date' class="form-control" name='edit_valid_from' id='edit_valid_from' value="<?php echo $valid_from; ?>" required>
+                            </div>
+                                
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                              <label>Resident Until</label>
+                              <input type='date' class="form-control" name='edit_valid_until' id='edit_valid_until' value="<?php echo $valid_until; ?>" >
+
+                              <input type='hidden' name='hoa_id' id='hoa_id' value="<?php echo $hoa_id; ?>">
+                            </div>
+
+                          </div>
+
+                          <br>
+
+                          <div class="row text-center">
+                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i>Save Changes</button>
+                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i>Cancel</button>
+                          </div>
+                                                
+                        </div class="container-fluid">
+
+                      </div>
+
+                    </form>
+
+                  </div>
+                  
                 </div>
 
               </div>
