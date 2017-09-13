@@ -471,6 +471,7 @@
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
                         $reminder_type_id = $row1['reminder_type_id'];
+                        $comment = $row1['comments'];
 
                         if($numrow1 != 0 && $today>=$d_date)
                         {  
@@ -564,6 +565,15 @@
                                           echo "</select>
 
                                         </div>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row container-fluid'>
+
+                                        <label>Comment</label>
+                                        <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comment</textarea>
 
                                       </div>
 
