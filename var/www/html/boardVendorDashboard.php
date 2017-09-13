@@ -387,7 +387,7 @@
 
                               $vendor_description = $row1['desc'];
 
-                              echo "<tr><form method='POST' action='boardVendorDashboard2.php'><td><input type='hidden' name='select_vendor' id='select_vendor' value='".$vendor_id."'><button type='submit' class='btn btn-link'>".$vendor_name."</button></td><td>".$vendor_description."</td></form></tr>";
+                              echo "<tr><td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vendor_id' title='Vendor Dashboard'>".$vendor_name."</a></td><td>".$vendor_description."</td></tr>";
                             }
 
                           ?>

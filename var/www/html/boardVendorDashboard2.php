@@ -331,7 +331,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $vendor_id = $_POST['select_vendor'];
+          $vendor_id = $_REQUEST['select_vendor'];
 
           $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
 

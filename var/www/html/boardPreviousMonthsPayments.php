@@ -356,7 +356,72 @@
 
                   }
                   else
-                    echo "Show payments of <select id='month' name='month' required><option value='1'>January</option><option value='2'>February</option><option value='3'>March</option><option value='4'>April</option><option value='5'>May</option><option value='6'>June</option><option value='7'>July</option><option value='8'>August</option><option value='9'>September</option><option value='10'>October</option><option value='11'>November</option><option value='12'>December</option></select><br><br><input type='submit' class='btn btn-warning btn-xs' name='submit' id='submit' value='Show Payments'>";
+                  {
+                    $m = (date("m") - 1); 
+
+                    echo "Show payments of <select id='month' name='month' required><option ";
+
+                    if($m == 1)
+                      echo "selected ";
+
+                    echo "value='1'>January</option><option ";
+
+                    if($m == 2)
+                      echo "selected ";
+
+                    echo "value='2'>February</option><option ";
+
+                    if($m == 3)
+                      echo " selected ";
+
+                    echo "value='3'>March</option><option ";
+
+                    if($m == 4)
+                      echo " selected ";
+
+                    echo "value='4'>April</option><option ";
+
+                    if($m == 5)
+                      echo " selected ";
+
+                    echo "value='5'>May</option><option ";
+
+                    if($m == 6)
+                      echo " selected ";
+
+                    echo "value='6'>June</option><option ";
+
+                    if($m == 7)
+                      echo " selected ";
+
+                    echo "value='7'>July</option><option ";
+
+                    if($m == 8)
+                      echo " selected ";
+
+                    echo "value='8'>August</option><option ";
+
+                    if($m == 9)
+                      echo " selected ";
+
+                    echo "value='9'>September</option><option ";
+
+                    if($m == 10)
+                      echo " selected ";
+
+                    echo "value='10'>October</option><option ";
+
+                    if($m == 11)
+                      echo " selected ";
+
+                    echo "value='11'>November</option><option ";
+
+                    if($m == 12)
+                      echo " selected ";
+
+                    echo "value='12'>December</option></select><br><br><input type='submit' class='btn btn-warning btn-xs' name='submit' id='submit' value='Show Payments'>";
+
+                  }
 
                 ?>
 
@@ -501,7 +566,7 @@
                                 $row2 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$pay_method"));
                                 $pay_method = $row2['payment_type_name'];
 
-                                echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$confirmation</td><td>$pay_method</td><td>$amount</td><td>$ $balance</td></tr>";
+                                echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td>$confirmation</td><td>$pay_method</td><td>$amount</td><td>$ $balance</td></tr>";
 
                               }
 
@@ -509,7 +574,7 @@
                             else
                             {
                               
-                              echo "<tr class='text-danger'><td></td><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td></td><td></td><td></td><td>$ $balance</td></tr>";
+                              echo "<tr class='text-danger'><td></td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td></td><td></td><td></td><td>$ $balance</td></tr>";
 
                             }
 

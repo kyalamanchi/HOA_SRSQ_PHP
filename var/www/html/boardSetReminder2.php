@@ -332,11 +332,11 @@
 	        	$month = date("m");
 	        	$end_date = date("t");
 
-	          	$name = $_POST['name'];
-	          	$living_in = $_POST['living_in'];
-	          	$hoa_id = $_POST['hoa_id'];
-	          	$home_id = $_POST['home_id'];
-	          	$email = $_POST['email'];
+	          	$name = $_REQUEST['name'];
+	          	$living_in = $_REQUEST['living_in'];
+	          	$hoa_id = $_REQUEST['hoa_id'];
+	          	$home_id = $_REQUEST['home_id'];
+	          	$email = $_REQUEST['email'];
 
 	        ?>
 	        

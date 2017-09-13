@@ -448,8 +448,14 @@
                                           $row11 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$t_home_id"));
 
                                           $address = $row11['address1'];
+                                          $living_status = $row11['living_status'];
 
-                                          echo "<div class='row text-center'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$name<br>($t_hoa_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address<br>($t_home_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
+                                          echo "<div class='row text-center";
+
+                                          if($living_status != 't')
+                                            echo " text-red";
+
+                                          echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name<br>($t_hoa_id)</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address<br>($t_home_id)</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
 
                                         }
 
