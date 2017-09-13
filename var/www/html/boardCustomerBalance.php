@@ -459,7 +459,7 @@
                         $payments = $row1['sum'];
 
                         if($payments == "")
-                                      $payments = 0.0;
+                          $payments = 0.0;
 
                         $balance = $charges - $payments;
 
@@ -471,7 +471,7 @@
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
 
-                        if($numrow1 != 0 && $today<=$d_date)
+                        if($numrow1 != 0 && $today>=$d_date)
                           $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
                         else
                           $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
