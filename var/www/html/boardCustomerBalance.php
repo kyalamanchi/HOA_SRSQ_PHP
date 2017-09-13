@@ -560,7 +560,7 @@
                         if($numrow1 != 0 && date('Y-m-d')<=$d_date)
                           $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
                         else
-                          $reminder = "<form method='POST' action='https://hoaboardtime.com/boardSetReminder2.php'><input type='hidden' name='name' id='name' value='$name'><input type='hidden' name='living_in' id='living_in' value='$address'><input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'><input type='hidden' name='home_id' id='home_id' value='$home_id'><input type='hidden' name='email' id='email' value='$email'><button class='btn btn-link' type='submit'><i class='fa fa-bell'></i></button></form>";
+                          $reminder = "<a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a>";
 
                         echo "<tr><td>$reminder</td><td>$name ($hoa_id)<br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 
