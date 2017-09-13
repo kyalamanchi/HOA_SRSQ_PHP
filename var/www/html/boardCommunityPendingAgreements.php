@@ -425,7 +425,7 @@
                               $name .= " ";
                               $name .= $row1['lastname'];
 
-                              echo "<td>".$name."<br>($hoa_id)</td>";
+                              echo "<td><a href='https://hoaboardtime.com/boardUserDashboard.php?hoa_id=$hoa_id' title='User Dashboard'>".$name."<br>($hoa_id)</a></td>";
                             }
                             else
                             {
@@ -440,7 +440,7 @@
                                 $vname = $row1['vendor_name'];
                                 $vid = $row1['vendor_id'];
 
-                                echo "<td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vid' title='Vendor Dashboard'>".$vname."</td>";
+                                echo "<td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vid' title='Vendor Dashboard'>".$vname."</a></td>";
 
                               }
                               else
