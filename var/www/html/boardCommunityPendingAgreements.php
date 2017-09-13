@@ -425,7 +425,7 @@
                               $name .= " ";
                               $name .= $row1['lastname'];
 
-                              echo "<td><a href='https://hoaboardtime.com/boardUserDashboard.php?hoa_id=$hoa_id' title='User Dashboard'>".$name."<br>($hoa_id)</a></td>";
+                              echo "<td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id' title='User Dashboard'>".$name."<br>($hoa_id)</a></td>";
                             }
                             else
                             {
