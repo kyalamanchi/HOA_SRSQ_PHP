@@ -363,7 +363,7 @@
                     if($vendor_assigned == "")
                       $query = "UPDATE reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type WHERE id=$rid";
                     else
-                      $query = "INSERT INTO reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type, vendor_assigned=$vendor_assigned WHERE id=$rid";
+                      $query = "UPDATE reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type, vendor_assigned=$vendor_assigned WHERE id=$rid";
 
                     $result = pg_query($query);
 
