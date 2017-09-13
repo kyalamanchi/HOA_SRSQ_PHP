@@ -550,7 +550,7 @@
                             if($is_active == 't')
                               echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><center><a title='Edit Reminder' data-toggle='modal' data-target='#editReminder_$rid'><i class='text-blue fa fa-edit'></i></a></center></td><td><center><a title='Delete Reminder'><i class='text-red fa fa-close'></i></a></center></td></tr>";
                             else
-                              echo "<tr class='text-grey'><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td></td><td></td></tr>";
+                              echo "<tr style='color: grey;'><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td></td><td></td></tr>";
 
                           }
 
