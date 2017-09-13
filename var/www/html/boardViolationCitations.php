@@ -411,6 +411,7 @@
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                           $address = $row1['address1'];
+                          $living_status = $row1['living_status'];
 
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status_id"));
 
@@ -549,7 +550,16 @@
                           ";
                           
                           if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
-                            echo "<tr><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$inspection_date."</a></td><td>".$status."</td><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."<br>($hoa_id)</a></td><td>".$address."<br>($home_id)</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
+                          {  
+
+                            echo "<tr";
+
+                            if($living_status != 't')
+                              echo " class='text-red' ";
+
+                            echo "><td><a data-toggle='modal' data-target='#sendInspectionReply_$id'>".$inspection_date."</a></td><td>".$status."</td><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."<br>($hoa_id)</a></td><td>".$address."<br>($home_id)</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
+
+                          }
                           
                         }
 
