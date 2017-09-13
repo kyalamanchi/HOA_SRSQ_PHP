@@ -331,15 +331,12 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $hoa_id = $_POST['hoa_id'];
-          $home_id = $_POST['home_id'];
-          $open_date = $_POST['open_date'];
+          $rid = $_POST['rid'];
           $due_date = $_POST['due_date'];
-          $assigned_to = $_POST['assigned_to'];
-          $vendor_assigned = $_POST['vendor_assigned'];
-          $comment = $_POST['comment'];
-          $update_date = $_POST['update_date'];
-          $reminder_type = $_POST['reminder_type'];
+          $vendor_assigned = $_POST['edit_vendor'];
+          $comment = $_POST['edit_comment'];
+          $update_date = date('Y-m-d');
+          $reminder_type = $_POST['edit_reminder_type'];
 
         ?>
         
@@ -364,24 +361,24 @@
                   <?php 
 
                     if($vendor_assigned == "")
-                      $query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.")";
+                      $query = "UPDATE reminders(due_date,update_date,comments,reminder_type_id) VALUES('".$due_date."','".$update_date."','".$comment."',".$reminder_type.")";
                     else
-                      $query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id,vendor_assigned) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.",".$vendor_assigned.")";
+                      $query = "INSERT INTO reminders(due_date,update_date,comments,reminder_type_id,vendor_assigned) VALUES('".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.",".$vendor_assigned.")";
 
                     $result = pg_query($query);
 
                     if(!$result)
                     {
                       
-                      echo "<br><br><br><br><h3><center>An error occured while creating reminder.Please try again</center></h3>";
+                      echo "<center>Some error occured. Please try again</center><br><br>";
 
-                      echo "<br><br><center><a href='https://hoaboardtime.com/boardSetReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardSetReminder.php'},1000);</script>";
+                      echo "<br><br><center><a href='https://hoaboardtime.com/boardSetReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardViewReminders.php'},1000);</script>";
 
                     }
                     else 
                     {
                       
-                      echo "<br><br><br><br><h3><center>Reminder created successfully.</center></h3>";
+                      echo "<center>Reminder edited successfully. Page will auto redirect to reminders page.</center>";
 
                       echo "<br><br><center><a href='https://hoaboardtime.com/boardViewReminders.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardViewReminders.php'},1000);</script>";
 

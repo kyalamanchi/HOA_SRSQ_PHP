@@ -493,7 +493,7 @@
                                                                   
                                   <div class='container-fluid'>
 
-                                    <form class='row' method='post' action='https://hoaboardtime.com/addAgreementHOAID.php'>
+                                    <form class='row' method='post' action='https://hoaboardtime.com/boardEditReminder.php'>
 
                                       <div class='row container-fluid'>
 
@@ -564,6 +564,8 @@
 
                                           echo "</select>
 
+                                          <input type='hidden' name='reminder_id' id='reminder_id' value='$rid'>
+
                                         </div>
 
                                       </div>
@@ -581,7 +583,7 @@
 
                                       </div>
 
-                                      <br><br><br>
+                                      <br>
 
                                       <div class='row container-fluid text-center'>
                                               
