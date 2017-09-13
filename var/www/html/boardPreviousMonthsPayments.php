@@ -566,7 +566,7 @@
                                 $row2 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$pay_method"));
                                 $pay_method = $row2['payment_type_name'];
 
-                                echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php/hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td>$confirmation</td><td>$pay_method</td><td>$amount</td><td>$ $balance</td></tr>";
+                                echo "<tr><td>".date('m-d-Y', strtotime($process_date))."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td>$confirmation</td><td>$pay_method</td><td>$amount</td><td>$ $balance</td></tr>";
 
                               }
 
@@ -574,7 +574,7 @@
                             else
                             {
                               
-                              echo "<tr class='text-danger'><td></td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php/hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td></td><td></td><td></td><td>$ $balance</td></tr>";
+                              echo "<tr class='text-danger'><td></td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td></td><td></td><td></td><td>$ $balance</td></tr>";
 
                             }
 
