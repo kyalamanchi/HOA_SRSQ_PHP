@@ -470,7 +470,7 @@
                         $d_date = $row1['due_date'];
 
                         if($numrow1 != 0 && date('Y-m-d')>=$o_date && date('Y-m-d')<=$d_date)
-                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
+                          $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
                         else
                           $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
