@@ -437,7 +437,7 @@
 
                                 $row1 = pg_fetch_assoc($result1);
 
-                                echo "<td>".$row1['vendor_name']."</td>";
+                                echo "<td><a href='https://hoaboardtime.com/boardVendorDashboard.php' title='Vendor Dashboard'>".$row1['vendor_name']."</td>";
 
                               }
                               else
