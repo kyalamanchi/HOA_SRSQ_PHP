@@ -364,6 +364,8 @@
                         <th>Reminder Type</th>
                         <th>Comments</th>
                         <th>Vendor Assigned</th>
+                        <th></th>
+                        <th></th>
 
                       </tr>
 
@@ -404,7 +406,7 @@
                             $row2 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
                             $vendor_assigned = $row2['vendor_name'];
 
-                            echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td></tr>";
+                            echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><i class='fa fa-edit'></i></td><td><i class='fa fa-wrong'></i></td></tr>";
 
                           }
 
@@ -426,6 +428,8 @@
                         <th>Reminder Type</th>
                         <th>Comments</th>
                         <th>Vendor Assigned</th>
+                        <th></th>
+                        <th></th>
 
                       </tr>
 
