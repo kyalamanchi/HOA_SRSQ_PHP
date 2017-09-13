@@ -482,69 +482,6 @@
                       echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></tfoot><table>";
 
                     }
-                    else
-                    {
-
-                      $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND home_id=cc.home_id AND hoa_id=cc.hoa_id))>0.0 ORDER BY cc.home_id");
-
-                      echo "<br><center>Total Number of records fetched : ".pg_num_rows($result)."</center><br>";
-
-                      echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
-
-                      echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></thead><tbody>";
-
-                      while ($row = pg_fetch_assoc($result)) 
-                      {
-                        
-                        $hoa_id = $row['hoa_id'];
-                        $home_id = $row['home_id'];
-
-                        $result1 = pg_query("SELECT firstname, community_id, lastname, email, cell_no FROM hoaid WHERE hoa_id=".$hoa_id);
-                        $row1 = pg_fetch_assoc($result1);
-
-                        $community_id = $row1['community_id'];
-                        $name = $row1['firstname'];
-                        $name .= " ";
-                        $name .= $row1['lastname'];
-                        $email = $row1['email'];
-                        $phone = $row1['cell_no'];
-
-                        $result1 = pg_query("SELECT address1 FROM homeid WHERE community_id=$community_id AND home_id=$home_id");
-                        $row1 = pg_fetch_assoc($result1);
-
-                        $address = $row1['address1'];
-
-                        $result1 = pg_query("SELECT sum(amount) FROM current_charges WHERE community_id=$community_id AND home_id=$home_id AND hoa_id=$hoa_id");
-                        $row1 = pg_fetch_assoc($result1);
-
-                        $charges = $row1['sum'];
-
-                        $result1 = pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id AND home_id=$home_id AND hoa_id=$hoa_id");
-                        $row1 = pg_fetch_assoc($result1);
-
-                        $payments = $row1['sum'];
-
-                        if($payments == "")
-                                      $payments = 0.0;
-
-                        $balance = $charges - $payments;
-
-                        $result1 = pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id");
-                        $numrow1 = pg_num_rows($result1);
-
-                        $row1 = pg_fetch_assoc($result1);
-
-                        $o_date = $row1['open_date'];
-                        $d_date = $row1['due_date'];
-
-                        if($numrow1 != 0 && date('Y-m-d')<=$d_date)
-                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
-                        else
-                          $reminder = "<form method='POST' action='https://hoaboardtime.com/boardSetReminder2.php'><input type='hidden' name='name' id='name' value='$name'><input type='hidden' name='living_in' id='living_in' value='$address'><input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'><input type='hidden' name='home_id' id='home_id' value='$home_id'><input type='hidden' name='email' id='email' value='$email'><button class='btn btn-link' type='submit'><i class='fa fa-bell'></i></button></form>";
-
-                        echo "<tr><td>$reminder</td><td>$name ($hoa_id)<br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
-
-                    }
                   
                   ?>
 
