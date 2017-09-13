@@ -485,7 +485,7 @@
                     else
                     {
 
-                      $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND home_id=cc.home_id AND hoa_id=cc.hoa_id))>".$value." ORDER BY cc.home_id");
+                      $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND home_id=cc.home_id AND hoa_id=cc.hoa_id))>0.0 ORDER BY cc.home_id");
 
                       echo "<br><center>Total Number of records fetched : ".pg_num_rows($result)."</center><br>";
 
