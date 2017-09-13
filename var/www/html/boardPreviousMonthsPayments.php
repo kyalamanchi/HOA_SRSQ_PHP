@@ -574,7 +574,7 @@
                             else
                             {
                               
-                              echo "<tr class='text-danger'><td></td><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td></td><td></td><td></td><td>$ $balance</td></tr>";
+                              echo "<tr class='text-danger'><td></td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php/hoa_id=$hoa_id'>$name<br>($hoa_id)</a></td><td>$living_in<br>($home_id)</td><td></td><td></td><td></td><td>$ $balance</td></tr>";
 
                             }
 
