@@ -570,10 +570,14 @@
 
                                       <br>
 
-                                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                      <div class='row container-fluid'>
 
-                                        <label>Comment</label>
-                                        <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comment</textarea>
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                          <label>Comment</label>
+                                          <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comment</textarea>
+
+                                        </div>
 
                                       </div>
 
