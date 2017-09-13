@@ -431,24 +431,25 @@
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Reminder Type</label>
-                                            <select class='form-control' type='date' name='edit_disclosure_type' id='edit_reminder_type' required>
+                                            <select class='form-control' type='date' name='edit_disclosure_type' id='edit_disclosure_type' required>
 
                                               <option value='' selected disabled>Select Disclosure Type</option>";
 
-                                              $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+                                              $ree = pg_query("SELECT * FROM community_disclosure_type");
 
                                               while($roo = pg_fetch_assoc($ree))
                                               {
 
-                                                $r_id = $roo['id'];
-                                                $r_type = $roo['reminder_type'];
+                                                $did = $roo['id'];
+                                                $dname = $roo['name'];
+                                                $ddesc = $roo['desc'];
 
                                                 echo "<option ";
 
-                                                if($r_type == $reminder_type)
+                                                if($dname == $name)
                                                   echo " selected ";
 
-                                                echo "value='$r_id'>$r_type</option>";
+                                                echo "value='$did'>$dname - $ddesc</option>";
                                               }
 
                                             echo "</select>
