@@ -332,6 +332,8 @@
         	$month = date("m");
         	$end_date = date("t");
 
+          $today = date("Y-m-d");
+
         ?>
         
         <section class="content-header">
@@ -469,7 +471,7 @@
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
 
-                        if($numrow1 != 0 && date('Y-m-d')<=$d_date)
+                        if($numrow1 != 0 && $today<=$d_date)
                           $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
                         else
                           $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
