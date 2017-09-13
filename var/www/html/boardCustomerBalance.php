@@ -469,7 +469,7 @@
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
 
-                        if($numrow1 != 0 && date('Y-m-d')<=$d_date)
+                        if($numrow1 != 0 && date('Y-m-d')>=$o_date && date('Y-m-d')<=$d_date)
                           $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
                         else
                           $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
@@ -557,8 +557,8 @@
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
 
-                        if($numrow1 != 0 && date('Y-m-d')<=$d_date)
-                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
+                        if($numrow1 != 0 && date('Y-m-d')>=$o_date && date('Y-m-d')<=$d_date)
+                          $reminder = "<center><a data-toggle='modal' data-target='#addHOAId_".$id."'><i class='fa fa-bell text-green'></i></a></center>";
                         else
                           $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
