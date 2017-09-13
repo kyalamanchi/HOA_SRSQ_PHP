@@ -28,7 +28,6 @@
     
     <title><?php echo $_SESSION['hoa_community_name']; ?></title>
     
-    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -434,14 +433,14 @@
 
                                         <div class='row container-fluid'>
 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 input-group date'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Open Date</label>
                                             <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$open_date' readonly>
 
                                           </div>
 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 input-group date'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Due Date</label>
                                             <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$due_date' required>
@@ -651,7 +650,6 @@
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
@@ -661,9 +659,7 @@
       $(function () {
         $("#example1").DataTable({ "pageLength": 50, "order": [[ 0, "desc" ]] });
 
-        $('#datepicker').datepicker({
-          autoclose: true
-        });
+        $(".select2").select2();
       });
     </script>
 
