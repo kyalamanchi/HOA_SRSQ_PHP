@@ -463,7 +463,7 @@
 
                         $balance = $charges - $payments;
 
-                        $result1 = pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date<='$today'");
+                        $result1 = pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND is_active='t'");
                         $numrow1 = pg_num_rows($result1);
                         if($numrow1 != 0 )
                         {  
@@ -474,7 +474,7 @@
                           $d_date = $row1['due_date'];
                           $reminder_type_id = $row1['reminder_type_id'];
                           $comment = $row1['comments'];
-                        
+
                           echo "
 
                           <div class='modal fade hmodal-success' id='editReminder_$rid' role='dialog'  aria-hidden='true'>
