@@ -472,7 +472,7 @@
                         $d_date = $row1['due_date'];
 
                         if($numrow1 != 0 && $today>=$d_date)
-                          $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
+                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
                         else
                           $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
@@ -490,24 +490,7 @@
                       $having = 1;
                       $value = 0;
 
-                      if($having == 1)
-                      {
-                        
-                        $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND home_id=cc.home_id AND hoa_id=cc.hoa_id))>".$value." ORDER BY cc.home_id"); 
-
-                      }
-                      else if ($having == 2) 
-                      {
-                        
-                        $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id AND home_id=cc.home_id AND hoa_id=cc.hoa_id))=".$value." ORDER BY cc.home_id"); 
-
-                      }
-                      else
-                      {
-                        
-                        $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id AND home_id=cc.home_id AND hoa_id=cc.hoa_id))<".$value." ORDER BY cc.home_id"); 
-
-                      }
+                      $result = pg_query("SELECT cc.hoa_id, cc.home_id FROM current_charges cc GROUP BY cc.home_id, cc.hoa_id HAVING (sum(cc.amount)-(SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND home_id=cc.home_id AND hoa_id=cc.hoa_id))>".$value." ORDER BY cc.home_id");
 
                       echo "<br><center>Total Number of records fetched : ".pg_num_rows($result)."</center><br>";
 
@@ -559,8 +542,8 @@
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
 
-                        if($numrow1 != 0 && date('Y-m-d')>=$o_date && date('Y-m-d')<=$d_date)
-                          $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
+                        if($numrow1 != 0 && $today>=$d_date)
+                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
                         else
                           $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
