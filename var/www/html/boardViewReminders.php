@@ -28,6 +28,7 @@
     
     <title><?php echo $_SESSION['hoa_community_name']; ?></title>
     
+    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -650,6 +651,7 @@
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
@@ -659,7 +661,9 @@
       $(function () {
         $("#example1").DataTable({ "pageLength": 50, "order": [[ 0, "desc" ]] });
 
-        $(".select2").select2();
+        $('#datepicker').datepicker({
+          autoclose: true
+        });
       });
     </script>
 
