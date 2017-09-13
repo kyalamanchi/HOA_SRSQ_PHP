@@ -467,14 +467,114 @@
                         $numrow1 = pg_num_rows($result1);
 
                         $row1 = pg_fetch_assoc($result1);
-
+                        $rid = $row1['id'];
                         $o_date = $row1['open_date'];
                         $d_date = $row1['due_date'];
+                        $reminder_type_id = $row1['reminder_type_id'];
 
                         if($numrow1 != 0 && $today>=$d_date)
-                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
+                        {  
+                          echo "
+
+                          <div class='modal fade hmodal-success' id='editReminder_$rid' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                                      
+                              <div class='modal-content'>
+                                          
+                                <div class='modal-header'>
+                                                                  
+                                  <h4 class='modal-title'>Edit Reminder - <strong>".$name."</strong></h4>
+
+                                </div>
+
+                                <div class='modal-body'>
+                                                                  
+                                  <div class='container-fluid'>
+
+                                    <form class='row' method='post' action='https://hoaboardtime.com/addAgreementHOAID.php'>
+
+                                      <div class='row container-fluid'>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                          <label>Open Date</label>
+                                          <input class='form-control' type='date' name='edit_reminder' id='edit_reminder' value='$o_date' readonly>
+
+                                        </div>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                          <label>Due Date</label>
+                                          <input class='form-control' type='date' name='edit_reminder' id='edit_reminder' value='$d_date' required>
+
+                                        </div>
+
+                                      </div>
+
+                                      <div class='row container-fluid'>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                          <label>Reminder Type</label>
+                                          <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' value='$o_date' required>";
+
+                                            $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+
+                                            while($roo = pg_fetch_assoc($ree))
+                                            {
+
+                                              $r_id = $roo['id'];
+                                              $r_type = $roo['reminder_type'];
+
+                                              echo "<option ";
+
+                                              if($r_id == $reminder_type_id)
+                                                echo " selected ";
+
+                                              echo "value='$r_id'>$r_type</option>"
+                                            }
+
+                                          echo "</select>
+
+                                        </div>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                          <label>Vendor Assigned</label>
+                                          <input type='date' name='edit_reminder' id='edit_reminder' value='$d_date' required>
+
+                                        </div>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row container-fluid text-center'>
+                                              
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+
+                                      </div>
+
+                                    </form>
+                                                                  
+                                  </div>
+
+                                </div>
+
+                              </div>
+                                    
+                            </div>
+
+                          </div>
+
+                          ";
+
+                          $reminder = "<center><a data-toggle='modal' data-target='#editReminder_$rid'><i class='fa fa-bell text-green'></i></a></center>";
+                        }
                         else
-                          $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
+                          $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
                         echo "<tr><td>$reminder</td><td>$name ($hoa_id)<br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 
@@ -543,9 +643,11 @@
                         $d_date = $row1['due_date'];
 
                         if($numrow1 != 0 && $today>=$d_date)
-                          $reminder = "<center><i class='fa fa-bell text-green'></i></center>";
+                        {
+                          $reminder = "<center><a data-toggle='modal' data-target='#editReminder_$rid'><i class='fa fa-bell text-green'></i></a></center>";
+                        }
                         else
-                          $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
+                          $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
                         echo "<tr><td>$reminder</td><td>$name ($hoa_id)<br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 
