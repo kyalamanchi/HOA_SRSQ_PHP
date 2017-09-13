@@ -406,6 +406,9 @@
                             $result2 = pg_query("SELECT * FROM community_disclosure_type WHERE id=".$type_id);
                             $row2 = pg_fetch_assoc($result2);
 
+                            if($actual_date != "")
+                              $actual_date = date("m-d-Y", strtotime($actual_date));
+
                             $name = $row2['name'];
                             $desc = $row2['desc'];
                             $civilcode_section = $row2['civilcode_section'];
@@ -507,7 +510,7 @@
 
                             ";
 
-                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_from))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_until))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($actual_date))."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td><td>".$notes."</td></tr>";
+                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_from))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_until))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".$actual_date."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td><td>".$notes."</td></tr>";
 
                           }
 
