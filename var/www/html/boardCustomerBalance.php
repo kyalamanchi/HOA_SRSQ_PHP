@@ -517,7 +517,9 @@
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                           <label>Reminder Type</label>
-                                          <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' value='$o_date' required>";
+                                          <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' value='$o_date' required>
+
+                                            <option value='' selected disabled>Select Reminder Type</option>";
 
                                             $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
 
@@ -532,7 +534,7 @@
                                               if($r_id == $reminder_type_id)
                                                 echo " selected ";
 
-                                              echo "value='$r_id'>$r_type</option>"
+                                              echo "value='$r_id'>$r_type</option>";
                                             }
 
                                           echo "</select>
