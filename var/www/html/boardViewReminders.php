@@ -392,6 +392,7 @@
                             $reminder_type = $row['reminder_type_id'];
                             $comments = $row['comments'];
                             $vendor_assigned = $row['vendor_assigned'];
+                            $is_active = $row['is_active'];
 
                             $row2 = pg_fetch_assoc(pg_query("SELECT address1 FROM homeid WHERE home_id=$home_id"));
                             $address = $row2['address1'];
