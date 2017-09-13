@@ -456,6 +456,11 @@
 
           $ress = pg_query("UPDATE reminders SET is_active='f' WHERE is_active='t' AND due_date<='".date('Y-m-d')."'");
 
+          if($ress)
+            echo "Yes";
+          else
+            echo "No";
+
         ?>
         
         <section class="content-header">
