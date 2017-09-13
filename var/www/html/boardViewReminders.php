@@ -405,8 +405,11 @@
                             $row2 = pg_fetch_assoc(pg_query("SELECT * FROM reminder_type WHERE id=$reminder_type"));
                             $reminder_type = $row2['reminder_type'];
 
-                            $row2 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
-                            $vendor_assigned = $row2['vendor_name'];
+                            if($vendor_assigned != "")
+                            {
+                              $row2 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
+                              $vendor_assigned = $row2['vendor_name'];
+                            }
 
                             echo "
 
@@ -433,14 +436,14 @@
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Open Date</label>
-                                            <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$o_date' readonly>
+                                            <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$open_date' readonly>
 
                                           </div>
 
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Due Date</label>
-                                            <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$d_date' required>
+                                            <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$due_date' required>
 
                                           </div>
 
@@ -492,7 +495,12 @@
                                                 $vendor_id = $roo['vendor_id'];
                                                 $vendor_name = $roo['vendor_name'];
 
-                                                echo "<option value='$vendor_id'>$vendor_name</option>";
+                                                echo "<option ";
+
+                                                if($vendor_name == $vendor_assigned)
+                                                  echo " selected ";
+
+                                                echo "value='$vendor_id'>$vendor_name</option>";
                                               }
 
                                             echo "</select>
@@ -510,7 +518,7 @@
                                           <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
                                             <label>Comment</label>
-                                            <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comment</textarea>
+                                            <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comments</textarea>
 
                                           </div>
 
