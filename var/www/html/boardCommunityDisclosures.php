@@ -428,47 +428,28 @@
 
                                         <div class='row container-fluid'>
 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 date'>
-
-                                            <label>Open Date</label>
-                                            <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$open_date' readonly>
-
-                                          </div>
-
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 date'>
-
-                                            <label>Due Date</label>
-                                            <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$due_date' required>
-
-                                          </div>
-
-                                        </div>
-
-                                        <br>
-
-                                        <div class='row container-fluid'>
-
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Reminder Type</label>
-                                            <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' required>
+                                            <select class='form-control' type='date' name='edit_disclosure_type' id='edit_reminder_type' required>
 
-                                              <option value='' selected disabled>Select Reminder Type</option>";
+                                              <option value='' selected disabled>Select Disclosure Type</option>";
 
-                                              $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+                                              $ree = pg_query("SELECT * FROM community_disclosure_type");
 
                                               while($roo = pg_fetch_assoc($ree))
                                               {
 
-                                                $r_id = $roo['id'];
-                                                $r_type = $roo['reminder_type'];
+                                                $id = $roo['id'];
+                                                $type = $roo['name'];
+                                                $desc = $roo['desc'];
 
                                                 echo "<option ";
 
-                                                if($r_type == $reminder_type)
+                                                if($name == $type)
                                                   echo " selected ";
 
-                                                echo "value='$r_id'>$r_type</option>";
+                                                echo "value='$id'>$type - $desc</option>";
                                               }
 
                                             echo "</select>
