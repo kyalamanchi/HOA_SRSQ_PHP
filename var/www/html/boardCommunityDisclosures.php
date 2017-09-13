@@ -391,6 +391,7 @@
                           while ($row=pg_fetch_assoc($result)) 
                           {
                                             
+                            $id = $row['id'];
                             $type_id = $row['type_id'];
                             $legal_date_from = $row['legal_date_from'];
                             $legal_date_until = $row['legal_date_until'];
@@ -405,7 +406,143 @@
                             $desc = $row2['desc'];
                             $civilcode_section = $row2['civilcode_section'];
 
-                            echo "<tr><td>".date("m-d-Y", strtotime($legal_date_from))."</td><td>".date("m-d-Y", strtotime($legal_date_until))."</td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td></tr>";
+                            echo "
+
+                            <div class='modal fade hmodal-success' id='editDisclosure_$id' role='dialog'  aria-hidden='true'>
+                                  
+                              <div class='modal-dialog'>
+                                                        
+                                <div class='modal-content'>
+                                            
+                                  <div class='modal-header'>
+                                                                    
+                                    <h4 class='modal-title'>Edit Disclosure - <strong>".$name."</strong></h4>
+
+                                  </div>
+
+                                  <div class='modal-body'>
+                                                                    
+                                    <div class='container-fluid'>
+
+                                      <form class='row' method='post' action='https://hoaboardtime.com/boardEditDisclosure.php'>
+
+                                        <div class='row container-fluid'>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 date'>
+
+                                            <label>Open Date</label>
+                                            <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$open_date' readonly>
+
+                                          </div>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 date'>
+
+                                            <label>Due Date</label>
+                                            <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$due_date' required>
+
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                            <label>Reminder Type</label>
+                                            <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' required>
+
+                                              <option value='' selected disabled>Select Reminder Type</option>";
+
+                                              $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+
+                                              while($roo = pg_fetch_assoc($ree))
+                                              {
+
+                                                $r_id = $roo['id'];
+                                                $r_type = $roo['reminder_type'];
+
+                                                echo "<option ";
+
+                                                if($r_type == $reminder_type)
+                                                  echo " selected ";
+
+                                                echo "value='$r_id'>$r_type</option>";
+                                              }
+
+                                            echo "</select>
+
+                                          </div>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                            <label>Vendor Assigned</label>
+                                            <select class='form-control' type='date' name='edit_vendor' id='edit_vendor'>
+
+                                              <option value='' selected>NONE</option>";
+
+                                              $ree = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
+
+                                              while($roo = pg_fetch_assoc($ree))
+                                              {
+
+                                                $vendor_id = $roo['vendor_id'];
+                                                $vendor_name = $roo['vendor_name'];
+
+                                                echo "<option ";
+
+                                                if($vendor_name == $vendor_assigned)
+                                                  echo " selected ";
+
+                                                echo "value='$vendor_id'>$vendor_name</option>";
+                                              }
+
+                                            echo "</select>
+
+                                            <input type='hidden' name='reminder_id' id='reminder_id' value='$rid'>
+
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+
+                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                            <label>Comment</label>
+                                            <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comments</textarea>
+
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid text-center'>
+                                                
+                                          <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
+                                          <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+
+                                        </div>
+
+                                      </form>
+                                                                    
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                                      
+                              </div>
+
+                            </div>
+
+                            ";
+
+                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_from))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_until))."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td></tr>";
 
                           }
 

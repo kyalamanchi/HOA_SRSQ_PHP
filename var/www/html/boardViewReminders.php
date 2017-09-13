@@ -433,14 +433,14 @@
 
                                         <div class='row container-fluid'>
 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 date'>
 
                                             <label>Open Date</label>
                                             <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$open_date' readonly>
 
                                           </div>
 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 date'>
 
                                             <label>Due Date</label>
                                             <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$due_date' required>
