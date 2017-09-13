@@ -383,6 +383,7 @@
                           while ($row = pg_fetch_assoc($result)) 
                           {
                                             
+                            $rid = $row['id'];
                             $open_date = $row['open_date'];
                             $due_date = $row['due_date'];
                             $date_updated = $row['update_date'];
@@ -406,7 +407,141 @@
                             $row2 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
                             $vendor_assigned = $row2['vendor_name'];
 
-                            echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><center><i class='fa fa-edit'></i></center></td><td><center><i class='fa fa-close'></i></center></td></tr>";
+                            echo "
+
+                            <div class='modal fade hmodal-success' id='editReminder_$rid' role='dialog'  aria-hidden='true'>
+                                  
+                              <div class='modal-dialog'>
+                                                        
+                                <div class='modal-content'>
+                                            
+                                  <div class='modal-header'>
+                                                                    
+                                    <h4 class='modal-title'>Edit Reminder - <strong>".$name."</strong></h4>
+
+                                  </div>
+
+                                  <div class='modal-body'>
+                                                                    
+                                    <div class='container-fluid'>
+
+                                      <form class='row' method='post' action='https://hoaboardtime.com/boardEditReminder.php'>
+
+                                        <div class='row container-fluid'>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                            <label>Open Date</label>
+                                            <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$o_date' readonly>
+
+                                          </div>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                            <label>Due Date</label>
+                                            <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$d_date' required>
+
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                            <label>Reminder Type</label>
+                                            <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' required>
+
+                                              <option value='' selected disabled>Select Reminder Type</option>";
+
+                                              $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+
+                                              while($roo = pg_fetch_assoc($ree))
+                                              {
+
+                                                $r_id = $roo['id'];
+                                                $r_type = $roo['reminder_type'];
+
+                                                echo "<option ";
+
+                                                if($r_type == $reminder_type)
+                                                  echo " selected ";
+
+                                                echo "value='$r_id'>$r_type</option>";
+                                              }
+
+                                            echo "</select>
+
+                                          </div>
+
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                            <label>Vendor Assigned</label>
+                                            <select class='form-control' type='date' name='edit_vendor' id='edit_vendor'>
+
+                                              <option value='' selected>NONE</option>";
+
+                                              $ree = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
+
+                                              while($roo = pg_fetch_assoc($ree))
+                                              {
+
+                                                $vendor_id = $roo['vendor_id'];
+                                                $vendor_name = $roo['vendor_name'];
+
+                                                echo "<option value='$vendor_id'>$vendor_name</option>";
+                                              }
+
+                                            echo "</select>
+
+                                            <input type='hidden' name='reminder_id' id='reminder_id' value='$rid'>
+
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+
+                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                            <label>Comment</label>
+                                            <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comment</textarea>
+
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid text-center'>
+                                                
+                                          <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
+                                          <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+
+                                        </div>
+
+                                      </form>
+                                                                    
+                                    </div>
+
+                                  </div>
+
+                                </div>
+                                      
+                              </div>
+
+                            </div>
+
+                            ";
+
+                            if($is_active == 't')
+                              echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><center><a title='Edit Reminder' data-toggle='modal' data-target='#editReminder_$rid'><i class='text-blue fa fa-edit'></i></a></center></td><td><center><a title='Delete Reminder'><i class='text-red fa fa-close'></i></a></center></td></tr>";
+                            else
+                              echo "<tr class='text-grey'><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td></td><td></td></tr>";
 
                           }
 
