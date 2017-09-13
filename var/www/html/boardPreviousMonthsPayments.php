@@ -374,52 +374,52 @@
                     echo "value='2'>February</option><option ";
 
                     if($m == 3)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='3'>March</option><option ";
 
                     if($m == 4)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='4'>April</option><option ";
 
                     if($m == 5)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='5'>May</option><option ";
 
                     if($m == 6)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='6'>June</option><option ";
 
                     if($m == 7)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='7'>July</option><option ";
 
                     if($m == 8)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='8'>August</option><option ";
 
                     if($m == 9)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='9'>September</option><option ";
 
                     if($m == 10)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='10'>October</option><option ";
 
                     if($m == 11)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='11'>November</option><option ";
 
                     if($m == 12)
-                      echo " selected";
+                      echo " selected ";
 
                     echo "value='12'>December</option></select><br><br><input type='submit' class='btn btn-warning btn-xs' name='submit' id='submit' value='Show Payments'>";
 
