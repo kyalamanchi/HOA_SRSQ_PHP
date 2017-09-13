@@ -359,6 +359,8 @@
                   {
                     $m = (date("m") - 1);
 
+                    echo $m;
+
                     echo "Show payments of <select id='month' name='month' required><option ";
 
                     if($m == 1)
