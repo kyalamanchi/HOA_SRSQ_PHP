@@ -435,21 +435,20 @@
 
                                               <option value='' selected disabled>Select Disclosure Type</option>";
 
-                                              $ree = pg_query("SELECT * FROM community_disclosure_type");
+                                              $ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
 
                                               while($roo = pg_fetch_assoc($ree))
                                               {
 
-                                                $id = $roo['id'];
-                                                $type = $roo['name'];
-                                                $desc = $roo['desc'];
+                                                $r_id = $roo['id'];
+                                                $r_type = $roo['reminder_type'];
 
                                                 echo "<option ";
 
-                                                if($name == $type)
+                                                if($r_type == $reminder_type)
                                                   echo " selected ";
 
-                                                echo "value='$id'>$type - $desc</option>";
+                                                echo "value='$r_id'>$r_type</option>";
                                               }
 
                                             echo "</select>
