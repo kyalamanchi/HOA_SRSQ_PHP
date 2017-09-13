@@ -449,7 +449,7 @@
                                                 if($dname == $name)
                                                   echo " selected ";
 
-                                                echo "value='$did'>$dname - $ddesc</option>";
+                                                echo "value='$did'>$dname<br>$ddesc</option>";
                                               }
 
                                             echo "</select>
