@@ -368,10 +368,12 @@
                         
                         <th>Legal Date From</th>
                         <th>Legal Date Until</th>
+                        <th>Actual Date</th>
                         <th>Disclosure Type</th>
                         <th>Description</th>
                         <th>Delivery Type</th>
                         <th>Civil Code Section</th>
+                        <th>Notes</th>
 
                       </tr>
 
@@ -395,9 +397,11 @@
                             $type_id = $row['type_id'];
                             $legal_date_from = $row['legal_date_from'];
                             $legal_date_until = $row['legal_date_until'];
+                            $actual_date = $row['actual_date'];
                             $delivery_type = $row['delivery_type'];
                             $fiscal_year_start = $row['fiscal_year_start'];
                             $fiscal_year_end = $row['fiscal_year_end'];
+                            $notes = $row['notes'];
 
                             $result2 = pg_query("SELECT * FROM community_disclosure_type WHERE id=".$type_id);
                             $row2 = pg_fetch_assoc($result2);
@@ -430,8 +434,8 @@
 
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                            <label>Reminder Type</label>
-                                            <select class='form-control' type='date' name='edit_disclosure_type' id='edit_disclosure_type' required>
+                                            <label>Delivery Type</label>
+                                            <select class='form-control' name='edit_disclosure_type' id='edit_disclosure_type' required>
 
                                               <option value='' selected disabled>Select Disclosure Type</option>";
 
@@ -449,7 +453,7 @@
                                                 if($dname == $name)
                                                   echo " selected ";
 
-                                                echo "value='$did'>$dname<br>$ddesc</option>";
+                                                echo "value='$did'>$dname</option>";
                                               }
 
                                             echo "</select>
@@ -458,30 +462,10 @@
 
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                            <label>Vendor Assigned</label>
-                                            <select class='form-control' type='date' name='edit_vendor' id='edit_vendor'>
+                                            <label>Actual Date</label>
+                                            <input type='date' name='edit_actual_date' id='edit_actual_date' value='' required>
 
-                                              <option value='' selected>NONE</option>";
-
-                                              $ree = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
-
-                                              while($roo = pg_fetch_assoc($ree))
-                                              {
-
-                                                $vendor_id = $roo['vendor_id'];
-                                                $vendor_name = $roo['vendor_name'];
-
-                                                echo "<option ";
-
-                                                if($vendor_name == $vendor_assigned)
-                                                  echo " selected ";
-
-                                                echo "value='$vendor_id'>$vendor_name</option>";
-                                              }
-
-                                            echo "</select>
-
-                                            <input type='hidden' name='reminder_id' id='reminder_id' value='$rid'>
+                                            <input type='hidden' name='disclosure_id' id='disclosure_id' value='$id'>
 
                                           </div>
 
@@ -493,8 +477,8 @@
 
                                           <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                            <label>Comment</label>
-                                            <textarea id='edit_comment' name='edit_comment' class='form-control' required>$comments</textarea>
+                                            <label>Notes</label>
+                                            <textarea id='edit_notes' name='edit_notes' class='form-control'>$notes</textarea>
 
                                           </div>
 
@@ -523,7 +507,7 @@
 
                             ";
 
-                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_from))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_until))."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td></tr>";
+                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_from))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_until))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($actual_date))."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td><td>".$notes."</td></tr>";
 
                           }
 
@@ -539,10 +523,12 @@
 
                         <th>Legal Date From</th>
                         <th>Legal Date Until</th>
+                        <th>Actual Date</th>
                         <th>Disclosure Type</th>
                         <th>Description</th>
                         <th>Delivery Type</th>
                         <th>Civil Code Section</th>
+                        <th>Notes</th>
 
                       </tr>
 
