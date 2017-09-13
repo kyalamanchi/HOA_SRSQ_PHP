@@ -512,12 +512,14 @@
 
                                       </div>
 
+                                      <br>
+
                                       <div class='row container-fluid'>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                           <label>Reminder Type</label>
-                                          <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' value='$o_date' required>
+                                          <select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' required>
 
                                             <option value='' selected disabled>Select Reminder Type</option>";
 
@@ -544,7 +546,22 @@
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                           <label>Vendor Assigned</label>
-                                          <input type='date' name='edit_reminder' id='edit_reminder' value='$d_date' required>
+                                          <select class='form-control' type='date' name='edit_vendor' id='edit_vendor'>
+
+                                            <option value='' selected>NONE</option>";
+
+                                            $ree = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
+
+                                            while($roo = pg_fetch_assoc($ree))
+                                            {
+
+                                              $vendor_id = $roo['vendor_id'];
+                                              $vendor_name = $roo['vendor_name'];
+
+                                              echo "<option value='$vendor_id'>$vendor_name</option>";
+                                            }
+
+                                          echo "</select>
 
                                         </div>
 
