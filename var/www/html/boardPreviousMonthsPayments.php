@@ -356,7 +356,71 @@
 
                   }
                   else
-                    echo "Show payments of <select id='month' name='month' required><option value='1'>January</option><option value='2'>February</option><option value='3'>March</option><option value='4'>April</option><option value='5'>May</option><option value='6'>June</option><option value='7'>July</option><option value='8'>August</option><option value='9'>September</option><option value='10'>October</option><option value='11'>November</option><option value='12'>December</option></select><br><br><input type='submit' class='btn btn-warning btn-xs' name='submit' id='submit' value='Show Payments'>";
+                  {
+
+                    echo "Show payments of <select id='month' name='month' required><option ";
+
+                    if($month-1 == 1)
+                      echo "selected ";
+
+                    echo "value='1'>January</option><option ";
+
+                    if($month-1 == 2)
+                      echo "selected ";
+
+                    echo "value='2'>February</option><option ";
+
+                    if($month-1 == 3)
+                      echo " selected";
+
+                    echo "value='3'>March</option><option ";
+
+                    if($month-1 == 4)
+                      echo " selected";
+
+                    echo "value='4'>April</option><option ";
+
+                    if($month-1 == 5)
+                      echo " selected";
+
+                    echo "value='5'>May</option><option ";
+
+                    if($month-1 == 6)
+                      echo " selected";
+
+                    echo "value='6'>June</option><option ";
+
+                    if($month-1 == 7)
+                      echo " selected";
+
+                    echo "value='7'>July</option><option ";
+
+                    if($month-1 == 8)
+                      echo " selected";
+
+                    echo "value='8'>August</option><option ";
+
+                    if($month-1 == 9)
+                      echo " selected";
+
+                    echo "value='9'>September</option><option ";
+
+                    if($month-1 == 10)
+                      echo " selected";
+
+                    echo "value='10'>October</option><option ";
+
+                    if($month-1 == 11)
+                      echo " selected";
+
+                    echo "value='11'>November</option><option ";
+
+                    if($month-1 == 12)
+                      echo " selected";
+
+                    echo "value='12'>December</option></select><br><br><input type='submit' class='btn btn-warning btn-xs' name='submit' id='submit' value='Show Payments'>";
+
+                  }
 
                 ?>
 
