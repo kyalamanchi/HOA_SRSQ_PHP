@@ -331,7 +331,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $rid = $_POST['rid'];
+          $rid = $_POST['reminder_id'];
           $due_date = $_POST['edit_reminder_due_date'];
           $vendor_assigned = $_POST['edit_vendor'];
           $comment = $_POST['edit_comment'];
@@ -342,7 +342,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Create Reminder</strong></h1>
+          <h1><strong>Edit Reminder</strong></h1>
 
         </section>
 
@@ -361,9 +361,9 @@
                   <?php 
 
                     if($vendor_assigned == "")
-                      $query = "UPDATE reminders(due_date,update_date,comments,reminder_type_id) VALUES('".$due_date."','".$update_date."','".$comment."',".$reminder_type.")";
+                      $query = "UPDATE reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type WHERE id=$rid";
                     else
-                      $query = "INSERT INTO reminders(due_date,update_date,comments,reminder_type_id,vendor_assigned) VALUES('".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.",".$vendor_assigned.")";
+                      $query = "INSERT INTO reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type, vendor_assigned=$vendor_assigned WHERE id=$rid";
 
                     $result = pg_query($query);
 
