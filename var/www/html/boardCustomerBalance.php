@@ -472,7 +472,7 @@
                         if($numrow1 != 0 && date('Y-m-d')>=$o_date && date('Y-m-d')<=$d_date)
                           $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
                         else
-                          $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
+                          $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
                         echo "<tr><td>$reminder</td><td>$name ($hoa_id)<br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 
@@ -560,7 +560,7 @@
                         if($numrow1 != 0 && date('Y-m-d')>=$o_date && date('Y-m-d')<=$d_date)
                           $reminder = "<center>$o_date<i class='fa fa-bell text-green'></i>$d_date</center>";
                         else
-                          $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
+                          $reminder = "<center>$numrow1 <a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
                         echo "<tr><td>$reminder</td><td>$name ($hoa_id)<br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 
