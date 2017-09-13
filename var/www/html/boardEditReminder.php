@@ -332,7 +332,7 @@
         	$end_date = date("t");
 
           $rid = $_POST['rid'];
-          $due_date = $_POST['due_date'];
+          $due_date = $_POST['edit_reminder_due_date'];
           $vendor_assigned = $_POST['edit_vendor'];
           $comment = $_POST['edit_comment'];
           $update_date = date('Y-m-d');

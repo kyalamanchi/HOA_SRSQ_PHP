@@ -500,14 +500,14 @@
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                           <label>Open Date</label>
-                                          <input class='form-control' type='date' name='edit_reminder' id='edit_reminder' value='$o_date' readonly>
+                                          <input class='form-control' type='date' name='edit_reminder_open_date' id='edit_reminder_open_date' value='$o_date' readonly>
 
                                         </div>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                           <label>Due Date</label>
-                                          <input class='form-control' type='date' name='edit_reminder' id='edit_reminder' value='$d_date' required>
+                                          <input class='form-control' type='date' name='edit_reminder_due_date' id='edit_reminder_due_date' value='$d_date' required>
 
                                         </div>
 
