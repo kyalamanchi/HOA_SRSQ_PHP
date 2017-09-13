@@ -547,8 +547,48 @@
 
                             ";
 
+                            echo "
+                          
+                            <div class='modal fade hmodal-success' id='deleteReminder_$rid' role='dialog'  aria-hidden='true'>
+                                
+                              <div class='modal-dialog'>
+                                              
+                                <div class='modal-content'>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Delete Reminder - $name</h4>
+
+                                  </div>
+
+                                  <div class='modal-body'>
+                                        
+                                    <form method='POST' action='https://hoaboardtime.com/boardDeleteReminder.php'>
+
+                                      <center>
+
+                                        <input type='hidden' name='reminder_id' id='reminder_id' value='$rid'>
+
+                                        <h4>You are about to delete reminder for <strong>$name</strong>.</h4><br><br><h3><b>Are you sure you want to continue?</b></h3><br><small>This action cannot be undone.</small><br><br>
+
+                                        <button type='submit' class='btn btn-warning btn-sm'>Remove</button> <button type='button' class='btn btn-success btn-sm' data-dismiss='modal'>Cancel</button>
+
+                                      </center>
+
+                                    </form>
+
+                                  </div>
+
+                                </div>
+                            
+                              </div>
+
+                            </div>
+
+                            ";
+
                             if($is_active == 't')
-                              echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><center><a title='Edit Reminder' data-toggle='modal' data-target='#editReminder_$rid'><i class='text-blue fa fa-edit'></i></a></center></td><td><center><a title='Delete Reminder'><i class='text-red fa fa-close'></i></a></center></td></tr>";
+                              echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><center><a title='Edit Reminder' data-toggle='modal' data-target='#editReminder_$rid'><i class='text-blue fa fa-edit'></i></a></center></td><td><center><a title='Delete Reminder' data-toggle='modal' data-target='#editReminder_$rid'><i class='text-red fa fa-close'></i></a></center></td></tr>";
                             else
                               echo "<tr style='color: grey;'><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td></td><td></td></tr>";
 
