@@ -358,6 +358,8 @@
                   else
                   {
 
+                    echo $month;
+
                     echo "Show payments of <select id='month' name='month' required><option ";
 
                     if($month-1 == 1)
