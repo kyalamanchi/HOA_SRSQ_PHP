@@ -1,4 +1,4 @@
-DeDOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     
