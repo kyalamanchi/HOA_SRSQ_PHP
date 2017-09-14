@@ -758,6 +758,14 @@
 
                                       echo "</select>
 
+                                      <br><br>
+
+                                      <input type='hidden' name='home_id' id='home_id' value='$home_id'>
+                                      <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+
+                                      <button class='btn btn-success btn-sm' type='submit'>Update</button>
+                                      <button type='button' class='btn btn-warning btn-sm' data-dismiss='modal'>Cancel</button>
+
                                     </form>             
                                   
                                   </div>
