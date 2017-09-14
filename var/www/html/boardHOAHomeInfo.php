@@ -736,7 +736,7 @@
 
                                       <label>Select Payment Method</label>
 
-                                      <select name='' id='' class='form-control' required>
+                                      <select name='edit_home_pay_method' id='edit_home_pay_method' class='form-control' required>
 
                                         <option value='' selected disabled>Select Payment Method</option>";
 
