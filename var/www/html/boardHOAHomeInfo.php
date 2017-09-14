@@ -715,7 +715,8 @@
 
                           </div>";
 
-                          echo "<div class='modal fade hmodal-success' id='homePayMethod_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                          echo "
+                          <div class='modal fade hmodal-success' id='homePayMethod_".$hoa_id."' role='dialog'  aria-hidden='true'>
                                 
                             <div class='modal-dialog'>
                                               
@@ -730,9 +731,35 @@
                                   </div>
 
                                   <div class='modal-body'>
+
+
+                                    <label>Select Payment Method</label>
+
+                                    <select name='' id='' class='form-control' required>
+
+                                      <option value='' selected disabled>Select Payment Method</option>";
+
+                                      $res = pg_query("SELECT * FROM payment_type");
+
+                                      while ($ro = pg_fetch_assoc($res)) 
+                                      {
+                                       
+                                        $updateId = $ro['payment_type_id'];
+                                        $updateName = $ro['payment_type_name'];
+
+                                        echo "<option value='$updateId'";
+
+                                        if($home_pay_method == $updateName)
+                                          echo " selected ";
+
+                                        echo ">$updateName</option>";
+                                      }
+
+                                    echo "</select>
                                                           
                                   
-                                  Hello
+                                  </div>
+
                                 </div>
 
                               </div>
