@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+DeDOCTYPE html>
 <html>
   <head>
     
@@ -437,7 +437,7 @@
 
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                            <label>Delivery Type</label>
+                                            <label>Disclosure Type</label>
                                             <select class='form-control' name='edit_disclosure_type' id='edit_disclosure_type' required>
 
                                               <option value='' selected disabled>Select Disclosure Type</option>";
