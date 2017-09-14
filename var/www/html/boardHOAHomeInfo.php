@@ -766,7 +766,7 @@
                                       <center><button class='btn btn-success btn-xs' type='submit'>Update</button>
                                       <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'>Cancel</button></center>
 
-                                      <br><br>
+                                      <br>
 
                                     </form>             
                                   
