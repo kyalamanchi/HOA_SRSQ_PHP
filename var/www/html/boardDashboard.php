@@ -1793,16 +1793,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <?php 
-
-                        $no_assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
-
-                        if($no_assets > 0)
-                          echo "<h3 class='text-green'><strong>".$no_assets."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-info'><strong>".$no_assets."</strong></h3>";
-
-                      ?>
+                      
 
                     </div>
 
