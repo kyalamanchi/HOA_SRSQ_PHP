@@ -715,8 +715,34 @@
 
                           </div>";
 
+                          echo "<div class='modal fade hmodal-success' id='homePayMethod_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Update Pay Method - ".$firstname." ".$lastname."</h4>
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#HOAInfo_".$hoa_id."'>".$firstname." ".$lastname."<br>(".$hoa_id.")</a></td><td>".$email."</td><td>".$cell_no."</td><td>".$address."<br>(".$home_id.")</td><td><a data-toggle='modal' data-target='#paymentInfo_".$hoa_id."'>$ ".$balance."</a></td><td>".$mailing_address."<br>".$mailing_city."<br>".$mailing_state." ".$mailing_zip."</td><td>".$home_pay_method."</td><td>".$reminders."</td><td>".$recurring_pay."</td></tr>";
+                                  </div>
+
+                                  <div class='modal-body'>
+                                                          
+                                  
+                                  Hello
+                                </div>
+
+                              </div>
+                            
+                            </div>
+
+                          </div>";
+
+
+                          echo "<tr><td><a data-toggle='modal' data-target='#HOAInfo_".$hoa_id."'>".$firstname." ".$lastname."<br>(".$hoa_id.")</a></td><td>".$email."</td><td>".$cell_no."</td><td>".$address."<br>(".$home_id.")</td><td><a data-toggle='modal' data-target='#paymentInfo_".$hoa_id."'>$ ".$balance."</a></td><td>".$mailing_address."<br>".$mailing_city."<br>".$mailing_state." ".$mailing_zip."</td><td><a data-toggle='modal' data-target='#homePayMethod_".$hoa_id."'>".$home_pay_method."</a></td><td>".$reminders."</td><td>".$recurring_pay."</td></tr>";
 
                         }
 
