@@ -732,31 +732,33 @@
 
                                   <div class='modal-body'>
 
+                                    <form action='https://hoaboardtime.com/boardUpdateHomePayMethod.php' method='POST'>
 
-                                    <label>Select Payment Method</label>
+                                      <label>Select Payment Method</label>
 
-                                    <select name='' id='' class='form-control' required>
+                                      <select name='' id='' class='form-control' required>
 
-                                      <option value='' selected disabled>Select Payment Method</option>";
+                                        <option value='' selected disabled>Select Payment Method</option>";
 
-                                      $res = pg_query("SELECT * FROM payment_type");
+                                        $res = pg_query("SELECT * FROM payment_type");
 
-                                      while ($ro = pg_fetch_assoc($res)) 
-                                      {
-                                       
-                                        $updateId = $ro['payment_type_id'];
-                                        $updateName = $ro['payment_type_name'];
+                                        while ($ro = pg_fetch_assoc($res)) 
+                                        {
+                                         
+                                          $updateId = $ro['payment_type_id'];
+                                          $updateName = $ro['payment_type_name'];
 
-                                        echo "<option value='$updateId'";
+                                          echo "<option value='$updateId'";
 
-                                        if($home_pay_method == $updateName)
-                                          echo " selected ";
+                                          if($home_pay_method == $updateName)
+                                            echo " selected ";
 
-                                        echo ">$updateName</option>";
-                                      }
+                                          echo ">$updateName</option>";
+                                        }
 
-                                    echo "</select>
-                                                          
+                                      echo "</select>
+
+                                    </form>             
                                   
                                   </div>
 
