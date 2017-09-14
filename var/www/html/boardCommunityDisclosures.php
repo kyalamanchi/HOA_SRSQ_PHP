@@ -466,7 +466,7 @@
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                             <label>Actual Date</label>
-                                            <input type='date' class='form-control' name='edit_actual_date' id='edit_actual_date' value='' required>
+                                            <input type='date' class='form-control' name='edit_actual_date' id='edit_actual_date' value='$actual_date'>
 
                                             <input type='hidden' name='disclosure_id' id='disclosure_id' value='$id'>
 

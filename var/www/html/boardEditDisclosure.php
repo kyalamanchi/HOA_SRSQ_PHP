@@ -9,7 +9,7 @@
     $edit_actual_date = $_POST['edit_actual_date'];
     $edit_notes = $_POST['edit_notes'];
 
-    $result = pg_query("UPDATE community_disclosures SET notes='$edit_notes', actual_date='$edit_actual_date', delivery_type=$edit_disclosure_type WHERE id=$disclosure_id");
+    $result = pg_query("UPDATE community_disclosures SET notes='$edit_notes', actual_date='$edit_actual_date', type_id=$edit_disclosure_type WHERE id=$disclosure_id");
 
     if($result)
     	echo "<br><br><br><br><center><h3>Disclosure Updated.</h3></center>";
