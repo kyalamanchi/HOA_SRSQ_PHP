@@ -1639,6 +1639,32 @@
 
         <section class="content-header">
 
+          <h1><strong>Reserves Dashboard</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+
+        </section>
+
+        <section class="content">
+
+          <div class="row container-fluid">
+
+            <section style="background-color: white;">
+
+              <br>
+            
+              <div class="row container-fluid">
+                
+                
+              
+              </div>
+
+            </section>
+
+          </div>
+
+        </section>
+
+        <section class="content-header">
+
           <h1><strong><?php echo $year; ?> Yearly Statistics</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
