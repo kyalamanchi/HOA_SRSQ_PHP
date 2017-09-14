@@ -1675,6 +1675,7 @@
 
                   <div class="row container-fluid text-left">
 
+                    <hr>
                     <h4><strong>Add New Asset</strong></h4>
 
                   </div>
