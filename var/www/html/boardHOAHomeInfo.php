@@ -715,8 +715,73 @@
 
                           </div>";
 
+                          echo "
+                          <div class='modal fade hmodal-success' id='homePayMethod_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Update Pay Method - ".$firstname." ".$lastname."</h4>
 
-                          echo "<tr><td><a data-toggle='modal' data-target='#HOAInfo_".$hoa_id."'>".$firstname." ".$lastname."<br>(".$hoa_id.")</a></td><td>".$email."</td><td>".$cell_no."</td><td>".$address."<br>(".$home_id.")</td><td><a data-toggle='modal' data-target='#paymentInfo_".$hoa_id."'>$ ".$balance."</a></td><td>".$mailing_address."<br>".$mailing_city."<br>".$mailing_state." ".$mailing_zip."</td><td>".$home_pay_method."</td><td>".$reminders."</td><td>".$recurring_pay."</td></tr>";
+                                  </div>
+
+                                  <div class='modal-body'>
+
+                                    <form action='https://hoaboardtime.com/boardUpdateHomePayMethod.php' method='POST'>
+
+                                      <label>Select Payment Method</label>
+
+                                      <select name='edit_home_pay_method' id='edit_home_pay_method' class='form-control' required>
+
+                                        <option value='' selected disabled>Select Payment Method</option>";
+
+                                        $res = pg_query("SELECT * FROM payment_type");
+
+                                        while ($ro = pg_fetch_assoc($res)) 
+                                        {
+                                         
+                                          $updateId = $ro['payment_type_id'];
+                                          $updateName = $ro['payment_type_name'];
+
+                                          echo "<option value='$updateId'";
+
+                                          if($home_pay_method == $updateName)
+                                            echo " selected ";
+
+                                          echo ">$updateName</option>";
+                                        }
+
+                                      echo "</select>
+
+                                      <br><br>
+
+                                      <input type='hidden' name='home_id' id='home_id' value='$home_id'>
+                                      <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+
+                                      <center><button class='btn btn-success btn-xs' type='submit'>Update</button>
+                                      <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'>Cancel</button></center>
+
+                                      <br>
+
+                                    </form>             
+                                  
+                                  </div>
+
+                                </div>
+
+                              </div>
+                            
+                            </div>
+
+                          </div>";
+
+
+                          echo "<tr><td><a data-toggle='modal' data-target='#HOAInfo_".$hoa_id."'>".$firstname." ".$lastname."<br>(".$hoa_id.")</a></td><td>".$email."</td><td>".$cell_no."</td><td>".$address."<br>(".$home_id.")</td><td><a data-toggle='modal' data-target='#paymentInfo_".$hoa_id."'>$ ".$balance."</a></td><td>".$mailing_address."<br>".$mailing_city."<br>".$mailing_state." ".$mailing_zip."</td><td><a data-toggle='modal' data-target='#homePayMethod_".$hoa_id."'>".$home_pay_method."</a></td><td>".$reminders."</td><td>".$recurring_pay."</td></tr>";
 
                         }
 
