@@ -1787,7 +1787,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
 
-                      <img src="community_assets.png" height=75 width=75 alt='Number of Assets'>
+                      <img src="update_assets.png" height=75 width=75 alt='Update Assets'>
 
                     </div>
 
