@@ -1669,7 +1669,7 @@
 
                       <?php 
 
-                        $no_assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"))
+                        $no_assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
 
                         if($no_assets > 0)
                           echo "<h3 class='text-green'><strong>".$no_assets."</strong></h3>"; 
