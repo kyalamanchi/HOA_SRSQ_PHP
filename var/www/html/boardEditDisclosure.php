@@ -9,10 +9,14 @@
     $edit_actual_date = $_POST['edit_actual_date'];
     $edit_notes = $_POST['edit_notes'];
 
+    if($edit_disclosure_type != "")
+    	$result = pg_query("UPDATE community_disclosures SET type_id=$edit_disclosure_type WHERE id=$disclosure_id");
     
-    $result = pg_query("UPDATE community_disclosures SET type_id=$edit_disclosure_type WHERE id=$disclosure_id");
-    $result = pg_query("UPDATE community_disclosures SET actual_date='$edit_actual_date' WHERE id=$disclosure_id");
-    $result = pg_query("UPDATE community_disclosures SET notes='$edit_notes' WHERE id=$disclosure_id");
+    if($edit_actual_date != "")
+    	$result = pg_query("UPDATE community_disclosures SET actual_date='$edit_actual_date' WHERE id=$disclosure_id");
+    
+    if($edit_notes != "")
+    	$result = pg_query("UPDATE community_disclosures SET notes='$edit_notes' WHERE id=$disclosure_id");
 
     echo "<br><br><br><br><center><h3>Disclosure Updated.</h3></center>";
 
