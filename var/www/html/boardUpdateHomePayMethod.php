@@ -8,6 +8,14 @@
     $hoa_id = $_POST['hoa_id'];
     $home_pay_method = $_POST['edit_home_pay_method'];
 
-    echo $home_id." - - - ".$hoa_id." - - - ".$home_pay_method;
+    $result = pg_query("UPDATE home_pay_method SET payment_type_id=$home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id");
+
+    if($result)
+    	echo "<br><br><br><center><h3>Home Pay Method Updated.</h3></center>";
+    else
+    	echo "<br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
+
+
+    echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardHOAHomeInfo.php'},1000);</script>";
 
 ?>
