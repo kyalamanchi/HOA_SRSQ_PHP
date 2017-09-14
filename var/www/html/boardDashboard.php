@@ -1714,6 +1714,7 @@
 
                   <div class="row container-fluid text-left">
 
+                    <hr style="color: white;">
                     <h4><strong>Reserves Funded</strong></h4>
 
                   </div>
