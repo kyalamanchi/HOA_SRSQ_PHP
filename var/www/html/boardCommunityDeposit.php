@@ -479,7 +479,7 @@
 
                                                     <center>
 
-                                                      <select class='form-contril select2' name='select_hoa' id='select_hoa' required>
+                                                      <select class='form-control select2' name='select_hoa' id='select_hoa' required>
 
                                                         <option value='' disabled selected>Select User</option>";
 
