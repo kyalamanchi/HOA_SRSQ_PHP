@@ -494,6 +494,7 @@
                                                           $add_name = $row111['firstname'];
                                                           $add_name .= " ";
                                                           $add_name .= $row111['lastname'];
+                                                          $add_hoa_id = $row111['hoa_id'];
 
                                                           echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
 
