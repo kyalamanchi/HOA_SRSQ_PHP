@@ -477,6 +477,8 @@
 
                                                   <div class='modal-body table-responsive'>
 
+                                                    <form method='POST' action='https://hoaboardtime.com/boardEditDepositsHOAID.php'>
+                                                    
                                                     <center>
 
                                                       <select class='form-control select2' name='select_hoa' id='select_hoa' style='width: 100%;' required>
@@ -503,11 +505,15 @@
 
                                                       echo "</select>
 
+                                                      <input type='hidden' name='current_payments_id' id='current_payments_id' value='$id'>
+
                                                       <br><br>
 
                                                       <button class='btn btn-xs btn-info' type='submit'>Update</button>
 
                                                     </center>
+
+                                                    </form>
 
                                                   </div>
 
