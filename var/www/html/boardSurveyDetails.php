@@ -352,18 +352,18 @@
 
             <?php
 
-              $result = pg_query("SELECT * FROM community_surveys WHERE community_id=$community_id");
+              #$result = pg_query("SELECT * FROM community_surveys WHERE community_id=$community_id");
 
-              while($row = pg_fetch_assoc($result))
-              {
+              #while($row = pg_fetch_assoc($result))
+              #{
                 
-                $name = $row['survey_name'];
+                #$name = $row['survey_name'];
 
-                $result_url = $row['results_url'];
+                #$result_url = $row['results_url'];
 
-                echo "<br><br>Name : ".$name." - - - "."URL : <a href='".$result_url."'>".$result_url."</a>";
+                #echo "<br><br>Name : ".$name." - - - "."URL : <a href='".$result_url."'>".$result_url."</a>";
 
-              }
+              #}
 
 
             ?>

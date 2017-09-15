@@ -34,45 +34,45 @@
     }
 
     $content = $mes;
-                      $subject = 'Password Reset for HOA account '.$hoa_id;
-                      $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
-                      $content_text = strip_tags($content);
+    $subject = 'Password Reset for HOA account '.$hoa_id;
+    $uri = 'https://mandrillapp.com/api/1.0/messages/send.json';
+    $content_text = strip_tags($content);
 
-                      $params = array(
-                        "key" => $api_key,
-                        "message" => array(
-                          "html" => $content,
-                          "text" => $content_text,
-                          "subject" => $subject,
-                          "from_email" => $from,
-                          "from_name" => $from,
-                          "to" => array(
-                            array("email" => $to, "name" => $to)
-                          ),
-                          "track_opens" => true,
-                          "track_clicks" => true,
-                          "auto_text" => true,
-                          "url_strip_qs" => true,
-                          "preserve_recipients" => true
-                        ),
-                        "async" => false
-                      );
+    $params = array(
+        "key" => $api_key,
+        "message" => array(
+            "html" => $content,
+            "text" => $content_text,
+            "subject" => $subject,
+            "from_email" => $from,
+            "from_name" => $from,
+            "to" => array(
+                array("email" => $to, "name" => $to)
+            ),
+            "track_opens" => true,
+            "track_clicks" => true,
+            "auto_text" => true,
+            "url_strip_qs" => true,
+            "preserve_recipients" => true
+        ),
+        "async" => false
+    );
 
-                      $ch = curl_init();
-                      $postString = json_encode($params);
+   	$ch = curl_init();
+   	$postString = json_encode($params);
                       
-                      curl_setopt($ch, CURLOPT_URL, $uri);
-                      curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
-                      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                      curl_setopt($ch, CURLOPT_POST, true);
-                      curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+   	curl_setopt($ch, CURLOPT_URL, $uri);
+   	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+   	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+   	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+   	curl_setopt($ch, CURLOPT_POST, true);
+   	curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
                       
-                      $result = curl_exec($ch);
+    $result = curl_exec($ch);
 
-                      $result = json_decode($result,TRUE);
+    $result = json_decode($result,TRUE);
 
-                      $status = $result[0]['status'];
+    $status = $result[0]['status'];
 
-                    echo $status;
+    echo $status;
 ?>
