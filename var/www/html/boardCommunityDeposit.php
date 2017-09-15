@@ -460,27 +460,33 @@
                                           else
                                           {
 
-                                            echo "<div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
+                                            echo "
+
+                                            <div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
                                 
                                               <div class='modal-dialog'>
                                                                 
                                                 <div class='modal-content'>
-                                                                    
-                                                  <div class='color-line'></div>
 
-                                                    <div class='modal-body table-responsive'>
+                                                  <div class='modal-header table-responsive'>
 
-                                                      Add Hoa ID
-
-                                                    </div>
-
-                                                    <br>
+                                                    Add Hoa ID - <strong>$id</strong>
 
                                                   </div>
-                                              
-                                                </div>
 
-                                              </div>";//End
+                                                  <div class='modal-body table-responsive'>
+
+                                                    Add Hoa ID
+
+                                                  </div>
+
+                                                  <br>
+
+                                                </div>
+                                              
+                                              </div>
+
+                                            </div>";//End
 
                                             $name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
                                             $address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
