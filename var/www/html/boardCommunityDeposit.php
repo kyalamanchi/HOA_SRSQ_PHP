@@ -477,29 +477,37 @@
 
                                                   <div class='modal-body table-responsive'>
 
-                                                    <select class='form-contril select2' name='select_hoa' id='select_hoa' required>
+                                                    <center>
 
-                                                      <option value='' disabled selected>Select User</option>";
+                                                      <select class='form-contril select2' name='select_hoa' id='select_hoa' required>
 
-                                                      $result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+                                                        <option value='' disabled selected>Select User</option>";
 
-                                                      while($row000 = pg_fetch_assoc($result000))
-                                                      {
+                                                        $result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
-                                                        $add_home_id = $row000['home_id'];
-                                                        $add_address1 = $row000['add_address1'];
-                                                        
-                                                        $row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
+                                                        while($row000 = pg_fetch_assoc($result000))
+                                                        {
 
-                                                        $add_name = $row111['firstname'];
-                                                        $add_name .= " ";
-                                                        $add_name .= $row111['lastname'];
+                                                          $add_home_id = $row000['home_id'];
+                                                          $add_address1 = $row000['address1'];
+                                                          
+                                                          $row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
 
-                                                        echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
-                                                        
-                                                      }
+                                                          $add_name = $row111['firstname'];
+                                                          $add_name .= " ";
+                                                          $add_name .= $row111['lastname'];
 
-                                                    echo "</select>
+                                                          echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
+
+                                                        }
+
+                                                      echo "</select>
+
+                                                      <br><br>
+
+                                                      <button class='btn btn-xs btn-info' type='submit'>Update</button>
+
+                                                    </center>
 
                                                   </div>
 
