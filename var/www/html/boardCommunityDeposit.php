@@ -450,15 +450,42 @@
                                           $address = $row11['address1'];
                                           $living_status = $row11['living_status'];
 
-                                          if($name != " ")
+                                          if($name != " " && $address != "")
+                                          {
+                                            
                                             $name = "$name<br>($t_hoa_id)";
-                                          else
-                                            $name = 'N/A';
-
-                                          if($address != "")
                                             $address = "$address<br>($t_home_id)";
+
+                                          }
                                           else
-                                            $address = 'N/A';
+                                          {
+
+                                            echo "<div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
+                                
+                                              <div class='modal-dialog'>
+                                                                
+                                                <div class='modal-content'>
+                                                                    
+                                                  <div class='color-line'></div>
+
+                                                    <div class='modal-body table-responsive'>
+
+                                                      Add Hoa ID
+
+                                                    </div>
+
+                                                    <br>
+
+                                                  </div>
+                                              
+                                                </div>
+
+                                              </div>";//End
+
+                                            $name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+                                            $address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+
+                                          }
 
                                           echo "<div class='row text-center";
 
