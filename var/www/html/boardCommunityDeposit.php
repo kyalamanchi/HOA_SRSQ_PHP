@@ -435,16 +435,12 @@
                                           if($received_date != '')
                                             $received_date = date('m-d-Y', strtotime($received_date));
 
-                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE bank_transaction_id='$transaction_id'"));
-
-                                          $t_hoa_id = $row11['hoa_id'];
-                                          $t_home_id = $row11['home_id'];
-
-                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$t_hoa_id"));
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$funding_hoa_id"));
 
                                           $name = $row11['firstname'];
                                           $name .= " ";
                                           $name .= $row11['lastname'];
+                                          $t_home_id = $row11['home_id'];
 
                                           $row11 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$t_home_id"));
 
