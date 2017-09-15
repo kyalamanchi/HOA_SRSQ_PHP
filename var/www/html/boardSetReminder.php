@@ -397,7 +397,7 @@
 
                           $balance = $charges - $payments;
 
-                          $reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date>='".date("Y-m-d")."'"));
+                          $reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND reminder_status_id=1"));
                           
                           if($reminders)
                             $reminders = "<center><a href='https://hoaboardtime.com/boardViewReminders.php'><i class='fa fa-bell text-green'></i></a></center>";
