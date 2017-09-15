@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="plugins/select2/select2.min.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -476,7 +477,29 @@
 
                                                   <div class='modal-body table-responsive'>
 
-                                                    Add Hoa ID
+                                                    <select class='form-contril select2' name='select_hoa' id='select_hoa' required>
+
+                                                      <option value='' disabled selected>Select User</option>";
+
+                                                      $result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+                                                      while($row000 = pg_fetch_assoc($result000))
+                                                      {
+
+                                                        $add_home_id = $row000['home_id'];
+                                                        $add_address1 = $row000['add_address1'];
+                                                        
+                                                        $row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
+
+                                                        $add_name = $row111['firstname'];
+                                                        $add_name .= " ";
+                                                        $add_name .= $row111['lastname'];
+
+                                                        echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
+                                                        
+                                                      }
+
+                                                    echo "</select>
 
                                                   </div>
 
@@ -567,6 +590,7 @@
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="plugins/select2/select2.full.min.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
 
