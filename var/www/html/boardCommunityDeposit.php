@@ -470,7 +470,7 @@
 
                                                   <div class='modal-header table-responsive'>
 
-                                                    Add Hoa ID - <strong>$id</strong>
+                                                    <h4>Add Hoa ID - <strong>$id</strong></h4>
 
                                                   </div>
 
