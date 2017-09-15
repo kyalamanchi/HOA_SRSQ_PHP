@@ -7,9 +7,7 @@
     $id = $_POST['current_payments_id'];
 	$hoa_id = $_POST['select_hoa'];
 
-	$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-
-	$home_id = $row['home_id'];
+	echo $id." - - - ".$hoa_id."<br>";
 
 	$result = pg_query("UPDATE community_funding_transactions SET hoa_id=$hoa_id WHERE id=$id");
 
