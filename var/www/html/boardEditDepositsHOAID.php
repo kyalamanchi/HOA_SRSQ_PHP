@@ -11,7 +11,7 @@
 
 	$home_id = $row['home_id'];
 
-	$result = pg_query("UPDATE current_payments SET hoa_id=$hoa_id, home_id=$home_id WHERE id=$id");
+	$result = pg_query("UPDATE community_funding_transactions SET hoa_id=$hoa_id WHERE id=$id");
 
 	if($result)
 		echo "<br><br><br><br><center><h3>HOA ID Added.</h3></center>";
