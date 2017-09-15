@@ -400,7 +400,7 @@
                           $reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date>='".date("Y-m-d")."'"));
                           
                           if($reminders)
-                            $reminders = "<center><i class='fa fa-bell text-green'></i></center>";
+                            $reminders = "<center><a href='https://hoaboardtime.com/boardViewReminders.php'><i class='fa fa-bell text-green'></i></a></center>";
                           else 
                           {
                             if($email != "")

@@ -6,7 +6,7 @@
 
     $reminder_id = $_POST['reminder_id'];
 
-    $result = pg_query("DELETE FROM reminders WHERE id=$reminder_id");
+    $result = pg_query("UPDATE reminders SET reminder_status_id=3 WHERE id=$reminder_id");
 
     if($result)
     	echo "<br><br><br><br><center><h3>Reminder Deleted.</h3></center>";
