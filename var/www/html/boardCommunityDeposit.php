@@ -450,7 +450,7 @@
                                           $address = $row11['address1'];
                                           $living_status = $row11['living_status'];
 
-                                          if($name != "")
+                                          if($name != " ")
                                             $name = "$name<br>($t_hoa_id)";
                                           else
                                             $name = 'N/A';
