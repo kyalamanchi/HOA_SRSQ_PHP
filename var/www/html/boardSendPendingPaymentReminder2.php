@@ -9,7 +9,7 @@
 	echo $_POST['no_of_recipients']."<br><br>";
 	//echo $mes."<br><br><br><br>";
 
-	$mes = nl2br($mes."\n"."Ravindra");
+	$mes = nl2br($mes);
 
 	for($i = 0; $i < $_POST['no_of_recipients']; $i++)
 		echo $_POST['home_id_'.$i]."<br>";
