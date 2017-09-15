@@ -450,7 +450,7 @@
                                           if($name != " " && $address != "")
                                           {
                                             
-                                            $name = "$name<br>($t_hoa_id)";
+                                            $name = "$name<br>($funding_hoa_id)";
                                             $address = "$address<br>($t_home_id)";
 
                                           }
