@@ -392,7 +392,7 @@
                             $reminder_type = $row['reminder_type_id'];
                             $comments = $row['comments'];
                             $vendor_assigned = $row['vendor_assigned'];
-                            $is_active = $row['is_active'];
+                            $reminder_status_id = $row['reminder_status_id'];
 
                             $row2 = pg_fetch_assoc(pg_query("SELECT address1 FROM homeid WHERE home_id=$home_id"));
                             $address = $row2['address1'];
@@ -587,10 +587,10 @@
 
                             ";
 
-                            if($is_active == 't')
+                            if($reminder_status_id == 1)
                               echo "<tr><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."<br>(".$hoa_id.")</a></td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td><center><a title='Edit Reminder' data-toggle='modal' data-target='#editReminder_$rid'><i class='text-blue fa fa-edit'></i></a></center></td><td><center><a title='Delete Reminder' data-toggle='modal' data-target='#deleteReminder_$rid'><i class='text-red fa fa-close'></i></a></center></td></tr>";
-                            else
-                              echo "<tr style='color: grey;'><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td></td><td></td></tr>";
+                            else if($reminder_status_id == 2)
+                              echo "<tr style='color: orange;'><td>".date('m-d-Y', strtotime($open_date))."</td><td>".date('m-d-Y', strtotime($due_date))."</td><td>".date('m-d-Y', strtotime($date_updated))."</td><td>".$name."<br>(".$hoa_id.")</td><td>".$address."<br>(".$home_id.")</td><td>".$reminder_type."</td><td>".$comments."</td><td>".$vendor_assigned."</td><td></td><td></td></tr>";
 
                           }
 
