@@ -244,18 +244,28 @@ if ($zip->open($finalHOAID.'.zip',  ZipArchive::CREATE)) {
 $zip->addFile($finalHOAID.'.pdf', $finalHOAID.'.pdf');
 $zip->addFile($finalHOAID.'.tab', $finalHOAID.'.tab');
 $zip->close();
+$url = 'https://content.dropboxapi.com/2/files/upload';
+$fileContents = file_get_contents($finalHOAID.'.pdf');
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+$response = curl_exec($ch);
+curl_close($ch);
+print('PDF Response'.$response.nl2br("\n"));
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.zip');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
-print_r($response);
+print_r($response.nl2br("\n"));
 unlink($finalHOAID.'.zip');
 }
 }
