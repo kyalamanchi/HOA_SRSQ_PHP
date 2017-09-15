@@ -364,9 +364,9 @@
                   <?php 
 
                     if($vendor_assigned == "")
-                      $query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.")";
+                      $query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id,reminder_status_id) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.", 1)";
                     else
-                      $query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id,vendor_assigned) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.",".$vendor_assigned.")";
+                      $query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id,vendor_assigned,reminder_status_id) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.",".$vendor_assigned.", 1)";
 
                     $result = pg_query($query);
 

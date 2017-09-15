@@ -454,7 +454,7 @@
 
           $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date' AND payment_status_id=8"));
 
-          $ress = pg_query("UPDATE reminders SET is_active='f' WHERE is_active='t' AND due_date<='".date('Y-m-d')."'");
+          $ress = pg_query("UPDATE reminders SET reminder_status_id=2 WHERE reminder_status_id=1 AND due_date<='".date('Y-m-d')."'");
 
         ?>
         
@@ -1677,6 +1677,45 @@
 
                     <hr>
                     <h4><strong>Add New Asset</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Pending Repairs'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr style="color: white;">
+                    <h4><strong>Pending Repairs</strong></h4>
 
                   </div>
 
