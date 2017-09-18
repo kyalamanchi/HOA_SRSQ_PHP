@@ -174,8 +174,11 @@ function hidePleaseWait() {
                 $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
                 $queryResult = pg_query($query);  
                 $monthlyCharges = array();
+                $chargesTotal = 0;
                 while ($row =  pg_fetch_assoc($queryResult)) {
                   $monthlyCharges[$row['month']] = $row['amount'];
+                  $chargesTotal = $chargesTotal + $row['amount'];
+
                 }
                 
 
@@ -184,16 +187,22 @@ function hidePleaseWait() {
                 
 
                 $monthlyPayments  = array();
-
+                $paymentsTotal = 0;
                 while ($row = pg_fetch_assoc($queryResult)) {
                   $monthlyPayments[$row['month']] = $row['amount'];
+                  $paymentsTotal = $paymentsTotal + $row['amount'];
 
                 }
 
+
+                if ( !$paymentsTotal >= $chargesTotal){
+
+                
                 print_r($monthlyCharges);
                 print_r(nl2br("\n"));
                 print_r($monthlyPayments);
                 print_r(nl2br("\n\n"));
+              }
 
             }
           }
