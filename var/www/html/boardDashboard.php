@@ -700,13 +700,7 @@
 
                 <div class="row container-fluid text-left">
 
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                    <img src="pending_payments.png" height=75 width=75 alt='Amount Received'>
-
-                  </div>
-
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                     <?php
 
@@ -723,7 +717,7 @@
 
                 </div>
 
-                <div class="row container-fluid text-left">
+                <div class="row container-fluid text-center">
 
                   <h4><strong>Amount Received (<?php echo $year; ?>)</strong></h4>
 
@@ -745,13 +739,7 @@
 
                   <div class="row container-fluid text-left">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Community Deposits'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
 
@@ -763,7 +751,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Community Deposits</strong></h4>
 
@@ -787,13 +775,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Community Documents'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
 
@@ -805,7 +787,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Community Documents</strong></h4>
 
