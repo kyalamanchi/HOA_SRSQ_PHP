@@ -829,13 +829,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Delinquent Accounts'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
 
