@@ -187,13 +187,10 @@ function hidePleaseWait() {
                   $paymentsTotal = $paymentsTotal + $row['amount'];
                 }
                 
-               if ( $chargesTotal > $paymentsTotal){
-                  print_r($homeID);
-               }
-               else 
-               {
-
-               }
+                print_r($monthlyCharges);
+                print_r(nl2br("\n"));
+                print_r($monthlyPayments);
+                print_r(nl2br("\n\n"));
           }
           else {
             exit(0);
