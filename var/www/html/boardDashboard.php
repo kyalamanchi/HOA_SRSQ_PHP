@@ -702,7 +702,7 @@
 
                   <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                    <img src="amount_received.png" height=75 width=75 alt='Amount Received'>
+                    <img src="pending_payments.png" height=75 width=75 alt='Amount Received'>
 
                   </div>
 
@@ -747,7 +747,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="deposits.png" height=75 width=75 alt='Community Deposits'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Community Deposits'>
 
                     </div>
 
@@ -785,7 +785,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="documents.png" height=75 width=75 alt='Community Documents'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Community Documents'>
 
                     </div>
 
@@ -823,7 +823,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="delinquent_accounts.png" height=75 width=75 alt='Delinquent Accounts'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Delinquent Accounts'>
 
                     </div>
 
@@ -868,7 +868,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="inspections.png" height=75 width=75 alt='Inspection Notices'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Inspection Notices'>
 
                     </div>
 
@@ -1017,7 +1017,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Parking Tags'>
 
                     </div>
 
@@ -1061,7 +1061,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="pending_agreements.png" height=75 width=75 alt='Pending Agreements'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Pending Agreements'>
 
                     </div>
 
@@ -1228,7 +1228,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
 
-                      <img src="signed_agreements.png" height=75 width=75 alt='Pending Agreements'>
+                      <img src="pending_payments.png" height=75 width=75 alt='Pending Agreements'>
 
                     </div>
 
@@ -1745,7 +1745,11 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+
+                      ?>
 
                     </div>
 
