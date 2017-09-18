@@ -177,7 +177,7 @@ function hidePleaseWait() {
                   $monthlyCharges[$row['assessment_month']] = $row['amount'];
                 }
 
-                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE),AMOUNT AS MONTH FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y');
+                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y');
                 $queryResult = pg_query($query);
                 print_r($query);
 
