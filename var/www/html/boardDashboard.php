@@ -717,7 +717,7 @@
 
                     ?>
 
-                    <h3 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h3>
+                    <h2 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h2>
 
                   </div>
 
@@ -737,7 +737,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
+              <!--a href='https://hoaboardtime.com/boardCommunityDeposit.php'-->
 
                 <div class="row container-fluid">
 
@@ -753,7 +753,11 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <h3 class="text-info"><strong><?php echo $deposits; ?></strong></h3>
+                      <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
+
+                        <h2 class="text-info"><strong><?php echo $deposits; ?></strong></h2>
+
+                      </a>
 
                     </div>
 
@@ -769,13 +773,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
+              <!--a href='https://hoaboardtime.com/boardCommunityDocuments.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -791,7 +795,11 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <h3 class="text-info"><strong><?php echo $documents; ?></strong></h3>
+                      <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
+
+                        <h2 class="text-info"><strong><?php echo $documents; ?></strong></h2>
+
+                      </a>
 
                     </div>
 
@@ -807,13 +815,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
+              <!--a href='https://hoaboardtime.com/boardDelinquentAccounts.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -829,14 +837,18 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <?php 
+                      <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
 
-                        if($del_acc == 0 || $del_acc == "")
-                          echo "<h3 class='text-green'><strong>".$del_acc."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-red'><strong>".$del_acc."</strong></h3>";
+                        <?php 
 
-                      ?>
+                          if($del_acc == 0 || $del_acc == "")
+                            echo "<h2 class='text-green'><strong>".$del_acc."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-red'><strong>".$del_acc."</strong></h2>";
+
+                        ?>
+
+                      </a>
 
                     </div>
 
@@ -852,7 +864,7 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
