@@ -241,7 +241,7 @@ function hidePleaseWait() {
                   echo $homeIDSArray[$homeID];
                 echo '</td>';
                 echo '<td>';
-                  echo 1;
+                  echo 2;
                 echo '</td>';
                 echo '</tr>';
               }
