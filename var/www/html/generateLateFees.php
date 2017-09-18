@@ -139,7 +139,7 @@ function hidePleaseWait() {
             <th>Charges</th>  
             <th>Paid </th>  
             <th>Address</th>
-            <th>Community ID</th>
+            <th>Amount to be paid</th>
           </tr>  
         </thead>  
         <tbody>  
@@ -169,83 +169,83 @@ function hidePleaseWait() {
 
             foreach ($homeIDSArray as $key => $value) {
                 $homeID = $key;
-                if ( $homeID < 144 ){
-                $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
-                $queryResult = pg_query($query);  
-                $monthlyCharges = array();
-                $chargesTotal = 0;
-                while ($row =  pg_fetch_assoc($queryResult)) {
-                  $monthlyCharges[$row['month']] = $row['amount'];
-                  $chargesTotal = $chargesTotal + $row['amount'];
 
-                }
+                echo '<tr>';
+                if ( $homeID < 144 ){
+
+                $query = "SELECT COUNT(*) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID." AND ASSESSMENT_RULE_TYPE_ID = 1";
+                $queryResult  = pg_query($query);
+                $row = pg_fetch_row($queryResult);
+                $month = $row[0];
+
                 $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." AND  AMOUNT >= ".$regularAssessments[1]." ORDER BY MONTH";
                 $queryResult = pg_query($query);
                 $monthlyPayments  = array();
                 $paymentsTotal = 0;
+                $paymentsArray = array();
                 while ($row = pg_fetch_assoc($queryResult)) {
-                  $monthlyPayments[$row['month']] = $row['amount'];
                   $paymentsTotal = $paymentsTotal + $row['amount'];
+                  $paymentsArray[$row['month']] = $row['amount'];
                 }
-                if ( $monthlyPayments < $monthlyCharges) {
-                echo '<tr>';
-                echo '<td>';
-                 echo $homeID;
-                echo '</td>';
-                echo '<td>';
-                  echo $chargesTotal;
-                echo '</td>';
-                echo '<td>';
+
+                
+                $totalVal = $month*$regularAssessments[1];
+
+                if ( $totalVal > $paymentsTotal){
+                  echo '<td>';
+                  echo $homeID;
+                  echo '</td>';
+                  echo '<td>';
+                  echo $totalVal;
+                  echo '</td>';
+                  echo '<td>';
                   echo $paymentsTotal;
-                echo '</td>';
-                echo '<td>';
+                  echo '</td>';
+                  echo '<td>';
                   echo $homeIDSArray[$homeID];
-                echo '</td>';
-                echo '<td>';
-                  echo 1;
-                echo '</td>';
-                echo '</tr>';
-              }
+                  echo '</td>';
+                  echo '<td>';
+                  echo $totalVal - $paymentsTotal;
+                  echo '</td>';
+                  
+                }
+
+            
               }
               else {
 
-                $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
-                $queryResult = pg_query($query);  
-                $monthlyCharges = array();
-                $chargesTotal = 0;
-                while ($row =  pg_fetch_assoc($queryResult)) {
-                  $monthlyCharges[$row['month']] = $row['amount'];
-                  $chargesTotal = $chargesTotal + $row['amount'];
-
-                }
-                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." AND AMOUNT >= ".$regularAssessments[2]." ORDER BY MONTH";
+                $query = "SELECT COUNT(*) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID." AND ASSESSMENT_RULE_TYPE_ID = 1";
+                $queryResult  = pg_query($query);
+                $row = pg_fetch_row($queryResult);
+                $month = $row[0];
+                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." AND  AMOUNT >= ".$regularAssessments[2]." ORDER BY MONTH";
                 $queryResult = pg_query($query);
                 $monthlyPayments  = array();
                 $paymentsTotal = 0;
+                $paymentsArray = array();
                 while ($row = pg_fetch_assoc($queryResult)) {
-                  $monthlyPayments[$row['month']] = $row['amount'];
                   $paymentsTotal = $paymentsTotal + $row['amount'];
+                  $paymentsArray[$row['month']] = $row['amount'];
                 }
-               if ( $monthlyPayments < $monthlyCharges) {
-                echo '<tr>';
-                echo '<td>';
-                 echo $homeID;
-                echo '</td>';
-                echo '<td>';
-                  echo $chargesTotal;
-                echo '</td>';
-                echo '<td>';
+                $totalVal = $month*$regularAssessments[2];
+                if ( $totalVal > $paymentsTotal){
+                  echo '<td>';
+                  echo $homeID;
+                  echo '</td>';
+                  echo '<td>';
+                  echo $totalVal;
+                  echo '</td>';
+                  echo '<td>';
                   echo $paymentsTotal;
-                echo '</td>';
-                echo '<td>';
+                  echo '</td>';
+                  echo '<td>';
                   echo $homeIDSArray[$homeID];
-                echo '</td>';
-                echo '<td>';
-                  echo 2;
-                echo '</td>';
+                  echo '</td>';
+                  echo '<td>';
+                  echo $totalVal - $paymentsTotal;
+                  echo '</td>';
+                }
                 echo '</tr>';
-              }
-
               }
           }
          }
