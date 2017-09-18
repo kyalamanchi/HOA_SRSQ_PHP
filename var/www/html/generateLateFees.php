@@ -170,7 +170,7 @@ function hidePleaseWait() {
 
             foreach ($homeIDSArray as $key => $value) {
               
-                $query = "SELECT * FROM CURRENT_CHARGES WHERE HOME_ID=".$key."AND ASSESSMENT_RULE_TYPE_ID = 1";
+                $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
                 $queryResult = pg_query($query);  
                 $monthlyCharges = array();
                 while ($row =  pg_fetch_assoc($queryResult)) {
@@ -178,7 +178,7 @@ function hidePleaseWait() {
                 }
                 print_r($query.nl2br("\n"));
 
-                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y');
+                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." ORDER BY MONTH";
                 $queryResult = pg_query($query);
                 print_r($query.nl2br("\n\n"));
 
