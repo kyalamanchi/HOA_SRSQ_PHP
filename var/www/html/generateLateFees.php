@@ -174,7 +174,7 @@ function hidePleaseWait() {
                 $queryResult = pg_query($query);  
                 $monthlyCharges = array();
                 while ($row =  pg_fetch_assoc($queryResult)) {
-                  $monthlyCharges[$row['MONTH']] = $row['amount'];
+                  $monthlyCharges[$row['month']] = $row['amount'];
                 }
                 
 
@@ -185,7 +185,7 @@ function hidePleaseWait() {
                 $monthlyPayments  = array();
 
                 while ($row = pg_fetch_assoc($queryResult)) {
-                  $monthlyPayments[$row['MONTH']] = $row['AMOUNT'];
+                  $monthlyPayments[$row['month']] = $row['amount'];
 
                 }
 
