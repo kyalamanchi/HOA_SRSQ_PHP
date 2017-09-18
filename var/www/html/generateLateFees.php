@@ -136,6 +136,7 @@ function hidePleaseWait() {
         <thead>  
           <tr>  
             <th>HOME ID</th>  
+            <th>Name</th>
             <th>Charges</th>  
             <th>Paid </th>  
             <th>Address</th>
@@ -167,6 +168,15 @@ function hidePleaseWait() {
               $homeIDSArray[$row['home_id']] = $row['address1'];
             }
 
+            $query = "SELECT home_id,firstname,lastname FROM HOAID";
+            $queryResult = pg_query($query);
+
+            $namesArray = array();
+
+            while ($row = pg_fetch_row($queryResult)) {
+              $namesArray[$row[0]]  = $row[1].' '.$row[2];
+            }
+
             foreach ($homeIDSArray as $key => $value) {
                 $homeID = $key;
 
@@ -196,6 +206,9 @@ function hidePleaseWait() {
                   echo $homeID;
                   echo '</td>';
                   echo '<td>';
+                  echo $namesArray[$homeID];
+                  echo '</td>';
+                  echo '<td>';
                   echo $totalVal;
                   echo '</td>';
                   echo '<td>';
@@ -209,11 +222,8 @@ function hidePleaseWait() {
                   echo '</td>';
                   
                 }
-
-            
               }
               else {
-
                 $query = "SELECT COUNT(*) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID." AND ASSESSMENT_RULE_TYPE_ID = 1";
                 $queryResult  = pg_query($query);
                 $row = pg_fetch_row($queryResult);
@@ -231,6 +241,9 @@ function hidePleaseWait() {
                 if ( $totalVal > $paymentsTotal){
                   echo '<td>';
                   echo $homeID;
+                  echo '</td>';
+                  echo '<td>';
+                  echo $namesArray[$homeID];
                   echo '</td>';
                   echo '<td>';
                   echo $totalVal;
