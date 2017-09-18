@@ -161,7 +161,7 @@ function hidePleaseWait() {
 
             }
             }
-            $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2";
+            $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2 ORDER BY HOME_ID";
             $queryResult = pg_query($query);
             $homeIDSArray = array();
             while ($row = pg_fetch_assoc($queryResult)) {
