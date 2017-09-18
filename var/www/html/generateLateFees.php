@@ -194,15 +194,8 @@ function hidePleaseWait() {
 
                 }
 
-
-                if ( !$paymentsTotal >= $chargesTotal){
-
-                
                 print_r($monthlyCharges);
-                print_r(nl2br("\n"));
-                print_r($monthlyPayments);
-                print_r(nl2br("\n\n"));
-              }
+                print_r(nl2br("\n").$monthlyPayments.nl2br("\n"));
 
             }
           }
