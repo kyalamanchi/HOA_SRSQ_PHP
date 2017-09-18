@@ -170,7 +170,7 @@ function hidePleaseWait() {
 
             foreach ($homeIDSArray as $key => $value) {
               
-                $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
+                $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
                 $queryResult = pg_query($query);  
                 $monthlyCharges = array();
                 while ($row =  pg_fetch_assoc($queryResult)) {
