@@ -135,10 +135,9 @@ function hidePleaseWait() {
       <table id="myTable" class="table table-striped" style="font-size: 14">  
         <thead>  
           <tr>  
-            <th>HOAID</th>  
-            <th>Name</th>  
-            <th>Home ID</th>  
-            <th>Email</th> 
+            <th>HOME ID</th>  
+            <th>Charges</th>  
+            <th>Paid </th>  
             <th>Address</th>
             <th>Community ID</th>
           </tr>  
@@ -148,7 +147,6 @@ function hidePleaseWait() {
           date_default_timezone_set('America/Los_Angeles');
           $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
           if ( $connection ){
-
             $query = "SELECT * FROM ASSESSMENT_RULES";
             $queryResult = pg_query($query);
             $regularAssessments = array();
@@ -158,7 +156,6 @@ function hidePleaseWait() {
             }
             else if ( $row['assessment_rule_type'] == 3) {
               $lateFee[$row['community_id']] = $row['assessment_amount'];
-
             }
             }
             $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2 ORDER BY HOME_ID";
@@ -169,7 +166,7 @@ function hidePleaseWait() {
             }
 
             foreach ($homeIDSArray as $key => $value) {
-              
+                $homeID = $key;
                 print_r($key.nl2br("\n"));
                 $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
                 $queryResult = pg_query($query);  
@@ -180,30 +177,27 @@ function hidePleaseWait() {
                   $chargesTotal = $chargesTotal + $row['amount'];
 
                 }
-                
-
                 $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." ORDER BY MONTH";
                 $queryResult = pg_query($query);
-                
-
                 $monthlyPayments  = array();
                 $paymentsTotal = 0;
                 while ($row = pg_fetch_assoc($queryResult)) {
                   $monthlyPayments[$row['month']] = $row['amount'];
                   $paymentsTotal = $paymentsTotal + $row['amount'];
+                }
+                
+                foreach ($monthlyCharges as $key => $value) {
+                  if( $monthlyPayments[$key] ){
 
+                  }
+                  else {
+                    print_r($homeID);
+                    print_r(nl2br("\n"));
+                    print_r($key.' '.$monthlyPayments[$key]);
+                    print_r(nl2br("\n\n"));
+                  }
                 }
 
-                if ( $paymentsTotal < $chargesTotal){
-                print_r($paymentsTotal);
-                print_r(nl2br("\n"));
-                print_r($chargesTotal);
-                print_r(nl2br("\n"));
-                print_r($monthlyCharges);
-                print_r(nl2br("\n"));
-                print_r($monthlyPayments);
-                print_r(nl2br("\n"));
-              }
             }
           }
           else {
