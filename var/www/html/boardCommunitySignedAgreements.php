@@ -499,7 +499,7 @@
 
                                                 <br>
                                                 
-                                                <select class='form-contril select2' name='select_vendor' id='select_vendor' style='width: 100%;' >
+                                                <select class='form-control select2' name='select_vendor' id='select_vendor' style='width: 100%;' >
 
                                                   <option value='' disabled selected>Select Vendor</option>";
 

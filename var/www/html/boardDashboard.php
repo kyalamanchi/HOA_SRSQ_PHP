@@ -700,13 +700,7 @@
 
                 <div class="row container-fluid text-left">
 
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                    <img src="amount_received.png" height=75 width=75 alt='Amount Received'>
-
-                  </div>
-
-                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                     <?php
 
@@ -717,13 +711,13 @@
 
                     ?>
 
-                    <h3 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h3>
+                    <h2 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h2>
 
                   </div>
 
                 </div>
 
-                <div class="row container-fluid text-left">
+                <div class="row container-fluid text-center">
 
                   <h4><strong>Amount Received (<?php echo $year; ?>)</strong></h4>
 
@@ -737,7 +731,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
+              <!--a href='https://hoaboardtime.com/boardCommunityDeposit.php'-->
 
                 <div class="row container-fluid">
 
@@ -745,21 +739,19 @@
 
                   <div class="row container-fluid text-left">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="deposits.png" height=75 width=75 alt='Community Deposits'>
+                      <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
 
-                    </div>
+                        <h2 class="text-info"><strong><?php echo $deposits; ?></strong></h2>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <h3 class="text-info"><strong><?php echo $deposits; ?></strong></h3>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Community Deposits</strong></h4>
 
@@ -769,13 +761,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
+              <!--a href='https://hoaboardtime.com/boardCommunityDocuments.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -783,21 +775,19 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="documents.png" height=75 width=75 alt='Community Documents'>
+                      <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
 
-                    </div>
+                        <h2 class="text-info"><strong><?php echo $documents; ?></strong></h2>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <h3 class="text-info"><strong><?php echo $documents; ?></strong></h3>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Community Documents</strong></h4>
 
@@ -807,13 +797,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
+              <!--a href='https://hoaboardtime.com/boardDelinquentAccounts.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -821,28 +811,26 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="delinquent_accounts.png" height=75 width=75 alt='Delinquent Accounts'>
+                      <a href='https://hoaboardtime.com/boardDelinquentAccounts.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          if($del_acc == 0 || $del_acc == "")
+                            echo "<h2 class='text-green'><strong>".$del_acc."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-red'><strong>".$del_acc."</strong></h2>";
 
-                      <?php 
+                        ?>
 
-                        if($del_acc == 0 || $del_acc == "")
-                          echo "<h3 class='text-green'><strong>".$del_acc."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-red'><strong>".$del_acc."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Delinquent Accounts</strong></h4>
 
@@ -852,13 +840,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardViolationHomes.php'>
+              <!--a href='https://hoaboardtime.com/boardViolationHomes.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -866,39 +854,37 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="inspections.png" height=75 width=75 alt='Inspection Notices'>
+                      <a href='https://hoaboardtime.com/boardViolationHomes.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          $inspection_homes = 0;
+                          $res = pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id");
 
-                      <?php 
+                          while ($r = pg_fetch_assoc($res)) 
+                          {
+                            $status = $r['inspection_status_id'];
 
-                        $inspection_homes = 0;
-                        $res = pg_query("SELECT DISTINCT home_id FROM inspection_notices WHERE community_id=$community_id");
+                            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
+                              $inspection_homes++;
+                          }
 
-                        while ($r = pg_fetch_assoc($res)) 
-                        {
-                          $status = $r['inspection_status_id'];
+                          if($inspection_homes > 0)
+                            echo "<h2 class='text-orange'><strong>".$inspection_homes."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-green'><strong>".$inspection_homes."</strong></h2>";
 
-                          if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
-                            $inspection_homes++;
-                        }
+                        ?>
 
-                        if($inspection_homes > 0)
-                          echo "<h3 class='text-orange'><strong>".$inspection_homes."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-green'><strong>".$inspection_homes."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Inspection Homes</strong></h4>
 
@@ -908,13 +894,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardViolationCitations.php'>
+              <!--a href='https://hoaboardtime.com/boardViolationCitations.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -922,28 +908,26 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Inspection Notices'>
+                      <a href='https://hoaboardtime.com/boardViolationCitations.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          if($inspections > 0)
+                            echo "<h2 class='text-orange'><strong>".$inspections."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-green'><strong>".$inspections."</strong></h2>";
 
-                      <?php 
+                        ?>
 
-                        if($inspections > 0)
-                          echo "<h3 class='text-orange'><strong>".$inspections."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-green'><strong>".$inspections."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Inspection Notices</strong></h4>
 
@@ -953,13 +937,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>
+              <!--a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -967,31 +951,29 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Late Payments'>
+                      <a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>
 
-                    </div>
+                        <?php 
+                          
+                          $result = pg_query("SELECT distinct home_id FROM current_payments WHERE payment_status_id=1 AND community_id=".$community_id." AND process_date>='$year-$month-16' AND process_date<='$year-$month-$end_date'");
+                          $late = pg_num_rows($result);
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          if($late > 0)
+                            echo "<h2 class='text-orange'><strong>".$late."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-green'><strong>".$late."</strong></h2>";
 
-                      <?php 
-                        
-                        $result = pg_query("SELECT distinct home_id FROM current_payments WHERE payment_status_id=1 AND community_id=".$community_id." AND process_date>='$year-$month-16' AND process_date<='$year-$month-$end_date'");
-                        $late = pg_num_rows($result);
+                        ?>
 
-                        if($late > 0)
-                          echo "<h3 class='text-orange'><strong>".$late."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-green'><strong>".$late."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Late Payments - <?php echo date("F"); ?></strong></h4>
 
@@ -1001,13 +983,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardParkingTags.php'>
+              <!--a href='https://hoaboardtime.com/boardParkingTags.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -1015,27 +997,25 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="parking_tags.png" height=75 width=75 alt='Parking Tags'>
+                      <a href='https://hoaboardtime.com/boardParkingTags.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          $row = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
 
-                      <?php 
+                          echo "<h2 class='text-info'><strong>".$row."</strong></h2>";
 
-                        $row = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
+                        ?>
 
-                        echo "<h3 class='text-info'><strong>".$row."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Parking Tags</strong></h4>
 
@@ -1045,13 +1025,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
+              <!--a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -1059,28 +1039,26 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="pending_agreements.png" height=75 width=75 alt='Pending Agreements'>
+                      <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          if($pending_agreements > 0)
+                            echo "<h2 class='text-orange'><strong>".$pending_agreements."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-green'><strong>".$pending_agreements."</strong></h2>";
 
-                      <?php 
+                        ?>
 
-                        if($pending_agreements > 0)
-                          echo "<h3 class='text-orange'><strong>".$pending_agreements."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-green'><strong>".$pending_agreements."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Pending Agreements</strong></h4>
 
@@ -1090,13 +1068,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCurrentMonthPendingPayments.php'>
+              <!--a href='https://hoaboardtime.com/boardCurrentMonthPendingPayments.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -1104,54 +1082,52 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Payments'>
+                      <a href='https://hoaboardtime.com/boardCurrentMonthPendingPayments.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          $pending = 0;
 
-                      <?php 
+                          $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id AND home_id NOT IN (SELECT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date')");
 
-                        $pending = 0;
+                          while($row = pg_fetch_assoc($result))
+                          {
 
-                        $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id AND home_id NOT IN (SELECT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date')");
-
-                        while($row = pg_fetch_assoc($result))
-                        {
-
-                          $home_id = $row['home_id'];
-                          
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
-
-                          $hoa_id = $row1['hoa_id'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
-                          $charges = $row1['sum'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id"));
-                          $payments = $row1['sum'];
-
-                          $balance = $charges - $payments;
-
-                          if($balance > 0)
-                            $pending++;
+                            $home_id = $row['home_id'];
                             
-                        }
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
 
-                        if($pending > 0)
-                          echo "<h3 class='text-orange'><strong>".$pending."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-green'><strong>".$pending."</strong></h3>";
+                            $hoa_id = $row1['hoa_id'];
 
-                      ?>
+                            $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+                            $charges = $row1['sum'];
+
+                            $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+                            $payments = $row1['sum'];
+
+                            $balance = $charges - $payments;
+
+                            if($balance > 0)
+                              $pending++;
+                              
+                          }
+
+                          if($pending > 0)
+                            echo "<h2 class='text-orange'><strong>".$pending."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-green'><strong>".$pending."</strong></h2>";
+
+                        ?>
+
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Pending Payments</strong></h4>
 
@@ -1161,13 +1137,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
+              <!--a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -1175,34 +1151,32 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Payments'>
+                      <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
 
-                    </div>
+                        <?php
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          $ma = 0 - $assessment_amount;
 
-                      <?php
+                          $result = pg_query("SELECT h.home_id FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$ma");
 
-                        $ma = 0 - $assessment_amount;
+                          $rows = pg_num_rows($result);
 
-                        $result = pg_query("SELECT h.home_id FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$ma");
+                          if($rows > 0)
+                            echo "<h2 class='text-orange'><strong>".$rows."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-green'><strong>".$rows."</strong></h2>";
 
-                        $rows = pg_num_rows($result);
+                        ?>
 
-                        if($rows > 0)
-                          echo "<h3 class='text-orange'><strong>".$rows."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-green'><strong>".$rows."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Pre-Paid Members</strong></h4>
 
@@ -1212,13 +1186,13 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
+              <!--a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'-->
 
                 <div class="row container-fluid text-left">
 
@@ -1226,28 +1200,26 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <img src="signed_agreements.png" height=75 width=75 alt='Pending Agreements'>
+                      <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
 
-                    </div>
+                        <?php 
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                          if($pending_agreements > 0)
+                            echo "<h2 class='text-green'><strong>".$signed_agreements."</strong></h2>"; 
+                          else
+                            echo "<h2 class='text-info'><strong>".$signed_agreements."</strong></h2>";
 
-                      <?php 
+                        ?>
 
-                        if($pending_agreements > 0)
-                          echo "<h3 class='text-green'><strong>".$signed_agreements."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-info'><strong>".$signed_agreements."</strong></h3>";
-
-                      ?>
+                      </a>
 
                     </div>
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Signed Agreements</strong></h4>
 
@@ -1257,7 +1229,7 @@
 
                 </div>
 
-              </a>
+              <!--/a-->
 
             </div>
 
@@ -1745,7 +1717,11 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+
+                      ?>
 
                     </div>
 
