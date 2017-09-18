@@ -848,7 +848,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Delinquent Accounts</strong></h4>
 
