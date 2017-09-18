@@ -167,7 +167,6 @@ function hidePleaseWait() {
 
             foreach ($homeIDSArray as $key => $value) {
                 $homeID = $key;
-                print_r($key.nl2br("\n"));
                 $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
                 $queryResult = pg_query($query);  
                 $monthlyCharges = array();
@@ -186,19 +185,18 @@ function hidePleaseWait() {
                   $paymentsTotal = $paymentsTotal + $row['amount'];
                 }
                 
-                foreach ($monthlyCharges as $key => $value) {
-                  if( $monthlyPayments[$key] ){
+               if ( $chargesTotal > $paymentsTotal){
+                  print_r($homeID);
+                  print_r(nl2br("\n"));
+                  print_r($monthlyCharges);
+                  print_r(nl2br("\n"));
+                  print_r($monthlyPayments);
+                  print_r(nl2br("\n\n"));
+               }
+               else 
+               {
 
-                  }
-                  else {
-                    print_r($homeID);
-                    print_r(nl2br("\n"));
-                    print_r($key.' '.$monthlyPayments[$key]);
-                    print_r(nl2br("\n\n"));
-                  }
-                }
-
-            }
+               }
           }
           else {
             exit(0);
