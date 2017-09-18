@@ -854,13 +854,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Inspection Notices'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
 
@@ -886,7 +880,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Inspection Homes</strong></h4>
 
@@ -910,13 +904,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Inspection Notices'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
 
@@ -931,7 +919,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Inspection Notices</strong></h4>
 
@@ -955,13 +943,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Late Payments'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
                         
@@ -979,7 +961,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Late Payments - <?php echo date("F"); ?></strong></h4>
 
@@ -1003,13 +985,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Parking Tags'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
 
@@ -1023,7 +999,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Parking Tags</strong></h4>
 
@@ -1047,13 +1023,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Agreements'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
 
@@ -1068,7 +1038,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Pending Agreements</strong></h4>
 
@@ -1092,13 +1062,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Payments'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
 
@@ -1139,7 +1103,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Pending Payments</strong></h4>
 
@@ -1163,13 +1127,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Payments'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php
 
@@ -1190,7 +1148,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Pre-Paid Members</strong></h4>
 
@@ -1214,13 +1172,7 @@
 
                   <div class="row container-fluid">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Agreements'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                       <?php 
 
@@ -1235,7 +1187,7 @@
 
                   </div>
 
-                  <div class="row container-fluid text-left">
+                  <div class="row container-fluid text-center">
 
                     <h4><strong>Signed Agreements</strong></h4>
 
