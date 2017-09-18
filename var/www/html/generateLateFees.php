@@ -169,6 +169,7 @@ function hidePleaseWait() {
 
             foreach ($homeIDSArray as $key => $value) {
                 $homeID = $key;
+                if ( $homeID < 144 ){
                 $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
                 $queryResult = pg_query($query);  
                 $monthlyCharges = array();
@@ -178,7 +179,7 @@ function hidePleaseWait() {
                   $chargesTotal = $chargesTotal + $row['amount'];
 
                 }
-                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." ORDER BY MONTH";
+                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." AND  AMOUNT >= ".$regularAssessments[1]." ORDER BY MONTH";
                 $queryResult = pg_query($query);
                 $monthlyPayments  = array();
                 $paymentsTotal = 0;
@@ -186,15 +187,68 @@ function hidePleaseWait() {
                   $monthlyPayments[$row['month']] = $row['amount'];
                   $paymentsTotal = $paymentsTotal + $row['amount'];
                 }
-                
-                print_r($monthlyCharges);
-                print_r(nl2br("\n"));
-                print_r($monthlyPayments);
-                print_r(nl2br("\n\n"));
+                if ( $monthlyPayments < $monthlyCharges) {
+                echo '<tr>';
+                echo '<td>';
+                 echo $homeID;
+                echo '</td>';
+                echo '<td>';
+                  echo $chargesTotal;
+                echo '</td>';
+                echo '<td>';
+                  echo $paymentsTotal;
+                echo '</td>';
+                echo '<td>';
+                  echo $homeIDSArray[$homeID];
+                echo '</td>';
+                echo '<td>';
+                  echo 1;
+                echo '</td>';
+                echo '</tr>';
+              }
+              }
+              else {
+
+                $query = "SELECT ASSESSMENT_MONTH AS MONTH,AMOUNT FROM CURRENT_CHARGES WHERE HOME_ID=".$key." AND ASSESSMENT_RULE_TYPE_ID = 1 AND ASSESSMENT_YEAR = 2017 ORDER BY MONTH";
+                $queryResult = pg_query($query);  
+                $monthlyCharges = array();
+                $chargesTotal = 0;
+                while ($row =  pg_fetch_assoc($queryResult)) {
+                  $monthlyCharges[$row['month']] = $row['amount'];
+                  $chargesTotal = $chargesTotal + $row['amount'];
+
+                }
+                $query = "SELECT EXTRACT(MONTH FROM PROCESS_DATE) AS MONTH,AMOUNT  FROM CURRENT_PAYMENTS  WHERE HOME_ID = ".$key." AND EXTRACT(YEAR FROM PROCESS_DATE) = ".date('Y')." AND AMOUNT >= ".$regularAssessments[2]." ORDER BY MONTH";
+                $queryResult = pg_query($query);
+                $monthlyPayments  = array();
+                $paymentsTotal = 0;
+                while ($row = pg_fetch_assoc($queryResult)) {
+                  $monthlyPayments[$row['month']] = $row['amount'];
+                  $paymentsTotal = $paymentsTotal + $row['amount'];
+                }
+               if ( $monthlyPayments < $monthlyCharges) {
+                echo '<tr>';
+                echo '<td>';
+                 echo $homeID;
+                echo '</td>';
+                echo '<td>';
+                  echo $chargesTotal;
+                echo '</td>';
+                echo '<td>';
+                  echo $paymentsTotal;
+                echo '</td>';
+                echo '<td>';
+                  echo $homeIDSArray[$homeID];
+                echo '</td>';
+                echo '<td>';
+                  echo 1;
+                echo '</td>';
+                echo '</tr>';
+              }
+
+              }
           }
-          else {
-            exit(0);
-          }
+         }
           ?>
         </tbody>  
       </table>  
