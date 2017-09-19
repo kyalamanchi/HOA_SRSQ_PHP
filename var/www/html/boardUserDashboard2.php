@@ -1756,7 +1756,80 @@
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
+              <div class="box box-info">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Communication Info</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id='example2' class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Email</th>
+                      <th>Subject</th>
+                      <th>Number of Clicks</th>
+                      <th>Number of Opens</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        date_default_timezone_set('America/Los_Angeles');
+                        $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
+                        if($community_id == 1)
+                          $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+                        else if($community_id == 2)
+                          $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
+
+                        $resss = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+                        
+                        while($rooo = pg_fetch_assoc($resss))
+                        {
+
+                          $per_email = $rooo['email'];
+
+                          echo $per_email;
+
+                          #$postString = '{
+                          #  "key": "'.$api_key.'",
+                          #  "query": "email:'.$_GET['id'].'",
+                          #  "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
+                          #}';
+
+                        }
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
               <div class="box box-success">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Documents</strong></h4></center>
+
+                </div>
 
                 <div class="box-body table-responsive">
                   
