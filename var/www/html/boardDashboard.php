@@ -1719,6 +1719,13 @@
 
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
 
+                        $res_funded = $row['cur_bal_vs_ideal_bal'];
+
+                        if($res_funded > 0)
+                          echo "<h3 class='text-green'><strong>".$res_funded."</strong></h3>"; 
+                        else
+                          echo "<h3 class='text-info'><strong>".$res_funded."</strong></h3>";
+
                       ?>
 
                     </div>

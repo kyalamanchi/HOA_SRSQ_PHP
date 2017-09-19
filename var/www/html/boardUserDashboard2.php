@@ -1956,6 +1956,9 @@
                                   if($total_due != "")
                                     $total_due = "$ ".$total_due;
 
+                                  if($date_sent != "")
+                                    $date_sent = date("m-d-Y", strtotime($date_sent));
+
                                   $row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
                                   $notification_type = $row1['notification_mode_type'];
 
