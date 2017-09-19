@@ -1816,7 +1816,7 @@
 
                             echo "<tr>";
 
-                            print_r("<td>".$result1->email.": $per_email</td>");
+                            print_r("<td>".$result1->email."</td>");
                             //print_r("Date : ".date('Y-m-d',$result1->ts).nl2br("\n"));
                             print_r("<td>".$result1->subject."</td>");
                             print_r("<td>".$result1->opens."</td>");
