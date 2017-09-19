@@ -349,7 +349,7 @@
 
         <section class="content">
 
-          <div class='row'>
+          <div class='row container-fluid'>
 
             <div class="nav-tabs-custom">
             
