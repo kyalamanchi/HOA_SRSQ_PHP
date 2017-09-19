@@ -361,6 +361,7 @@
                 <li><a href="#tab_2" data-toggle="tab">Communication</a></li>
                 <li><a href="#tab_3" data-toggle="tab">Documents</a></li>
                 <li><a href="#tab_6" data-toggle="tab">Inspections</a></li>
+                <li><a href="#tab_8" data-toggle="tab">Payments</a></li>
                 <li><a href="#tab_7" data-toggle="tab">Statements</a></li>
 
               </ul>
@@ -1009,281 +1010,6 @@
 
                   </div>
 
-                  <div class="row">
-
-                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
-
-                      <div class="box box-success">
-
-                        <div class="box-header">
-
-                          <center><h4><strong>Payment Details</strong></h4></center>
-
-                        </div>
-
-                        <div class="box-body table-responsive">
-                          
-                          <table class="table table-bordered">
-
-                            <thead>
-                              <?php
-
-                                $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-
-                                $payment_type = $row['payment_type_id'];
-                                $recurring_pay = $row['recurring_pay'];
-
-                              ?>
-                              
-                              <th>Pay Method</th>
-                              <th>Recurring Pay</th>
-                              <?php if($recurring_pay == 't') echo "<th>Schedule Start Date</th><th>Schedule End Date</th><th>Schedule Expires On</th><th>Next Schedule Date</th><th>Schedule Frequency</th>"; ?>
-
-                            </thead>
-
-                            <tbody>
-
-                              <?php
-
-                                $schedule_start = $row['sch_start'];
-                                $schedule_end = $row['sch_end'];
-                                $schedule_expires = $row['sch_expires'];
-                                $next_schedule = $row['next_sch'];
-                                $schedule_frequency = $row['sch_frequency'];
-
-                                if($schedule_start != "")
-                                  $schedule_start = date('m-d-Y', strtotime($schedule_start));
-
-                                if($schedule_end != "")
-                                  $schedule_end = date('m-d-Y', strtotime($schedule_end));
-
-                                if($schedule_expires != "")
-                                  $schedule_expires = date('m-d-Y', strtotime($schedule_expires));
-
-                                if($next_schedule != "")
-                                  $next_schedule = date('m-d-Y', strtotime($next_schedule));
-
-                                $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
-                                $payment_type = $row['payment_type_name'];
-
-                                echo "<tr><td>$payment_type</td>";
-
-                                if($recurring_pay == 't')
-                                  echo "<td>Enabled</td><td>$schedule_start</td><td>$schedule_end</td><td>$schedule_expires</td><td>$next_schedule</td><td>$schedule_frequency</td>";
-                                else
-                                  echo "<td>Not Set</td>";
-
-                                echo "</tr>";
-
-                              ?>
-                              
-                            </tbody>
-                            
-                          </table>
-
-                        </div>
-
-                      </div>
-
-                    </section>
-
-                  </div>
-
-                  <div class="row">
-
-                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
-
-                      <div class="box box-info">
-
-                        <div class="box-header">
-
-                          <center><h4><strong>Current Year Payments Processed</strong></h4></center>
-                          
-                          <i class="fa fa-"></i>
-
-                          <div class="box-tools pull-right">
-
-                            <a data-toggle="modal" data-target="#editCurrentYearPaymentsProcessed" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
-
-                          </div>
-
-                        </div>
-
-                        <div class="box-body table-responsive">
-                          
-                          <table class="table table-bordered">
-
-                            <thead>
-                              
-                              <th>Year</th>
-                              <th>January</th>
-                              <th>February</th>
-                              <th>March</th>
-                              <th>April</th>
-                              <th>May</th>
-                              <th>June</th>
-                              <th>July</th>
-                              <th>August</th>
-                              <th>September</th>
-                              <th>October</th>
-                              <th>November</th>
-                              <th>December</th>
-
-                            </thead>
-
-                            <tbody>
-
-                              <?php
-
-                                $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE home_id=$home_id AND community_id=$community_id AND year=$year"));
-
-                                $current_year = $row['year'];
-                                $m[1] = $row['m1_pmt_processed'];
-                                $m[2] = $row['m2_pmt_processed'];
-                                $m[3] = $row['m3_pmt_processed'];
-                                $m[4] = $row['m4_pmt_processed'];
-                                $m[5] = $row['m5_pmt_processed'];
-                                $m[6] = $row['m6_pmt_processed'];
-                                $m[7] = $row['m7_pmt_processed'];
-                                $m[8] = $row['m8_pmt_processed'];
-                                $m[9] = $row['m9_pmt_processed'];
-                                $m[10] = $row['m10_pmt_processed'];
-                                $m[11] = $row['m11_pmt_processed'];
-                                $m[12] = $row['m12_pmt_processed'];
-
-                                for ($i = 1; $i <= 12; $i++)
-                                  $m1[$i] = $m[$i];
-
-                                for ($i = 1; $i <= 12; $i++)
-                                {
-                                  if($m[$i] == 't')
-                                    $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                  else
-                                    $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
-                                }
-
-                                echo "<tr><td>$year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
-
-                              ?>
-                              
-                            </tbody>
-                            
-                          </table>
-
-                        </div>
-
-                      </div>
-
-                      <div class="modal fade hmodal-success" id="editCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
-                                        
-                        <div class="modal-dialog">
-                                            
-                          <div class="modal-content">
-                                                
-                            <div class="color-line"></div>
-                                
-                            <div class="modal-header">
-                                                        
-                              <h4 class="modal-title"><strong>Current Year Payments Processed</strong></h4>
-
-                            </div>
-
-                            <form class="row" method="post" action="https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php">
-                                                    
-                              <div class="modal-body">
-                                                        
-                                <div class="container-fluid">
-                                      
-                                  <div class="row container-fluid">
-                                        
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' <?php if($m1[1] == 't') echo "checked"; ?>></div>
-                                    </div>
-                                        
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' <?php if($m1[2] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' <?php if($m1[3] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' <?php if($m1[4] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' <?php if($m1[5] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' <?php if($m1[6] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' <?php if($m1[7] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' <?php if($m1[8] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' <?php if($m1[9] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' <?php if($m1[10] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' <?php if($m1[11] == 't') echo "checked"; ?> ></div>
-                                    </div>
-
-                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
-                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' <?php if($m1[12] == 't') echo "checked"; ?> ></div>
-
-                                      <input type="hidden" name="home_id" id='home_id' value="<?php echo $home_id; ?>">
-                                      <input type="hidden" name="hoa_id" id='hoa_id' value="<?php echo $hoa_id; ?>">
-                                    </div>
-
-                                  </div>
-
-                                  <br>
-
-                                  <div class="row text-center">
-                                    <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Save Changes</button>
-                                    <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
-                                  </div>
-                                                        
-                                </div>
-
-                              </div>
-
-                            </form>
-
-                          </div>
-                          
-                        </div>
-
-                      </div>
-
-                    </section>
-
-                  </div>
-
                 </div>
 
                 <div class="tab-pane" id="tab_4">
@@ -1817,6 +1543,374 @@
 
                 </div>
 
+                <div class="tab-pane" id="tab_8">
+                  
+                  <div class="row">
+
+                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                      <div class="box box-success">
+
+                        <div class="box-header">
+
+                          <center><h4><strong>Payment Details</strong></h4></center>
+
+                        </div>
+
+                        <div class="box-body table-responsive">
+                          
+                          <table class="table table-bordered">
+
+                            <thead>
+                              <?php
+
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+
+                                $payment_type = $row['payment_type_id'];
+                                $recurring_pay = $row['recurring_pay'];
+
+                              ?>
+                              
+                              <th>Pay Method</th>
+                              <th>Recurring Pay</th>
+                              <?php if($recurring_pay == 't') echo "<th>Schedule Start Date</th><th>Schedule End Date</th><th>Schedule Expires On</th><th>Next Schedule Date</th><th>Schedule Frequency</th>"; ?>
+
+                            </thead>
+
+                            <tbody>
+
+                              <?php
+
+                                $schedule_start = $row['sch_start'];
+                                $schedule_end = $row['sch_end'];
+                                $schedule_expires = $row['sch_expires'];
+                                $next_schedule = $row['next_sch'];
+                                $schedule_frequency = $row['sch_frequency'];
+
+                                if($schedule_start != "")
+                                  $schedule_start = date('m-d-Y', strtotime($schedule_start));
+
+                                if($schedule_end != "")
+                                  $schedule_end = date('m-d-Y', strtotime($schedule_end));
+
+                                if($schedule_expires != "")
+                                  $schedule_expires = date('m-d-Y', strtotime($schedule_expires));
+
+                                if($next_schedule != "")
+                                  $next_schedule = date('m-d-Y', strtotime($next_schedule));
+
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+                                $payment_type = $row['payment_type_name'];
+
+                                echo "<tr><td>$payment_type</td>";
+
+                                if($recurring_pay == 't')
+                                  echo "<td>Enabled</td><td>$schedule_start</td><td>$schedule_end</td><td>$schedule_expires</td><td>$next_schedule</td><td>$schedule_frequency</td>";
+                                else
+                                  echo "<td>Not Set</td>";
+
+                                echo "</tr>";
+
+                              ?>
+                              
+                            </tbody>
+                            
+                          </table>
+
+                        </div>
+
+                      </div>
+
+                    </section>
+
+                  </div>
+
+                  <div class="row">
+
+                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                      <div class="box box-info">
+
+                        <div class="box-header">
+
+                          <center><h4><strong>Current Year Payments Processed</strong></h4></center>
+                          
+                          <i class="fa fa-"></i>
+
+                          <div class="box-tools pull-right">
+
+                            <a data-toggle="modal" data-target="#editCurrentYearPaymentsProcessed" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
+
+                          </div>
+
+                        </div>
+
+                        <div class="box-body table-responsive">
+                          
+                          <table class="table table-bordered">
+
+                            <thead>
+                              
+                              <th>Year</th>
+                              <th>January</th>
+                              <th>February</th>
+                              <th>March</th>
+                              <th>April</th>
+                              <th>May</th>
+                              <th>June</th>
+                              <th>July</th>
+                              <th>August</th>
+                              <th>September</th>
+                              <th>October</th>
+                              <th>November</th>
+                              <th>December</th>
+
+                            </thead>
+
+                            <tbody>
+
+                              <?php
+
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE home_id=$home_id AND community_id=$community_id AND year=$year"));
+
+                                $current_year = $row['year'];
+                                $m[1] = $row['m1_pmt_processed'];
+                                $m[2] = $row['m2_pmt_processed'];
+                                $m[3] = $row['m3_pmt_processed'];
+                                $m[4] = $row['m4_pmt_processed'];
+                                $m[5] = $row['m5_pmt_processed'];
+                                $m[6] = $row['m6_pmt_processed'];
+                                $m[7] = $row['m7_pmt_processed'];
+                                $m[8] = $row['m8_pmt_processed'];
+                                $m[9] = $row['m9_pmt_processed'];
+                                $m[10] = $row['m10_pmt_processed'];
+                                $m[11] = $row['m11_pmt_processed'];
+                                $m[12] = $row['m12_pmt_processed'];
+
+                                for ($i = 1; $i <= 12; $i++)
+                                  $m1[$i] = $m[$i];
+
+                                for ($i = 1; $i <= 12; $i++)
+                                {
+                                  if($m[$i] == 't')
+                                    $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                  else
+                                    $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                }
+
+                                echo "<tr><td>$year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+
+                              ?>
+                              
+                            </tbody>
+                            
+                          </table>
+
+                        </div>
+
+                      </div>
+
+                      <div class="modal fade hmodal-success" id="editCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
+                                        
+                        <div class="modal-dialog">
+                                            
+                          <div class="modal-content">
+                                                
+                            <div class="color-line"></div>
+                                
+                            <div class="modal-header">
+                                                        
+                              <h4 class="modal-title"><strong>Current Year Payments Processed</strong></h4>
+
+                            </div>
+
+                            <form class="row" method="post" action="https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php">
+                                                    
+                              <div class="modal-body">
+                                                        
+                                <div class="container-fluid">
+                                      
+                                  <div class="row container-fluid">
+                                        
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' <?php if($m1[1] == 't') echo "checked"; ?>></div>
+                                    </div>
+                                        
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' <?php if($m1[2] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' <?php if($m1[3] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' <?php if($m1[4] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' <?php if($m1[5] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' <?php if($m1[6] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' <?php if($m1[7] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' <?php if($m1[8] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' <?php if($m1[9] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' <?php if($m1[10] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' <?php if($m1[11] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' <?php if($m1[12] == 't') echo "checked"; ?> ></div>
+
+                                      <input type="hidden" name="home_id" id='home_id' value="<?php echo $home_id; ?>">
+                                      <input type="hidden" name="hoa_id" id='hoa_id' value="<?php echo $hoa_id; ?>">
+                                    </div>
+
+                                  </div>
+
+                                  <br>
+
+                                  <div class="row text-center">
+                                    <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Save Changes</button>
+                                    <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
+                                  </div>
+                                                        
+                                </div>
+
+                              </div>
+
+                            </form>
+
+                          </div>
+                          
+                        </div>
+
+                      </div>
+
+                    </section>
+
+                  </div>
+
+                  <?php
+          
+                    if($payment_type == 'ACH')
+                    {  
+
+                      echo "<div class='row'>
+
+                        <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
+
+                          <div class='box box-info'>
+
+                            <div class='box-header'>
+
+                              <center><h4><strong>Forte Transactions</strong></h4></center>
+
+                            </div>
+
+                            <div class='box-body table-responsive'>
+                              
+                              <table id='example1' class='table table-bordered'>
+
+                                <thead>
+                                  
+                                  <th>Date</th>
+                                  <th>Customer ID</th>
+                                  <th>Document Number</th>
+                                  <th>Status</th>
+                                  <th>Amount</th>
+
+                                </thead>
+
+                                <tbody>";
+
+                                  $ch = curl_init();
+                                  $header = array();
+                                  $header[] = 'Content-Type: application/json';
+                                  
+                                  if($community_id == 1)
+                                  {
+
+                                    $header[] = "X-Forte-Auth-Organization-Id:org_335357";
+                                    $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
+                                                                              
+                                    curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
+
+                                  }
+                                  else if($community_id == 2)
+                                  {
+                                      
+                                    $header[] = "X-Forte-Auth-Organization-Id:org_332536";
+                                    $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
+                                                                              
+                                    curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
+                                                                              
+                                  }
+
+                                  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                  curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+                                  $result = curl_exec($ch);
+                                  $obj = json_decode($result);
+
+                                  foreach ($obj->results as $key) 
+                                  {  
+
+                                    if($key->customer_id == $hoa_id)
+                                      echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
+                                  }
+
+                                                                              
+                                  curl_close($ch);
+                                  
+                                echo "</tbody>
+                                
+                              </table>
+
+                            </div>
+
+                          </div>
+
+                        </section>
+
+                      </div>";
+
+                    }
+
+                  ?>
+
+                </div>
+
                 <div class="tab-pane" id="tab_7">
                   
                   <div class="row">
@@ -1886,95 +1980,6 @@
             </div>
 
           </div>
-
-          <?php
-          
-            if($payment_type == 'ACH')
-            {  
-
-              echo "<br><br><br><br><div class='row'>
-
-                <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
-
-                  <div class='box box-info'>
-
-                    <div class='box-header'>
-
-                      <center><h4><strong>Forte Transactions</strong></h4></center>
-
-                    </div>
-
-                    <div class='box-body table-responsive'>
-                      
-                      <table id='example1' class='table table-bordered'>
-
-                        <thead>
-                          
-                          <th>Date</th>
-                          <th>Customer ID</th>
-                          <th>Document Number</th>
-                          <th>Status</th>
-                          <th>Amount</th>
-
-                        </thead>
-
-                        <tbody>";
-
-                          $ch = curl_init();
-                          $header = array();
-                          $header[] = 'Content-Type: application/json';
-                          
-                          if($community_id == 1)
-                          {
-
-                            $header[] = "X-Forte-Auth-Organization-Id:org_335357";
-                            $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
-                                                                      
-                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
-
-                          }
-                          else if($community_id == 2)
-                          {
-                              
-                            $header[] = "X-Forte-Auth-Organization-Id:org_332536";
-                            $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
-                                                                      
-                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
-                                                                      
-                          }
-
-                          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-
-                          $result = curl_exec($ch);
-                          $obj = json_decode($result);
-
-                          foreach ($obj->results as $key) 
-                          {  
-
-                            if($key->customer_id == $hoa_id)
-                              echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
-                          }
-
-                                                                      
-                          curl_close($ch);
-                          
-                        echo "</tbody>
-                        
-                      </table>
-
-                    </div>
-
-                  </div>
-
-                </section>
-
-              </div>";
-
-            }
-
-          ?>
 
         </section>
 
