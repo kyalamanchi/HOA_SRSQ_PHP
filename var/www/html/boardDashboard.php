@@ -915,9 +915,9 @@
                         <?php 
 
                           if($inspections > 0)
-                            echo "<h2 class='text-orange'><strong>".$inspections."</strong></h2>"; 
+                            echo "<h1 class='text-orange'><strong>".$inspections."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-green'><strong>".$inspections."</strong></h2>";
+                            echo "<h1 class='text-green'><strong>".$inspections."</strong></h1>";
 
                         ?>
 
@@ -929,7 +929,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Inspection Notices</strong></h4>
+                    <h5><strong>Inspection Notices</strong></h5>
 
                   </div>
 
@@ -961,9 +961,9 @@
                           $late = pg_num_rows($result);
 
                           if($late > 0)
-                            echo "<h2 class='text-orange'><strong>".$late."</strong></h2>"; 
+                            echo "<h1 class='text-orange'><strong>".$late."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-green'><strong>".$late."</strong></h2>";
+                            echo "<h1 class='text-green'><strong>".$late."</strong></h1>";
 
                         ?>
 
@@ -975,7 +975,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Late Payments - <?php echo date("F"); ?></strong></h4>
+                    <h5><strong>Late Payments - <?php echo date("F"); ?></strong></h5>
 
                   </div>
 
@@ -1005,7 +1005,7 @@
 
                           $row = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
 
-                          echo "<h2 class='text-info'><strong>".$row."</strong></h2>";
+                          echo "<h1 class='text-info'><strong>".$row."</strong></h1>";
 
                         ?>
 
@@ -1017,7 +1017,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Parking Tags</strong></h4>
+                    <h5><strong>Parking Tags</strong></h5>
 
                   </div>
 
@@ -1046,9 +1046,9 @@
                         <?php 
 
                           if($pending_agreements > 0)
-                            echo "<h2 class='text-orange'><strong>".$pending_agreements."</strong></h2>"; 
+                            echo "<h1 class='text-orange'><strong>".$pending_agreements."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-green'><strong>".$pending_agreements."</strong></h2>";
+                            echo "<h1 class='text-green'><strong>".$pending_agreements."</strong></h1>";
 
                         ?>
 
@@ -1060,7 +1060,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Pending Agreements</strong></h4>
+                    <h5><strong>Pending Agreements</strong></h5>
 
                   </div>
 
@@ -1115,9 +1115,9 @@
                           }
 
                           if($pending > 0)
-                            echo "<h2 class='text-orange'><strong>".$pending."</strong></h2>"; 
+                            echo "<h1 class='text-orange'><strong>".$pending."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-green'><strong>".$pending."</strong></h2>";
+                            echo "<h1 class='text-green'><strong>".$pending."</strong></h1>";
 
                         ?>
 
@@ -1129,7 +1129,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Pending Payments</strong></h4>
+                    <h5><strong>Pending Payments</strong></h5>
 
                   </div>
 
@@ -1164,9 +1164,9 @@
                           $rows = pg_num_rows($result);
 
                           if($rows > 0)
-                            echo "<h2 class='text-orange'><strong>".$rows."</strong></h2>"; 
+                            echo "<h1 class='text-orange'><strong>".$rows."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-green'><strong>".$rows."</strong></h2>";
+                            echo "<h1 class='text-green'><strong>".$rows."</strong></h1>";
 
                         ?>
 
@@ -1178,7 +1178,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Pre-Paid Members</strong></h4>
+                    <h5><strong>Pre-Paid Members</strong></h5>
 
                   </div>
 
@@ -1207,9 +1207,9 @@
                         <?php 
 
                           if($pending_agreements > 0)
-                            echo "<h2 class='text-green'><strong>".$signed_agreements."</strong></h2>"; 
+                            echo "<h1 class='text-green'><strong>".$signed_agreements."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-info'><strong>".$signed_agreements."</strong></h2>";
+                            echo "<h1 class='text-info'><strong>".$signed_agreements."</strong></h1>";
 
                         ?>
 
@@ -1221,7 +1221,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Signed Agreements</strong></h4>
+                    <h5><strong>Signed Agreements</strong></h5>
 
                   </div>
 
