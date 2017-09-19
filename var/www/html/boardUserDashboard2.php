@@ -356,13 +356,13 @@
               <ul class="nav nav-tabs">
 
                 <li class="active"><a href="#tab_1" data-toggle="tab">Owner &amp; Home</a></li>
-                <li><a href="#tab_4" data-toggle="tab">Account Statement</a></li>
-                <li><a href="#tab_5" data-toggle="tab">Agreements</a></li>
-                <li><a href="#tab_2" data-toggle="tab">Communication</a></li>
-                <li><a href="#tab_3" data-toggle="tab">Documents</a></li>
+                <li><a href="#tab_2" data-toggle="tab">Account Statement</a></li>
+                <li><a href="#tab_3" data-toggle="tab">Agreements</a></li>
+                <li><a href="#tab_4" data-toggle="tab">Communication</a></li>
+                <li><a href="#tab_5" data-toggle="tab">Documents</a></li>
                 <li><a href="#tab_6" data-toggle="tab">Inspections</a></li>
-                <li><a href="#tab_8" data-toggle="tab">Payments</a></li>
-                <li><a href="#tab_7" data-toggle="tab">Statements</a></li>
+                <li><a href="#tab_7" data-toggle="tab">Payments</a></li>
+                <li><a href="#tab_8" data-toggle="tab">Statements</a></li>
 
               </ul>
 
@@ -1012,7 +1012,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_4">
+                <div class="tab-pane" id="tab_2">
                   
                   <div class="row">
 
@@ -1106,7 +1106,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_5">
+                <div class="tab-pane" id="tab_3">
                   
                   <div class="row">
 
@@ -1264,7 +1264,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_2">
+                <div class="tab-pane" id="tab_4">
                   
                   <div class="row">
 
@@ -1361,7 +1361,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_3">
+                <div class="tab-pane" id="tab_5">
                   
                   <div class="row">
 
@@ -1543,7 +1543,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_8">
+                <div class="tab-pane" id="tab_7">
                   
                   <div class="row">
 
@@ -1911,7 +1911,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_7">
+                <div class="tab-pane" id="tab_8">
                   
                   <div class="row">
 
