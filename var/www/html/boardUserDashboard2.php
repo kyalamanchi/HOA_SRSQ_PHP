@@ -1953,10 +1953,13 @@
                                   $statement_type = $row['statement_type'];
                                   $notification_type = $row['notification_type'];
 
+                                  if($total_due != "")
+                                    $total_due = "$ ".$total_due;
+
                                   $row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
                                   $notification_type = $row1['notification_mode_type'];
 
-                                  echo "<tr><td>$date_sent</td><td>$ $total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
+                                  echo "<tr><td>$date_sent</td><td>$total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
                                 }
                               
                               ?>
