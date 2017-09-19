@@ -1766,10 +1766,11 @@
 
                 <div class="box-body table-responsive">
                   
-                  <table id='example2' class="table table-bordered">
+                  <table id='example6' class="table table-bordered table-striped">
 
                     <thead>
                       
+                      <th>Date</th>
                       <th>Email</th>
                       <th>Subject</th>
                       <th>Number of Opens</th>
@@ -1816,8 +1817,8 @@
 
                             echo "<tr>";
 
-                            print_r("<td>".$result1->email."</td>");
                             print_r("<td>".date('m-d-Y',$result1->ts)."</td>");
+                            print_r("<td>".$result1->email."</td>");
                             print_r("<td>".$result1->subject."</td>");
                             print_r("<td>".$result1->opens."</td>");
                             print_r("<td>".$result1->clicks."</td>");
@@ -1959,6 +1960,8 @@
         $("#example3").DataTable({ "pageLength": 50 });
 
         $("#example5").DataTable({ "pageLength": 25, "order": [[0, 'desc']] });
+
+        $("#example6").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
       });
     </script>
 
