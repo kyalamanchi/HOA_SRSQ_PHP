@@ -356,6 +356,7 @@
               <ul class="nav nav-tabs">
 
                 <li class="active"><a href="#tab_1" data-toggle="tab">Owner &amp; Home</a></li>
+                <li><a href="#tab_4" data-toggle="tab">Account Statement</a></li>
                 <li><a href="#tab_2" data-toggle="tab">Communication</a></li>
                 <li><a href="#tab_3" data-toggle="tab">Documents</a></li>
 
@@ -1003,7 +1004,376 @@
 
                     </section>
 
-                  </div><!--ashfoqisfadsihfadisuf-->
+                  </div>
+
+                  <div class="row">
+
+                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                      <div class="box box-success">
+
+                        <div class="box-header">
+
+                          <center><h4><strong>Payment Details</strong></h4></center>
+
+                        </div>
+
+                        <div class="box-body table-responsive">
+                          
+                          <table class="table table-bordered">
+
+                            <thead>
+                              <?php
+
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+
+                                $payment_type = $row['payment_type_id'];
+                                $recurring_pay = $row['recurring_pay'];
+
+                              ?>
+                              
+                              <th>Pay Method</th>
+                              <th>Recurring Pay</th>
+                              <?php if($recurring_pay == 't') echo "<th>Schedule Start Date</th><th>Schedule End Date</th><th>Schedule Expires On</th><th>Next Schedule Date</th><th>Schedule Frequency</th>"; ?>
+
+                            </thead>
+
+                            <tbody>
+
+                              <?php
+
+                                $schedule_start = $row['sch_start'];
+                                $schedule_end = $row['sch_end'];
+                                $schedule_expires = $row['sch_expires'];
+                                $next_schedule = $row['next_sch'];
+                                $schedule_frequency = $row['sch_frequency'];
+
+                                if($schedule_start != "")
+                                  $schedule_start = date('m-d-Y', strtotime($schedule_start));
+
+                                if($schedule_end != "")
+                                  $schedule_end = date('m-d-Y', strtotime($schedule_end));
+
+                                if($schedule_expires != "")
+                                  $schedule_expires = date('m-d-Y', strtotime($schedule_expires));
+
+                                if($next_schedule != "")
+                                  $next_schedule = date('m-d-Y', strtotime($next_schedule));
+
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+                                $payment_type = $row['payment_type_name'];
+
+                                echo "<tr><td>$payment_type</td>";
+
+                                if($recurring_pay == 't')
+                                  echo "<td>Enabled</td><td>$schedule_start</td><td>$schedule_end</td><td>$schedule_expires</td><td>$next_schedule</td><td>$schedule_frequency</td>";
+                                else
+                                  echo "<td>Not Set</td>";
+
+                                echo "</tr>";
+
+                              ?>
+                              
+                            </tbody>
+                            
+                          </table>
+
+                        </div>
+
+                      </div>
+
+                    </section>
+
+                  </div>
+
+                  <div class="row">
+
+                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                      <div class="box box-info">
+
+                        <div class="box-header">
+
+                          <center><h4><strong>Current Year Payments Processed</strong></h4></center>
+                          
+                          <i class="fa fa-"></i>
+
+                          <div class="box-tools pull-right">
+
+                            <a data-toggle="modal" data-target="#editCurrentYearPaymentsProcessed" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
+
+                          </div>
+
+                        </div>
+
+                        <div class="box-body table-responsive">
+                          
+                          <table class="table table-bordered">
+
+                            <thead>
+                              
+                              <th>Year</th>
+                              <th>January</th>
+                              <th>February</th>
+                              <th>March</th>
+                              <th>April</th>
+                              <th>May</th>
+                              <th>June</th>
+                              <th>July</th>
+                              <th>August</th>
+                              <th>September</th>
+                              <th>October</th>
+                              <th>November</th>
+                              <th>December</th>
+
+                            </thead>
+
+                            <tbody>
+
+                              <?php
+
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE home_id=$home_id AND community_id=$community_id AND year=$year"));
+
+                                $current_year = $row['year'];
+                                $m[1] = $row['m1_pmt_processed'];
+                                $m[2] = $row['m2_pmt_processed'];
+                                $m[3] = $row['m3_pmt_processed'];
+                                $m[4] = $row['m4_pmt_processed'];
+                                $m[5] = $row['m5_pmt_processed'];
+                                $m[6] = $row['m6_pmt_processed'];
+                                $m[7] = $row['m7_pmt_processed'];
+                                $m[8] = $row['m8_pmt_processed'];
+                                $m[9] = $row['m9_pmt_processed'];
+                                $m[10] = $row['m10_pmt_processed'];
+                                $m[11] = $row['m11_pmt_processed'];
+                                $m[12] = $row['m12_pmt_processed'];
+
+                                for ($i = 1; $i <= 12; $i++)
+                                  $m1[$i] = $m[$i];
+
+                                for ($i = 1; $i <= 12; $i++)
+                                {
+                                  if($m[$i] == 't')
+                                    $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                  else
+                                    $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                }
+
+                                echo "<tr><td>$year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+
+                              ?>
+                              
+                            </tbody>
+                            
+                          </table>
+
+                        </div>
+
+                      </div>
+
+                      <div class="modal fade hmodal-success" id="editCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
+                                        
+                        <div class="modal-dialog">
+                                            
+                          <div class="modal-content">
+                                                
+                            <div class="color-line"></div>
+                                
+                            <div class="modal-header">
+                                                        
+                              <h4 class="modal-title"><strong>Current Year Payments Processed</strong></h4>
+
+                            </div>
+
+                            <form class="row" method="post" action="https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php">
+                                                    
+                              <div class="modal-body">
+                                                        
+                                <div class="container-fluid">
+                                      
+                                  <div class="row container-fluid">
+                                        
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' <?php if($m1[1] == 't') echo "checked"; ?>></div>
+                                    </div>
+                                        
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' <?php if($m1[2] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' <?php if($m1[3] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' <?php if($m1[4] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' <?php if($m1[5] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' <?php if($m1[6] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' <?php if($m1[7] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' <?php if($m1[8] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' <?php if($m1[9] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' <?php if($m1[10] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' <?php if($m1[11] == 't') echo "checked"; ?> ></div>
+                                    </div>
+
+                                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
+                                      <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' <?php if($m1[12] == 't') echo "checked"; ?> ></div>
+
+                                      <input type="hidden" name="home_id" id='home_id' value="<?php echo $home_id; ?>">
+                                      <input type="hidden" name="hoa_id" id='hoa_id' value="<?php echo $hoa_id; ?>">
+                                    </div>
+
+                                  </div>
+
+                                  <br>
+
+                                  <div class="row text-center">
+                                    <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Save Changes</button>
+                                    <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
+                                  </div>
+                                                        
+                                </div>
+
+                              </div>
+
+                            </form>
+
+                          </div>
+                          
+                        </div>
+
+                      </div>
+
+                    </section>
+
+                  </div>
+
+                </div>
+
+                <div class="tab-pane" id="tab_4">
+                  
+                  <div class="row">
+
+                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                      <div class="box box-info">
+
+                        <div class="box-header">
+
+                          <center><h4><strong>Accounts Statement</strong></h4></center>
+
+                        </div>
+
+                        <div class="box-body table-responsive">
+                          
+                          <table class="table table-striped">
+                    
+                            <thead>
+                    
+                              <tr>
+                                
+                                <th>Month</th>
+                                <th>Document ID</th>
+                                <th>Description</th>
+                                <th>Charge</th>
+                                <th>Payment</th>
+                                <th>Balance</th>
+
+                              </tr>
+                            
+                            </thead>
+
+                            <tbody>
+                              
+                              <?php
+
+                                for($m = 1; $m <= 12; $m++)
+                                {
+
+                                  $last_date = date("Y-m-t", strtotime("$year-$m-1"));
+                                  
+                                  $charges_results = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id AND assessment_date>='$year-$m-1' AND assessment_date<='$last_date' ORDER BY assessment_date");
+
+                                  $payments_results = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND process_date>='$year-$m-1' AND process_date<='$last_date' ORDER BY process_date");
+
+                                  $month_charge = 0.0;
+
+                                  while($charges_row = pg_fetch_assoc($charges_results))
+                                  {
+
+                                    $month_charge += $charges_row['amount'];
+                                    $tdate = $charges_row['assessment_date'];
+                                    $desc = $charges_row['assessment_rule_type_id'];
+
+                                    $r = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$desc"));
+                                    $desc = $r['name'];
+
+                                    echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$charges_row['id']."-".$charges_row['assessment_rule_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|".$desc."</td><td>$ ".$charges_row['amount']."</td><td></td><td>$ ".$month_charge."</td></tr>";
+
+                                  }
+
+                                  $month_payment = 0.0;
+
+                                  while($payments_row = pg_fetch_assoc($payments_results))
+                                  {
+
+                                    $month_payment += $payments_row['amount'];
+                                    $tdate = $payments_row['process_date'];
+
+                                    echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
+
+                                  }
+
+                                }
+
+                              ?>
+
+                              <tr><td></td><td></td><td><strong>Total</strong></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id")); $total_charges = $row['sum']; echo "<strong>$ ".$total_charges."</strong>"; ?></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1")); $total_payments = $row['sum']; if($total_payments == "") $total_payments = 0.0; echo "<strong>$ ".$total_payments."</strong>"; ?></td><td><?php $total = $total_charges - $total_payments; echo "<strong>$ ".$total."</strong>"; ?></td></tr>
+
+                            </tbody>
+                  
+                          </table>
+
+                        </div>
+
+                      </div>
+
+                    </section>
+
+                  </div>
 
                 </div>
 
@@ -1190,371 +1560,6 @@
               </div>
 
             </div>
-
-          </div>
-          
-          <div class="row">
-
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
-
-              <div class="box box-success">
-
-                <div class="box-header">
-
-                  <center><h4><strong>Payment Details</strong></h4></center>
-
-                </div>
-
-                <div class="box-body table-responsive">
-                  
-                  <table class="table table-bordered">
-
-                    <thead>
-                      <?php
-
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-
-                        $payment_type = $row['payment_type_id'];
-                        $recurring_pay = $row['recurring_pay'];
-
-                      ?>
-                      
-                      <th>Pay Method</th>
-                      <th>Recurring Pay</th>
-                      <?php if($recurring_pay == 't') echo "<th>Schedule Start Date</th><th>Schedule End Date</th><th>Schedule Expires On</th><th>Next Schedule Date</th><th>Schedule Frequency</th>"; ?>
-
-                    </thead>
-
-                    <tbody>
-
-                      <?php
-
-                        $schedule_start = $row['sch_start'];
-                        $schedule_end = $row['sch_end'];
-                        $schedule_expires = $row['sch_expires'];
-                        $next_schedule = $row['next_sch'];
-                        $schedule_frequency = $row['sch_frequency'];
-
-                        if($schedule_start != "")
-                          $schedule_start = date('m-d-Y', strtotime($schedule_start));
-
-                        if($schedule_end != "")
-                          $schedule_end = date('m-d-Y', strtotime($schedule_end));
-
-                        if($schedule_expires != "")
-                          $schedule_expires = date('m-d-Y', strtotime($schedule_expires));
-
-                        if($next_schedule != "")
-                          $next_schedule = date('m-d-Y', strtotime($next_schedule));
-
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
-                        $payment_type = $row['payment_type_name'];
-
-                        echo "<tr><td>$payment_type</td>";
-
-                        if($recurring_pay == 't')
-                          echo "<td>Enabled</td><td>$schedule_start</td><td>$schedule_end</td><td>$schedule_expires</td><td>$next_schedule</td><td>$schedule_frequency</td>";
-                        else
-                          echo "<td>Not Set</td>";
-
-                        echo "</tr>";
-
-                      ?>
-                      
-                    </tbody>
-                    
-                  </table>
-
-                </div>
-
-              </div>
-
-            </section>
-
-          </div>
-
-          <div class="row">
-
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
-
-              <div class="box box-info">
-
-                <div class="box-header">
-
-                  <center><h4><strong>Current Year Payments Processed</strong></h4></center>
-                  
-                  <i class="fa fa-"></i>
-
-                  <div class="box-tools pull-right">
-
-                    <a data-toggle="modal" data-target="#editCurrentYearPaymentsProcessed" class='btn-xs'><i class='fa fa-edit'></i> Edit</a>
-
-                  </div>
-
-                </div>
-
-                <div class="box-body table-responsive">
-                  
-                  <table class="table table-bordered">
-
-                    <thead>
-                      
-                      <th>Year</th>
-                      <th>January</th>
-                      <th>February</th>
-                      <th>March</th>
-                      <th>April</th>
-                      <th>May</th>
-                      <th>June</th>
-                      <th>July</th>
-                      <th>August</th>
-                      <th>September</th>
-                      <th>October</th>
-                      <th>November</th>
-                      <th>December</th>
-
-                    </thead>
-
-                    <tbody>
-
-                      <?php
-
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE home_id=$home_id AND community_id=$community_id AND year=$year"));
-
-                        $current_year = $row['year'];
-                        $m[1] = $row['m1_pmt_processed'];
-                        $m[2] = $row['m2_pmt_processed'];
-                        $m[3] = $row['m3_pmt_processed'];
-                        $m[4] = $row['m4_pmt_processed'];
-                        $m[5] = $row['m5_pmt_processed'];
-                        $m[6] = $row['m6_pmt_processed'];
-                        $m[7] = $row['m7_pmt_processed'];
-                        $m[8] = $row['m8_pmt_processed'];
-                        $m[9] = $row['m9_pmt_processed'];
-                        $m[10] = $row['m10_pmt_processed'];
-                        $m[11] = $row['m11_pmt_processed'];
-                        $m[12] = $row['m12_pmt_processed'];
-
-                        for ($i = 1; $i <= 12; $i++)
-                          $m1[$i] = $m[$i];
-
-                        for ($i = 1; $i <= 12; $i++)
-                        {
-                          if($m[$i] == 't')
-                            $m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
-                          else
-                            $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
-                        }
-
-                        echo "<tr><td>$year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
-
-                      ?>
-                      
-                    </tbody>
-                    
-                  </table>
-
-                </div>
-
-              </div>
-
-              <div class="modal fade hmodal-success" id="editCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
-                                
-                <div class="modal-dialog">
-                                    
-                  <div class="modal-content">
-                                        
-                    <div class="color-line"></div>
-                        
-                    <div class="modal-header">
-                                                
-                      <h4 class="modal-title"><strong>Current Year Payments Processed</strong></h4>
-
-                    </div>
-
-                    <form class="row" method="post" action="https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php">
-                                            
-                      <div class="modal-body">
-                                                
-                        <div class="container-fluid">
-                              
-                          <div class="row container-fluid">
-                                
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' <?php if($m1[1] == 't') echo "checked"; ?>></div>
-                            </div>
-                                
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' <?php if($m1[2] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' <?php if($m1[3] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' <?php if($m1[4] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' <?php if($m1[5] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' <?php if($m1[6] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' <?php if($m1[7] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' <?php if($m1[8] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' <?php if($m1[9] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' <?php if($m1[10] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' <?php if($m1[11] == 't') echo "checked"; ?> ></div>
-                            </div>
-
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' <?php if($m1[12] == 't') echo "checked"; ?> ></div>
-
-                              <input type="hidden" name="home_id" id='home_id' value="<?php echo $home_id; ?>">
-                              <input type="hidden" name="hoa_id" id='hoa_id' value="<?php echo $hoa_id; ?>">
-                            </div>
-
-                          </div>
-
-                          <br>
-
-                          <div class="row text-center">
-                            <button type="submit" name='submit' id='submit' class="btn btn-success btn-xs"><i class='fa fa-check'></i> Save Changes</button>
-                            <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal"><i class='fa fa-close'></i> Cancel</button>
-                          </div>
-                                                
-                        </div>
-
-                      </div>
-
-                    </form>
-
-                  </div>
-                  
-                </div>
-
-              </div>
-
-            </section>
-
-          </div>
-
-          <div class="row">
-
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
-
-              <div class="box box-info">
-
-                <div class="box-header">
-
-                  <center><h4><strong>Accounts Statement</strong></h4></center>
-
-                </div>
-
-                <div class="box-body table-responsive">
-                  
-                  <table class="table table-striped">
-            
-                    <thead>
-            
-                      <tr>
-                        
-                        <th>Month</th>
-                        <th>Document ID</th>
-                        <th>Description</th>
-                        <th>Charge</th>
-                        <th>Payment</th>
-                        <th>Balance</th>
-
-                      </tr>
-                    
-                    </thead>
-
-                    <tbody>
-                      
-                      <?php
-
-                        for($m = 1; $m <= 12; $m++)
-                        {
-
-                          $last_date = date("Y-m-t", strtotime("$year-$m-1"));
-                          
-                          $charges_results = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id AND assessment_date>='$year-$m-1' AND assessment_date<='$last_date' ORDER BY assessment_date");
-
-                          $payments_results = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND process_date>='$year-$m-1' AND process_date<='$last_date' ORDER BY process_date");
-
-                          $month_charge = 0.0;
-
-                          while($charges_row = pg_fetch_assoc($charges_results))
-                          {
-
-                            $month_charge += $charges_row['amount'];
-                            $tdate = $charges_row['assessment_date'];
-                            $desc = $charges_row['assessment_rule_type_id'];
-
-                            $r = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$desc"));
-                            $desc = $r['name'];
-
-                            echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$charges_row['id']."-".$charges_row['assessment_rule_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|".$desc."</td><td>$ ".$charges_row['amount']."</td><td></td><td>$ ".$month_charge."</td></tr>";
-
-                          }
-
-                          $month_payment = 0.0;
-
-                          while($payments_row = pg_fetch_assoc($payments_results))
-                          {
-
-                            $month_payment += $payments_row['amount'];
-                            $tdate = $payments_row['process_date'];
-
-                            echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
-
-                          }
-
-                        }
-
-                      ?>
-
-                      <tr><td></td><td></td><td><strong>Total</strong></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id")); $total_charges = $row['sum']; echo "<strong>$ ".$total_charges."</strong>"; ?></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1")); $total_payments = $row['sum']; if($total_payments == "") $total_payments = 0.0; echo "<strong>$ ".$total_payments."</strong>"; ?></td><td><?php $total = $total_charges - $total_payments; echo "<strong>$ ".$total."</strong>"; ?></td></tr>
-
-                    </tbody>
-          
-                  </table>
-
-                </div>
-
-              </div>
-
-            </section>
 
           </div>
 
