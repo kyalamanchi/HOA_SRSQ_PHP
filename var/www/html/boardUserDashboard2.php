@@ -1927,22 +1927,9 @@
           <!-- Custom Tabs -->
           <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-              <li class="active"><a href="#tab_1" data-toggle="tab">Tab 1</a></li>
-              <li><a href="#tab_2" data-toggle="tab">Tab 2</a></li>
-              <li><a href="#tab_3" data-toggle="tab">Tab 3</a></li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  Dropdown <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                  <li role="presentation" class="divider"></li>
-                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                </ul>
-              </li>
-              <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+              <li class="active"><a href="#tab_1" data-toggle="tab">Owner &amp; Home</a></li>
+              <li><a href="#tab_2" data-toggle="tab">Communication</a></li>
+              <li><a href="#tab_3" data-toggle="tab">Documents</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="tab_1">
@@ -1960,23 +1947,183 @@
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_2">
-                The European languages are members of the same family. Their separate existence is a myth.
-                For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                new common language would be desirable: one could refuse to pay expensive translators. To
-                achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                words. If several languages coalesce, the grammar of the resulting language is more simple
-                and regular than that of the individual languages.
+                
+                <div class="row">
+
+                  <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                    <div class="box box-info">
+
+                      <div class="box-header">
+
+                        <center><h4><strong>Communication Info</strong></h4></center>
+
+                      </div>
+
+                      <div class="box-body table-responsive">
+                        
+                        <table id='example6' class="table table-bordered table-striped">
+
+                          <thead>
+                            
+                            <th>Date</th>
+                            <th>Email</th>
+                            <th>Subject</th>
+                            <th>Number of Opens</th>
+                            <th>Number of Clicks</th>
+
+                          </thead>
+
+                          <tbody>
+
+                            <?php
+
+                              date_default_timezone_set('America/Los_Angeles');
+                              $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
+                              if($community_id == 1)
+                                $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+                              else if($community_id == 2)
+                                $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
+
+                              $resss = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+                              
+                              while($rooo = pg_fetch_assoc($resss))
+                              {
+
+                                $per_email = $rooo['email'];
+
+                                $postString = '{
+                                  "key": "'.$api_key.'",
+                                  "query": "email:'.$per_email.'",
+                                  "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
+                                }';
+
+                                $ch = curl_init();
+                                curl_setopt($ch, CURLOPT_URL, $uri);
+                                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+                                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                                curl_setopt($ch, CURLOPT_POST, true);
+                                curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+
+                                $result = curl_exec($ch); 
+                                $result = json_decode($result);
+
+                                foreach ($result as $result1) {
+
+                                  echo "<tr>";
+
+                                  print_r("<td>".date('m-d-Y',$result1->ts)."</td>");
+                                  print_r("<td>".$result1->email."</td>");
+                                  print_r("<td>".$result1->subject."</td>");
+                                  print_r("<td>".$result1->opens."</td>");
+                                  print_r("<td>".$result1->clicks."</td>");
+
+                                  echo "</tr>";
+
+                                }
+
+                                curl_close($ch);
+
+                              }
+
+                            ?>
+                            
+                          </tbody>
+                          
+                        </table>
+
+                      </div>
+
+                    </div>
+
+                  </section>
+
+                </div>
+          
               </div>
-              <!-- /.tab-pane -->
+
               <div class="tab-pane" id="tab_3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                It has survived not only five centuries, but also the leap into electronic typesetting,
-                remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                like Aldus PageMaker including versions of Lorem Ipsum.
+                
+                <div class="row">
+
+                  <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+                    <div class="box box-success">
+
+                      <div class="box-header">
+
+                        <center><h4><strong>Documents</strong></h4></center>
+
+                      </div>
+
+                      <div class="box-body table-responsive">
+                        
+                        <table id='example5' class="table table-bordered">
+
+                          <thead>
+                            
+                            <th>Uploaded On</th>
+                            <th>Description</th>
+                            <th>Category</th>
+
+                          </thead>
+
+                          <tbody>
+
+                            <?php
+
+                              $row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hid='$hoa_id'"));
+                              $member_id = $row['member_id'];
+
+                              $row = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE member_id=$member_id"));
+                              $user_id = $row['id'];
+                              
+                              $result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id");
+                              
+                              while($row = pg_fetch_assoc($result))
+                              {
+                                
+                                $document_id = $row['document_id'];
+
+                                $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
+
+                                $desc = $row1['description'];
+                                $url = $row1['url'];
+                                $category = $row1['document_category_id'];
+                                $uploaded_date = $row1['uploaded_date'];
+                                $community = $row1['community_id'];
+
+                                if($uploaded_date != "")
+                                  $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
+
+                                if($category != "")
+                                {
+                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_category WHERE document_category_id=$category"));
+                                  $category = $row1['document_category_name'];
+                                }
+                                else
+                                  $category = "Others";
+
+                                if($community_id == $community)
+                                  echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
+
+                              }
+
+                            ?>
+                            
+                          </tbody>
+                          
+                        </table>
+
+                      </div>
+
+                    </div>
+
+                  </section>
+
+                </div>
+
               </div>
               <!-- /.tab-pane -->
             </div>
