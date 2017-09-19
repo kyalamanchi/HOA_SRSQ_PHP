@@ -1717,7 +1717,7 @@
 
                 </div>
 
-                <div class="tab-pane" id="tab_3">
+                <div class="tab-pane" id="tab_6">
                   
                   <div class="row">
 
