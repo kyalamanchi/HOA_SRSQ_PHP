@@ -711,7 +711,7 @@
 
                     ?>
 
-                    <h2 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h2>
+                    <h1 class="text-info"><strong><?php echo round((($total_received/$total_needed)*100), 2); ?>%</strong></h1>
 
                   </div>
 
@@ -719,7 +719,7 @@
 
                 <div class="row container-fluid text-center">
 
-                  <h4><strong>Amount Received (<?php echo $year; ?>)</strong></h4>
+                  <h5><strong>Amount Received (<?php echo $year; ?>)</strong></h5>
 
                 </div>
 
@@ -743,7 +743,7 @@
 
                       <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
 
-                        <h2 class="text-info"><strong><?php echo $deposits; ?></strong></h2>
+                        <h1 class="text-info"><strong><?php echo $deposits; ?></strong></h1>
 
                       </a>
 
@@ -753,7 +753,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Community Deposits</strong></h4>
+                    <h5><strong>Community Deposits</strong></h5>
 
                   </div>
 
@@ -779,7 +779,7 @@
 
                       <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
 
-                        <h2 class="text-info"><strong><?php echo $documents; ?></strong></h2>
+                        <h1 class="text-info"><strong><?php echo $documents; ?></strong></h1>
 
                       </a>
 
@@ -789,7 +789,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Community Documents</strong></h4>
+                    <h5><strong>Community Documents</strong></h5>
 
                   </div>
 
@@ -818,9 +818,9 @@
                         <?php 
 
                           if($del_acc == 0 || $del_acc == "")
-                            echo "<h2 class='text-green'><strong>".$del_acc."</strong></h2>"; 
+                            echo "<h1 class='text-green'><strong>".$del_acc."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-red'><strong>".$del_acc."</strong></h2>";
+                            echo "<h1 class='text-red'><strong>".$del_acc."</strong></h1>";
 
                         ?>
 
@@ -832,7 +832,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Delinquent Accounts</strong></h4>
+                    <h5><strong>Delinquent Accounts</strong></h5>
 
                   </div>
 
@@ -872,9 +872,9 @@
                           }
 
                           if($inspection_homes > 0)
-                            echo "<h2 class='text-orange'><strong>".$inspection_homes."</strong></h2>"; 
+                            echo "<h1 class='text-orange'><strong>".$inspection_homes."</strong></h1>"; 
                           else
-                            echo "<h2 class='text-green'><strong>".$inspection_homes."</strong></h2>";
+                            echo "<h1 class='text-green'><strong>".$inspection_homes."</strong></h1>";
 
                         ?>
 
@@ -886,7 +886,7 @@
 
                   <div class="row container-fluid text-center">
 
-                    <h4><strong>Inspection Homes</strong></h4>
+                    <h5><strong>Inspection Homes</strong></h5>
 
                   </div>
 
