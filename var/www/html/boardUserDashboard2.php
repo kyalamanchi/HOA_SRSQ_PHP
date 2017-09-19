@@ -360,7 +360,9 @@
                 <li><a href="#tab_5" data-toggle="tab">Agreements</a></li>
                 <li><a href="#tab_2" data-toggle="tab">Communication</a></li>
                 <li><a href="#tab_3" data-toggle="tab">Documents</a></li>
+                <?php if($payment_type == 'ACH') echo "<li><a href='#tab_8' data-toggle='tab'>Documents</a></li>"; ?>
                 <li><a href="#tab_6" data-toggle="tab">Inspections</a></li>
+                <li><a href="#tab_7" data-toggle="tab">Statements</a></li>
 
               </ul>
 
@@ -1717,6 +1719,95 @@
 
                 </div>
 
+                <?php
+          
+                  if($payment_type == 'ACH')
+                  {  
+
+                    echo "<div class='tab-pane' id='tab_8'><div class='row'>
+
+                      <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
+
+                        <div class='box box-info'>
+
+                          <div class='box-header'>
+
+                            <center><h4><strong>Forte Transactions</strong></h4></center>
+
+                          </div>
+
+                          <div class='box-body table-responsive'>
+                            
+                            <table id='example1' class='table table-bordered'>
+
+                              <thead>
+                                
+                                <th>Date</th>
+                                <th>Customer ID</th>
+                                <th>Document Number</th>
+                                <th>Status</th>
+                                <th>Amount</th>
+
+                              </thead>
+
+                              <tbody>";
+
+                                $ch = curl_init();
+                                $header = array();
+                                $header[] = 'Content-Type: application/json';
+                                
+                                if($community_id == 1)
+                                {
+
+                                  $header[] = "X-Forte-Auth-Organization-Id:org_335357";
+                                  $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
+                                                                            
+                                  curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
+
+                                }
+                                else if($community_id == 2)
+                                {
+                                    
+                                  $header[] = "X-Forte-Auth-Organization-Id:org_332536";
+                                  $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
+                                                                            
+                                  curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
+                                                                            
+                                }
+
+                                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+                                $result = curl_exec($ch);
+                                $obj = json_decode($result);
+
+                                foreach ($obj->results as $key) 
+                                {  
+
+                                  if($key->customer_id == $hoa_id)
+                                    echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
+                                }
+
+                                                                            
+                                curl_close($ch);
+                                
+                              echo "</tbody>
+                              
+                            </table>
+
+                          </div>
+
+                        </div>
+
+                      </section>
+
+                    </div></div>";
+
+                  }
+
+                ?>
+
                 <div class="tab-pane" id="tab_6">
                   
                   <div class="row">
@@ -1816,158 +1907,73 @@
 
                 </div>
 
-              </div>
+                <div class="tab-pane" id="tab_7">
+                  
+                  <div class="row">
 
-            </div>
+                    <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
-          </div>
+                      <div class="box box-info">
 
-          <?php
-          
-            if($payment_type == 'ACH')
-            {  
+                        <div class="box-header">
 
-              echo "<div class='row'>
+                          <center><h4><strong>Statements Mailed</strong></h4></center>
 
-                <section class='col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12'>
+                        </div>
 
-                  <div class='box box-info'>
-
-                    <div class='box-header'>
-
-                      <center><h4><strong>Forte Transactions</strong></h4></center>
-
-                    </div>
-
-                    <div class='box-body table-responsive'>
-                      
-                      <table id='example1' class='table table-bordered'>
-
-                        <thead>
+                        <div class="box-body table-responsive">
                           
-                          <th>Date</th>
-                          <th>Customer ID</th>
-                          <th>Document Number</th>
-                          <th>Status</th>
-                          <th>Amount</th>
+                          <table id='example3' class="table table-bordered">
 
-                        </thead>
-
-                        <tbody>";
-
-                          $ch = curl_init();
-                          $header = array();
-                          $header[] = 'Content-Type: application/json';
-                          
-                          if($community_id == 1)
-                          {
-
-                            $header[] = "X-Forte-Auth-Organization-Id:org_335357";
-                            $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
-                                                                      
-                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
-
-                          }
-                          else if($community_id == 2)
-                          {
+                            <thead>
                               
-                            $header[] = "X-Forte-Auth-Organization-Id:org_332536";
-                            $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
-                                                                      
-                            curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
-                                                                      
-                          }
+                              <th>Date Sent</th>
+                              <th>Total Due</th>
+                              <th>Statement File</th>
+                              <th>Statement Type</th>
+                              <th>Notification Type</th>
 
-                          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                            </thead>
 
-                          $result = curl_exec($ch);
-                          $obj = json_decode($result);
+                            <tbody>
 
-                          foreach ($obj->results as $key) 
-                          {  
+                              <?php 
 
-                            if($key->customer_id == $hoa_id)
-                              echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td></tr>";
-                          }
+                                $result = pg_query("SELECT * FROM community_statements_mailed WHERE home_id=$home_id AND hoa_id=$hoa_id");
 
-                                                                      
-                          curl_close($ch);
-                          
-                        echo "</tbody>
-                        
-                      </table>
+                                while ($row = pg_fetch_assoc($result)) 
+                                {
+                                  $date_sent = $row['date_sent'];
+                                  $total_due = $row['total_due'];
+                                  $statement_file = $row['statement_file'];
+                                  $statement_type = $row['statement_type'];
+                                  $notification_type = $row['notification_type'];
 
-                    </div>
+                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
+                                  $notification_type = $row1['notification_mode_type'];
+
+                                  echo "<tr><td>$date_sent</td><td>$ $total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
+                                }
+                              
+                              ?>
+                              
+                            </tbody>
+                            
+                          </table>
+
+                        </div>
+
+                      </div>
+
+                    </section>
 
                   </div>
 
-                </section>
-
-              </div>";
-
-            }
-
-          ?>
-
-          <div class="row">
-
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
-
-              <div class="box box-info">
-
-                <div class="box-header">
-
-                  <center><h4><strong>Statements Mailed</strong></h4></center>
-
-                </div>
-
-                <div class="box-body table-responsive">
-                  
-                  <table id='example3' class="table table-bordered">
-
-                    <thead>
-                      
-                      <th>Date Sent</th>
-                      <th>Total Due</th>
-                      <th>Statement File</th>
-                      <th>Statement Type</th>
-                      <th>Notification Type</th>
-
-                    </thead>
-
-                    <tbody>
-
-                      <?php 
-
-                        $result = pg_query("SELECT * FROM community_statements_mailed WHERE home_id=$home_id AND hoa_id=$hoa_id");
-
-                        while ($row = pg_fetch_assoc($result)) 
-                        {
-                          $date_sent = $row['date_sent'];
-                          $total_due = $row['total_due'];
-                          $statement_file = $row['statement_file'];
-                          $statement_type = $row['statement_type'];
-                          $notification_type = $row['notification_type'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
-                          $notification_type = $row1['notification_mode_type'];
-
-                          echo "<tr><td>$date_sent</td><td>$ $total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
-                        }
-                      
-                      ?>
-                      
-                    </tbody>
-                    
-                  </table>
-
                 </div>
 
               </div>
 
-            </section>
+            </div>
 
           </div>
 
