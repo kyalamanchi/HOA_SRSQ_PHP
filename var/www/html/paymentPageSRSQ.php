@@ -81,7 +81,7 @@ function payNow(){
   jsonObj.push(item);
   lol = JSON.stringify(jsonObj);
   var request  = new  XMLHttpRequest();
-  request.open("POST","http://localhost/processPaymentSRSQ.php",true);
+  request.open("POST","https://hoaboardtime.com/processPaymentSRSQ.php",true);
   request.send(lol.toString());
   request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
@@ -128,7 +128,6 @@ function payNow(){
                                     while ($row = pg_fetch_assoc($queryResult)) {
                                       $currentPaymentsTotal = $currentPaymentsTotal + $row['amount'];
                                     }
-
                                     if ( $currentChargesTotal-$currentPaymentsTotal > 0 ){
                                     echo '<input type="text" class="form-control" name="amount" id="auth_amount" value="'.($currentChargesTotal-$currentPaymentsTotal).'" disabled="disabled"/>';
                                     }
