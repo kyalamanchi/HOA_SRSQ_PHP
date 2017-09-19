@@ -1823,25 +1823,32 @@
 
                     <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
-                      <div class="box box-info">
+                      <div class="box box-warning">
 
                         <div class="box-header">
 
-                          <center><h4><strong>Statements Mailed</strong></h4></center>
+                          <center><h4><strong>Inspection Notices</strong></h4></center>
 
                         </div>
 
                         <div class="box-body table-responsive">
                           
-                          <table id='example3' class="table table-bordered">
+                          <table id='example2' class="table table-bordered">
 
                             <thead>
                               
-                              <th>Date Sent</th>
-                              <th>Total Due</th>
-                              <th>Statement File</th>
-                              <th>Statement Type</th>
-                              <th>Notification Type</th>
+                              <th>Inspection Date</th>
+                              <th>Status</th>
+                              <th>Location</th>
+                              <th>Description</th>
+                              <th>Category</th>
+                              <th>Sub Category</th>
+                              <th>Sub Category Rule</th>
+                              <th>Sub Category Rule Description</th>
+                              <th>Sub Category Rule Explanation</th>
+                              <th>Notice Type</th>
+                              <th>Document</th>
+                              <th>Date of Upload</th>
 
                             </thead>
 
@@ -1849,22 +1856,50 @@
 
                               <?php 
 
-                                $result = pg_query("SELECT * FROM community_statements_mailed WHERE home_id=$home_id AND hoa_id=$hoa_id");
+                                $result = pg_query("SELECT * FROM inspection_notices WHERE home_id=$home_id AND hoa_id=$hoa_id");
 
-                                while ($row = pg_fetch_assoc($result)) 
+                                while($row = pg_fetch_assoc($result))
                                 {
-                                  $date_sent = $row['date_sent'];
-                                  $total_due = $row['total_due'];
-                                  $statement_file = $row['statement_file'];
-                                  $statement_type = $row['statement_type'];
-                                  $notification_type = $row['notification_type'];
 
-                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
-                                  $notification_type = $row1['notification_mode_type'];
+                                  $description = $row['description'];
+                                  $document = $row['document_id'];
+                                  $inspection_date = $row['inspection_date'];
+                                  $location = $row['location_id'];
+                                  $violation_category = $row['inspection_category_id'];
+                                  $violation_sub_category = $row['inspection_sub_category_id'];
+                                  $notice_type = $row['inspection_notice_type_id'];
+                                  $date_of_upload = $row['date_of_upload'];
+                                  $status = $row['inspection_status_id'];
 
-                                  echo "<tr><td>$date_sent</td><td>$ $total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
+                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
+
+                                  $status = $row1['inspection_status'];
+
+                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+
+                                  $location = $row1['location'];
+
+                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
+
+                                  $violation_category = $row1['name'];
+
+                                  $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_sub_category WHERE id=$violation_sub_category"));
+
+                                  $violation_sub_category = $row1['name'];
+                                  $violation_sub_category_rule = $row1['rule'];
+                                  $violation_sub_category_rule_description = $row1['rule_description'];
+                                  $violation_sub_category_rule_explanation = $row1['explanation'];
+
+                                  if($date_of_upload != "")
+                                    $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+                                  if($inspection_date != "")
+                                    $inspection_date = date('m-d-Y', strtotime($inspection_date));
+                                  
+                                  echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$violation_sub_category."</td><td>".$violation_sub_category_rule."</td><td>".$violation_sub_category_rule_description."</td><td>".$violation_sub_category_rule_explanation."</td><td>".$notice_type."</td><td>".$document."</td><td>".$date_of_upload."</td></tr>";
+                                  
                                 }
-                              
+
                               ?>
                               
                             </tbody>
@@ -1886,8 +1921,6 @@
             </div>
 
           </div>
-
-          <br><br><br><br>
 
           <?php
           
@@ -1977,6 +2010,66 @@
             }
 
           ?>
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box box-info">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Statements Mailed</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id='example3' class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Date Sent</th>
+                      <th>Total Due</th>
+                      <th>Statement File</th>
+                      <th>Statement Type</th>
+                      <th>Notification Type</th>
+
+                    </thead>
+
+                    <tbody>
+
+                      <?php 
+
+                        $result = pg_query("SELECT * FROM community_statements_mailed WHERE home_id=$home_id AND hoa_id=$hoa_id");
+
+                        while ($row = pg_fetch_assoc($result)) 
+                        {
+                          $date_sent = $row['date_sent'];
+                          $total_due = $row['total_due'];
+                          $statement_file = $row['statement_file'];
+                          $statement_type = $row['statement_type'];
+                          $notification_type = $row['notification_type'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
+                          $notification_type = $row1['notification_mode_type'];
+
+                          echo "<tr><td>$date_sent</td><td>$ $total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
+                        }
+                      
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
 
         </section>
 
