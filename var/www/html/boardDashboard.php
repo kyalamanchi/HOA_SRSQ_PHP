@@ -690,8 +690,6 @@
 
           <div class="row container-fluid" style="background-color: #ffffff;">
 
-            <br>
-
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
               <div class="row container-fluid">
