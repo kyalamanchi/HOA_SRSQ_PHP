@@ -1772,8 +1772,8 @@
                       
                       <th>Email</th>
                       <th>Subject</th>
-                      <th>Number of Clicks</th>
                       <th>Number of Opens</th>
+                      <th>Number of Clicks</th>
 
                     </thead>
 
@@ -1816,11 +1816,11 @@
 
                             echo "<tr>";
 
-                            print_r("<td>".$result1->email.nl2br("\n")."</td>");
+                            print_r("<td>".$result1->email.": $per_email</td>");
                             //print_r("Date : ".date('Y-m-d',$result1->ts).nl2br("\n"));
-                            print_r("<td>".$result1->subject.nl2br("\n")."</td>");
-                            print_r("<td>".$result1->clicks.nl2br("\n")."</td>");
+                            print_r("<td>".$result1->subject."</td>");
                             print_r("<td>".$result1->opens."</td>");
+                            print_r("<td>".$result1->clicks."</td>");
 
                             echo "</tr>";
 
