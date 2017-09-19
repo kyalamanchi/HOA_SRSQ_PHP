@@ -1795,13 +1795,38 @@
 
                           $per_email = $rooo['email'];
 
-                          echo $per_email;
+                          $postString = '{
+                            "key": "'.$api_key.'",
+                            "query": "email:'.$per_email.'",
+                            "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
+                          }';
 
-                          #$postString = '{
-                          #  "key": "'.$api_key.'",
-                          #  "query": "email:'.$_GET['id'].'",
-                          #  "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
-                          #}';
+                          $ch = curl_init();
+                          curl_setopt($ch, CURLOPT_URL, $uri);
+                          curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true );
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true );
+                          curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                          curl_setopt($ch, CURLOPT_POST, true);
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
+
+                          $result = curl_exec($ch); 
+                          $result = json_decode($result);
+
+                          foreach ($result as $result1) {
+
+                            echo "<tr>";
+
+                            print_r("<td>".$result1->email.nl2br("\n")."</td>");
+                            //print_r("Date : ".date('Y-m-d',$result1->ts).nl2br("\n"));
+                            print_r("<td>".$result1->subject.nl2br("\n")."</td>");
+                            print_r("<td>".$result1->clicks.nl2br("\n")."</td>");
+                            print_r("<td>".$result1->opens."</td>");
+
+                            echo "</tr>";
+
+                          }
+
+                          curl_close($ch);
 
                         }
 
