@@ -196,9 +196,9 @@
 
                 </li>
 
-                <li class='active ytreeview'>
+                <li class='treeview'>
 
-                  <a>
+                  <a href='https://hoaboardtime.com/boardCommunityDisclosures.php'>
 
                     <i class="fa fa-users text-blue"></i> <span>Community Disclosures</span>
 
