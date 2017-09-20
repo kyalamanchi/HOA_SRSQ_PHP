@@ -479,9 +479,11 @@
                           while($row = pg_fetch_assoc($res))
                           {
 
-                            echo $row['asset_category_id']." - - - ".$row['count']."<br>";
-
                             $category_id = $row['asset_category_id'];
+                            $count = $row['count'];
+
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$asset_category"));
+                            $asset_category = $row1['name'];
 
                             echo "
 
@@ -491,7 +493,8 @@
 
                                   <h4 class='box-title'>
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
-                                      Collapsible $category_id
+                                      <div class='text-left'>$asset_category</div>
+                                      <div class='text-right'>$count</div>
                                     </a>
                                   </h4>
 
