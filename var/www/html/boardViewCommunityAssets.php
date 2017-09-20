@@ -494,7 +494,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="panel box box-danger">
+                        <div class="panel">
                           <div class="box-header with-border">
                             <h4 class="box-title">
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
@@ -514,7 +514,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="panel box box-success">
+                        <div class="panel">
                           <div class="box-header with-border">
                             <h4 class="box-title">
                               <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
