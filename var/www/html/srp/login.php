@@ -47,7 +47,7 @@
 			else
 			{
 
-				echo "<div class='alert alert-danger'><strong>Invalid user!</strong> Please check the email and try again.</div>";
+				echo "<br /><br /><br /><br /><div class='col-xl-offset-2 col-xl-8 col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-12 col-xs-12'><div class='alert alert-danger'><strong>Invalid user!</strong> Please check the email and try again.</div></div>";
 
 			}
 
