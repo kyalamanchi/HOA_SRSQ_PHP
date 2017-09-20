@@ -494,7 +494,10 @@
                                   <h4 class='box-title'>
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
 
-                                      $asset_category <span class='label label-primary pull-right'>$count</span>
+                                      <span>$asset_category</span>
+                                      <span class='pull-right-container'>
+                                        <span class='label label-primary pull-right'>$count</span>
+                                      </span>
 
                                     </a>
                                   </h4>
