@@ -358,13 +358,15 @@
 
                         <?php
 
-                          $res = pg_query("SELECT asset_category_id, count(*) FROM community_assets WHERE community_id=$community_id GROUP BY asset_category_id");
+                          $res = pg_query("SELECT asset_category_id, count(*), sum(ideal_balance) AS ib, sum(current_balance) AS cb FROM community_assets WHERE community_id=$community_id GROUP BY asset_category_id");
 
                           while($row = pg_fetch_assoc($res))
                           {
 
                             $category_id = $row['asset_category_id'];
                             $count = $row['count'];
+                            $ib = $row['ib'];
+                            $cb = $row['cb'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$category_id"));
                             $asset_category = $row1['name'];
@@ -379,7 +381,7 @@
                                     
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
 
-                                      <strong>$asset_category </strong> - $count
+                                      <strong>$asset_category </strong> - $count - $ $ib - $ $cb 
 
                                     </a>
 
