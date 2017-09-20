@@ -377,15 +377,15 @@
 
                                 <div class='box-header with-border'>
 
-                                  <h4 class='box-title'>
+                                  <h4>
                                     
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
 
                                       <div class='row container-fluid'>
 
                                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>$asset_category</strong> - $count</div>
-                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $ $ib</div>
-                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $ $cb</div>
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $$ib</div>
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $$cb</div>
 
                                       </div>
 
