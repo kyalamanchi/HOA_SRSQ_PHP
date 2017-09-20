@@ -495,13 +495,7 @@
                                     
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
 
-                                      <span>$asset_category </span>
-                                      
-                                      <span class='pull-right-container'>
-
-                                        <span class='pull-right'> $count</span>
-
-                                      </span>
+                                      <strong>$asset_category </strong> - $count
 
                                     </a>
 
