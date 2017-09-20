@@ -513,7 +513,6 @@
 
                                       <thead>
 
-                                        <th>Category</th>
                                         <th>Sub Category</th>
                                         <th>Component</th>
                                         <th>UL</th>
@@ -534,7 +533,6 @@
                                         while ($row = pg_fetch_assoc($res1)) 
                                         {
 
-                                          $asset_category = $row['asset_category_id'];
                                           $asset_sub_category = $row['asset_subcategory_id'];
                                           $asset_component = $row['asset_component_id'];
                                           $ul = $row['ul'];
@@ -547,14 +545,6 @@
                                           $quantity = $row['quantity'];
                                           $community_repair_type = $row['community_repair_type_id'];
                                           $community_uom = $row['community_uom_id'];
-
-                                          if($asset_category != "")
-                                          {
-
-                                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$asset_category"));
-                                            $asset_category = $row1['name'];
-                                            
-                                          }
 
                                           if($asset_sub_category != "")
                                           {
@@ -583,7 +573,7 @@
                                           if($asset_placement_date != "")
                                             $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
-                                          echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+                                          echo "<tr><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
 
                                         }
 
