@@ -68,11 +68,11 @@
    	curl_setopt($ch, CURLOPT_POST, true);
    	curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
                       
-    $result = curl_exec($ch);
+                    $result = curl_exec($ch);
 
-    $result = json_decode($result,TRUE);
+                    $result = json_decode($result,TRUE);
 
-    $status = $result[0]['status'];
+                    $status = $result[0]['status'];
 
-    echo $status;
+                    echo $status;
 ?>
