@@ -381,7 +381,7 @@
                                     
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
 
-                                      <tr><td><strong>$asset_category </strong> - $count</td><td>Ideal Balance : $ $ib</td><td>Current Balance : $ $cb</td></tr>
+                                      <tr style='width=100%;'><td><strong>$asset_category </strong> - $count</td><td>Ideal Balance : $ $ib</td><td>Current Balance : $ $cb</td></tr>
 
                                     </a>
 
