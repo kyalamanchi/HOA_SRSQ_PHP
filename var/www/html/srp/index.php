@@ -82,7 +82,7 @@
 									<li><a class='smoothscroll' href='#budget'>2017 Budget</a></li>
 									<li><a class='smoothscroll' href='#r_p'>Rule &amp; Policies</a></li>
 									<li><a class='smoothscroll' href='#contact'>Contact Us</a></li>
-									<li><a data-toggle='modal' data-target='#modal-3' style='color: green;'>Log In</a></li>
+									<li><a data-toggle='modal' data-target='#login_modal' style='color: green;'>Log In</a></li>
 
 								</ul>
 
@@ -112,13 +112,13 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				<div class='modal fade' id='modal-3'>
+				<div class='modal fade' id='login_modal'>
 					
 					<div class='modal-dialog'>
 						
 						<div class='modal-content'>
 							
-							<form method='POST' role='form'>
+							<form method='POST' action='login.php' role='form'>
 
 							<div class='modal-header'>
 								
@@ -131,7 +131,7 @@
 								
 								<p>
 
-									<input class='form-control' type='email' name='login_username' id='login_username' placeholder='Email' required>
+									<input class='form-control' type='email' name='login_email' id='login_email' placeholder='Email' required>
 
 								</p>
 								
