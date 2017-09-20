@@ -492,14 +492,19 @@
                                 <div class='box-header with-border'>
 
                                   <h4 class='box-title'>
+                                    
                                     <a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id'>
 
-                                      <span>$asset_category</span>
+                                      <span>$asset_category </span>
+                                      
                                       <span class='pull-right-container'>
-                                        <span class='label label-primary pull-right'>$count</span>
+
+                                        <span class='pull-right'> $count</span>
+
                                       </span>
 
                                     </a>
+
                                   </h4>
 
                                 </div>
