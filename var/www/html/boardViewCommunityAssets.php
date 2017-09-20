@@ -479,8 +479,8 @@
                           while($row = pg_fetch_assoc($res))
                           {
 
-                            echo $row['asset_category_id']." - - - ".$row['count'];
-                            
+                            echo $row['asset_category_id']." - - - ".$row['count']."<br>";
+
                           }
 
                         ?>
