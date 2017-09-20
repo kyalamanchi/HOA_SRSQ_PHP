@@ -482,7 +482,7 @@
                             $category_id = $row['asset_category_id'];
                             $count = $row['count'];
 
-                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$asset_category"));
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$category_id"));
                             $asset_category = $row1['name'];
 
                             echo "
