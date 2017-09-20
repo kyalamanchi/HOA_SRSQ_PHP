@@ -1722,9 +1722,9 @@
                         $res_funded = $row['cur_bal_vs_ideal_bal'];
 
                         if($res_funded > 0)
-                          echo "<h3 class='text-green'><strong>".$res_funded."</strong></h3>"; 
+                          echo "<h3 class='text-green'><strong>".$res_funded." %</strong></h3>"; 
                         else
-                          echo "<h3 class='text-info'><strong>".$res_funded."</strong></h3>";
+                          echo "<h3 class='text-info'><strong>".$res_funded." %</strong></h3>";
 
                       ?>
 
