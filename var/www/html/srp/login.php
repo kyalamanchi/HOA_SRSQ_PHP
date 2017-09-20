@@ -47,7 +47,7 @@
 			else
 			{
 
-				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='col-xl-2 col-lg-2 col-md-2 col-sm-1 col-xs-1'></div><div class='col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><strong>Invalid user!</strong> Please check the email and try again.</div></div>";
+				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='col-xl-2 col-lg-2 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><strong>Invalid user!</strong> Please check the email and try again.</center></div></div>";
 
 			}
 
