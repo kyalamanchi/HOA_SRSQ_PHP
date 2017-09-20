@@ -346,9 +346,9 @@
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
-              <div class="box">
+              <div class="row container-fluid" style="background-color: white;">
 
-                <div class="box-body table-responsive">
+                <div class="box-body ">
                   
                   <div class="box box-solid">
 
@@ -389,7 +389,7 @@
 
                                 <div id='collapse_$category_id' class='panel-collapse collapse'>
 
-                                  <div class='box-body'>";
+                                  <div class='box-body table-responsive'>";
 
                                     $res1 = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND asset_category_id=$category_id");
 
