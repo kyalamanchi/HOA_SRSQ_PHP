@@ -375,7 +375,7 @@
 
                               <div class='panel'>
 
-                                <div class='box-header with-border'>
+                                <div class='box-header'>
 
                                   <h4>
                                     
