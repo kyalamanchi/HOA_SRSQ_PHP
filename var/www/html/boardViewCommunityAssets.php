@@ -482,7 +482,7 @@
                               </a>
                             </h4>
                           </div>
-                          <div id="collapseOne" class="panel-collapse collapse in">
+                          <div id="collapseOne" class="panel-collapse collapse">
                             <div class="box-body">
                               Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3
                               wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum
