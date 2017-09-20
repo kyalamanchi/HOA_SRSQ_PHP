@@ -42,7 +42,24 @@
 
 			if($users)
 			{
-				echo "user found";
+				$row =pg_fetch_assoc($result);
+				$password = $row['password'];
+
+				if(password_verify($login_password, $password))
+				{
+
+					echo "User matched";
+
+				}
+				else
+				{
+
+					echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>Invalid password!</strong><br /><br />Please check the password and try again.<br /><br /></center></div></div></div>";
+
+					echo "<script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
+
+				}
+
 			}
 			else
 			{
