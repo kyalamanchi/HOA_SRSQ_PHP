@@ -26,11 +26,6 @@
 
 		<title>Stoneridge Place At Pleasanton</title>
 
-		<!-- Favicons-->
-		<link rel='shortcut icon' href='assets/images/favicon.png'>
-		<link rel='apple-touch-icon' href='assets/images/apple-touch-icon.png'>
-		<link rel='apple-touch-icon' sizes='72x72' href='assets/images/apple-touch-icon-72x72.png'>
-		<link rel='apple-touch-icon' sizes='114x114' href='assets/images/apple-touch-icon-114x114.png'>
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Hind:400,600,700' rel='stylesheet'>
@@ -42,8 +37,6 @@
 		<link href='assets/css/linea-arrows.css' rel='stylesheet'>
 		<link href='assets/css/linea-icons.css' rel='stylesheet'>
 		<!-- Plugins-->
-		<link href='assets/css/owl.carousel.css' rel='stylesheet'>
-		<link href='assets/css/flexslider.css' rel='stylesheet'>
 		<link href='assets/css/magnific-popup.css' rel='stylesheet'>
 		<link href='assets/css/vertical.min.css' rel='stylesheet'>
 		<link href='assets/css/pace-theme-minimal.css' rel='stylesheet'>
