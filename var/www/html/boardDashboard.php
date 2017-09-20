@@ -1722,9 +1722,9 @@
                         $res_funded = $row['cur_bal_vs_ideal_bal'];
 
                         if($res_funded > 0)
-                          echo "<h3 class='text-green'><strong>".$res_funded." %</strong></h3>"; 
+                          echo "<h3 class='text-green'><strong>".$res_funded."%</strong></h3>"; 
                         else
-                          echo "<h3 class='text-info'><strong>".$res_funded." %</strong></h3>";
+                          echo "<h3 class='text-info'><strong>".$res_funded."%</strong></h3>";
 
                       ?>
 
@@ -1749,7 +1749,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+              <a href='https://hoaboardtime.com/boardViewCommunityAssets.php'><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
                 <div class="row container-fluid text-left">
 
