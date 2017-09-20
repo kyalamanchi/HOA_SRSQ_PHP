@@ -362,7 +362,7 @@
                 <li><a href="#tab_5" data-toggle="tab">Documents</a></li>
                 <li><a href="#tab_6" data-toggle="tab">Inspections</a></li>
                 <li><a href="#tab_7" data-toggle="tab">Payments</a></li>
-                <li><a href="#tab_8" data-toggle="tab">Statements</a></li>
+                <li><a href="#tab_8" data-toggle="tab">Statements Mailed</a></li>
 
               </ul>
 
