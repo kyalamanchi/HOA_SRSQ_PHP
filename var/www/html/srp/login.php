@@ -21,6 +21,7 @@
 		<link href='assets/css/pace-theme-minimal.css' rel='stylesheet'>
 		<link href='assets/css/animate.css' rel='stylesheet'>
 		<!-- Template core CSS-->
+		<link href='assets/css/template.min.css' rel='stylesheet'>
 
 	</head>
 
