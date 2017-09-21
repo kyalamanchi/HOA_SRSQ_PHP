@@ -46,7 +46,7 @@
 		<!-- Template core CSS-->
 		<link href='assets/css/template.min.css' rel='stylesheet'>
 		<!-- Datatable -->
-		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
+		<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
 
 	</head>
 
@@ -155,8 +155,8 @@
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
 		<!-- Datatable -->
-		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
-		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+    	<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    	<script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
 
 		<script>
       	
