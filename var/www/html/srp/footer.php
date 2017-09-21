@@ -10,7 +10,7 @@
 									
 					<div class='textwidget'>
 										
-						<p><h3>Stoneridge Place</h3><h4>At Pleasanton HOA</h4></p>
+						<p><h3><?php echo $_SESSION['hoa_community_name']; ?></h3></p>
 
 					</div>
 
@@ -48,7 +48,7 @@
 
 					<div class='text-center'>
 
-						<span class='copyright'>© <?php echo date('Y'); ?> Stoneridge Place At Pleasanton HOA, All Rights Reserved.</span>
+						<span class='copyright'>© <?php echo date('Y')." ".$_SESSION['hoa_community_name']; ?>, All Rights Reserved.</span>
 
 					</div>
 
