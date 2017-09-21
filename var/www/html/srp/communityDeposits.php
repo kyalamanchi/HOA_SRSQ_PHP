@@ -161,7 +161,129 @@
 
                                           				</div>
 
-													</div>
+                                          				";
+
+                                          				$result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id' ORDER BY id");
+
+                                          				while($row1 = pg_fetch_assoc($result1))
+				                                        {
+
+				                                          	$id = $row1['id'];
+				                                          	$transaction_id = $row1['transaction_id'];
+				                                          	$funding_status = $row1['status'];
+				                                          	$amount = $row1['amount'];
+				                                          	$received_date = $row1['received_date'];
+				                                          	$funding_hoa_id = $row1['hoa_id'];
+
+				                                          	if($received_date != '')
+				                                            	$received_date = date('m-d-Y', strtotime($received_date));
+
+				                                          	$row11 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$funding_hoa_id"));
+
+				                                          	$name = $row11['firstname'];
+				                                          	$name .= " ";
+				                                          	$name .= $row11['lastname'];
+				                                          	$t_home_id = $row11['home_id'];
+
+				                                          	$row11 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$t_home_id"));
+
+				                                          	$address = $row11['address1'];
+				                                          	$living_status = $row11['living_status'];
+
+				                                          	if($name != " " && $address != "")
+				                                          	{
+				                                            
+				                                            	$name = "$name<br>($funding_hoa_id)";
+				                                            	$address = "$address<br>($t_home_id)";
+
+				                                          	}
+				                                          	else
+				                                          	{
+
+				                                            	echo "
+
+				                                            	<div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
+				                                
+				                                              		<div class='modal-dialog'>
+				                                                                
+				                                                		<div class='modal-content'>
+
+				                                                  			<div class='modal-header table-responsive'>
+
+				                                                    			<h4>Add Hoa ID - <strong>$id</strong></h4>
+
+				                                                  			</div>
+
+				                                                  			<div class='modal-body table-responsive'>
+
+				                                                    			<form method='POST' action='https://hoaboardtime.com/boardEditDepositsHOAID.php'>
+				                                                    
+				                                                    				<center>
+
+				                                                      					<select class='form-control select2' name='select_hoa' id='select_hoa' style='width: 100%;' required>
+
+				                                                        					<option value='' disabled selected>Select User</option>";
+
+				                                                        					$result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+				                                                        					while($row000 = pg_fetch_assoc($result000))
+				                                                        					{
+
+				                                                          						$add_home_id = $row000['home_id'];
+				                                                          						$add_address1 = $row000['address1'];
+				                                                          
+				                                                          						$row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
+
+				                                                          						$add_name = $row111['firstname'];
+				                                                          						$add_name .= " ";
+				                                                          						$add_name .= $row111['lastname'];
+				                                                          						$add_hoa_id = $row111['hoa_id'];
+
+				                                                          						echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
+
+				                                                        					}
+
+				                                                      					echo "</select>
+
+				                                                      					<input type='hidden' name='current_payments_id' id='current_payments_id' value='$id'>
+
+				                                                      					<br><br>
+
+				                                                      					<button class='btn btn-xs btn-info' type='submit'>Update</button>
+
+				                                                    				</center>
+
+				                                                    			</form>
+
+				                                                  			</div>
+
+				                                                  			<br>
+
+				                                                		</div>
+				                                              
+				                                              		</div>
+
+				                                            	</div>";//End
+
+				                                            	$name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+				                                            	$address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+
+				                                          	}
+
+				                                          	echo "<div class='row text-center";
+
+				                                          	if($mode == 1)
+				                                          	{
+				                                          		if($living_status != 't')
+				                                            		echo " text-red";
+
+				                                          		echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div>";
+				                                      		}
+				                                      		else if($mode == 2)
+				                                      			echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div>";
+				                                        }
+
+													echo "</div>
 
 												</div>
 
