@@ -75,30 +75,6 @@
 				<section class='module module-gray p-b-0'>
 
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
-						
-						<div class="progress-item">
-							
-							<div class="progress-title">Amount Received</div>
-							
-							<div class="progress">
-								
-								<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
-							
-							</div>
-
-						</div>
-
-						<div class="progress-item">
-							
-							<div class="progress-title">Gulp</div>
-							
-							<div class="progress">
-								
-								<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
-							
-							</div>
-
-						</div>
 
 						<ul class="nav nav-tabs">
 									
@@ -121,6 +97,42 @@
 								</div>
 						
 								<div class='container'>
+
+									<div class='row'>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+											
+											<div class="progress-item">
+								
+												<div class="progress-title">Amount Received</div>
+												
+												<div class="progress">
+													
+													<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+												
+												</div>
+
+											</div>
+											
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+											
+											<div class="progress-item">
+								
+												<div class="progress-title">Amount Received</div>
+												
+												<div class="progress">
+													
+													<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+												
+												</div>
+
+											</div>
+											
+										</div>
+
+									</div>
 
 									<div class='row'>
 
