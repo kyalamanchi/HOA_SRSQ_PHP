@@ -320,8 +320,8 @@
 
 				                                            	</div>";//End
 
-				                                            	$name = "<a data-toggle='modal' data-dismiss='modal' aria-label='Close' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
-				                                            	$address = "<a data-toggle='modal' data-dismiss='modal' aria-label='Close' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
+				                                            	$name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
+				                                            	$address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
 
 				                                          	}
 
