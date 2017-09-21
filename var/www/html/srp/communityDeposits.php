@@ -129,13 +129,6 @@
 
 											<div class='modal-content'>
 
-												<div class='modal-header'>
-
-													<h5 class='modal-title'>Modal title $deposit_id</h5>
-													<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
-
-												</div>
-
 												<div class='modal-body'>
 
 													<div class='container' style='color: black;'>
@@ -202,7 +195,7 @@
 
 				                                            	echo "
 
-				                                            	<div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
+				                                            	<div class='modal fade' id='addHOAID_$id1_$id'>
 				                                
 				                                              		<div class='modal-dialog'>
 				                                                                
@@ -280,7 +273,7 @@
 				                                          		echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div>";
 				                                      		}
 				                                      		else if($mode == 2)
-				                                      			echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div>";
+				                                      			echo "'><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$id</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$funding_status</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$amount</div><div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>$received_date</div></div>";
 				                                        }
 
 													echo "</div>
