@@ -76,12 +76,6 @@
 
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						
-						<div class="special-heading m-b-40">
-									
-							<h4>Standard with Icons</h4>
-						
-						</div>
-						
 						<!-- Tabs-->
 						<ul class="nav nav-tabs">
 									
@@ -94,6 +88,14 @@
 						<div class="tab-content">
 							
 							<div class="tab-pane in active" id="tab-4">
+
+								<div class="special-heading m-b-40">
+									
+									<h4>Dashboard - <?php echo date('F-Y'); ?></h4>
+						
+								</div>
+						
+						
 								
 								<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
 								
