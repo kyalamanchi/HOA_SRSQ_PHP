@@ -61,19 +61,13 @@
 				<!-- Counters -->
 				<section class='module module-gray p-t-0 p-b-0'>
 
-					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-						<div class='module module-gray'>
-							
-							<div class='special-heading m-b-40'>
+					<div class='special-heading m-b-40'>
 									
-								<h4>Community Deposits</h4>
+						<h4>Community Deposits</h4>
 
-							</div>
-						
-						</div>
+					s</div>
 
-						<div class='module module-white'>
+					<div class='module module-white'>
 
 							<table id='example1' class='table table-bordered table-striped container-fluid' style='width: 100%;'>
 								
@@ -123,8 +117,6 @@
 							</table>
 
 						</div>
-					
-					</div>
 
 				</section>
 
