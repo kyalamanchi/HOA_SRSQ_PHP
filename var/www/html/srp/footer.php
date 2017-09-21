@@ -1,5 +1,7 @@
 <?php
 
+	session_start();
+
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$_SESSION['hoa_community_id']"));
 
 	$email = $row['email'];
