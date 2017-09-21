@@ -104,11 +104,12 @@
 									$year = $row['year_of_upload'];
 									$upload_date = $row['uploaded_date'];
 									$description = $row['description'];
+									$document_url = $row['url'];
 
 									if($upload_date != "")
 										$upload_date = date('m-d-Y', strtotime($upload_date));
 
-									echo "<tr><td>$year</td><td>$upload_date</td><td>$description</td></tr>";
+									echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/dropboxPreviewPDF.php?path=$document_url&desc=$description' style='color: blue;' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/dropboxPreviewPDF.php?path=$document_url&desc=$description' style='color: blue;' target='_blank'>$description</a></td></tr>";
 
 								}
 
