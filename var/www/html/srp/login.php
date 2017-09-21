@@ -86,7 +86,7 @@
 
 					$result = pg_query("UPDATE usr SET forgot_password_code='$otp' WHERE id=$id");
 
-					$num_row = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$_SESSION['hoa_user_id']"));
+					$num_row = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$id"));
 
 					if($num_row == 0)
 						header("Location: residentDashboard.php");
