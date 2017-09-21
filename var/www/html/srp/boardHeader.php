@@ -16,9 +16,9 @@
 
 					<ul>
 
-						<li><a href='boardDashboard.php'><i class='fa fa-home'></i> Home</a></li>
+						<li><a href='boardDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
 
-						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#"><i class='fa fa-bars'></i> Menu</a>
+						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#"><span><i class='fa fa-bars'></i> Menu</span></a>
 
 							<div class="mega-menu">
 
@@ -76,7 +76,7 @@
 
 						</li>
 
-						<li><a style='color: green;' href='residentDashboard.php'><i class='fa fa-dashboard'></i> Resident Dashboard</a></li>
+						<li><a style='color: green;' href='residentDashboard.php'><span><i class='fa fa-dashboard'></i> Resident Dashboard</span></a></li>
 
 						<li><a href="logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
 
