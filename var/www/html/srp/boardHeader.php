@@ -34,7 +34,7 @@
 									</li>
 
 									<!-- Column 2-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Community</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-institution'></i> Community</a>
 										
 										<ul class="sub-menu">
 														
@@ -47,7 +47,7 @@
 									</li>
 
 									<!-- Column 3-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Users</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-street-view'></i> Users</a>
 										
 										<ul class="sub-menu">
 														
@@ -60,7 +60,7 @@
 									</li>
 
 									<!-- Column 4-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Vendors</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-wrench'></i> Vendors</a>
 										
 										<ul class="sub-menu">
 
