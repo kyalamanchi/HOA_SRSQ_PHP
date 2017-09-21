@@ -49,32 +49,44 @@
 
 	<body>
 
-		<!-- Layout-->
-		<div class='layout' style='background-color: blue;'>
+		<div class="wrapper">
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
-			<!-- Wrapper-->
-			<div class='wrapper'>
-
-				<!-- Counters -->
-				<section class='module module-gray'>
-
-					<div class='row container-fluid'>
-					<div class='special-heading m-b-40'>
-									
-						<h4>Community Deposits</h4>
-
-					</div>
-					</div>
-
-					<div class='row container-fluid'>
-					<div class='module module-white'>
-
-							<table id='example1' class='table table-bordered table-striped container-fluid' style='width: 100%;'>
+			<!-- Page Header -->
+			<section class="module-page-title">
+					
+				<div class="container">
+						
+					<div class="row-page-title">
+							
+						<div class="page-title-captions">
 								
-								<thead>
+							<div class='special-heading m-b-40'>
+									
+								<h4>Community Deposits</h4>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<!-- Content -->
+			<section class="module">
+					
+				<div class="container">
+						
+					<div class="row">
+							
+						<table id='example1' class='table table-bordered table-striped container-fluid' style='width: 100%;'>
+								
+							<thead>
 									
 									<th>Fund Received On</th>
 									<th>ID</th>
@@ -83,57 +95,54 @@
 									<th>Status</th>
 									<th>Fund Sent On</th>
 
-								</thead>
+							</thead>
 
-								<tbody>
+							<tbody>
 									
-									<?php
+								<?php
 
-										$result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
+									$result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
 
-										while ($row = pg_fetch_assoc($result)) 
-										{
+									while ($row = pg_fetch_assoc($result)) 
+									{
 											
-											$deposit_id = $row['id'];
-											$funded_on = $row['effective_date'];
-											$fund_sent = $row['origination_date'];
-											$amount = $row['net_amount'];
-											$number_of_transactions = $row['number_of_transactions'];
-											$status = $row['status'];
+										$deposit_id = $row['id'];
+										$funded_on = $row['effective_date'];
+										$fund_sent = $row['origination_date'];
+										$amount = $row['net_amount'];
+										$number_of_transactions = $row['number_of_transactions'];
+										$status = $row['status'];
 
-											if($funded_on != "")
-												$funded_on = date('m-d-Y', strtotime($funded_on));
+										if($funded_on != "")
+											$funded_on = date('m-d-Y', strtotime($funded_on));
 
-											if($fund_sent != "")
-												$fund_sent = date('m-d-Y', strtotime($fund_sent));
+										if($fund_sent != "")
+											$fund_sent = date('m-d-Y', strtotime($fund_sent));
 
-											if($amount != "")
-												$amount = "$ ".$amount;
+										if($amount != "")
+											$amount = "$ ".$amount;
 
-											echo "<tr><td>$funded_on</td><td>$deposit_id</td><td>$amount</td><td>$number_of_transactions</td><td>$status</td><td>$fund_sent</td></tr>";
-										}
+										echo "<tr><td>$funded_on</td><td>$deposit_id</td><td>$amount</td><td>$number_of_transactions</td><td>$status</td><td>$fund_sent</td></tr>";
+									}
 
-									?>
+								?>
 
-								</tbody>
+							</tbody>
 								
-							</table>
+						</table>
 
-						</div>
 					</div>
 
-				</section>
+				</div>
 
 				<!-- Footer-->
 				<?php include 'footer.php'; ?>
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			</div>
-			<!-- Wrapper end-->
+			</section>
 
 		</div>
-		<!-- Layout end-->
 
 		<!-- Scripts-->
 		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
