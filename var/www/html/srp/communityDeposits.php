@@ -142,12 +142,22 @@
 
 														<div class='row text-center'>
 
-															<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Name<br>(HOA ID)</strong></div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Address<br>(Home ID)</strong></div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>ID</strong></div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Status</strong></div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Amount</strong></div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Received Date</strong></div>
+															";
+
+															if($mode == 1)
+																echo "<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Name<br>(HOA ID)</strong></div>
+		                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Address<br>(Home ID)</strong></div>
+		                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>ID</strong></div>
+		                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Status</strong></div>
+		                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Amount</strong></div>
+		                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Received Date</strong></div>";
+	                                          				else if($mode == 2)
+	                                          					echo "<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'><strong>ID</strong></div>
+		                                          				<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'><strong>Status</strong></div>
+		                                          				<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'><strong>Amount</strong></div>
+		                                          				<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'><strong>Received Date</strong></div>";
+
+                                          				echo "
 
                                           				</div>
 
