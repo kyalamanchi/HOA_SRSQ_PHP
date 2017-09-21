@@ -148,7 +148,7 @@
 
 												</div>
 
-												<div class='counter-title'>Resident Directory</div>
+												<div class='counter-title'>Community Deposits</div>
 
 											</div>
 
@@ -164,7 +164,7 @@
 
 												</div>
 
-												<div class='counter-title'>Homes with emails</div>
+												<div class='counter-title'>Community Documents</div>
 
 											</div>
 
@@ -180,7 +180,7 @@
 
 												</div>
 
-												<div class='counter-title'>Owners</div>
+												<div class='counter-title'>Delinquent Accounts</div>
 
 											</div>
 
@@ -196,7 +196,7 @@
 
 												</div>
 
-												<div class='counter-title'>Tenants</div>
+												<div class='counter-title'>Parking Tags</div>
 
 											</div>
 
@@ -212,7 +212,23 @@
 
 												</div>
 
-												<div class='counter-title'>Newly moved in</div>
+												<div class='counter-title'>Pending Agreements</div>
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+
+													<div class='counter-timer' data-from='0' data-to='<?php echo $newly_moved_in; ?>'><?php echo $newly_moved_in; ?></div>
+
+												</div>
+
+												<div class='counter-title'>Signed Agreements</div>
 
 											</div>
 
