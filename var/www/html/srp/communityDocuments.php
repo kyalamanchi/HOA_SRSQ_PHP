@@ -96,14 +96,21 @@
 									
 							<?php 
 
-								$year = $row['year_of_upload'];
-								$upload_date = $row['uploaded_date'];
-								$description = $row['description'];
+								$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
 
-								if($upload_date != "")
-									$upload_date = date('m-d-Y', strtotime($upload_date));
+								while($row = pg_fetch_assoc($result))
+								{
 
-								echo "<tr><td>$year</td><td>$upload_date</td><td>$description</td></tr>";
+									$year = $row['year_of_upload'];
+									$upload_date = $row['uploaded_date'];
+									$description = $row['description'];
+
+									if($upload_date != "")
+										$upload_date = date('m-d-Y', strtotime($upload_date));
+
+									echo "<tr><td>$year</td><td>$upload_date</td><td>$description</td></tr>";
+
+								}
 
 							?>
 
