@@ -21,7 +21,7 @@
 							<div class="mega-menu">
 								<ul class="sub-menu mega-menu-row">
 									<!-- Column 1-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Board</a>
+									<li class="menu-item-has-children mega-menu-col"><i class='fa fa-users'></i><a href="#">Board</a>
 										
 										<ul class="sub-menu">
 														
