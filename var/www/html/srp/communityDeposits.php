@@ -133,6 +133,8 @@
 
 			</section>
 
+			<br><br>
+
 			<!-- Footer-->
 			<?php include 'footer.php'; ?>
 
