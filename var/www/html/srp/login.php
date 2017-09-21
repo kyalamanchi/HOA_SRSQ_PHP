@@ -71,7 +71,7 @@
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 					$address = $row['address1'];
 
-					$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$_SESSION['hoa_community_id']"));
+					$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
 					$_SESSION['hoa_community_name'] = $row['legal_name'];
 					$_SESSION['hoa_community_code'] = $row['community_code'];
 					$_SESSION['hoa_community_website_url'] = $row['community_website_url'];
