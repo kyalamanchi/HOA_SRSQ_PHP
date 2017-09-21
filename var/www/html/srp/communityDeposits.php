@@ -138,7 +138,7 @@
 
 												<div class='modal-body'>
 
-													<div class='container'>
+													<div class='row container'>
 
 														<strong>
 
