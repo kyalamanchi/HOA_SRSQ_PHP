@@ -118,8 +118,8 @@
 									if($fund_sent != "")
 										$fund_sent = date('m-d-Y', strtotime($fund_sent));
 
-									if($amount != "")
-										$amount = "$ ".$amount;
+									if($net_amount != "")
+										$net_amount = "$ ".$net_amount;
 
 									echo "
 									
@@ -174,6 +174,9 @@
 				                                          	$amount = $row1['amount'];
 				                                          	$received_date = $row1['received_date'];
 				                                          	$funding_hoa_id = $row1['hoa_id'];
+
+				                                          	if($amount != '')
+				                                          		$amount = "$ ".$amount;
 
 				                                          	if($received_date != '')
 				                                            	$received_date = date('m-d-Y', strtotime($received_date));
