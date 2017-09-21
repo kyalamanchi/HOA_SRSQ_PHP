@@ -45,7 +45,7 @@ function displayInspectionData(button){
     jsonObj.push(item);
     var lol = JSON.stringify(jsonObj);
     var request  = new  XMLHttpRequest();
-    request.open("POST","http://localhost/getInspectionSubCategoryDetails.php",true);
+    request.open("POST","https://hoaboardtime.com/getInspectionSubCategoryDetails.php",true);
     request.send(lol.toString());
     request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
