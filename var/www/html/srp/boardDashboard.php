@@ -164,7 +164,11 @@
 
 												<div class='counter-number'>
 
-													<div class='counter-timer' data-from='0' data-to='<?php echo $email_homes; ?>'><?php echo $email_homes; ?></div>
+													<?php 
+														
+														echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
+
+													?>
 
 												</div>
 
