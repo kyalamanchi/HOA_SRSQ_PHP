@@ -59,7 +59,7 @@
 			<div class='wrapper'>
 
 				<!-- Counters -->
-				<section class='module module-gray container'>
+				<section class='module module-gray container-fluid'>
 
 					<div class='special-heading m-b-40'>
 									
