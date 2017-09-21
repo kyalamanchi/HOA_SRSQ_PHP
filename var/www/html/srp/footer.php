@@ -2,8 +2,6 @@
 
 	session_start();
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$_SESSION['hoa_community_id']"));
 
 	$email = $row['email'];
