@@ -156,7 +156,7 @@
 				</div>
 
 				<!-- Counters -->
-				<section class='module module-gray'>
+				<section class='module module-gray p-b-0'>
 
 					<div class='container'>
 
