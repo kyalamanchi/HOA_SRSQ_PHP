@@ -82,7 +82,7 @@
 					
 				<div class="container">
 						
-					<table id='example1' class='table' style="font-weight: bold;">
+					<table id='example1' class='table' style="color: black;">
 								
 						<thead>
 									
