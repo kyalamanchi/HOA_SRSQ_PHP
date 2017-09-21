@@ -15,10 +15,10 @@
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_addr_city"));
 	$mailing_addr_city = $row['city_name'];
 
-	$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_addr_state"));
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_addr_state"));
 	$mailing_addr_state = $row['state_code'];
 
-	$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_addr_zip"));
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_addr_zip"));
 	$mailing_addr_zip = $row['zip_code'];
 
 ?>
@@ -37,7 +37,7 @@
 										
 						<p><h3><?php echo $_SESSION['hoa_community_name']; ?></h3></p>
 						<?php echo $remit_payment_address; ?>, <?php echo $mailing_addr_city; ?>, <?php echo $mailing_addr_state; ?> <?php echo $mailing_addr_zip; ?><br />
-						E-mail: <a href='<?php echo $email; ?>'><?php echo $email; ?></a> <br/>
+						E-mail: <a href='<?php echo $email; ?>'><?php echo $email; ?></a><br/>
 
 					</div>
 
