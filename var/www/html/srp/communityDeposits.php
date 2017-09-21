@@ -8,9 +8,6 @@
 
 			session_start();
 
-			ini_set("session.gc_maxlifetime", 1000000000);
-			ini_set("session.cache_expire", 1000000000);
-
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
@@ -23,13 +20,6 @@
 				header("Location: residentDashboard.php");
 
 			$community_id = $_SESSION['hoa_community_id'];
-			$days90 = date('Y-m-d', strtotime("-90 days"));
-
-			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
-			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
-			$total_homes = pg_num_rows(pg_query("SELECT * FROM homeid WHERE community_id=$community_id"));
-			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
-			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
 
 		?>
 
@@ -74,11 +64,15 @@
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
 
-					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-						<div class="special-heading m-b-40">
+						<div class='row'>
+							
+							<div class='special-heading m-b-40'>
 									
-							<h4><i class="fa fa-dashboard"></i> Board Dashboard</h4>
+								<h4>Community Deposits</h4>
+
+							</div>
 						
 						</div>
 					
@@ -89,7 +83,7 @@
 				</section>
 
 				<!-- Footer-->
-				<?php include "footer.php"; ?>
+				<?php include 'footer.php'; ?>
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
