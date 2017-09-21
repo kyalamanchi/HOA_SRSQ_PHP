@@ -8,6 +8,9 @@
 
 			session_start();
 
+			ini_set("session.gc_maxlifetime", 100000);
+			ini_set("session.cache_expire", 100000);
+
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
