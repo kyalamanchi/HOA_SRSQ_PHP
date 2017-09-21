@@ -73,9 +73,9 @@
 						
 						</div>
 
-						<div class='module module-white row container'>
+						<div class='module module-white'>
 
-							<table id='example1' class='table table-bordered table-striped container' style='width: 100%;'>
+							<table id='example1' class='table table-bordered table-striped' style='width: 100%;'>
 								
 								<thead>
 									
