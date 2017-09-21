@@ -1,6 +1,8 @@
 <?php
 
-	$user_id = $_SESSION['hoa_user_id';]
+	session_start();
+
+	$user_id = $_SESSION['hoa_user_id'];
 
 	$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
 
