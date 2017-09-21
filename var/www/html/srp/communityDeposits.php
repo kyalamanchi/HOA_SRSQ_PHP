@@ -59,7 +59,7 @@
 			<div class='wrapper'>
 
 				<!-- Counters -->
-				<section class='module module-gray p-b-0'>
+				<section class='module module-gray p-t-0 p-b-0'>
 
 					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
@@ -126,8 +126,6 @@
 					
 					</div>
 
-					<br /><br /><br />
-
 				</section>
 
 				<!-- Footer-->
@@ -157,8 +155,6 @@
 	      	$(function () {
 	        	
 	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
-
-	        	$("#example10").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
 	      	});
 
