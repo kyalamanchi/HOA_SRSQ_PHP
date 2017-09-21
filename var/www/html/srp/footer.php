@@ -1,3 +1,28 @@
+<?php
+
+	session_start();
+
+	$community_id = $_SESSION['hoa_community_id'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
+
+	$email = $row['email'];
+	$mailing_address = $row['mailing_address'];
+	$mailing_addr_city = $row['mailing_addr_city'];
+	$mailing_addr_state = $row['mailing_addr_state'];
+	$mailing_addr_zip = $row['mailing_addr_zip'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_addr_city"));
+	$mailing_addr_city = $row['city_name'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_addr_state"));
+	$mailing_addr_state = $row['state_code'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_addr_zip"));
+	$mailing_addr_zip = $row['zip_code'];
+
+?>
+
 <footer class='footer'>
 
 	<div class='container'>
@@ -11,9 +36,8 @@
 					<div class='textwidget text-center'>
 										
 						<p><h3><?php echo $_SESSION['hoa_community_name']; ?></h3></p>
-						PO Box 5272 , Pleasanton, CA 94566<br />
-						E-mail: <a href='mailto:info@stoneridgeplace.org'>info@stoneridgeplace.org</a> <br/>
-						Phone: 925 201 3902
+						<?php echo $mailing_address; ?>, <?php echo $mailing_addr_city; ?>, <?php echo $mailing_addr_state; ?> <?php echo $mailing_addr_zip; ?><br />
+						E-mail: <a href='mailto:<?php echo $email; ?>'><?php echo $email; ?></a>
 
 					</div>
 

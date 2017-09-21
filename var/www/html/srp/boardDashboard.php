@@ -168,11 +168,15 @@
 
 												<div class='counter-number'>
 
-													<?php 
-														
-														echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
+													<a href='communityDocuments.php'>
 
-													?>
+														<?php 
+														
+															echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
+
+														?>
+
+													</a>
 
 												</div>
 
