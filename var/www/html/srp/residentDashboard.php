@@ -11,6 +11,9 @@
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
+			if($_SESSION['hoa_mode'] == 1)
+				$_SESSION['hoa_mode'] = 2;
+
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			$community_id = 1;
@@ -113,6 +116,30 @@
 					<div class='container'>
 
 						<div class='row'>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+													
+													<a href='communityDeposits.php'>
+
+														<?php 
+															
+															echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+
+														?>
+
+													</a>
+														
+												</div>
+
+												<div class='counter-title'>Community Deposits</div>
+
+											</div>
+
+										</div>
 
 							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
 
@@ -838,7 +865,7 @@
 					</div>
 				</section-->
 				<!-- News end-->
-				
+
 				<!-- Footer-->
 				<?php include "footer.php"; ?>
 

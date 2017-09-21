@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 	<head>
@@ -89,9 +90,21 @@
 					$num_row = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$id"));
 
 					if($num_row == 0)
+					{	
+
+						$_SESSION['hoa_mode'] = 1;
+
 						header("Location: residentDashboard.php");
+
+					}
 					else
+					{
+						
+						$_SESSION['hoa_mode'] = 2;
+
 						header("Location: boardDashboard.php");
+
+					}
 
 				}
 				else

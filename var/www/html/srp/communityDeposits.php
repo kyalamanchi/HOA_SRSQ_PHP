@@ -13,12 +13,6 @@
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-			$user_id = $_SESSION['hoa_user_id'];
-			$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
-
-			if($board == 0)
-				header("Location: residentDashboard.php");
-
 			$community_id = $_SESSION['hoa_community_id'];
 
 		?>
@@ -28,7 +22,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
+		<title><?php echo $_SESSION['hoa_community_code']; if($_SESSION['hoa_mode'] == 1) echo " | Board Dashboard"; else echo " | Resident Dashboard"; ?></title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>

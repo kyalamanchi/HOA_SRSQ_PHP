@@ -19,6 +19,9 @@
 			if($board == 0)
 				header("Location: residentDashboard.php");
 
+			if($_SESSION['hoa_mode'] == 2)
+				$_SESSION['hoa_mode'] = 1;
+
 			$community_id = $_SESSION['hoa_community_id'];
 			$days90 = date('Y-m-d', strtotime("-90 days"));
 
