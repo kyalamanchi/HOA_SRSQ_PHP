@@ -97,11 +97,93 @@
 						
 								</div>
 						
-						
-								
-								<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
-								
-								<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
+								<div class='container'>
+
+									<div class='row'>
+
+										<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+
+													<div class='counter-timer' data-from='0' data-to='<?php echo $res_dir; ?>'><?php echo $res_dir; ?></div>
+
+												</div>
+
+												<div class='counter-title'>Resident Directory</div>
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+
+													<div class='counter-timer' data-from='0' data-to='<?php echo $email_homes; ?>'><?php echo $email_homes; ?></div>
+
+												</div>
+
+												<div class='counter-title'>Homes with emails</div>
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+
+													<div class='counter-timer' data-from='0' data-to='<?php echo ($total_homes - $tenants); ?>'><?php echo ($total_homes - $tenants); ?></div>
+
+												</div>
+
+												<div class='counter-title'>Owners</div>
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+
+													<div class='counter-timer' data-from='0' data-to='<?php echo $tenants; ?>'><?php echo $tenants; ?></div>
+
+												</div>
+
+												<div class='counter-title'>Tenants</div>
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+											<div class='counter h6'>
+
+												<div class='counter-number'>
+
+													<div class='counter-timer' data-from='0' data-to='<?php echo $newly_moved_in; ?>'><?php echo $newly_moved_in; ?></div>
+
+												</div>
+
+												<div class='counter-title'>Newly moved in</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
 							
 							</div>
 
@@ -171,96 +253,6 @@
 						
 						</div>
 					
-					</div>
-
-					<div class='container'>
-
-						<div class='row'>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-
-										<div class='counter-timer' data-from='0' data-to='<?php echo $res_dir; ?>'><?php echo $res_dir; ?></div>
-
-									</div>
-
-									<div class='counter-title'>Resident Directory</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-
-										<div class='counter-timer' data-from='0' data-to='<?php echo $email_homes; ?>'><?php echo $email_homes; ?></div>
-
-									</div>
-
-									<div class='counter-title'>Homes with emails</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-
-										<div class='counter-timer' data-from='0' data-to='<?php echo ($total_homes - $tenants); ?>'><?php echo ($total_homes - $tenants); ?></div>
-
-									</div>
-
-									<div class='counter-title'>Owners</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-
-										<div class='counter-timer' data-from='0' data-to='<?php echo $tenants; ?>'><?php echo $tenants; ?></div>
-
-									</div>
-
-									<div class='counter-title'>Tenants</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-
-										<div class='counter-timer' data-from='0' data-to='<?php echo $newly_moved_in; ?>'><?php echo $newly_moved_in; ?></div>
-
-									</div>
-
-									<div class='counter-title'>Newly moved in</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<br><br>
-
 					</div>
 
 				</section>
