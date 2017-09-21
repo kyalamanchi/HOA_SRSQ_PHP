@@ -74,7 +74,7 @@
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
 
-					<div class="col-md-8 offset-md-2">
+					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						
 						<div class="special-heading m-b-40">
 									
