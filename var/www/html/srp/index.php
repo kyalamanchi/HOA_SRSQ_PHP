@@ -111,7 +111,7 @@
 						
 						<div class='modal-content'>
 							
-							<form method='POST' action='login.php' role='form'>
+							<form method='POST' action='https://hoaboardtime.com/srp/login.php' role='form'>
 
 							<div class='modal-header'>
 								
