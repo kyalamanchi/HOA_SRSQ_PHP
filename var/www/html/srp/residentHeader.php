@@ -27,7 +27,9 @@
 					<ul>
 
 						<li><a href='residentDashboard.php'>Home</a></li>
+						
 						<li><a class='smoothscroll' href='#pay_online'>Quick Pay</a></li>
+						
 						<?php
 
 							if($board != 0)
@@ -35,21 +37,13 @@
 
 						?>
 
+						<li><a href="logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
+
 					</ul>
 
 				</div>
 
 			</div>
-
-		</div>
-
-		<div class="extra-nav">
-						
-			<ul>
-				
-				<li><a href="https://hoaboardtime.com/srp/logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
-						
-			</ul>
 
 		</div>
 

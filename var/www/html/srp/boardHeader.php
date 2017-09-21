@@ -16,9 +16,9 @@
 
 					<ul>
 
-						<li><a style='color: blue;' href='boardDashboard.php'><i class='fa fa-home'></i> Home</a></li>
+						<li><a href='boardDashboard.php'><i class='fa fa-home'></i> Home</a></li>
 
-						<li class="menu-item-has-children menu-item-has-mega-menu"><a style='color: blue;' href="#"><i class='fa fa-bars'></i> Menu</a>
+						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#"><i class='fa fa-bars'></i> Menu</a>
 
 							<div class="mega-menu">
 
