@@ -92,7 +92,7 @@
 
 								<div class="special-heading m-b-40">
 									
-									<h4>Board Dashboard</h4>
+									<h4><i class="fa fa-dashboard"></i> Board Dashboard</h4>
 						
 								</div>
 						
@@ -228,7 +228,7 @@
 
 								<div class="special-heading m-b-40">
 									
-									<h4>Communications Dashboard</h4>
+									<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
 						
 								</div>
 							
@@ -238,7 +238,7 @@
 
 								<div class="special-heading m-b-40">
 									
-									<h4>Reserves Dashboard</h4>
+									<h4><i class="fa fa-support"></i> Reserves Dashboard</h4>
 						
 								</div>
 							
@@ -248,7 +248,7 @@
 
 								<div class="special-heading m-b-40">
 									
-									<h4>Quickbooks Reports</h4>
+									<h4><i class="fa fa-dollar"></i> Quickbooks Reports</h4>
 						
 								</div>
 							
@@ -258,7 +258,7 @@
 
 								<div class="special-heading m-b-40">
 									
-									<h4>Yearly Reports - <?php echo date('Y'); ?></h4>
+									<h4><i class="fa fa-area-chart"></i> Yearly Reports - <?php echo date('Y'); ?></h4>
 						
 								</div>
 							
