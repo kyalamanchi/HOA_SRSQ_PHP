@@ -142,11 +142,7 @@
 
 											<div class='counter h6'>
 
-												<div class='counter-number'>
-
-													<div><?php echo $res_dir; ?></div>
-
-												</div>
+												<div class='counter-number'><?php echo $res_dir; ?></div>
 
 												<div class='counter-title'>Community Deposits</div>
 
