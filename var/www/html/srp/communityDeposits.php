@@ -204,7 +204,7 @@
 
 				                                            	<div class='modal fade' id='addHOAID_$id1_$id'>
 
-																	<div class='modal-dialog'>
+																	<div>
 
 																		<div class='modal-content'>
 
