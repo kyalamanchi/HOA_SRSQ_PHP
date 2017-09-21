@@ -13,7 +13,13 @@
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-			$community_id = 1;
+			$user_id = $_SESSION['hoa_user_id'];
+			$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
+
+			if($board == 0)
+				header("Location: residentDashboard.php");
+
+			$community_id = $_SESSION['hoa_community_id'];
 			$days90 = date('Y-m-d', strtotime("-90 days"));
 
 			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
