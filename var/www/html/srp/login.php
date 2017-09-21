@@ -42,7 +42,7 @@
 
 			if($users)
 			{
-				$row =pg_fetch_assoc($result);
+				$row = pg_fetch_assoc($result);
 				$password = $row['password'];
 
 				if(password_verify($login_password, $password))
@@ -55,26 +55,30 @@
 					$name .= $row['last_name'];
 					$id = $row['id'];
 					$member_id = $row['member_id'];
+					$community_id = $row['community_id'];
 					$otp = "";
 
-					$_SESSION['hoa_username'] = $name;
-					$_SESSION['hoa_email'] = $login_email;
-					$_SESSION['hoa_user_id'] = $id;
-					$_SESSION['hoa_community_id'] = $row['community_id'];
-
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE member_id=$member_id"));
-					$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
+					$hoa_id = $row['hoa_id'];
 
-					$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$_SESSION['hoa_hoa_id']"));
-					$_SESSION['hoa_home_id'] = $row['home_id'];
+					$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+					$home_id = $row['home_id'];
 
-					$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$_SESSION['hoa_home_id']"));
-					$_SESSION['hoa_address'] = $row['address1'];
+					$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+					$address = $row['address1'];
 
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$_SESSION['hoa_community_id']"));
 					$_SESSION['hoa_community_name'] = $row['legal_name'];
 					$_SESSION['hoa_community_code'] = $row['community_code'];
 					$_SESSION['hoa_community_website_url'] = $row['community_website_url'];
+
+					$_SESSION['hoa_hoa_id'] = $hoa_id;
+					$_SESSION['hoa_home_id'] = $home_id;
+					$_SESSION['hoa_username'] = $name;
+					$_SESSION['hoa_email'] = $login_email;
+					$_SESSION['hoa_user_id'] = $id;
+					$_SESSION['hoa_community_id'] = $community_id;
+					$_SESSION['hoa_address'] = $address;
 
 					$result = pg_query("UPDATE usr SET forgot_password_code='$otp' WHERE id=$id");
 
