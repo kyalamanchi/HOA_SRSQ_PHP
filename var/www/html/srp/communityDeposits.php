@@ -132,7 +132,7 @@
 
 				<div class='row container-fluid'>
 
-					<table id='example10' class='table table-bordered table-striped container' style='width: 100%;'>
+					<table id='example10' class='table table-bordered table-striped' style='width: 100%;'>
 								
 						<thead>
 									
