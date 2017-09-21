@@ -132,7 +132,7 @@
 
 				<div class='row container-fluid'>
 
-					<table id='example1' class='table table-bordered table-striped container' style='width: 100%;'>
+					<table id='example10' class='table table-bordered table-striped container' style='width: 100%;'>
 								
 						<thead>
 									
@@ -208,6 +208,8 @@
 	      	$(function () {
 	        	
 	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+	        	$("#example10").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
 	      	});
 
