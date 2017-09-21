@@ -83,7 +83,7 @@
 							<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab"><i class="fa fa-envelope"></i> Communications Dashboard</a></li>
 							<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab"><i class="fa fa-support"></i> Reserves Dashboard</a></li>
 							<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab"><i class="fa fa-dollar"></i> Quickbooks Reports</a></li>
-							<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab"><i class="fa fa-support"></i> Yearly Reports - <?php echo date('Y'); ?></a></li>
+							<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab"><i class="fa fa-area-chart"></i> Yearly Reports - <?php echo date('Y'); ?></a></li>
 						
 						</ul>
 
