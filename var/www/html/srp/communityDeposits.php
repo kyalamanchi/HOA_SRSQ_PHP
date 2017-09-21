@@ -138,9 +138,9 @@
 
 												<div class='modal-body'>
 
-													<div class='row container'>
+													<div class='container'>
 
-														<strong>
+														<div class='row'>
 
 															<div class='col-lg-2 col-md-2'>Name(HOA ID)</div>
 	                                          				<div class='col-lg-2 col-md-2'>Address(Home ID)</div>
@@ -149,7 +149,7 @@
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Amount</div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Received Date</div>
 
-                                          				</strong>
+                                          				</div>
 
 													</div>
 
