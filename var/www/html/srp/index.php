@@ -124,13 +124,13 @@
 								
 								<p>
 
-									<input class='form-control' type='email' name='login_email' id='login_email' placeholder='Email' required>
+									<input class='form-control' type='email' name='srp_login_email' id='srp_login_email' placeholder='Email' required>
 
 								</p>
 								
 								<p>
 
-									<input class='form-control' type='password' name='login_password' id='login_password' placeholder='Password' required>
+									<input class='form-control' type='password' name='srp_login_password' id='srp_login_password' placeholder='Password' required>
 
 								</p>
 							
