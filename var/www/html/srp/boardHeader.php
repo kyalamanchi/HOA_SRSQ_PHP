@@ -1,4 +1,4 @@
-<header class='header'>
+<header class='header header-right undefined'>
 
 	<div class='container-fluid'>
 
