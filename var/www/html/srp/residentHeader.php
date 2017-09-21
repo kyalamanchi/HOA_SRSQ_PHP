@@ -8,7 +8,7 @@
 
 ?>
 
-<header class='header header-center undefined'>
+<header class='header header-right undefined'>
 
 	<div class='container-fluid'>
 
