@@ -1,3 +1,13 @@
+<?php
+
+	session_start();
+
+	$user_id = $_SESSION['hoa_user_id';]
+
+	$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
+
+?>
+
 <header class='header header-center undefined'>
 
 	<div class='container-fluid'>
@@ -21,7 +31,12 @@
 						<li><a class='smoothscroll' href='#budget'>2017 Budget</a></li>
 						<li><a class='smoothscroll' href='#r_p'>Rule &amp; Policies</a></li>
 						<li><a class='smoothscroll' href='#contact'>Contact Us</a></li>
-						<li><a style='color: green;' href='boardDashboard.php'>Board Dashboard</a></li>
+						<?php
+
+							if($board)
+								echo "<li><a style='color: green;' href='boardDashboard.php'>Board Dashboard</a></li>";
+
+						?>
 
 					</ul>
 
