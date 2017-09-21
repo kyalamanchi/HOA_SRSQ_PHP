@@ -42,6 +42,8 @@
 		<link href='assets/css/animate.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href='assets/css/template.min.css' rel='stylesheet'>
+		<!-- Datatable -->
+		<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
 
 	</head>
 
@@ -71,9 +73,9 @@
 						
 						</div>
 
-						<div class="module module-white row container">
+						<div class='module module-white row container'>
 
-							<table class="table table-bordered table-striped container">
+							<table id='example1' class='table table-bordered table-striped container'>
 								
 								<thead>
 									
@@ -146,6 +148,19 @@
 		<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
+		<!-- Datatable -->
+		<script src='//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'></script>
+		<script src='//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+
+		<script>
+      	
+	      	$(function () {
+	        	
+	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+	      	});
+
+    	</script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->
