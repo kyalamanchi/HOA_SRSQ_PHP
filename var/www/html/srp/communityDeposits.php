@@ -196,16 +196,71 @@
 				                                            	echo "
 
 				                                            	<div class='modal fade' id='addHOAID_$id1_$id'>
-				                                
-				                                              		<div class='modal-dialog'>
-				                                                                
-				                                                		<div class='modal-content'>
 
-				                                                  			<div class='modal-header table-responsive'>
+																	<div class='modal-dialog'>
+
+																		<div class='modal-content'>
+
+																			<div class='modal-header table-responsive'>
 
 				                                                    			<h4>Add Hoa ID - <strong>$id</strong></h4>
 
 				                                                  			</div>
+
+				                                                  			<div class='modal-body'>
+
+																				<form method='POST' action='https://hoaboardtime.com/boardEditDepositsHOAID.php'>
+				                                                    
+				                                                    				<center>
+
+				                                                      					<select class='form-control select2' name='select_hoa' id='select_hoa' style='width: 100%;' required>
+
+				                                                        					<option value='' disabled selected>Select User</option>";
+
+				                                                        					$result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+				                                                        					while($row000 = pg_fetch_assoc($result000))
+				                                                        					{
+
+				                                                          						$add_home_id = $row000['home_id'];
+				                                                          						$add_address1 = $row000['address1'];
+				                                                          
+				                                                          						$row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
+
+				                                                          						$add_name = $row111['firstname'];
+				                                                          						$add_name .= " ";
+				                                                          						$add_name .= $row111['lastname'];
+				                                                          						$add_hoa_id = $row111['hoa_id'];
+
+				                                                          						echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
+
+				                                                        					}
+
+				                                                      					echo "</select>
+
+				                                                      					<input type='hidden' name='current_payments_id' id='current_payments_id' value='$id'>
+
+				                                                      					<br><br>
+
+				                                                      					<button class='btn btn-xs btn-info' type='submit'>Update</button>
+
+				                                                    				</center>
+
+				                                                    			</form>
+
+																			</div>
+
+																		</div>
+
+																	</div>
+
+																</div>
+
+				                                            	<div class='modal fade' id='addHOAID_$id1_$id'>
+				                                
+				                                              		<div class='modal-dialog'>
+				                                                                
+				                                                		<div class='modal-content'>
 
 				                                                  			<div class='modal-body table-responsive'>
 
