@@ -4,26 +4,13 @@
 
 		<div class='row'>
 
-			<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-
-				<aside class='widget widget_text'>
-									
-					<div class='textwidget'>
-										
-						<p><h3><?php echo $_SESSION['hoa_community_name']; ?></h3></p>
-
-					</div>
-
-				</aside>
-
-			</div>
-
-			<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
+			<div class='col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12'>
 								
 				<aside class='widget widget_tag_cloud'>
 
-					<div class='textwidget'>
+					<div class='textwidget text-center'>
 										
+						<p><h3><?php echo $_SESSION['hoa_community_name']; ?></h3></p>
 						PO Box 5272 , Pleasanton, CA 94566<br />
 						E-mail: <a href='mailto:info@stoneridgeplace.org'>info@stoneridgeplace.org</a> <br/>
 						Phone: 925 201 3902
