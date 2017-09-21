@@ -47,7 +47,7 @@
 						
 			<ul>
 				
-				<li><a href="https://hoaboardtime.com/srp/logout.php"><span>Log Out</span></a></li>
+				<li><a href="https://hoaboardtime.com/srp/logout.php" style="color: orange;"><span>Log Out</span></a></li>
 						
 			</ul>
 

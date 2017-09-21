@@ -17,7 +17,7 @@
 					<ul>
 
 						<li><a href='boardDashboard.php'>Home</a></li>
-						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#">Home</a>
+						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#">Menu</a>
 							<div class="mega-menu">
 								<ul class="sub-menu mega-menu-row">
 									<!-- Column 1-->
@@ -110,7 +110,7 @@
 						
 			<ul>
 				
-				<li><a href="https://hoaboardtime.com/srp/logout.php"><span>Log Out</span></a></li>
+				<li><a href="https://hoaboardtime.com/srp/logout.php" style="color: orange;"><span>Log Out</span></a></li>
 						
 			</ul>
 
