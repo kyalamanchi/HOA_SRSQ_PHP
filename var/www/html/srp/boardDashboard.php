@@ -142,7 +142,15 @@
 
 											<div class='counter h6'>
 
-												<div class='counter-number'><?php echo $res_dir; ?></div>
+												<div class='counter-number'>
+													
+													<?php 
+														
+														echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+
+													?>
+														
+												</div>
 
 												<div class='counter-title'>Community Deposits</div>
 
