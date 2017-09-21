@@ -14,7 +14,7 @@
 
 		<div class='inner-header'>
 						
-			<a class='inner-brand'><h5 style='color: green;'><?php echo $_SESSION['hoa_community_code']; ?></h5></a>
+			<a class='inner-brand'><h3 style='color: green;'><?php echo $_SESSION['hoa_community_code']; ?></h3></a>
 
 		</div>
 
