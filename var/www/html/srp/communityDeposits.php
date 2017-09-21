@@ -107,7 +107,7 @@
 									$deposit_id = $row['id'];
 									$funded_on = $row['effective_date'];
 									$fund_sent = $row['origination_date'];
-									$amount = $row['net_amount'];
+									$net_amount = $row['net_amount'];
 									$number_of_transactions = $row['number_of_transactions'];
 									$status = $row['status'];
 									$funding_id = $row['funding_id'];
@@ -302,7 +302,7 @@
 
 									";
 
-									echo "<tr><td>$funded_on</td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$amount</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
+									echo "<tr><td>$funded_on</td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$net_amount</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
 								}
 
 							?>
