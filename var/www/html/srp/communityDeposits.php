@@ -59,13 +59,13 @@
 			<div class='wrapper'>
 
 				<!-- Counters -->
-				<section class='module module-gray'>
+				<section class='module module-gray container-fluid'>
 
 					<div class='special-heading m-b-40'>
 									
 						<h4>Community Deposits</h4>
 
-					s</div>
+					</div>
 
 					<div class='module module-white'>
 
