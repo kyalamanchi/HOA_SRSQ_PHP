@@ -58,8 +58,12 @@
 					$community_id = $row['community_id'];
 					$otp = "";
 
+					echo $member_id."<br>";
+
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE member_id=$member_id"));
 					$hoa_id = $row['hoa_id'];
+
+					echo $hoa_id."<br>";
 
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 					$home_id = $row['home_id'];
