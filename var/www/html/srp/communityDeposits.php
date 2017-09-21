@@ -129,6 +129,12 @@
 
 											<div class='modal-content'>
 
+												<div class='modal-header'>
+
+													<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+												</div>
+
 												<div class='modal-body'>
 
 													<div class='container' style='color: black;'>
@@ -204,6 +210,7 @@
 																			<div class='modal-header table-responsive'>
 
 				                                                    			<h4>Add Hoa ID - <strong>$id</strong></h4>
+				                                                    			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
 				                                                  			</div>
 
@@ -313,8 +320,8 @@
 
 				                                            	</div>";//End
 
-				                                            	$name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
-				                                            	$address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
+				                                            	$name = "<a data-toggle='modal' data-dismiss='modal' aria-label='Close' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
+				                                            	$address = "<a data-toggle='modal' data-dismiss='modal' aria-label='Close' data-target='#addHOAID_$id1_$id' title='Add HOA ID' style='color: blue;'>N/A</a>";
 
 				                                          	}
 
