@@ -16,11 +16,14 @@
 
 					<ul>
 
-						<li><a href='boardDashboard.php'>Home</a></li>
-						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#">Menu</a>
+						<li><a href='boardDashboard.php'><i class='fa fa-home'></i> Home</a></li>
+
+						<li class="menu-item-has-children menu-item-has-mega-menu"><a href="#"><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span> Menu</a>
+
 							<div class="mega-menu">
+
 								<ul class="sub-menu mega-menu-row">
-									<!-- Column 1-->
+
 									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-users'></i> Board</a>
 										
 										<ul class="sub-menu">
@@ -33,7 +36,6 @@
 
 									</li>
 
-									<!-- Column 2-->
 									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-institution'></i> Community</a>
 										
 										<ul class="sub-menu">
@@ -46,7 +48,6 @@
 
 									</li>
 
-									<!-- Column 3-->
 									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-street-view'></i> Users</a>
 										
 										<ul class="sub-menu">
@@ -59,7 +60,6 @@
 										
 									</li>
 
-									<!-- Column 4-->
 									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-wrench'></i> Vendors</a>
 										
 										<ul class="sub-menu">
@@ -75,23 +75,16 @@
 							</div>
 
 						</li>
-						<li><a style='color: green;' href='residentDashboard.php'>Resident Dashboard</a></li>
+
+						<li><a style='color: green;' href='residentDashboard.php'><i class='fa fa-dashboard'></i> Resident Dashboard</a></li>
+
+						<li><a href="logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
 
 					</ul>
 
 				</div>
 
 			</div>
-
-		</div>
-
-		<div class="extra-nav">
-						
-			<ul>
-				
-				<li><a href="https://hoaboardtime.com/srp/logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
-						
-			</ul>
 
 		</div>
 
