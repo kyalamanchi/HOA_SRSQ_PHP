@@ -26,7 +26,7 @@
 
 					<ul>
 
-						<li><a href='residentDashboard.php'><span><i class='fa fa-home'> Home</span></a></li>
+						<li><a href='residentDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
 						
 						<li><a class='smoothscroll' href='#pay_online'><span><i class='fa fa-dollar'></i> Quick Pay</span></a></li>
 						
