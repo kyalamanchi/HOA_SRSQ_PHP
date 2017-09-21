@@ -130,6 +130,57 @@
 
 				</section>
 
+				<div class='row container-fluid'>
+
+					<table id='example1' class='table table-bordered table-striped container' style='width: 100%;'>
+								
+						<thead>
+									
+							<th>Fund Received On</th>
+							<th>ID</th>
+							<th>Net Amount</th>
+							<th>Number of Transactions</th>
+							<th>Status</th>
+							<th>Fund Sent On</th>
+
+						</thead>
+
+						<tbody>
+									
+							<?php
+
+								$result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
+
+								while ($row = pg_fetch_assoc($result)) 
+								{
+											
+									$deposit_id = $row['id'];
+									$funded_on = $row['effective_date'];
+									$fund_sent = $row['origination_date'];
+									$amount = $row['net_amount'];
+									$number_of_transactions = $row['number_of_transactions'];
+									$status = $row['status'];
+
+									if($funded_on != "")
+										$funded_on = date('m-d-Y', strtotime($funded_on));
+
+									if($fund_sent != "")
+										$fund_sent = date('m-d-Y', strtotime($fund_sent));
+
+									if($amount != "")
+										$amount = "$ ".$amount;
+
+									echo "<tr><td>$funded_on</td><td>$deposit_id</td><td>$amount</td><td>$number_of_transactions</td><td>$status</td><td>$fund_sent</td></tr>";
+								}
+
+							?>
+
+						</tbody>
+								
+					</table>
+
+				</div>
+
 				<!-- Footer-->
 				<?php include 'footer.php'; ?>
 
