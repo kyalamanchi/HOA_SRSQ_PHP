@@ -54,7 +54,7 @@
 	<body>
 
 		<!-- Layout-->
-		<div class='layout' style='background-color: blue;'>
+		<div class='layout'>
 
 			<!-- Header-->
 			<header class='header header-center undefined'>
