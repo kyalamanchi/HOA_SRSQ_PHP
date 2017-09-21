@@ -244,8 +244,6 @@
 
 						</div>
 
-						<br><br>
-
 					</div>
 
 				</section>
