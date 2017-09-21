@@ -25,17 +25,9 @@
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index.html">Parallax Dark</a></li>
-											<li><a href="index-2.html">Parallax Light</a></li>
-											<li><a href="index-3.html">Parallax Gradient</a></li>
-											<li><a href="index-4.html">Full Screen Slider</a></li>
-											<li><a href="index-5.html">Text Rotator</a></li>
-											<li><a href="index-23.html">Scale</a></li>
-											<li><a href="index-24.html">Scale & opacity</a></li>
-											<li><a href="index-27.html">Flexslider</a></li>
-											<li><a href="index-28.html">Ken burns Slider</a></li>
-											<li><a href="index-29.html">Ripples Full Screen</a></li>
-											<li><a href="index-31.html">Particles</a></li>
+											<li><a href="index-2.html">Charges</a></li>
+											<li><a href="index.html">Process Payment</a></li>
+											<li><a href="index-3.html">Set Reminders</a></li>
 												
 										</ul>
 
