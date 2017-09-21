@@ -69,7 +69,7 @@
 			<?php include "boardHeader.php"; ?>
 
 			<!-- Wrapper-->
-			<div class='wrapper'>
+			<div class='wrapper wrapper-gray'>
 
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
