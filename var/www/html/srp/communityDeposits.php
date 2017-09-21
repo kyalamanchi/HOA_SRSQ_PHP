@@ -59,7 +59,7 @@
 			<div class='wrapper'>
 
 				<!-- Counters -->
-				<section class='module module-gray p-t-0 p-b-0'>
+				<section class='module module-gray'>
 
 					<div class='special-heading m-b-40'>
 									
@@ -67,7 +67,7 @@
 
 					s</div>
 
-					<div class='module module-white p-t-0 p-b-0'>
+					<div class='module module-white'>
 
 							<table id='example1' class='table table-bordered table-striped container-fluid' style='width: 100%;'>
 								
