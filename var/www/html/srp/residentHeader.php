@@ -2,6 +2,8 @@
 
 	session_start();
 
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	$user_id = $_SESSION['hoa_user_id'];
 
 	$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
