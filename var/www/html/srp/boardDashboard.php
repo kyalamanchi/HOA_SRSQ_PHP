@@ -144,11 +144,15 @@
 
 												<div class='counter-number'>
 													
-													<?php 
-														
-														echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+													<a href=''>
 
-													?>
+														<?php 
+															
+															echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+
+														?>
+
+													</a>
 														
 												</div>
 
