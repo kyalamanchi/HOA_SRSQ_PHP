@@ -4,7 +4,7 @@
 
 		<div class='inner-header'>
 						
-			<a class='inner-brand' href='index.html'><h5 style='color: green;'>Stoneridge Place<br>At Pleasanton HOA</h5></a>
+			<a class='inner-brand'><h5 style='color: green;'><?php echo $_SESSION['hoa_community_name']; ?></h5></a>
 
 		</div>
 
