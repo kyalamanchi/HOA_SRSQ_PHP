@@ -65,7 +65,7 @@
 								
 							<div class='special-heading m-b-40'>
 									
-								<h4>Community Deposits</h4>
+								<h4>Community Documents</h4>
 
 							</div>
 
