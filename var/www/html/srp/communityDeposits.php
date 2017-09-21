@@ -131,6 +131,7 @@
 
 												<div class='modal-header'>
 
+													<h4></h4>
 													<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
 												</div>
