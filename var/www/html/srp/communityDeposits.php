@@ -138,12 +138,12 @@
 
 												<div class='modal-body'>
 
-													<div class='row text-center'>
+													<div class='row container text-center'>
 
 														<strong>
 
-															<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name<br>(HOA ID)</div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address<br>(Home ID)</div>
+															<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name(HOA ID)</div>
+	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address(Home ID)</div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>ID</div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Status</div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Amount</div>
