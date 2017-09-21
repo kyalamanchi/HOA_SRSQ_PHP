@@ -204,7 +204,11 @@
 
 												<div class='counter-number'>
 
-													<div class='counter-timer' data-from='0' data-to='<?php echo $tenants; ?>'><?php echo $tenants; ?></div>
+													<?php 
+														
+														echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1")); 
+
+													?>
 
 												</div>
 
