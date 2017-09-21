@@ -78,7 +78,7 @@
 
 						<div class="module module-white row container">
 
-							<table class="table table-bordered">
+							<table class="table table-bordered table-striped container">
 								
 								<thead>
 									
