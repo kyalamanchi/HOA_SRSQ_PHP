@@ -67,7 +67,7 @@
 
 					s</div>
 
-					<div class='module module-white'>
+					<div class='module module-white p-t-0 p-b-0'>
 
 							<table id='example1' class='table table-bordered table-striped container-fluid' style='width: 100%;'>
 								
