@@ -29,6 +29,12 @@
 
 		<?php
 
+			Configure::write('Session', array(
+		        'defaults' => 'php',
+		        'cookieTimeout' => 0,   //Lives until the browser is closed.
+		        'checkAgent'  => false  //To fix a little the Chrome Frame problem
+		    ));
+
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			include 'password.php';
