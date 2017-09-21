@@ -62,51 +62,6 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				<div class='modal fade' id='login_modal'>
-					
-					<div class='modal-dialog'>
-						
-						<div class='modal-content'>
-							
-							<form method='POST' action='https://hoaboardtime.com/srp/login.php' role='form'>
-
-							<div class='modal-header'>
-								
-								<h5 class='modal-title' style='color: green;'>Log In</h5>
-								<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
-							
-							</div>
-												
-							<div class='modal-body'>
-								
-								<p>
-
-									<input class='form-control' type='email' name='srp_login_email' id='srp_login_email' placeholder='Email' required>
-
-								</p>
-								
-								<p>
-
-									<input class='form-control' type='password' name='srp_login_password' id='srp_login_password' placeholder='Password' required>
-
-								</p>
-							
-							</div>
-							
-							<div class='modal-footer'>
-													
-								<button class='btn btn-round btn-success btn-sm' type='submit'>Log In</button>
-							
-							</div>
-
-							</form>
-						
-						</div>
-					
-					</div>
-				
-				</div>
-
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
 
