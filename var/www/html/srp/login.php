@@ -89,9 +89,9 @@
 					$num_row = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$id"));
 
 					if($num_row == 0)
-						header("Location: https://hoaboardtime.com/srp/residentDashboard.php");
+						header("Location: residentDashboard.php");
 					else
-						header("Location: https://hoaboardtime.com/srp/boardDashboard.php");
+						header("Location: boardDashboard.php");
 
 				}
 				else
@@ -99,7 +99,7 @@
 
 					echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>Invalid password!</strong><br /><br />Please check the password and try again.<br /><br /></center></div></div></div>";
 
-					echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/srp/index.php'},2000);</script>";
+					echo "<script>setTimeout(function(){window.location.href='index.php'},1000);</script>";
 
 				}
 
@@ -109,7 +109,7 @@
 
 				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>Invalid user!</strong><br /><br />Please check the email and try again.<br /><br /></center></div></div></div>";
 
-				echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/srp/index.php'},2000);</script>";
+				echo "<script>setTimeout(function(){window.location.href='index.php'},1000);</script>";
 
 			}
 
