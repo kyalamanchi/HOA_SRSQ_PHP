@@ -26,11 +26,8 @@
 
 					<ul>
 
-						<li><a href='index.php'>Home</a></li>
-						<li><a class='smoothscroll' href='#pay_online'>Pay Online</a></li>
-						<li><a class='smoothscroll' href='#budget'>2017 Budget</a></li>
-						<li><a class='smoothscroll' href='#r_p'>Rule &amp; Policies</a></li>
-						<li><a class='smoothscroll' href='#contact'>Contact Us</a></li>
+						<li><a href='residentDashboard.php'>Home</a></li>
+						<li><a class='smoothscroll' href='#pay_online'>Quick Pay</a></li>
 						<?php
 
 							if($board != 0)

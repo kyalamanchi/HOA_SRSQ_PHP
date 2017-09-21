@@ -17,10 +17,6 @@
 					<ul>
 
 						<li><a href='boardDashboard.php'>Home</a></li>
-						<li><a class='smoothscroll' href='#pay_online'>Pay Online</a></li>
-						<li><a class='smoothscroll' href='#budget'>2017 Budget</a></li>
-						<li><a class='smoothscroll' href='#r_p'>Rule &amp; Policies</a></li>
-						<li><a class='smoothscroll' href='#contact'>Contact Us</a></li>
 						<li><a style='color: green;' href='residentDashboard.php'>Resident Dashboard</a></li>
 
 					</ul>
