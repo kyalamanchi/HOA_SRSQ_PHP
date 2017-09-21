@@ -11,6 +11,9 @@
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
+			if($_SESSION['hoa_mode'] == 2)
+				header("Location: residentDashboard.php");
+
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			$community_id = $_SESSION['hoa_community_id'];
