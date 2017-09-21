@@ -43,7 +43,7 @@
 		<!-- Template core CSS-->
 		<link href='assets/css/template.min.css' rel='stylesheet'>
 		<!-- Datatable -->
-		<link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
 	</head>
 
@@ -200,8 +200,8 @@
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
 		<!-- Datatable -->
-		<script src='//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'></script>
-		<script src='//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
 
 		<script>
       	
