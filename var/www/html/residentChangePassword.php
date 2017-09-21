@@ -39,6 +39,6 @@
 	}
 
 	echo "<br><br><br><center><a href='https://hoaboardtime.com/residentProfile.php'>Click here</a> if this page doesnot redirect in 5 seconds.<center>";
-	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentProfile.php'},3000);</script>";
+	echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/residentProfile.php'},1000);</script>";
 	#$result = pg_query("UPDATE usr set password = ");
 ?>
