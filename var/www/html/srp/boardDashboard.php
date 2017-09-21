@@ -76,7 +76,30 @@
 
 					<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						
-						<!-- Tabs-->
+						<div class="progress-item">
+							
+							<div class="progress-title">Amount Received</div>
+							
+							<div class="progress">
+								
+								<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+							
+							</div>
+
+						</div>
+
+						<div class="progress-item">
+							
+							<div class="progress-title">Gulp</div>
+							
+							<div class="progress">
+								
+								<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+							
+							</div>
+
+						</div>
+
 						<ul class="nav nav-tabs">
 									
 							<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
