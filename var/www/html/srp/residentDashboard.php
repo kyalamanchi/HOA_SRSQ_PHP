@@ -838,97 +838,9 @@
 					</div>
 				</section-->
 				<!-- News end-->
-
-				<!-- Contact -->
-				<section id='contact' class='module'>
-
-					<div class='container'>
-
-						<div class='row'>
-
-							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-								
-								<p><strong>How not to contact us</strong></p>
-
-								<ul>
-									
-									<li> <strong>></strong> Do not leave anonymous correspondence, by any method. Always leave your name and address. We can not act upon or respond to any anonymous correspondence, unless it is a CC&amp;R complaint that we can verify ourselves. All correspondence is kept confidential.</li>
-									<li> <strong>></strong> Do not leave or mail correspondence in a Board or Committee member’s personal home mailboxes.  Individuals may be out of town, thereby delaying the routing of your correspondence to the Association.  SRP PO Box is regularly checked.</li>
-
-								</ul>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</section>
-
+				
 				<!-- Footer-->
-				<footer class='footer'>
-
-					<div class='container'>
-
-						<div class='row'>
-
-							<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-
-								<aside class='widget widget_text'>
-									
-									<div class='textwidget'>
-										
-										<p><h3>Stoneridge Place</h3><h4>At Pleasanton HOA</h4></p>
-
-									</div>
-
-								</aside>
-
-							</div>
-
-							<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-								
-								<aside class='widget widget_tag_cloud'>
-
-									<div class='textwidget'>
-										
-										PO Box 5272 , Pleasanton, CA 94566<br />
-										E-mail: <a href='mailto:info@stoneridgeplace.org'>info@stoneridgeplace.org</a> <br/>
-										Phone: 925 201 3902
-
-									</div>
-
-								</aside>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class='footer-copyright'>
-
-						<div class='container'>
-
-							<div class='row'>
-
-								<div class='col-md-12'>
-
-									<div class='text-center'>
-
-										<span class='copyright'>© <?php echo date('Y'); ?> Stoneridge Place At Pleasanton HOA, All Rights Reserved.</span>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</footer>
+				<?php include "footer.php"; ?>
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
