@@ -138,7 +138,7 @@
 
 												<div class='modal-body'>
 
-													<div class='row container text-center'>
+													<div class='container'>
 
 														<strong>
 
