@@ -33,7 +33,7 @@
 						<?php
 
 							if($board != 0)
-								echo "<li><a style='color: green;' href='boardDashboard.php'>Board Dashboard</a></li>";
+								echo "<li><a style='color: green;' href='boardDashboard.php'><i class='fa fa-dashboard'></i> Board Dashboard</a></li>";
 
 						?>
 
