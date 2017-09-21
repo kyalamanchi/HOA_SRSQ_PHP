@@ -17,7 +17,7 @@ function showPleaseWait() {
         <div class="modal-dialog">\
             <div class="modal-content">\
                 <div class="modal-header">\
-                    <h4 class="modal-title">Loading Content...Please wait...</h4>\
+                    <h4 class="modal-title">Please wait...</h4>\
                 </div>\
                 <div class="modal-body">\
                     <div class="progress">\
@@ -52,8 +52,7 @@ function displayInspectionData(button){
       hidePleaseWait();
       var dal = request.responseText
       var data = JSON.parse(dal);
-      var fieldData = '<label for="subcatid">ID</label>'+'<input type="text" id="subcatid" disabled="disabled" class = "form-control" value=" '+data['id']+'"/>'+'<label for="name">Name</label>'+'<input type="text" id="name"  class = "form-control" value=" '+data['name']+'"/>'+'<label for="inspectionCategory">Category</label>'+'<input type="text" id="inspectionCategory"  class = "form-control" value=" '+data['inspection_category']+'"/>'+'<label for="subCategoryRule">Rule</label>'+'<input type="text" id="subCategoryRule"  class = "form-control" value=" '+data['rule']+'"/>'+'<label for="subCategoryRuleDescription">Rule Description</label>'+'<textarea class="form-control" rows="5" id="subCategoryRuleDescription" >'+data['rule_description']+'</textarea>'+'<label for="subCategoryExplanation">Explanation</label>'+'<textarea class="form-control" rows="3" id="subCategoryExplanation" >'+data['explanation']+'</textarea>'+'<label for="subject">Subject</label>'+'<input type="text" id="subject" class = "form-control" value=" '+data['subject']+'"/>'+'<label for="legal_docs_id">Legal Document ID</label>'+'<input type="text" id="legal_docs_id" class = "form-control" value=" '+data['community_legal_id']+'"/>'+'<label for="section">Section</label>'+'<input type="text" id="section" class = "form-control" value=" '+data['section']+'"/>'+'<label for="community_id">Community ID</label>'+'<input type="text" id="community_id" class = "form-control" value=" '+data['community_id']+'"/>';
-       
+      var fieldData = '<label for="subcatid">ID</label>'+'<input type="text" id="subcatid" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="name">Name</label>'+'<input type="text" id="name"  class = "form-control" value="'+data['name']+'"/>'+'<label for="inspectionCategory">Category</label>'+'<input type="text" id="inspectionCategory"  class = "form-control" value="'+data['inspection_category']+'"/>'+'<label for="subCategoryRule">Rule</label>'+'<input type="text" id="subCategoryRule"  class = "form-control" value="'+data['rule']+'"/>'+'<label for="subCategoryRuleDescription">Rule Description</label>'+'<textarea class="form-control" rows="5" id="subCategoryRuleDescription">'+data['rule_description']+'</textarea>'+'<label for="subCategoryExplanation">Explanation</label>'+'<textarea class="form-control" rows="3" id="subCategoryExplanation">'+data['explanation']+'</textarea>'+'<label for="subject">Subject</label>'+'<input type="text" id="subject" class = "form-control" value="'+data['subject']+'"/>'+'<label for="legal_docs_id">Legal Document ID</label>'+'<input type="text" id="legal_docs_id" class = "form-control" value="'+data['community_legal_id']+'"/>'+'<label for="section">Section</label>'+'<input type="text" id="section" class = "form-control" value="'+data['section']+'"/>'+'<label for="community_id">Community ID</label>'+'<input type="text" id="community_id" class = "form-control" value="'+data['community_id']+'"/>';
         $("#myModal").modal("show");
         $("#myModal").find('.modal-body').html(fieldData);
     }
@@ -66,12 +65,50 @@ function displayInspectionData(button){
 
 function saveChanges2(){
     // window.alert("Some message");
-
 }
-
 
 function saveChanges(){
     // window.alert("Some message");
+
+    var inspectionSubCategoryId = document.getElementById("subcatid").value;
+    
+    var inspectionSubCategoryName = document.getElementById("name").value;
+    
+    var inspectionCategoryID  = document.getElementById("inspectionCategory").value;
+    
+    var inspectionSubCategoryRule = document.getElementById("subCategoryRule").value;
+    
+    var inspectionSubCategoryRuleDescription = document.getElementById("subCategoryRuleDescription").value;
+    
+    var inspectionSubCategoryExplanation  = document.getElementById("subCategoryExplanation").value;
+    
+    var inspectionSubCategorySubject = document.getElementById("subject").value;
+    
+    var inspectionSubCategoryLegalDocumentId  = document.getElementById("legal_docs_id").value;
+    
+    var inspectionSubCategorySection  = document.getElementById("section").value;
+    jsonObj = [];
+    item = {};
+    item['id'] = inspectionSubCategoryId;
+    item['name'] = inspectionSubCategoryName;
+    item['inspection_category'] = inspectionCategoryID;
+    item['rule'] = inspectionSubCategoryRule;
+    item['rule_description'] = inspectionSubCategoryRuleDescription;
+    item['explanation'] = inspectionSubCategoryExplanation;
+    item['subject'] = inspectionSubCategorySubject;
+    item['community_legal_docs_id'] = inspectionSubCategoryLegalDocumentId;
+    item['section']  = inspectionSubCategorySection;
+    jsonObj.push(item);
+    var lol = JSON.stringify(jsonObj);
+    var request  = new  XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/updateInspectionSubCategoryDetails.php",true);
+    request.send(lol.toString());
+    request.onreadystatechange = function(){
+    if ( request.readyState == XMLHttpRequest.DONE ){
+      hidePleaseWait();
+      alert(request.responseText);
+    }
+    }
     $("#myModal").modal("hide");
 }
   </script>
