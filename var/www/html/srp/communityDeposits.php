@@ -76,7 +76,7 @@
 						
 						</div>
 
-						<div class="row container">
+						<div class="module module-white row container">
 
 							<table class="table table-bordered">
 								
