@@ -61,7 +61,7 @@
 				<!-- Counters -->
 				<section class='module module-gray'>
 
-					<div class='row container'>
+					<div class='row container-fluid'>
 					<div class='special-heading m-b-40'>
 									
 						<h4>Community Deposits</h4>
@@ -69,7 +69,7 @@
 					</div>
 					</div>
 
-					<div class='row container'>
+					<div class='row container-fluid'>
 					<div class='module module-white'>
 
 							<table id='example1' class='table table-bordered table-striped container-fluid' style='width: 100%;'>
