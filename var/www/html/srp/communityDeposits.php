@@ -82,7 +82,7 @@
 					
 				<div class="container">
 						
-					<table id='example1' class='display table-bordered table-striped' width='100%'>
+					<table id='example1' class='display table-bordered'>
 								
 						<thead>
 									
