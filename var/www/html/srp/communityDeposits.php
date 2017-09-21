@@ -142,8 +142,8 @@
 
 														<div class='row text-center'>
 
-															<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Name(HOA ID)</strong></div>
-	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Address(Home ID)</strong></div>
+															<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Name<br>(HOA ID)</strong></div>
+	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Address<br>(Home ID)</strong></div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>ID</strong></div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Status</strong></div>
 	                                          				<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><strong>Amount</strong></div>
