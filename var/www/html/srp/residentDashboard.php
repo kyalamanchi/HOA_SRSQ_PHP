@@ -57,7 +57,7 @@
 		<div class='layout' style='background-color: blue;'>
 
 			<!-- Header-->
-			<?php include "residentHeader.php"; ?>
+			<?php include "boardHeader.php"; ?>
 
 			<!-- Wrapper-->
 			<div class='wrapper'>
