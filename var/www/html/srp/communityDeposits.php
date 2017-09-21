@@ -110,6 +110,7 @@
 									$amount = $row['net_amount'];
 									$number_of_transactions = $row['number_of_transactions'];
 									$status = $row['status'];
+									$funding_id = $row['funding_id'];
 
 									if($funded_on != "")
 										$funded_on = date('m-d-Y', strtotime($funded_on));
@@ -120,7 +121,33 @@
 									if($amount != "")
 										$amount = "$ ".$amount;
 
-									echo "<tr><td>$funded_on</td><td>$deposit_id</td><td>$amount</td><td>$number_of_transactions</td><td>$status</td><td>$fund_sent</td></tr>";
+								?>
+
+									<div class="modal fade" id="modal-1_$deposit_id">
+										<div class="modal-dialog modal-lg">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title">Modal title</h5>
+													<button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+												</div>
+												<div class="modal-body">
+													<p>
+														<iframe width="420" height="250" src="//www.youtube.com/embed/EMy5krGcoOU" frameborder="0" allowfullscreen></iframe>
+													</p>
+													<p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Seitan High Life reprehenderit consectetur cupidatat kogi about me. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi.</p>
+													<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
+												</div>
+												<div class="modal-footer">
+													<button class="btn btn-round btn-gray" type="button">Close</button>
+													<button class="btn btn-round btn-brand" type="button">Save changes</button>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								<?php
+
+									echo "<tr><td>$funded_on</td><td><a  data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</a></td><td><a  data-toggle='modal' data-target='#modal-1_$deposit_id'>$amount</a></td><td><a  data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
 								}
 
 							?>
@@ -139,11 +166,7 @@
 						
 					<div class="row-page-title">
 							
-						<div class="page-title-captions">
-								
-							
-
-						</div>
+						<div class="page-title-captions"></div>
 
 					</div>
 
