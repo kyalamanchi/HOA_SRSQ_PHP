@@ -82,65 +82,61 @@
 					
 				<div class="container">
 						
-					
-							
-						<table id='example1' class='display table-bordered table-striped' width='100%'>
+					<table id='example1' class='display table-bordered table-striped' width='100%'>
 								
-							<thead>
+						<thead>
 									
-									<th>Fund Received On</th>
-									<th>ID</th>
-									<th>Net Amount</th>
-									<th>Number of Transactions</th>
-									<th>Status</th>
-									<th>Fund Sent On</th>
+							<th>Fund Received On</th>
+							<th>ID</th>
+							<th>Net Amount</th>
+							<th>Number of Transactions</th>
+							<th>Status</th>
+							<th>Fund Sent On</th>
 
-							</thead>
+						</thead>
 
-							<tbody>
+						<tbody>
 									
-								<?php
+							<?php
 
-									$result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
+								$result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
 
-									while ($row = pg_fetch_assoc($result)) 
-									{
+								while ($row = pg_fetch_assoc($result)) 
+								{
 											
-										$deposit_id = $row['id'];
-										$funded_on = $row['effective_date'];
-										$fund_sent = $row['origination_date'];
-										$amount = $row['net_amount'];
-										$number_of_transactions = $row['number_of_transactions'];
-										$status = $row['status'];
+									$deposit_id = $row['id'];
+									$funded_on = $row['effective_date'];
+									$fund_sent = $row['origination_date'];
+									$amount = $row['net_amount'];
+									$number_of_transactions = $row['number_of_transactions'];
+									$status = $row['status'];
 
-										if($funded_on != "")
-											$funded_on = date('m-d-Y', strtotime($funded_on));
+									if($funded_on != "")
+										$funded_on = date('m-d-Y', strtotime($funded_on));
 
-										if($fund_sent != "")
-											$fund_sent = date('m-d-Y', strtotime($fund_sent));
+									if($fund_sent != "")
+										$fund_sent = date('m-d-Y', strtotime($fund_sent));
 
-										if($amount != "")
-											$amount = "$ ".$amount;
+									if($amount != "")
+										$amount = "$ ".$amount;
 
-										echo "<tr><td>$funded_on</td><td>$deposit_id</td><td>$amount</td><td>$number_of_transactions</td><td>$status</td><td>$fund_sent</td></tr>";
-									}
+									echo "<tr><td>$funded_on</td><td>$deposit_id</td><td>$amount</td><td>$number_of_transactions</td><td>$status</td><td>$fund_sent</td></tr>";
+								}
 
-								?>
+							?>
 
-							</tbody>
+						</tbody>
 								
-						</table>
-
-					
+					</table>
 
 				</div>
 
-				<!-- Footer-->
-				<?php include 'footer.php'; ?>
-
-				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
-
 			</section>
+
+			<!-- Footer-->
+			<?php include 'footer.php'; ?>
+
+			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
 		</div>
 
