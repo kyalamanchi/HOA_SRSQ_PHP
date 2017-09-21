@@ -63,7 +63,7 @@
 					$_SESSION['hoa_community_id'] = $row['community_id'];
 
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE member_id=$member_id"));
-					$_SESSION['hoa_hoa_id'] = $row['hid'];
+					$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
 
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$_SESSION['hoa_hoa_id']"));
 					$_SESSION['hoa_home_id'] = $row['home_id'];
