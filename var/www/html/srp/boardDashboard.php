@@ -69,7 +69,7 @@
 			<?php include "boardHeader.php"; ?>
 
 			<!-- Wrapper-->
-			<div class='wrapper wrapper-gray'>
+			<div class='wrapper'>
 
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
@@ -893,32 +893,6 @@
 					</div>
 				</section-->
 				<!-- News end-->
-
-				<!-- Contact -->
-				<section id='contact' class='module'>
-
-					<div class='container'>
-
-						<div class='row'>
-
-							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-								
-								<p><strong>How not to contact us</strong></p>
-
-								<ul>
-									
-									<li> <strong>></strong> Do not leave anonymous correspondence, by any method. Always leave your name and address. We can not act upon or respond to any anonymous correspondence, unless it is a CC&amp;R complaint that we can verify ourselves. All correspondence is kept confidential.</li>
-									<li> <strong>></strong> Do not leave or mail correspondence in a Board or Committee member’s personal home mailboxes.  Individuals may be out of town, thereby delaying the routing of your correspondence to the Association.  SRP PO Box is regularly checked.</li>
-
-								</ul>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</section>
 
 				<!-- Footer-->
 				<?php include "footer.php"; ?>
