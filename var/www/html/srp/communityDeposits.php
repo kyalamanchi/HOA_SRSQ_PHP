@@ -124,25 +124,40 @@
 									echo "
 									
 									<div class='modal fade' id='modal-1_$deposit_id'>
+
 										<div class='modal-dialog modal-lg'>
+
 											<div class='modal-content'>
+
 												<div class='modal-header'>
+
 													<h5 class='modal-title'>Modal title $deposit_id</h5>
 													<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
 												</div>
+
 												<div class='modal-body'>
+
+
+
 												</div>
+
 												<div class='modal-footer'>
+
 													<button class='btn btn-round btn-gray' type='button' data-dismiss='modal' aria-label='Close'>Close</button>
 													<button class='btn btn-round btn-brand' type='button'>Save changes</button>
+
 												</div>
+
 											</div>
+
 										</div>
+
 									</div>
 
 									";
 
-									echo "<tr><td>$funded_on</td><td><a  data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</a></td><td><a  data-toggle='modal' data-target='#modal-1_$deposit_id'>$amount</a></td><td><a  data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
+									echo "<tr><td>$funded_on</td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$amount</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
 								}
 
 							?>
