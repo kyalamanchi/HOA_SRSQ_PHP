@@ -92,7 +92,7 @@
 
 								<div class="special-heading m-b-40">
 									
-									<h4>Board Dashboard - <?php echo date('F').", ".date('Y'); ?></h4>
+									<h4>Board Dashboard</h4>
 						
 								</div>
 						
