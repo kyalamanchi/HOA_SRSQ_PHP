@@ -105,7 +105,7 @@
 							
 							</div>
 
-							<div class="tab-pane in active" id="tab-2">
+							<div class="tab-pane" id="tab-2">
 
 								<div class="special-heading m-b-40">
 									
@@ -121,7 +121,7 @@
 							
 							</div>
 
-							<div class="tab-pane in active" id="tab-3">
+							<div class="tab-pane" id="tab-3">
 
 								<div class="special-heading m-b-40">
 									
@@ -137,7 +137,7 @@
 							
 							</div>
 
-							<div class="tab-pane in active" id="tab-4">
+							<div class="tab-pane" id="tab-4">
 
 								<div class="special-heading m-b-40">
 									
@@ -153,7 +153,7 @@
 							
 							</div>
 
-							<div class="tab-pane in active" id="tab-5">
+							<div class="tab-pane" id="tab-5">
 
 								<div class="special-heading m-b-40">
 									
