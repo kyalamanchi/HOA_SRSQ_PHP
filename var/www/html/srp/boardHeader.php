@@ -21,7 +21,7 @@
 							<div class="mega-menu">
 								<ul class="sub-menu mega-menu-row">
 									<!-- Column 1-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Basic</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#">Board</a>
 										
 										<ul class="sub-menu">
 														
@@ -42,50 +42,37 @@
 									</li>
 
 									<!-- Column 2-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Special</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#">Community</a>
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index-18.html">One Page</a></li>
-											<li><a href="index-26.html">One Page 2</a></li>
-											<li><a href="index-21.html">Business</a></li>
-											<li><a href="index-22.html">Startup</a></li>
-											<li><a href="index-19.html">Portfolio Masonry</a></li>
-											<li><a href="index-20.html">Freelance Designer</a></li>
-											<li><a href="index-25.html">New Agency</a></li>
+											<li><a href="index-18.html">Deposits</a></li>
+											<li><a href="index-26.html">Disclosures</a></li>
+											<li><a href="index-21.html">Mailing List</a></li>
 										
 										</ul>
 
 									</li>
 
 									<!-- Column 3-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Video</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#">Users</a>
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index-7.html">Youtube Dark</a></li>
-											<li><a href="index-8.html">Youtube Light</a></li>
-											<li><a href="index-9.html">Youtube Gradient</a></li>
-											<li><a href="index-10.html">Vimeo Dark</a></li>
-											<li><a href="index-11.html">Vimeo Light</a></li>
-											<li><a href="index-12.html">Vimeo Gradient</a></li>
-											<li><a href="index-6.html">Local Video</a></li>
+											<li><a href="index-9.html">Balances</a></li>
+											<li><a href="index-7.html">HOA &amp; Home Info</a></li>
+											<li><a href="index-8.html">User Dashboard</a></li>
 										
 										</ul>
 										
 									</li>
 
 									<!-- Column 4-->
-									<li class="menu-item-has-children mega-menu-col"><a href="#">Small</a>
+									<li class="menu-item-has-children mega-menu-col"><a href="#">Vendors</a>
 										
 										<ul class="sub-menu">
 
-											<li><a href="index-13.html">Dark Small</a></li>
-											<li><a href="index-14.html">Light Small</a></li>
-											<li><a href="index-15.html">Gradient Small</a></li>
-											<li><a href="index-16.html">Youtube Small</a></li>
-											<li><a href="index-17.html">Vimeo Small</a></li>
-											<li><a href="index-30.html">Ripples</a></li>
+											<li><a href="index-13.html">Vendor Dashboard</a></li>
 										
 										</ul>
 
