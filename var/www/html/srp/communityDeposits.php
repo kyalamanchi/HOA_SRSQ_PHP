@@ -133,7 +133,7 @@
 												<div class='modal-body'>
 												</div>
 												<div class='modal-footer'>
-													<button class='btn btn-round btn-gray close' type='button' data-dismiss='modal' aria-label='Close'>Close</button>
+													<button class='btn btn-round btn-gray' type='button' data-dismiss='modal' aria-label='Close'>Close</button>
 													<button class='btn btn-round btn-brand' type='button'>Save changes</button>
 												</div>
 											</div>
