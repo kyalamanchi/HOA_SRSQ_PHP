@@ -97,6 +97,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
   ob_end_flush();
   flush();
   //Dropbox Upload
+  $ch = curl_init();
   $url = 'https://content.dropboxapi.com/2/files/upload';
   $fileContents = file_get_contents($homeAddress.'.pdf');
   if ( $homeID < 144 ){
