@@ -1,4 +1,6 @@
 <?php
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 date_default_timezone_set("America/New_York");
 header("Content-Type: text/event-stream\n\n");
 $message  = "Generating Inspection Notice...Please Wait...";
@@ -97,23 +99,30 @@ $message  = "Generating Inspection Notice...Please Wait...";
   ob_end_flush();
   flush();
   //Dropbox Upload
-  $ch = curl_init();
   $url = 'https://content.dropboxapi.com/2/files/upload';
+  $ch = curl_init($url);
   $fileContents = file_get_contents($homeAddress.'.pdf');
+  unlink($homeAddress.'.pdf');
   if ( $homeID < 144 ){
   $pathVar = '/Inspection_Notices/SRP/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
 }
 else if ( $homeID < 287 ){
 	$pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
-}
+	}
   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
-print_r($response);
-
-
-
-  unlink($homeAddress.'.pdf');
+$jsonDecode = json_decode($response);
+if ( $jsonDecode->id ){
+	echo "data: File Uploaded Successfully!!!";
+	ob_end_flush();
+	flush();
+}
+else {
+	echo "data: Failed to upload to Dropbox. Plese try again.";
+	ob_end_flush();
+	flush();
+}
 ?>

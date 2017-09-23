@@ -90,10 +90,11 @@ function generateNotice(button){
 var source = new EventSource("https://hoaboardtime.com/genericNotice.php?id="+button.id);
 source.onmessage = function(event) {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
-    if ( event.data == "Notice generated successfully!!!"){
+    if ( (event.data == "File Uploaded Successfully!!!") || (event.data == "Failed to upload to Dropbox. Plese try again.") ){
         source.close();
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Close</button>');
-    }  
+    } 
+
 };
 }
 function closeModal(){
