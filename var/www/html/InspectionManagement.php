@@ -105,7 +105,6 @@ function loadData(){
     request.open("POST","https://hoaboardtime.com/getInspectionData.php",true);
     request.send(null);
     request.onreadystatechange = function(){
-    hidePleaseWait();
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
     let data2 = JSON.parse(data);
@@ -141,6 +140,7 @@ $(document).ready(function() {
         ]
     } );
 } );
+hidePleaseWait();
 }
 }
 }
