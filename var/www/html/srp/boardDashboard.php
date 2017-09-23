@@ -63,7 +63,7 @@
 	<body>
 
 		<!-- Layout-->
-		<div class='layout' style='background-color: blue;'>
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php include "boardHeader.php"; ?>
@@ -228,7 +228,11 @@
 
 												<div class='counter-number'>
 
-													25
+													<?php
+
+														echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));
+
+													?>
 
 												</div>
 
@@ -244,7 +248,11 @@
 
 												<div class='counter-number'>
 
-													435
+													<?php
+
+														echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
+
+													?>
 
 												</div>
 

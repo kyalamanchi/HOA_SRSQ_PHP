@@ -8,7 +8,7 @@
 
 ?>
 
-<header class='header header-center undefined'>
+<header class='header header-right undefined'>
 
 	<div class='container-fluid'>
 
@@ -26,30 +26,24 @@
 
 					<ul>
 
-						<li><a href='residentDashboard.php'>Home</a></li>
-						<li><a class='smoothscroll' href='#pay_online'>Quick Pay</a></li>
+						<li><a href='residentDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
+						
+						<li><a class='smoothscroll' href='#pay_online'><span><i class='fa fa-dollar'></i> Quick Pay</span></a></li>
+						
 						<?php
 
 							if($board != 0)
-								echo "<li><a style='color: green;' href='boardDashboard.php'>Board Dashboard</a></li>";
+								echo "<li><a style='color: green;' href='boardDashboard.php'><i class='fa fa-dashboard'></i> Board Dashboard</a></li>";
 
 						?>
+
+						<li><a href="logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
 
 					</ul>
 
 				</div>
 
 			</div>
-
-		</div>
-
-		<div class="extra-nav">
-						
-			<ul>
-				
-				<li><a href="https://hoaboardtime.com/srp/logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
-						
-			</ul>
 
 		</div>
 
