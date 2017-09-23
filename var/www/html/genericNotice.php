@@ -92,9 +92,28 @@ $message  = "Generating Inspection Notice...Please Wait...";
 	$pdf->WriteHtml("".date('M d,Y')."<br><br>".$names.$homeAddress."<br>".$homeCityName.",".$homeStateName.",".$homeZipCode."<br><br>"."<b>RE: Lot 82 Issuance of Courtesy Notice</b><br>Dear ".$name." :<br><br>As managing agent, of the ".$communityName.", one of our various administrative responsibilities include the task of initiating informing homeowners of issues of concern that are related to owner's maintenance requirements as defined in the governing documents. <br><br>This notice is being sent to advise you that as a result ofa recent routine inspection of the Association, many homes are in need of repair or painting and yours is one of those identified. We understand that you may not be aware of this condition and are extending an opportunity for you to respond or make the necessary repairs. <br><br>In accordance with your CC&Rs, all homeowners are responsible for maintaining the Separate Interest in good condition and repair.<br><br>To preserve the aesthetic appeal of the community, we request that you take necessary action to improve the exterior of your home upon receipt of this notice. The color of paint used should be as close to the original color as possible. You will be required to provide this office with the color scheme that you intend to use for approval prior to painting your house. <br><br> It is our obligation to inform you that if you choose not to comply with this request or discuss this matter with this office within thirty (30) days of receipt of this letter, then you will be scheduled to attend a Hearing before the Board of Directors to resolve the outstanding condition or you may be subjected to disciplinary action, i.e.; fines and/or loss of membership privileges.<br><br>Your special attention to this matter is appreciated in advance. If you have any questions regarding these issues, please feel free to give me a call during regular business hours at (209) 466-7228. <br><br>Sincerely,<br>Board of Directors<br>".$communityName);
 	$pdf->Output($homeAddress.'.pdf','F');
 	}
-	$message  = "Notice generated successfully!!!";
+	$message  = "Uploading to Dropbox...Please Wait...";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
+  //Dropbox Upload
+  $url = 'https://content.dropboxapi.com/2/files/upload';
+  $fileContents = file_get_contents($homeAddress.'.pdf');
+  if ( $homeID < 144 ){
+  $pathVar = '/Inspection_Notices/SRP/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
+}
+else if ( $homeID < 287 ){
+	$pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
+}
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
+}
+curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+$response = curl_exec($ch);
+curl_close($ch);
+print_r($response);
+
+
+
   unlink($homeAddress.'.pdf');
 ?>
