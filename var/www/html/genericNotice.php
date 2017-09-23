@@ -116,7 +116,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 $jsonDecode = json_decode($response);
 if ( $jsonDecode->id ){
-	$message  = "Upload to Dropbox Successfully";
+	$message  = "Uploaded to Dropbox Successfully";
 }
 else {
 		$message  = "Failed to upload to Dropbox. Please try agin.";
