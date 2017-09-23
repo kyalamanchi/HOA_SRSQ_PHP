@@ -86,7 +86,7 @@ function generateNotice(button){
                       </div>\
                     </div>';
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-var source = new EventSource("http://localhost/demo_sse.php?id="+button.id);
+var source = new EventSource("https://hoaboardtime.com/genericNotice.php?id="+button.id);
 source.onmessage = function(event) {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
     if ( event.data == "Notice generated successfully!!!"){
@@ -101,7 +101,7 @@ function closeModal(){
 function loadData(){
     showPleaseWait();
     var request = new XMLHttpRequest();
-    request.open("POST","http://localhost/getInspectionData.php",true);
+    request.open("POST","https://hoaboardtime.com/getInspectionData.php",true);
     request.send(null);
     request.onreadystatechange = function(){
     hidePleaseWait();
