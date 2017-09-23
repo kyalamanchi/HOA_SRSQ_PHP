@@ -116,13 +116,13 @@ $response = curl_exec($ch);
 curl_close($ch);
 $jsonDecode = json_decode($response);
 if ( $jsonDecode->id ){
-	echo "data: File Uploaded Successfully!!!";
-	ob_end_flush();
-	flush();
+	$message  = "Upload to Dropbox Successfully";
 }
 else {
-	echo "data: Failed to upload to Dropbox. Plese try again.";
-	ob_end_flush();
-	flush();
+		$message  = "Failed to upload to Dropbox. Please try agin.";
 }
+  echo 'data: '.$message."\n\n";  
+  ob_end_flush();
+  flush();
+  exit(0);
 ?>
