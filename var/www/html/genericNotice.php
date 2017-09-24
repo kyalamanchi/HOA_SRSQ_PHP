@@ -117,10 +117,15 @@ curl_close($ch);
 $jsonDecode = json_decode($response);
 if ( $jsonDecode->id ){
 	$message  = "Uploaded to Dropbox Successfully";
+	//Insert to document management
+	$id = $jsonDecode->id;
+
 }
 else {
 		$message  = "Failed to upload to Dropbox. Please try agin.";
 }
+
+echo "id: $id\n";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
