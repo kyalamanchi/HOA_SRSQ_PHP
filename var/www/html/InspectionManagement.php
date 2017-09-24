@@ -91,7 +91,7 @@ source.onmessage = function(event) {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
     if ( (event.data == "Uploaded to Dropbox Successfully") || (event.data == "Failed to upload to Dropbox. Please try agin.") ){
         source.close();
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" id="'+event.lastEventId+'" class="btn btn-primary" onclick="mailStatement(this);" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData(this);">Send via South Data</button>');
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" id="'+event.lastEventId+'" class="btn btn-primary" onclick="mailStatement(this);" >Mail Statement</button><button type="button"  class="btn btn-primary" id="'+event.lastEventId+'" style="padding-left: 10px" onclick="generateForSouthData(this);">Send via South Data</button>');
     }
 };
 }
@@ -122,16 +122,16 @@ function generateForSouthData(docID){
                     </div>';
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
     var url = "https://hoaboardtime.com/generateSouthData.php?id="+mailingInformation[1]+"&doc_id="+mailingInformation[0];
-    alert(mailingInformation[1]);
-    alert(mailingInformation[0]);
+    // alert(mailingInformation[1]);
+    // alert(mailingInformation[0]);
     var source = new EventSource(url);
     source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
         if ( (event.data == "File will be downloaded shortly.")  ){
         source.close();
-        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+event.lastEventId;
-        alert($downloadURL);
-        // document.location = $downloadURL;
+        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+hoaIDDownload;
+        // alert($downloadURL);
+        document.location = $downloadURL;
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
     }
      if ( (event.data == "Failed to generate notice. No HOAID found.") || (event.data == "Document id not found. Try re generating notice.")  ){
