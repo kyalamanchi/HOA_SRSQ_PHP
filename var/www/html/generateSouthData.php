@@ -146,6 +146,8 @@ $zip->addFile($hoaID.'.pdf', $hoaID.'.pdf');
 $zip->addFile($hoaID.'.tab', $hoaID.'.tab');
 $zip->close();
 $message  = "File will be downloaded shortly.";
+$id = $hoaID;
+echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
