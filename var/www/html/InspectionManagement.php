@@ -125,7 +125,10 @@ function generateForSouthData(docID){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
         if ( (event.data == "File will be downloaded shortly.")  ){
         source.close();
-        document.location="https://hoaboardtime.com/downloadFile.php?id="+mailingInformation[1];
+        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+mailingInformation[1];
+        alert(mailingInformation[0]);
+        alert(mailingInformation[1]);
+        document.location = $downloadURL;
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
     }
      if ( (event.data == "Failed to generate notice. No HOAID found.") || (event.data == "Document id not found. Try re generating notice.")  ){
