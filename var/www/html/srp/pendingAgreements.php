@@ -280,7 +280,7 @@
 
 				                                ";
 
-                                				echo "<td><a data-toggle='modal' data-target='#addHOAId_".$id."'>N/A</a></td>";
+                                				echo "<td><a data-toggle='modal' style='color: blue;' data-target='#addHOAId_".$id."'>N/A</a></td>";
 
                               				}
                               
