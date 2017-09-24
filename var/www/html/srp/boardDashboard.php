@@ -228,11 +228,15 @@
 
 												<div class='counter-number'>
 
-													<?php
+													<a href='pendingAgreements.php'>
 
-														echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));
+														<?php
 
-													?>
+															echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));
+
+														?>
+
+													</a>
 
 												</div>
 
@@ -248,11 +252,15 @@
 
 												<div class='counter-number'>
 
-													<?php
+													<a href='signedAgreements.php'>
+													
+														<?php
 
-														echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
+															echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
 
-													?>
+														?>
+
+													</a>
 
 												</div>
 

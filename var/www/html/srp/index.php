@@ -57,13 +57,13 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<header class='header header-center undefined'>
+			<header class='header header-right undefined'>
 
 				<div class='container-fluid'>
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand' href='index.html'><h5 style='color: green;'>Stoneridge Place<br>At Pleasanton HOA</h5></a>
+						<a class='inner-brand' href='index.php'><h5 style='color: green;'>Stoneridge Place<br>At Pleasanton HOA</h5></a>
 
 					</div>
 
@@ -75,12 +75,12 @@
 
 								<ul>
 
-									<li><a href='index.php'>Home</a></li>
-									<li><a class='smoothscroll' href='#pay_online'>Pay Online</a></li>
-									<li><a class='smoothscroll' href='#budget'>2017 Budget</a></li>
-									<li><a class='smoothscroll' href='#r_p'>Rule &amp; Policies</a></li>
-									<li><a class='smoothscroll' href='#contact'>Contact Us</a></li>
-									<li><a data-toggle='modal' data-target='#login_modal' style='color: green;'>Log In</a></li>
+									<li><a href='index.php'><i class='fa fa-home'></i> Home</a></li>
+									<li><a class='smoothscroll' href='#pay_online'><i class='fa fa-dollar'></i> Pay Online</a></li>
+									<li><a class='smoothscroll' href='#budget'><i class='fa fa-calendar-o'></i> 2017 Budget</a></li>
+									<li><a class='smoothscroll' href='#r_p'><i class='fa fa-gavel'></i> Rule &amp; Policies</a></li>
+									<li><a class='smoothscroll' href='#contact'><i class='fa fa-phone'></i> Contact Us</a></li>
+									<li><a data-toggle='modal' data-target='#login_modal' style='color: green;'><i class='fa fa-sign-in'></i> Log In</a></li>
 
 								</ul>
 

@@ -578,7 +578,7 @@
                       $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
                       
                       curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497428519",oauth_nonce="a4xBATp34bt",oauth_version="1.0",oauth_signature="kh9W2TS%2BgFz71nivoMNkMAvSvgQ%3D"'));
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdtnlpBxOlv0BmjUwWTfj29gEC0KrzOcJQHaiaUDajyIO",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497428519",oauth_nonce="a4xBATp34bt",oauth_version="1.0",oauth_signature="kh9W2TS%2BgFz71nivoMNkMAvSvgQ%3D"'));
                       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                             
                       $result = curl_exec($ch);
@@ -591,7 +591,7 @@
                       $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
                             
                       curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdWwhfzfRwgFd7vn8OrAEeSHoDMsyODbFjIwJ88uAJeiM",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497429042",oauth_nonce="zoRTBwG53rl",oauth_version="1.0",oauth_signature="KrrTrLBiDOUerb3%2Fticzvo%2F0HTI%3D'));
+                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdtnlpBxOlv0BmjUwWTfj29gEC0KrzOcJQHaiaUDajyIO",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1497429042",oauth_nonce="zoRTBwG53rl",oauth_version="1.0",oauth_signature="KrrTrLBiDOUerb3%2Fticzvo%2F0HTI%3D'));
                       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                             
                       $result2 = curl_exec($ch);
