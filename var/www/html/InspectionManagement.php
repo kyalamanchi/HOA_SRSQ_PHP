@@ -112,8 +112,29 @@ function mailStatement(docID){
     }
     };
 }
-function generateForSouthData(button){
-    alert(button.id);
+function generateForSouthData(docID){
+    var mailingInformation = docID.split(" ");
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    var source = new EventSource("https://hoaboardtime.com/generateSouthData.php?id="+mailingInformation[1]+"&doc_id="+mailingInformation[0]);
+    source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
+        if ( (event.data == "File will be downloaded shortly.")  ){
+        source.close();
+        document.location="https://hoaboardtime.com/downloadFile.php?id="+mailingInformation[1];
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
+    }
+     if ( (event.data == "Failed to generate notice. No HOAID found.") || (event.data == "Document id not found. Try re generating notice.")  ){
+        source.close();
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
+    }
+    };
+
+
 }
 
 function closeModal(){
