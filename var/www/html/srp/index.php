@@ -75,7 +75,7 @@
 
 								<ul>
 
-									<li><a href='index.php'>Home</a></li>
+									<li><a href='index.php'><i class='fa fa-home'></i> Home</a></li>
 									<li><a class='smoothscroll' href='#pay_online'><i class='fa fa-dollar'></i> Pay Online</a></li>
 									<li><a class='smoothscroll' href='#budget'><i class='fa fa-calendar-o'></i> 2017 Budget</a></li>
 									<li><a class='smoothscroll' href='#r_p'><i class='fa fa-gavel'></i> Rule &amp; Policies</a></li>
