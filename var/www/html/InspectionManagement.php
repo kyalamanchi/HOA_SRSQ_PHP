@@ -91,19 +91,18 @@ source.onmessage = function(event) {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
     if ( (event.data == "Uploaded to Dropbox Successfully") || (event.data == "Failed to upload to Dropbox. Please try agin.") ){
         source.close();
-        alert(event.lastEventId);
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" id="'+event.lastEventId+'" class="btn btn-primary" onclick="mailStatement(this);" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData();">Send via South Data</button>');
     }
 };
 }
 function mailStatement(docID){
+     $("#pleaseWaitDialog2").find('.modal-body').html('');
     var mailingInformation =  docID.id.split(" ");
     var source = new EventSource("https://hoaboardtime.com/sendInspectionNotice.php?id="+mailingInformation[1]+"&doc_id="+mailingInformation[0]);
     source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
         if ( (event.data == "Failed to mail statement. Error: No HOA ID provided.") || (event.data == "Mail sent successfully") ){
         source.close();
-        alert(event.lastEventId);
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Close</button>');
     }
     };
