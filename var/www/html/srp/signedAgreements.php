@@ -199,7 +199,7 @@
 
 				                                                <br>
 
-				                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' >
+				                                                <select class='form-control' name='select_hoa' id='select_hoa' style='width: 100%;' >
 
 				                                                  <option value='' disabled selected>Select User</option>";
 
@@ -267,7 +267,7 @@
 				                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 				                                              
 				                                              	<button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
-				                                              	
+
 				                                              </div>
 
 				                                            </div>
@@ -286,7 +286,7 @@
 
 				                                ";
 
-				                                echo "<td><a data-toggle='modal' data-target='#addHOAId_".$id."'>N/A</a></td>";
+				                                echo "<td><a data-toggle='modal' style='color: blue;' data-target='#addHOAId_".$id."'>N/A</a></td>";
 
 			                              	}
 			                              
