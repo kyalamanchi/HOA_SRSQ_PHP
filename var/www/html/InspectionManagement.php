@@ -114,6 +114,7 @@ function mailStatement(docID){
 }
 function generateForSouthData(docID){
     var mailingInformation = docID.id.split(" ");
+    var hoaIDDownload = mailingInformation[1];
     var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
@@ -125,9 +126,9 @@ function generateForSouthData(docID){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
         if ( (event.data == "File will be downloaded shortly.")  ){
         source.close();
-        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+mailingInformation[1];
-        alert(mailingInformation[0]);
-        alert(mailingInformation[1]);
+        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+hoaIDDownload;
+        alert(hoaIDDownload);
+        
         document.location = $downloadURL;
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
     }
