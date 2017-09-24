@@ -92,11 +92,19 @@ source.onmessage = function(event) {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
     if ( (event.data == "Uploaded to Dropbox Successfully") || (event.data == "Failed to upload to Dropbox. Please try agin.") ){
         source.close();
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px">Send via South Data</button>');
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" onclick="mailStatement();" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData();">Send via South Data</button>');
     } 
 
 };
 }
+function mailStatement(){
+    alert("Mandrill Integration");
+}
+
+function generateForSouthData(){
+    alert("SouthData Generation");
+}
+
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
