@@ -139,7 +139,9 @@ fwrite($handler, $finalWriteData);
 fclose($handler);
 
 //Creating ZIP file
-
+if ( file_exists($hoaID.'.zip')){
+unlink($hoaID.'.zip');
+}
 $zip = new ZipArchive;
 if ($zip->open($hoaID.'.zip',  ZipArchive::CREATE)) {
 $zip->addFile($hoaID.'.pdf', $hoaID.'.pdf');
