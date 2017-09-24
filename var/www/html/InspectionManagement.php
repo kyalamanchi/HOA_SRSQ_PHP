@@ -121,7 +121,10 @@ function generateForSouthData(docID){
                       </div>\
                     </div>';
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-    var source = new EventSource("https://hoaboardtime.com/generateSouthData.php?id="+mailingInformation[1]+"&doc_id="+mailingInformation[0]);
+    var url = "https://hoaboardtime.com/generateSouthData.php?id="+mailingInformation[1]+"&doc_id="+mailingInformation[0];
+    alert(mailingInformation[1]);
+    alert(mailingInformation[0]);
+    var source = new EventSource(url);
     source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
         if ( (event.data == "File will be downloaded shortly.")  ){
