@@ -92,8 +92,7 @@ source.onmessage = function(event) {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
     if ( (event.data == "Uploaded to Dropbox Successfully") || (event.data == "Failed to upload to Dropbox. Please try agin.") ){
         source.close();
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" >Send via South Data</button>');
-        document.getElementById("southData").style.paddingLeft = "10px";
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" >Send via South Data</button>');
     } 
 
 };
@@ -192,7 +191,7 @@ function hidePleaseWait() {
 
   <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" >
                 <div class="modal-header">
                 </div>
                 <div class="modal-body">
