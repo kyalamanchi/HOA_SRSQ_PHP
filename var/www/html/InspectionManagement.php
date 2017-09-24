@@ -97,13 +97,17 @@ source.onmessage = function(event) {
 };
 }
 function mailStatement(docID){
-    alert(docID.id);
-    // alert(docID.id);
-    // alert("Mandrill Integration");
-    // var request = new XMLHttpRequest();
-    // request.open("POST","https://hoaboardtime.com/sendInspectionNotice.php?",true);
+    var mailingInformation =  docID.id.split(" ");
+    var source = new EventSource("https://hoaboardtime.com/sendInspectionNotice.php?id="+mailingInformation[1]+"&doc_id="+mailingInformation[0]);
+    source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
+        if ( (event.data == "Failed to mail statement. Error: No HOA ID provided.") || (event.data == "Mail sent successfully") ){
+        source.close();
+        alert(event.lastEventId);
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Close</button>');
+    }
+    };
 }
-
 function generateForSouthData(){
     alert("SouthData Generation");
 }
