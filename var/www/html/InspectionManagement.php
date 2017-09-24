@@ -97,8 +97,10 @@ source.onmessage = function(event) {
 };
 }
 function mailStatement(docID){
-    alert(docID.id);
-    alert("Mandrill Integration");
+    // alert(docID.id);
+    // alert("Mandrill Integration");
+    var request = new XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/sendInspectionNotice.php?",true);
 }
 
 function generateForSouthData(){

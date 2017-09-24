@@ -17,10 +17,11 @@ $message  = "Generating Inspection Notice...Please Wait...";
 		$communityLegalNames[$row['community_id']] = $row['legal_name'];
 		$communityAddresses[$row['community_id']]  = $row['mailing_address'];
 	}
-	$query = "SELECT HOME_ID FROM INSPECTION_NOTICES WHERE ID=".$_GET['id'];
+	$query = "SELECT HOME_ID,HOA_ID FROM INSPECTION_NOTICES WHERE ID=".$_GET['id'];
 	$queryResult = pg_query($query);
 	$row  = pg_fetch_assoc($queryResult);
 	$homeID = $row['home_id'];
+	$hoaID = $row['hoa_id'];
 	$query = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
 	$queryResult = pg_query($query);
 	$homeAddress = "";
@@ -119,6 +120,7 @@ if ( $jsonDecode->id ){
 	$message  = "Uploaded to Dropbox Successfully";
 	//Insert to document management
 	$id = $jsonDecode->id;
+	$id = $id.' '.$hoaID;
 
 }
 else {
