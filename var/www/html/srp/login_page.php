@@ -109,7 +109,7 @@
 
 								<div class='up-logo'>
 
-									<p><center><h3>Stoneridge Place</h3><h4>At Pleasanton HOA</h4></center></p>
+									<p><center><h3>Stoneridge Place At Pleasanton HOA</h3></center></p>
 
 								</div>
 
