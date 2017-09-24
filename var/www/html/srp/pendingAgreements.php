@@ -154,7 +154,9 @@
                               				$name .= " ";
                               				$name .= $row1['lastname'];
 
-                              				echo "<td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id' title='User Dashboard'>".$name."<br>($hoa_id)</a></td>";
+                              				//echo "<td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id' title='User Dashboard'>".$name."<br>($hoa_id)</a></td>";
+
+                              				echo "<td>".$name."<br>($hoa_id)</td>";
                             			
                             			}
                             			else
@@ -170,7 +172,9 @@
                                 				$vname = $row1['vendor_name'];
                                 				$vid = $row1['vendor_id'];
 
-                                				echo "<td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vid' title='Vendor Dashboard'>".$vname."</a></td>";
+                                				//echo "<td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vid' title='Vendor Dashboard'>".$vname."</a></td>";
+
+                                				echo "<td>".$vname."</td>";
 
                               				}
                               				else
@@ -261,9 +265,20 @@
 
 				                                            <br>
 
-				                                            <div class='row container-fluid text-center'>
-				                                              <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
-				                                              <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+				                                            <div class='row container-fluid'>
+				                                              
+				                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center'>
+				                                              	
+				                                              	<button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
+
+				                                              </div>
+
+				                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center'>
+				                                              
+				                                              	<button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+
+				                                              </div>
+
 				                                            </div>
 
 				                                          </form>
