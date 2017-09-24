@@ -80,7 +80,7 @@
 									<li><a class='smoothscroll' href='#budget'>2017 Budget</a></li>
 									<li><a class='smoothscroll' href='#r_p'>Rule &amp; Policies</a></li>
 									<li><a class='smoothscroll' href='#contact'>Contact Us</a></li>
-									<li><a data-toggle='modal' data-target='#login_modal' style='color: green;'>Log In</a></li>
+									<li><a data-toggle='modal' data-target='#login_modal' style='color: green;'><i class='fa fa-sign-in'></i> Log In</a></li>
 
 								</ul>
 
