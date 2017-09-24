@@ -126,9 +126,7 @@ function generateForSouthData(docID){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
         if ( (event.data == "File will be downloaded shortly.")  ){
         source.close();
-        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+hoaIDDownload;
-        alert(hoaIDDownload);
-        
+        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+event.lastEventId;
         document.location = $downloadURL;
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
     }

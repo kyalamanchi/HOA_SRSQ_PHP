@@ -11,7 +11,4 @@ header("Content-disposition: attachment; filename=\"" . basename($file_url) . "\
 readfile($file_url);
 unlink($_GET['id'].'.zip');
 }
-else {
-	echo "Cannot find file";
-}
 ?>
