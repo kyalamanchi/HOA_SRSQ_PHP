@@ -36,7 +36,6 @@ function showPleaseWait() {
     $(document.body).append(modalLoading);
     $("#pleaseWaitDialog").modal("show");
 }
-
 function changeOptions2(){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
@@ -93,12 +92,12 @@ source.onmessage = function(event) {
     if ( (event.data == "Uploaded to Dropbox Successfully") || (event.data == "Failed to upload to Dropbox. Please try agin.") ){
         source.close();
         alert(event.lastEventId);
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" onclick="mailStatement();" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData();">Send via South Data</button>');
-    } 
-
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" onclick="mailStatement('+event.lastEventId+');" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData();">Send via South Data</button>');
+    }
 };
 }
-function mailStatement(){
+function mailStatement(docID){
+    alert(docID);
     alert("Mandrill Integration");
 }
 
@@ -197,7 +196,6 @@ function hidePleaseWait() {
         </div>
         <br><br>
   </div>
-
   <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content" >
