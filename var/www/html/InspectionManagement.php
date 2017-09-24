@@ -97,7 +97,7 @@ source.onmessage = function(event) {
 };
 }
 function mailStatement(docID){
-    alert(docID);
+    alert(docID.id);
     alert("Mandrill Integration");
 }
 
