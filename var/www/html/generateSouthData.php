@@ -163,6 +163,7 @@ curl_exec($ch);
 //Deleting pdf & tab files
 unlink($hoaID.'.pdf');
 unlink($hoaID.'.tab');
+unlink($hoaID.'.zip');
 exit(0);
 
 ?>
