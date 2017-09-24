@@ -92,7 +92,7 @@ source.onmessage = function(event) {
     if ( (event.data == "Uploaded to Dropbox Successfully") || (event.data == "Failed to upload to Dropbox. Please try agin.") ){
         source.close();
         alert(event.lastEventId);
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" onclick="mailStatement('+event.lastEventId+');" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData();">Send via South Data</button>');
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button><button type="button" class="btn btn-primary" onclick="mailStatement("'+event.lastEventId+'");" >Mail Statement</button><button type="button"  class="btn btn-primary" id="southData" style="padding-left: 10px" onclick="generateForSouthData();">Send via South Data</button>');
     }
 };
 }
