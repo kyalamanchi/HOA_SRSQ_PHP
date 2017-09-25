@@ -66,12 +66,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
-		<title>Core - Template</title>
-		<!-- Favicons-->
-		<link rel="shortcut icon" href="assets/images/favicon.png">
-		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
+
+		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
+		
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Hind:400,600,700" rel="stylesheet">
