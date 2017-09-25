@@ -141,7 +141,7 @@
 
 									}
 
-									echo "<tr><td></td><td></td><td></td><td><strong>Total Charges</strong></td><td>$total_charges</td></tr>";
+									echo "<tr><td></td><td></td><td></td><td><strong>Total Charges</strong></td><td>$ $total_charges</td></tr>";
 
 								?>
 
@@ -207,9 +207,9 @@
 
                           				echo "<tr><td>$payment_month</td><td>$payment_year</td><td>$process_date</td><td>$payment_type</td><td>$amount</td></tr>";
 
-                          				echo "<tr><td></td><td></td><td></td><td><strong>Total Payments</strong></td><td>$total_payments</td></tr>";
-
 									}
+
+									echo "<tr><td></td><td></td><td></td><td><strong>Total Payments</strong></td><td>$ $total_payments</td></tr>";
 
 								?>
 
