@@ -253,7 +253,12 @@
 
 															<?php 
 																
-																echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1")); 
+																$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
+
+																if ($parking_tags > 0) 
+																	echo "<a href='parkingTags.php' style='color: green;'>$parking_tags</a>";
+																else
+																	echo $parking_tags;
 
 															?>
 
