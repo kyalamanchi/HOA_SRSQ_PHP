@@ -213,7 +213,12 @@
                           			$m[11] = $row['m11_pmt_processed'];
                           			$m[12] = $row['m12_pmt_processed'];
 
-                          			echo "<tr><td>$row['m1_pmt_processed']</td><td><input type='checkbox' name='month[]' id='month' value='February' ";
+                          			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
+
+                          			if($m[1] == 't')
+                          				echo "checked ";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
 
                           			if($m[2] == 't')
                           				echo "checked ";
