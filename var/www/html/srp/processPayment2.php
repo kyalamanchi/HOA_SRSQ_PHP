@@ -147,8 +147,8 @@
 
                         			$balance = $total_charges - $total_payments;
 
-                        			echo "<tr><td></td><td></td><td><strong>Total</strong></td><td>$ $total_charges</td><td>$ $total_payments</td></tr>";
-                        			echo "<tr><td></td><td></td><td><strong>Current Balance</strong></td><td colspan=2><strong><center>$ $balance</center></strong></td></tr>";
+                        			echo "<tr><td></td><td></td><td><strong><center>Total</center></strong></td><td>$ $total_charges</td><td>$ $total_payments</td></tr>";
+                        			echo "<tr><td></td><td></td><td><strong><center>Current Balance</center></strong></td><td colspan=2><strong><center>$ $balance</center></strong></td></tr>";
 
                       			?>
 
