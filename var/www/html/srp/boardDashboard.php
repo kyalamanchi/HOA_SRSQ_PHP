@@ -264,19 +264,16 @@
 
 													<div class='counter h6'>
 
-														<div class='counter-number'>
+														<?php 
 
-															<a href='pendingAgreements.php'>
+															$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));;
 
-																<?php
+															if($pending_agreements == 0)
+																echo "<div class='counter-number'>$pending_agreements</div>";
+															else
+																echo "<div class='counter-number text-warning'>$pending_agreements</div>";
 
-																	echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));
-
-																?>
-
-															</a>
-
-														</div>
+														?>
 
 														<div class='counter-title'>Pending Agreements</div>
 
