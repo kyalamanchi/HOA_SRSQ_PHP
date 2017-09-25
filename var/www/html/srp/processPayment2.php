@@ -86,146 +86,6 @@
 			<section class="module">
 					
 				<div class="container-fluid">
-
-					<div class='text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-						<h3 class='h3'>Charges</h3>
-
-					</div>
-						
-					<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-					
-						<table class='table table-striped'  style='color: black;'>
-
-							<thead>
-								
-								<th>Month</th>
-								<th>Year</th>
-								<th>Charge Date</th>
-								<th>Assessment Type</th>
-								<th>Amount</th>
-
-							</thead>
-
-							<tbody>
-								
-								<?php
-
-									$total_charges = 0.0;
-
-									$result = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id ORDER BY assessment_date asc");
-
-									while($row = pg_fetch_assoc($result))
-									{
-
-										$year = date('Y');
-										$assessment_rule_type = $row['assessment_rule_type_id'];
-										$assessment_month = $row['assessment_month'];
-										$assessment_year = $row['assessment_year'];
-										$amount = $row['amount'];
-										$assessment_date = $row['assessment_date'];
-										$total_charges += $amount;
-
-										if($assessment_date != '')
-											$assessment_month = date('F', strtotime($assessment_date));
-
-										if($assessment_date != '')
-											$assessment_date = date('m-d-Y', strtotime($assessment_date));
-
-										if($amount != '')
-											$amount = "$ ".$amount;
-
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$assessment_rule_type"));
-										$assessment_rule_type = $row1['name'];
-
-                          				echo "<tr><td>$assessment_month</td><td>$assessment_year</td><td>$assessment_date</td><td>$assessment_rule_type</td><td>$amount</td></tr>";
-
-									}
-
-									echo "<tr><td></td><td></td><td></td><td><strong>Total Charges</strong></td><td>$ $total_charges</td></tr>";
-
-								?>
-
-							</tbody>
-							
-						</table>
-
-					</div>
-
-					<div class='text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-						<h3 class='h3'>Payments</h3>
-
-					</div>
-						
-					<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-					
-						<table class='table table-striped'  style='color: black;'>
-
-							<thead>
-								
-								<th>Month</th>
-								<th>Year</th>
-								<th>Payment Date</th>
-								<th>Payment Type</th>
-								<th>Amount</th>
-
-							</thead>
-
-							<tbody>
-								
-								<?php
-
-									$total_payments = 0.0;
-
-									$result = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id ORDER BY process_date asc");
-
-									while($row = pg_fetch_assoc($result))
-									{
-
-										$year = date('Y');
-										$payment_type = $row['payment_type_id'];
-										$assessment_month = $row['assessment_month'];
-										$assessment_year = $row['assessment_year'];
-										$amount = $row['amount'];
-										$document_num = $row['document_num'];
-										$process_date = $row['process_date'];
-										$total_payments += $amount;
-
-										if($process_date != '')
-											$payment_month = date('F', strtotime($process_date));
-
-										if($process_date != '')
-											$payment_year = date('Y', strtotime($process_date));
-
-										if($process_date != '')
-											$process_date = date('m-d-Y', strtotime($process_date));
-
-										if($amount != '')
-											$amount = "$ ".$amount;
-
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
-										$payment_type = $row1['payment_type_name'];
-
-                          				echo "<tr><td>$payment_month</td><td>$payment_year</td><td>$process_date</td><td>$payment_type # $document_num</td><td>$amount</td></tr>";
-
-									}
-
-									echo "<tr><td></td><td></td><td></td><td><strong>Total Payments</strong></td><td>$ $total_payments</td></tr>";
-
-								?>
-
-							</tbody>
-							
-						</table>
-
-					</div>
-
-					<div class='text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-						<h3 class='h3'>Payments</h3>
-
-					</div>
 						
 					<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 					
@@ -285,8 +145,10 @@
 
                         			}
 
+                        			$balance = $total_charges - $total_payments;
+
                         			echo "<tr><td></td><td></td><td><strong>Total</strong></td><td>$ $total_charges</td><td>$ $total_payments</td></tr>";
-                        			echo "<tr><td></td><td></td><td><strong>Balance</strong></td><td rowspan=2>$ $total_charges - $total_payments</td></tr>";
+                        			echo "<tr><td></td><td></td><td><strong>Current Balance</strong></td><td colspan=2><strong><center>$ $balance</center></strong></td></tr>";
 
                       			?>
 
