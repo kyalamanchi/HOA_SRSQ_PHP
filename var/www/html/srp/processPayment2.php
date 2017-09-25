@@ -18,6 +18,9 @@
 
 			$today = date('Y-m-d');
 
+			if($name == '')
+				header('Location: processPayment.php');
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -65,7 +68,7 @@
 						
 						<div class="page-title-captions">
 							
-							<h1 class="h5">Process Payments</h1>
+							<h1 class="h5">Process Payments - <?php echo $_REQUEST['name']; ?></h1>
 						
 						</div>
 					
@@ -79,6 +82,12 @@
 			<section class="module">
 					
 				<div class="container-fluid">
+
+					<div class='text-center col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+						<h3 class='h3'>Charges</h3>
+
+					</div>
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
@@ -149,7 +158,7 @@
 
                           				}
 
-                          				echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+                          				echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
 									}
 
