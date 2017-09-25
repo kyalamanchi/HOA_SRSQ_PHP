@@ -16,6 +16,8 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 
+			$today = date('Y-m-d');
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -78,23 +80,83 @@
 					
 				<div class="container">
 						
-					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
-						
+						<table>
 
-					</div>
+							<thead>
+								
+								<th>Name (HOA ID)</th>
+								<th>Address (Home ID)</th>
+								<th>January</th>
+								<th>February</th>
+								<th>March</th>
+								<th>April</th>
+								<th>May</th>
+								<th>June</th>
+								<th>July</th>
+								<th>August</th>
+								<th>September</th>
+								<th>October</th>
+								<th>November</th>
+								<th>December</th>
 
-				</div>
+							</thead>
 
-			</section>
+							<tbody>
+								
+								<?php
 
-			<section class="module-page-title">
-					
-				<div class="container">
-						
-					<div class="row-page-title">
+									$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+									while($row = pg_fetch_assoc($result))
+									{
+
+										$home_id = $row['home_id'];
+										$address = $row['address1'];
+										$living_status = $row['living_status'];
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
+
+										$name = $row1['firstname'];
+										$name .= " ";
+										$name .= $row1['lastname'];
+										$hoa_id = $row1['hoa_id'];
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=".date('Y')));
+
+										$m[1] = $row['m1_pmt_processed'];
+                          				$m[2] = $row['m2_pmt_processed'];
+                          				$m[3] = $row['m3_pmt_processed'];
+                          				$m[4] = $row['m4_pmt_processed'];
+                          				$m[5] = $row['m5_pmt_processed'];
+                          				$m[6] = $row['m6_pmt_processed'];
+                          				$m[7] = $row['m7_pmt_processed'];
+                          				$m[8] = $row['m8_pmt_processed'];
+                          				$m[9] = $row['m9_pmt_processed'];
+                         				$m[10] = $row['m10_pmt_processed'];
+                          				$m[11] = $row['m11_pmt_processed'];
+                          				$m[12] = $row['m12_pmt_processed'];
+
+                          				for ($i = 1; $i <= 12; $i++)
+                          				{
+                            
+                            				if($m[$i] == 't')
+                              					$m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
+                            				else
+                              					$m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                          				}
+
+                          				echo "<tr><td>$name ($hoa_id)</td><td>$address ($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+
+									}
+
+								?>
+
+							</tbody>
 							
-						<div class="page-title-captions"></div>
+						</table>
 
 					</div>
 

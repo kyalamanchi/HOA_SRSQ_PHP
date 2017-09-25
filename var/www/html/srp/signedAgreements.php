@@ -308,20 +308,6 @@
 
 			</section>
 
-			<section class="module-page-title">
-					
-				<div class="container">
-						
-					<div class="row-page-title">
-							
-						<div class="page-title-captions"></div>
-
-					</div>
-
-				</div>
-
-			</section>
-
 			<!-- Footer-->
 			<?php include 'footer.php'; ?>
 
