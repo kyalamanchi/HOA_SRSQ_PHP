@@ -187,7 +187,8 @@ $(document).ready(function() {
             { title: "SubCategory" },
             { title: "Location" },
             { title: "Type" },
-            { title: "Status"},
+            { title: "Status",
+            "width" : "30%" },
             { title: ""},
             { title: ""}
         ]
