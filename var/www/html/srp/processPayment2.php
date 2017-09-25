@@ -128,7 +128,7 @@
 										if($amount != '')
 											$amount = "$ ".$amount;
 
-										$assessment_month = date('F', $assessment_month);
+										$assessment_month = $assessment_month." - - - ".date('F', $assessment_month);
 
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$assessment_rule_type"));
 										$assessment_rule_type = $row1['name'];
