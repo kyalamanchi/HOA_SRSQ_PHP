@@ -196,89 +196,95 @@
 
 							<tbody>
 								
-								<?php
+								<form method='POST'>
 
-									$m = array();
+									<?php
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
+										$m = array();
 
-									$m[1] = $row['m1_pmt_processed'];
-                          			$m[2] = $row['m2_pmt_processed'];
-                          			$m[3] = $row['m3_pmt_processed'];
-                          			$m[4] = $row['m4_pmt_processed'];
-                          			$m[5] = $row['m5_pmt_processed'];
-                          			$m[6] = $row['m6_pmt_processed'];
-                          			$m[7] = $row['m7_pmt_processed'];
-                          			$m[8] = $row['m8_pmt_processed'];
-                          			$m[9] = $row['m9_pmt_processed'];
-                         			$m[10] = $row['m10_pmt_processed'];
-                          			$m[11] = $row['m11_pmt_processed'];
-                          			$m[12] = $row['m12_pmt_processed'];
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
-                          			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
+										$m[1] = $row['m1_pmt_processed'];
+	                          			$m[2] = $row['m2_pmt_processed'];
+	                          			$m[3] = $row['m3_pmt_processed'];
+	                          			$m[4] = $row['m4_pmt_processed'];
+	                          			$m[5] = $row['m5_pmt_processed'];
+	                          			$m[6] = $row['m6_pmt_processed'];
+	                          			$m[7] = $row['m7_pmt_processed'];
+	                          			$m[8] = $row['m8_pmt_processed'];
+	                          			$m[9] = $row['m9_pmt_processed'];
+	                         			$m[10] = $row['m10_pmt_processed'];
+	                          			$m[11] = $row['m11_pmt_processed'];
+	                          			$m[12] = $row['m12_pmt_processed'];
 
-                          			if($m[1] == 't')
-                          				echo "checked ";
+	                          			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
+	                          			if($m[1] == 't')
+	                          				echo "checked ";
 
-                          			if($m[2] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='March' ";
+	                          			if($m[2] == 't')
+	                          				echo "checked ";
 
-                          			if($m[3] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='March' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='April' ";
+	                          			if($m[3] == 't')
+	                          				echo "checked ";
 
-                          			if($m[4] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='April' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='May' ";
+	                          			if($m[4] == 't')
+	                          				echo "checked ";
 
-                          			if($m[5] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='May' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='June' ";
+	                          			if($m[5] == 't')
+	                          				echo "checked ";
 
-                          			if($m[6] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='June' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='July' ";
+	                          			if($m[6] == 't')
+	                          				echo "checked ";
 
-                          			if($m[7] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='July' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='August' ";
+	                          			if($m[7] == 't')
+	                          				echo "checked ";
 
-                          			if($m[8] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='August' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='September' ";
+	                          			if($m[8] == 't')
+	                          				echo "checked ";
 
-                          			if($m[9] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='September' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='October' ";
+	                          			if($m[9] == 't')
+	                          				echo "checked ";
 
-                          			if($m[10] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='October' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='November' ";
+	                          			if($m[10] == 't')
+	                          				echo "checked ";
 
-                          			if($m[11] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='November' ";
 
-                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='December' ";
+	                          			if($m[11] == 't')
+	                          				echo "checked ";
 
-                          			if($m[12] == 't')
-                          				echo "checked ";
+	                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='December' ";
 
-                          			echo "></td></tr>";
+	                          			if($m[12] == 't')
+	                          				echo "checked ";
+
+	                          			echo "></td></tr>";
 
 
-								?>
+									?>
+
+									<tr><td rowspan='12'><center><button type='submit' class='btn btn-info btn-xs'>Update</button></center></td></tr>
+
+								</form>
 
 							</tbody>
 							
