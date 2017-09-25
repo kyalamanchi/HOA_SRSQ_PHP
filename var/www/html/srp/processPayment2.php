@@ -320,19 +320,13 @@
 
 							<div class='row'>
 
-								<div class='row'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-										<label><strong>Payment Type : </strong></label>
-
-									</div>
+									<label><strong>Payment Type : </strong></label>
 
 								</div>
-
-								<br>alkjgdlshgcdasjhcasl
 								
-								<div class='row'>
+								<!--div class='row'-->
 
 									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
@@ -352,7 +346,7 @@
 
 									</div>
 
-								</div>
+								<!--/div-->
 
 							</div>
 
