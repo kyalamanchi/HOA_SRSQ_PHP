@@ -73,28 +73,6 @@
 			
 			</section>
 
-			<section class="module-page-title">
-					
-				<div class="container">
-						
-					<div class="row-page-title">
-							
-						<div class="page-title-captions">
-								
-							<div class='special-heading m-b-40'>
-									
-								<h4>Pending Agreements</h4>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-
-			</section>
-
 			<!-- Content -->
 			<section class="module">
 					
