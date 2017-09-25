@@ -15,7 +15,7 @@
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
-			$name = $_REQUEST['name'];
+			$name = $_GET['name'];
 
 			$today = date('Y-m-d');
 
