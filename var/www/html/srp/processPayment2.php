@@ -18,7 +18,7 @@
 
 			$today = date('Y-m-d');
 
-			if($name == '')
+			if($_REQUEST['name'] == '')
 				header('Location: processPayment.php');
 
 		?>
