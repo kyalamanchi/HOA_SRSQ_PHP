@@ -56,15 +56,19 @@
 
 			<!-- Page Header -->
 			<section class="module-page-title">
-				
-				<div class="container">
 					
-					<div class="row-page-title">
+				<div class="container">
 						
+					<div class="row-page-title">
+							
 						<div class="page-title-captions">
 								
-							<h1 class="h5">Community Deposits</h1>
-						
+							<div class='special-heading m-b-40'>
+									
+								<h4>Community Deposits</h4>
+
+							</div>
+
 						</div>
 
 					</div>
@@ -76,8 +80,9 @@
 			<!-- Content -->
 			<section class="module">
 					
-				<div class="container table-responsive">
+				<div class="container">
 						
+					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					<table id='example1' class='table' style="color: black;">
 								
 						<thead>
@@ -358,6 +363,7 @@
 						</tbody>
 								
 					</table>
+					</div>
 
 				</div>
 
