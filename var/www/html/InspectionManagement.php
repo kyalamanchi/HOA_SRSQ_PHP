@@ -189,7 +189,7 @@ $(document).ready(function() {
             "width" : "15%" },
             { title: "Type" },
             { title: "Status",
-            "width" : "30%" },
+            "width" : "25%" },
             { title: ""},
             { title: ""}
         ]
