@@ -1,19 +1,21 @@
-<header class='header header-right undefined'>
+<header class="header header-center undefined">
+	
+	<div class="container-fluid">
+					
+		<!-- Logos-->
+		<div class="inner-header">
 
-	<div class='container-fluid'>
-
-		<div class='inner-header'>
-						
 			<a class='inner-brand' href=''><h3 style='color: green;'><?php echo $_SESSION['hoa_community_code']; ?></h3></a>
 
 		</div>
-
-		<div class='inner-navigation collapse'>
-
-			<div class='inner-navigation-inline'>
-
-				<div class='inner-nav'>
-
+		
+		<!-- Navigation-->
+		<div class="inner-navigation collapse">
+						
+			<div class="inner-navigation-inline">
+				
+				<div class="inner-nav">
+						
 					<ul>
 
 						<li><a href='boardDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
@@ -80,27 +82,28 @@
 
 						<li><a href="logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
 
-					</ul>
-
+					</ul>		
+				
 				</div>
-
+			
 			</div>
 
 		</div>
 
-		<!-- Mobile menu-->
-		<div class='nav-toggle'>
+		<!-- Extra menu-->
+		<div class="extra-nav">
 						
-			<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
-							
-				<span class='icon-bar'></span>
-				<span class='icon-bar'></span>
-				<span class='icon-bar'></span>
-
-			</a>
+			<ul>
+				
+				<li><a class="open-offcanvas" href="#"><span>Menu</span><span class="fa fa-bars"></span></a></li>
+						
+			</ul>
 
 		</div>
-
+		
+		<!-- Mobile menu-->
+		<div class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></div>
+	
 	</div>
 
 </header>
