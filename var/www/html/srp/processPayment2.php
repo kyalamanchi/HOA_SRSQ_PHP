@@ -282,7 +282,7 @@
 
 									?>
 
-									<tr><td rowspan='12'><center><button type='submit' class='btn btn-info btn-xs'>Update</button></center></td></tr>
+									<tr><td colspan='12'><center><button type='submit' class='btn btn-info btn-xs'>Update</button></center></td></tr>
 
 								</form>
 
