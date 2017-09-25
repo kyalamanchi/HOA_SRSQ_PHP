@@ -74,8 +74,26 @@
 			<!-- Wrapper-->
 			<div class="wrapper">
 
+				<!-- Page Header-->
+				<section class="module-page-title">
+					<div class="container">
+						<div class="row-page-title">
+							<div class="page-title-captions">
+								<h1 class="h5">Tabs</h1>
+							</div>
+							<div class="page-title-secondary">
+								<ol class="breadcrumb">
+									<li class="breadcrumb-item"><a href="#">Home</a></li>
+									<li class="breadcrumb-item"><a href="#">Shortcodes</a></li>
+									<li class="breadcrumb-item active">Tabs</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<!-- Tabs-->
-				<section class="module module-gray">
+				<section class="module">
 					
 					<div class="container">
 						
@@ -358,5 +376,5 @@
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src="assets/js/style-switcher.min.js"></script-->
 	</body>
-
+	
 </html>
