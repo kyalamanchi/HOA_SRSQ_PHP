@@ -316,21 +316,25 @@
 
 							<label>Payment Type</label>
 							
-							<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+							<div class='row'>
 
-								<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
+								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-							</div>
+									<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
 
-							<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+								</div>
 
-								<input type='radio' name='payment_type_id' id='payment_type_id' value='3' checked> Check
+								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-							</div>
+									<input type='radio' name='payment_type_id' id='payment_type_id' value='3' checked> Check
 
-							<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+								</div>
 
-								<input type='radio' name='payment_type_id' id='payment_type_id' value='4' checked> Money Order
+								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+									<input type='radio' name='payment_type_id' id='payment_type_id' value='4' checked> Money Order
+
+								</div>
 
 							</div>
 							
