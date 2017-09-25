@@ -123,7 +123,6 @@
 										$assessment_year = $row['assessment_year'];
 										$amount = $row['amount'];
 										$assessment_date = $row['assessment_date'];
-										$document_num = $row['document_num'];
 										$total_charges += $amount;
 
 										if($assessment_date != '')
@@ -138,7 +137,7 @@
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$assessment_rule_type"));
 										$assessment_rule_type = $row1['name'];
 
-                          				echo "<tr><td>$assessment_month</td><td>$assessment_year</td><td>$assessment_date</td><td>$assessment_rule_type # $document_num</td><td>$amount</td></tr>";
+                          				echo "<tr><td>$assessment_month</td><td>$assessment_year</td><td>$assessment_date</td><td>$assessment_rule_type</td><td>$amount</td></tr>";
 
 									}
 
@@ -188,6 +187,7 @@
 										$assessment_month = $row['assessment_month'];
 										$assessment_year = $row['assessment_year'];
 										$amount = $row['amount'];
+										$document_num = $row['document_num'];
 										$process_date = $row['process_date'];
 										$total_payments += $amount;
 
@@ -206,7 +206,7 @@
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
 										$payment_type = $row1['payment_type_name'];
 
-                          				echo "<tr><td>$payment_month</td><td>$payment_year</td><td>$process_date</td><td>$payment_type</td><td>$amount</td></tr>";
+                          				echo "<tr><td>$payment_month</td><td>$payment_year</td><td>$process_date</td><td>$payment_type # $document_num</td><td>$amount</td></tr>";
 
 									}
 
