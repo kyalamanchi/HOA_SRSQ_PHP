@@ -285,8 +285,8 @@
 
                         			}
 
-                        			echo "<tr><td></td><td></td><td><strong>Total</strong></td><td>$ $total_charges</td><td>$ total_payments</td></tr>";
-                        			echo "<tr><td></td><td></td><td><strong>Balance</strong></td><td colspan=2>$ $total_charges - $total_payments</td></tr>";
+                        			echo "<tr><td></td><td></td><td><strong>Total</strong></td><td>$ $total_charges</td><td>$ $total_payments</td></tr>";
+                        			echo "<tr><td></td><td></td><td><strong>Balance</strong></td><td rowspan=2>$ $total_charges - $total_payments</td></tr>";
 
                       			?>
 
