@@ -16,6 +16,8 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 			$name = $_GET['name'];
+			$home_id = $_GET['home_id'];
+			$hoa_id = $_GET['hoa_id'];
 
 			$today = date('Y-m-d');
 
@@ -108,7 +110,7 @@
 								
 								<?php
 
-									$result = pg_query("SELECT * FROM current_charges WHERE community_id=$community_id AND home_id=$home_id AND hoa_id=$hoa_id");
+									$result = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id");
 
 									while($row = pg_fetch_assoc($result))
 									{
