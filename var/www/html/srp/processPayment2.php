@@ -110,6 +110,8 @@
 								
 								<?php
 
+									$total_charges = 0.0;
+
 									$result = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id ORDER BY assessment_date asc");
 
 									while($row = pg_fetch_assoc($result))
@@ -121,6 +123,7 @@
 										$assessment_year = $row['assessment_year'];
 										$amount = $row['amount'];
 										$assessment_date = $row['assessment_date'];
+										$total_charges += $amount;
 
 										if($assessment_date != '')
 											$assessment_month = date('F', strtotime($assessment_date));
@@ -137,6 +140,8 @@
                           				echo "<tr><td>$assessment_month</td><td>$assessment_year</td><td>$assessment_date</td><td>$assessment_rule_type</td><td>$amount</td></tr>";
 
 									}
+
+									echo "<tr><td></td><td></td><td></td><td><strong>Total Charges</strong></td><td>$total_charges</td></tr>";
 
 								?>
 
@@ -170,6 +175,8 @@
 								
 								<?php
 
+									$total_payments = 0.0;
+
 									$result = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id ORDER BY process_date asc");
 
 									while($row = pg_fetch_assoc($result))
@@ -181,6 +188,7 @@
 										$assessment_year = $row['assessment_year'];
 										$amount = $row['amount'];
 										$process_date = $row['process_date'];
+										$total_payments += $amount;
 
 										if($process_date != '')
 											$payment_month = date('F', strtotime($process_date));
@@ -198,6 +206,8 @@
 										$payment_type = $row1['payment_type_name'];
 
                           				echo "<tr><td>$payment_month</td><td>$payment_year</td><td>$process_date</td><td>$payment_type</td><td>$amount</td></tr>";
+
+                          				echo "<tr><td></td><td></td><td></td><td><strong>Total Payments</strong></td><td>$total_payments</td></tr>";
 
 									}
 
