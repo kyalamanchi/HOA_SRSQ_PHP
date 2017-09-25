@@ -300,6 +300,48 @@
 
 			</section>
 
+			<section class="module">
+					
+				<div class="container-fluid">
+						
+					<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+					
+						<center><h3>Process Payment</h3></center>
+
+					</div>
+
+					<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-1'>
+					
+						<form method='POST' action='processPayment3.php'>
+
+							<label>Payment Type</label>
+							
+							<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+
+								<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
+
+							</div>
+
+							<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+
+								<input type='radio' name='payment_type_id' id='payment_type_id' value='3' checked> Check
+
+							</div>
+
+							<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+
+								<input type='radio' name='payment_type_id' id='payment_type_id' value='4' checked> Money Order
+
+							</div>
+							
+						</form>
+
+					</div>
+
+				</div>
+
+			</section>
+
 			<!-- Footer-->
 			<?php include 'footer.php'; ?>
 
