@@ -72,6 +72,11 @@ function changeOptions2(){
 }
 } 
 }
+
+function editNotice (editButton){
+    alert(editButton.id);
+}
+
 function sleep(miliseconds) {
    var currentTime = new Date().getTime();
    while (currentTime + miliseconds >= new Date().getTime()) {
