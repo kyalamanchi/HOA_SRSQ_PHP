@@ -22,7 +22,7 @@
 
 			if($name == '')
 				header('Location: processPayment.php');
-			
+
 			$home_id = $_GET['home_id'];
 			$hoa_id = $_GET['hoa_id'];
 
@@ -179,18 +179,18 @@
 
 							<thead>
 								
-								<th>Jan</th>
-								<th>Feb</th>
-								<th>Mar</th>
-								<th>Apr</th>
-								<th>May</th>
-								<th>Jun</th>
-								<th>Jul</th>
-								<th>Aug</th>
-								<th>Sep</th>
-								<th>Oct</th>
-								<th>Nov</th>
-								<th>Dec</th>
+								<th><center>Jan</center></th>
+								<th><center>Feb</center></th>
+								<th><center>Mar</center></th>
+								<th><center>Apr</center></th>
+								<th><center>May</center></th>
+								<th><center>Jun</center></th>
+								<th><center>Jul</center></th>
+								<th><center>Aug</center></th>
+								<th><center>Sep</center></th>
+								<th><center>Oct</center></th>
+								<th><center>Nov</center></th>
+								<th><center>Dec</center></th>
 
 							</thead>
 
