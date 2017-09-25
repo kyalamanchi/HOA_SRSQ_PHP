@@ -320,9 +320,9 @@
 
 							<div class='row'>
 
-								<div class='row'>
+								<label><strong>Payment Type : </strong></label><br /><br />
 
-									<label><strong>Payment Type : </strong></label><br /><br />
+								<div class='row'>
 
 									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
