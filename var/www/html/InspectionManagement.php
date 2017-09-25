@@ -60,6 +60,7 @@ function changeOptions2(){
         dataSet2.push(data2[i]['inspection_notice_type_id']);
         dataSet2.push(data2[i]['inspection_status']);
         dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input>');
+        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input>');
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -166,6 +167,7 @@ function loadData(){
         dataSet2.push(data2[i]['inspection_notice_type_id']);
         dataSet2.push(data2[i]['inspection_status']);
         dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input>');
+        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input>');
         dataSet.push(dataSet2);
 }
 $(document).ready(function() {
@@ -181,6 +183,7 @@ $(document).ready(function() {
             { title: "Location" },
             { title: "Type" },
             { title: "Status"},
+            { title: ""},
             { title: ""}
         ]
     } );
