@@ -310,7 +310,7 @@
 						
 					<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 					
-						<center><h3>Process Payment</h3></center>
+						<center><h3>Process Payment</h3><br></center>
 
 					</div>
 
@@ -372,7 +372,7 @@
 
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-								<br><br><center><button type='submit' class='btn btn-info btn-xs'>Process</button></center>
+								<br><center><button type='submit' class='btn btn-info btn-xs'>Process</button></center>
 
 							</div>
 							
