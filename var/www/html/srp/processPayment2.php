@@ -15,6 +15,10 @@
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
+
+			if($mode == 2)
+				header('Location: residentDashboard.php');
+
 			$name = $_GET['name'];
 
 			$today = date('Y-m-d');
@@ -37,7 +41,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; if($mode == 1) echo " | Board Dashboard"; else if($mode == 2) echo " | Resident Dashboard"; ?></title>
+		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -317,6 +321,22 @@
 					<div class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2'>
 					
 						<form method='POST' action='processPayment3.php'>
+
+							<?php
+
+								$result1 = pg_query("SELECT id FROM current_payments ORDER BY id DESC LIMIT 1");
+                        		$row = pg_fetch_assoc($result1);
+                                       
+                        		$id = $row['id'];
+                        		$id++;
+
+							?>
+
+							<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+							<input type='hidden' name='home_id' id='home_id' value='<?php echo $home_id; ?>'>
+							<input type='hidden' name='name' id='name' value='<?php echo $name; ?>'>
+							<input type='hidden' name='payment_id' id='payment_id' value='<?php echo $hoa_id."".$home_id; ?>'>
+							<input type='hidden' name='id' id='id' value='<?php echo $id; ?>'>
 
 							<div class='row'>
 
