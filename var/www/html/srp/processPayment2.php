@@ -324,19 +324,19 @@
 
 								<div class='row'>
 
-									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 										<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
 
 									</div>
 
-									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 										<input type='radio' name='payment_type_id' id='payment_type_id' value='3'> Check
 
 									</div>
 
-									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 										<input type='radio' name='payment_type_id' id='payment_type_id' value='4'> Money Order
 
