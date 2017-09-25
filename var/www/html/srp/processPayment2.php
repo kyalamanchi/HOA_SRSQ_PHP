@@ -16,14 +16,15 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 			$name = $_GET['name'];
-			$home_id = $_GET['home_id'];
-			$hoa_id = $_GET['hoa_id'];
 
 			$today = date('Y-m-d');
 			$year = date('Y');
 
 			if($name == '')
 				header('Location: processPayment.php');
+			
+			$home_id = $_GET['home_id'];
+			$hoa_id = $_GET['hoa_id'];
 
 		?>
 
