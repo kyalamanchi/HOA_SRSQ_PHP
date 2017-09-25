@@ -3,6 +3,7 @@
 
     $home_id = $_POST['home_id'];
 	$hoa_id = $_POST['hoa_id'];
+	$name = $_POST['name'];
 	@$m[0] = $_POST['month'][0];
 	@$m[1] = $_POST['month'][1];
 	@$m[2] = $_POST['month'][2];
@@ -256,6 +257,6 @@
     	}
     }
 
-    echo "<br><br><center><a href='https://hoaboardtime.com/boardProcessPayment.php'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardProcessPayment.php'},1000);</script>"
+    echo "<br><br><center><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name'},1000);</script>"
 
 ?>

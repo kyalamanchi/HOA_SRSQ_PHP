@@ -18,6 +18,9 @@
 
 			$today = date('Y-m-d');
 
+			if($mode == 2)
+				header('Location: residentDashboard.php');
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -25,7 +28,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; if($mode == 1) echo " | Board Dashboard"; else if($mode == 2) echo " | Resident Dashboard"; ?></title>
+		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
