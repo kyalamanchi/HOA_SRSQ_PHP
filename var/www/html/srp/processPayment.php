@@ -112,6 +112,7 @@
 									while($row = pg_fetch_assoc($result))
 									{
 
+										$year = date('Y');
 										$home_id = $row['home_id'];
 										$address = $row['address1'];
 										$living_status = $row['living_status'];
@@ -123,7 +124,7 @@
 										$name .= $row1['lastname'];
 										$hoa_id = $row1['hoa_id'];
 
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=2017"));
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
 										$m[1] = $row['m1_pmt_processed'];
                           				$m[2] = $row['m2_pmt_processed'];
