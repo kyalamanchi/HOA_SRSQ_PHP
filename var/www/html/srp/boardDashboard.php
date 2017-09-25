@@ -1,6 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+
+
+
+		<?php
+
+			session_start();
+
+			if(!$_SESSION['hoa_username'])
+				header("Location: logout.php");
+
+			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+			$user_id = $_SESSION['hoa_user_id'];
+			$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
+
+			if($board == 0)
+				header("Location: residentDashboard.php");
+
+			if($_SESSION['hoa_mode'] == 2)
+				$_SESSION['hoa_mode'] = 1;
+
+			$community_id = $_SESSION['hoa_community_id'];
+			$days90 = date('Y-m-d', strtotime("-90 days"));
+
+			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
+			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
+			$total_homes = pg_num_rows(pg_query("SELECT * FROM homeid WHERE community_id=$community_id"));
+			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
+			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
+
+		?>
+		
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
@@ -324,35 +356,6 @@
 <html lang='en'>
 
 	<head>
-
-		<?php
-
-			session_start();
-
-			if(!$_SESSION['hoa_username'])
-				header("Location: logout.php");
-
-			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
-			$user_id = $_SESSION['hoa_user_id'];
-			$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
-
-			if($board == 0)
-				header("Location: residentDashboard.php");
-
-			if($_SESSION['hoa_mode'] == 2)
-				$_SESSION['hoa_mode'] = 1;
-
-			$community_id = $_SESSION['hoa_community_id'];
-			$days90 = date('Y-m-d', strtotime("-90 days"));
-
-			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
-			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
-			$total_homes = pg_num_rows(pg_query("SELECT * FROM homeid WHERE community_id=$community_id"));
-			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
-			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
-
-		?>
 
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
