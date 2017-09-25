@@ -225,14 +225,18 @@
 
 													<div class='counter h6'>
 
-														<?php 
+														<div class='counter-number'>
+															
+															<?php
 
-															if($del_acc > 0)
-																echo "<div class='counter-number text-warning'>$del_acc</div>";
-															else
-																echo "<div class='counter-number'>$del_acc</div>";
+																if($del_acc > 0)
+																	echo "<a href='delinquentAccounts.php' style='color: orange;'>$del_acc</a>";
+																else
+																	echo "$del_acc";
 
-														?>
+															?>
+
+														</div>
 
 														<div class='counter-title'>Delinquent Accounts</div>
 
@@ -264,16 +268,20 @@
 
 													<div class='counter h6'>
 
-														<?php 
+														<div class='counter-number'>
 
-															$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));;
+															<?php 
 
-															if($pending_agreements == 0)
-																echo "<div class='counter-number'>$pending_agreements</div>";
-															else
-																echo "<div class='counter-number'><a style='color: orange;' href='pendingAgreements.php'>$pending_agreements</a></div>";
+																$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));;
 
-														?>
+																if($pending_agreements == 0)
+																	echo "$pending_agreements";
+																else
+																	echo "<a style='color: orange;' href='pendingAgreements.php'>$pending_agreements</a>";
+
+															?>
+
+														</div>
 
 														<div class='counter-title'>Pending Agreements</div>
 
