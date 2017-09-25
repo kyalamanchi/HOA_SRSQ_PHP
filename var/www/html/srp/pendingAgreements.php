@@ -56,6 +56,24 @@
 
 			<!-- Page Header -->
 			<section class="module-page-title">
+				
+				<div class="container">
+						
+					<div class="row-page-title">
+						
+						<div class="page-title-captions">
+							
+							<h1 class="h5">Pending Agreements</h1>
+						
+						</div>
+					
+					</div>
+					
+				</div>
+			
+			</section>
+
+			<section class="module-page-title">
 					
 				<div class="container">
 						
@@ -65,7 +83,7 @@
 								
 							<div class='special-heading m-b-40'>
 									
-								<h4>Community Deposits</h4>
+								<h4>Pending Agreements</h4>
 
 							</div>
 

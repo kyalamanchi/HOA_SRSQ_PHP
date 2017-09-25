@@ -59,25 +59,21 @@
 
 			<!-- Page Header -->
 			<section class="module-page-title">
-					
+				
 				<div class="container">
 						
 					<div class="row-page-title">
-							
+						
 						<div class="page-title-captions">
-								
-							<div class='special-heading m-b-40'>
-									
-								<h4>Community Documents</h4>
-
-							</div>
-
+							
+							<h1 class="h5">Community Documents</h1>
+						
 						</div>
-
+					
 					</div>
-
+					
 				</div>
-
+			
 			</section>
 
 			<!-- Content -->
