@@ -198,7 +198,7 @@
 								
 								<?php
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+									$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
 									$m[1] = $row['m1_pmt_processed'];
                           			$m[2] = $row['m2_pmt_processed'];
@@ -213,7 +213,12 @@
                           			$m[11] = $row['m11_pmt_processed'];
                           			$m[12] = $row['m12_pmt_processed'];
 
-                          			echo "<tr><td>$m[1]></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
+                          			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
+
+                          			if($m[1] == 't')
+                          				echo "checked ";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
 
                           			if($m[2] == 't')
                           				echo "checked ";
