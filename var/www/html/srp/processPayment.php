@@ -143,9 +143,9 @@
                           				{
                             
                             				if($m[$i] == 't')
-                              					$m[$i] = "<center><i class='fa fa-check-square' style='color: green;'></i></center>";
+                              					$m[$i] = "<center style='color: green;'><i class='fa fa-check-square'></i></center>";
                             				else
-                              					$m[$i] = "<center><i class='fa fa-square-o' style='color: orange;'></i></center>";
+                              					$m[$i] = "<center style='color: orange;'><i class='fa fa-square-o'></i></center>";
 
                           				}
 
