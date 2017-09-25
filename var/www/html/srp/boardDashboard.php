@@ -30,6 +30,35 @@
 			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
 			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
 
+			$del_acc = 0;
+          	$del = 3;
+
+          	$del_amount = $assessment_amount * $del;
+
+          	$result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
+
+          	while($row = pg_fetch_assoc($result))
+          	{
+
+	            $home_id = $row['home_id'];
+	            $assessment_charges = $row['sum'];
+
+	            $row2 = pg_fetch_assoc(pg_query("SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id));
+	            $hoa_id = $row2['hoa_id'];
+
+	            $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id));
+	            $charges = $row2['sum'];
+
+	            $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id));
+	            $payments = $row2['sum'];
+
+	            $balance = $charges - $payments;
+
+	            if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
+	              $del_acc++;
+
+          	}
+
 		?>
 
 		<meta charset="UTF-8">
@@ -198,11 +227,14 @@
 
 													<div class='counter h6'>
 
-														<div class='counter-number'>
+														<?php 
 
-															1
+															if($del_acc > 0)
+																echo "<div class='counter-number text-warning'>$del_acc</div>";
+															else
+																echo "<div class='counter-number'>$del_acc</div>";
 
-														</div>
+														?>
 
 														<div class='counter-title'>Delinquent Accounts</div>
 
