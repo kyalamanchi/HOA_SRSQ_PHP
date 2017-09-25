@@ -85,54 +85,44 @@
 					
 				<div class="container">
 						
-					<table id='example1' class='table' style="color: black;">
-								
-						<thead>
+					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+						<table id='example1' class='table' style="color: black;">
 									
-							<th>Year</th>
-							<th>Date of Upload</th>
-							<th>Description</th>
+							<thead>
+										
+								<th>Year</th>
+								<th>Date of Upload</th>
+								<th>Description</th>
 
-						</thead>
+							</thead>
 
-						<tbody>
+							<tbody>
+										
+								<?php 
+
+									$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
+
+									while($row = pg_fetch_assoc($result))
+									{
+
+										$year = $row['year_of_upload'];
+										$upload_date = $row['uploaded_date'];
+										$description = $row['description'];
+										$document_url = $row['url'];
+
+										if($upload_date != "")
+											$upload_date = date('m-d-Y', strtotime($upload_date));
+
+										echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
+
+									}
+
+								?>
+
+							</tbody>
 									
-							<?php 
-
-								$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
-
-								while($row = pg_fetch_assoc($result))
-								{
-
-									$year = $row['year_of_upload'];
-									$upload_date = $row['uploaded_date'];
-									$description = $row['description'];
-									$document_url = $row['url'];
-
-									if($upload_date != "")
-										$upload_date = date('m-d-Y', strtotime($upload_date));
-
-									echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
-
-								}
-
-							?>
-
-						</tbody>
-								
-					</table>
-
-				</div>
-
-			</section>
-
-			<section class="module-page-title">
-					
-				<div class="container">
-						
-					<div class="row-page-title">
-							
-						<div class="page-title-captions"></div>
+						</table>
 
 					</div>
 
