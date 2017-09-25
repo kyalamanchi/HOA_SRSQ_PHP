@@ -80,7 +80,7 @@
 			<!-- Content -->
 			<section class="module">
 					
-				<div class="container">
+				<div class="container table-responsive">
 						
 					<table id='example1' class='table' style="color: black;">
 								
