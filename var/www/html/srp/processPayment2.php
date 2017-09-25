@@ -372,7 +372,7 @@
 
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-								<center><button type='submit' class='btn btn-info btn-xs'>Process</button></center>
+								<br><br><center><button type='submit' class='btn btn-info btn-xs'>Process</button></center>
 
 							</div>
 							
