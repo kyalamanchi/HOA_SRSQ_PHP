@@ -50,7 +50,7 @@ function changeOptions2(){
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
-        dataSet2.push(data2[i]['id']);
+        // dataSet2.push(data2[i]['id']);
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
@@ -162,7 +162,7 @@ function loadData(){
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
-        dataSet2.push(data2[i]['id']);
+        // dataSet2.push(data2[i]['id']);
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
@@ -179,7 +179,6 @@ $(document).ready(function() {
     $('#example').DataTable( {
         data: dataSet,
         columns: [
-            { title: "ID" },
             { title: "HomeID" },
             { title: "HoaID" },
             { title: "Description" },
