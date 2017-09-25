@@ -314,7 +314,7 @@
 
 					</div>
 
-					<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-1'>
+					<div class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2'>
 					
 						<form method='POST' action='processPayment3.php'>
 
@@ -326,31 +326,27 @@
 
 								</div>
 								
-								<!--div class='row'-->
+								<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
-									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+									<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
 
-										<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
+								</div>
 
-									</div>
+								<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
-									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+									<input type='radio' name='payment_type_id' id='payment_type_id' value='3'> Check
 
-										<input type='radio' name='payment_type_id' id='payment_type_id' value='3'> Check
+								</div>
 
-									</div>
+								<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
-									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+									<input type='radio' name='payment_type_id' id='payment_type_id' value='4'> Money Order
 
-										<input type='radio' name='payment_type_id' id='payment_type_id' value='4'> Money Order
-
-									</div>
-
-								<!--/div-->
+								</div>
 
 							</div>
 
-							<div class='row'>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 								<label><strong>Amount : </strong></label>
 								
@@ -358,7 +354,7 @@
 
 							</div>
 
-							<div class='row'>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 								<label><strong>Process Date : </strong></label>
 								
@@ -366,7 +362,7 @@
 
 							</div>
 
-							<div class='row'>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 								<label><strong>Document Number : </strong></label>
 								
@@ -374,7 +370,7 @@
 
 							</div>
 
-							<div class='row'>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
 								<center><button type='submit' class='btn btn-info btn-xs'>Process</button></center>
 
