@@ -15,10 +15,11 @@
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
+			$name = $_REQUEST['name'];
 
 			$today = date('Y-m-d');
 
-			if($_REQUEST['name'] == '')
+			if($name == '')
 				header('Location: processPayment.php');
 
 		?>
@@ -68,7 +69,7 @@
 						
 						<div class="page-title-captions">
 							
-							<h1 class="h5">Process Payments - <?php echo $_REQUEST['name']; ?></h1>
+							<h1 class="h5">Process Payments - <?php echo $name; ?></h1>
 						
 						</div>
 					
