@@ -324,19 +324,19 @@
 								
 								<div class='row'>
 
-									<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
 										<input type='radio' name='payment_type_id' id='payment_type_id' value='2' checked> BillPay
 
 									</div>
 
-									<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
 										<input type='radio' name='payment_type_id' id='payment_type_id' value='3'> Check
 
 									</div>
 
-									<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+									<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
 										<input type='radio' name='payment_type_id' id='payment_type_id' value='4'> Money Order
 
@@ -350,7 +350,7 @@
 
 								<label><strong>Amount : </strong></label>
 								
-								<input type='number' step='0.01' name='amount' id='amount' value='<?php echo $assessment_amount; ?>' required>
+								<input class='form-control' type='number' step='0.01' name='amount' id='amount' value='<?php echo $assessment_amount; ?>' required>
 
 							</div>
 
@@ -358,7 +358,7 @@
 
 								<label><strong>Process Date : </strong></label>
 								
-								<input type='date' name='process_date' id='process_date' value='<?php echo date('Y-m-d',strtotime('-1 days')); ?>' required>
+								<input class='form-control' type='date' name='process_date' id='process_date' value='<?php echo date('Y-m-d',strtotime('-1 days')); ?>' required>
 
 							</div>
 
@@ -366,7 +366,7 @@
 
 								<label><strong>Document Number : </strong></label>
 								
-								<input type='text' name='document_num' id='document_num' required>
+								<input class='form-control' type='text' name='document_num' id='document_num' required>
 
 							</div>
 
