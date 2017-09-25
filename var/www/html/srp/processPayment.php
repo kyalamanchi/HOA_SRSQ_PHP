@@ -126,18 +126,18 @@
 
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
-										$m[1] = $row['m1_pmt_processed'];
-                          				$m[2] = $row['m2_pmt_processed'];
-                          				$m[3] = $row['m3_pmt_processed'];
-                          				$m[4] = $row['m4_pmt_processed'];
-                          				$m[5] = $row['m5_pmt_processed'];
-                          				$m[6] = $row['m6_pmt_processed'];
-                          				$m[7] = $row['m7_pmt_processed'];
-                          				$m[8] = $row['m8_pmt_processed'];
-                          				$m[9] = $row['m9_pmt_processed'];
-                         				$m[10] = $row['m10_pmt_processed'];
-                          				$m[11] = $row['m11_pmt_processed'];
-                          				$m[12] = $row['m12_pmt_processed'];
+										$m[1] = $row1['m1_pmt_processed'];
+                          				$m[2] = $row1['m2_pmt_processed'];
+                          				$m[3] = $row1['m3_pmt_processed'];
+                          				$m[4] = $row1['m4_pmt_processed'];
+                          				$m[5] = $row1['m5_pmt_processed'];
+                          				$m[6] = $row1['m6_pmt_processed'];
+                          				$m[7] = $row1['m7_pmt_processed'];
+                          				$m[8] = $row1['m8_pmt_processed'];
+                          				$m[9] = $row1['m9_pmt_processed'];
+                         				$m[10] = $row1['m10_pmt_processed'];
+                          				$m[11] = $row1['m11_pmt_processed'];
+                          				$m[12] = $row1['m12_pmt_processed'];
 
                           				for ($i = 1; $i <= 12; $i++)
                           				{
