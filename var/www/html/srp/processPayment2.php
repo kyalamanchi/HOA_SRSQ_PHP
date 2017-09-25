@@ -325,6 +325,8 @@
 									<label><strong>Payment Type : </strong></label>
 
 								</div>
+
+								<br>
 								
 								<div class='row'>
 
