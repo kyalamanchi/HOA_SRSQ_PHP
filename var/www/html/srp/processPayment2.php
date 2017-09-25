@@ -198,8 +198,9 @@
 								
 								<form method='POST' action='updateCYPP.php'>
 
-									<input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
-									<input type='hidden' name='home_id' id='home_id' value='$home_id'>
+									<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+									<input type='hidden' name='home_id' id='home_id' value='<?php echo $home_id; ?>'>
+									<input type='hidden' name='name' id='name' value='<?php echo $name; ?>'>
 
 									<?php
 
