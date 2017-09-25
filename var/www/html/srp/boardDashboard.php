@@ -30,6 +30,7 @@
 			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
 			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
 
+			$assessment_amount = 10000000000;
 			$del_acc = 0;
           	$del = 3;
 
