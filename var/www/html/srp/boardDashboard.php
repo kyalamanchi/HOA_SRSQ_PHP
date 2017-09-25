@@ -23,18 +23,19 @@
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$days90 = date('Y-m-d', strtotime("-90 days"));
+			$del_acc = 0;
+          	$del = 3;
+
+			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+
+            $assessment_amount = $row['amount'];
+          	$del_amount = $assessment_amount * $del;
 
 			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
 			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
 			$total_homes = pg_num_rows(pg_query("SELECT * FROM homeid WHERE community_id=$community_id"));
 			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
 			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
-
-			$assessment_amount = 135.50;
-			$del_acc = 0;
-          	$del = 3;
-
-          	$del_amount = $assessment_amount * $del;
 
           	$result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
 
