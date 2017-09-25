@@ -1,4 +1,4 @@
-<header class="header header-center undefined">
+<header class="header header-right undefined">
 	
 	<div class="container-fluid">
 					
@@ -87,17 +87,6 @@
 				</div>
 			
 			</div>
-
-		</div>
-
-		<!-- Extra menu-->
-		<div class="extra-nav">
-						
-			<ul>
-				
-				<li><a class="open-offcanvas" href="#"><span>Menu</span><span class="fa fa-bars"></span></a></li>
-						
-			</ul>
 
 		</div>
 		
