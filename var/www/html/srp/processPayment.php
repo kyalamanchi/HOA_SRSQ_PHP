@@ -82,7 +82,7 @@
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
-						<table id='example1' class='table table-striped'>
+						<table id='example1' class='table table-striped'  style='color: black;'>
 
 							<thead>
 								
@@ -143,9 +143,9 @@
                           				{
                             
                             				if($m[$i] == 't')
-                              					$m[$i] = "<center><i class='fa fa-check-square text-success'></i></center>";
+                              					$m[$i] = "<center><i class='fa fa-check-square' style='color: green;'></i></center>";
                             				else
-                              					$m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                              					$m[$i] = "<center><i class='fa fa-square-o' style='color: orange;'></i></center>";
 
                           				}
 
