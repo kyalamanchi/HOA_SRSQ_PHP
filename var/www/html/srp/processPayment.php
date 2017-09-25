@@ -86,8 +86,8 @@
 
 							<thead>
 								
-								<th>Name (HOA ID)</th>
-								<th>Address (Home ID)</th>
+								<th>Name<br>(HOA ID)</th>
+								<th>Address<br>(Home ID)</th>
 								<th>January</th>
 								<th>February</th>
 								<th>March</th>
@@ -149,7 +149,7 @@
 
                           				}
 
-                          				echo "<tr><td>$name ($hoa_id)</td><td>$address ($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+                          				echo "<tr><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
 									}
 
