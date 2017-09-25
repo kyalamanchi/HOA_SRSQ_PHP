@@ -98,9 +98,9 @@
 
 							<thead>
 								
-								<th>Charge Date</th>
 								<th>Month</th>
 								<th>Year</th>
+								<th>Charge Date</th>
 								<th>Assessment Type</th>
 								<th>Amount</th>
 
@@ -134,7 +134,7 @@
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$assessment_rule_type"));
 										$assessment_rule_type = $row1['name'];
 
-                          				echo "<tr><td>$assessment_date</td><td>$assessment_month</td><td>$assessment_year</td><td>$assessment_rule_type</td><td>$amount</td></tr>";
+                          				echo "<tr><td>$assessment_month</td><td>$assessment_year</td><td>$assessment_date</td><td>$assessment_rule_type</td><td>$amount</td></tr>";
 
 									}
 
@@ -172,7 +172,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	      	});
 
