@@ -63,7 +63,7 @@
 							
 						<div class="page-title-captions">
 								
-							<div class='special-heading m-t-40 m-b-40'>
+							<div class='special-heading m-b-40'>
 									
 								<h4>Community Deposits</h4>
 
