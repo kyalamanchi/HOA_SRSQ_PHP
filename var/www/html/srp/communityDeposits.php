@@ -78,7 +78,7 @@
 			</section>
 
 			<!-- Content -->
-			<section class="module">
+			<section class="module module-gray">
 					
 				<div class="container">
 						
