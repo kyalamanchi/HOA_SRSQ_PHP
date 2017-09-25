@@ -168,24 +168,166 @@
 					
 						<table class='table table-striped'  style='color: black;'>
 
+							<thead>
+								
+								<th>Jan</th>
+								<th>Feb</th>
+								<th>Mar</th>
+								<th>Apr</th>
+								<th>May</th>
+								<th>Jun</th>
+								<th>Jul</th>
+								<th>Aug</th>
+								<th>Sep</th>
+								<th>Oct</th>
+								<th>Nov</th>
+								<th>Dec</th>
+
+							</thead>
+
 							<tbody>
 								
 								<?php
 
 									$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE hoa_id=$hoa_id AND home_id=$home_id"));
 
-									$m[1] = $row1['m1_pmt_processed'];
-                          			$m[2] = $row1['m2_pmt_processed'];
-                          			$m[3] = $row1['m3_pmt_processed'];
-                          			$m[4] = $row1['m4_pmt_processed'];
-                          			$m[5] = $row1['m5_pmt_processed'];
-                          			$m[6] = $row1['m6_pmt_processed'];
-                          			$m[7] = $row1['m7_pmt_processed'];
-                          			$m[8] = $row1['m8_pmt_processed'];
-                          			$m[9] = $row1['m9_pmt_processed'];
-                         			$m[10] = $row1['m10_pmt_processed'];
-                          			$m[11] = $row1['m11_pmt_processed'];
-                          			$m[12] = $row1['m12_pmt_processed'];
+									$m[1] = $row['m1_pmt_processed'];
+                          			$m[2] = $row['m2_pmt_processed'];
+                          			$m[3] = $row['m3_pmt_processed'];
+                          			$m[4] = $row['m4_pmt_processed'];
+                          			$m[5] = $row['m5_pmt_processed'];
+                          			$m[6] = $row['m6_pmt_processed'];
+                          			$m[7] = $row['m7_pmt_processed'];
+                          			$m[8] = $row['m8_pmt_processed'];
+                          			$m[9] = $row['m9_pmt_processed'];
+                         			$m[10] = $row['m10_pmt_processed'];
+                          			$m[11] = $row['m11_pmt_processed'];
+                          			$m[12] = $row['m12_pmt_processed'];
+
+                          			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
+
+                          			if($m[1] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
+
+                          			if($m[2] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='March' ";
+
+                          			if($m[3] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='April' ";
+
+                          			if($m[4] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='May' ";
+
+                          			if($m[5] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='June' ";
+
+                          			if($m[6] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='July' ";
+
+                          			if($m[7] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='August' ";
+
+                          			if($m[8] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='September' ";
+
+                          			if($m[9] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='October' ";
+
+                          			if($m[10] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='November' ";
+
+                          			if($m[11] == 't')
+                          				echo "checked";
+
+                          			echo "></td><td><input type='checkbox' name='month[]' id='month' value='December' ";
+
+                          			if($m[12] == 't')
+                          				echo "checked";
+
+                          			echo "></td></tr>";
+
+
+								?>
+
+							</tbody>
+							
+						</table>
+
+					</div>
+
+				</div>
+
+			</section>
+
+			<section class="module module-gray">
+					
+				<div class="container-fluid">
+
+					<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+					
+						<center><h3>Current Year Payments Processed</h3></center>
+
+					</div>
+
+					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					
+						<table class='table table-striped'  style='color: black;'>
+
+							<thead>
+								
+								<th>Jan</th>
+								<th>Feb</th>
+								<th>Mar</th>
+								<th>Apr</th>
+								<th>May</th>
+								<th>Jun</th>
+								<th>Jul</th>
+								<th>Aug</th>
+								<th>Sep</th>
+								<th>Oct</th>
+								<th>Nov</th>
+								<th>Dec</th>
+
+							</thead>
+
+							<tbody>
+								
+								<?php
+
+									$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+
+									$m[1] = $row['m1_pmt_processed'];
+                          			$m[2] = $row['m2_pmt_processed'];
+                          			$m[3] = $row['m3_pmt_processed'];
+                          			$m[4] = $row['m4_pmt_processed'];
+                          			$m[5] = $row['m5_pmt_processed'];
+                          			$m[6] = $row['m6_pmt_processed'];
+                          			$m[7] = $row['m7_pmt_processed'];
+                          			$m[8] = $row['m8_pmt_processed'];
+                          			$m[9] = $row['m9_pmt_processed'];
+                         			$m[10] = $row['m10_pmt_processed'];
+                          			$m[11] = $row['m11_pmt_processed'];
+                          			$m[12] = $row['m12_pmt_processed'];
 
                           			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
 
