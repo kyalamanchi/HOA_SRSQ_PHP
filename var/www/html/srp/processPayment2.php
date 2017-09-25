@@ -174,7 +174,7 @@
 
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
-						<table class='table'  style='color: black; background: white;'>
+						<table class='table text-center'  style='color: black; background: white;'>
 
 							<thead>
 								
@@ -215,62 +215,62 @@
                           			echo "<tr><td><input type='checkbox' name='month[]' id='month' value='January' ";
 
                           			if($m[1] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='February' ";
 
                           			if($m[2] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='March' ";
 
                           			if($m[3] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='April' ";
 
                           			if($m[4] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='May' ";
 
                           			if($m[5] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='June' ";
 
                           			if($m[6] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='July' ";
 
                           			if($m[7] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='August' ";
 
                           			if($m[8] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='September' ";
 
                           			if($m[9] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='October' ";
 
                           			if($m[10] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='November' ";
 
                           			if($m[11] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td><td><input type='checkbox' name='month[]' id='month' value='December' ";
 
                           			if($m[12] == 't')
-                          				echo "checked";
+                          				echo "checked ";
 
                           			echo "></td></tr>";
 

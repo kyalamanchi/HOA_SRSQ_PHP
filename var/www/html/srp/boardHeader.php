@@ -31,7 +31,7 @@
 										<ul class="sub-menu">
 														
 											<li><a href="index-2.html">Charges</a></li>
-											<li><a href="processPayment.php">Process Payment</a></li>
+											<li><a href="processPayment.php">Process Payments</a></li>
 											<li><a href="index-3.html">Set Reminders</a></li>
 												
 										</ul>
