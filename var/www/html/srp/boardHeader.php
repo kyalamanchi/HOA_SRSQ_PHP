@@ -1,19 +1,21 @@
-<header class='header header-right undefined'>
+<header class="header header-right undefined">
+	
+	<div class="container-fluid">
+					
+		<!-- Logos-->
+		<div class="inner-header">
 
-	<div class='container-fluid'>
-
-		<div class='inner-header'>
-						
 			<a class='inner-brand' href=''><h3 style='color: green;'><?php echo $_SESSION['hoa_community_code']; ?></h3></a>
 
 		</div>
-
-		<div class='inner-navigation collapse'>
-
-			<div class='inner-navigation-inline'>
-
-				<div class='inner-nav'>
-
+		
+		<!-- Navigation-->
+		<div class="inner-navigation collapse">
+						
+			<div class="inner-navigation-inline">
+				
+				<div class="inner-nav">
+						
 					<ul>
 
 						<li><a href='boardDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
@@ -29,7 +31,7 @@
 										<ul class="sub-menu">
 														
 											<li><a href="index-2.html">Charges</a></li>
-											<li><a href="index.html">Process Payment</a></li>
+											<li><a href="processPayment.php">Process Payments</a></li>
 											<li><a href="index-3.html">Set Reminders</a></li>
 												
 										</ul>
@@ -40,7 +42,6 @@
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index-18.html">Deposits</a></li>
 											<li><a href="index-26.html">Disclosures</a></li>
 											<li><a href="index-21.html">Mailing List</a></li>
 										
@@ -80,27 +81,17 @@
 
 						<li><a href="logout.php" style="color: orange;"><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
 
-					</ul>
-
+					</ul>		
+				
 				</div>
-
+			
 			</div>
 
 		</div>
-
+		
 		<!-- Mobile menu-->
-		<div class='nav-toggle'>
-						
-			<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
-							
-				<span class='icon-bar'></span>
-				<span class='icon-bar'></span>
-				<span class='icon-bar'></span>
-
-			</a>
-
-		</div>
-
+		<div class="nav-toggle"><a href="#" data-toggle="collapse" data-target=".inner-navigation"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></a></div>
+	
 	</div>
 
 </header>

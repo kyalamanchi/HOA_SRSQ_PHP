@@ -11,9 +11,6 @@
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
-			if($_SESSION['hoa_mode'] == 2)
-				header("Location: residentDashboard.php");
-
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			$community_id = $_SESSION['hoa_community_id'];
@@ -66,7 +63,7 @@
 						
 						<div class="page-title-captions">
 							
-							<h1 class="h5">Community Documents</h1>
+							<h1 class="h5">Delinquent Accounts</h1>
 						
 						</div>
 					
@@ -82,14 +79,16 @@
 				<div class="container">
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
+					
 						<table id='example1' class='table' style="color: black;">
 									
 							<thead>
 										
-								<th>Year</th>
-								<th>Date of Upload</th>
-								<th>Description</th>
+								<th>Name</th>
+		                        <th>Property Address</th>
+		                        <th>Total Due</th>
+		                        <th>Phone</th>
+		                        <th>Email</th>
 
 							</thead>
 
@@ -97,24 +96,46 @@
 										
 								<?php 
 
-									$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
+									$del = 3;
 
-									while($row = pg_fetch_assoc($result))
-									{
+									$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+                        			$assessment_amount = $row['amount'];
 
-										$year = $row['year_of_upload'];
-										$upload_date = $row['uploaded_date'];
-										$description = $row['description'];
-										$document_url = $row['url'];
+                        			$del_amount = $assessment_amount * $del;
 
-										if($upload_date != "")
-											$upload_date = date('m-d-Y', strtotime($upload_date));
+                        			$result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
 
-										echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
+			                        while($row = pg_fetch_assoc($result))
+			                        {
 
-									}
+			                          	$home_id = $row['home_id'];
+			                          	$assessment_charges = $row['sum'];
 
-								?>
+			                          	$row2 = pg_fetch_assoc(pg_query("SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id));
+
+			                          	$firstname = $row2['firstname'];
+			                          	$lastname = $row2['lastname'];
+			                          	$hoa_id = $row2['hoa_id'];
+			                          	$cell_no = $row2['cell_no'];
+			                          	$email = $row2['email'];
+
+				                        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id));
+			                          	$charges = $row2['sum'];
+
+			                          	$row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id));
+			                          	$payments = $row2['sum'];
+
+			                          	$balance = $charges - $payments;
+
+			                          	$row2 = pg_fetch_assoc(pg_query("SELECT address1 FROM homeid WHERE home_id=".$home_id));
+			                          	$address1 = $row2['address1'];
+
+			                          	if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
+			                            	echo "<tr><td>".$firstname." ".$lastname."</td><td> ".$address1."</td><td>$ ".$balance."</td><td>".$cell_no."</td><td>".$email."</td></tr>";
+
+			                        }
+
+                      			?>
 
 							</tbody>
 									
@@ -148,7 +169,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc'], [1, 'desc']] });
+	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	      	});
 

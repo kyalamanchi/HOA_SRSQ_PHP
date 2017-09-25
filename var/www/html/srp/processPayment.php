@@ -11,13 +11,12 @@
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
-			if($_SESSION['hoa_mode'] == 2)
-				header("Location: residentDashboard.php");
-
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
+
+			$today = date('Y-m-d');
 
 		?>
 
@@ -66,7 +65,7 @@
 						
 						<div class="page-title-captions">
 							
-							<h1 class="h5">Community Documents</h1>
+							<h1 class="h5">Process Payments</h1>
 						
 						</div>
 					
@@ -79,45 +78,85 @@
 			<!-- Content -->
 			<section class="module">
 					
-				<div class="container">
+				<div class="container-fluid">
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					
+						<table id='example1' class='table table-striped'  style='color: black;'>
 
-						<table id='example1' class='table' style="color: black;">
-									
 							<thead>
-										
-								<th>Year</th>
-								<th>Date of Upload</th>
-								<th>Description</th>
+								
+								<th>Name<br>(HOA ID)</th>
+								<th>Address<br>(Home ID)</th>
+								<th>Jan</th>
+								<th>Feb</th>
+								<th>Mar</th>
+								<th>Apr</th>
+								<th>May</th>
+								<th>Jun</th>
+								<th>Jul</th>
+								<th>Aug</th>
+								<th>Sep</th>
+								<th>Oct</th>
+								<th>Nov</th>
+								<th>Dec</th>
 
 							</thead>
 
 							<tbody>
-										
-								<?php 
+								
+								<?php
 
-									$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
+									$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
 									while($row = pg_fetch_assoc($result))
 									{
 
-										$year = $row['year_of_upload'];
-										$upload_date = $row['uploaded_date'];
-										$description = $row['description'];
-										$document_url = $row['url'];
+										$year = date('Y');
+										$home_id = $row['home_id'];
+										$address = $row['address1'];
+										$living_status = $row['living_status'];
 
-										if($upload_date != "")
-											$upload_date = date('m-d-Y', strtotime($upload_date));
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
 
-										echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
+										$name = $row1['firstname'];
+										$name .= " ";
+										$name .= $row1['lastname'];
+										$hoa_id = $row1['hoa_id'];
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
+
+										$m[1] = $row1['m1_pmt_processed'];
+                          				$m[2] = $row1['m2_pmt_processed'];
+                          				$m[3] = $row1['m3_pmt_processed'];
+                          				$m[4] = $row1['m4_pmt_processed'];
+                          				$m[5] = $row1['m5_pmt_processed'];
+                          				$m[6] = $row1['m6_pmt_processed'];
+                          				$m[7] = $row1['m7_pmt_processed'];
+                          				$m[8] = $row1['m8_pmt_processed'];
+                          				$m[9] = $row1['m9_pmt_processed'];
+                         				$m[10] = $row1['m10_pmt_processed'];
+                          				$m[11] = $row1['m11_pmt_processed'];
+                          				$m[12] = $row1['m12_pmt_processed'];
+
+                          				for ($i = 1; $i <= 12; $i++)
+                          				{
+                            
+                            				if($m[$i] == 't')
+                              					$m[$i] = "<center style='color: green;'><i class='fa fa-check-square'></i></center>";
+                            				else
+                              					$m[$i] = "<center style='color: orange;'><i class='fa fa-square-o'></i></center>";
+
+                          				}
+
+                          				echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
 									}
 
 								?>
 
 							</tbody>
-									
+							
 						</table>
 
 					</div>
@@ -148,7 +187,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc'], [1, 'desc']] });
+	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	      	});
 
