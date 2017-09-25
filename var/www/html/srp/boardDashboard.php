@@ -74,272 +74,57 @@
 			<!-- Wrapper-->
 			<div class="wrapper">
 
-				<!-- Page Header-->
-				<section class="module-page-title">
-					<div class="container">
-						<div class="row-page-title">
-							<div class="page-title-captions">
-								<h1 class="h5">Tabs</h1>
-							</div>
-							<div class="page-title-secondary">
-								<ol class="breadcrumb">
-									<li class="breadcrumb-item"><a href="#">Home</a></li>
-									<li class="breadcrumb-item"><a href="#">Shortcodes</a></li>
-									<li class="breadcrumb-item active">Tabs</li>
-								</ol>
-							</div>
-						</div>
-					</div>
-				</section>
-
 				<!-- Tabs-->
 				<section class="module">
-					
+
 					<div class="container">
-						
+
 						<div class="row">
-							
-							<div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-xs-12">
+
+							<div class="col-md-8 offset-md-2">
 								
 								<!-- Tabs-->
 								<ul class="nav nav-tabs">
 									
-									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab"><i class="fa fa-envelope"></i> Communications Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab"><i class="fa fa-support"></i> Reserves Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab"><i class="fa fa-dollar"></i> Quickbooks Reports</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab"><i class="fa fa-area-chart"></i> Yearly Reports - <?php echo date('Y'); ?></a></li>
+									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab"><i class="fa fa-anchor"></i> Tab One</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab"><i class="fa fa-area-chart"></i> Tab Two</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab"><i class="fa fa-support"></i> Tab Three</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab"><i class="fa fa-area-chart"></i> Tab Two</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab"><i class="fa fa-support"></i> Tab Three</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-6" data-toggle="tab"><i class="fa fa-area-chart"></i> Tab Two</a></li>
 
 								</ul>
 
 								<div class="tab-content">
 									
 									<div class="tab-pane in active" id="tab-1">
-
-										<div class="special-heading m-b-40">
-											
-											<h4><i class="fa fa-dashboard"></i> Board Dashboard</h4>
-								
-										</div>
-								
-										<div class='container'>
-
-											<div class='row'>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<div class="progress-item">
-										
-														<div class="progress-title">Amount Received</div>
-														
-														<div class="progress">
-															
-															<div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
-														
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<div class="progress-item">
-										
-														<div class="progress-title">Members Paid</div>
-														
-														<div class="progress">
-															
-															<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="45" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
-														
-														</div>
-
-													</div>
-													
-												</div>
-
-											</div>
-
-											<br /><br />
-
-											<div class='row'>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-															
-															<a href='communityDeposits.php'>
-
-																<?php 
-																	
-																	echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
-
-																?>
-
-															</a>
-																
-														</div>
-
-														<div class='counter-title'>Community Deposits</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<a href='communityDocuments.php'>
-
-																<?php 
-																
-																	echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
-
-																?>
-
-															</a>
-
-														</div>
-
-														<div class='counter-title'>Community Documents</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															1
-
-														</div>
-
-														<div class='counter-title'>Delinquent Accounts</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<?php 
-																
-																echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1")); 
-
-															?>
-
-														</div>
-
-														<div class='counter-title'>Parking Tags</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<a href='pendingAgreements.php'>
-
-																<?php
-
-																	echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));
-
-																?>
-
-															</a>
-
-														</div>
-
-														<div class='counter-title'>Pending Agreements</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<a href='signedAgreements.php'>
-															
-																<?php
-
-																	echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
-
-																?>
-
-															</a>
-
-														</div>
-
-														<div class='counter-title'>Signed Agreements</div>
-
-													</div>
-
-												</div>
-
-											</div>
-
-										</div>
-									
+										<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
+										<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
 									</div>
 
 									<div class="tab-pane" id="tab-2">
-
-										<div class="special-heading m-b-40">
-											
-											<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
-								
-										</div>
-									
+										<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
+										<p>At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.</p>
 									</div>
 
 									<div class="tab-pane" id="tab-3">
-
-										<div class="special-heading m-b-40">
-											
-											<h4><i class="fa fa-support"></i> Reserves Dashboard</h4>
-								
-										</div>
-									
+										<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
+										<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
 									</div>
 
 									<div class="tab-pane" id="tab-4">
-
-										<div class="special-heading m-b-40">
-											
-											<h4><i class="fa fa-dollar"></i> Quickbooks Reports</h4>
-								
-										</div>
-									
+										<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
+										<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
 									</div>
 
 									<div class="tab-pane" id="tab-5">
+										<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
+										<p>At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.</p>
+									</div>
 
-										<div class="special-heading m-b-40">
-											
-											<h4><i class="fa fa-area-chart"></i> Yearly Reports - <?php echo date('Y'); ?></h4>
-								
-										</div>
-									
+									<div class="tab-pane" id="tab-6">
+										<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
+										<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
 									</div>
 
 								</div>
@@ -351,7 +136,6 @@
 					</div>
 
 				</section>
-				<!-- Tabs end-->
 
 				<!-- Footer-->
 				<?php include "footer.php"; ?>
@@ -359,7 +143,6 @@
 				<a class="scroll-top" href="#top"><i class="fa fa-angle-up"></i></a>
 
 			</div>
-
 
 		</div>
 
@@ -375,6 +158,7 @@
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src="assets/js/style-switcher.min.js"></script-->
+
 	</body>
-	
+
 </html>
