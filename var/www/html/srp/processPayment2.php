@@ -320,7 +320,11 @@
 
 							<div class='row'>
 
-								<label><strong>Payment Type : </strong></label>
+								<div class='row'>
+
+									<label><strong>Payment Type : </strong></label>
+
+								</div>
 								
 								<div class='row'>
 
