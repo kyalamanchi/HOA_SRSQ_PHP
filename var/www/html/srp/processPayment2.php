@@ -198,22 +198,20 @@
 								
 								<?php
 
-									$m = array();
-
 									$row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
-									//$m[1] = $row['m1_pmt_processed'];
-                          			//$m[2] = $row['m2_pmt_processed'];
-                          			//$m[3] = $row['m3_pmt_processed'];
-                          			//$m[4] = $row['m4_pmt_processed'];
-                          			//$m[5] = $row['m5_pmt_processed'];
-                          			//$m[6] = $row['m6_pmt_processed'];
-                          			//$m[7] = $row['m7_pmt_processed'];
-                          			//$m[8] = $row['m8_pmt_processed'];
-                          			//$m[9] = $row['m9_pmt_processed'];
-                         			//$m[10] = $row['m10_pmt_processed'];
-                          			//$m[11] = $row['m11_pmt_processed'];
-                          			//$m[12] = $row['m12_pmt_processed'];
+									$m[1] = $row['m1_pmt_processed'];
+                          			$m[2] = $row['m2_pmt_processed'];
+                          			$m[3] = $row['m3_pmt_processed'];
+                          			$m[4] = $row['m4_pmt_processed'];
+                          			$m[5] = $row['m5_pmt_processed'];
+                          			$m[6] = $row['m6_pmt_processed'];
+                          			$m[7] = $row['m7_pmt_processed'];
+                          			$m[8] = $row['m8_pmt_processed'];
+                          			$m[9] = $row['m9_pmt_processed'];
+                         			$m[10] = $row['m10_pmt_processed'];
+                          			$m[11] = $row['m11_pmt_processed'];
+                          			$m[12] = $row['m12_pmt_processed'];
 
                           			echo "<tr><td>$row['m1_pmt_processed']</td><td><input type='checkbox' name='month[]' id='month' value='February' ";
 
