@@ -271,7 +271,7 @@
 															if($pending_agreements == 0)
 																echo "<div class='counter-number'>$pending_agreements</div>";
 															else
-																echo "<div class='counter-number text-warning'>$pending_agreements</div>";
+																echo "<div class='counter-number text-warning'><a href='pendingAgreements.php'>$pending_agreements</a></div>";
 
 														?>
 
