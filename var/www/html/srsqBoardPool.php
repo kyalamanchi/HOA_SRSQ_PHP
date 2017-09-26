@@ -82,7 +82,7 @@ $ch = curl_init('https://api.na1.echosign.com/api/rest/v5/agreements');
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
-curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Content-Type: application/json', 
     'Access-Token: 3AAABLblqZhBbuoGJoQZXIMhISUIAnh7R_qmzGgn_COsBf1G0kXyDFiaXxE-oM8ZMaL1LPybdYz1U2gYXszLLzpLuenZ3Ojfm'));
 $result = curl_exec($ch);
