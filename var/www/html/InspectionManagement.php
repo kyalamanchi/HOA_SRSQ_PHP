@@ -75,6 +75,31 @@ function changeOptions2(){
 
 function editNotice (editButton){
     alert(editButton.id);
+
+    showPleaseWait();
+    id  = editButton.id;
+    var jsonObj = [];
+    var item = {};
+    item["id"] = button.id;
+    jsonObj.push(item);
+    var lol = JSON.stringify(jsonObj);
+    var request  = new  XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/getInspectionSubCategoryDetails.php",true);
+    request.send(lol.toString());
+    request.onreadystatechange = function(){
+    if ( request.readyState == XMLHttpRequest.DONE ){
+      hidePleaseWait();
+      var dal = request.responseText
+      var data = JSON.parse(dal);
+      var fieldData = '<label for="subcatid">ID</label>'+'<input type="text" id="subcatid" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="name">Name</label>'+'<input type="text" id="name"  class = "form-control" value="'+data['name']+'"/>'+'<label for="inspectionCategory">Category</label>'+'<input type="text" id="inspectionCategory"  class = "form-control" value="'+data['inspection_category']+'"/>'+'<label for="subCategoryRule">Rule</label>'+'<input type="text" id="subCategoryRule"  class = "form-control" value="'+data['rule']+'"/>'+'<label for="subCategoryRuleDescription">Rule Description</label>'+'<textarea class="form-control" rows="5" id="subCategoryRuleDescription">'+data['rule_description']+'</textarea>'+'<label for="subCategoryExplanation">Explanation</label>'+'<textarea class="form-control" rows="3" id="subCategoryExplanation">'+data['explanation']+'</textarea>'+'<label for="subject">Subject</label>'+'<input type="text" id="subject" class = "form-control" value="'+data['subject']+'"/>'+'<label for="legal_docs_id">Legal Document ID</label>'+'<input type="text" id="legal_docs_id" class = "form-control" value="'+data['community_legal_id']+'"/>'+'<label for="section">Section</label>'+'<input type="text" id="section" class = "form-control" value="'+data['section']+'"/>'+'<label for="community_id">Community ID</label>'+'<input type="text" id="community_id" class = "form-control" value="'+data['community_id']+'"/>';
+        $("#myModal").modal("show");
+        $("#myModal").find('.modal-body').html(fieldData);
+    }
+    hidePleaseWait();
+  }
+
+
+
 }
 
 function sleep(miliseconds) {
@@ -251,5 +276,27 @@ function hidePleaseWait() {
             </div>
         </div>
     </div>
+
+    <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Edit Inspection</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="reset" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="saveChanges();">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     </body>
 </html>
