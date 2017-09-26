@@ -198,6 +198,7 @@ function loadData(){
 $(document).ready(function() {
     $('#example').DataTable( {
         data: dataSet,
+        select: true,
         columns: [
             { title: "HomeID" },
             { title: "HoaID" },
@@ -221,7 +222,7 @@ $(document).ready(function() {
     $('#button').click( function () {
         alert( table.rows('.selected').data().length +' row(s) selected' );
     } );
-    
+
 } );
 hidePleaseWait();
 }
