@@ -82,14 +82,14 @@ function editNotice (editButton){
     jsonObj.push(item);
     var lol = JSON.stringify(jsonObj);
     var request  = new  XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/getInspectionSubCategoryDetails.php",true);
+    request.open("POST","https://hoaboardtime.com/getInspectionDetails.php",true);
     request.send(lol.toString());
     request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
       var dal = request.responseText
       var data = JSON.parse(dal);
-      var fieldData = '<label for="subcatid">ID</label>'+'<input type="text" id="subcatid" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="name">Name</label>'+'<input type="text" id="name"  class = "form-control" value="'+data['name']+'"/>'+'<label for="inspectionCategory">Category</label>'+'<input type="text" id="inspectionCategory"  class = "form-control" value="'+data['inspection_category']+'"/>'+'<label for="subCategoryRule">Rule</label>'+'<input type="text" id="subCategoryRule"  class = "form-control" value="'+data['rule']+'"/>'+'<label for="subCategoryRuleDescription">Rule Description</label>'+'<textarea class="form-control" rows="5" id="subCategoryRuleDescription">'+data['rule_description']+'</textarea>'+'<label for="subCategoryExplanation">Explanation</label>'+'<textarea class="form-control" rows="3" id="subCategoryExplanation">'+data['explanation']+'</textarea>'+'<label for="subject">Subject</label>'+'<input type="text" id="subject" class = "form-control" value="'+data['subject']+'"/>'+'<label for="legal_docs_id">Legal Document ID</label>'+'<input type="text" id="legal_docs_id" class = "form-control" value="'+data['community_legal_id']+'"/>'+'<label for="section">Section</label>'+'<input type="text" id="section" class = "form-control" value="'+data['section']+'"/>'+'<label for="community_id">Community ID</label>'+'<input type="text" id="community_id" class = "form-control" value="'+data['community_id']+'"/>';
+      var fieldData = '<label for="inspectionID">ID</label>'+'<input type="text" id="inspectionID" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="inspectionDescription">Description</label>'+'<input type="text" id="inspectionDescription"  class = "form-control" value="'+data['inspection_description']+'"/>'+'<label for="inspection_category_id">Category</label>'+'<input type="text" id="inspection_category_id"  class = "form-control" value="'+data['inspection_category_id']+'"/>'+'<label for="inspection_sub_category_id">Inspection Sub Category</label>'+'<input type="text" id="inspection_sub_category_id"  class = "form-control" value="'+data['inspection_sub_category_id']+'"/>'+'<label for="homeID">Rule Description</label>'+'<textarea class="form-control" rows="5" id="homeID">'+data['home_id']+'</textarea>'+'<label for="hoa_id">hoaid</label>'+'<textarea class="form-control" rows="3" id="hoa_id">'+data['hoa_id']+'</textarea>'+'<label for="location_id">Subject</label>'+'<input type="text" id="location_id" class = "form-control" value="'+data['location_id']+'"/>'+'<label for="inspection_status_id">Legal Document ID</label>'+'<input type="text" id="inspection_status_id" class = "form-control" value="'+data['inspection_status_id']+'"/>'+'<label for="item">Section</label>'+'<input type="text" id="item" class = "form-control" value="'+data['item']+'"/>';
         $("#myModal").modal("show");
         $("#myModal").find('.modal-body').html(fieldData);
     }
@@ -288,7 +288,7 @@ function hidePleaseWait() {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="reset" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="saveChanges();">Save changes</button>
+        <button type="button" class="btn btn-primary" >Save changes</button>
       </div>
     </div>
   </div>
