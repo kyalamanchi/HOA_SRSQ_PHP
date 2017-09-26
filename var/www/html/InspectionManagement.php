@@ -238,13 +238,6 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
   </script>
-  <style >     
-      .btn:hover {
-        background-position: 0px;
-    }
-     input[type="radio"], input[type="radio"]+label img {
-    vertical-align: middle;
-  }
   </style>
     </head>
     <body onload="loadData();">
@@ -272,7 +265,7 @@ function hidePleaseWait() {
       </select>
         </div>
         <br>
-        <div id="tableContent" onload="changeOptions();">
+        <div>
         <table id="example" class="display" cellspacing="0" width="100%"></table>   
         </div>
         <br><br>
