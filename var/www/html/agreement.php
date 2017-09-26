@@ -100,7 +100,7 @@ function changeEmail(){
   showPleaseWait();
   var selectedHoaID = $("#hoaID").find("option:selected").text();
   var request = new XMLHttpRequest();
-  request.open("POST","http://localhost/getEmails.php",true);
+  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
   request.send(selectedHoaID);
   request.onreadystatechange = function (){
       if (request.readyState == XMLHttpRequest.DONE) {
@@ -175,7 +175,7 @@ function sendData(){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "http://localhost/adobeSign2.php", true);
+  request.open("POST", "https://hoaboardtime.com/adobeSign2.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   showPleaseWait();
@@ -221,10 +221,10 @@ if ( selectedHoaID){
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
   if( selectedHoaID == "Library Document"){
-  request.open("POST", "http://localhost/getLibraryDocuments.php", true);
+  request.open("POST", "https://hoaboardtime.com/getLibraryDocuments.php", true);
   }
   else {
-   request.open("POST", "http://localhost/getTransientDocuments.php", true); 
+   request.open("POST", "https://hoaboardtime.com/getTransientDocuments.php", true); 
   }
   request.setRequestHeader("Content-type", "application/json");
   showPleaseWait();
