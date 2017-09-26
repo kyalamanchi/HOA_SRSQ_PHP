@@ -74,13 +74,11 @@ function changeOptions2(){
 }
 
 function editNotice (editButton){
-    alert(editButton.id);
-
     showPleaseWait();
     id  = 1;
     var jsonObj = [];
     var item = {};
-    item["id"] = button.id;
+    item["id"] = 1;
     jsonObj.push(item);
     var lol = JSON.stringify(jsonObj);
     var request  = new  XMLHttpRequest();
