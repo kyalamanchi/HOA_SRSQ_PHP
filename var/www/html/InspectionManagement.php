@@ -202,7 +202,8 @@ $(document).ready(function() {
         columns: [
             { title: "HomeID" },
             { title: "HoaID" },
-            { title: "Description" },
+            { title: "Description",
+            "width" : "15%" },
             { title: "Category" },
             { title: "SubCategory" },
             { title: "Location",
@@ -217,7 +218,7 @@ $(document).ready(function() {
 
      $('#example tbody').on( 'click', 'tr', function () {
         $(this).toggleClass('active');
-        $(this).addClass('row_selected');
+        // $(this).addClass('row_selected');
     } );
  
     $('#button').click( function () {
@@ -241,19 +242,8 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
-/*  #example tbody tr.selected {
-    color: white;
-    background-color: #b2ffb2;
-    }*/
-    tr.row_selected td{background-color:#b2ffb2 !important;}
 
-    /*.row_selected td {
-    background-color: #b2ffb2 !important;  Add !important to make sure override datables base styles 
- }*/
-  /*.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: #b2ffb2; 
- }*/
+    /*tr.row_selected td{background-color:#b2ffb2 !important;}*/
 
   </style>
     </head>
