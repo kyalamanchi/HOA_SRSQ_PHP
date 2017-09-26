@@ -245,7 +245,7 @@ function hidePleaseWait() {
     color: white;
     background-color: #b2ffb2;
     }*/
-    tr.row_selected td{background-color:green !important;}
+    /*tr.row_selected td{background-color:green !important;}*/
 
     /*.row_selected td {
     background-color: #b2ffb2 !important;  Add !important to make sure override datables base styles 
