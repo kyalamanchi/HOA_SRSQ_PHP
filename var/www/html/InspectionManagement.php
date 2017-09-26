@@ -239,15 +239,19 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
-  #example tbody tr.selected {
+/*  #example tbody tr.selected {
     color: white;
     background-color: #b2ffb2;
-    }
-/*  
-  .table-striped>tbody>tr:nth-child(odd)>td, 
+    }*/
+
+  .table-striped>tbody>tr.selected{
+    background-color: #b2ffb2;
+  }
+
+  /*.table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: red; // Choose your own color here*/
- }
+   background-color: #b2ffb2; 
+ }*/
 
   </style>
     </head>
