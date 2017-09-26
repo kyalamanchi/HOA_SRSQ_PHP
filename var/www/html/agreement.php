@@ -1,14 +1,10 @@
 <html>
   <head>
-    <title>Create Agreement</title>
-     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <style>
 .switch {
   position: relative;
   display: inline-block;
@@ -143,6 +139,7 @@ function sendData(){
     alert("One or more required fields empty");
     return;
   }
+  var selectedHoaID = $("#hoaID").find("option:selected").text();
   var agreementTitle = document.getElementById('agreementTitle').value;
   var documentName = document.getElementById('documentType').value;
   var ccEmails = document.getElementById('ccEmails').value;
@@ -174,6 +171,7 @@ function sendData(){
   item["completeInOrder"] = completeInOrder;
   item["passwordStatus"] = enablePassword;
   item["setPassword"] = setPassword;
+  item["hoaID"] = selectedHoaID;
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
@@ -249,12 +247,8 @@ else {
 }
 updateName();
 }
-function clearValue(){
-  document.getElementById("customMessage").value = "";
-}
 </script>
   </head>
-  <body onload="clearValue();">
   <div class="container">
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
@@ -337,7 +331,7 @@ function clearValue(){
     <div style="clear: both;padding-left: 10dp;"></div>
     <div class="form-group">
           <h4>Custom Message</h4>
-          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%" value=""></textarea>
+          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%"></textarea>
     </div>
       <div>
       <h4>Complete in order</h4>
@@ -349,16 +343,14 @@ function clearValue(){
       <div>
       <h4>Enable Password ?</h4>
       <label class="switch" >
-        <input type="checkbox" id="enablePassword" onclick="calc();" disabled="disabled" value="">
+        <input type="checkbox" id="enablePassword" onclick="calc();">
         <span class="slider round"></span>
       </label>
-      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="" disabled="disabled" style="width: 35%">
+      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
       <small id="passwordhelp" class="form-text text-muted">Signer needs to enter this password berfore signing</small>
       </div>
       <div style="clear: both;"></div>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
-</body>
-  
 </html>

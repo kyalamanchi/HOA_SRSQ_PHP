@@ -74,7 +74,27 @@ function changeOptions2(){
 }
 
 function editNotice (editButton){
-    alert(editButton.id);
+    showPleaseWait();
+    id  = 1;
+    var jsonObj = [];
+    var item = {};
+    item["id"] = editButton.id;
+    jsonObj.push(item);
+    var lol = JSON.stringify(jsonObj);
+    var request  = new  XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/getInspectionDetails.php",true);
+    request.send(lol.toString());
+    request.onreadystatechange = function(){
+    if ( request.readyState == XMLHttpRequest.DONE ){
+      hidePleaseWait();
+      var dal = request.responseText
+      var data = JSON.parse(dal);
+      var fieldData = '<label for="inspectionID">ID</label>'+'<input type="text" id="inspectionID" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="inspectionDescription">Description</label>'+'<textarea class="form-control" rows="2" id="subCategoryRuleDescription">'+data['description']+'</textarea>'+'<label for="inspection_category_id">Category</label>'+'<input type="text" id="inspection_category_id"  class = "form-control" value="'+data['inspection_category_id']+'"/>'+'<label for="inspection_sub_category_id">Sub Category</label>'+'<input type="text" id="inspection_sub_category_id"  class = "form-control" value="'+data['inspection_sub_category_id']+'"/>'+'<label for="homeID">HOME ID</label>'+'<input type="text" id="homeID" class = "form-control" value="'+data['home_id']+'"/>'+'<label for="hoaID">HOA ID</label>'+'<input type="text" id="hoaID"  class = "form-control" value="'+data['hoa_id']+'"/>'+'<label for="location_id">Location ID</label>'+'<input type="text" id="location_id" class = "form-control" value="'+data['location_id']+'"/>'+'<label for="inspection_status_id">Inspection Status</label>'+'<input type="text" id="inspection_status_id" class = "form-control" value="'+data['inspection_status_id']+'"/>'+'<label for="item">Item</label>'+'<input type="text" id="item" class = "form-control" value="'+data['item']+'"/>';
+        $("#myModal").modal("show");
+        $("#myModal").find('.modal-body').html(fieldData);
+    }
+    hidePleaseWait();
+  }
 }
 
 function sleep(miliseconds) {
@@ -178,6 +198,7 @@ function loadData(){
 $(document).ready(function() {
     $('#example').DataTable( {
         data: dataSet,
+        select: true,
         columns: [
             { title: "HomeID" },
             { title: "HoaID" },
@@ -193,6 +214,17 @@ $(document).ready(function() {
             { title: ""}
         ]
     } );
+
+     $('#example tbody').on( 'click', 'tr', function () {
+        $(this).toggleClass('active');
+        $(this).addClass('row_selected');
+    } );
+ 
+    $('#button').click( function () {
+        alert( table.rows('.selected').data().length +' row(s) selected' );
+
+    } );
+
 } );
 hidePleaseWait();
 }
@@ -209,6 +241,20 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
+/*  #example tbody tr.selected {
+    color: white;
+    background-color: #b2ffb2;
+    }*/
+    tr.row_selected td{background-color:#b2ffb2 !important;}
+    
+    /*.row_selected td {
+    background-color: #b2ffb2 !important;  Add !important to make sure override datables base styles 
+ }*/
+  /*.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+   background-color: #b2ffb2; 
+ }*/
+
   </style>
     </head>
     <body onload="loadData();">
@@ -251,5 +297,27 @@ function hidePleaseWait() {
             </div>
         </div>
     </div>
+
+    <div class="modal fade bd-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel">Edit Inspection</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="reset" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" >Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
     </body>
 </html>
