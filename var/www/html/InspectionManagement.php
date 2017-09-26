@@ -241,7 +241,7 @@ function hidePleaseWait() {
   }
   #example tbody tr.selected {
     color: white;
-    background-color: #eeeeee;
+    background-color: #b2ffb2;
     }
 /*  
   .table-striped>tbody>tr:nth-child(odd)>td, 
