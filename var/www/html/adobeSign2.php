@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Los_Angeles');
 $someJSON = file_get_contents('php://input');
 $parsedJSON = json_decode($someJSON);
 $documentCategory = $parsedJSON[0]->documentCategory;
@@ -13,8 +14,36 @@ $custom = $parsedJSON[0]->customMessage;
 $inORder = $parsedJSON[0]->completeInOrder;
 $pass = $parsedJSON[0]->passwordStatus;
 $setPassword = $parsedJSON[0]->setPassword;
+$hoaID = $parsedJSON[0]->hoaID;
+
+// $data = date('Y-m-d');
 
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database") or die("Failed to connect to database");
+//Fetch UserDetails 
+$query = "SELECT * FROM HOAID WHERE HOA_ID=".$hoaID;
+$queryResult = pg_query($query);
+$row = pg_fetch_assoc($queryResult);
+$memberName = $row['firstname'].' '.$row['lastname'];
+$cellNumber = $row['cell_no'];
+$homeID = $row['home_id'];
+$query = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
+$queryResult = pg_query($query);
+$row = pg_fetch_assoc($queryResult);
+$homeAddress = $row['address1'];
+//Fetch Owner Details
+$query = "SELECT * FROM PERSON WHERE HOME_ID=".$homeID;
+$queryResult = pg_query($query);
+
+$ownerNames = "";
+$tenantNames = "";
+
+while ($row = pg_fetch_assoc($queryResult)) {
+	if ( ($row['role_type_id'] == 1) ) {
+		$ownerNames  = $ownerNames.' '.$row['fname'].' '.$row['lname'];
+	}
+}
+
+
 $agreementInforMation = array();
 $query = "SELECT * FROM community_library_documents WHERE COMMUNITY_ID=2";
 $queryResult = pg_query($query);
@@ -70,9 +99,18 @@ $documentID = $agreementInforMation[$documentName];
 $nameInfo = $agreementName;
 //Generate Final JSON File
 if ( $documentCategory == 'Transient Document'){
+$mergeFieldInfoArray = array();
+
+array_push($mergeFieldInfoArray, array("defaultValue" => $emailAd,"fieldName"=>"email") );
+array_push($mergeFieldInfoArray, array("defaultValue" => $memberName,"fieldName"=> "member_name") );
+array_push($mergeFieldInfoArray, array("defaultValue" => $homeAddress ,"fieldName"=>"address"));
+array_push($mergeFieldInfoArray, array("defaultValue" => $homeAddress ,"fieldName"=>"property_address") );
+array_push($mergeFieldInfoArray, array("defaultValue" => $ownerNames ,"fieldName"=> "home_owner_names") );
+array_push($mergeFieldInfoArray, array("defaultValue" => $cellNumber ,"fieldName"=> "owner_cell_phone_number") );
 
 
-$finalJSON = array("documentCreationInfo"=>array("signatureType"=>"ESIGN","recipientSetInfos" => $recipientSetInfos,"ccs" => $ccInfo,"signatureFlow"=>$signatureFlow,"formFields"=>$fieldInfo,"message"=>$messageInfo,"fileInfos"=>array(array("transientDocumentId"=>$documentID)),"name"=>$nameInfo));
+
+$finalJSON = array("documentCreationInfo"=>array("signatureType"=>"ESIGN","mergeFieldInfo"=> $mergeFieldInfoArray,"recipientSetInfos" => $recipientSetInfos,"ccs" => $ccInfo,"signatureFlow"=>$signatureFlow,"formFields"=>$fieldInfo,"message"=>$messageInfo,"fileInfos"=>array(array("transientDocumentId"=>$documentID)),"name"=>$nameInfo));
 $finalJSON = json_encode($finalJSON);
 
 $ch = curl_init('https://api.na1.echosign.com/api/rest/v5/agreements');
@@ -84,7 +122,14 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Access-Token: 3AAABLblqZhBWF9BYTpVk2qiLdux9HoMp6296MnQhdvuw5sR-wRF84ZkKs3rUG6GDbSI8MVYE2-Kgabac7qiVa1FqAytq957r'));
 $result = curl_exec($ch);
 $result = json_decode($result);
-print_r($result);
+
+if($result->agreementId){
+	echo "Agreeement Created Successfully. Agreeement ID : ".$result->agreementId;
+}
+else {
+	echo $result;
+}
+
 }
 else {
 	$finalJSON = array("documentCreationInfo"=>array("signatureType"=>"ESIGN","recipientSetInfos" => $recipientSetInfos,"ccs" => $ccInfo,"signatureFlow"=>$signatureFlow,"formFields"=>$fieldInfo,"message"=>$messageInfo,"fileInfos"=>array(array("libraryDocumentId"=>$documentID)),"name"=>$nameInfo));
@@ -99,7 +144,12 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
     'Access-Token: 3AAABLblqZhBWF9BYTpVk2qiLdux9HoMp6296MnQhdvuw5sR-wRF84ZkKs3rUG6GDbSI8MVYE2-Kgabac7qiVa1FqAytq957r'));
 $result = curl_exec($ch);
 $result = json_decode($result);
-print_r($result);
+if($result->agreementId){
+	echo "Agreeement Created Successfully. Agreeement ID : ".$result->agreementId;
+}
+else {
+	echo $result;
+}
 }
 
 ?>

@@ -1,6 +1,5 @@
 <html>
   <head>
-    <title>Create Agreeement</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
@@ -101,7 +100,7 @@ function changeEmail(){
   showPleaseWait();
   var selectedHoaID = $("#hoaID").find("option:selected").text();
   var request = new XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+  request.open("POST","http://localhost/getEmails.php",true);
   request.send(selectedHoaID);
   request.onreadystatechange = function (){
       if (request.readyState == XMLHttpRequest.DONE) {
@@ -140,6 +139,7 @@ function sendData(){
     alert("One or more required fields empty");
     return;
   }
+  var selectedHoaID = $("#hoaID").find("option:selected").text();
   var agreementTitle = document.getElementById('agreementTitle').value;
   var documentName = document.getElementById('documentType').value;
   var ccEmails = document.getElementById('ccEmails').value;
@@ -171,10 +171,11 @@ function sendData(){
   item["completeInOrder"] = completeInOrder;
   item["passwordStatus"] = enablePassword;
   item["setPassword"] = setPassword;
+  item["hoaID"] = selectedHoaID;
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "https://hoaboardtime.com/adobeSign2.php", true);
+  request.open("POST", "http://localhost/adobeSign2.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   showPleaseWait();
@@ -185,6 +186,25 @@ function sendData(){
         }
         }
   }
+//  var documentName = document.getElementById('documentType').value;
+//  var agreementTitle = document.getElementById('agreementTitle').value;
+//  var emailAddresses = document.getElementById('emails').value;
+//  var ccAddresses = document.getElementById('ccEmails').value;
+//  var signType = document.getElementById('signatureType').value;
+//  var roleType = document.getElementById('signerRole').value;
+//  var signFlow = document.getElementById('signatureFlow').value;
+//  var customeMessage = document.getElementById('customMessage').value;
+//  var completeInOrder  = $('#completeInOrder').is(':checked');
+//  var passwordStatus = $('#enablePassword').is(':checked');
+//  var setPassword = document.getElementById('authPassword').value;
+// if( documentName == "" || emailAddresses == ""){
+//   window.alert("One or more required fileds empty");
+//   return;
+// }
+// if ( passwordStatus && !setPassword){
+//   window.alert("Password cannot be empty");
+// }
+
 }
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
@@ -201,10 +221,10 @@ if ( selectedHoaID){
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
   if( selectedHoaID == "Library Document"){
-  request.open("POST", "https://hoaboardtime.com/getLibraryDocuments.php", true);
+  request.open("POST", "http://localhost/getLibraryDocuments.php", true);
   }
   else {
-   request.open("POST", "https://hoaboardtime.com/getTransientDocuments.php", true); 
+   request.open("POST", "http://localhost/getTransientDocuments.php", true); 
   }
   request.setRequestHeader("Content-type", "application/json");
   showPleaseWait();
@@ -326,13 +346,11 @@ updateName();
         <input type="checkbox" id="enablePassword" onclick="calc();">
         <span class="slider round"></span>
       </label>
-      <input type="password" autocomplete="off" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
+      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
       <small id="passwordhelp" class="form-text text-muted">Signer needs to enter this password berfore signing</small>
       </div>
       <div style="clear: both;"></div>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
-
-  
 </html>
