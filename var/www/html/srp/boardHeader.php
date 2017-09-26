@@ -32,7 +32,8 @@
 														
 											<li><a>Charges</a></li>
 											<li><a href="processPayment.php">Process Payments</a></li>
-											<li><a>Set Reminders</a></li>
+											<li><a href='setReminder.php'>Set Reminders</a></li>
+											<li><a>View Reminders</a></li>
 												
 										</ul>
 
