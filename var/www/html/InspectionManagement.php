@@ -244,7 +244,7 @@ function hidePleaseWait() {
     background-color: #b2ffb2;
     }*/
 
-  .table-striped>tbody>tr.selected{
+  .table-striped>tbody>tr:selected{
     background-color: #b2ffb2;
   }
 
