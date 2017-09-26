@@ -220,14 +220,14 @@ $(document).ready(function() {
         $(this).toggleClass('selected');
     });
 
-    $('#button').click(function () {
-        var ids = $.map(table.rows('.selected').data(), function (item) {
-            return item[0]
-        });
-        alert(ids);
-        console.log(ids)
-        alert(table.rows('.selected').data().length + ' row(s) selected');
-    });
+    // $('#button').click(function () {
+    //     var ids = $.map(table.rows('.selected').data(), function (item) {
+    //         return item[0]
+    //     });
+    //     alert(ids);
+    //     console.log(ids)
+    //     alert(table.rows('.selected').data().length + ' row(s) selected');
+    // });
 
 } );
 hidePleaseWait();
@@ -245,20 +245,6 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
-/*  #example tbody tr.selected {
-    color: white;
-    background-color: #b2ffb2;
-    }*/
-    /*tr.row_selected td{background-color:green !important;}*/
-
-    /*.row_selected td {
-    background-color: #b2ffb2 !important;  Add !important to make sure override datables base styles 
- }*/
-  /*.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: #b2ffb2; 
- }*/
-
   </style>
     </head>
     <body onload="loadData();">
