@@ -43,7 +43,7 @@
 										<ul class="sub-menu">
 														
 											<li><a href="index-26.html">Disclosures</a></li>
-											<li><a href="index-21.html">Mailing List</a></li>
+											<li><a href="mailingList.php">Mailing List</a></li>
 										
 										</ul>
 
