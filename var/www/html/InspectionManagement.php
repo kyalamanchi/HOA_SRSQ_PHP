@@ -77,7 +77,7 @@ function editNotice (editButton){
     alert(editButton.id);
 
     showPleaseWait();
-    id  = editButton.id;
+    id  = 1;
     var jsonObj = [];
     var item = {};
     item["id"] = button.id;
