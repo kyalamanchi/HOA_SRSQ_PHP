@@ -202,7 +202,8 @@ $(document).ready(function() {
         columns: [
             { title: "HomeID" },
             { title: "HoaID" },
-            { title: "Description" },
+            { title: "Description",
+            "width" : "30%" },
             { title: "Category" },
             { title: "SubCategory" },
             { title: "Location",
@@ -215,15 +216,18 @@ $(document).ready(function() {
         ]
     } );
 
-     $('#example tbody').on( 'click', 'tr', function () {
-        $(this).toggleClass('active');
-        $(this).addClass('row_selected');
-    } );
- 
-    $('#button').click( function () {
-        alert( table.rows('.selected').data().length +' row(s) selected' );
+     $('#example tbody').on('click', 'tr', function () {
+        $(this).toggleClass('selected');
+    });
 
-    } );
+    $('#button').click(function () {
+        var ids = $.map(table.rows('.selected').data(), function (item) {
+            return item[0]
+        });
+        alert(ids);
+        console.log(ids)
+        alert(table.rows('.selected').data().length + ' row(s) selected');
+    });
 
 } );
 hidePleaseWait();
