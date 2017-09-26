@@ -239,6 +239,11 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
+  table.dataTable td.sorting_1{ background-color: white; border:1px lightgrey; }
+    table.dataTable td{ background-color: white;  border:1px lightgrey;}
+    table.dataTable tr.odd { background-color: white;  border:1px lightgrey;}
+    table.dataTable tr.even{ background-color: white; border:1px lightgrey; }
+    
   </style>
     </head>
     <body onload="loadData();">
