@@ -30,9 +30,10 @@
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index-2.html">Charges</a></li>
+											<li><a>Charges</a></li>
 											<li><a href="processPayment.php">Process Payments</a></li>
-											<li><a href="index-3.html">Set Reminders</a></li>
+											<li><a href='setReminder.php'>Set Reminders</a></li>
+											<li><a>View Reminders</a></li>
 												
 										</ul>
 
@@ -42,8 +43,8 @@
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index-26.html">Disclosures</a></li>
-											<li><a href="index-21.html">Mailing List</a></li>
+											<li><a>Disclosures</a></li>
+											<li><a href="mailingList.php">Mailing List</a></li>
 										
 										</ul>
 
@@ -53,9 +54,9 @@
 										
 										<ul class="sub-menu">
 														
-											<li><a href="index-9.html">Balances</a></li>
-											<li><a href="index-7.html">HOA &amp; Home Info</a></li>
-											<li><a href="index-8.html">User Dashboard</a></li>
+											<li><a>Balances</a></li>
+											<li><a href="hoaHomeInfo.php">HOA &amp; Home Info</a></li>
+											<li><a>User Dashboard</a></li>
 										
 										</ul>
 										
@@ -65,7 +66,7 @@
 										
 										<ul class="sub-menu">
 
-											<li><a href="index-13.html">Vendor Dashboard</a></li>
+											<li><a>Vendor Dashboard</a></li>
 										
 										</ul>
 
