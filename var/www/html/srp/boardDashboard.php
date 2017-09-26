@@ -343,7 +343,7 @@
 
 														<div class='counter-number'>
 															
-															<a href='adobeSendAgreements.php'>
+															<a href='adobeSendAgreement.php'>
 
 																<i class='fa fa-paper-plane'></i>
 
