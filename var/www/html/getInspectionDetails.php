@@ -27,5 +27,5 @@ while ($row = pg_fetch_assoc($queryResult)) {
 	$inspectionStatusID = $row['inspection_status_id'];
 	$inspectionItem = $row['item'];
 }
-echo json_encode( array("id" => $id,"community_id"=>$communityID,"hoa_id"=>$hoaID,"home_id"=>$homeID,"location_id"=>$locationID,"inspection_category_id"=>$inspectionCategoryID,"inspection_sub_category_id"=>$inspectionSubCategoryID,"inspection_status_id"=>$inspectionStatusID,"item"=>$inspectionItem));
+echo json_encode( array("id" => $id,"community_id"=>$communityID,"description"=>$description,"hoa_id"=>$hoaID,"home_id"=>$homeID,"location_id"=>$locationID,"inspection_category_id"=>$inspectionCategoryID,"inspection_sub_category_id"=>$inspectionSubCategoryID,"inspection_status_id"=>$inspectionStatusID,"item"=>$inspectionItem));
 ?>
