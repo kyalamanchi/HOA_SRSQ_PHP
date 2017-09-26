@@ -54,7 +54,7 @@
 										<ul class="sub-menu">
 														
 											<li><a>Balances</a></li>
-											<li href="hoaHomeInfo.php"><a>HOA &amp; Home Info</a></li>
+											<li><a href="hoaHomeInfo.php">HOA &amp; Home Info</a></li>
 											<li><a>User Dashboard</a></li>
 										
 										</ul>
