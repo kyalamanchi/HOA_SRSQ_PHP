@@ -78,7 +78,7 @@ function editNotice (editButton){
     id  = 1;
     var jsonObj = [];
     var item = {};
-    item["id"] = 1;
+    item["id"] = editButton.id;
     jsonObj.push(item);
     var lol = JSON.stringify(jsonObj);
     var request  = new  XMLHttpRequest();
@@ -89,7 +89,7 @@ function editNotice (editButton){
       hidePleaseWait();
       var dal = request.responseText
       var data = JSON.parse(dal);
-      var fieldData = '<label for="inspectionID">ID</label>'+'<input type="text" id="inspectionID" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="inspectionDescription">Description</label>'+'<input type="text" id="inspectionDescription"  class = "form-control" value="'+data['description']+'"/>'+'<label for="inspection_category_id">Category</label>'+'<input type="text" id="inspection_category_id"  class = "form-control" value="'+data['inspection_category_id']+'"/>'+'<label for="inspection_sub_category_id">Sub Category</label>'+'<input type="text" id="inspection_sub_category_id"  class = "form-control" value="'+data['inspection_sub_category_id']+'"/>'+'<label for="homeID">HOME ID</label>'+'<input type="text" id="homeID" class = "form-control" value="'+data['home_id']+'"/>'+'<label for="hoaID">HOA ID</label>'+'<input type="text" id="hoaID"  class = "form-control" value="'+data['hoa_id']+'"/>'+'<label for="location_id">Location ID</label>'+'<input type="text" id="location_id" class = "form-control" value="'+data['location_id']+'"/>'+'<label for="inspection_status_id">Inspection Status</label>'+'<input type="text" id="inspection_status_id" class = "form-control" value="'+data['inspection_status_id']+'"/>'+'<label for="item">Item</label>'+'<input type="text" id="item" class = "form-control" value="'+data['item']+'"/>';
+      var fieldData = '<label for="inspectionID">ID</label>'+'<input type="text" id="inspectionID" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="inspectionDescription">Description</label>'+'<textarea class="form-control" rows="5" id="subCategoryRuleDescription">'+data['description']+'</textarea>'+'<label for="inspection_category_id">Category</label>'+'<input type="text" id="inspection_category_id"  class = "form-control" value="'+data['inspection_category_id']+'"/>'+'<label for="inspection_sub_category_id">Sub Category</label>'+'<input type="text" id="inspection_sub_category_id"  class = "form-control" value="'+data['inspection_sub_category_id']+'"/>'+'<label for="homeID">HOME ID</label>'+'<input type="text" id="homeID" class = "form-control" value="'+data['home_id']+'"/>'+'<label for="hoaID">HOA ID</label>'+'<input type="text" id="hoaID"  class = "form-control" value="'+data['hoa_id']+'"/>'+'<label for="location_id">Location ID</label>'+'<input type="text" id="location_id" class = "form-control" value="'+data['location_id']+'"/>'+'<label for="inspection_status_id">Inspection Status</label>'+'<input type="text" id="inspection_status_id" class = "form-control" value="'+data['inspection_status_id']+'"/>'+'<label for="item">Item</label>'+'<input type="text" id="item" class = "form-control" value="'+data['item']+'"/>';
         $("#myModal").modal("show");
         $("#myModal").find('.modal-body').html(fieldData);
     }
