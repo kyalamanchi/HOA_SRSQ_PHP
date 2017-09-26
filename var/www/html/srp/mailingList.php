@@ -57,7 +57,7 @@
 		<div class="wrapper">
 
 			<!-- Header-->
-			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
+			<?php if($mode == 1) include "boardHeader.php"; ?>
 
 			<!-- Page Header -->
 			<section class="module-page-title">
@@ -111,6 +111,10 @@
 										$home_id = $row['home_id'];
 										$address = $row['address1'];
 										$living_status = $row['living_status'];
+										$mailing_address = $address;
+										$mailing_city = $row['city_id'];
+										$mailing_state = $row['state_id'];
+										$mailing_zip = $row['zip_id'];
 
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
 
@@ -121,16 +125,26 @@
 										$email = $row1['email'];
 										$cell_no = $row1['cell_no'];
 
-										if($living_status == 't')
-											$mailing_address = $address;
-										else
+										if($living_status == 'f')
 										{
 											
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
 
 											$mailing_address = $row1['address1'];
+											$mailing_city = $row1['city_id'];
+											$mailing_state = $row1['state_id'];
+											$mailing_zip = $row1['zip_id'];
 
 										}
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
+										$mailing_city = $row1['city_name'];
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
+										$mailing_state = $row1['state_code'];
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
+										$mailing_zip = $row1['zip_code'];
 
 										//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
@@ -159,7 +173,7 @@
 
                           				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
-                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$email</td><td>$cell_no</td><td>$mailing_address</td></tr>";
+                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$email</td><td>$cell_no</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td></tr>";
 
 									}
 
