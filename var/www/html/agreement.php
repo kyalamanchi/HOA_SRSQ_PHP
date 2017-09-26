@@ -1,12 +1,11 @@
 <html>
   <head>
-    <title>Create Agreement</title>
+    <title>Create Agreeement</title>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <style>
 .switch {
   position: relative;
   display: inline-block;
@@ -186,25 +185,6 @@ function sendData(){
         }
         }
   }
-//  var documentName = document.getElementById('documentType').value;
-//  var agreementTitle = document.getElementById('agreementTitle').value;
-//  var emailAddresses = document.getElementById('emails').value;
-//  var ccAddresses = document.getElementById('ccEmails').value;
-//  var signType = document.getElementById('signatureType').value;
-//  var roleType = document.getElementById('signerRole').value;
-//  var signFlow = document.getElementById('signatureFlow').value;
-//  var customeMessage = document.getElementById('customMessage').value;
-//  var completeInOrder  = $('#completeInOrder').is(':checked');
-//  var passwordStatus = $('#enablePassword').is(':checked');
-//  var setPassword = document.getElementById('authPassword').value;
-// if( documentName == "" || emailAddresses == ""){
-//   window.alert("One or more required fileds empty");
-//   return;
-// }
-// if ( passwordStatus && !setPassword){
-//   window.alert("Password cannot be empty");
-// }
-
 }
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
@@ -247,12 +227,8 @@ else {
 }
 updateName();
 }
-function clearValue(){
-  document.getElementById("customMessage").value = "";
-}
 </script>
   </head>
-  <body onload="clearValue();">
   <div class="container">
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
@@ -335,7 +311,7 @@ function clearValue(){
     <div style="clear: both;padding-left: 10dp;"></div>
     <div class="form-group">
           <h4>Custom Message</h4>
-          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%" value=""></textarea>
+          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%"></textarea>
     </div>
       <div>
       <h4>Complete in order</h4>
@@ -347,16 +323,16 @@ function clearValue(){
       <div>
       <h4>Enable Password ?</h4>
       <label class="switch" >
-        <input type="checkbox" id="enablePassword" onclick="calc();" disabled="disabled" value="">
+        <input type="checkbox" id="enablePassword" onclick="calc();">
         <span class="slider round"></span>
       </label>
-      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="" disabled="disabled" style="width: 35%">
+      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
       <small id="passwordhelp" class="form-text text-muted">Signer needs to enter this password berfore signing</small>
       </div>
       <div style="clear: both;"></div>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
-</body>
+
   
 </html>
