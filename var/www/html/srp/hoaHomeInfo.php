@@ -94,6 +94,7 @@
 								<th>Email</th>
 								<th>Phone</th>
 								<th>Mailing Address</th>
+								<th>Pay Method</th>
 
 							</thead>
 
@@ -144,6 +145,12 @@
 										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
 										$mailing_zip = $row1['zip_code'];
 
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM home_pay_method WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+										$payment_type = $row1['payment_type_id'];
+
+										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+										$payment_type = $row1['payment_type_name'];
+
 										//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
 										//$m[1] = $row1['m1_pmt_processed'];
@@ -171,7 +178,7 @@
 
                           				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
-                          				echo "<tr><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$mailing_address<br>$mailing_city<br>$mailing_state $mailing_zip</td></tr>";
+                          				echo "<tr><td>$name<br>($hoa_id)</td><td>$address<br>($home_id)</td><td>$email</td><td>$cell_no</td><td>$mailing_address<br>$mailing_city<br>$mailing_state $mailing_zip</td><td>$payment_type</td></tr>";
 
 									}
 
