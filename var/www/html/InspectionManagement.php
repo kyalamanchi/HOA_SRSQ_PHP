@@ -243,11 +243,9 @@ function hidePleaseWait() {
     color: white;
     background-color: #b2ffb2;
     }*/
-
-  .table-striped>tbody>tr:selected{
-    background-color: #b2ffb2;
-  }
-
+    .row_selected td {
+    background-color: #b2ffb2 !important; /* Add !important to make sure override datables base styles */
+ }
   /*.table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color: #b2ffb2; 
