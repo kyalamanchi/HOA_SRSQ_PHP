@@ -168,9 +168,9 @@
                           				echo "<tr><td>";
 
                           				if($reminders == 0)
-                          					echo "<center><a title='Set Reminder' style='color: green;><i class='fa fa-bell'></i></a></center>";
+                          					echo "<center><a title='Set Reminder' style='color: green;><i class='fa fa-bell'></i>1</a></center>";
                           				else
-                          					echo "<center><a title='Set Reminder' style='color: orange;><i class='fa fa-bell'></i></a></center>";
+                          					echo "<center><a title='Edit Reminder' style='color: orange;><i class='fa fa-bell'></i>2</a></center>";
 
                           				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
 
