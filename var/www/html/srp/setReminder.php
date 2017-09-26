@@ -136,6 +136,8 @@
 										$balance = $charges - $payments;
 										$balance = "$ ".$balance;
 
+										$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date>='$today'"));
+
 										//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
 										//$m[1] = $row1['m1_pmt_processed'];
@@ -163,7 +165,14 @@
 
                           				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
-                          				echo "<tr><td></td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
+                          				echo "<tr><td>";
+
+                          				if($reminders == 0)
+                          					echo "<center><a title='Set Reminder' style='color: green;><i class='fa fa-bell'></i></a></center>";
+                          				else
+                          					echo "<center><a title='Set Reminder' style='color: orange;><i class='fa fa-bell'></i></a></center>";
+
+                          				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
 
 									}
 
