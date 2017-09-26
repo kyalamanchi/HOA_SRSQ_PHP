@@ -216,7 +216,7 @@ $(document).ready(function() {
     } );
 
      $('#example tbody').on( 'click', 'tr', function () {
-        $(this).toggleClass('selected');
+        $(this).toggleClass('active');
     } );
  
     $('#button').click( function () {
