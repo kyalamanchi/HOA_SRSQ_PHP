@@ -159,7 +159,7 @@
 
                           				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
 
-                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$email</td><td>$cell_no</td><td>$mailing_address</td></tr>"
+                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$address</td><td>$home_id</td><td>$email</td><td>$cell_no</td><td>$mailing_address</td></tr>";
 
 									}
 
