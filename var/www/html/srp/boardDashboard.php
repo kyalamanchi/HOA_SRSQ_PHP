@@ -345,7 +345,7 @@
 															
 															<a href='adobeSendAgreements.php'>
 
-																
+																<i class='fa fa-paper-plane'></i>
 
 															</a>
 																
