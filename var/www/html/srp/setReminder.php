@@ -57,7 +57,7 @@
 		<div class="wrapper">
 
 			<!-- Header-->
-			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
+			<?php include "boardHeader.php"; ?>
 
 			<!-- Page Header -->
 			<section class="module-page-title">
