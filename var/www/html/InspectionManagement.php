@@ -239,7 +239,7 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
-  #tableID tbody tr.selected {
+  #example tbody tr.selected {
     color: white;
     background-color: #eeeeee;
     }
