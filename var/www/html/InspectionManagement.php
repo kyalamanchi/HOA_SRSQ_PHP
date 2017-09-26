@@ -239,10 +239,10 @@ function hidePleaseWait() {
      input[type="radio"], input[type="radio"]+label img {
     vertical-align: middle;
   }
-  
+/*  
   .table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
-   background-color: red; // Choose your own color here
+   background-color: red; // Choose your own color here*/
  }
 
   </style>
@@ -273,7 +273,7 @@ function hidePleaseWait() {
         </div>
         <br>
         <div id="tableContent" onload="changeOptions();">
-        <table id="example" class="table table-striped" cellspacing="0" width="100%"></table>   
+        <table id="example" class="display" cellspacing="0" width="100%"></table>   
         </div>
         <br><br>
   </div>
