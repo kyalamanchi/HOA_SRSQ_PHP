@@ -217,10 +217,12 @@ $(document).ready(function() {
 
      $('#example tbody').on( 'click', 'tr', function () {
         $(this).toggleClass('active');
+        $(this).addClass('row_selected');
     } );
  
     $('#button').click( function () {
         alert( table.rows('.selected').data().length +' row(s) selected' );
+
     } );
 
 } );
@@ -243,9 +245,11 @@ function hidePleaseWait() {
     color: white;
     background-color: #b2ffb2;
     }*/
-    .row_selected td {
-    background-color: #b2ffb2 !important; /* Add !important to make sure override datables base styles */
- }
+    tr.row_selected td{background-color:#b2ffb2 !important;}
+    
+    /*.row_selected td {
+    background-color: #b2ffb2 !important;  Add !important to make sure override datables base styles 
+ }*/
   /*.table-striped>tbody>tr:nth-child(odd)>td, 
 .table-striped>tbody>tr:nth-child(odd)>th {
    background-color: #b2ffb2; 
