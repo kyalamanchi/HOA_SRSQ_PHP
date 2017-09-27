@@ -299,7 +299,7 @@
 	                              
 	                            			}
 
-	                            			echo "<td>".$document_to."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a href='https://hoaboardtime.com/cancelAgreement.php?id=".$agreement_id."'>Cancel</a></td></tr>";
+	                            			echo "<td>".$document_to."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a href='https://hoaboardtime.com/srp/cancelAgreement.php?id=".$agreement_id."'>Cancel</a></td></tr>";
 
 	                          			}
 
