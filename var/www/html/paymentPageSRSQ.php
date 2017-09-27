@@ -193,7 +193,7 @@ function payNow(){
 
           <h4>Contact Us</h4>
           <br>
-          <center><img  style="padding-left: 10px;width: 100px;height: 100px;" src="FortePaymentSystemsLogo.png"></center>
+          <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
         </div>
       
         </div>
