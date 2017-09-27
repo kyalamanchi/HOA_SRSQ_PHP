@@ -17,7 +17,7 @@ $row = pg_fetch_assoc($queryResult);
 $homeID  = $row['home_id'];
 $name = $row['firstname'].' '.$row['lastname'];
 $email = $row['email'];
-$query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=1";
+$query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$row['community_id'];
 $queryResult  = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 $legalName  = $row['legal_name'];
