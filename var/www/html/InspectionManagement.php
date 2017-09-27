@@ -242,6 +242,32 @@ function sendCombinedDocumentMail(hoaid){
 }
 function sendCombinedDocumentSouthData(hoaid){
     
+    $("#myModal2").modal("hide");
+    var hoaIDDownload = hoaid;
+    $("#pleaseWaitDialog2").modal("show");
+    $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">Please wait...</h4>');
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    var url = "https://hoaboardtime.com/generateCombinedNoticeSouthData.php?id="+hoaIDDownload;
+    var source = new EventSource(url);
+    source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
+        if ( (event.data == "File will be downloaded shortly.")  ){
+        source.close();
+        $downloadURL = "https://hoaboardtime.com/downloadFile.php?id="+hoaIDDownload;
+        // alert($downloadURL);
+        document.location = $downloadURL;
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
+    }
+     if ( (event.data == "Failed to generate notice. No HOAID found.") || (event.data == "Document id not found. Try re generating notice.")  ){
+        source.close();
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Ok</button>');
+    }
+    };  
 }
 function loadData(){
     showPleaseWait();
