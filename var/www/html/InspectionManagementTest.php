@@ -28,8 +28,9 @@
           <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
           <!-- <h4 class="modal-title">Modal Header</h4> -->
           <button type="button" class="btn btn-default " >Edit</button>
-          <button type="button" class="btn btn-primary pull-right">Email Notice(s)</button>
-          <button type="button" class="btn btn-primary pull-right">Send Notice(s) - SouthData</button>
+          <button type="button" class="btn btn-primary pull-right" style="padding-left: 5px;">Send Notice(s) - SouthData</button>
+          <button type="button" class="btn btn-primary pull-right" style="padding-right: 5px;">Email Notice(s)</button>
+          
         </div>
         <div class="modal-body">
             <div>
