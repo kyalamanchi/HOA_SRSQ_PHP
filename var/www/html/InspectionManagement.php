@@ -222,13 +222,14 @@ function previewAndGenerate(button){
 }
 }
 function sendCombinedDocumentMail(hoaid){
-    // alert(hoaid);
+    $("#myModal2").modal("hide");
     var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
                       </div>\
                     </div>';
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    $("#pleaseWaitDialog2").modal("show");
     var source = new EventSource("https://hoaboardtime.com/sendCombinedNoticeMail.php?id="+hoaid);
     source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
@@ -237,7 +238,6 @@ function sendCombinedDocumentMail(hoaid){
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary" onclick="closeModal();">Close</button>');
     }
     };
-
 }
 function sendCombinedDocumentSouthData(hoaid){
     
