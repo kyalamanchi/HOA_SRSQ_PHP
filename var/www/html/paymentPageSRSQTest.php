@@ -108,7 +108,7 @@ var source = new EventSource(url);
 source.onmessage = function(event){
   alert(event.data);
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
-        source.close();
+        // source.close();
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><button type="button" class="btn btn-primary" onclick="closeModal();">Close</button></div>');
 }
 }
