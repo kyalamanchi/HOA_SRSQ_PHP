@@ -361,8 +361,6 @@ updateName();
   </head>
   <div class="container">
 
-  	<div class='layout'><?php include "boardHeader.php"; ?></div>
-
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
       <hr />
