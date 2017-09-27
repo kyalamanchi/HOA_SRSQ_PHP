@@ -220,10 +220,8 @@ function payNow(){
           $queryResult = pg_query($query);
           $row =  pg_fetch_row($queryResult);
           $zipCode = $row[0];
-          echo '<h5>'.$legalName.'</h5>';
-          echo '<br>';
-          $finalAddress = '<span class=\'notbold\'>'.$address.','.$cityName.','.$stateName.','.$zipCode.'</span>';
-          echo '<h5>'.$finalAddress.'</h5>';
+          $finalAddress = '<span class=\'notbold\'>'.$legalName.'<br>'.$address.','.$cityName.','.$stateName.','.$zipCode.'</span>';
+          echo '<h4>'.$finalAddress.'</h4>';
           echo '<br>';
           ?>
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
