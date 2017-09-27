@@ -70,12 +70,13 @@ function changeOptions2(){
 }
 
 function editNotice (editButton){
+
     $("#myModal2").modal("hide");
     showPleaseWait();
     id  = 1;
     var jsonObj = [];
     var item = {};
-    item["id"] = editButton.id;
+    item["id"] = editButton;
     jsonObj.push(item);
     var lol = JSON.stringify(jsonObj);
     var request  = new  XMLHttpRequest();
