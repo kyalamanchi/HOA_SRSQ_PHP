@@ -99,16 +99,21 @@ function payNow(){
 }​
 </style>
   </head>
-  <body>
-    <h1>Stoneridge Square Association</h1>
+  <body onload="">
+    <?php
+          $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
+          $queryResult =  pg_query($query);
+          $row = pg_fetch_assoc($queryResult);
+          $communityID = $row['community_id'];
+          $query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
+          $queryResult = pg_query($query);
+          $row2 = pg_fetch_assoc($queryResult);
+          $legalName = $row2['legal_name'];
+          echo '<h1>'.$legalName.'</h1>';
+    ?>
     <hr>
     <br><br>
   <div class="container" style=" margin: 0 auto;" >
-    <form>
-    But this works!
-    <input type="text" class="bfh-phone" data-format="(ddd) ddd-dddd"></input>
-    </form>
-    <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
     <div class="row">
         <div style="width:40%; margin:0 auto; float: left;">
             <div class="panel panel-default credit-card-box">
