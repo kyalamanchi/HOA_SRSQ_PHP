@@ -212,10 +212,7 @@ source.onmessage = function(event) {
         alert(event.data);
     }
 }
-
-
-
-
+}
 function loadData(){
     showPleaseWait();
     var request = new XMLHttpRequest();
