@@ -256,7 +256,9 @@ $(document).ready(function() {
         request.open("POST","https://hoaboardtime.sendMultipleNotices.php",true);
         request.send(null);
         request.onreadystatechange = function(){
-            hidePleaseWait();
+            if ( request.readyState == XMLHttpRequest.DONE){
+                hidePleaseWait();
+            }
         }
     });
 } );
