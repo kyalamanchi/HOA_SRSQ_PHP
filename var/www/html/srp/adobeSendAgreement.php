@@ -360,6 +360,11 @@ updateName();
 </script>
   </head>
   <body>
+  	<div class="layout">
+
+  		<?php include "boardHeader.php"; ?>
+
+  	</div>
   	<div class="container">
 
   	<?php include "boardHeader.php"; ?>
