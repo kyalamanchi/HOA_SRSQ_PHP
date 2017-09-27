@@ -92,12 +92,12 @@ function payNow(){
     hidePleaseWait();
   }
 }
-
 function verifyUser(){
-  showPleaseWait();
+// showPleaseWait();
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
 alert(url);
-
+// hidePleaseWait();
+$("#pleaseWaitDialog2").modal("show");
 }
 </script>
 <style type="text/css">
@@ -133,7 +133,6 @@ alert(url);
                 </div>
                 <div class="panel-body">
                     <form role="form">
-
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
@@ -252,10 +251,17 @@ alert(url);
           ?>
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
         </div>
-      
         </div>
-        
     </div>
-
+    <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
