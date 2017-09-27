@@ -225,7 +225,7 @@ function payNow(){
             $finalAddress = $finalAddress.'<br><br>'.'<a href="mailto:board@stoneridgeplace.org">board@stoneridgesquare.org</a>';
           }
           else if  ( $communityID == 2){
-            $finalAddress = $finalAddress.'<br><a href="tel:9255205003">925 520 5003</a>'.'<br><br>'.'<a href="mailto:board@stoneridgesquare.org">board@stoneridgesquare.org</a>';
+            $finalAddress = $finalAddress.'<br>Phone:<a href="tel:9253996642">(925) 399-6642</a>'.'<br><br>'.'<a href="mailto:board@stoneridgesquare.org">board@stoneridgesquare.org</a>';
 
           }
 
