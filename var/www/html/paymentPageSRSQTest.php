@@ -103,7 +103,7 @@ var pleaseWaitData = '<div class="progress">\
                       </div>\
                     </div>';
 $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-
+$("#pleaseWaitDialog2").modal("show");
 var source = new EventSource(url);
 source.onmessage = function(event){
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
