@@ -239,15 +239,22 @@ $(document).ready(function() {
 
      $('#example tbody').on('click', 'td:not(:first-child)', function () {
         $(this).closest('tr').toggleClass('selected');
-        $("#button").text("Send  "+table.rows('.selected').data().length+"  notices");      
+        $("#button").text("Send  "+table.rows('.selected').data().length+"  notices");   
+
+        if ( table.rows('.selected').data().length == 0 ){
+             $("#button").text("Select Rows to send Multiple");
+        }
     });
 
      $('#button').click( function () {
-
-        alert( table.rows('.selected').data().length +' row(s) selected' );
-    } );
-
-
+        showPleaseWait();
+        var request = new XMLHttpRequest();
+        request.open("POST","https://hoaboardtime.sendMultipleNotices.php",true);
+        request.send(null);
+        request.onreadystatechange = function(){
+            hidePleaseWait();
+        }
+    });
 } );
 hidePleaseWait();
 }
