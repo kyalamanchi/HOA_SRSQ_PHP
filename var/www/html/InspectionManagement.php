@@ -90,7 +90,6 @@ function editNotice (editButton){
         $("#myModal").modal("show");
         $("#myModal").find('.modal-body').html(fieldData);
     }
-    hidePleaseWait();
   }
 }
 
@@ -165,9 +164,8 @@ function generateForSouthData(docID){
 }
 function saveChanges(){
 
-    jsonObj = {};
-    item = [];
-
+    jsonObj = [];
+    item = {};
     item["inspection_id"] = document.getElementById("inspectionID").value;
     item["inspection_description"] = document.getElementById("inspectionDescription").value;
     item["inspection_category_id"] = document.getElementById("inspection_category_id").value;
