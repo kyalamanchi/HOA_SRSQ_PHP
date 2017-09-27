@@ -209,7 +209,13 @@ source.onmessage = function(event) {
     if ( (event.data == "Generated notice(s).")){
         source.close();
         $("#pleaseWaitDialog2").modal("hide");
-        alert(event.data);
+        // alert(event.data);
+        var fieldData = ' <div>\
+            <iframe src="preview.pdf"\
+            style="width:880px; height:768px;" frameborder="0"></iframe>\
+        </div>';
+        $("#myModal2").find('.modal-body').html();
+
     }
 }
 }
@@ -354,7 +360,7 @@ function hidePleaseWait() {
   </div>
 </div>
 
-<div class="modal fade" id="myModal" role="dialog">
+<div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -363,10 +369,7 @@ function hidePleaseWait() {
           <button type="button" class="btn btn-primary pull-right" style="padding-right: 5px;">Email Notice(s)</button>
         </div>
         <div class="modal-body" id="previewBody">
-            <div>
-            <iframe src="preview.pdf"
-            style="width:880px; height:768px;" frameborder="0"></iframe>
-        </div>
+           
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
