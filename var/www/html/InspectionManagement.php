@@ -239,6 +239,9 @@ $(document).ready(function() {
 
      $('#example tbody').on('click', 'td:not(:first-child)', function () {
         $(this).closest('tr').toggleClass('selected');
+        if ( table.rows('.selected').data().length == 0 ){
+            alert("No rows selected");
+        }
     });
 
 } );
