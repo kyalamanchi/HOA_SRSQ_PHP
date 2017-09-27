@@ -208,7 +208,7 @@ function previewAndGenerate(button){
     if ( (event.data == "Generated notice(s).")){
         source.close();
         $("#pleaseWaitDialog2").modal("hide");
-        var fieldData = '<button type="button" class="btn btn-default">Edit</button>\
+        var fieldData = '<button type="button" class="btn btn-default" onclick="editNotice('+button.id+')">Edit</button>\
           <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
           <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
         $("#myModal2").find('.modal-header').html(fieldData);
@@ -241,7 +241,6 @@ function sendCombinedDocumentMail(hoaid){
     };
 }
 function sendCombinedDocumentSouthData(hoaid){
-    
     $("#myModal2").modal("hide");
     var hoaIDDownload = hoaid;
     $("#pleaseWaitDialog2").modal("show");
