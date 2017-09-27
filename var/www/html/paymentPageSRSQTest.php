@@ -92,6 +92,13 @@ function payNow(){
     hidePleaseWait();
   }
 }
+
+function verifyUser(){
+  showPleaseWait();
+var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
+alert(url);
+
+}
 </script>
 <style type="text/css">
   .notbold{
@@ -99,7 +106,7 @@ function payNow(){
 }​
 </style>
   </head>
-  <body onload="">
+  <body onload="verifyUser();">
     <?php
           $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
           $queryResult =  pg_query($query);
