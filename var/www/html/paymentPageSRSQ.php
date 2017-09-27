@@ -193,7 +193,34 @@ function payNow(){
 
           <h4>Contact Us</h4>
           <br>
-          Stoneridge Square Association
+          <?php
+          $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
+          $queryResult =  pg_query($query);
+          $row = pg_fetch_assoc($queryResult);
+          $communityID = $row['community_id'];
+          $query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
+          $queryResult = pg_query($query);
+
+          $row = pg_fetch_assoc($queryResult);
+
+          echo '<h5>'.$row['legal_name'].'</h5>';
+          echo '<br>';
+
+          echo '<h5>'.$row['mailing_address'].'</h5>';
+          echo '<br>';
+
+          echo '<h5>'.$row['mailing_addr_city'].'</h5>';
+          echo '<br>';
+
+          echo '<h5>'.$row['mailing_addr_state'].'</h5>';
+          echo '<br>';
+
+          echo '<h5>'.$row['mailing_addr_zip'].'</h5>';
+          echo '<br>';
+
+
+
+          ?>
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
         </div>
       
