@@ -192,6 +192,14 @@ function saveChanges(){
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
+
+function previewAndGenerate(button){
+    alert(button.id);
+}
+
+
+
+
 function loadData(){
     showPleaseWait();
     var request = new XMLHttpRequest();
@@ -332,5 +340,28 @@ function hidePleaseWait() {
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn btn-default">Edit</button>
+          <button type="button" class="btn btn-primary pull-right" style="padding-left: 5px;">Send Notice(s) - SouthData</button>
+          <button type="button" class="btn btn-primary pull-right" style="padding-right: 5px;">Email Notice(s)</button>
+        </div>
+        <div class="modal-body" id="previewBody">
+            <div>
+            <iframe src="preview.pdf"
+            style="width:880px; height:768px;" frameborder="0"></iframe>
+        </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     </body>
 </html>

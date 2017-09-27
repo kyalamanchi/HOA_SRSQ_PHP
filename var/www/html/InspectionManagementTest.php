@@ -29,7 +29,7 @@
           <button type="button" class="btn btn-primary pull-right" style="padding-left: 5px;">Send Notice(s) - SouthData</button>
           <button type="button" class="btn btn-primary pull-right" style="padding-right: 5px;">Email Notice(s)</button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="previewBody">
             <div>
             <iframe src="preview.pdf"
             style="width:880px; height:768px;" frameborder="0"></iframe>
