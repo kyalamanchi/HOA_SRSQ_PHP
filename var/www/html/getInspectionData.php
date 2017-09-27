@@ -51,7 +51,7 @@ if ( $connection){
         }
     }
     else {
-        $query =  "SELECT * FROM INSPECTION_NOTICES";
+        $query =  "SELECT * FROM INSPECTION_NOTICES WHERE INSPECTION_STATUS_ID != 2 OR INSPECTION_STATUS_ID != 6 OR INSPECTION_STATUS_ID != 9 OR INSPECTION_STATUS_ID != 13 OR INSPECTION_STATUS_ID != 14";
         $queryResult = pg_query($query);
         $sendData = array();
         while ($row = pg_fetch_assoc($queryResult)) {
