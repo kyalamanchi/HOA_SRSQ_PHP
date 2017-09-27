@@ -359,7 +359,11 @@ updateName();
 }
 </script>
   </head>
-  <div class="container">
+
+  <?php include 'boardHeader.php'; ?>
+
+  <div class='wrapper'>
+  	<div class="container">
 
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
@@ -464,5 +468,6 @@ updateName();
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
+</div>
 
 </html>
