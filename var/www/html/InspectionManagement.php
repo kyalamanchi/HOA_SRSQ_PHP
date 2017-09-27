@@ -51,6 +51,7 @@ function changeOptions2(){
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
         // dataSet2.push(data2[i]['id']);
+     dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input><br><input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input>');
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
@@ -59,8 +60,6 @@ function changeOptions2(){
         dataSet2.push(data2[i]['location_id']);
         dataSet2.push(data2[i]['inspection_notice_type_id']);
         dataSet2.push(data2[i]['inspection_status']);
-        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input>');
-        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input>');
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -182,7 +181,7 @@ function loadData(){
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
-        // dataSet2.push(data2[i]['id']);
+        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input><br><input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input>');
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
@@ -191,8 +190,6 @@ function loadData(){
         dataSet2.push(data2[i]['location_id']);
         dataSet2.push(data2[i]['inspection_notice_type_id']);
         dataSet2.push(data2[i]['inspection_status']);
-        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input>');
-        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input>');
         dataSet.push(dataSet2);
 }
 $(document).ready(function() {
@@ -200,6 +197,7 @@ $(document).ready(function() {
         data: dataSet,
         select: true,
         columns: [
+            { title: ""},
             { title: "HomeID" },
             { title: "HoaID" },
             { title: "Description",
@@ -210,9 +208,8 @@ $(document).ready(function() {
             "width" : "15%" },
             { title: "Type" },
             { title: "Status",
-            "width" : "20%" },
-            { title: ""},
-            { title: ""}
+            "width" : "20%" }
+            
         ]
     } );
 
