@@ -209,17 +209,29 @@ source.onmessage = function(event) {
     if ( (event.data == "Generated notice(s).")){
         source.close();
         $("#pleaseWaitDialog2").modal("hide");
-        // alert(event.data);
+        var fieldData = '<button type="button" class="btn btn-default">Edit</button>\
+          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
+          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
+        $("#myModal2").find('.modal-header').html(fieldData);
         var fieldData = ' <div>\
             <iframe src="preview.pdf"\
             style="width:880px; height:768px;" frameborder="0"></iframe>\
         </div>';
         $("#myModal2").find('.modal-body').html(fieldData);
-
         $("#myModal2").modal("show");
     }
 }
 }
+
+function sendCombinedDocumentMail(hoaid){
+    alert(hoaid);
+}
+
+function sendCombinedDocumentSouthData(hoaid){
+    alert(hoaid);
+}
+
+
 function loadData(){
     showPleaseWait();
     var request = new XMLHttpRequest();
@@ -365,9 +377,7 @@ function hidePleaseWait() {
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="btn btn-default">Edit</button>
-          <button type="button" class="btn btn-primary pull-right" style="padding-left: 5px;">Send Notice(s) - SouthData</button>
-          <button type="button" class="btn btn-primary pull-right" style="padding-right: 5px;">Email Notice(s)</button>
+          
         </div>
         <div class="modal-body" id="previewBody">
 

@@ -102,6 +102,8 @@
 	}
 	$pdf->Output('preview.pdf','F');
 	$message = "Generated notice(s).";
+	$id = $hoaID;
+	echo "id: $id\n";
  	echo 'data: '.$message."\n\n";  
   	ob_end_flush();
   	flush();
