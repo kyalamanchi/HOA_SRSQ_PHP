@@ -104,6 +104,10 @@ function payNow(){
     <hr>
     <br><br>
   <div class="container" style=" margin: 0 auto;" >
+    <form>
+    But this works!
+    <input type="text" class="bfh-phone" data-format="(ddd) ddd-dddd"></input>
+    </form>
     <input type="text" class="input-medium bfh-phone" data-format="+1 (ddd) ddd-dddd">
     <div class="row">
         <div style="width:40%; margin:0 auto; float: left;">
