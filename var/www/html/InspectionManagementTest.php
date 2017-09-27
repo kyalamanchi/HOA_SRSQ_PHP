@@ -34,7 +34,7 @@
       </div>
       <div class="modal-body">
         <div style="text-align: center;">
-<iframe src="http://docs.google.com/gview?url=http://www.pdf995.com/samples/pdf.pdf&embedded=true" 
+<iframe src="https://docs.google.com/gview?url=http://www.pdf995.com/samples/pdf.pdf&embedded=true" 
 style="width:500px; height:500px;" frameborder="0"></iframe>
 </div>
       </div>
