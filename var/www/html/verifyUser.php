@@ -23,7 +23,7 @@ if ( $row['cell_no'] ){
 }
 else if ( $row['email'] ){
   $string = explode('@', $row['email']);
-  $message = '@'.$string[1];
+  $message = substr($string[0], -2).'@'.$string[1];
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
