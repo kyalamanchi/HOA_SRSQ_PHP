@@ -106,9 +106,7 @@ $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
 $("#pleaseWaitDialog2").modal("show");
 var source = new EventSource(url);
 source.onmessage = function(event){
-  alert(event.data);
-$("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
-        
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         if ( (event.data == "email") ){
         source.close();
         var data  = event.lastEventId.split(' ');
