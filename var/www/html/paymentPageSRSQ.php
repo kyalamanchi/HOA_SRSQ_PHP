@@ -220,7 +220,16 @@ function payNow(){
           $queryResult = pg_query($query);
           $row =  pg_fetch_row($queryResult);
           $zipCode = $row[0];
-          $finalAddress = '<span class=\'notbold\'>'.$legalName.'<br><br>'.$address.','.$cityName.','.$stateName.','.$zipCode.'</span>';
+          $finalAddress = '<span class=\'notbold\'>'.$legalName.'<br><br>'.$address.','.$cityName.','.$stateName.' '.$zipCode.'</span>';
+          if ( $communityID == 1){
+
+          }
+          else if  ( $communityID == 2){
+            $finalAddress = $finalAddress.'<br><br>'.'<a href="">board@stoneridgesquare.org</a>';
+
+          }
+
+
           echo '<h4>'.$finalAddress.'</h4>';
           echo '<br>';
           ?>
