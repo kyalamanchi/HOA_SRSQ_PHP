@@ -112,6 +112,9 @@ $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button>');
 }
 }
+function closeModal(){
+  $("#pleaseWaitDialog2").modal("hide");
+}
 </script>
 <style type="text/css">
   .notbold{
