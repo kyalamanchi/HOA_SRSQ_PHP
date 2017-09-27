@@ -209,8 +209,8 @@ function previewAndGenerate(button){
         source.close();
         $("#pleaseWaitDialog2").modal("hide");
         var fieldData = '<button type="button" class="btn btn-default">Edit</button>\
-          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
-          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
+          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
+          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
         $("#myModal2").find('.modal-header').html(fieldData);
         var fieldData = ' <div>\
             <iframe src="preview.pdf"\
