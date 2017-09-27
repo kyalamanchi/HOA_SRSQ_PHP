@@ -1,6 +1,21 @@
 <html>
   <head>
-    <meta charset="UTF-8">
+    <?php
+
+			session_start();
+
+			if(!$_SESSION['hoa_username'])
+				header("Location: logout.php");
+
+			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+			if($_SESSION['hoa_mode'] == 2)
+				header('Location: residentDashboard.php');
+
+
+		?>
+
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="">
