@@ -343,11 +343,11 @@
 
 														<div class='counter-number'>
 															
-															<a href='adobeSendAgreement.php'>
+															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
 
 																<i class='fa fa-paper-plane'></i>
 
-															</a>
+															<?php if($community_id == 2) echo "</a>"; ?>
 																
 														</div>
 
