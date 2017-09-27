@@ -20,6 +20,34 @@ $message  = "Generating Inspection Notice...Please Wait...";
 	$row  = pg_fetch_assoc($queryResult);
 	$homeID = $row['home_id'];
 	$hoaID = $row['hoa_id'];
+		$query = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
+	$queryResult = pg_query($query);
+	$homeAddress = "";
+	while ( $row  = pg_fetch_assoc($queryResult)) {
+			$communityID = $row['community_id'];
+			$homeAddress = $row['address1'];
+			$query = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$row['city_id'];
+			$qr = pg_query($query);
+			$homeCityName = pg_fetch_assoc($qr)['city_name'];
+			$query = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$row['state_id'];
+			$qr = pg_query($query);
+			$homeStateName = pg_fetch_assoc($qr)['state_code'];
+			$query = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$row['zip_id'];
+			$qr = pg_query($query);
+			$homeZipCode = pg_fetch_assoc($qr)['zip_code'];
+			$query =  "SELECT * FROM PERSON WHERE HOME_ID=".$homeID." ORDER BY RELATIONSHIP_ID";
+			$qr = pg_query($query);
+			$names = '';
+			$name = "";
+			while ($row = pg_fetch_assoc($qr)) {
+				if ( $name == "" ){
+					$name = $row['fname'].' '.$row['lname'];
+				}
+				$names = $names.$row['fname'].' '.$row['lname'].'<br>';
+			}
+	}
+	$communityName = $communityLegalNames[$communityID];
+	
 	$query = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID = ".$homeID." AND INSPECTION_STATUS_ID != 2 AND INSPECTION_STATUS_ID != 6 AND INSPECTION_STATUS_ID != 9 AND INSPECTION_STATUS_ID != 13 AND INSPECTION_STATUS_ID != 14 ORDER BY ID";
 	$queryResult = pg_query($query);
 	while ($row = pg_fetch_assoc($queryResult)) {
@@ -29,33 +57,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
 
 
 
-// 	$query = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
-// 	$queryResult = pg_query($query);
-// 	$homeAddress = "";
-// 	while ( $row  = pg_fetch_assoc($queryResult)) {
-// 			$communityID = $row['community_id'];
-// 			$homeAddress = $row['address1'];
-// 			$query = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$row['city_id'];
-// 			$qr = pg_query($query);
-// 			$homeCityName = pg_fetch_assoc($qr)['city_name'];
-// 			$query = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$row['state_id'];
-// 			$qr = pg_query($query);
-// 			$homeStateName = pg_fetch_assoc($qr)['state_code'];
-// 			$query = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$row['zip_id'];
-// 			$qr = pg_query($query);
-// 			$homeZipCode = pg_fetch_assoc($qr)['zip_code'];
-// 			$query =  "SELECT * FROM PERSON WHERE HOME_ID=".$homeID." ORDER BY RELATIONSHIP_ID";
-// 			$qr = pg_query($query);
-// 			$names = '';
-// 			$name = "";
-// 			while ($row = pg_fetch_assoc($qr)) {
-// 				if ( $name == "" ){
-// 					$name = $row['fname'].' '.$row['lname'];
-// 				}
-// 				$names = $names.$row['fname'].' '.$row['lname'].'<br>';
-// 			}
-// 	}
-// 	$communityName = $communityLegalNames[$communityID];
+
 // 	require('mc_table.php');
 // 	class PDF extends PDF_MC_Table{
 // 	function Header()
