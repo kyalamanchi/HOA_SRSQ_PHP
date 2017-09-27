@@ -47,62 +47,59 @@ $message  = "Generating Inspection Notice...Please Wait...";
 			}
 	}
 	$communityName = $communityLegalNames[$communityID];
-	
+
 	$query = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID = ".$homeID." AND INSPECTION_STATUS_ID != 2 AND INSPECTION_STATUS_ID != 6 AND INSPECTION_STATUS_ID != 9 AND INSPECTION_STATUS_ID != 13 AND INSPECTION_STATUS_ID != 14 ORDER BY ID";
 	$queryResult = pg_query($query);
-	while ($row = pg_fetch_assoc($queryResult)) {
-		echo $row['id'].nl2br("\n");
+
+		require('mc_table.php');
+	class PDF extends PDF_MC_Table{
+	function Header()
+	{
+	global $communityName;
+  	$this->SetFont('Times','','15');
+    $this->WriteHtml("<i><b><p align=\"center\">".$communityName."</p></b></i><br>");
+    $this->SetFont('Times','','10');
+    $this->WriteHtml("<b><p align=\"center\">Homeowner's Association</p></b><br>");
 	}
+	function Footer()
+	{
+	global $communityName;
+	global $communityAddresses;
+	global $communityID;
+	$query = "SELECT MAILING_ADDR_CITY,MAILING_ADDR_STATE,MAILING_ADDR_ZIP FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
+	$qr = pg_query($query);
+	while ($row = pg_fetch_assoc($qr)) {
+		$query = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$row['mailing_addr_city'];
+		$qr = pg_query($query);
+		while ($r = pg_fetch_assoc($qr)) {
+			$communityCity  = $r['city_name'];
+		}
+		$query = "SELECT STATE_NAME FROM STATE WHERE STATE_ID=".$row['mailing_addr_state'];
+		$qr = pg_query($query);
+		while ($r = pg_fetch_assoc($qr)) {
+			$communityState = $r['state_name'];
+		}
+		$query = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$row['mailing_addr_zip'];
+		$qr = pg_query($query);
+		while ($r = pg_fetch_assoc($qr)) {
+			$communityZipCode = $r['zip_code'];
+		}
+	}
+    $this->SetY(-15);
+    $this->SetFont('Arial','',8);
+    $this->MultiCell('',15,"".$communityName.",".$communityAddresses[$communityID].",".$communityCity.",".$communityState.",".$communityZipCode."",0,'C',false);
+	}
+	}
+	$pdf = new PDF();
+	$pdf->AliasNbPages();
+	$pdf->SetFont('Times','',10);
+	
+	while ($row = pg_fetch_assoc($queryResult)) {
+		$pdf->AddPage();
+			$pdf->WriteHtml("".date('M d,Y')."<br><br>".$names.$homeAddress."<br>".$homeCityName.",".$homeStateName.",".$homeZipCode."<br><br>"."<b>RE: Lot 82 Issuance of Courtesy Notice</b><br>Dear ".$name." :<br><br>As managing agent, of the ".$communityName.", one of our various administrative responsibilities include the task of initiating informing homeowners of issues of concern that are related to owner's maintenance requirements as defined in the governing documents. <br><br>This notice is being sent to advise you that as a result ofa recent routine inspection of the Association, many homes are in need of repair or painting and yours is one of those identified. We understand that you may not be aware of this condition and are extending an opportunity for you to respond or make the necessary repairs. <br><br>In accordance with your CC&Rs, all homeowners are responsible for maintaining the Separate Interest in good condition and repair.<br><br>To preserve the aesthetic appeal of the community, we request that you take necessary action to improve the exterior of your home upon receipt of this notice. The color of paint used should be as close to the original color as possible. You will be required to provide this office with the color scheme that you intend to use for approval prior to painting your house. <br><br> It is our obligation to inform you that if you choose not to comply with this request or discuss this matter with this office within thirty (30) days of receipt of this letter, then you will be scheduled to attend a Hearing before the Board of Directors to resolve the outstanding condition or you may be subjected to disciplinary action, i.e.; fines and/or loss of membership privileges.<br><br>Your special attention to this matter is appreciated in advance. If you have any questions regarding these issues, please leave a message at (925) 399-6642. <br><br>Sincerely,<br>Board of Directors<br>".$communityName);
+	}
+		$pdf->Output($homeAddress.'.pdf','F');
 }
-
-
-
-
-// 	require('mc_table.php');
-// 	class PDF extends PDF_MC_Table{
-// 	function Header()
-// 	{
-// 	global $communityName;
-//   	$this->SetFont('Times','','15');
-//     $this->WriteHtml("<i><b><p align=\"center\">".$communityName."</p></b></i><br>");
-//     $this->SetFont('Times','','10');
-//     $this->WriteHtml("<b><p align=\"center\">Homeowner's Association</p></b><br>");
-// 	}
-// 	function Footer()
-// 	{
-// 	global $communityName;
-// 	global $communityAddresses;
-// 	global $communityID;
-// 	$query = "SELECT MAILING_ADDR_CITY,MAILING_ADDR_STATE,MAILING_ADDR_ZIP FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
-// 	$qr = pg_query($query);
-// 	while ($row = pg_fetch_assoc($qr)) {
-// 		$query = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$row['mailing_addr_city'];
-// 		$qr = pg_query($query);
-// 		while ($r = pg_fetch_assoc($qr)) {
-// 			$communityCity  = $r['city_name'];
-// 		}
-// 		$query = "SELECT STATE_NAME FROM STATE WHERE STATE_ID=".$row['mailing_addr_state'];
-// 		$qr = pg_query($query);
-// 		while ($r = pg_fetch_assoc($qr)) {
-// 			$communityState = $r['state_name'];
-// 		}
-// 		$query = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$row['mailing_addr_zip'];
-// 		$qr = pg_query($query);
-// 		while ($r = pg_fetch_assoc($qr)) {
-// 			$communityZipCode = $r['zip_code'];
-// 		}
-// 	}
-//     $this->SetY(-15);
-//     $this->SetFont('Arial','',8);
-//     $this->MultiCell('',15,"".$communityName.",".$communityAddresses[$communityID].",".$communityCity.",".$communityState.",".$communityZipCode."",0,'C',false);
-// 	}
-// 	}
-// 	$pdf = new PDF();
-// 	$pdf->AliasNbPages();
-// 	$pdf->AddPage();
-// 	$pdf->SetFont('Times','',10);
-// 	$pdf->WriteHtml("".date('M d,Y')."<br><br>".$names.$homeAddress."<br>".$homeCityName.",".$homeStateName.",".$homeZipCode."<br><br>"."<b>RE: Lot 82 Issuance of Courtesy Notice</b><br>Dear ".$name." :<br><br>As managing agent, of the ".$communityName.", one of our various administrative responsibilities include the task of initiating informing homeowners of issues of concern that are related to owner's maintenance requirements as defined in the governing documents. <br><br>This notice is being sent to advise you that as a result ofa recent routine inspection of the Association, many homes are in need of repair or painting and yours is one of those identified. We understand that you may not be aware of this condition and are extending an opportunity for you to respond or make the necessary repairs. <br><br>In accordance with your CC&Rs, all homeowners are responsible for maintaining the Separate Interest in good condition and repair.<br><br>To preserve the aesthetic appeal of the community, we request that you take necessary action to improve the exterior of your home upon receipt of this notice. The color of paint used should be as close to the original color as possible. You will be required to provide this office with the color scheme that you intend to use for approval prior to painting your house. <br><br> It is our obligation to inform you that if you choose not to comply with this request or discuss this matter with this office within thirty (30) days of receipt of this letter, then you will be scheduled to attend a Hearing before the Board of Directors to resolve the outstanding condition or you may be subjected to disciplinary action, i.e.; fines and/or loss of membership privileges.<br><br>Your special attention to this matter is appreciated in advance. If you have any questions regarding these issues, please leave a message at (925) 399-6642. <br><br>Sincerely,<br>Board of Directors<br>".$communityName);
-// 	$pdf->Output($homeAddress.'.pdf','F');
 // 	}
 // 	$message  = "Uploading to Dropbox...Please Wait...";
 //   echo 'data: '.$message."\n\n";  
