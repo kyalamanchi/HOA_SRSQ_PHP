@@ -200,22 +200,26 @@ function payNow(){
           $communityID = $row['community_id'];
           $query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
           $queryResult = pg_query($query);
+          $row2 = pg_fetch_assoc($queryResult);
+          $address = $row2['mailing_address']
+          $query = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$row2['mailing_addr_city'];
+          $queryResult = pg_query($query);
+          $row = pg_fetch_row($queryResult);
+          $cityName  = $row[0];
 
-          $row = pg_fetch_assoc($queryResult);
+          $query = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$row2['mailing_addr_state'];
+          $queryResult = pg_query($query);
+          $row  = pg_fetch_row($queryResult);
+          $stateName = $row[0];
 
+          $query = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$row2['mailing_addr_zip'];
+          $queryResult = pg_query($query);
+          $row =  pg_fetch_row($queryResult);
+          $zipCode = $row[0];
           echo '<h5>'.$row['legal_name'].'</h5>';
           echo '<br>';
 
-          echo '<h5>'.$row['mailing_address'].'</h5>';
-          echo '<br>';
-
-          echo '<h5>'.$row['mailing_addr_city'].'</h5>';
-          echo '<br>';
-
-          echo '<h5>'.$row['mailing_addr_state'].'</h5>';
-          echo '<br>';
-
-          echo '<h5>'.$row['mailing_addr_zip'].'</h5>';
+          echo '<h5>'.$address.' '.$cityName.'</h5>'.'<h5>'.$stateName.'</h5>'.'<h5>'.$zipCode.'</h5>';
           echo '<br>';
 
 
