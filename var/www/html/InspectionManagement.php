@@ -247,6 +247,9 @@ $(document).ready(function() {
     });
 
      $('#button').click( function () {
+        if ( table.rows('.selected').data().length == 0 ){
+             alert("Please select atleast one row.");
+        }
         showPleaseWait();
         var request = new XMLHttpRequest();
         request.open("POST","https://hoaboardtime.sendMultipleNotices.php",true);
