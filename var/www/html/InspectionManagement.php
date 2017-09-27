@@ -177,9 +177,10 @@ function saveChanges(){
     item["item"] = document.getElementById("item").value;
     jsonObj.push(item);
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/updateInspectionData.php");
-    showPleaseWait();
+    request.open("POST","https://hoaboardtime.com/updateInspectionData.php",true);
+    request.setRequestHeader("Content-type", "application/json");
     request.send(JSON.stringify(jsonObj));
+    showPleaseWait();
     request.onreadystatechange = function(){
         if(request.readyState == XMLHttpRequest.DONE){
             hidePleaseWait();
