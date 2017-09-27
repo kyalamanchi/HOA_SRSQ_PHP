@@ -184,6 +184,7 @@ function saveChanges(){
     request.onreadystatechange = function(){
         if(request.readyState == XMLHttpRequest.DONE){
             hidePleaseWait();
+            $("#myModal").modal("hide");
             alert(request.responseText);
         }
     }
