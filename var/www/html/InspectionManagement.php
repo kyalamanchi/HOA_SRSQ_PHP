@@ -194,7 +194,23 @@ function closeModal(){
 }
 
 function previewAndGenerate(button){
-    alert(button.id);
+    var fieldData =     '<h4 class="modal-title">Generating Preview...Please Wait...</h4>';
+    $("#pleaseWaitDialog2").modal("show");
+    $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+var source = new EventSource("https://hoaboardtime.com/genericNoticeCombine.php?id="+button.id);
+source.onmessage = function(event) {
+    $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
+    if ( (event.data == "Generated notice(s).")){
+        source.close();
+        $("#pleaseWaitDialog2").modal("hide");
+        alert(event.data);
+    }
 }
 
 
