@@ -362,7 +362,7 @@ updateName();
 
   <?php include 'boardHeader.php'; ?>
 
-  <section class="module-page-title">
+  <section class="module-page-title p-t-0 p-b-0">
 				
 				<div class="container">
 						
