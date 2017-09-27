@@ -70,6 +70,7 @@ function changeOptions2(){
 }
 
 function editNotice (editButton){
+    $("#myModal2").modal("hide");
     showPleaseWait();
     id  = 1;
     var jsonObj = [];
