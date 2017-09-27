@@ -216,8 +216,8 @@ $(document).ready(function() {
         ]
     } );
 
-     $('#example tbody').on('click', 'tr', function () {
-        $(this).toggleClass('selected');
+     $('#example tbody').on('click', 'td:not(:first-child)', function () {
+        $(this).closest('tr').toggleClass('selected');
     });
 
     // $('#button').click(function () {
