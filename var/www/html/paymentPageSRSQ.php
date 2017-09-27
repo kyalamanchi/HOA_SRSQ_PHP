@@ -201,6 +201,7 @@ function payNow(){
           $query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
           $queryResult = pg_query($query);
           $row2 = pg_fetch_assoc($queryResult);
+          $legalName = $row2['legal_name'];
           $address = $row2['mailing_address'];
           $query = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$row2['mailing_addr_city'];
           $queryResult = pg_query($query);
@@ -214,7 +215,7 @@ function payNow(){
           $queryResult = pg_query($query);
           $row =  pg_fetch_row($queryResult);
           $zipCode = $row[0];
-          echo '<h5>'.$row['legal_name'].'</h5>';
+          echo '<h5>'.$legalName.'</h5>';
           echo '<br>';
           echo '<h5>'.$address.' '.$cityName.'</h5>'.' '.'<h5>'.$stateName.'</h5>'.' '.'<h5>'.$zipCode.'</h5>';
           echo '<br>';
