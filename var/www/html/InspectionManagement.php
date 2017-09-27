@@ -49,7 +49,7 @@ function changeOptions2(){
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
         // dataSet2.push(data2[i]['id']);
-     dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input><br><input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input>');
+     dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Preview & Send" onclick="previewAndGenerate(this)"></input>');
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
@@ -205,7 +205,7 @@ function loadData(){
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
-        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Edit" onclick="editNotice(this)"></input><br><input type="button" id="'+data2[i]['id']+'" value="Generate Notice" onclick="generateNotice(this)"></input>');
+        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Preview & Send" onclick="previewAndGenerate(this)"></input>');
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
