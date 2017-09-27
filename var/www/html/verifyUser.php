@@ -16,14 +16,24 @@ $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 
 if ( $row['cell_no'] ){
+  $id = "";
+  $id = "number";
+  $id = $id." ";
+  $id = $id.strlen($row['cell_no']);
   $message = substr($row['cell_no'], -4);
+  echo "id: $id\n";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
 }
 else if ( $row['email'] ){
+  $id = "";
+  $id = "email";
+  $id = $id." ";
+  $id = $id.strlen($row['email']);
   $string = explode('@', $row['email']);
   $message = substr($string[0], -2).'@'.$string[1];
+  echo "id: $id\n";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
