@@ -362,32 +362,13 @@ updateName();
 
   <?php include 'boardHeader.php'; ?>
 
-  <section class="module-page-title p-t-0 p-b-0">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
-							
-							<h1 class="h5">Send Agreement <small>- Adobe Sign</small></h1>
-						
-						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
   <div class='wrapper'>
   	<section class='module'>
   		<div class='col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-10 offset-xs-1'>
   			<div class="container">
 
     <div class="row">
-      <h2>Adobe Sign - Send Agreement</h2>
-      <hr />
+      <h1 class="h5">Send Agreement <small>- Adobe Sign</small></h1>
     </div>
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
