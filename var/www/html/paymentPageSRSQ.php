@@ -189,7 +189,8 @@ function payNow(){
                 </div>
             </div>
         </div>            
-        <div style="float: left;">
+        <div style="float: left; padding-left: 30px;">
+
           <h4>Contact Us</h4>
           <br>
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
