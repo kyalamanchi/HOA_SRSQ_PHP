@@ -92,7 +92,7 @@
 	$pdf->SetFont('Times','',10);
 	$query = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID = ".$homeID." AND INSPECTION_STATUS_ID != 2 AND INSPECTION_STATUS_ID != 6 AND INSPECTION_STATUS_ID != 9 AND INSPECTION_STATUS_ID != 13 AND INSPECTION_STATUS_ID != 14 ORDER BY ID";
 	$queryResult = pg_query($query);
-	$message = "Found ".pg_num_rows($queryResult)." notice(s) for home id ".$homeID;
+	$message = "Found ".pg_num_rows($queryResult)." notice(s) for home id ".$homeID.' . Generating preview...';
  	echo 'data: '.$message."\n\n";  
   	ob_end_flush();
   	flush();
