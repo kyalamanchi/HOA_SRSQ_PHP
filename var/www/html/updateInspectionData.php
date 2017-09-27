@@ -10,7 +10,4 @@ if( $connection ){
             echo "Failed to update";
         }
 }
-
-
-
 ?>
