@@ -109,7 +109,7 @@ source.onmessage = function(event){
   alert(event.data);
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         source.close();
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button>');
+        $("#pleaseWaitDialog2").find('.modal-body').html('<div><button type="button" class="btn btn-primary" onclick="closeModal();">Close</button></div>');
 }
 }
 function closeModal(){
