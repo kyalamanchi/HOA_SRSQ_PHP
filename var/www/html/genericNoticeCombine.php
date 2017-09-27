@@ -1,7 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 date_default_timezone_set("America/New_York");
-header("Content-Type: text/event-stream\n\n");
-$message  = "Generating Inspection Notice...Please Wait...";
+// header("Content-Type: text/event-stream\n\n");
+// $message  = "Generating Inspection Notice...Please Wait...";
   // echo 'data: '.$message."\n\n";
   ob_end_flush();
   flush();
