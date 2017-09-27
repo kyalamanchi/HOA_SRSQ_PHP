@@ -216,6 +216,7 @@ source.onmessage = function(event) {
         </div>';
         $("#myModal2").find('.modal-body').html();
 
+        $("#myModal2").modal("show");
     }
 }
 }
