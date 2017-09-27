@@ -217,7 +217,8 @@ function payNow(){
           $zipCode = $row[0];
           echo '<h5>'.$legalName.'</h5>';
           echo '<br>';
-          echo '<h5>'.$address.' '.$cityName.'</h5>'.' '.'<h5>'.$stateName.'</h5>'.' '.'<h5>'.$zipCode.'</h5>';
+          $finalAddress = $address.' '.$cityName.' '.$stateName.' '.$zipCode;
+          echo '<h5>'.$finalAddress.'</h5>';
           echo '<br>';
           ?>
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
