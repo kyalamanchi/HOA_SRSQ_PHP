@@ -109,7 +109,7 @@ source.onmessage = function(event){
   alert(event.data);
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         
-        if ( (event.data == "email") || (event.data == "number") ){
+        if ( (event.data == "email") ){
         source.close();
         var data  = event.lastEventId.split(' ');
         var str = new Array(data[1] + 1).join('*');
