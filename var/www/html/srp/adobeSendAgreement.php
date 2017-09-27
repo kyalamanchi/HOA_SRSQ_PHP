@@ -1,6 +1,8 @@
 <html>
-  <head>
-    <?php
+  
+  	<head>
+
+    	<?php
 
 			session_start();
 
@@ -52,128 +54,186 @@
     	<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+		<style>
 
+			.switch {
+
+			  	position: relative;
+			  	display: inline-block;
+			  	width: 60px;
+			  	height: 34px;
+
+			}
+
+			.switch input {display:none;}
+
+			.slider {
+  
+  				position: absolute;
+  				cursor: pointer;
+  				top: 0;
+  				left: 0;
+ 				right: 0;
+  				bottom: 0;
+ 				background-color: #ccc;
+  				-webkit-transition: .4s;
+  				transition: .4s;
+
+			}
+
+			.slider:before {
+  
+  				position: absolute;
+  				content: "";
+  				height: 26px;
+  				width: 26px;
+  				left: 4px;
+  				bottom: 4px;
+  				background-color: white;
+  				-webkit-transition: .4s;
+  				transition: .4s;
+
+			}
+
+			input:checked + .slider {
+			  	
+			  	background-color: #2196F3;
+
+			}
+
+			input:focus + .slider {
+			  
+			  	box-shadow: 0 0 1px #2196F3;
+
+			}
+
+			input:checked + .slider:before {
+
+			  	-webkit-transform: translateX(26px);
+			  	-ms-transform: translateX(26px);
+			  	transform: translateX(26px);
+
+			}
+
+			/* Rounded sliders */
+			.slider.round {
+
+			  	border-radius: 34px;
+
+			}
+
+			.slider.round:before {
+
+			  	border-radius: 50%;
+
+			}
+
+		</style>
+
+		<script type="text/javascript">
+
+			function showPleaseWait() 
+			{
     
+			    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
+			        <div class="modal-dialog">\
+			            <div class="modal-content">\
+			                <div class="modal-header">\
+			                    <h4 class="modal-title">Please wait...</h4>\
+			                </div>\
+			                <div class="modal-body">\
+			                    <div class="progress">\
+			                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+			                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100%">\
+			                      </div>\
+			                    </div>\
+			                </div>\
+			            </div>\
+			        </div>\
+			    </div>';
 
+    			$(document.body).append(modalLoading);
+    			$("#pleaseWaitDialog").modal("show");
 
-		    <style>
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-.switch input {display:none;}
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
-}
-input:checked + .slider {
-  background-color: #2196F3;
-}
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-.slider.round:before {
-  border-radius: 50%;
-}
-</style>
-<script type="text/javascript">
-function showPleaseWait() {
-    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
-        <div class="modal-dialog">\
-            <div class="modal-content">\
-                <div class="modal-header">\
-                    <h4 class="modal-title">Please wait...</h4>\
-                </div>\
-                <div class="modal-body">\
-                    <div class="progress">\
-                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100%">\
-                      </div>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-    </div>';
-    $(document.body).append(modalLoading);
-    $("#pleaseWaitDialog").modal("show");
-}
-function hidePleaseWait() {
-    $("#pleaseWaitDialog").modal("hide");
-}
-<?php
-$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
-$hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
-        $hoaidqueryresult = pg_query($hoaidquery);
-        $hoaIDArray = array();
-        $userEmails = array();
-        while ($row = pg_fetch_assoc($hoaidqueryresult)) {
-          $name = $row['firstname'];
-          $name = $name.' ';
-          $name = $name.$row['lastname'];
-         $hoaIDArray[$row['hoa_id']]  = $name;
-         $userEmails[$row['hoa_id']] = $row['email'];
-        }
-?>
-  function calc()
-{
-  document.getElementById("authPassword").disabled = !(document.getElementById("authPassword").disabled);
-}
-function changeEmail(){
-  showPleaseWait();
-  var selectedHoaID = $("#hoaID").find("option:selected").text();
-  var request = new XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
-  request.send(selectedHoaID);
-  request.onreadystatechange = function (){
-      if (request.readyState == XMLHttpRequest.DONE) {
-        hidePleaseWait();
-            if ( request.responseText == "Failed to connect to database"){
-                alert("Failed to connect to database.Please try again");
-                return;
-            }
-            else if (request.responseText == "An error occured" ){
-              alert(request.responseText);
-              return;
-            }
-            var json = JSON.parse(request.responseText);
-            var str = "";
-            for ( var i = 0 ;i<json.length;i++){
-               str = str.concat(json[i].email);
-               str = str.concat(" ");
-            }
-            document.getElementById("emails").value =  str; 
-        }
-  }
-}
+			}
+
+			function hidePleaseWait() 
+			{
+			    $("#pleaseWaitDialog").modal("hide");
+			}
+
+			<?php
+				
+				$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+				
+				$hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
+        		$hoaidqueryresult = pg_query($hoaidquery);
+        		$hoaIDArray = array();
+        		$userEmails = array();
+        
+        		while ($row = pg_fetch_assoc($hoaidqueryresult)) 
+        		{
+
+          			$name = $row['firstname'];
+          			$name = $name.' ';
+          			$name = $name.$row['lastname'];
+
+         			$hoaIDArray[$row['hoa_id']]  = $name;
+         			$userEmails[$row['hoa_id']] = $row['email'];
+        		}
+			
+			?>
+
+  			function calc()
+			{
+  
+  				document.getElementById("authPassword").disabled = !(document.getElementById("authPassword").disabled);
+			
+			}
+
+			function changeEmail()
+			{
+
+			  	showPleaseWait();
+			  	
+			  	var selectedHoaID = $("#hoaID").find("option:selected").text();
+			  	var request = new XMLHttpRequest();
+			  
+			  	request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+			  	request.send(selectedHoaID);
+			  
+			  	request.onreadystatechange = function ()
+			  	{
+			      
+			      	if (request.readyState == XMLHttpRequest.DONE) 
+			      	{
+			        	hidePleaseWait();
+
+			            if ( request.responseText == "Failed to connect to database"){
+			                alert("Failed to connect to database.Please try again");
+			                return;
+			            }
+			            else if (request.responseText == "An error occured" ){
+			              alert(request.responseText);
+			              return;
+			            }
+
+			            var json = JSON.parse(request.responseText);
+			            var str = "";
+
+			            for ( var i = 0 ;i<json.length;i++)
+			            {
+			               	str = str.concat(json[i].email);
+			               	str = str.concat(" ");
+			            }
+
+			            document.getElementById("emails").value =  str; 
+			        }
+			  
+			  	}
+
+			}
+
 function sendData(){
   var documentCategory = document.getElementById('documentCategory').value;
   if ( documentCategory == ""){
@@ -299,9 +359,13 @@ updateName();
 }
 </script>
   </head>
-  <div class="container">
+  <body>
+  	<div class="layout">
+  		<div class="container">
 
   	<?php include "boardHeader.php"; ?>
+
+  	<div class='wrapper'>
 
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
@@ -406,4 +470,10 @@ updateName();
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
+
+</div>
+</div>
+
+  	</body>
+
 </html>
