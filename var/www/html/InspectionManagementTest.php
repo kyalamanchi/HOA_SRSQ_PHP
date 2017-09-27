@@ -1,7 +1,9 @@
 <!DOCTYPE html>
+<head>
 <script type="text/javascript" src="http://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
-
 <link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+</head>
+<body>
 <table id="example" class="display" cellspacing="0" width="100%">
   <thead>
     <tr>
@@ -484,6 +486,6 @@
     </tr>
   </tbody>
 </table>
-
+</body>
 
 </html>
