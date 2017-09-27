@@ -360,8 +360,7 @@ updateName();
 </script>
   </head>
   <body>
-  	<div class="layout">
-  		<div class="container">
+  	<div class="container">
 
   	<?php include "boardHeader.php"; ?>
 
@@ -468,9 +467,6 @@ updateName();
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
-
-  
-</div>
 
   	</body>
 
