@@ -286,7 +286,7 @@ updateName();
   </head>
   <div class="container">
 
-  	<?pbp include "boardHeader.php"; ?>
+  	<?php include "boardHeader.php"; ?>
 
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
