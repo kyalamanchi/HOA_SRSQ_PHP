@@ -1,6 +1,11 @@
 <?php
 	date_default_timezone_set("America/New_York");
+	header("Content-Type: text/event-stream\n\n");
  	$connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+ 	$message = "Please wait...";
+ 	echo 'data: '.$message."\n\n";  
+  ob_end_flush();
+  flush();
 	if ( $connection ){
 	$query = "SELECT * FROM COMMUNITY_INFO";
 	$queryResult = pg_query($query);
@@ -87,11 +92,15 @@
 	$pdf->SetFont('Times','',10);
 	$query = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID = ".$homeID." AND INSPECTION_STATUS_ID != 2 AND INSPECTION_STATUS_ID != 6 AND INSPECTION_STATUS_ID != 9 AND INSPECTION_STATUS_ID != 13 AND INSPECTION_STATUS_ID != 14 ORDER BY ID";
 	$queryResult = pg_query($query);
-	echo "Found ".pg_num_rows($queryResult)." notice(s) for home id ".$homeID;
+	$message = "Found ".pg_num_rows($queryResult)." notice(s) for home id ".$homeID;
+ 	echo 'data: '.$message."\n\n";  
+  	ob_end_flush();
+  	flush();
 	while ($row = pg_fetch_assoc($queryResult)) {
 		$pdf->AddPage();
 			$pdf->WriteHtml("".date('M d,Y')."<br><br>".$names.$homeAddress."<br>".$homeCityName.",".$homeStateName.",".$homeZipCode."<br><br>"."<b>RE: Lot 82 Issuance of Courtesy Notice</b><br>Dear ".$name." :<br><br>As managing agent, of the ".$communityName.", one of our various administrative responsibilities include the task of initiating informing homeowners of issues of concern that are related to owner's maintenance requirements as defined in the governing documents. <br><br>This notice is being sent to advise you that as a result ofa recent routine inspection of the Association, many homes are in need of repair or painting and yours is one of those identified. We understand that you may not be aware of this condition and are extending an opportunity for you to respond or make the necessary repairs. <br><br>In accordance with your CC&Rs, all homeowners are responsible for maintaining the Separate Interest in good condition and repair.<br><br>To preserve the aesthetic appeal of the community, we request that you take necessary action to improve the exterior of your home upon receipt of this notice. The color of paint used should be as close to the original color as possible. You will be required to provide this office with the color scheme that you intend to use for approval prior to painting your house. <br><br> It is our obligation to inform you that if you choose not to comply with this request or discuss this matter with this office within thirty (30) days of receipt of this letter, then you will be scheduled to attend a Hearing before the Board of Directors to resolve the outstanding condition or you may be subjected to disciplinary action, i.e.; fines and/or loss of membership privileges.<br><br>Your special attention to this matter is appreciated in advance. If you have any questions regarding these issues, please leave a message at (925) 399-6642. <br><br>Sincerely,<br>Board of Directors<br>".$communityName);
 	}
 		$pdf->Output('preview.pdf','F');
+		echo "Generated notice(s)";
 }
 ?>
