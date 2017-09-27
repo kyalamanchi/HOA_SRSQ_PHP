@@ -239,7 +239,7 @@ $(document).ready(function() {
 
      $('#example tbody').on('click', 'td:not(:first-child)', function () {
         $(this).closest('tr').toggleClass('selected');
-        document.getElementById("button").value = "Send "+table.rows('.selected').data().length+"notices";
+        $("#button").text = "Send "+table.rows('.selected').data().length+"notices";
         if ( table.rows('.selected').data().length == 0 ){
                 alert("No rows selected");
         }
@@ -247,7 +247,7 @@ $(document).ready(function() {
     });
 
      $('#button').click( function () {
-        
+
         alert( table.rows('.selected').data().length +' row(s) selected' );
     } );
 
