@@ -190,7 +190,7 @@ function payNow(){
             </div>
         </div>            
         <div style="float: left;">
-          <img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png">
+          <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
         </div>
       
         </div>
