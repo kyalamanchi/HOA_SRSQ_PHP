@@ -239,15 +239,19 @@ $(document).ready(function() {
 
      $('#example tbody').on('click', 'td:not(:first-child)', function () {
         $(this).closest('tr').toggleClass('selected');
-        if ( table.rows('.selected').data().length == 0 ){
-            alert("No rows selected");
-        }
+        
     });
 
 } );
 hidePleaseWait();
 }
 }
+}
+function sendMultiple()
+{
+    if ( $("#example").rows('.selected').data().length == 0){
+            alert("No rows selected");
+    }
 }
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
@@ -284,6 +288,8 @@ function hidePleaseWait() {
         <table id="example" class="display" cellspacing="0" width="100%"></table>   
         </div>
         <br><br>
+
+        <button type="button" class="btn btn-primary" onclick="sendMultiple();">Save changes</button>
   </div>
   <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
         <div class="modal-dialog">
