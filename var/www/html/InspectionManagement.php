@@ -217,7 +217,7 @@ function loadData(){
         dataSet.push(dataSet2);
 }
 $(document).ready(function() {
-    $('#example').DataTable( {
+   var table =  $('#example').DataTable( {
         data: dataSet,
         select: true,
         columns: [
@@ -239,8 +239,17 @@ $(document).ready(function() {
 
      $('#example tbody').on('click', 'td:not(:first-child)', function () {
         $(this).closest('tr').toggleClass('selected');
+
+        if ( table.rows('.selected').data().length == 0 ){
+                alert("No rows selected");
+        }
         
     });
+
+     $('#button').click( function () {
+        alert( table.rows('.selected').data().length +' row(s) selected' );
+    } );
+
 
 } );
 hidePleaseWait();
@@ -282,6 +291,7 @@ function hidePleaseWait() {
         <option>Resolved</option>
         <option>Closed by CIS</option>
       </select>
+      <button type="button" id="button" class="btn btn-primary" >Send Multiple</button>
         </div>
         <br>
         <div>
@@ -289,7 +299,7 @@ function hidePleaseWait() {
         </div>
         <br><br>
 
-        <button type="button" class="btn btn-primary" onclick="sendMultiple();">Save changes</button>
+        
   </div>
   <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
         <div class="modal-dialog">
