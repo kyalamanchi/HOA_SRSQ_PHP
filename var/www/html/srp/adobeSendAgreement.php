@@ -368,7 +368,7 @@ updateName();
   			<div class="container">
 
     <div class="row">
-      <h1 class="h5">Send Agreement <small>- Adobe Sign</small></h1>
+      <center><h1 class="h3">Send Agreement <small>- Adobe Sign</small></h1></center>
     </div>
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
