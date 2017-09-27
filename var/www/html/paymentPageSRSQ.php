@@ -193,6 +193,7 @@ function payNow(){
 
           <h4>Contact Us</h4>
           <br>
+          Stoneridge Square Association
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
         </div>
       
