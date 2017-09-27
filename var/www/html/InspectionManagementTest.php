@@ -34,7 +34,7 @@
         <div class="modal-body">
             <div>
             <iframe src="258.pdf"
-            style="width:880px; height:860px;" frameborder="0"></iframe>
+            style="width:880px; height:768px;" frameborder="0"></iframe>
         </div>
         </div>
         <div class="modal-footer">
