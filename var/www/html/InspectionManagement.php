@@ -214,7 +214,7 @@ source.onmessage = function(event) {
             <iframe src="preview.pdf"\
             style="width:880px; height:768px;" frameborder="0"></iframe>\
         </div>';
-        $("#myModal2").find('.modal-body').html();
+        $("#myModal2").find('.modal-body').html(fieldData);
 
         $("#myModal2").modal("show");
     }
@@ -370,7 +370,7 @@ function hidePleaseWait() {
           <button type="button" class="btn btn-primary pull-right" style="padding-right: 5px;">Email Notice(s)</button>
         </div>
         <div class="modal-body" id="previewBody">
-           
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
