@@ -364,7 +364,8 @@ updateName();
 
   <div class='wrapper'>
   	<section class='module'>
-  		<div class="container">
+  		<div class='col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-10 offset-xs-1'>
+  			<div class="container">
 
     <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
@@ -469,6 +470,7 @@ updateName();
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
+</div>
 </section>
 </div>
 
