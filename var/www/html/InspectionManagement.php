@@ -176,6 +176,7 @@ function saveChanges(){
     item["inspection_status_id"] = document.getElementById("inspection_status_id").value;
     item["item"] = document.getElementById("item").value;
     jsonObj.push(item);
+    $("#myModal").modal("hide");
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/updateInspectionData.php",true);
     request.setRequestHeader("Content-type", "application/json");
@@ -184,7 +185,7 @@ function saveChanges(){
     request.onreadystatechange = function(){
         if(request.readyState == XMLHttpRequest.DONE){
             hidePleaseWait();
-            $("#myModal").modal("hide");
+
             alert(request.responseText);
         }
     }
