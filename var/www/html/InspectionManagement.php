@@ -86,7 +86,7 @@ function editNotice (editButton){
       hidePleaseWait();
       var dal = request.responseText
       var data = JSON.parse(dal);
-      var fieldData = '<label for="inspectionID">ID</label>'+'<input type="text" id="inspectionID" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="inspectionDescription">Description</label>'+'<textarea class="form-control" rows="2" id="subCategoryRuleDescription">'+data['description']+'</textarea>'+'<label for="inspection_category_id">Category</label>'+'<input type="text" id="inspection_category_id"  class = "form-control" value="'+data['inspection_category_id']+'"/>'+'<label for="inspection_sub_category_id">Sub Category</label>'+'<input type="text" id="inspection_sub_category_id"  class = "form-control" value="'+data['inspection_sub_category_id']+'"/>'+'<label for="homeID">HOME ID</label>'+'<input type="text" id="homeID" class = "form-control" value="'+data['home_id']+'"/>'+'<label for="hoaID">HOA ID</label>'+'<input type="text" id="hoaID"  class = "form-control" value="'+data['hoa_id']+'"/>'+'<label for="location_id">Location ID</label>'+'<input type="text" id="location_id" class = "form-control" value="'+data['location_id']+'"/>'+'<label for="inspection_status_id">Inspection Status</label>'+'<input type="text" id="inspection_status_id" class = "form-control" value="'+data['inspection_status_id']+'"/>'+'<label for="item">Item</label>'+'<input type="text" id="item" class = "form-control" value="'+data['item']+'"/>';
+      var fieldData = '<label for="inspectionID">ID</label>'+'<input type="text" id="inspectionID" disabled="disabled" class = "form-control" value="'+data['id']+'"/>'+'<label for="inspectionDescription">Description</label>'+'<textarea class="form-control" rows="2" id="inspectionDescription">'+data['description']+'</textarea>'+'<label for="inspection_category_id">Category</label>'+'<input type="text" id="inspection_category_id"  class = "form-control" value="'+data['inspection_category_id']+'"/>'+'<label for="inspection_sub_category_id">Sub Category</label>'+'<input type="text" id="inspection_sub_category_id"  class = "form-control" value="'+data['inspection_sub_category_id']+'"/>'+'<label for="homeID">HOME ID</label>'+'<input type="text" id="homeID" class = "form-control" value="'+data['home_id']+'"/>'+'<label for="hoaID">HOA ID</label>'+'<input type="text" id="hoaID"  class = "form-control" value="'+data['hoa_id']+'"/>'+'<label for="location_id">Location ID</label>'+'<input type="text" id="location_id" class = "form-control" value="'+data['location_id']+'"/>'+'<label for="inspection_status_id">Inspection Status</label>'+'<input type="text" id="inspection_status_id" class = "form-control" value="'+data['inspection_status_id']+'"/>'+'<label for="item">Item</label>'+'<input type="text" id="item" class = "form-control" value="'+data['item']+'"/>';
         $("#myModal").modal("show");
         $("#myModal").find('.modal-body').html(fieldData);
     }
@@ -163,7 +163,32 @@ function generateForSouthData(docID){
 
 
 }
+function saveChanges(){
 
+    jsonObj = {};
+    item = [];
+
+    item["inspection_id"] = document.getElementById("inspectionID").value;
+    item["inspection_description"] = document.getElementById("inspectionDescription").value;
+    item["inspection_category_id"] = document.getElementById("inspection_category_id").value;
+    item["inspection_sub_category_id"] = document.getElementById("inspection_sub_category_id").value;
+    item["homeID"] = document.getElementById("homeID").value;
+    item["hoaID"] = document.getElementById("hoaID").value;
+    item["location_id"] = document.getElementById("location_id").value;
+    item["inspection_status_id"] = document.getElementById("inspection_status_id").value;
+    item["item"] = document.getElementById("item").value;
+    jsonObj.push(item);
+    var request = new XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/updateInspectionData.php");
+    showPleaseWait();
+    request.send(JSON.stringify(jsonObj));
+    request.onreadystatechange = function(){
+        if(request.readyState == XMLHttpRequest.DONE){
+            hidePleaseWait();
+            alert(request.responseText);
+        }
+    }
+}
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
@@ -214,15 +239,6 @@ $(document).ready(function() {
      $('#example tbody').on('click', 'td:not(:first-child)', function () {
         $(this).closest('tr').toggleClass('selected');
     });
-
-    // $('#button').click(function () {
-    //     var ids = $.map(table.rows('.selected').data(), function (item) {
-    //         return item[0]
-    //     });
-    //     alert(ids);
-    //     console.log(ids)
-    //     alert(table.rows('.selected').data().length + ' row(s) selected');
-    // });
 
 } );
 hidePleaseWait();
@@ -289,7 +305,7 @@ function hidePleaseWait() {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" id="reset" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" >Save changes</button>
+        <button type="button" class="btn btn-primary" onclick="saveChanges();">Save changes</button>
       </div>
     </div>
   </div>
