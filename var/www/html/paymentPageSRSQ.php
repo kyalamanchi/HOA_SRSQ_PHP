@@ -1,4 +1,4 @@
-`<html>
+<html>
   <head>
   <title>Create Payment</title>
   <meta charset="utf-8">
@@ -97,12 +97,10 @@ function payNow(){
   <body>
     <h1>Stoneridge Square Association</h1>
     <hr>
-    <center><img src="FortePaymentSystemsLogo.png"></center>
     <br><br>
-
   <div class="container" style=" margin: 0 auto;" >
     <div class="row">
-        <div style="width:40%; margin:0 auto;">
+        <div style="width:40%; margin:0 auto; float: left;">
             <div class="panel panel-default credit-card-box">
                 <div class="panel-heading display-table" >
                     <div class="row display-tr" >
@@ -191,7 +189,9 @@ function payNow(){
                 </div>
             </div>
         </div>            
-        
+        <div style="float: left;">
+          <img src="FortePaymentSystemsLogo.png">
+        </div>
       
         </div>
         
