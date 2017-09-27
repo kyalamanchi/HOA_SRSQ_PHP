@@ -94,6 +94,8 @@ function payNow(){
 </script>
   </head>
   <body>
+    <h1>Stoneridge Square Association</h1>
+    <br><br>
     <center><img src="FortePaymentSystemsLogo.png"></center>
     <br><br>
 
