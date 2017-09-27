@@ -96,8 +96,20 @@ function verifyUser(){
 // showPleaseWait();
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
 alert(url);
-// hidePleaseWait();
-$("#pleaseWaitDialog2").modal("show");
+$("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
+var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+$("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+
+var source = new EventSource(url);
+source.onmessage = function(event){
+$("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+        source.close();
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-primary pull-right" onclick="closeModal();">Close</button>');
+}
 }
 </script>
 <style type="text/css">
