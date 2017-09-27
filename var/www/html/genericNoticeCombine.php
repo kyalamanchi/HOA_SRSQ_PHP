@@ -20,7 +20,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
 	$row  = pg_fetch_assoc($queryResult);
 	$homeID = $row['home_id'];
 	$hoaID = $row['hoa_id'];
-	$query = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID = ".$homeID;
+	$query = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID = ".$homeID." AND INSPECTION_STATUS_ID != 2 AND INSPECTION_STATUS_ID != 6 AND INSPECTION_STATUS_ID != 9 AND INSPECTION_STATUS_ID != 13 AND INSPECTION_STATUS_ID != 14 ORDER BY ID";
 	$queryResult = pg_query($query);
 	while ($row = pg_fetch_assoc($queryResult)) {
 		echo $row['id'].nl2br("\n");
