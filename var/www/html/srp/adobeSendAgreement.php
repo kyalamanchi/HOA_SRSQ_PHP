@@ -14,6 +14,8 @@
 			if($_SESSION['hoa_mode'] == 2)
 				header('Location: residentDashboard.php');
 
+			$community_id = $_SESSION['hoa_community_id'];
+
 
 		?>
 
