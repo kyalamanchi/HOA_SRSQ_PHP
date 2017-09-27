@@ -21,13 +21,15 @@
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   Launch demo modal
 </button>
-        
-        <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+          <!-- <h4 class="modal-title">Modal Header</h4> -->
+          <button type="button" class="btn btn-default">Edit</button>
+          <button type="button" class="btn btn-primary">Email Notice(s)</button>
+          <button type="button" class="btn btn-primary">Send Notice(s) - SouthData</button>
         </div>
         <div class="modal-body">
             <div>
