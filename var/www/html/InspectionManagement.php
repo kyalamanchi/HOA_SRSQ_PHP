@@ -334,8 +334,5 @@ function hidePleaseWait() {
     </div>
   </div>
 </div>
-
-
-
     </body>
 </html>
