@@ -93,6 +93,11 @@ function payNow(){
   }
 }
 </script>
+<style type="text/css">
+  .notbold{
+    font-weight:normal
+}​
+</style>
   </head>
   <body>
     <h1>Stoneridge Square Association</h1>
@@ -217,7 +222,7 @@ function payNow(){
           $zipCode = $row[0];
           echo '<h5>'.$legalName.'</h5>';
           echo '<br>';
-          $finalAddress = $address.' '.$cityName.' '.$stateName.' '.$zipCode;
+          $finalAddress = '<span class=\'notbold\'>'.$address.','.$cityName.','.$stateName.','.$zipCode.'</span>';
           echo '<h5>'.$finalAddress.'</h5>';
           echo '<br>';
           ?>
