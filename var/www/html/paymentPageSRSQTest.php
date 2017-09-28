@@ -95,7 +95,6 @@ function payNow(){
 function verifyUser(){
 // showPleaseWait();
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
-alert(url);
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
 var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
