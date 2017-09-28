@@ -37,13 +37,13 @@
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        <font size="4" style="float: right;" id="pltime">Last ran on : <?php 
+        <?php 
         $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 1 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
-        echo $row['start_time'];
-         ?></font>
+        echo '<font size="4" style="float: right;" id="pltime">Last ran on :'.$row['start_time'].'</font>';
+        ?>
         Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
         <br>
