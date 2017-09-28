@@ -185,7 +185,7 @@ color: red;
     ?>
     <hr>
     <br><br>
-  <div class="container" id="paymentPage" style=" margin: 0 auto;" >
+  <div class="container" id="paymentPage" style=" margin: 0 auto;" hidden="hidden" >
                                   <?php 
                                    date_default_timezone_set('America/Los_Angeles');
                                   $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
