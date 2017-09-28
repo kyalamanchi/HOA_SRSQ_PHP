@@ -17,7 +17,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h3>Payments<h5 style="float: right;">Last ran : </h5></h3></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h3>Payments</h3></a>
         </h3>
       </div>
       <div id="payments" class="panel-collapse collapse in">
@@ -29,7 +29,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><h3>Agreements<h5 style="float: right;">Last ran : </h5></h3></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><h3>Agreements</h3></a>
         </h3>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
@@ -41,7 +41,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><h3>Billing Statements<h5 style="float: right;">Last ran : </h5></h3></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><h3>Billing Statements</h3></a>
         </h3>
       </div>
       <div id="collapse3" class="panel-collapse collapse">
