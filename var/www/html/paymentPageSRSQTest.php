@@ -134,7 +134,9 @@ source.onmessage = function(event){
 }
 function verifyDetails(hoaid){
   showPleaseWait();
-  var source = new EventSource("https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value);
+  var url = "https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
+  alert(url);
+  var source = new EventSource();
   source.onmessage = function(event){
     if ( event.data == "success"){
       source.close();
