@@ -114,8 +114,7 @@ source.onmessage = function(event){
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your email  to verify. </span><b>'+str+'</b></h4><br><div class="form-group">\
-    <label for="inputsm"></label>\
-    <input class="form-control input-sm" id="inputsm" type="text" maxlength="'+data[0]+'">\
+    <input class="form-control input-lg" id="inputsm" type="text" maxlength="'+data[0]+'">\
   </div><br><button type="button" class="btn btn-success" onclick="closeModal();">Verify</button></div>');
         }
         if (  (event.data == "number") ){
@@ -126,8 +125,7 @@ source.onmessage = function(event){
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your phone number to verify.</span><b>'+str+'</b></h4><br><div class="form-group">\
-    <label for="inputsm"></label>\
-    <input class="form-control input-sm" id="cellnum" type="text" maxlength="'+data[0]+'">\
+    <input class="form-control input-lg" id="cellnum" type="text" maxlength="'+data[0]+'">\
   </div><br><button type="button" class="btn btn-success" onclick="closeModal();">Verify</button></div>');
         }
 }
