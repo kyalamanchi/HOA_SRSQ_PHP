@@ -147,7 +147,7 @@ function verifyDetails(hoaid){
     else if ( (event.data == "failed") ){
       source.close();
       hidePleaseWait();
-      alert("Failed.Please try again");
+      alert("Verification failed. Please try again");
     }
   }
 }
