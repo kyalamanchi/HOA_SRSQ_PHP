@@ -95,7 +95,6 @@ function payNow(){
 function verifyUser(){
 var $input = $('#refresh');
     $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
-
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
 var pleaseWaitData = '<div class="progress">\
@@ -185,6 +184,9 @@ color: red;
     <hr>
     <br><br>
   <div class="container" style=" margin: 0 auto;" >
+    <div>
+      <center><h3>Balance as of 28 SEPTEMBER : $0</h3></center>
+    </div>
     <div class="row">
         <div style="width:40%; margin:0 auto; float: left;">
             <div class="panel panel-default credit-card-box">
@@ -275,7 +277,6 @@ color: red;
             </div>
         </div>            
         <div style="float: left; padding-left: 30px;">
-
           <h4>Contact Us</h4>
           <br>
           <?php
