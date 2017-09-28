@@ -184,9 +184,7 @@ color: red;
     <hr>
     <br><br>
   <div class="container" style=" margin: 0 auto;" >
-    <div>
       <center><h3>Balance as of 28 SEPTEMBER : $0</h3></center>
-    </div>
     <div class="row">
         <div style="width:40%; margin:0 auto; float: left;">
             <div class="panel panel-default credit-card-box">
