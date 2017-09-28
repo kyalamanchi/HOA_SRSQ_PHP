@@ -34,7 +34,7 @@ else if ( $row['email'] ){
   $id = $id." ";
   $string = explode('@', $row['email']);
   $id = $id.substr($string[0],0,2);
-  $id = $id.str_repeat("*",strlen($string[0])-2)."@";
+  $id = $id.str_repeat("*",strlen($string[0])-2)."@".str_repeat("*",strlen($string[1])-6);
   $id = $id.substr($string[1], -6);
   echo "id: $id\n";
   $message = "email";
