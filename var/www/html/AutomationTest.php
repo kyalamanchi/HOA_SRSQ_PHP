@@ -18,6 +18,30 @@
             document.getElementById("payResult").innerHTML += event.data + "<br>";
         }
     }
+    function updateAgreements(){
+        document.getElementById("payResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=2";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+                source.close();
+              document.getElementById("altime").innerHTML = "Last ran on : " + event.lastEventId;
+            }
+            document.getElementById("agreementResult").innerHTML += event.data + "<br>";
+        }
+    }
+    function updateBillingStatements(){
+        document.getElementById("payResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=3";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+                source.close();
+                document.getElementById("bsltime").innerHTML = "Last ran on : " + event.lastEventId;
+            }
+            document.getElementById("bsResult").innerHTML += event.data + "<br>";
+        }
+    }
 </script>
 </head>
 <body>  
@@ -37,9 +61,7 @@
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        <?php 
-        error_reporting(E_ALL);
-        ini_set('display_errors', 1);
+        <?php
         $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 1 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
@@ -67,11 +89,20 @@
     </div>
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
-        <font size="4" style="float: right;" id="ltime">Last ran on : </font>
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 2 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="altime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
          Updates agreements, mega sign agreements and mega sign child agreements.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" onclick="updateAgreements();">Update Now</button>
+        <div id="agreementResult">
+            
+        </div>
       </div>
     </div>
   </div>
@@ -85,13 +116,20 @@
     </div>
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-block">
-        <font size="4" style="float: right;">Last ran on : </font>
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 3 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="bsltime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
          Generates billing statements and uploads to Dropbox. SRP path : /Billing_Statements/SRP/2017/ .
          <br>SRSQ Path /Billing_Statements/SRSQ/2017/ . 
         <br>
         <br>
         <button type="button" class="btn btn-outline-primary">Update Now</button>
-
+        <div id="bsResult">
+        </div>
       </div>
     </div>
   </div>
