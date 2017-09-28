@@ -22,7 +22,7 @@
     <div class="card-header" role="tab" id="headingOne">
       <h5 class="mb-0">
         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          <h3>Payments</h3>
+          <h4>Payments</h4>
         </a>
       </h5>
     </div>
@@ -43,7 +43,7 @@
     <div class="card-header" role="tab" id="headingTwo">
       <h5 class="mb-0">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          <h3>Agreements</h3>
+          <h4>Agreements</h>
         </a>
       </h5>
     </div>
@@ -57,7 +57,7 @@
     <div class="card-header" role="tab" id="headingThree">
       <h5 class="mb-0">
         <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          <h3>Billing Statements</h3>
+          <h4>Billing Statements</h4>
         </a>
       </h5>
     </div>
