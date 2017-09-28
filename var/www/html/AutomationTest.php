@@ -21,7 +21,11 @@
         </h3>
       </div>
       <div id="payments" class="panel-collapse collapse in">
-        <div class="panel-body" ><font size="4" style="float: right;">Last ran on : </font></div>
+        <div class="panel-body" ><font size="4" style="float: right;">Last ran on : </font>
+            <font size="4">This job updates transactions , paymethods , deposits and deposit transactions</font>
+            <br>
+            <button type="button" class="btn btn-outline-primary  btn-lg">Update Now</button>
+        </div>
       </div>
     </div>
     <div class="panel panel-default">
