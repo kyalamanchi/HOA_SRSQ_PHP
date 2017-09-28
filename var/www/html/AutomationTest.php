@@ -29,11 +29,12 @@
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        <font size="4">Last ran on : </font>
+        <font size="4" style="float: right;">Last ran on : </font>
         Payments updates transactions, paymethods, deposits and deposit  transactions.
         <br>
-        <button type="button" class="btn btn-outline-primary">Update Now</button>
         <br>
+        <button type="button" class="btn btn-outline-primary">Update Now</button>
+        
         <br>
       </div>
     </div>
