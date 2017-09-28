@@ -29,10 +29,10 @@ if ( $row['cell_no'] ){
   flush();
 }
 else if ( $row['email'] ){
-  $string = explode('@', $row['email']);
   $id = "";
   $id = $id.strlen($row['email']);
   $id = $id." ";
+  $string = explode('@', $row['email']);
   $id = substr($string[0],0,2);
   $id = $id.str_repeat("*",strlen($string[0]-2))."@";
   $id = $id.substr($string[1], -6);
