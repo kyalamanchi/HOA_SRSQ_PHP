@@ -44,7 +44,7 @@
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 1 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
-        echo '<font size="4" style="float: right;" id="pltime">Last ran on :'.$row['start_time'].'</font>';
+        echo '<font size="4" style="float: right;" id="pltime">Last ran on :'.$row['START_TIME'].'</font>';
         ?>
         Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
