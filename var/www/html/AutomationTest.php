@@ -87,50 +87,7 @@
       </div>
     </div>
   </div>
-</div>
-        
+</div>  
     </div>
-<!--     <div class="container">
-  <div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h3>Payments</h3></a>
-        </h3>
-      </div>
-      <div id="payments" class="panel-collapse collapse in">
-        <div class="panel-body" ><font size="4" style="float: right;">Last ran on : </font>
-            <font size="4">This job updates transactions , paymethods , deposits and deposit transactions.</font>
-            <br>
-            <button type="button" class="btn btn-outline-primary">Update Now</button>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2"><h3>Agreements</h3></a>
-        </h3>
-      </div>
-      <div id="collapse2" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3"><h3>Billing Statements</h3></a>
-        </h3>
-      </div>
-      <div id="collapse3" class="panel-collapse collapse">
-        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-      </div>
-    </div>
-  </div> 
-</div> -->
 </body>
 </html>                                                                                                         
