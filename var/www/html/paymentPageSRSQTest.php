@@ -109,9 +109,10 @@ source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         if ( (event.data == "email") ){
         source.close();
+
         var data  = event.lastEventId.split(' ');
         var str = new Array(data[0] + 1).join('*');
-        str = str.append(data[1]);
+        str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Verify to continue</h4>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div>Enter your email to verify.'+str+'<button type="button" class="btn btn-primary" onclick="closeModal();">Close</button></div>');
         }
@@ -119,7 +120,7 @@ source.onmessage = function(event){
         source.close();
         var data  = event.lastEventId.split(' ');
         var str = new Array(data[0] + 1).join('*');
-        str = str.append(data[1]);
+        str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Verify to continue</h4>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div>Enter your phone number to verify.'+str+'<button type="button" class="btn btn-primary" onclick="closeModal();">Close</button></div>');
         }
