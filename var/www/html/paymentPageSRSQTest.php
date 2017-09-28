@@ -110,7 +110,7 @@ source.onmessage = function(event){
         if ( (event.data == "email") ){
         source.close();
         var data  = event.lastEventId.split(' ');
-        var str = Array(data[0]).join("*");
+        var str = Array(parseInt(data[0])).join("*");
         str = str.toString();
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Verify to continue</h4>')
@@ -119,7 +119,7 @@ source.onmessage = function(event){
         if (  (event.data == "number") ){
         source.close();
         var data  = event.lastEventId.split(' ');
-        var str = Array(data[0]).join("*");
+        var str = Array(parseInt(data[0])).join("*");
         str = str.toString();
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Verify to continue</h4>')
