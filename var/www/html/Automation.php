@@ -1,238 +1,139 @@
 <!DOCTYPE html>
 <html>
     <head>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <title>Automation</title>
-    <script type="text/javascript">
-        function updateTransactions1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateCurrentPaymentsSRSQ.php",true);
-            request.send(null);
-            alert("Transaction will be updated in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function updatePayments(){
+        document.getElementById("payResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=1";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+                source.close();
+              document.getElementById("pltime").innerHTML = "Last ran on : " + event.lastEventId;
             }
-            }
-            updateTransactions2();
+            document.getElementById("payResult").innerHTML += event.data + "<br>";
         }
-        function updateTransactions2(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateCurrentPaymentsSRP.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Update Transactions Request Completed");
+    }
+    function updateAgreements(){
+        document.getElementById("payResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=2";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+                source.close();
+              document.getElementById("altime").innerHTML = "Last ran on : " + event.lastEventId;
             }
-            }
+            document.getElementById("agreementResult").innerHTML += event.data + "<br>";
         }
-        
-        function updateFundings1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/communityDeposits.php",true);
-            request.send(null);
-            alert("Fundings will be updated in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
+    }
+    function updateBillingStatements(){
+        document.getElementById("payResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=3";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+                source.close();
+                document.getElementById("bsltime").innerHTML = "Last ran on : " + event.lastEventId;
             }
-            }
-            updateFundings2();
-
+            document.getElementById("bsResult").innerHTML += event.data + "<br>";
         }
-        function updateFundings2(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/srpcommunityDeposits.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Update Fundings Request Completed");
-            }
-            }
-
-        }
-        function updateFundingsTransactions1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/communityDepositsTransactions.php",true);
-            request.send(null);
-            alert("Funding Transactions will be updated in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-            }
-            }
-            updateFundingsTransactions2();
-
-        }
-        function updateFundingsTransactions2(){
-
-                var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/srpcommunityDepositsTransactions.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Update Fundings Transactions Request Completed");
-            }
-            }
-        }
-
-
-
-        function updatePayMethods1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateHomePayMethodSRP.php",true);
-            request.send(null);
-            alert("Paymethods will be updated in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-            }
-            }
-            updatePayMethods2();
-        }
-        function updatePayMethods2(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateHomePayMethodSRSQ.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Update Paymethods Request Completed");
-            }
-            }
-        }
-        
-        function updateAgreeements1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateAgreementsSRP.php",true);
-            request.send(null);
-            alert("Agreements will be updated in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-            }
-            }
-            updateAgreements2();
-        }
-        function updateAgreements2(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateAgreementsSRSQ.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Agreements Updated");
-            }
-            }
-        }
-
-        function updateMegaSign1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateMegaSignAgreementsSRP.php",true);
-            request.send(null);
-            alert("Mega Signs will be updated in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                
-            }
-            }
-
-        }
-
-        function updateMegaSign2(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/updateMegaSignAgreementsSRSQ.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Mega Sign Agreements Updated");
-            }
-            }
-        }
-        
-        function generateBillingStatements1(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/billingStatementsSRP.php",true);
-            request.send(null);
-            alert("Billing Statements will be generated and uploaded to Dropbox in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-            }
-            }
-            generateBillingStatements2();
-
-        }
-        function generateBillingStatements2(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/billingStatementsSRSQ.php",true);
-            request.send(null);
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Generated Billing Statements");
-            }
-            }
-        }
-        function generateInspectionNotices(){
-            var request = new XMLHttpRequest();
-            request.open("POST","https://hoaboardtime.com/generateAllInspectionNotices.php",true);
-            request.send(null);
-            alert("Inspection Notices  will be generated and uploaded to Dropbox in background");
-            request.onreadystatechange = function (){
-            if (request.readyState == XMLHttpRequest.DONE) {
-                alert("Inspection Notices Generated");
-            }
-            }
-            
-        }
-    </script>
-    </head>
-    <body>
-    <h1>Automated Jobs</h1>
+    }
+</script>
+</head>
+<body>  
+    <h1 style="padding-left: 10px;">Automated Jobs</h1>
     <hr>
+    <br>
     <div class="container">
-        <h3>Payments</h3>
-        <hr>
-         <div class="col-md-3" style="float: left;">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateTransactions1();">Update Transactions</a>
-        </div>
-        <div class="col-md-3" style="float: left; padding-left: 40">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updatePayMethods1();">Update Pay Methods</a>
-        </div>
-        <div class="col-md-3" style="float: left; padding-left: 40">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundings1();">Update Fundings</a>
-        </div>
-        <div class="col-md-3" style="float: left; padding-left: 40">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateFundingsTransactions1();">Update Funding Transaction</a>
-        </div>
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="card">
+    <div class="card-header" role="tab" id="headingOne">
+      <h5 class="mb-0">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <h4>Payments</h4>
+        </a>
+      </h5>
+    </div>
 
-        <div style="clear: both;"></div>
+    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+      <div class="card-block">
+        <?php
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 1 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="pltime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+        Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
-        </div>
-        <div class="container">
-        <h3>Agreements</h3>
-        <hr>
-        <div class="col-md-3" style="float: left;">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="updateAgreeements1();">Update Agreements</a>
-        </div>
-        <div class="col-md-3" style="float: left;">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge  " onclick="updateMegaSign1();">Update MegaSign</a>
-        </div>
-        <div style="clear: both;"></div>
         <br>
-        </div>
-        <div class="container">
-        <h3>Billing Statements</h3>
-        <hr>
-         <div class="col-md-3" style="float: left;">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="generateBillingStatements1();">Generate Billing Statements</a>
+        <button type="button" class="btn btn-outline-primary" onclick="updatePayments();">Update Now</button>
+        <div id="payResult">
+            
         </div>
         <br>
-        </div>
-        <div class="container">
-        <h3>Inspection Notices</h3>
-        <hr>
-         <div class="col-md-3" style="float: left;">
-            <a href="#" class="btn btn-primary btn-lg btn-block btn-huge" onclick="generateInspectionNotices();">Generate Inspection Notices</a>
-        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingTwo">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          <h4>Agreements</h>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="card-block">
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 2 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="altime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+         Updates agreements, mega sign agreements and mega sign child agreements.
         <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" onclick="updateAgreements();">Update Now</button>
+        <div id="agreementResult">
+            
         </div>
-    </body>
-</html>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab" id="headingThree">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <h4>Billing Statements</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="card-block">
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 3 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="bsltime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+         Generates billing statements and uploads to Dropbox. SRP path : /Billing_Statements/SRP/2017/ .
+         <br>SRSQ Path /Billing_Statements/SRSQ/2017/ . 
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary">Update Now</button>
+        <div id="bsResult">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>  
+    </div>
+</body>
+</html>                                                                                                         
