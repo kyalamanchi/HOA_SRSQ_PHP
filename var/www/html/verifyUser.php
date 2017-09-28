@@ -1,6 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 $message  = "Please Wait...";
@@ -35,7 +33,7 @@ else if ( $row['email'] ){
   $id = $id.strlen($row['email']);
   $id = $id." ";
   $string = explode('@', $row['email']);
-  $id = substr($string[0],0,2);
+  $id = $id.substr($string[0],0,2);
   $id = $id.str_repeat("*",strlen($string[0]-2))."@";
   $id = $id.substr($string[1], -6);
   echo "id: $id\n";
