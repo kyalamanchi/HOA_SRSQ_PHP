@@ -115,7 +115,7 @@ source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your email  to verify. </span><b>'+str+'</b></h4><br><div class="form-group">\
     <input class="form-control input-lg" id="inputsm" type="text" maxlength="'+data[0]+'">\
-  </div><br><button type="button" class="btn btn-success" onclick="closeModal();">Verify</button></div>');
+  </div><br><button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Verify</button></div>');
         }
         if (  (event.data == "number") ){
         source.close();
@@ -126,7 +126,7 @@ source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your phone number to verify.</span><b>'+str+'</b></h4><br><div class="form-group">\
     <input class="form-control input-lg" id="cellnum" type="text" onkeypress="return isNumberKey(event)" maxlength="'+data[0]+'">\
-  </div><br><button type="button" class="btn btn-success" onclick="closeModal();">Verify</button></div>');
+  </div><br><button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Verify</button></div>');
         }
 }
 
