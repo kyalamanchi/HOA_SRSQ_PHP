@@ -107,7 +107,7 @@ var source = new EventSource(url);
 source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         if ( (event.data == "email") ){
-        var hoaID = <?php echo $_GET['id']; ?>
+        var hoaID = <?php echo $_GET['id']; ?>;
         source.close();
         var data  = event.lastEventId.split(' ');
         var str = Array(parseInt(data[0])).join("*");
@@ -119,7 +119,7 @@ source.onmessage = function(event){
   </div><br><button type="button" class="btn btn-success btn-lg" onclick="verifyDetails('+hoaID+');">Verify</button></div>');
         }
         if (  (event.data == "number") ){
-        var hoaID = <?php echo $_GET['id']; ?>
+        var hoaID = <?php echo $_GET['id']; ?>;
         source.close();
         var data  = event.lastEventId.split(' ');
         var str = Array(parseInt(data[0])).join("*");
