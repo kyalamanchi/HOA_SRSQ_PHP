@@ -36,8 +36,8 @@ else if ( $row['email'] ){
   $id = substr($string[0],0,2);
   $id = $id.str_repeat("*",strlen($string[0]-2))."@";
   $id = $id.substr($string[1], -6);
-  $message = "email";
   echo "id: $id\n";
+  $message = "email";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
