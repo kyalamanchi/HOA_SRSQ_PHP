@@ -19,7 +19,9 @@ if ( $row['cell_no'] ){
   $id = "";
   $id = $id.strlen($row['cell_no']);
   $id = $id." ";
-  $id = $id.substr($row['cell_no'], -4);
+  $length  = strlen($row['cell_no']);
+  $id  = $id.str_repeat("*", $length-2);
+  $id = $id.substr($row['cell_no'], -2);
   echo "id: $id\n";
   $message = "number";
   echo 'data: '.$message."\n\n";  
@@ -27,13 +29,13 @@ if ( $row['cell_no'] ){
   flush();
 }
 else if ( $row['email'] ){
-
   $string = explode('@', $row['email']);
   $id = "";
   $id = $id.strlen($row['email']);
   $id = $id." ";
-  $id = $id.substr($string[0], -2).'@'.$string[1];
-  
+  $id = substr($string[0],0,2);
+  $id = $id.str_repeat("*",strlen($string[0]-2))."@";
+  $id = $id.substr($string[1], -6);
   $message = "email";
   echo "id: $id\n";
   echo 'data: '.$message."\n\n";  
