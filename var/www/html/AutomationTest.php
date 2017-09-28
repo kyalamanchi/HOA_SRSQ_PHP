@@ -16,9 +16,9 @@
   <div class="panel-group" id="accordion">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h4>Payments</h4></a>
-        </h4>
+        <h3 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h3>Payments</h3></a>
+        </h3>
       </div>
       <div id="payments" class="panel-collapse collapse in">
         <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -28,9 +28,9 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
+        <h3 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
-        </h4>
+        </h3>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
         <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
@@ -40,9 +40,9 @@
     </div>
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h4 class="panel-title">
+        <h3 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
-        </h4>
+        </h3>
       </div>
       <div id="collapse3" class="panel-collapse collapse">
         <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
