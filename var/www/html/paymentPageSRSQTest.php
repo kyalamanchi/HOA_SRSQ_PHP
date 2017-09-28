@@ -11,6 +11,10 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
   <script type="text/javascript">
+  $(document).ready(function(e) {
+    var $input = $('#refresh');
+    $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
+  });
     <?php
     $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
     ?>
@@ -93,7 +97,9 @@ function payNow(){
   }
 }
 function verifyUser(){
-// showPleaseWait();
+var $input = $('#refresh');
+    $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
+
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
 var pleaseWaitData = '<div class="progress">\
@@ -137,7 +143,6 @@ function verifyDetails(hoaid){
   var url = "https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
   var source = new EventSource(url);
   source.onmessage = function(event){
-    alert(event.data);
     if ( (event.data == "success") ){
       source.close();
       hidePleaseWait();
@@ -161,6 +166,7 @@ function closeModal(){
   $("#pleaseWaitDialog2").modal("hide");
 }
 
+
 </script>
 <style type="text/css">
   .notbold{
@@ -171,8 +177,10 @@ function closeModal(){
 color: red;
 }
 </style>
+
   </head>
   <body onload="verifyUser();">
+  <input type="hidden" id="refresh" value="no">
     <?php
           $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
           $queryResult =  pg_query($query);
