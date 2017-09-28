@@ -113,6 +113,129 @@ echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
+}
+else if ( $_GET['id'] == 2){
+
+//SRP
+$message  = "Updating SRP Agreements...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRP.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,2,4,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+
+$message  = "Updating SRP Mega Sign Agreements...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRP.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,2,5,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+
+$message  = "Updating SRP Mega Sign Child Agreements...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRP.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,2,6,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+//SRSQ
+$message  = "Updating SRSQ Agreements...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRSQ.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,4,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+
+$message  = "Updating SRSQ Mega Sign Agreements...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRSQ.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,5,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+
+$message  = "Updating SRSQ Mega Sign Child Agreements...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRSQ.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,6,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+$id = date('Y-m-d H:i:s');
+$message  = "Done!!!";
+echo "id: $id\n";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+}
+
+else if ( $_GET['id'] == 3){
+//SRP Generation 
+$message  = "Generating Billing Statements for SRP...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRP.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+//SRSQ Generation 
+$message  = "Generating Billing Statements for SRSQ...";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRSQ.php");
+curl_exec($req);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+$id = date('Y-m-d H:i:s');
+$message  = "Done!!!";
+echo "id: $id\n";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
 
 }
 
