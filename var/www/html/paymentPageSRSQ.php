@@ -92,14 +92,91 @@ function payNow(){
     hidePleaseWait();
   }
 }
+function verifyUser(){
+var $input = $('#refresh');
+    $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
+
+var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
+$("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
+var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+$("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+$("#pleaseWaitDialog2").modal("show");
+var source = new EventSource(url);
+source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+        if ( (event.data == "email") ){
+        var hoaID = <?php echo $_GET['id']; ?>;
+        source.close();
+        var data  = event.lastEventId.split(' ');
+        var str = Array(parseInt(data[0])).join("*");
+        str = str.toString();
+        str = str.concat(data[1]);
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your email  to verify. </span><b>'+str+'</b></h4><br><div class="form-group">\
+    <input class="form-control input-lg" id="verifydata" type="text" maxlength="'+data[0]+'">\
+  </div><br><button type="button" class="btn btn-success btn-lg" onclick="verifyDetails('+hoaID+');">Verify</button></div>');
+        }
+        if (  (event.data == "number") ){
+        var hoaID = <?php echo $_GET['id']; ?>;
+        source.close();
+        var data  = event.lastEventId.split(' ');
+        var str = Array(parseInt(data[0])).join("*");
+        str = str.toString();
+        str = str.concat(data[1]);
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your phone number to verify.</span><b>'+str+'</b></h4><br><div class="form-group">\
+    <input class="form-control input-lg" id="verifydata" type="text" onkeypress="return isNumberKey(event)" maxlength="'+data[0]+'">\
+  </div><br><button type="button" class="btn btn-success btn-lg" onclick="verifyDetails('+hoaID+');">Verify</button></div>');
+        }
+}
+}
+function verifyDetails(hoaid){
+  showPleaseWait();
+  var url = "https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
+  var source = new EventSource(url);
+  source.onmessage = function(event){
+    if ( (event.data == "success") ){
+      source.close();
+      hidePleaseWait();
+      $("#pleaseWaitDialog2").modal("hide");
+    }
+    else if ( (event.data == "failed") ){
+      source.close();
+      hidePleaseWait();
+      alert("Failed.Please try again");
+    }
+  }
+}
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
+function closeModal(){
+  $("#pleaseWaitDialog2").modal("hide");
+}
+
+
 </script>
 <style type="text/css">
   .notbold{
     font-weight:normal
 }​
+#errmsg
+{
+color: red;
+}
 </style>
+
   </head>
-  <body>
+  <body onload="verifyUser();">
+  <input type="hidden" id="refresh" value="no">
     <?php
           $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
           $queryResult =  pg_query($query);
@@ -126,7 +203,6 @@ function payNow(){
                 </div>
                 <div class="panel-body">
                     <form role="form">
-
                         <div class="row">
                             <div class="col-xs-12">
                                 <div class="form-group">
@@ -236,19 +312,23 @@ function payNow(){
           }
           else if  ( $communityID == 2){
             $finalAddress = $finalAddress.'<br><br>Phone : <a href="tel:9253996642">(925) 399-6642</a>'.'<br>'.'Email : <a href="mailto:board@stoneridgesquare.org">board@stoneridgesquare.org</a>';
-
           }
-
-
           echo '<h4>'.$finalAddress.'</h4>';
           echo '<br>';
           ?>
           <center><img  style="padding-left: 10px;" src="FortePaymentSystemsLogo.png"></center>
         </div>
-      
         </div>
-        
     </div>
-
+    <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
   </body>
 </html>
