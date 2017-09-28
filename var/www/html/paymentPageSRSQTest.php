@@ -125,7 +125,7 @@ source.onmessage = function(event){
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your phone number to verify.</span><b>'+str+'</b></h4><br><div class="form-group">\
-    <input class="form-control input-lg" id="cellnum" type="text" maxlength="'+data[0]+'">\
+    <input class="form-control input-lg" id="cellnum" type="text" onkeypress="return isNumberKey(event)" maxlength="'+data[0]+'">\
   </div><br><button type="button" class="btn btn-success" onclick="closeModal();">Verify</button></div>');
         }
 }
@@ -134,19 +134,17 @@ source.onmessage = function(event){
 
 
 }
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}
+
 function closeModal(){
   $("#pleaseWaitDialog2").modal("hide");
 }
 
-$(document).ready(function () {
-  $("#cellnum").keypress(function (e) {
-     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-        
-        $("#errmsg").html("Digits Only").show().fadeOut("slow");
-               return false;
-    }
-   });
-});
 </script>
 <style type="text/css">
   .notbold{
