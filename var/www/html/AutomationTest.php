@@ -68,7 +68,8 @@
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-block">
         <font size="4" style="float: right;">Last ran on : </font>
-         Generates billing statements and uploads to Dropbox. SRP path : /Billing_Statements/SRP/2017/ . SRSQ Path /Billing_Statements/SRSQ/2017/ . 
+         Generates billing statements and uploads to Dropbox. SRP path : /Billing_Statements/SRP/2017/ .
+         <br>SRSQ Path /Billing_Statements/SRSQ/2017/ . 
         <br>
         <br>
         <button type="button" class="btn btn-outline-primary">Update Now</button>
