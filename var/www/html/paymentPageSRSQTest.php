@@ -138,12 +138,12 @@ function verifyDetails(hoaid){
   alert(url);
   var source = new EventSource();
   source.onmessage = function(event){
-    if ( event.data == "success"){
+    if ( (event.data == "success") ){
       source.close();
       hidePleaseWait();
       $("#pleaseWaitDialog2").modal("hide");
     }
-    else if ( event.data == "failed"){
+    else if ( (event.data == "failed") ){
       source.close();
       hidePleaseWait();
       alert("Failed.Please try again");
