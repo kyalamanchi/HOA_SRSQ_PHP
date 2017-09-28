@@ -17,7 +17,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h3>Payments</h3><h5 style="float: right;">Last ran : </h5></a>
+          <a data-toggle="collapse" data-parent="#accordion" href="#payments"><h3>Payments<h5 style="float: right;">Last ran : </h5></h3></a>
         </h3>
       </div>
       <div id="payments" class="panel-collapse collapse in">
