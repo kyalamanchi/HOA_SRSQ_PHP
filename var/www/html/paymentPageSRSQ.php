@@ -186,18 +186,16 @@ color: red;
   <div class="container" style=" margin: 0 auto;" >
                                   <?php 
                                    date_default_timezone_set('America/Los_Angeles');
-                                    $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
+                                    $query  = "SELECT SUM(AMOUNT) FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
                                     $queryResult = pg_query($query);
-                                    $currentChargesTotal  = 0;
-                                    while ($row = pg_fetch_assoc($queryResult)) {
-                                      $currentChargesTotal = $currentChargesTotal+$row['amount'];
-                                    }
-                                    $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_GET['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
+                                    $row = pg_fetch_row($queryResult);
+                                    $currentChargesTotal  = $row[0];
+                                    
+                                    $query = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_GET['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
                                     $queryResult = pg_query($query);
                                     $currentPaymentsTotal = 0;
-                                    while ($row = pg_fetch_assoc($queryResult)) {
-                                      $currentPaymentsTotal = $currentPaymentsTotal + $row['amount'];
-                                    }
+                                    $row = pg_fetch_row($queryResult);
+                                    $currentPaymentsTotal = $row[0];
                                     if ( $currentChargesTotal-$currentPaymentsTotal > 0 ){
 
                                     }
