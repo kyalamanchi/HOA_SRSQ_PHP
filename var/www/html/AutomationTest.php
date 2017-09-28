@@ -41,7 +41,7 @@
         Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" onclick="updatePayments();">Update Now</button>
         <div id="payResult">
             
         </div>
