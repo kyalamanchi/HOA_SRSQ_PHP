@@ -7,13 +7,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script type="text/javascript">
     function updatePayments(){
+        document.getElementById("payResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=1";
         var source = new EventSource(url);
         source.onmessage  = function(e){
             if ( e.data == "Done!!!"){
                 source.close();
                 document.getElementById("payResult").innerHTML += event.data + "<br>";
-                document.getElementById("ltime").innerHTML = "Last ran on : " + event.lastEventId;
+                document.getElementById("pltime").innerHTML = "Last ran on : " + event.lastEventId;
             }
             document.getElementById("payResult").innerHTML += event.data + "<br>";
         }
@@ -37,7 +38,7 @@
 
     <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
-        <font size="4" style="float: right;">Last ran on : </font>
+        <font size="4" style="float: right;" id="pltime">Last ran on : </font>
         Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
         <br>
