@@ -107,6 +107,7 @@ var source = new EventSource(url);
 source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         if ( (event.data == "email") ){
+        var hoaID = <?php echo $_GET['id']; ?>
         source.close();
         var data  = event.lastEventId.split(' ');
         var str = Array(parseInt(data[0])).join("*");
@@ -114,10 +115,11 @@ source.onmessage = function(event){
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your email  to verify. </span><b>'+str+'</b></h4><br><div class="form-group">\
-    <input class="form-control input-lg" id="inputsm" type="text" maxlength="'+data[0]+'">\
-  </div><br><button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Verify</button></div>');
+    <input class="form-control input-lg" id="verifydata" type="text" maxlength="'+data[0]+'">\
+  </div><br><button type="button" class="btn btn-success btn-lg" onclick="verifyDetails('+hoaID+');">Verify</button></div>');
         }
         if (  (event.data == "number") ){
+        var hoaID = <?php echo $_GET['id']; ?>
         source.close();
         var data  = event.lastEventId.split(' ');
         var str = Array(parseInt(data[0])).join("*");
@@ -125,14 +127,24 @@ source.onmessage = function(event){
         str = str.concat(data[1]);
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<div><h4><span class="notbold">Enter your phone number to verify.</span><b>'+str+'</b></h4><br><div class="form-group">\
-    <input class="form-control input-lg" id="cellnum" type="text" onkeypress="return isNumberKey(event)" maxlength="'+data[0]+'">\
-  </div><br><button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Verify</button></div>');
+    <input class="form-control input-lg" id="verifydata" type="text" onkeypress="return isNumberKey(event)" maxlength="'+data[0]+'">\
+  </div><br><button type="button" class="btn btn-success btn-lg" onclick="verifyDetails('+hoaID+');">Verify</button></div>');
         }
 }
-
-
-
-
+}
+function verifyDetails(hoaid){
+  showPleaseWait();
+  var source = new EventSource("https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value);
+  source.onmessage = function(event){
+    if ( event.data == "success"){
+      hidePleaseWait();
+      $("#pleaseWaitDialog2").modal("hide");
+    }
+    else if ( event.data == "failed"){
+      hidePleaseWait();
+      alert("Failed.Please try again");
+    }
+  }
 }
 function isNumberKey(evt){
     var charCode = (evt.which) ? evt.which : event.keyCode
