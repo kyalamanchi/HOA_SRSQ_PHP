@@ -201,8 +201,8 @@ color: red;
                                     if ( $currentChargesTotal-$currentPaymentsTotal > 0 ){
 
                                     }
-                                    else {
-                                      echo '<center><h3><span class="notbold">Current Balance as of '.date('Y-m-d').' is</span> $ 0 </h3></center>';
+                                    else if ( $currentChargesTotal-$currentPaymentsTotal == 0 ){
+                                      echo '<center><h3><span class="notbold">Current Balance as of '.date('Y-m-d').' is</span> $ '.$currentChargesTotal-$currentPaymentsTotal.'.</h3></center>';
                                     }
                                     ?>
       <br>
