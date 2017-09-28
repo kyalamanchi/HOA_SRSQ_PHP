@@ -186,23 +186,23 @@ color: red;
   <div class="container" style=" margin: 0 auto;" >
                                   <?php 
                                    date_default_timezone_set('America/Los_Angeles');
-                                    $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
-                                    $queryResult = pg_query($query);
-                                    $currentChargesTotal  = 0;
-                                    while ($row = pg_fetch_assoc($queryResult)) {
-                                      $currentChargesTotal = $currentChargesTotal+$row['amount'];
-                                    }
-                                    $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_GET['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
-                                    $queryResult = pg_query($query);
-                                    $currentPaymentsTotal = 0;
-                                    while ($row = pg_fetch_assoc($queryResult)) {
+                                  $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
+                                  $queryResult = pg_query($query);
+                                  $currentChargesTotal  = 0;
+                                  while ($row = pg_fetch_assoc($queryResult)) {
+                                    $currentChargesTotal = $currentChargesTotal+$row['amount'];
+                                  }
+                                  $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_GET['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
+                                  $queryResult = pg_query($query);
+                                  $currentPaymentsTotal = 0;
+                                  while ($row = pg_fetch_assoc($queryResult)) {
                                       $currentPaymentsTotal = $currentPaymentsTotal + $row['amount'];
                                     }
                                     if ( $currentChargesTotal-$currentPaymentsTotal > 0 ){
 
                                     }
-                                    else {
-                                      echo '<center><h3><span class="notbold">Current Balance as of '.date('Y-m-d').' is</span> $ '.$currentChargesTotal-$currentPaymentsTotal.'.</h3></center>';
+                                    else if (  $currentChargesTotal-$currentPaymentsTotal ==  0 ){
+                                      echo '<center><h3><span class="notbold">Current Balance as of '.date('Y-m-d').' is</span> $ 0.</h3></center>';
                                     }
                                     ?>
       <br>
