@@ -39,7 +39,7 @@
       <div class="card-block">
         <font size="4" style="float: right;" id="pltime">Last ran on : <?php 
         $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
-        $query = "SELECT * FROM BACKGROUND_JOBS WHERE JOB_CATEGORY_ID = 1 ORDER BY START_TIME DESC";
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 1 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
         echo $row['start_time'];
