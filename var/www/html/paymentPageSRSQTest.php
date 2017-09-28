@@ -137,10 +137,12 @@ function verifyDetails(hoaid){
   var source = new EventSource("https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value);
   source.onmessage = function(event){
     if ( event.data == "success"){
+      source.close();
       hidePleaseWait();
       $("#pleaseWaitDialog2").modal("hide");
     }
     else if ( event.data == "failed"){
+      source.close();
       hidePleaseWait();
       alert("Failed.Please try again");
     }
