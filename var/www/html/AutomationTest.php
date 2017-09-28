@@ -21,9 +21,7 @@
         </h3>
       </div>
       <div id="payments" class="panel-collapse collapse in">
-        <div class="panel-body" ><font size="4">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</font></div>
+        <div class="panel-body" ><font size="4" style="float: right;">Last ran on : </font></div>
       </div>
     </div>
     <div class="panel panel-default">
