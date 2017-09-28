@@ -202,7 +202,7 @@ color: red;
 
                                     }
                                     else {
-                                      echo '<center><h3><span class="notbold">Current Balance as of '.date('Y-m-d').' is</span> $ 0.</h3></center>';
+                                      echo '<center><h3><span class="notbold">Current Balance as of '.date('Y-m-d').' is</span> $ '.$currentChargesTotal-$currentPaymentsTotal.'.</h3></center>';
                                     }
                                     ?>
       <br>
