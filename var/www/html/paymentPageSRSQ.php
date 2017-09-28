@@ -93,6 +93,7 @@ function payNow(){
   }
 }
 function verifyUser(){
+  document.getElementById("paymentPage").hidden = true;
 var $input = $('#refresh');
     $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
@@ -136,6 +137,7 @@ function verifyDetails(hoaid){
       source.close();
       hidePleaseWait();
       $("#pleaseWaitDialog2").modal("hide");
+      document.getElementById("paymentPage").hidden = false;
     }
     else if ( (event.data == "failed") ){
       source.close();
@@ -183,7 +185,7 @@ color: red;
     ?>
     <hr>
     <br><br>
-  <div class="container" style=" margin: 0 auto;" >
+  <div class="container" id="paymentPage" style=" margin: 0 auto;" >
                                   <?php 
                                    date_default_timezone_set('America/Los_Angeles');
                                   $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
