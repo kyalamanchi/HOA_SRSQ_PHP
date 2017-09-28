@@ -30,7 +30,7 @@ if ( $row['cell_no'] ){
 }
 else if ( $row['email'] ){
   $id = "";
-  $id = $id.strlen("$row['email']");
+  $id = $id.strlen($row['email']);
   $id = $id." ";
   $string = explode('@', $row['email']);
   $id = substr($string[0],0,2);
