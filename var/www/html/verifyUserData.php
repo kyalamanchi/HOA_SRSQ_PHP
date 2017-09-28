@@ -22,7 +22,7 @@ if ( $_GET['id'] && $_GET['data']){
       }
 
   }
-  else if ( $row['email'] ){
+   if ( $row['email'] ){
       if ( !(strcmp($row['email'], $_GET['data'])) ){
         echo "success";
         exit(0);
