@@ -14,7 +14,6 @@
     <body>
     <h1>Automated Jobs</h1>
     <hr>
-    <div class="container">
         <div id="accordion" role="tablist">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
@@ -60,7 +59,5 @@
     </div>
   </div>
 </div>
-
-    </div>
     </body>
 </html>
