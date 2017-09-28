@@ -13,8 +13,7 @@
         source.onmessage  = function(e){
             if ( e.data == "Done!!!"){
                 source.close();
-                document.getElementById("payResult").innerHTML += event.data + "<br>";
-                document.getElementById("pltime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("pltime").innerHTML = "Last ran on : " + event.lastEventId;
             }
             document.getElementById("payResult").innerHTML += event.data + "<br>";
         }
