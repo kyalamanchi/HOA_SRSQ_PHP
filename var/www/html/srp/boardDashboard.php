@@ -433,7 +433,7 @@
 																$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
 
 																if($assets != '')
-																	echo "<a style='color: green;' href='community_assets'>$assets</a>";
+																	echo "<a style='color: green;' href='communityAssets.php'>$assets</a>";
 																else
 																	echo $assets;
 
