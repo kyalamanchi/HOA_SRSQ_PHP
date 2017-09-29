@@ -51,7 +51,7 @@
         if ( (event.data == "Upload Successful. Download will begin shortly.") ){
         source.close();
         var data  = event.lastEventId;
-        document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
+        // document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button>\
         <button type="button" id="'+data+'" class="btn btn-success btn-lg" onclick="sendToSouthData(this)">Send to SouthData</button>');
@@ -65,7 +65,14 @@
 }
     }
     function sendToSouthData(button){
-      alert(button.id);
+      var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+      $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+      $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+      
     }
     function closeModal(){
       $("#pleaseWaitDialog2").modal("hide");
