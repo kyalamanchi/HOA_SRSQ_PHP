@@ -13,5 +13,5 @@ foreach ($transactionList as $key) {
 		$delCount = $delCount + 1;
 	}
 }
-
+print_r("RECORDS DELETED : ".$delCount);
 ?>
