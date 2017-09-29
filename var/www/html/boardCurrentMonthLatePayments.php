@@ -97,7 +97,6 @@
     }
     function downloadFile(button){
       $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Download will begin shortly.</h3>');
-      alert(button.id);
       var id = "mailingData";
       document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+button.id;
     }
