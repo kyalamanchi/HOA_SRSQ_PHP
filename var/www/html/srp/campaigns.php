@@ -204,13 +204,8 @@
             				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             
             				$result = curl_exec($ch);
-            				$json_decode = json_decode($result,TRUE);
 
-            				print_r($json_decode);
-
-            				die();
-
-            				foreach ($json_decode['reports'] as $key ) 
+            				foreach ($json_decode['campaigns'] as $key ) 
             				{
               
               					$opens = $key['opens'];
@@ -223,11 +218,11 @@
               
               					echo '<a class="list-group-item">
                 						
-                						<h4 class="list-group-item-heading" style="color: #3FC2D9;font-size: 25px;">'.$key['campaign_title'].'</h4>
+                						<h4 class="list-group-item-heading" style="color: #3FC2D9;font-size: 25px;">'.$key['settings']['title'].'</h4>
                 						
                 						<br>
                 						
-                						<p class="list-group-item-text" style="font-size: 19px;"><b>Sent On  </b>'.date('m-d-y', strtotime($date)).'&nbsp;&nbsp;&nbsp;<b>Emails Sent</b> '.$key['emails_sent'].'&nbsp;&nbsp;&nbsp;<b>Open Rate </b>'.$openrate.'%&nbsp;&nbsp;&nbsp;<b>Click Rate</b> '.$clickrate.'%</p>
+                						<!--p class="list-group-item-text" style="font-size: 19px;"><b>Sent On  </b>'.date('m-d-y', strtotime($date)).'&nbsp;&nbsp;&nbsp;<b>Emails Sent</b> '.$key['emails_sent'].'&nbsp;&nbsp;&nbsp;<b>Open Rate </b>'.$openrate.'%&nbsp;&nbsp;&nbsp;<b>Click Rate</b> '.$clickrate.'%</p-->
               						</a>';
 
             				}
