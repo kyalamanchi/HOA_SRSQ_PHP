@@ -36,7 +36,35 @@
     <script type="text/javascript">
     function generateForSouthData(button){
       var id = button.id;
-      alert(id);
+      $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait...</h4>');
+      var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+      $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+      $("#pleaseWaitDialog2").modal("show");
+      var url = "https://hoaboardtime.com/billingStatementGeneration.php?id="+id;
+      var source = new EventSource(url);
+      source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+        if ( event.data == "Uploaded Successfully. Download will begin shortly."){
+            source.close();
+            var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Button</button>';
+            $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+
+        }
+        else if ( event.data = "An error occured. Please try again." ){
+            source.close();
+            var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Button</button>';
+            $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
+        }
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+
+      }
+    }
+    function closeModal(){
+      $("#pleaseWaitDialog2").modal("hide");
     }
     </script>
   </head>
@@ -456,6 +484,18 @@
 
     </div>
 
+    <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/datatables/jquery.dataTables.min.js"></script>
@@ -470,6 +510,7 @@
         $("#example1").DataTable({ "pageLength": 50 });
       });
     </script>
+
 
   </body>
 
