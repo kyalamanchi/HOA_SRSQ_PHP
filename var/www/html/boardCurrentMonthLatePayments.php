@@ -44,18 +44,18 @@
       $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
       $("#pleaseWaitDialog2").modal("show");
       var url = "https://hoaboardtime.com/billingStatementGeneration.php?id="+id;
-      alert(url);
       var source = new EventSource(url);
       source.onmessage = function(event){
-        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+      $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+      
         if ( event.data == "Uploaded Successfully. Download will begin shortly."){
-            source.close();
+            // source.close();
             var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Button</button>';
             $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
 
         }
         else if ( event.data = "An error occured. Please try again." ){
-            source.close();
+            // source.close();
             var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Button</button>';
             $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
         }
