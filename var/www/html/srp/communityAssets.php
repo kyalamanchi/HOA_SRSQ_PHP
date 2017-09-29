@@ -146,43 +146,45 @@
 
 													<tbody>";
 
-														while ($row = pg_fetch_assoc($res1)) 
+														$res1 = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND asset_category_id=$category_id");
+
+														while ($row1 = pg_fetch_assoc($res1)) 
                                         				{
 
-                                          					$asset_sub_category = $row['asset_subcategory_id'];
-                                          					$asset_component = $row['asset_component_id'];
-                                          					$ul = $row['ul'];
-                                          					$rul = $row['rul'];
-                                          					$avg_unit_cost = $row['avg_unit_cost'];
-                                          					$asset_placement_date = $row['asset_placement_date'];
-                                          					$ideal_balance = $row['ideal_balance'];
-                                          					$current_balance = $row['current_balance'];
-                                          					$monthly_contributions = $row['monthly_contributions'];
-                                          					$quantity = $row['quantity'];
-                                          					$community_repair_type = $row['community_repair_type_id'];
-                                          					$community_uom = $row['community_uom_id'];
+                                          					$asset_sub_category = $row1['asset_subcategory_id'];
+                                          					$asset_component = $row1['asset_component_id'];
+                                          					$ul = $row1['ul'];
+                                          					$rul = $row1['rul'];
+                                          					$avg_unit_cost = $row1['avg_unit_cost'];
+                                          					$asset_placement_date = $row1['asset_placement_date'];
+                                          					$ideal_balance = $row1['ideal_balance'];
+                                          					$current_balance = $row1['current_balance'];
+                                          					$monthly_contributions = $row1['monthly_contributions'];
+                                          					$quantity = $row1['quantity'];
+                                          					$community_repair_type = $row1['community_repair_type_id'];
+                                          					$community_uom = $row1['community_uom_id'];
 
                                           					if($asset_sub_category != "")
                                           					{
 
-                                            					$row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_subcategory WHERE id=$asset_sub_category"));
-                                            					$asset_sub_category = $row1['name'];
+                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM asset_subcategory WHERE id=$asset_sub_category"));
+                                            					$asset_sub_category = $row2['name'];
                                             
                                           					}
 
                                           					if($community_repair_type != "")
                                           					{
 
-                                            					$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_repair_type WHERE id=$community_repair_type"));
-                                            					$community_repair_type = $row1['name'];
+                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM community_repair_type WHERE id=$community_repair_type"));
+                                            					$community_repair_type = $row2['name'];
                                             
                                           					}
 
                                           					if($community_uom != "")
                                           					{
 
-                                            					$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_uom WHERE id=$community_uom"));
-                                            					$community_uom = $row1['name'];
+                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM community_uom WHERE id=$community_uom"));
+                                            					$community_uom = $row2['name'];
                                             
                                           					}
 
