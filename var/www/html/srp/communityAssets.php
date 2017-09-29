@@ -110,9 +110,13 @@
 
 											<a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id' aria-expanded='false'>
 
+												<div class='row'>
+
 												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>$asset_category</strong> - $count</div>
                                         		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $$ib</div>
                                         		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $$cb</div>
+
+                                        		</div>
 
 											</a>
 
