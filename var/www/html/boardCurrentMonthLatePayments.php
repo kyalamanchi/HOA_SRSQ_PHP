@@ -45,22 +45,21 @@
       $("#pleaseWaitDialog2").modal("show");
       var url = "https://hoaboardtime.com/billingStatementGeneration.php?id="+id;
       var source = new EventSource(url);
-      source.onmessage = function(event){
-      $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
-      
-        if ( event.data == "Uploaded Successfully. Download will begin shortly."){
-            // source.close();
-            var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Close</button>';
-            $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
-
+        source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+        if ( (event.data == "Uploaded Successfully. Download will begin shortly.") ){
+        source.close();
+        var data  = event.lastEventId.split(' ');
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button></div>');
         }
-        else if ( event.data = "An error occured. Please try again." ){
-            // source.close();
-            var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Close</button>';
-            $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
+        if (  (event.data == "An error occured. Please try again.") ){
+          source.close();
+        var data  = event.lastEventId.split(' ');
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button></div>');
         }
-
-      }
+}
     }
     function closeModal(){
       $("#pleaseWaitDialog2").modal("hide");
