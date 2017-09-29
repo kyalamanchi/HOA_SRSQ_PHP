@@ -375,7 +375,7 @@ function hidePleaseWait() {
                     <thead>
                       
                       <tr>
-                        
+                        <th></th>
                         <th>Payment Date</th>
                         <th>Name</th>
                         <th>Address</th>
@@ -428,7 +428,7 @@ function hidePleaseWait() {
 
                           $balance = $charge - $payment;
 
-                          echo "<tr><td><button class=\"btn btn-primary\" type=\"submit\">Mail Statement</button></td><td>".$process_date."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
+                          echo "<tr><td><button class=\"btn btn-primary\" type=\"submit\">Generate for SouthData</button></td><td>".$process_date."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
                           
                         }
 
