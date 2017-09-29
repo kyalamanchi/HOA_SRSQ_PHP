@@ -428,8 +428,7 @@ function hidePleaseWait() {
 
                           $balance = $charge - $payment;
 
-                          echo "<tr><td>".$process_date."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
-                          
+                          echo "<tr><td><button type=\"button\" class=\"btn btn-outline-primary\">Primary</button>".$process_date."</td><td>".$name."($hoa_id)</td><td>".$address."($home_id)</td><td>".$confirmation."</td><td>".$pay_method."</td><td>$ ".$amount."</td><td>$ ".$balance."</td></tr>";
                         }
 
                       ?>
@@ -439,7 +438,7 @@ function hidePleaseWait() {
                     <tfoot>
 
                       <tr>
-
+                        <th></th>
                         <th>Payment Date</th>
                         <th>Name</th>
                         <th>Address</th>
@@ -463,7 +462,6 @@ function hidePleaseWait() {
           </div>
 
         </section>
-          <button onclick="showPleaseWait();">Show modal</button>
       </div>
 
       <footer class="main-footer">
