@@ -57,7 +57,7 @@
 	<body>
 
 		<!-- Layout-->
-		<div class='layout' style='background-color: blue;'>
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php include "residentHeader.php"; ?>
