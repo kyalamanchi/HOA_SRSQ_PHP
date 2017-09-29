@@ -377,6 +377,31 @@
 
 												</div>
 
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<?php 
+
+																$statements_mailed = pg_num_rows(pg_query("SELECT * FROM community_statements_mailed WHERE community_id=$community_id"));
+
+																if($statements_mailed == 0)
+																	echo $statements_mailed;
+																else
+																	echo "<a style='green;' href='statementsMailed.php'>$statements_mailed</a>";
+
+															?>
+																
+														</div>
+
+														<div class='counter-title'>Statements Mailed</div>
+
+													</div>
+
+												</div>
+
 											</div>
 
 										</div>
