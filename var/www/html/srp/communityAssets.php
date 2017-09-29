@@ -126,7 +126,78 @@
 													
 											<div class='card-block'>
 														
-												$asset_category
+												<table class='table'>
+
+													<thead>
+
+														<th>Sub Category</th>
+                                        				<th>UL</th>
+                                        				<th>Reusable L</th>
+                                        				<th>Average Unit Cost</th>
+                                        				<th>Asset Placement Date</th>
+                                        				<th>Ideal Balance</th>
+                                        				<th>Current Balance</th>
+                                        				<th>Monthly Contribution</th>
+                                        				<th>Quantity</th>
+                                        				<th>Repair Type</th>
+                                        				<th>UOM</th>
+
+													</thead>
+
+													<tbody>";
+
+														while ($row = pg_fetch_assoc($res1)) 
+                                        				{
+
+                                          					$asset_sub_category = $row['asset_subcategory_id'];
+                                          					$asset_component = $row['asset_component_id'];
+                                          					$ul = $row['ul'];
+                                          					$rul = $row['rul'];
+                                          					$avg_unit_cost = $row['avg_unit_cost'];
+                                          					$asset_placement_date = $row['asset_placement_date'];
+                                          					$ideal_balance = $row['ideal_balance'];
+                                          					$current_balance = $row['current_balance'];
+                                          					$monthly_contributions = $row['monthly_contributions'];
+                                          					$quantity = $row['quantity'];
+                                          					$community_repair_type = $row['community_repair_type_id'];
+                                          					$community_uom = $row['community_uom_id'];
+
+                                          					if($asset_sub_category != "")
+                                          					{
+
+                                            					$row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_subcategory WHERE id=$asset_sub_category"));
+                                            					$asset_sub_category = $row1['name'];
+                                            
+                                          					}
+
+                                          					if($community_repair_type != "")
+                                          					{
+
+                                            					$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_repair_type WHERE id=$community_repair_type"));
+                                            					$community_repair_type = $row1['name'];
+                                            
+                                          					}
+
+                                          					if($community_uom != "")
+                                          					{
+
+                                            					$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_uom WHERE id=$community_uom"));
+                                            					$community_uom = $row1['name'];
+                                            
+                                          					}
+
+                                          					if($asset_placement_date != "")
+                                            					$asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
+
+                                          					echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+
+                                        				}
+
+													echo "
+
+													</tbody>
+
+												</table>
 													
 											</div>
 												
