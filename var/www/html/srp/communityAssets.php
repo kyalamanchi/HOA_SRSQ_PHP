@@ -88,7 +88,7 @@
 						<div class="panel-group" id="accordion">
 									<div class="card">
 										<div class="card-header"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false">Section one</a></div>
-										<div class="collapse show" id="collapse4">
+										<div class="collapse" id="collapse4">
 											<div class="card-block">
 												<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
 												<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
