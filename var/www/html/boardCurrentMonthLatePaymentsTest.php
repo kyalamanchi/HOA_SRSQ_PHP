@@ -49,6 +49,7 @@
         source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>');
         if ( (event.data == "Upload Successful. Download will begin shortly.") ){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Uploaded Successfully.</h3>');
         source.close();
         var data  = event.lastEventId;
         // document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
