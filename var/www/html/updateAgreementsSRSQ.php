@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+$insertCount = 0;
+$updateCount = 0;
 $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 $pullAgreementsQuery = "SELECT agreement_id FROM community_sign_agreements WHERE COMMUNITY_ID = 2";
 $pullAgreementsQueryResult = pg_query($pullAgreementsQuery);
@@ -22,7 +24,10 @@ foreach ($result->userAgreementList as $agreement) {
         
         $updateQuery = "UPDATE COMMUNITY_SIGN_AGREEMENTS SET AGREEMENT_STATUS='".$agreement->status."',LAST_UPDATED='".date('Y-m-d H:i:s')."' WHERE agreement_id='".$agreement->agreementId."'";
         if (!pg_query($updateQuery)){
-                print_r("Failed to update".nl2br("\n"));
+                // print_r("Failed to update".nl2br("\n"));
+        }
+        else {
+            $updateCount = $updateCount + 1;
         }
 
     }
@@ -41,10 +46,11 @@ foreach ($result->userAgreementList as $agreement) {
 
                 }
                 else{
-                    print_r("Failed".$insertQuery);
+                    // print_r("Failed".$insertQuery);
+                    $insertCount = $insertCount + 1;
                 }
         }
     }
 }
-
+print_r("Records inserted ".$insertCount.". Records Updated ".$updateCount);
 ?>
