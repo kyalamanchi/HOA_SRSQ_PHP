@@ -54,177 +54,181 @@
 
 	<body>
 
-		<div class="wrapper">
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php include "boardHeader.php"; ?>
 
-			<!-- Page Header -->
-			<section class="module-page-title">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
+			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
 							
-							<h1 class="h5">Community Assets</h1>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Community Assets</h1>
+							
+							</div>
 						
 						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
-			<!-- Content -->
-			<section class="module">
-					
-				<div class="container-fluid">
 						
-					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-					
-						<div class='panel-group' id='accordion'>
-									
-							<?php
+					</div>
+				
+				</section>
 
-								$result = pg_query("SELECT asset_category_id, count(*), sum(ideal_balance) AS ib, sum(current_balance) AS cb FROM community_assets WHERE community_id=$community_id GROUP BY asset_category_id");
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container-fluid">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<div class='panel-group' id='accordion'>
+										
+								<?php
 
-								while($row = pg_fetch_assoc($result))
-								{
+									$result = pg_query("SELECT asset_category_id, count(*), sum(ideal_balance) AS ib, sum(current_balance) AS cb FROM community_assets WHERE community_id=$community_id GROUP BY asset_category_id");
 
-									$category_id = $row['asset_category_id'];
-                            		$count = $row['count'];
-                            		$ib = $row['ib'];
-                            		$cb = $row['cb'];
-		
-                            		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$category_id"));
-                            		$asset_category = $row1['name'];
+									while($row = pg_fetch_assoc($result))
+									{
 
-									echo "
+										$category_id = $row['asset_category_id'];
+	                            		$count = $row['count'];
+	                            		$ib = $row['ib'];
+	                            		$cb = $row['cb'];
+			
+	                            		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$category_id"));
+	                            		$asset_category = $row1['name'];
 
-									<div class='card'>
-												
-										<div class='card-header'>
+										echo "
 
-											<a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id' aria-expanded='false'>
-
-												<div class='row'>
-
-												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>$asset_category</strong> - $count</div>
-                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $$ib</div>
-                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $$cb</div>
-
-                                        		</div>
-
-											</a>
-
-										</div>
-											
-										<div class='collapse' id='collapse_$category_id'>
+										<div class='card'>
 													
-											<div class='card-block'>
+											<div class='card-header'>
+
+												<a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id' aria-expanded='false'>
+
+													<div class='row'>
+
+													<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>$asset_category</strong> - $count</div>
+	                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $$ib</div>
+	                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $$cb</div>
+
+	                                        		</div>
+
+												</a>
+
+											</div>
+												
+											<div class='collapse' id='collapse_$category_id'>
 														
-												<table class='table' style='color: black;'>
+												<div class='card-block'>
+															
+													<table class='table' style='color: black;'>
 
-													<thead>
+														<thead>
 
-														<th>Sub Category</th>
-                                        				<th>UL</th>
-                                        				<th>Reusable L</th>
-                                        				<th>Average Unit Cost</th>
-                                        				<th>Asset Placement Date</th>
-                                        				<th>Ideal Balance</th>
-                                        				<th>Current Balance</th>
-                                        				<th>Monthly Contribution</th>
-                                        				<th>Quantity</th>
-                                        				<th>Repair Type</th>
-                                        				<th>UOM</th>
+															<th>Sub Category</th>
+	                                        				<th>UL</th>
+	                                        				<th>Reusable L</th>
+	                                        				<th>Average Unit Cost</th>
+	                                        				<th>Asset Placement Date</th>
+	                                        				<th>Ideal Balance</th>
+	                                        				<th>Current Balance</th>
+	                                        				<th>Monthly Contribution</th>
+	                                        				<th>Quantity</th>
+	                                        				<th>Repair Type</th>
+	                                        				<th>UOM</th>
 
-													</thead>
+														</thead>
 
-													<tbody>";
+														<tbody>";
 
-														$res1 = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND asset_category_id=$category_id");
+															$res1 = pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND asset_category_id=$category_id");
 
-														while ($row1 = pg_fetch_assoc($res1)) 
-                                        				{
+															while ($row1 = pg_fetch_assoc($res1)) 
+	                                        				{
 
-                                          					$asset_sub_category = $row1['asset_subcategory_id'];
-                                          					$asset_component = $row1['asset_component_id'];
-                                          					$ul = $row1['ul'];
-                                          					$rul = $row1['rul'];
-                                          					$avg_unit_cost = $row1['avg_unit_cost'];
-                                          					$asset_placement_date = $row1['asset_placement_date'];
-                                          					$ideal_balance = $row1['ideal_balance'];
-                                          					$current_balance = $row1['current_balance'];
-                                          					$monthly_contributions = $row1['monthly_contributions'];
-                                          					$quantity = $row1['quantity'];
-                                          					$community_repair_type = $row1['community_repair_type_id'];
-                                          					$community_uom = $row1['community_uom_id'];
+	                                          					$asset_sub_category = $row1['asset_subcategory_id'];
+	                                          					$asset_component = $row1['asset_component_id'];
+	                                          					$ul = $row1['ul'];
+	                                          					$rul = $row1['rul'];
+	                                          					$avg_unit_cost = $row1['avg_unit_cost'];
+	                                          					$asset_placement_date = $row1['asset_placement_date'];
+	                                          					$ideal_balance = $row1['ideal_balance'];
+	                                          					$current_balance = $row1['current_balance'];
+	                                          					$monthly_contributions = $row1['monthly_contributions'];
+	                                          					$quantity = $row1['quantity'];
+	                                          					$community_repair_type = $row1['community_repair_type_id'];
+	                                          					$community_uom = $row1['community_uom_id'];
 
-                                          					if($asset_sub_category != "")
-                                          					{
+	                                          					if($asset_sub_category != "")
+	                                          					{
 
-                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM asset_subcategory WHERE id=$asset_sub_category"));
-                                            					$asset_sub_category = $row2['name'];
-                                            
-                                          					}
+	                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM asset_subcategory WHERE id=$asset_sub_category"));
+	                                            					$asset_sub_category = $row2['name'];
+	                                            
+	                                          					}
 
-                                          					if($community_repair_type != "")
-                                          					{
+	                                          					if($community_repair_type != "")
+	                                          					{
 
-                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM community_repair_type WHERE id=$community_repair_type"));
-                                            					$community_repair_type = $row2['name'];
-                                            
-                                          					}
+	                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM community_repair_type WHERE id=$community_repair_type"));
+	                                            					$community_repair_type = $row2['name'];
+	                                            
+	                                          					}
 
-                                          					if($community_uom != "")
-                                          					{
+	                                          					if($community_uom != "")
+	                                          					{
 
-                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM community_uom WHERE id=$community_uom"));
-                                            					$community_uom = $row2['name'];
-                                            
-                                          					}
+	                                            					$row2 = pg_fetch_assoc(pg_query("SELECT * FROM community_uom WHERE id=$community_uom"));
+	                                            					$community_uom = $row2['name'];
+	                                            
+	                                          					}
 
-                                          					if($asset_placement_date != "")
-                                            					$asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
+	                                          					if($asset_placement_date != "")
+	                                            					$asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
-                                          					echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+	                                          					echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
 
-                                        				}
+	                                        				}
 
-													echo "
+														echo "
 
-													</tbody>
+														</tbody>
 
-												</table>
+													</table>
+														
+												</div>
 													
 											</div>
 												
 										</div>
-											
-									</div>
 
-									";
+										";
 
-								}
+									}
 
-							?>
-								
+								?>
+									
+							</div>
+
 						</div>
 
 					</div>
 
-				</div>
+				</section>
 
-			</section>
+				<!-- Footer-->
+				<?php include 'footer.php'; ?>
 
-			<!-- Footer-->
-			<?php include 'footer.php'; ?>
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+			</div>
 
 		</div>
 
