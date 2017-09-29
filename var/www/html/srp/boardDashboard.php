@@ -428,11 +428,16 @@
 
 														<div class='counter-number'>
 															
-															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
+															<?php 
 
-																<i class='fa fa-paper-plane'></i>
+																$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
 
-															<?php if($community_id == 2) echo "</a>"; ?>
+																if($assets != '')
+																	echo "<a style='color: green;' href='community_assets'>$assets</a>";
+																else
+																	echo $assets;
+
+															?>
 																
 														</div>
 
