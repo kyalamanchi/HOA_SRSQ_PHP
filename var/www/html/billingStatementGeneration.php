@@ -336,7 +336,7 @@ pg_close($connection);
 $response = json_decode($response);
 
 if ( $response ->id ){
-$message  = "Uploaded Successfully. Download will begin shortly.";
+$message  = "Upload Successful. Download will begin shortly.";
 $id = $response ->id;
 echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
