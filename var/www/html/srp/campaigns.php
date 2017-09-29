@@ -124,9 +124,9 @@
 
 		            				foreach ($json_decode['campaigns'] as $key ) 
 		            				{
-
-		            					$send_time = date('m-d-Y', strtotime($key['send_time']));
 		            					
+		            					$send_time = date('m-d-Y', strtotime($key['send_time']));
+
 		              					echo "<tr><td>".$send_time."</td><td>".$key['settings']['title']."</td><td>".$key['emails_sent']."</td><td>".$key['report_summary']['opens']."</td><td>".$key['report_summary']['clicks']."</td></tr>";
 
 		            				}
