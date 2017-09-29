@@ -21,7 +21,6 @@
     			header("Location: residentDashboard.php");
 
     ?>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -34,9 +33,32 @@
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+    <script type="text/javascript">
+      function showPleaseWait() {
+    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
+        <div class="modal-dialog">\
+            <div class="modal-content">\
+                <div class="modal-header">\
+                    <h4 class="modal-title">Please wait...</h4>\
+                </div>\
+                <div class="modal-body">\
+                    <div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100px">\
+                      </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>';
+    $(document.body).append(modalLoading);
+    $("#pleaseWaitDialog").modal("show");
+}
+function hidePleaseWait() {
+    $("#pleaseWaitDialog").modal("hide");
+}
+    </script>
   </head>
-
   <body class="hold-transition skin-blue sidebar-mini">
     
     <div class="wrapper">
@@ -441,7 +463,7 @@
           </div>
 
         </section>
-
+          <button onclick="showPleaseWait();">Show modal</button>
       </div>
 
       <footer class="main-footer">
