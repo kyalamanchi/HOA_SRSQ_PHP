@@ -52,84 +52,88 @@
 
 	<body>
 
-		<div class="wrapper">
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
-			<!-- Page Header -->
-			<section class="module-page-title">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
+			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
 							
-							<h1 class="h5">Community Documents</h1>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Community Documents</h1>
+							
+							</div>
 						
 						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
-			<!-- Content -->
-			<section class="module">
-					
-				<div class="container">
 						
-					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+					</div>
+				
+				</section>
 
-						<table id='example1' class='table' style="color: black;">
-									
-							<thead>
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+							<table id='example1' class='table' style="color: black;">
 										
-								<th>Year</th>
-								<th>Date of Upload</th>
-								<th>Description</th>
+								<thead>
+											
+									<th>Year</th>
+									<th>Date of Upload</th>
+									<th>Description</th>
 
-							</thead>
+								</thead>
 
-							<tbody>
+								<tbody>
+											
+									<?php 
+
+										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
+
+										while($row = pg_fetch_assoc($result))
+										{
+
+											$year = $row['year_of_upload'];
+											$upload_date = $row['uploaded_date'];
+											$description = $row['description'];
+											$document_url = $row['url'];
+
+											if($upload_date != "")
+												$upload_date = date('m-d-Y', strtotime($upload_date));
+
+											echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
+
+										}
+
+									?>
+
+								</tbody>
 										
-								<?php 
+							</table>
 
-									$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
-
-									while($row = pg_fetch_assoc($result))
-									{
-
-										$year = $row['year_of_upload'];
-										$upload_date = $row['uploaded_date'];
-										$description = $row['description'];
-										$document_url = $row['url'];
-
-										if($upload_date != "")
-											$upload_date = date('m-d-Y', strtotime($upload_date));
-
-										echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
-
-									}
-
-								?>
-
-							</tbody>
-									
-						</table>
+						</div>
 
 					</div>
 
-				</div>
+				</section>
 
-			</section>
+				<!-- Footer-->
+				<?php include 'footer.php'; ?>
 
-			<!-- Footer-->
-			<?php include 'footer.php'; ?>
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+			</div>
 
 		</div>
 
