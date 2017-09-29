@@ -41,12 +41,13 @@
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
                       </div>\
                     </div>';
+      $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
       $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
       $("#pleaseWaitDialog2").modal("show");
       var url = "https://hoaboardtime.com/billingStatementGeneration.php?id="+id;
       var source = new EventSource(url);
         source.onmessage = function(event){
-        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>');
         if ( (event.data == "Uploaded Successfully. Download will begin shortly.") ){
         source.close();
         var data  = event.lastEventId.split(' ');
