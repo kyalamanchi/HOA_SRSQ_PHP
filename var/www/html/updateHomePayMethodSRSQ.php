@@ -21,7 +21,7 @@ curl_close($ch);
 $result = json_decode($result);
 $failedScheduleIDS = array();
 $completedSchedules = array();
-if ( $result->number_results <= 1000){
+if ( $result->number_results <= 10000){
 foreach ($result->results as $schedule) {
 	if ( $schedule->schedule_summary->schedule_remaining_quantity == 0){
 		$completedSchedules[$schedule->schedule_id] = 0;
