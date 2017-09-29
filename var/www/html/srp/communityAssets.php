@@ -126,7 +126,7 @@
 													
 											<div class='card-block'>
 														
-												<table class='table'>
+												<table class='table' style='color: black;'>
 
 													<thead>
 
