@@ -20,7 +20,7 @@
         }
     }
     function updateAgreements(){
-        document.getElementById("payResult").innerHTML = "";
+        document.getElementById("agreementResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=2";
         var source = new EventSource(url);
         source.onmessage  = function(e){
@@ -32,7 +32,7 @@
         }
     }
     function updateBillingStatements(){
-        document.getElementById("payResult").innerHTML = "";
+        document.getElementById("bsResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=3";
         var source = new EventSource(url);
         source.onmessage  = function(e){
