@@ -204,6 +204,7 @@
             				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             
             				$result = curl_exec($ch);
+            				$json_decode = json_decode($result,TRUE);
 
             				foreach ($json_decode['campaigns'] as $key ) 
             				{
