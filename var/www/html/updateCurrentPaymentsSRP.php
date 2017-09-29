@@ -148,6 +148,6 @@ else {
 	// print_r("Greater than 1000");
 }
 
-print_r("Records inserted "+$insertCount+". Records inserted "+$insertCount);
+print_r("Records inserted ".$insertCount.". Records updated "+$updateCount);
 
 ?>
