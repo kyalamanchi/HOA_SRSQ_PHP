@@ -345,7 +345,7 @@
 															
 															<a href='campaigns.php'>
 
-																<i class='fa fa-paper-plane'></i>
+																<i class='fa fa-envelope'></i>
 
 															</a>
 																
