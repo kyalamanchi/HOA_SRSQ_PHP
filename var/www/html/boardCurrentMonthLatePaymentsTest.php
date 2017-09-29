@@ -54,7 +54,7 @@
         document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button>\
-        <button type="button" class="btn btn-success btn-lg" onclick="location.href=\'http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx\';">Send to SouthData</button>');
+        <button type="button" id="'+data+'" class="btn btn-success btn-lg" onclick="sendToSouthData(this)">Send to SouthData</button>');
         }
         if (  (event.data == "An error occured. Please try again.") ){
           source.close();
@@ -63,6 +63,9 @@
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
         }
 }
+    }
+    function sendToSouthData(button){
+      alert(button.id);
     }
     function closeModal(){
       $("#pleaseWaitDialog2").modal("hide");
