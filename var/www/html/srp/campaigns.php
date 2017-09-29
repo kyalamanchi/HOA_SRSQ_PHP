@@ -85,7 +85,7 @@
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
-						<table id='example1' class='table table-striped'  style='color: black;'>
+						<!--table id='example1' class='table table-striped'  style='color: black;'>
 
 							<thead>
 								
@@ -104,7 +104,7 @@
 								
 								<?php
 
-									$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+									/*$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
 									while($row = pg_fetch_assoc($result))
 									{
@@ -174,13 +174,48 @@
 
                           				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
 
-									}
+									}*/
 
 								?>
 
 							</tbody>
 							
-						</table>
+						</table-->
+
+						<?php
+
+							$ch = curl_init('https://us12.api.mailchimp.com/3.0/reports/');
+          
+            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+            				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            
+            				$result = curl_exec($ch);
+            				$json_decode = json_decode($result,TRUE);
+
+            				foreach ($json_decode['reports'] as $key ) 
+            				{
+              
+              					$opens = $key['opens'];
+              					$clicks = $key['clicks'];
+              					$openrate = sprintf("%.2f",floatval($opens['open_rate']*100.0));
+              					$clickrate = sprintf("%.2f",floatval($clicks['click_rate']*100.0) );
+              					$date = date("U",strtotime($key['send_time']));
+              					$date = date('Y-m-d H:i:s', $date);
+              					$url = "#";
+              
+              					echo '<a class="list-group-item">
+                						
+                						<h4 class="list-group-item-heading" style="color: #3FC2D9;font-size: 25px;">'.$key['campaign_title'].'</h4>
+                						
+                						<br>
+                						
+                						<p class="list-group-item-text" style="font-size: 19px;"><b>Sent On  </b>'.date('m-d-y', strtotime($date)).'&nbsp;&nbsp;&nbsp;<b>Emails Sent</b> '.$key['emails_sent'].'&nbsp;&nbsp;&nbsp;<b>Open Rate </b>'.$openrate.'%&nbsp;&nbsp;&nbsp;<b>Click Rate</b> '.$clickrate.'%</p>
+              						</a>';
+
+            				}
+
+						?>
 
 					</div>
 
