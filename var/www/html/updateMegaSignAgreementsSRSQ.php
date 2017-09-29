@@ -1,5 +1,9 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 date_default_timezone_set('America/Los_Angeles');
+$insertCount = 0;
+$updateCount = 0;
 $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 $pullAgreementsQuery = "SELECT mega_sign_id FROM community_mega_sign_agreements WHERE COMMUNITY_ID = 2";
 $pullAgreementsQueryResult = pg_query($pullAgreementsQuery);
@@ -18,16 +22,18 @@ while ($row = pg_fetch_row($pullAgreementsQueryResult)) {
  foreach ($result->megaSignList as $agreement) {
      if ( $agreementIDS[$agreement->megaSignId] ){
         pg_query("UPDATE community_mega_sign_agreements SET STATUS='".$agreement->status."', UPDATED_ON='".date('Y-m-d H:i:s')."' WHERE mega_sign_id='".$agreement->megaSignId."'");
+        $updateCount = $updateCount  + 1 ;
      }
      else {
         if (pg_query("INSERT INTO community_mega_sign_agreements(\"community_id\",\"agreement_name\",\"agreement_date\",\"mega_sign_id\",\"status\",\"updated_on\") VALUES(2,'".$agreement->name."','".date('Y-m-d H:i:s',strtotime($agreement->displayDate))."','".$agreement->megaSignId."','".$agreement->status."','".$date('Y-m-d H:i:s')."')")){
-
+            $insertCount = $insertCount + 1;
         }
         else {
-            print_r("INSERT INTO community_mega_sign_agreements(\"community_id\",\"agreement_name\",\"agreement_date\",\"mega_sign_id\",\"status\",\"updated_on\") VALUES(2,'".$agreement->name."','".date('Y-m-d H:i:s',strtotime($agreement->displayDate))."','".$agreement->megaSignId."','".$agreement->status."','".$date('Y-m-d H:i:s')."')");
+            // print_r("INSERT INTO community_mega_sign_agreements(\"community_id\",\"agreement_name\",\"agreement_date\",\"mega_sign_id\",\"status\",\"updated_on\") VALUES(2,'".$agreement->name."','".date('Y-m-d H:i:s',strtotime($agreement->displayDate))."','".$agreement->megaSignId."','".$agreement->status."','".$date('Y-m-d H:i:s')."')");
         }
      }
 
  }
+ print_r("Records inserted : ".$insertCount.". Records Updated : ".$updateCount);
  
 ?>
