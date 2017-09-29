@@ -17,7 +17,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRP.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,1,1,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -29,7 +32,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodSRP.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,1,8,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -43,6 +49,7 @@ $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/srpcommunityDeposits.php");
 curl_exec($req);
 
+
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,1,2,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
@@ -55,6 +62,7 @@ $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/srpcommunityDepositsTransactions.php");
 curl_exec($req);
 
+
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,1,3,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
@@ -66,7 +74,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRSQ.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,1,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -78,7 +89,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodSRSQ.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,8,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -92,6 +106,7 @@ $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/communityDeposits.php");
 curl_exec($req);
 
+
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,2,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
@@ -103,6 +118,7 @@ flush();
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/communityDepositsTransactions.php");
 curl_exec($req);
+
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,3,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -124,7 +140,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRP.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,2,4,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -137,7 +156,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRP.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,2,5,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -150,7 +172,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRP.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,2,6,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -163,7 +188,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRSQ.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,4,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -176,7 +204,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRSQ.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,5,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -189,7 +220,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRSQ.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,6,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -212,7 +246,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRP.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
@@ -224,7 +261,10 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRSQ.php");
-curl_exec($req);
+$message  = curl_exec($req);
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
