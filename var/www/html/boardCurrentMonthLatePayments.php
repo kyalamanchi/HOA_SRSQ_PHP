@@ -50,13 +50,13 @@
         if ( (event.data == "Uploaded Successfully. Download will begin shortly.") ){
         source.close();
         var data  = event.lastEventId.split(' ');
-        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button></div>');
         }
         if (  (event.data == "An error occured. Please try again.") ){
           source.close();
         var data  = event.lastEventId.split(' ');
-        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button></div>');
         }
 }
