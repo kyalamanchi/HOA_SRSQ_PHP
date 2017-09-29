@@ -62,7 +62,7 @@
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
         }
-}
+        }
     }
     function sendToSouthData(button){
       var pleaseWaitData = '<div class="progress">\
@@ -72,7 +72,31 @@
                     </div>';
       $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
       $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-      
+      var url = "https://hoaboardtime.com/sendToSouthData.php?data="+button.id;
+
+      var source = new EventSource(url);
+        source.onmessage = function(event){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>');
+        if ( (event.data == "File uploaded to South Data.") ){
+        source.close();
+        var data  = button.id;
+        var id = "file";
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button>\
+        <button type="button" id="'+data+'" class="btn btn-success btn-lg" onclick="downloadFile('+data+')">Download File</button>');
+        }
+        if (  (event.data == "An error occured. Please try again.") ){
+          source.close();
+        var data  = event.lastEventId.split(' ');
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
+        }
+        }
+
+    }
+    function downloadFile(data){
+      var id = "1";
+      document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
     }
     function closeModal(){
       $("#pleaseWaitDialog2").modal("hide");

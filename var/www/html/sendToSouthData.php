@@ -30,7 +30,7 @@ if ($_GET['data']){
 		}
 		else 
 		{	
-				$message = "File uploaded to South Data";
+				$message = "File uploaded to South Data.";
 				echo 'data: '.$message."\n\n";  
 				ob_end_flush();
 				flush();
