@@ -18,7 +18,7 @@ if ($_GET['data']){
 	else {
 		$fileContent = base64_encode($response);
 		$req = curl_init();
-		curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent);
+		curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderFlexBill.aspx?id=".$fileContent);
 		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 		if(curl_exec($req) === false)
 		{
