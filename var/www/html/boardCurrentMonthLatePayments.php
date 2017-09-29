@@ -49,7 +49,7 @@
       $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
       
         if ( event.data == "Uploaded Successfully. Download will begin shortly."){
-            // source.close();
+            source.close();
             var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Button</button>';
             $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
 
