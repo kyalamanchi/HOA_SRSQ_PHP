@@ -1,4 +1,6 @@
 <?php
+$insertCount = 0;
+$updateCount = 0;
 date_default_timezone_set('America/Los_Angeles');
 $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 $pullAgreementsQuery = "SELECT mega_sign_id FROM community_mega_sign_agreements WHERE COMMUNITY_ID = 1";
@@ -19,15 +21,24 @@ while ($row = pg_fetch_row($pullAgreementsQueryResult)) {
      if ( $agreementIDS[$agreement->megaSignId] ){
      	$updateQuery = "UPDATE community_mega_sign_agreements SET STATUS='".$agreement->status."', UPDATED_ON='".date('Y-m-d H:i:s')."' WHERE mega_sign_id='".$agreement->megaSignId."'";
         if (!pg_query($updateQuery) ){
-        		print_r($updateQuery.nl2br("\n"));
+        	
+            	// print_r($updateQuery.nl2br("\n"));
+        }
+        else {
+            $updateCount = $updateCount + 1;
+
         }
      }
      else {
      	$insertQuery = "INSERT INTO community_mega_sign_agreements(\"community_id\",\"agreement_name\",\"agreement_date\",\"mega_sign_id\",\"status\",\"updated_on\") VALUES(1,'".$agreement->name."','".date('Y-m-d H:i:s',strtotime($agreement->displayDate))."','".$agreement->megaSignId."','".$agreement->status."','".$date('Y-m-d H:i:s')."')";
         if (!pg_query($insertQuery)){
-        	print_r($insertQuery.nl2br("\n"));
+        	// print_r($insertQuery.nl2br("\n"));
+        }
+        else {
+            $insertCount = $insertCount + 1;
+
         }
  }
 }
-
+print_r("Records inserted : ".$insertCount." . Records updated : ".$updateCount);
 ?>
