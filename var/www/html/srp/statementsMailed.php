@@ -49,105 +49,109 @@
 
 	<body>
 
-		<div class="wrapper">
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
-			<!-- Page Header -->
-			<section class="module-page-title">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
+			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
 							
-							<h1 class="h5">Statements Mailed</h1>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Statements Mailed</h1>
+							
+							</div>
 						
 						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
-			<!-- Content -->
-			<section class="module">
-					
-				<div class="container">
 						
-					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-					
-						<table id='example1' class='table' style="color: black;">
-									
-							<thead>
+					</div>
+				
+				</section>
+
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table' style="color: black;">
 										
-								<th>Date Sent</th>
-		                        <th>Name</th>
-		                        <th>Living In</th>
-		                        <th>Statement Type</th>
-		                        <th>Notification Type</th>
-		                        <th>Order ID / Order Tracking ID</th>
-		                        <th>Document</th>
+								<thead>
+											
+									<th>Date Sent</th>
+			                        <th>Name</th>
+			                        <th>Living In</th>
+			                        <th>Statement Type</th>
+			                        <th>Notification Type</th>
+			                        <th>Order ID / Order Tracking ID</th>
+			                        <th>Document</th>
 
-							</thead>
+								</thead>
 
-							<tbody>
+								<tbody>
+											
+									<?php 
+
+										$result = pg_query("SELECT * FROM community_statements_mailed WHERE community_id=$community_id");
+
+		                        		while($row = pg_fetch_assoc($result))
+		                        		{
+
+		                          			$date_sent = $row['date_sent'];
+		                          			$home_id = $row['home_id'];
+		                          			$hoa_id = $row['hoa_id'];
+		                          			$statement_type = $row['statement_type_id'];
+		                          			$notification_type = $row['notification_type'];
+		                          			$order_id = $row['order_id'];
+		                          			$document_id = $row['document_id'];
+
+		                          			if($date_sent != "")
+		                            			$date_sent = date('m-d-Y', strtotime($date_sent));
+
+		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+		                              		$name = $row1['firstname'];
+		                              		$name .= " ";
+		                              		$name .= $row1['lastname'];
+
+		                              		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+		                              		$living_in = $row1['address1'];
+
+		                              		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_statement_type WHERE id=$statement_type"));
+		                              		$statement_type = $row1['name'];
+
+		                              		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
+		                              		$notification_type = $row1['notification_mode_type'];
+
+		                              		echo "<tr><td>$date_sent</td><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$statement_type</td><td>$notification_type</td><td>$order_id</td><td></td></tr>";
+
+		                        		}
+
+		                      		?>
+
+								</tbody>
 										
-								<?php 
+							</table>
 
-									$result = pg_query("SELECT * FROM community_statements_mailed WHERE community_id=$community_id");
-
-	                        		while($row = pg_fetch_assoc($result))
-	                        		{
-
-	                          			$date_sent = $row['date_sent'];
-	                          			$home_id = $row['home_id'];
-	                          			$hoa_id = $row['hoa_id'];
-	                          			$statement_type = $row['statement_type_id'];
-	                          			$notification_type = $row['notification_type'];
-	                          			$order_id = $row['order_id'];
-	                          			$document_id = $row['document_id'];
-
-	                          			if($date_sent != "")
-	                            			$date_sent = date('m-d-Y', strtotime($date_sent));
-
-	                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-	                              		$name = $row1['firstname'];
-	                              		$name .= " ";
-	                              		$name .= $row1['lastname'];
-
-	                              		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-	                              		$living_in = $row1['address1'];
-
-	                              		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_statement_type WHERE id=$statement_type"));
-	                              		$statement_type = $row1['name'];
-
-	                              		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
-	                              		$notification_type = $row1['notification_mode_type'];
-
-	                              		echo "<tr><td>$date_sent</td><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$statement_type</td><td>$notification_type</td><td>$order_id</td><td></td></tr>";
-
-	                        		}
-
-	                      		?>
-
-							</tbody>
-									
-						</table>
+						</div>
 
 					</div>
 
-				</div>
+				</section>
 
-			</section>
+				<!-- Footer-->
+				<?php include 'footer.php'; ?>
 
-			<!-- Footer-->
-			<?php include 'footer.php'; ?>
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+			</div>
 
 		</div>
 

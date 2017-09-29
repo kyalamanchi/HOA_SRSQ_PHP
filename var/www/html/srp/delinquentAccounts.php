@@ -49,108 +49,112 @@
 
 	<body>
 
-		<div class="wrapper">
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
-			<!-- Page Header -->
-			<section class="module-page-title">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
+			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
 							
-							<h1 class="h5">Delinquent Accounts</h1>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Delinquent Accounts</h1>
+							
+							</div>
 						
 						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
-			<!-- Content -->
-			<section class="module">
-					
-				<div class="container">
 						
-					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-					
-						<table id='example1' class='table' style="color: black;">
-									
-							<thead>
+					</div>
+				
+				</section>
+
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table' style="color: black;">
 										
-								<th>Name</th>
-		                        <th>Property Address</th>
-		                        <th>Total Due</th>
-		                        <th>Phone</th>
-		                        <th>Email</th>
+								<thead>
+											
+									<th>Name</th>
+			                        <th>Property Address</th>
+			                        <th>Total Due</th>
+			                        <th>Phone</th>
+			                        <th>Email</th>
 
-							</thead>
+								</thead>
 
-							<tbody>
+								<tbody>
+											
+									<?php 
+
+										$del = 3;
+
+										$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+	                        			$assessment_amount = $row['amount'];
+
+	                        			$del_amount = $assessment_amount * $del;
+
+	                        			$result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
+
+				                        while($row = pg_fetch_assoc($result))
+				                        {
+
+				                          	$home_id = $row['home_id'];
+				                          	$assessment_charges = $row['sum'];
+
+				                          	$row2 = pg_fetch_assoc(pg_query("SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id));
+
+				                          	$firstname = $row2['firstname'];
+				                          	$lastname = $row2['lastname'];
+				                          	$hoa_id = $row2['hoa_id'];
+				                          	$cell_no = $row2['cell_no'];
+				                          	$email = $row2['email'];
+
+					                        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id));
+				                          	$charges = $row2['sum'];
+
+				                          	$row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id));
+				                          	$payments = $row2['sum'];
+
+				                          	$balance = $charges - $payments;
+
+				                          	$row2 = pg_fetch_assoc(pg_query("SELECT address1 FROM homeid WHERE home_id=".$home_id));
+				                          	$address1 = $row2['address1'];
+
+				                          	if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
+				                            	echo "<tr><td>".$firstname." ".$lastname."</td><td> ".$address1."</td><td>$ ".$balance."</td><td>".$cell_no."</td><td>".$email."</td></tr>";
+
+				                        }
+
+	                      			?>
+
+								</tbody>
 										
-								<?php 
+							</table>
 
-									$del = 3;
-
-									$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
-                        			$assessment_amount = $row['amount'];
-
-                        			$del_amount = $assessment_amount * $del;
-
-                        			$result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
-
-			                        while($row = pg_fetch_assoc($result))
-			                        {
-
-			                          	$home_id = $row['home_id'];
-			                          	$assessment_charges = $row['sum'];
-
-			                          	$row2 = pg_fetch_assoc(pg_query("SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id));
-
-			                          	$firstname = $row2['firstname'];
-			                          	$lastname = $row2['lastname'];
-			                          	$hoa_id = $row2['hoa_id'];
-			                          	$cell_no = $row2['cell_no'];
-			                          	$email = $row2['email'];
-
-				                        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id));
-			                          	$charges = $row2['sum'];
-
-			                          	$row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id));
-			                          	$payments = $row2['sum'];
-
-			                          	$balance = $charges - $payments;
-
-			                          	$row2 = pg_fetch_assoc(pg_query("SELECT address1 FROM homeid WHERE home_id=".$home_id));
-			                          	$address1 = $row2['address1'];
-
-			                          	if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
-			                            	echo "<tr><td>".$firstname." ".$lastname."</td><td> ".$address1."</td><td>$ ".$balance."</td><td>".$cell_no."</td><td>".$email."</td></tr>";
-
-			                        }
-
-                      			?>
-
-							</tbody>
-									
-						</table>
+						</div>
 
 					</div>
 
-				</div>
+				</section>
 
-			</section>
+				<!-- Footer-->
+				<?php include 'footer.php'; ?>
 
-			<!-- Footer-->
-			<?php include 'footer.php'; ?>
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+			</div>
 
 		</div>
 

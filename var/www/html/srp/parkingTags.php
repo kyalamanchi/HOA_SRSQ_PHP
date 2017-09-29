@@ -49,144 +49,148 @@
 
 	<body>
 
-		<div class="wrapper">
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
-			<!-- Page Header -->
-			<section class="module-page-title">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
+			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
 							
-							<h1 class="h5">Parking Tags</h1>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Parking Tags</h1>
+							
+							</div>
 						
 						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
-			<!-- Content -->
-			<section class="module">
-					
-				<div class="container">
 						
-					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-					
-						<table id='example1' class='table' style="color: black;">
-									
-							<thead>
+					</div>
+				
+				</section>
+
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table' style="color: black;">
 										
-								<th>Name</th>
-		                        <th>Make</th>
-		                        <th>Model</th>
-		                        <th>Color</th>
-		                        <th>Year</th>
-		                        <th>Plate</th>
-		                        <th>Status</th>
+								<thead>
+											
+									<th>Name</th>
+			                        <th>Make</th>
+			                        <th>Model</th>
+			                        <th>Color</th>
+			                        <th>Year</th>
+			                        <th>Plate</th>
+			                        <th>Status</th>
 
-							</thead>
+								</thead>
 
-							<tbody>
+								<tbody>
+											
+									<?php 
+
+										function decrypt_string($input)
+	                      				{
+	                          
+	                        				$input_count = strlen($input);
+	                                                                                             
+	                        				$dec = explode(".", $input);// splits up the string to any array
+	                        				$x = count($dec);
+	                        				$y = $x-1;// To get the key of the last bit in the array 
+	                                                                                             
+	                        				$calc = $dec[$y]-50;
+	                        				$randkey = chr($calc);// works out the randkey number
+	                                                                                             
+	                        				$i = 0;
+	                                                                                             
+	                        				while ($i < $y)
+	                        				{
+	                                                                                             
+	                          					$array[$i] = $dec[$i]+$randkey; // Works out the ascii characters actual numbers
+	                          					@$real .= chr($array[$i]); //The actual decryption
+	                                                                                             
+	                          					$i++;
+
+	                        				};
+	                                                                                             
+	                        				@$input = $real;
+	                        				return $input;
+
+	                      				}
+
+	                      				$result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1");
+
+		                        		while($row = pg_fetch_assoc($result))
+		                        		{
+
+		                          			$tag_id = $row['id'];
+		                          			$detail = $row['detail'];
+		                          			$status = $row['status'];
+		                          			$hoa_id = $row['hoa_id'];
+
+		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE car_detail_id=$detail"));
+
+		                          			$car_make = $row1['car_make_id'];
+		                          			$car_model = $row1['car_model_id'];
+		                          			$car_color = $row1['car_color_id'];
+		                          			$year = $row1['year'];
+		                          			$plate = $row1['notes'];
+
+		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE car_make_id=$car_make"));
+		                          			$car_make = $row1['name'];
+
+		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE car_model_id=$car_model"));
+		                          			$car_model = $row1['name'];
+
+		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE car_color_id=$car_color"));
+		                          			$car_color = $row1['name'];
+
+		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+		                          			$name = $row1['firstname'];
+		                          			$name .= " ";
+		                          			$name .= $row1['lastname'];
+
+		                          			if($plate != "")
+					                        {
+
+					                          	$plate = base64_decode($plate);
+					                          	$plate = decrypt_string($plate);
+
+					                        }
+
+					                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td></tr>";
+
+		                        		}
+
+		                      		?>
+
+								</tbody>
 										
-								<?php 
+							</table>
 
-									function decrypt_string($input)
-                      				{
-                          
-                        				$input_count = strlen($input);
-                                                                                             
-                        				$dec = explode(".", $input);// splits up the string to any array
-                        				$x = count($dec);
-                        				$y = $x-1;// To get the key of the last bit in the array 
-                                                                                             
-                        				$calc = $dec[$y]-50;
-                        				$randkey = chr($calc);// works out the randkey number
-                                                                                             
-                        				$i = 0;
-                                                                                             
-                        				while ($i < $y)
-                        				{
-                                                                                             
-                          					$array[$i] = $dec[$i]+$randkey; // Works out the ascii characters actual numbers
-                          					@$real .= chr($array[$i]); //The actual decryption
-                                                                                             
-                          					$i++;
-
-                        				};
-                                                                                             
-                        				@$input = $real;
-                        				return $input;
-
-                      				}
-
-                      				$result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1");
-
-	                        		while($row = pg_fetch_assoc($result))
-	                        		{
-
-	                          			$tag_id = $row['id'];
-	                          			$detail = $row['detail'];
-	                          			$status = $row['status'];
-	                          			$hoa_id = $row['hoa_id'];
-
-	                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE car_detail_id=$detail"));
-
-	                          			$car_make = $row1['car_make_id'];
-	                          			$car_model = $row1['car_model_id'];
-	                          			$car_color = $row1['car_color_id'];
-	                          			$year = $row1['year'];
-	                          			$plate = $row1['notes'];
-
-	                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE car_make_id=$car_make"));
-	                          			$car_make = $row1['name'];
-
-	                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE car_model_id=$car_model"));
-	                          			$car_model = $row1['name'];
-
-	                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE car_color_id=$car_color"));
-	                          			$car_color = $row1['name'];
-
-	                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-	                          			$name = $row1['firstname'];
-	                          			$name .= " ";
-	                          			$name .= $row1['lastname'];
-
-	                          			if($plate != "")
-				                        {
-
-				                          	$plate = base64_decode($plate);
-				                          	$plate = decrypt_string($plate);
-
-				                        }
-
-				                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td></tr>";
-
-	                        		}
-
-	                      		?>
-
-							</tbody>
-									
-						</table>
+						</div>
 
 					</div>
 
-				</div>
+				</section>
 
-			</section>
+				<!-- Footer-->
+				<?php include 'footer.php'; ?>
 
-			<!-- Footer-->
-			<?php include 'footer.php'; ?>
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+			</div>
 
 		</div>
 

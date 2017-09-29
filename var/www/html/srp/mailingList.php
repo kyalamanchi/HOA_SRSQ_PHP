@@ -54,144 +54,148 @@
 
 	<body>
 
-		<div class="wrapper">
+		<div class='layout'>
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; ?>
 
-			<!-- Page Header -->
-			<section class="module-page-title">
-				
-				<div class="container">
-						
-					<div class="row-page-title">
-						
-						<div class="page-title-captions">
+			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
 							
-							<h1 class="h5">Mailing List</h1>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Mailing List</h1>
+							
+							</div>
 						
 						</div>
-					
-					</div>
-					
-				</div>
-			
-			</section>
-
-			<!-- Content -->
-			<section class="module">
-					
-				<div class="container-fluid">
 						
-					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-					
-						<table id='example1' class='table table-striped'  style='color: black;'>
+					</div>
+				
+				</section>
 
-							<thead>
-								
-								<th>HOA ID</th>
-								<th>Name</th>
-								<th>Home ID</th>
-								<th>Email</th>
-								<th>Phone</th>
-								<th>Mailing Address</th>
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container-fluid">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table table-striped'  style='color: black;'>
 
-							</thead>
+								<thead>
+									
+									<th>HOA ID</th>
+									<th>Name</th>
+									<th>Home ID</th>
+									<th>Email</th>
+									<th>Phone</th>
+									<th>Mailing Address</th>
 
-							<tbody>
-								
-								<?php
+								</thead>
 
-									$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+								<tbody>
+									
+									<?php
 
-									while($row = pg_fetch_assoc($result))
-									{
+										$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
-										$home_id = $row['home_id'];
-										$address = $row['address1'];
-										$living_status = $row['living_status'];
-										$mailing_address = $address;
-										$mailing_city = $row['city_id'];
-										$mailing_state = $row['state_id'];
-										$mailing_zip = $row['zip_id'];
-
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
-
-										$name = $row1['firstname'];
-										$name .= " ";
-										$name .= $row1['lastname'];
-										$hoa_id = $row1['hoa_id'];
-										$email = $row1['email'];
-										$cell_no = $row1['cell_no'];
-
-										if($living_status == 'f')
+										while($row = pg_fetch_assoc($result))
 										{
-											
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
 
-											$mailing_address = $row1['address1'];
-											$mailing_city = $row1['city_id'];
-											$mailing_state = $row1['state_id'];
-											$mailing_zip = $row1['zip_id'];
+											$home_id = $row['home_id'];
+											$address = $row['address1'];
+											$living_status = $row['living_status'];
+											$mailing_address = $address;
+											$mailing_city = $row['city_id'];
+											$mailing_state = $row['state_id'];
+											$mailing_zip = $row['zip_id'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
+
+											$name = $row1['firstname'];
+											$name .= " ";
+											$name .= $row1['lastname'];
+											$hoa_id = $row1['hoa_id'];
+											$email = $row1['email'];
+											$cell_no = $row1['cell_no'];
+
+											if($living_status == 'f')
+											{
+												
+												$row1 = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+
+												$mailing_address = $row1['address1'];
+												$mailing_city = $row1['city_id'];
+												$mailing_state = $row1['state_id'];
+												$mailing_zip = $row1['zip_id'];
+
+											}
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
+											$mailing_city = $row1['city_name'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
+											$mailing_state = $row1['state_code'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
+											$mailing_zip = $row1['zip_code'];
+
+											//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
+
+											//$m[1] = $row1['m1_pmt_processed'];
+	                          				//$m[2] = $row1['m2_pmt_processed'];
+	                          				//$m[3] = $row1['m3_pmt_processed'];
+	                          				//$m[4] = $row1['m4_pmt_processed'];
+	                          				//$m[5] = $row1['m5_pmt_processed'];
+	                          				//$m[6] = $row1['m6_pmt_processed'];
+	                          				//$m[7] = $row1['m7_pmt_processed'];
+	                          				//$m[8] = $row1['m8_pmt_processed'];
+	                          				//$m[9] = $row1['m9_pmt_processed'];
+	                         				//$m[10] = $row1['m10_pmt_processed'];
+	                          				//$m[11] = $row1['m11_pmt_processed'];
+	                          				//$m[12] = $row1['m12_pmt_processed'];
+
+	                          				//for ($i = 1; $i <= 12; $i++)
+	                          				//{
+	                            
+	                            			//	if($m[$i] == 't')
+	                              			//		$m[$i] = "<center style='color: green;'><i class='fa fa-check-square'></i></center>";
+	                            			//	else
+	                              			//		$m[$i] = "<center style='color: orange;'><i class='fa fa-square-o'></i></center>";
+
+	                          				//}
+
+	                          				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+
+	                          				echo "<tr><td>$hoa_id</td><td>$name</td><td>$home_id</td><td>$email</td><td>$cell_no</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td></tr>";
 
 										}
 
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
-										$mailing_city = $row1['city_name'];
+									?>
 
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
-										$mailing_state = $row1['state_code'];
+								</tbody>
+								
+							</table>
 
-										$row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
-										$mailing_zip = $row1['zip_code'];
-
-										//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
-
-										//$m[1] = $row1['m1_pmt_processed'];
-                          				//$m[2] = $row1['m2_pmt_processed'];
-                          				//$m[3] = $row1['m3_pmt_processed'];
-                          				//$m[4] = $row1['m4_pmt_processed'];
-                          				//$m[5] = $row1['m5_pmt_processed'];
-                          				//$m[6] = $row1['m6_pmt_processed'];
-                          				//$m[7] = $row1['m7_pmt_processed'];
-                          				//$m[8] = $row1['m8_pmt_processed'];
-                          				//$m[9] = $row1['m9_pmt_processed'];
-                         				//$m[10] = $row1['m10_pmt_processed'];
-                          				//$m[11] = $row1['m11_pmt_processed'];
-                          				//$m[12] = $row1['m12_pmt_processed'];
-
-                          				//for ($i = 1; $i <= 12; $i++)
-                          				//{
-                            
-                            			//	if($m[$i] == 't')
-                              			//		$m[$i] = "<center style='color: green;'><i class='fa fa-check-square'></i></center>";
-                            			//	else
-                              			//		$m[$i] = "<center style='color: orange;'><i class='fa fa-square-o'></i></center>";
-
-                          				//}
-
-                          				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
-
-                          				echo "<tr><td>$hoa_id</td><td>$name</td><td>$home_id</td><td>$email</td><td>$cell_no</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td></tr>";
-
-									}
-
-								?>
-
-							</tbody>
-							
-						</table>
+						</div>
 
 					</div>
 
-				</div>
+				</section>
 
-			</section>
+				<!-- Footer-->
+				<?php include 'footer.php'; ?>
 
-			<!-- Footer-->
-			<?php include 'footer.php'; ?>
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
-			<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+			</div>
 
 		</div>
 
