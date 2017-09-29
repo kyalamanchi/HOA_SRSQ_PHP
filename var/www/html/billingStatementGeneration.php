@@ -1,5 +1,7 @@
 <?php
 header("Content-Type: text/event-stream\n\n");
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 require('fpdf.php');
 $pageNumber = -1;
 $finalHOAID = -1;
