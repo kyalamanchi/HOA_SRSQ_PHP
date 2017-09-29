@@ -83,7 +83,7 @@
         var id = "file";
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button>\
-        <button type="button" id="'+data+'" class="btn btn-success btn-lg" onclick="downloadFile('+data+')">Download File</button>');
+        <button type="button" id="'+data+'" class="btn btn-success btn-lg" onclick="downloadFile('+button.id+')">Download File</button>');
         }
         if (  (event.data == "An error occured. Please try again.") ){
           source.close();
@@ -95,6 +95,7 @@
 
     }
     function downloadFile(data){
+      alert(data);
       var id = "1";
       document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
     }
