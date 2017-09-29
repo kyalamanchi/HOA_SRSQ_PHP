@@ -85,35 +85,60 @@
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
-						<div class="panel-group" id="accordion">
-									<div class="card">
-										<div class="card-header"><a data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false">Section one</a></div>
-										<div class="collapse" id="collapse4">
-											<div class="card-block">
-												<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
-												<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
-											</div>
+						<div class='panel-group' id='accordion'>
+									
+							<?php
+
+								$result = pg_query("SELECT asset_category_id, count(*), sum(ideal_balance) AS ib, sum(current_balance) AS cb FROM community_assets WHERE community_id=$community_id GROUP BY asset_category_id");
+
+								while($row = pg_fetch_assoc($result))
+								{
+
+									$category_id = $row['asset_category_id'];
+                            		$count = $row['count'];
+                            		$ib = $row['ib'];
+                            		$cb = $row['cb'];
+		
+                            		$row1 = pg_fetch_assoc(pg_query("SELECT * FROM asset_category WHERE id=$category_id"));
+                            		$asset_category = $row1['name'];
+
+									echo "
+
+									<div class='card'>
+												
+										<div class='card-header'>
+
+											<a data-toggle='collapse' data-parent='#accordion' href='#collapse_$category_id' aria-expanded='false'>
+
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>$asset_category</strong> - $count</div>
+                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $$ib</div>
+                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $$cb</div>
+
+											</a>
+
 										</div>
-									</div>
-									<div class="card">
-										<div class="card-header"><a data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false">Section two</a></div>
-										<div class="collapse" id="collapse5">
-											<div class="card-block">
+											
+										<div class='collapse' id='collapse_$category_id'>
+													
+											<div class='card-block'>
+														
 												<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
+												
 												<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
+													
 											</div>
+												
 										</div>
+											
 									</div>
-									<div class="card">
-										<div class="card-header"><a data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false">Section three</a></div>
-										<div class="collapse" id="collapse6">
-											<div class="card-block">
-												<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
-												<p>Day handsome addition horrible sensible goodness two contempt. Evening for married his account removal. Estimable me disposing of be moonlight cordially curiosity. Delay rapid joy share allow age manor six. Went why far saw many knew.</p>
-											</div>
-										</div>
-									</div>
-								</div>
+
+									";
+
+								}
+
+							?>
+								
+						</div>
 
 						<table id='example1' class='table table-striped'  style='color: black;'>
 
