@@ -1,5 +1,8 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+$insertCount = 0;
+$updateCount = 0;
+
 $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 $pullAgreementsQuery = "SELECT mega_sign_id FROM community_mega_sign_agreements WHERE COMMUNITY_ID = 1";
 $result  = pg_query($pullAgreementsQuery);
@@ -23,14 +26,17 @@ foreach ($agreementIDS as $key => $value) {
     curl_close($ch);
     $megaSignAgreements = json_decode($megaAgreements);
     if($megaSignAgreements->code){
-        print_r("An error occured occured.... Adobe error message".$megaSignAgreements->code);
+        // print_r("An error occured occured.... Adobe error message".$megaSignAgreements->code);
     }
     else {
         foreach ($megaSignAgreements->megaSignChildAgreementList as $megaSignChildAgreementsDetails) {
             if ( $megaSignAgreementsArray[$megaSignChildAgreementsDetails->agreementId] ){
                 $updateQuery = "UPDATE COMMUNITY_SIGN_AGREEMENTS SET AGREEMENT_STATUS='".$megaSignChildAgreementsDetails->status."',last_updated='".date('Y-m-d H:i:s')."' WHERE agreement_id='".$megaSignChildAgreementsDetails->agreementId."' AND document_to='".$megaSignAgreementsArray[$megaSignChildAgreementsDetails->agreementId]."'";
                 if ( !(pg_query($updateQuery))){
-                    print_r("Failed".$updateQuery.nl2br("\n"));
+                    // print_r("Failed".$updateQuery.nl2br("\n"));
+                }
+                else {
+                    $updateCount  = $updateCount + 1;
                 }
             }
             else {
@@ -45,7 +51,10 @@ foreach ($agreementIDS as $key => $value) {
                     if ( $event->type == 'SIGNATURE_REQUESTED'){
                         $insertQuery  = "INSERT INTO COMMUNITY_SIGN_AGREEMENTS(\"community_id\",\"document_to\",\"document_type\",\"agreement_id\",\"create_date\",\"send_date\",\"agreement_status\",\"agreement_name\",\"sent_to_count\",\"last_updated\",\"is_mega_sign_agreement\",\"mega_sign_id\") VALUES(1,'".$event->participantEmail."',1,'".$agreementInformation->agreementId."','".date('Y-m-d H:i:s',strtotime($megaSignChildAgreementsDetails->displayDate))."','".date('Y-m-d H:i:s',strtotime($megaSignChildAgreementsDetails->displayDate))."','".$megaSignChildAgreementsDetails->status."','".$megaSignChildAgreementsDetails->name."',1,'".date('Y-m-d H:i:s')."','TRUE','".$key."')";
                         if ( !(pg_query($insertQuery)) ){
-                                print_r("Failed".nl2br("\n").$insertQuery);
+                                // print_r("Failed".nl2br("\n").$insertQuery);
+                        }
+                        else {
+                            $insertCount = $insertCount + 1;
                         }
                         break;
                     }
@@ -54,5 +63,6 @@ foreach ($agreementIDS as $key => $value) {
         }
     }
 }
+print_r("Records inserted ".$insertCount." . Records Updated : ".$updateCount);
  pg_close($dbconn3);
 ?>
