@@ -391,6 +391,61 @@
 								
 										</div>
 
+										<div class='container'>
+
+											<div class='row'>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<?php 
+
+																$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+
+																$reserves = $row['cur_bal_vs_ideal_bal'];
+
+																if($reserves != '')
+																	echo $reserves." %";
+																else
+																	echo "0 %";
+
+															?>
+																
+														</div>
+
+														<div class='counter-title'>Reserves Funded</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
+
+																<i class='fa fa-paper-plane'></i>
+
+															<?php if($community_id == 2) echo "</a>"; ?>
+																
+														</div>
+
+														<div class='counter-title'>Total # of Assets</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+										</div>
+
 									</div>
 
 									<div class="tab-pane" id="tab-4">
