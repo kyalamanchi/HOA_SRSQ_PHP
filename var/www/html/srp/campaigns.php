@@ -124,7 +124,7 @@
 		            				foreach ($json_decode['campaigns'] as $key ) 
 		            				{
 		              
-		              					echo "<tr><td>".$key['settings']['title']."</td><td>".$key['emails_sent']."</td><td>".$key['report_summary']['opens']."</td><td>".$key['report_summary']['clicks']."</td></tr>";
+		              					echo "<tr><td>".$key['send_time']."</td><td>".$key['settings']['title']."</td><td>".$key['emails_sent']."</td><td>".$key['report_summary']['opens']."</td><td>".$key['report_summary']['clicks']."</td></tr>";
 
 		            				}
 
