@@ -36,7 +36,6 @@
     <script type="text/javascript">
     function generateForSouthData(button){
       var id = button.id;
-      $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait...</h4>');
       var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
@@ -60,7 +59,6 @@
             var fieldData = '<button class="btn btn-primary" onclick="closeModal();">Button</button>';
             $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
         }
-        $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
 
       }
     }
