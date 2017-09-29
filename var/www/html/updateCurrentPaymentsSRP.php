@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+$updateCount = 0;
+$insertCount = 0;
 $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
 $query  = "SELECT * FROM current_payments WHERE community_id=1 AND  date_part('year',last_updated_on) = EXTRACT(year FROM CURRENT_DATE) AND date_part('month',last_updated_on) = EXTRACT(month FROM CURRENT_DATE)";
 $homeIDQuery = "SELECT * FROM hoaid WHERE community_id=1";
@@ -24,7 +26,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $result = curl_exec($ch);
 curl_close($ch);
 $result = json_decode($result);
-if ($result->number_results <= 1000){
+if ($result->number_results <= 10000){
 $url = 'https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=start_received_date%20eq%20';
 $url = $url.$startDate.'&page_size='.$result->number_results;
 $ch = curl_init($url);
@@ -52,8 +54,9 @@ foreach ($result->results as $transaction) {
 		}
 		$val = $val+1;
 		$updateQuery = "UPDATE current_payments SET payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."'";
-		print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
+		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
 		pg_query($updateQuery);
+		$updateCount = $updateCount + 1;
 	}
 
 	}
@@ -85,7 +88,8 @@ foreach ($result->results as $transaction) {
 		$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transaction->authorization_amount.",'".$transaction->received_date."',".$transaction->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transaction->transaction_id."')";
 		
 		pg_query($insertQuery);
-		print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n").$insertQuery.nl2br("\n"));
+		$insertCount = $insertCount  + 1;
+		// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n").$insertQuery.nl2br("\n"));
 	}
 	else{
 		$failedTransactionIDS[$transaction->transaction_id] = 0;
@@ -95,8 +99,8 @@ foreach ($result->results as $transaction) {
 }
 if (!empty($failedTransactionIDS)){
 	foreach ($failedTransactionIDS as $key => $value) {
-		print_r("Transaction ID is".$key.nl2br("\n"));
-		print_r("Checking echeck object......".nl2br("\n"));
+		// print_r("Transaction ID is".$key.nl2br("\n"));
+		// print_r("Checking echeck object......".nl2br("\n"));
 		$transactionURL = "https://api.forte.net/v3/transactions/";
 		$transactionURL = $transactionURL.$key;
 		$ch = curl_init($transactionURL);
@@ -127,12 +131,13 @@ if (!empty($failedTransactionIDS)){
 			$transactionAmount = $transactionresult->authorization_amount;
 		}
 		if ( is_numeric($transactionresult->echeck->item_description) ){
-			print_r("Found hoa id in echeck object");
+			// print_r("Found hoa id in echeck object");
 			$hoaID = $transactionresult->echeck->item_description;
 			$paymentID = $hoaID.$hoaIDSArray[$hoaID];
 			$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionAmount.",'".$transactionresult->received_date."',".$transactionresult->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transactionresult->transaction_id."')";
 			pg_query($insertQuery);
-			print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
+			$insertCount = $insertCount + 1;
+			// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
 		}
 	}
 }
@@ -140,7 +145,9 @@ else {
 }
 }
 else {
-	print_r("Greater than 1000");
+	// print_r("Greater than 1000");
 }
+
+print_r("Records inserted "+$insertCount+". Records inserted "+$insertCount);
 
 ?>
