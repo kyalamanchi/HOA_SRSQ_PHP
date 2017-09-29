@@ -50,7 +50,8 @@
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>');
         if ( (event.data == "Uploaded Successfully. Download will begin shortly.") ){
         source.close();
-        var data  = event.lastEventId.split(' ');
+        var data  = event.lastEventId;
+        document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
         $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button></div>');
         }
