@@ -343,6 +343,26 @@
 
 														<div class='counter-number'>
 															
+															<a href='campaigns.php'>
+
+																<i class='fa fa-envelope'></i>
+
+															</a>
+																
+														</div>
+
+														<div class='counter-title'>Campaigns</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
 															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
 
 																<i class='fa fa-paper-plane'></i>
