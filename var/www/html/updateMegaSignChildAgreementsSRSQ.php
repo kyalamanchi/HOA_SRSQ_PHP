@@ -62,7 +62,11 @@ foreach ($agreementIDS as $key => $value) {
         }
     }
 }
+<<<<<<< HEAD
 echo "Insert Count : " + $insertCount;
 echo "Update Count : " + $updateCount;
+=======
+print_r("Records inserted : ".$insertCount." . Records Updated: ".$updateCount);
+>>>>>>> 7fd5e19af8ed00258485152e1e09e492139e728d
 pg_close($dbconn3);
 ?>
