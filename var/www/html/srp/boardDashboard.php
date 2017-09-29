@@ -408,9 +408,9 @@
 																$reserves = $row['cur_bal_vs_ideal_bal'];
 
 																if($reserves != '')
-																	echo $reserves." %";
+																	echo $reserves."%";
 																else
-																	echo "0 %";
+																	echo "0%";
 
 															?>
 																
