@@ -85,24 +85,48 @@
 						
 					<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 					
-						<!--table id='example1' class='table table-striped'  style='color: black;'>
+						<table id='example1' class='table table-striped'  style='color: black;'>
 
 							<thead>
 								
-								<th></th>
-								<th>HOA ID</th>
-								<th>Name</th>
-								<th>Email</th>
-								<th>Phone</th>
-								<th>Home ID</th>
-								<th>Living In</th>
-								<th>Balance</th>
+								<th>Campaign Title</th>
+								<th>Emails Sent</th>
+								<th>Opens</th>
+								<th>Clicks</th>
 
 							</thead>
 
 							<tbody>
 								
 								<?php
+
+									if($community_id == 1)
+									{
+
+										$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
+										curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+
+									}
+									else if($community_id == 2)
+									{
+
+										$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
+										curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+
+									}
+		            				
+		            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+		            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		            
+		            				$result = curl_exec($ch);
+		            				$json_decode = json_decode($result,TRUE);
+
+		            				foreach ($json_decode['campaigns'] as $key ) 
+		            				{
+		              
+		              					echo "<tr><td>".$key['settings']['title']."</td><td>".$key['emails_sent']."</td><td>".$key['report_summary']['opens']."</td><td>".$key['report_summary']['clicks']."</td></tr>";
+
+		            				}
 
 									/*$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
@@ -180,55 +204,7 @@
 
 							</tbody>
 							
-						</table-->
-
-						<?php
-
-							
-							if($community_id == 1)
-							{
-
-								$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
-								curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
-
-							}
-							else if($community_id == 2)
-							{
-
-								$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
-								curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
-
-							}
-            				
-            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            
-            				$result = curl_exec($ch);
-            				$json_decode = json_decode($result,TRUE);
-
-            				foreach ($json_decode['campaigns'] as $key ) 
-            				{
-              
-              					$opens = $key['opens'];
-              					$clicks = $key['clicks'];
-              					$openrate = sprintf("%.2f",floatval($opens['open_rate']*100.0));
-              					$clickrate = sprintf("%.2f",floatval($clicks['click_rate']*100.0) );
-              					$date = date("U",strtotime($key['send_time']));
-              					$date = date('Y-m-d H:i:s', $date);
-              					$url = "#";
-              
-              					echo '<a class="list-group-item">
-                						
-                						<h4 class="list-group-item-heading" style="color: #3FC2D9;font-size: 25px;">'.$key['settings']['title'].'</h4>
-                						
-                						<br>
-                						
-                						<!--p class="list-group-item-text" style="font-size: 19px;"><b>Sent On  </b>'.date('m-d-y', strtotime($date)).'&nbsp;&nbsp;&nbsp;<b>Emails Sent</b> '.$key['emails_sent'].'&nbsp;&nbsp;&nbsp;<b>Open Rate </b>'.$openrate.'%&nbsp;&nbsp;&nbsp;<b>Click Rate</b> '.$clickrate.'%</p-->
-              						</a>';
-
-            				}
-
-						?>
+						</table>
 
 					</div>
 
