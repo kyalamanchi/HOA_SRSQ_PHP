@@ -17,6 +17,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRP.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -33,6 +34,7 @@ flush();
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodSRP.php");
 $message  = curl_exec($req);
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -47,6 +49,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/srpcommunityDeposits.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
 
@@ -60,6 +63,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/srpcommunityDepositsTransactions.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
 
@@ -74,6 +78,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -89,6 +94,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -104,6 +110,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/communityDeposits.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
 
@@ -117,6 +124,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/communityDepositsTransactions.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
 
@@ -140,6 +148,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRP.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -156,6 +165,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRP.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -172,6 +182,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRP.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -188,6 +199,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -204,6 +216,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -220,6 +233,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -246,6 +260,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRP.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -261,6 +276,7 @@ flush();
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -275,8 +291,6 @@ echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-
-
 }
 
 ?>
