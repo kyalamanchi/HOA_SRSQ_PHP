@@ -2,7 +2,7 @@
 header("Content-Type: text/event-stream\n\n");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require('fpdf.php');
+require('fpdf/fpdf.php');
 $pageNumber = -1;
 $finalHOAID = -1;
 $finalHOMEID = -1;
