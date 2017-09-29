@@ -84,5 +84,5 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		// print_r($url.nl2br("\n"));
 	}
 }
-print_r("Records update : ".$updateCount);
+print_r("Records updated : ".$updateCount);
 ?>
