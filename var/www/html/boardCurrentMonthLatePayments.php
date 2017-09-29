@@ -53,7 +53,8 @@
         var data  = event.lastEventId;
         document.location = "https://hoaboardtime.com/downloadLatePaymentsFile.php?id="+id+"&data="+data;
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>')
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button><button type="button" class="btn btn-success btn-lg" onclick="location.href=\'http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx\';">Upload to SouthData</button>');
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button>\
+        <button type="button" class="btn btn-success btn-lg" onclick="location.href=\'http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx\';">Upload to SouthData</button>');
         }
         if (  (event.data == "An error occured. Please try again.") ){
           source.close();
