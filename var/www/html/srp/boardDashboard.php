@@ -390,7 +390,7 @@
 																if($statements_mailed == 0)
 																	echo $statements_mailed;
 																else
-																	echo "<a style='green;' href='statementsMailed.php'>$statements_mailed</a>";
+																	echo "<a style='color: green;' href='statementsMailed.php'>$statements_mailed</a>";
 
 															?>
 																
