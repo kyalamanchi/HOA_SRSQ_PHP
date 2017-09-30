@@ -16,6 +16,7 @@
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
+			$community_id = $_SESSION['hoa_community_id'];
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
 
@@ -145,7 +146,7 @@
 
 											<?php 
 															
-												echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id")); 
+												echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
 
 											?>
 
