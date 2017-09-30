@@ -94,6 +94,13 @@
 			                        <th>Plate</th>
 			                        <th>Status</th>
 
+			                        <?php
+
+			                        	if($mode == 2)
+			                        		echo "<th></th>";
+
+			                        ?>
+
 								</thead>
 
 								<tbody>
@@ -169,7 +176,16 @@
 
 					                        }
 
-					                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td></tr>";
+					                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td>";
+
+					                        if($mode == 2)
+					                        {
+
+					                        	echo "<a href='' class='btn btn-link' title='Edit Tag'>Edit</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove</a>";
+
+					                        }
+
+					                        echo "</tr>";
 
 		                        		}
 
