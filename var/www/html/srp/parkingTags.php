@@ -86,7 +86,13 @@
 										
 								<thead>
 											
-									<th>Name</th>
+									<?php 
+
+										if($mode == 1)
+											echo "<th>Name</th>";
+
+									?>
+
 			                        <th>Make</th>
 			                        <th>Model</th>
 			                        <th>Color</th>
@@ -176,7 +182,12 @@
 
 					                        }
 
-					                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td>";
+					                        echo "<tr>";
+
+					                        if($mode == 1)
+					                        	echo "<td>$name<br>($hoa_id)</td>";
+
+					                        echo "<td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td>";
 
 					                        if($mode == 2)
 					                        {
