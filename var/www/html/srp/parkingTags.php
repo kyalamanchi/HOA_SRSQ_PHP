@@ -181,7 +181,7 @@
 					                        if($mode == 2)
 					                        {
 
-					                        	echo "<a href='' class='btn btn-link' title='Edit Tag'>Edit</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove</a>";
+					                        	echo "<td><a href='' class='btn btn-link' title='Edit Tag'>Edit</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove</a></td>";
 
 					                        }
 
