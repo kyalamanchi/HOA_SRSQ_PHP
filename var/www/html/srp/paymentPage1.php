@@ -57,7 +57,7 @@
 						
 						$hoa_id = $_POST['hoa_id_select']
 
-						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=".$hoa_id);
+						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$hoa_id");
 
 					}
 					else
@@ -69,9 +69,9 @@
 
 							<div class='container'>
 								
-								<form method='POST'>
+								<form method='POST' action='https://hoaboardtime.com/paymentPageSRP.php'>
 
-									<select class='form-control' name='hoa_id_select' id='hoa_id_select' required>
+									<select class='form-control' name='id' id='id' required>
 
 										<option selected disabled value=''>Select User</option>
 

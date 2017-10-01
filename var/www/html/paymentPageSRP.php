@@ -74,7 +74,7 @@ function hidePleaseWait() {
                                 <div class="form-group">
                                     <label for="accountHolder">ACCOUNT HOLDER</label>
                                     <?php
-                                    $query = "SELECT firstname,lastname from hoaid where hoa_id=".$_GET['id'];
+                                    $query = "SELECT firstname,lastname from hoaid where hoa_id=".$_REQUEST['id'];
                                     $queryRes = pg_query($query);
                                     $row = pg_fetch_row($queryRes);
                                     $name = $row[0].' '.$row[1];
