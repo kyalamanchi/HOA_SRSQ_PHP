@@ -1,11 +1,9 @@
 <?php
 
-	session_start();
-
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$community_id = $_SESSION['hoa_community_id'];
-	$today = date("Y-m-d");
+	$community_id = 1;
+	$today = date('Y-m-d');
 
 	if(isset($_POST['submit']))
 	{
