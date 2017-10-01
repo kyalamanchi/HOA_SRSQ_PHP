@@ -67,7 +67,7 @@
 					else
 					{
 
-				?>
+						echo "
 
 						<section class='module module-gray p-b-0'>
 
@@ -79,7 +79,7 @@
 
 						</section>
 
-				<?php
+						";
 
 					}
 
