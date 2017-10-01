@@ -54,7 +54,7 @@
 
 							<div class='container'>
 								
-								<form method='POST' class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2' action='https://hoaboardtime.com/paymentPageSRSQ.php'>
+								<form method='POST' class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 col-offset-xl-4 col-offset-lg-4 col-offset-md-3 col-offset-sm-2 col-offset-xs-2' action='https://hoaboardtime.com/paymentPageSRSQ.php'>
 
 									<label><strong>Select User</strong></label>
 									<select class='form-control' name='id' id='id' required>
@@ -127,7 +127,7 @@
 	    <script src="dist/js/app.min.js"></script>
 	    <script src="dist/js/pages/dashboard.js"></script>
 	    <script src="dist/js/demo.js"></script>
-    
+
 	</body>
 
 </html>
