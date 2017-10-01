@@ -48,8 +48,6 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				1
-
 				<?php
 
 					echo "
@@ -58,7 +56,7 @@
 
 							<div class='container'>
 								
-								<form method='POST' action='https://hoaboardtime.com/paymentPageSRP.php'>
+								<form method='POST' class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-1' action='https://hoaboardtime.com/paymentPageSRP.php'>
 
 									<select class='form-control' name='id' id='id' required>
 
@@ -84,7 +82,9 @@
 
 									</select>
 
-									<button name='submit' id='submit' type='submit'>Make Payment</button>
+									<br><br>
+
+									<center><button name='submit' class='btn btn-success btn-xs' id='submit' type='submit'>Make Payment</button></center>
 
 								</form>
 
@@ -95,8 +95,6 @@
 					";
 
 				?>
-
-				2
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
