@@ -1,51 +1,192 @@
-<?php
+<!DOCTYPE html>
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+<html lang='en'>
 
-	$community_id = 1;
-	$today = date('Y-m-d');
+	<head>
 
-	if(isset($_POST['submit']))
-	{
-		echo $_POST['hoa_id_select'];
-	}
-	else
-	{
-		echo "Nooo";
+		<?php
 
-		echo "
+			session_start();
 
-		<form method='POST'>
+			if($_SESSION['hoa_username'])
+				header("Location: logout.php");
 
-			<select id='hoa_id_select' name='hoa_id_select' required>
+			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-				<option value='' selected disabled>Select User</option><option value='' selected disabled>Select 2</option>";
+			$community_id = 1;
+			$days90 = date('Y-m-d', strtotime("-90 days"));
+			$today = date('Y-m-d');
 
-				$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
+			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
+			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
+			$total_homes = pg_num_rows(pg_query("SELECT * FROM homeid WHERE community_id=$community_id"));
+			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
+			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
 
-				while($row = pg_fetch_assoc($result))
-				{
+		?>
 
-					$hoa_id = $row['hoa_id'];
-					$name = $row['firstname'];
-					$name .= " ";
-					$name .= $row['lastname'];
+		<meta charset='UTF-8'>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
+		<meta name='author' content='Geeth'>
 
-					echo "<option value='$hoa_id'>$name</option>";
+		<title>Stoneridge Place At Pleasanton</title>
 
-				}
+		<!-- Web Fonts-->
+		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Hind:400,600,700' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Lora:400i' rel='stylesheet'>
+		<!-- Bootstrap core CSS-->
+		<link href='assets/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
+		<!-- Icon Fonts-->
+		<link href='assets/css/font-awesome.min.css' rel='stylesheet'>
+		<link href='assets/css/linea-arrows.css' rel='stylesheet'>
+		<link href='assets/css/linea-icons.css' rel='stylesheet'>
+		<!-- Plugins-->
+		<link href='assets/css/magnific-popup.css' rel='stylesheet'>
+		<link href='assets/css/vertical.min.css' rel='stylesheet'>
+		<link href='assets/css/pace-theme-minimal.css' rel='stylesheet'>
+		<link href='assets/css/animate.css' rel='stylesheet'>
+		<!-- Template core CSS-->
+		<link href='assets/css/template.min.css' rel='stylesheet'>
 
-			echo "
+	</head>
 
-			</select>
+	<body>
 
-			<button type='submit' name='submit' id='submit'>Submit</button>
+		<!-- Layout-->
+		<div class='layout'>
 
-		</form>
+			<!-- Wrapper-->
+			<div class='wrapper'>
 
-		";
-	}
+				<?php
 
-	echo $_POST['payment_hoa_id'];
+					if(isset($_POST['submit']))
+						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$_POST['hoa_id_select']");
+					else
+					{
 
-?>
+				?>
+
+				<section class='module module-gray p-b-0'>
+
+					<div class='container'>
+
+						<div class='row'>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div class='counter-timer' data-from='0' data-to='<?php echo $res_dir; ?>'><?php echo $res_dir; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Resident Directory</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div class='counter-timer' data-from='0' data-to='<?php echo $email_homes; ?>'><?php echo $email_homes; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Homes with emails</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div class='counter-timer' data-from='0' data-to='<?php echo ($total_homes - $tenants); ?>'><?php echo ($total_homes - $tenants); ?></div>
+
+									</div>
+
+									<div class='counter-title'>Owners</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div class='counter-timer' data-from='0' data-to='<?php echo $tenants; ?>'><?php echo $tenants; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Tenants</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div class='counter-timer' data-from='0' data-to='<?php echo $newly_moved_in; ?>'><?php echo $newly_moved_in; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Newly moved in</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<br>
+
+					</div>
+
+				</section>
+
+				<?php
+
+					}
+
+				?>
+
+				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
+
+			</div>
+			<!-- Wrapper end-->
+
+		</div>
+		<!-- Layout end-->
+
+		<!-- Scripts-->
+		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
+		<script src='assets/bootstrap/js/bootstrap.min.js'></script>
+		<!--<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>-->
+		<script src='assets/js/plugins.min.js'></script>
+		<script src='assets/js/custom.min.js'></script>
+
+		<!-- Color Switcher (Remove these lines)-->
+		<!--script src='assets/js/style-switcher.min.js'></script-->
+	</body>
+
+</html>
