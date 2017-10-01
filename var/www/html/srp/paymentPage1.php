@@ -69,14 +69,15 @@
 
 				?>
 
-				<section class='module module-gray p-b-0'>
+						<section class='module module-gray p-b-0'>
 
-					<div class='container'>
-Bow
+							<div class='container'>
+								
+								BowWWWWWW
 
-					</div>
+							</div>
 
-				</section>
+						</section>
 
 				<?php
 
