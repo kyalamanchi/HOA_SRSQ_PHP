@@ -57,7 +57,7 @@
 						
 						$hoa_id = $_POST['hoa_id_select']
 
-						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$hoa_id");
+						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=".$hoa_id);
 
 					}
 					else
