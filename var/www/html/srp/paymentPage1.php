@@ -48,7 +48,7 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				<br><br>
+				<br><br><br><br><br>
 
 				<?php
 
@@ -60,6 +60,7 @@
 								
 								<form method='POST' class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2' action='https://hoaboardtime.com/paymentPageSRP.php'>
 
+									<label><strong>Select User</strong></label>
 									<select class='form-control' name='id' id='id' required>
 
 										<option selected disabled value=''>Select User</option>
