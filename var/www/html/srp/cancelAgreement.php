@@ -1,3 +1,7 @@
+<?php
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
+?>
 <!DOCTYPE html>
 
 <html>
@@ -10,13 +14,11 @@
     
     <?php
 
-      session_start();
-
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $id = $_GET['id'];
 
-      $res = pg_query("UPDATE community_sign_agreements SET board_cancel_requested='f' WHERE id=$id")
+      $res = pg_query("UPDATE community_sign_agreements SET board_cancel_requested='f' WHERE id=$id");
 
       $data = '{ "value": "CANCEL", "comment": "", "notifySigner": true }';
       $url = 'https://api.na1.echosign.com:443/api/rest/v5/agreements/'.$id.'/status';

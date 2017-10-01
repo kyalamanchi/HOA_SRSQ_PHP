@@ -1,3 +1,7 @@
+<?php
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
+?>
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -5,8 +9,6 @@
 	<head>
 
 		<?php
-
-			session_start();
 
 			if($_SESSION['hoa_username'])
 				header('Location: logout.php');
