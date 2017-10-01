@@ -48,6 +48,8 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
+				1
+
 				<?php
 
 					if(isset($_POST['submit']))
@@ -72,6 +74,8 @@
 					}
 
 				?>
+
+				2
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
