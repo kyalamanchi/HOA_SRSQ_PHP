@@ -15,6 +15,7 @@
 
 			$community_id = 1;
 			$days90 = date('Y-m-d', strtotime("-90 days"));
+			$today = date('Y-m-d');
 
 			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
 			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
@@ -144,6 +145,67 @@
 							<div class='modal-footer'>
 													
 								<button class='btn btn-round btn-success btn-sm' type='submit'>Log In</button>
+							
+							</div>
+
+							</form>
+						
+						</div>
+					
+					</div>
+				
+				</div>
+
+				<div class='modal fade' id='payment_modal'>
+					
+					<div class='modal-dialog'>
+						
+						<div class='modal-content'>
+							
+							<form method='POST' action='paymentPage1.php' role='form'>
+
+							<div class='modal-header'>
+								
+								<h5 class='modal-title' style='color: green;'>Select User / HOA Account Number</h5>
+								<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+							
+							</div>
+												
+							<div class='modal-body'>
+								
+								<p>
+
+									<select required name='payment_hoa_id' id='payment_hoa_id' class='form-control'>
+
+										<option value='' selected disabled>Select User</option>
+
+										<?php
+
+											$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>=$today");
+
+											while($row = pg_fetch_assoc($result))
+											{
+
+												$hoa_id = $row['hoa_id'];
+												$name = $row['firstname'];
+												$name .= " ";
+												$name .= $row['lastname'];
+
+												echo "<option value='$hoa_id'>$name</option>";
+
+											}
+
+										?>
+
+									</select>
+
+								</p>
+							
+							</div>
+							
+							<div class='modal-footer'>
+													
+								<button class='btn btn-round btn-success btn-sm' type='submit'>Make Payment</button>
 							
 							</div>
 
