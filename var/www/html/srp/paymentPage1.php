@@ -53,7 +53,13 @@
 				<?php
 
 					if(isset($_POST['submit']))
-						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$_POST['hoa_id_select']");
+					{	
+						
+						$hoa_id = $_POST['hoa_id_select']
+
+						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$hoa_id");
+
+					}
 					else
 					{
 
