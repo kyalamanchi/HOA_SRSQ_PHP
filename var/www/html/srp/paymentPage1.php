@@ -13,7 +13,7 @@
 	}
 	else
 	{
-		echo "No";
+		echo "Nooo";
 
 		echo "
 
@@ -21,7 +21,7 @@
 
 			<select id='hoa_id_select' name='hoa_id_select' required>
 
-				<option value='' selected disabled>Select User</option>";
+				<option value='' selected disabled>Select User</option><option value='' selected disabled>Select 2</option>";
 
 				$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
 
