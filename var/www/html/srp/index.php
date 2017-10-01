@@ -421,7 +421,7 @@
 
 						<div>
 							
-							<center><a class='btn btn-success btn-circle btn-xs' href='https://swp.paymentsgateway.net/co/default.aspx?pg_api_login_id=27Rg6HnwQ5' target='_blank'>Pay Now</a></center>
+							<center><a class='btn btn-success btn-circle btn-xs' data-toggle='modal' data-target='#login_modal'>Pay Now</a></center>
 
 						</div>
 
