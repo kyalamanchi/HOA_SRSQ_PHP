@@ -52,18 +52,7 @@
 
 				<?php
 
-					if(isset($_POST['submit']))
-					{	
-						
-						$hoa_id = $_POST['hoa_id_select']
-
-						header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$hoa_id");
-
-					}
-					else
-					{
-
-						echo "
+					echo "
 
 						<section class='module module-gray p-b-0'>
 
@@ -103,9 +92,7 @@
 
 						</section>
 
-						";
-
-					}
+					";
 
 				?>
 
