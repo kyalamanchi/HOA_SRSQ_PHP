@@ -63,29 +63,35 @@
 
 							<div class='container'>
 								
-								<select class='form-control' name='hoa_id_select' id='hoa_id_select' required>
+								<form method='POST'>
 
-									<option selected disabled value=''>Select User</option>
+									<select class='form-control' name='hoa_id_select' id='hoa_id_select' required>
 
-									";
+										<option selected disabled value=''>Select User</option>
 
-									$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
+										";
 
-											while($row = pg_fetch_assoc($result))
-											{
+										$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
 
-												$hoa_id = $row['hoa_id'];
-												$name = $row['firstname'];
-												$name .= " ";
-												$name .= $row['lastname'];
+												while($row = pg_fetch_assoc($result))
+												{
 
-												echo "<option value='$hoa_id'>$name</option>";
+													$hoa_id = $row['hoa_id'];
+													$name = $row['firstname'];
+													$name .= " ";
+													$name .= $row['lastname'];
 
-											}
+													echo "<option value='$hoa_id'>$name</option>";
 
-									echo "
+												}
 
-								</select>
+										echo "
+
+									</select>
+
+									<button name='submit' id='submit' type='submit'>Make Payment</button>
+
+								</form>
 
 							</div>
 
