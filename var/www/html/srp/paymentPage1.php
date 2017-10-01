@@ -66,7 +66,7 @@
 
 										";
 
-										$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
+										$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today' ORDER BY firstname");
 
 												while($row = pg_fetch_assoc($result))
 												{
