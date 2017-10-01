@@ -13,30 +13,26 @@
 
 		?>
 
-		<meta charset='UTF-8'>
-		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
-		<meta name='author' content='Geeth'>
-
-		<title>Stoneridge Squaer Association</title>
-
-		<!-- Web Fonts-->
-		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
-		<link href='https://fonts.googleapis.com/css?family=Hind:400,600,700' rel='stylesheet'>
-		<link href='https://fonts.googleapis.com/css?family=Lora:400i' rel='stylesheet'>
-		<!-- Bootstrap core CSS-->
-		<link href='assets/bootstrap/css/bootstrap.min.css' rel='stylesheet'>
-		<!-- Icon Fonts-->
-		<link href='assets/css/font-awesome.min.css' rel='stylesheet'>
-		<link href='assets/css/linea-arrows.css' rel='stylesheet'>
-		<link href='assets/css/linea-icons.css' rel='stylesheet'>
-		<!-- Plugins-->
-		<link href='assets/css/magnific-popup.css' rel='stylesheet'>
-		<link href='assets/css/vertical.min.css' rel='stylesheet'>
-		<link href='assets/css/pace-theme-minimal.css' rel='stylesheet'>
-		<link href='assets/css/animate.css' rel='stylesheet'>
-		<!-- Template core CSS-->
-		<link href='assets/css/template.min.css' rel='stylesheet'>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	    
+	    <title>Stoneridge Square Association</title>
+	    
+	    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+	    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+	    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+	    <link rel="stylesheet" href="plugins/iCheck/flat/blue.css">
+	    <link rel="stylesheet" href="plugins/morris/morris.css">
+	    <link rel="stylesheet" href="plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+	    <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+	    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+	    <link rel="stylesheet" href="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+	   
+	    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 	</head>
 
@@ -110,15 +106,28 @@
 		<!-- Layout end-->
 
 		<!-- Scripts-->
-		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-		<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
-		<script src='assets/bootstrap/js/bootstrap.min.js'></script>
-		<!--<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>-->
-		<script src='assets/js/plugins.min.js'></script>
-		<script src='assets/js/custom.min.js'></script>
-
-		<!-- Color Switcher (Remove these lines)-->
-		<!--script src='assets/js/style-switcher.min.js'></script-->
+		<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+	    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+	    <script>
+	      $.widget.bridge('uibutton', $.ui.button);
+	    </script>
+	    <script src="bootstrap/js/bootstrap.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	    <script src="plugins/morris/morris.min.js"></script>
+	    <script src="plugins/sparkline/jquery.sparkline.min.js"></script>
+	    <script src="plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+	    <script src="plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+	    <script src="plugins/knob/jquery.knob.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+	    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+	    <script src="plugins/datepicker/bootstrap-datepicker.js"></script>
+	    <script src="plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+	    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+	    <script src="plugins/fastclick/fastclick.js"></script>
+	    <script src="dist/js/app.min.js"></script>
+	    <script src="dist/js/pages/dashboard.js"></script>
+	    <script src="dist/js/demo.js"></script>
+    
 	</body>
 
 </html>
