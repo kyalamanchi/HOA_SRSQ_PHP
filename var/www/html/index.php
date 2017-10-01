@@ -1050,7 +1050,7 @@
                   
                   <center>
 
-                    <a class='btn btn-info btn-sm' href='https://swp.paymentsgateway.net/co/default.aspx?pg_api_login_id=73vcR5EEc2&pg_transaction_type=20' target='_blank'>Pay Now</a>
+                    <a class='btn btn-info btn-sm' href='https://hoaboardtime.com/paymentPage1.php' target='_blank'>Pay Now</a>
 
                   </center>
 
