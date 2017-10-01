@@ -2,6 +2,8 @@
 
 	session_start();
 
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	$community_id = $_SESSION['hoa_community_id'];
 	$today = date("Y-m-d");
 
@@ -23,17 +25,17 @@
 
 				$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
 
-											while($row = pg_fetch_assoc($result))
-											{
+				while($row = pg_fetch_assoc($result))
+				{
 
-												$hoa_id = $row['hoa_id'];
-												$name = $row['firstname'];
-												$name .= " ";
-												$name .= $row['lastname'];
+					$hoa_id = $row['hoa_id'];
+					$name = $row['firstname'];
+					$name .= " ";
+					$name .= $row['lastname'];
 
-												echo "<option value='$hoa_id'>$name</option>";
+					echo "<option value='$hoa_id'>$name</option>";
 
-											}
+				}
 
 			echo "
 
