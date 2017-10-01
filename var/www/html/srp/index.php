@@ -421,7 +421,7 @@
 
 						<div>
 							
-							<center><a class='btn btn-xs' data-toggle='modal' data-target='#payment_modal'>Pay Now</a></center>
+							<center><a class='btn btn-success btn-circle btn-xs' href='paymentPage1.php' target='_blank'>Pay Now</a></center>
 
 						</div>
 
