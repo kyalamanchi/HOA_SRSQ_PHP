@@ -3,7 +3,8 @@
 	session_start();
 
 	$community_id = $_SESSION['hoa_community_id'];
-	
+	$today = date("Y-m-d");
+
 	if(isset($_POST['submit']))
 	{
 		echo $_POST['hoa_id_select'];
