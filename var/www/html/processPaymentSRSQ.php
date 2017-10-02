@@ -23,9 +23,8 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 );                                                                                                                   
                                                                                                                      
 $result = curl_exec($ch);
+echo $result;
 $result = json_decode($result);
- echo $result;
-
 if ( $result->response->response_desc){
 	echo $result->response->response_desc;
 }
