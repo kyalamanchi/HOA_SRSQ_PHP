@@ -43,10 +43,7 @@ function payNow(){
   var letters = /^[A-Za-z]+$/;  
   var format = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/;
 
-  if ( document.getElementById("auth_amount").value.match(letters)  || document.getElementById("auth_amount").value.match(format)){
-    alert("Invalid amount");
-    return;
-  }
+
 
   if ( document.getElementById("routingNumber").value.match(letters) || document.getElementById("routingNumber").value.match(format) ){
     alert("Invalid routing number");
@@ -57,10 +54,11 @@ function payNow(){
     alert("Invalid Account  Number");
     return;
   }
-  if( document.getElementById("auth_amount").value <= 0 ){
-    alert("Invalid amount");
-    return;
-  }
+  
+  var input = document.getElementById("auth_amount").value;
+    if(!((!isNaN(parseFloat(input)))&& input > 0)) {
+    alert("Invalid amount");  
+}
 
   if ( !document.getElementById("routingNumber").value ){
     alert("Invalid routing number");
