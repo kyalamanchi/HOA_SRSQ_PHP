@@ -19,6 +19,7 @@ curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $result = curl_exec($ch);
 curl_close($ch);
+echo $result;
 $result = json_decode($result);
 if ( $result->response->response_desc){
 	echo $result->response->response_desc;
