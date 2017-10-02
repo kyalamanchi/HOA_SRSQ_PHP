@@ -117,6 +117,7 @@
 											$legal_date_until = $row['legal_date_until'];
 											$actual_date = $row['actual_date'];
 											$disclosure_type = $row['type_id'];
+											$delivery_type = $row['delivery_type'];
 											$notes = $row['notes'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$disclosure_type"));
@@ -134,7 +135,7 @@
 											if($actual_date != '')
 												$actual_date = date('m-d-Y', strtotime($actual_date));
 
-	                          				echo "<tr><td>$legal_date_from</td><td>$legal_date_until</td><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$civilcode_section</td><td>$notes</td></tr>";
+	                          				echo "<tr><td>$legal_date_from</td><td>$legal_date_until</td><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$civilcode_section</td><td>$notes</td></tr>";
 
 										}
 
