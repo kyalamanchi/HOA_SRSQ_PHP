@@ -12,15 +12,20 @@ $anumber =  $parsedJSON[0]->account_number;
 $data = array("action" => "sale","customer_id" => $customerID ,"authorization_amount" => $authAmount,"billing_address" => array("first_name"=>$fname,"last_name" =>$lname),"echeck" => array( "sec_code" => "WEB","routing_number"=> $rnumber,"account_number" => $anumber,"account_holder" => $name));
 $data_string = json_encode($data); 
 $url = "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions";
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Content-Length: ' . strlen($data_string),'X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
-curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+$ch = curl_init('https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions');                                                                      
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+    'Content-Type: application/json',                                                                                
+    'X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=')                                                                       
+);                                                                                                                   
+                                                                                                                     
 $result = curl_exec($ch);
-curl_close($ch);
-echo $result;
 $result = json_decode($result);
+ echo $result;
+
 if ( $result->response->response_desc){
 	echo $result->response->response_desc;
 }
