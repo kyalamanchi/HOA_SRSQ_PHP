@@ -60,30 +60,8 @@
 								
 								<form method='POST' class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2' action='https://hoaboardtime.com/paymentPageSRP.php'>
 
-									<label><strong>Select User</strong></label>
-									<select class='form-control' name='id' id='id' required>
-
-										<option selected disabled value=''>Select User</option>
-
-										";
-
-										$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today' ORDER BY firstname");
-
-												while($row = pg_fetch_assoc($result))
-												{
-
-													$hoa_id = $row['hoa_id'];
-													$name = $row['firstname'];
-													$name .= " ";
-													$name .= $row['lastname'];
-
-													echo "<option value='$hoa_id'>$name</option>";
-
-												}
-
-										echo "
-
-									</select>
+									<label><strong>HOA Account Number</strong></label>
+									<input type='number' name='id' id='id' required placeholder='Enter HOA Account Number' class='form-control'>
 
 									<br><br>
 
