@@ -14,6 +14,7 @@ $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
 $sendData = array("action" => "sale","customer_id" => $customerID ,"authorization_amount" => $authAmount,"billing_address" => array("first_name"=>$fname,"last_name" =>$lname),"echeck" => array( "sec_code" => "WEB","routing_number"=> $rnumber,"account_number" => $anumber,"account_holder" => $name));
+echo json_encode($sendData);
 curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($sendData));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $result = curl_exec($ch);
