@@ -1,6 +1,7 @@
 <?php
 
-	session_start();
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
 
 	$user_id = $_SESSION['hoa_user_id'];
 

@@ -39,12 +39,12 @@
 
 									</li>
 
-									<li class="menu-item-has-children mega-menu-col"><a href="#"><i class='fa fa-institution'></i> Community</a>
+									<li class='menu-item-has-children mega-menu-col'><a href="#"><i class='fa fa-institution'></i> Community</a>
 										
 										<ul class="sub-menu">
 														
-											<li><a>Disclosures</a></li>
-											<li><a href="mailingList.php">Mailing List</a></li>
+											<li><a href='communityDisclosures.php'>Disclosures</a></li>
+											<li><a href='mailingList.php'>Mailing List</a></li>
 										
 										</ul>
 

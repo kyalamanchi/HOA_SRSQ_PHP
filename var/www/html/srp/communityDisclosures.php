@@ -13,13 +13,15 @@
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
-			if($_SESSION['hoa_mode'] == 2)
-				header("Location: residentDashboard.php");
-
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
+
+			$today = date('Y-m-d');
+
+			if($mode == 2)
+				header('Location: residentDashboard.php');
 
 		?>
 
@@ -28,7 +30,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; if($mode == 1) echo " | Board Dashboard"; else if($mode == 2) echo " | Resident Dashboard"; ?></title>
+		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -57,7 +59,7 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
+			<?php if($mode == 1) include "boardHeader.php"; ?>
 
 			<div class="wrapper">
 
@@ -70,7 +72,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Community Documents</h1>
+								<h1 class="h5">Community Disclosures</h1>
 							
 							</div>
 						
@@ -83,45 +85,64 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container">
+					<div class="container-fluid">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table table-striped'  style='color: black;'>
 
-							<table id='example1' class='table' style="color: black;">
-										
 								<thead>
-											
-									<th>Year</th>
-									<th>Date of Upload</th>
+									
+									<th>Legal Date From</th>
+									<th>Legal Date Until</th>
+									<th>Actual Date</th>
+									<th>Disclosure Type</th>
 									<th>Description</th>
+									<th>Delivery Type</th>
+									<th>Civil Code Section</th>
+									<th>Notes</th>
 
 								</thead>
 
 								<tbody>
-											
-									<?php 
+									
+									<?php
 
-										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
+										$result = pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id");
 
 										while($row = pg_fetch_assoc($result))
 										{
 
-											$year = $row['year_of_upload'];
-											$upload_date = $row['uploaded_date'];
-											$description = $row['description'];
-											$document_url = $row['url'];
+											$legal_date_from = $row['legal_date_from'];
+											$legal_date_until = $row['legal_date_until'];
+											$actual_date = $row['actual_date'];
+											$disclosure_type = $row['type_id'];
+											$delivery_type = $row['delivery_type'];
+											$notes = $row['notes'];
 
-											if($upload_date != "")
-												$upload_date = date('m-d-Y', strtotime($upload_date));
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$disclosure_type"));
 
-											echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$description' target='_blank'>$description</a></td></tr>";
+											$disclosure_type = $row1['name'];
+											$description = $row1['desc'];
+											$civilcode_section = $row1['civilcode_section'];
+
+											if($legal_date_from != '')
+												$legal_date_from = date('m-d-Y', strtotime($legal_date_from));
+											
+											if($legal_date_until != '')
+												$legal_date_until = date('m-d-Y', strtotime($legal_date_until));
+
+											if($actual_date != '')
+												$actual_date = date('m-d-Y', strtotime($actual_date));
+
+	                          				echo "<tr><td>$legal_date_from</td><td>$legal_date_until</td><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$civilcode_section</td><td>$notes</td></tr>";
 
 										}
 
 									?>
 
 								</tbody>
-										
+								
 							</table>
 
 						</div>
@@ -154,7 +175,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc'], [1, 'desc']] });
+	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	      	});
 

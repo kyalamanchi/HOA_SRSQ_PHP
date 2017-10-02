@@ -1,11 +1,14 @@
+<?php
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		
 
 		<?php
-
-			session_start();
 
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
@@ -138,6 +141,8 @@
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 													
+													<br>
+
 													<div class="progress-item">
 										
 														<div class="progress-title">Amount Received</div>
@@ -154,6 +159,8 @@
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 													
+													<br>
+
 													<div class="progress-item">
 										
 														<div class="progress-title">Members Paid</div>

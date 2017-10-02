@@ -1,3 +1,7 @@
+<?php
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
+?>
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -5,8 +9,6 @@
 	<head>
 
 		<?php
-
-			session_start();
 
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
@@ -16,14 +18,9 @@
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-			$community_id = 1;
-			$days90 = date('Y-m-d', strtotime("-90 days"));
-
-			$res_dir = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id"));
-			$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
-			$total_homes = pg_num_rows(pg_query("SELECT * FROM homeid WHERE community_id=$community_id"));
-			$tenants = pg_num_rows(pg_query("SELECT * FROM home_mailing_address WHERE community_id=$community_id"));
-			$newly_moved_in = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_from>='".$days90."' AND valid_from<='".date('Y-m-d')."'"));
+			$community_id = $_SESSION['hoa_community_id'];
+			$hoa_id = $_SESSION['hoa_hoa_id'];
+			$home_id = $_SESSION['hoa_home_id'];
 
 		?>
 
@@ -136,6 +133,30 @@
 									</div>
 
 									<div class='counter-title'>Community Deposits</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<a href='parkingTags.php'>
+
+											<?php 
+															
+												echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
+
+											?>
+
+										</a>
+														
+									</div>
+
+									<div class='counter-title'>Parking Tags</div>
 
 								</div>
 

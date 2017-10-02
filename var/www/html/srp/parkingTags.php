@@ -1,3 +1,7 @@
+<?php
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
+?>
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -5,8 +9,6 @@
 	<head>
 
 		<?php
-
-			session_start();
 
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
@@ -86,13 +88,26 @@
 										
 								<thead>
 											
-									<th>Name</th>
+									<?php 
+
+										if($mode == 1)
+											echo "<th>Name</th>";
+
+									?>
+
 			                        <th>Make</th>
 			                        <th>Model</th>
 			                        <th>Color</th>
 			                        <th>Year</th>
 			                        <th>Plate</th>
 			                        <th>Status</th>
+
+			                        <?php
+
+			                        	if($mode == 2)
+			                        		echo "<th></th>";
+
+			                        ?>
 
 								</thead>
 
@@ -169,7 +184,21 @@
 
 					                        }
 
-					                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td></tr>";
+					                        echo "<tr>";
+
+					                        if($mode == 1)
+					                        	echo "<td>$name<br>($hoa_id)</td>";
+
+					                        echo "<td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td>";
+
+					                        if($mode == 2)
+					                        {
+
+					                        	echo "<td><a href='' class='btn btn-link' title='Edit Tag'>Edit Tag</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove Tag</a></td>";
+
+					                        }
+
+					                        echo "</tr>";
 
 		                        		}
 

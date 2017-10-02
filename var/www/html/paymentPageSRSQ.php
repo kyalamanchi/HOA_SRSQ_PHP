@@ -94,7 +94,7 @@ function verifyUser(){
   document.getElementById("paymentPage").hidden = true;
 var $input = $('#refresh');
     $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
-var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_GET['id'];?>;
+var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_REQUEST['id'];?>;
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
 var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
@@ -107,7 +107,7 @@ var source = new EventSource(url);
 source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h4>'+event.data+'</h4>');
         if ( (event.data == "email") ){
-        var hoaID = <?php echo $_GET['id']; ?>;
+        var hoaID = <?php echo $_REQUEST['id']; ?>;
         source.close();
         var data  = event.lastEventId.split(' ');
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
@@ -116,7 +116,7 @@ source.onmessage = function(event){
   </div><br><button type="button" class="btn btn-success btn-lg" onclick="verifyDetails('+hoaID+');">Verify</button></div>');
         }
         if (  (event.data == "number") ){
-        var hoaID = <?php echo $_GET['id']; ?>;
+        var hoaID = <?php echo $_REQUEST['id']; ?>;
         source.close();
         var data  = event.lastEventId.split(' ');
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Verify to continue</h3>')
@@ -171,7 +171,7 @@ color: red;
   <body onload="verifyUser();">
   <input type="hidden" id="refresh" value="no">
     <?php
-          $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
+          $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_REQUEST['id'];
           $queryResult =  pg_query($query);
           $row = pg_fetch_assoc($queryResult);
           $communityID = $row['community_id'];
@@ -186,13 +186,13 @@ color: red;
   <div class="container" id="paymentPage" style=" margin: 0 auto;" hidden="hidden" >
                                   <?php 
                                    date_default_timezone_set('America/Los_Angeles');
-                                  $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
+                                  $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_REQUEST['id']."AND ASSESSMENT_YEAR=".date("Y");
                                   $queryResult = pg_query($query);
                                   $currentChargesTotal  = 0;
                                   while ($row = pg_fetch_assoc($queryResult)) {
                                     $currentChargesTotal = $currentChargesTotal+$row['amount'];
                                   }
-                                  $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_GET['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
+                                  $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_REQUEST['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
                                   $queryResult = pg_query($query);
                                   $currentPaymentsTotal = 0;
                                   while ($row = pg_fetch_assoc($queryResult)) {
@@ -225,13 +225,13 @@ color: red;
                                     <label for="amount">AMOUNT</label>
                                    <?php 
                                    date_default_timezone_set('America/Los_Angeles');
-                                    $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_GET['id']."AND ASSESSMENT_YEAR=".date("Y");
+                                    $query  = "SELECT * FROM CURRENT_CHARGES WHERE HOA_ID=".$_REQUEST['id']."AND ASSESSMENT_YEAR=".date("Y");
                                     $queryResult = pg_query($query);
                                     $currentChargesTotal  = 0;
                                     while ($row = pg_fetch_assoc($queryResult)) {
                                       $currentChargesTotal = $currentChargesTotal+$row['amount'];
                                     }
-                                    $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_GET['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
+                                    $query = "SELECT * FROM CURRENT_PAYMENTS WHERE HOA_ID=".$_REQUEST['id']." AND EXTRACT(YEAR FROM PROCESS_DATE)=".date("Y");
                                     $queryResult = pg_query($query);
                                     $currentPaymentsTotal = 0;
                                     while ($row = pg_fetch_assoc($queryResult)) {
@@ -268,7 +268,7 @@ color: red;
                                 <div class="form-group">
                                     <label for="accountHolder">ACCOUNT HOLDER</label>
                                     <?php
-                                    $query = "SELECT firstname,lastname from hoaid where hoa_id=".$_GET['id'];
+                                    $query = "SELECT firstname,lastname from hoaid where hoa_id=".$_REQUEST['id'];
                                     $queryRes = pg_query($query);
                                     $row = pg_fetch_row($queryRes);
                                     $name = $row[0].' '.$row[1];
@@ -282,7 +282,7 @@ color: red;
                                 <div class="form-group">
                                     <label for="customerId">CUSTOMER ID</label>
                                     <?php
-                                    echo '<input type="text" class="form-control" name="customerId" id="customerId" value="'.$_GET['id'].'" disabled="disabled"/>';
+                                    echo '<input type="text" class="form-control" name="customerId" id="customerId" value="'.$_REQUEST['id'].'" disabled="disabled"/>';
                                     ?>
                                 </div>                            
                             </div>
@@ -300,7 +300,7 @@ color: red;
           <h4>Contact Us</h4>
           <br>
           <?php
-          $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['id'];
+          $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_REQUEST['id'];
           $queryResult =  pg_query($query);
           $row = pg_fetch_assoc($queryResult);
           $communityID = $row['community_id'];
