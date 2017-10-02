@@ -58,7 +58,7 @@
 
 							<div class='container'>
 								
-								<form method='POST' class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2' action='https://hoaboardtime.com/paymentPageSRP.php'>
+								<form method='POST' class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2' action='paymentPage2.php'>
 
 									<label><strong>HOA Account Number</strong></label>
 									<input type='number' name='id' id='id' required placeholder='Enter HOA Account Number' class='form-control'>
