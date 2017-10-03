@@ -356,7 +356,7 @@
 
 											";
 
-											echo "<tr><td>$funded_on</td><td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</button></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$net_amount</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
+											echo "<tr><td>$funded_on</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal-1_$deposit_id'>$deposit_id</button></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$net_amount</a></td><td><a style='color: blue;' data-toggle='modal' data-target='#modal-1_$deposit_id'>$number_of_transactions</a></td><td>$status</td><td>$fund_sent</td></tr>";
 										}
 
 									?>
