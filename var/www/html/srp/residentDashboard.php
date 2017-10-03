@@ -158,6 +158,31 @@
 														
 									</div>
 
+									<div class='counter-title'>My Documents</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
+
+											if($parking_tags > 0)
+												echo "<a style='color: green;' href='parkingTags.php'>$parking_tags</a>";
+											else
+												echo $parking_tags;
+
+										?>
+														
+									</div>
+
 									<div class='counter-title'>Parking Tags</div>
 
 								</div>
