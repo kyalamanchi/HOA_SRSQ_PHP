@@ -45,6 +45,9 @@ class PDF extends FPDF
 {
 function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTotal2,$homeID,$connection,$zipInfo,$stateInfo,$cityInfo,$commID)
 {
+    $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
+    or die("Failed to connect to database");
+
     global $pageNumber,$finalHOAID,$finalHOMEID,$finalAddress1,$finalAddress2,$finalAddress3,$finalAddress4,$finalAddress5,$finalreturnAddress1,$finalreturnAddress2,$finalreturnAddress3,$finalreturnAddress4,$finalPayee;
     if( $homeID < 144){
         $commID = 1;
@@ -99,7 +102,6 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
         }
     }
     }
-    
     $finalHOAID = $hoaID;
     $finalHOMEID  = $homeID;
     $finalAddress1 = $fname.' '.$lname;
@@ -164,6 +166,16 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
      $pageNumber = $this->PageNo();
 }
 }
+$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
+or die("Failed to connect to database");
+
+$homequery = "SELECT HOME_ID FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2 ORDER BY HOME_ID";
+$homequeryResult = pg_query($homequery);
+while ( $homerow = pg_fetch_assoc($homequeryResult)) {
+$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
+or die("Failed to connect to database");
+
+$homeDS = $homerow['home_id'];  
 $assesmentRuleTypeQurey = "SELECT * FROM ASSESSMENT_RULE_TYPE";
 $assesmentRuleTypeQureyResult = pg_query($assesmentRuleTypeQurey);
 $assesmentsRuleArray =  array();
@@ -177,16 +189,14 @@ $header = array('Month', 'Document ID', 'Description', 'Charge','Payment','Balan
 $data = array();
 $message  = "Please Wait...";
 echo 'data: '.$message."\n\n";  
+if (ob_get_contents())
 ob_end_flush();
 flush();
-$query = "SELECT HOME_ID FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2 ORDER BY HOME_ID";
-$queryResult = pg_query($query);
-while ( $row = pg_fetch_assoc($queryResult)) {
-$homeDS = $row['home_id'];
-$query = "SELECT HOME_ID FROM HOAID WHERE HOA_ID=".$homeDS;
-$queryResult = pg_query($query);
-$row = pg_fetch_assoc($queryResult);
-$homeDS = $row['home_id'];
+$hoaQuery = "SELECT HOA_ID FROM HOAID WHERE HOME_ID = ".$homeDS;
+$hoaQueryResult = pg_query($hoaQuery);
+$hoaQueryResult = pg_fetch_row($hoaQueryResult);
+$hoaID = $hoaQueryResult[0];
+
 $currentChargesQuery  = "SELECT * FROM CURRENT_CHARGES WHERE HOME_ID=".$homeDS." ORDER BY assessment_month , assessment_date";
 $currentChargesQueryResult = pg_query($currentChargesQuery);
 $monthsArray = array();
@@ -206,8 +216,9 @@ array_push($monthsArray, 12);
 while ($row = pg_fetch_assoc($currentChargesQueryResult)) {
 	array_push($currentChargesList, $row);
 }
-$message  = "Fetching Payment Details...Please Wait...";
+$message  = "Fetching Payment Details for home id : ".$homeDS."...Please Wait...";
 echo 'data: '.$message."\n\n";  
+if (ob_get_contents())
 ob_end_flush();
 flush();
 $currentPaymentsQuery = "SELECT * FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeDS." AND (payment_status_id=1 OR payment_status_id=6) ORDER BY process_date";
@@ -222,8 +233,8 @@ foreach ($monthsArray as $key ) {
         if ( (date('m',strtotime($value2['assessment_date']))) == $key ){
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
-            array_push($data2,$value2['id']-$value2['assesment_rule_type']);
-            array_push($data2,$value2['assessment_date'].' | '.$assesmentsRuleArray[$value2['assessment_rule_type_id']]);
+            array_push($data2,($value2['id']).'-'.($value2['assessment_rule_type_id']));
+            array_push($data2,$value2['assessment_date'].' | '.$value2['assessment_rule_type_id']);
             array_push($data2,'$ '.$value2['amount']);
             array_push($data2,'');
             array_push($data2,'$ '.$value2['amount']);
@@ -235,7 +246,7 @@ foreach ($monthsArray as $key ) {
         if ( (date('m',strtotime($value2['process_date'])) == $key)  ){
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
-            array_push($data2,$value2['id']-$value2['payment_type_id']);
+            array_push($data2,($value2['id']).'-'.($value2['payment_type_id']));
             array_push($data2,$value2['process_date'].' | '.'Payment Received #'.$value2['document_num']);
             array_push($data2,'');
             array_push($data2,'$ '.$value2['amount']);
@@ -253,8 +264,9 @@ if ( $homeDS < 144 ){
 else if( $homeDS < 287 ){
     $commID = 2;
 }
-$message  = "Generating Statement...Please Wait...";
+$message  = "Generating Statement for home id ".$homeDS."...Please Wait...";
 echo 'data: '.$message."\n\n";  
+if (ob_get_contents())
 ob_end_flush();
 flush();
 $pdf->ImprovedTable($header,$data,$currentChargesTotal,$currentPaymentsTotal,$homeDS,$connection,$zipInfo,$stateInfo,$cityInfo,$commID);
@@ -269,8 +281,9 @@ if ($zip->open($finalHOAID.'.zip',  ZipArchive::CREATE)) {
 $zip->addFile($finalHOAID.'.pdf', $finalHOAID.'.pdf');
 $zip->addFile($finalHOAID.'.tab', $finalHOAID.'.tab');
 $zip->close();
-$message  = "Uploading Statement to Dropbox...Please Wait...";
+$message  = "Uploading ".$homeDS." Statement to Dropbox...Please Wait...";
 echo 'data: '.$message."\n\n";  
+if (ob_get_contents())
 ob_end_flush();
 flush();
 if ( $homeDS < 144 ){
@@ -283,7 +296,6 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
-print('PDF Response'.$response.nl2br("\n"));
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 }
@@ -297,13 +309,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
-print('PDF Response'.$response.nl2br("\n"));
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 
 }
-$message  = "Uploading Statement ZIP file to Dropbox...Please Wait...";
+$message  = "Uploading ".$homeID." Statement ZIP file to Dropbox...Please Wait...";
 echo 'data: '.$message."\n\n";  
+if (ob_get_contents())
 ob_end_flush();
 flush();
 if ( $homeDS < 144){
@@ -329,7 +341,6 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 }
-print_r($response.nl2br("\n"));
 unlink($finalHOAID.'.zip');
 }
 pg_close($connection);
@@ -337,16 +348,18 @@ pg_close($connection);
 $response = json_decode($response);
 
 if ( $response ->id ){
-$message  = "Upload Successful. Download will begin shortly.";
+$message  = "Upload ".$homeDS ." Statement Successful.";
 $id = $response ->id;
 echo "id: $id\n";
-echo 'data: '.$message."\n\n";  
+echo 'data: '.$message."\n\n"; 
+if (ob_get_contents()) 
 ob_end_flush();
 flush();
 }
 else {
-$message  = "An error occured. Please try again.";
+$message  = "An error occured. Please try again. HOME ID :".$homeDS;
 echo 'data: '.$message."\n\n";  
+if (ob_get_contents())
 ob_end_flush();
 flush();
 }
