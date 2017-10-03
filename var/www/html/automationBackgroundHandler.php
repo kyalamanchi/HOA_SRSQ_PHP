@@ -260,16 +260,10 @@ $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
-
-
-
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
-
-
 }
 
 ?>
