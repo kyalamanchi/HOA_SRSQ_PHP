@@ -47,31 +47,6 @@
 		<!-- Datatable -->
 		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
-
-		<link rel="shortcut icon" href="assets/images/favicon.png">
-		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
-		<!-- Web Fonts-->
-		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Hind:400,600,700" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lora:400i" rel="stylesheet">
-		<!-- Bootstrap core CSS-->
-		<link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-		<!-- Icon Fonts-->
-		<link href="assets/css/font-awesome.min.css" rel="stylesheet">
-		<link href="assets/css/linea-arrows.css" rel="stylesheet">
-		<link href="assets/css/linea-icons.css" rel="stylesheet">
-		<!-- Plugins-->
-		<link href="assets/css/owl.carousel.css" rel="stylesheet">
-		<link href="assets/css/flexslider.css" rel="stylesheet">
-		<link href="assets/css/magnific-popup.css" rel="stylesheet">
-		<link href="assets/css/vertical.min.css" rel="stylesheet">
-		<link href="assets/css/pace-theme-minimal.css" rel="stylesheet">
-		<link href="assets/css/animate.css" rel="stylesheet">
-		<!-- Template core CSS-->
-		<link href="assets/css/template.min.css" rel="stylesheet">
-
 	</head>
 
 	<body>
@@ -102,6 +77,28 @@
 				
 				</section>
 
+				<button class="btn btn-round btn-brand" type="button" data-toggle="modal" data-target="#modal-2">Launch modal</button>
+<div class="modal fade" id="modal-2">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title">Modal title</h5>
+												<button class="close" type="button" data-dismiss="modal" aria-label="Close"><span>&times;</span></button>
+											</div>
+											<div class="modal-body">
+												<p>
+													<iframe width="420" height="250" src="//www.youtube.com/embed/EMy5krGcoOU" frameborder="0" allowfullscreen></iframe>
+												</p>
+												<p>Meh synth Schlitz, tempor duis single-origin coffee ea next level ethnic fingerstache fanny pack nostrud. Seitan High Life reprehenderit consectetur cupidatat kogi about me. Photo booth anim 8-bit hella, PBR 3 wolf moon beard Helvetica. Salvia esse nihil, flexitarian Truffaut synth art party deep v chillwave. Seitan High Life reprehenderit consectetur cupidatat kogi.</p>
+												<p>Exercitation photo booth stumptown tote bag Banksy, elit small batch freegan sed. Craft beer elit seitan exercitation, photo booth et 8-bit kale chips proident chillwave deep v laborum. Aliquip veniam delectus, Marfa eiusmod Pinterest in do umami readymade swag. Selfies iPhone Kickstarter, drinking vinegar jean shorts fixie consequat flexitarian four loko.</p>
+											</div>
+											<div class="modal-footer">
+												<button class="btn btn-round btn-gray" type="button">Close</button>
+												<button class="btn btn-round btn-brand" type="button">Save changes</button>
+											</div>
+										</div>
+									</div>
+								</div>
 				<!-- Content -->
 				<section class="module">
 						
@@ -415,15 +412,6 @@
 		<!-- Datatable -->
 		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
 		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
-
-		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
-		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
-		<script src="assets/js/plugins.min.js"></script>
-		<script src="assets/js/charts.js"></script>
-		<script src="assets/js/custom.min.js"></script>
 
 		<script>
       	
