@@ -5,7 +5,6 @@ header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 
 $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
-print_r("ID is ".$_GET['id']);
 $message  = "Please Wait...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
@@ -255,13 +254,14 @@ flush();
 
 else if ( $_GET['id'] == 3){
 	print_r("message");
-// 	print_r("ID is ");
-// $message  = "Please wait.....";
-// echo 'data: '.$message."\n\n";  
-// ob_end_flush();
-// flush();
-// $req = curl_init();
+	$message  = "Please wait.....";
+	echo 'data: '.$message."\n\n";  
+	ob_end_flush();
+	flush();
 
+
+
+// $req = curl_init();
 // curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/allBillingStatementGeneration.php");
 // curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 // curl_exec($req)
