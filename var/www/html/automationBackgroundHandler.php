@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 
@@ -257,6 +259,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 $req = curl_init();
+
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/allBillingStatementGeneration.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req)
