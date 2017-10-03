@@ -145,15 +145,16 @@
 
 									<div class='counter-number'>
 													
-										<a href='parkingTags.php'>
-
-											<?php 
+										<?php 
 															
-												echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
+											$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
 
-											?>
+											if($parking_tags > 0)
+												echo "<a href='parkingTags.php'>$parking_tags</a>";
+											else
+												echo $parking_tags;
 
-										</a>
+										?>
 														
 									</div>
 
@@ -169,15 +170,16 @@
 
 									<div class='counter-number'>
 													
-										<a href='viewReminder.php'>
-
-											<?php 
+										<?php 
 															
-												echo pg_num_rows(pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND due_date>='$today'")); 
+											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND due_date>='$today'")); 
 
-											?>
+											if($reminders > 0)
+												echo "<a href='viewReminders.php'>$reminders</a>";
+											else
+												echo $reminders;
 
-										</a>
+										?>
 														
 									</div>
 
