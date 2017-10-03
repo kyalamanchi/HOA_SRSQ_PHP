@@ -253,7 +253,6 @@ flush();
 }
 
 else if ( $_GET['id'] == 3){
-	print_r("message");
 	$message  = "Please wait.....";
 	echo 'data: '.$message."\n\n";  
 	ob_end_flush();
@@ -261,11 +260,12 @@ else if ( $_GET['id'] == 3){
 
 
 
-// $req = curl_init();
-// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/allBillingStatementGeneration.php");
-// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-// curl_exec($req)
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/allBillingStatementGeneration.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req)
 
+echo "Title";
 // $message  = "Genereated and uploaded to Dropbox";
 // echo 'data: '.$message."\n\n";  
 // ob_end_flush();
