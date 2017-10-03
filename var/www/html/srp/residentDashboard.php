@@ -21,6 +21,8 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
+			$user_id = $_SESSION['hoa_user_id'];
+			$today = date('Y-m-d');
 
 		?>
 
@@ -144,19 +146,70 @@
 
 									<div class='counter-number'>
 													
-										<a href='parkingTags.php'>
-
-											<?php 
+										<?php 
 															
-												echo pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
+											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id")); 
 
-											?>
+											if($documents > 0)
+												echo "<a style='color: green;' href='myDocuments.php'>$documents</a>";
+											else
+												echo $documents;
 
-										</a>
+										?>
+														
+									</div>
+
+									<div class='counter-title'>My Documents</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
+
+											if($parking_tags > 0)
+												echo "<a style='color: green;' href='parkingTags.php'>$parking_tags</a>";
+											else
+												echo $parking_tags;
+
+										?>
 														
 									</div>
 
 									<div class='counter-title'>Parking Tags</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND due_date>='$today'")); 
+
+											if($reminders > 0)
+												echo "<a style='color: orange;' href='viewReminders.php'>$reminders</a>";
+											else
+												echo $reminders;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Reminders</div>
 
 								</div>
 

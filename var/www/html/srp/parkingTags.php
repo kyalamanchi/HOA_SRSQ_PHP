@@ -18,6 +18,9 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 
+			if($mode == 2)
+				$hoa_id = $_SESSION['hoa_hoa_id'];
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -144,61 +147,95 @@
 
 	                      				}
 
-	                      				$result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1");
+	                      				if($mode == 1)
+	                      				{
 
-		                        		while($row = pg_fetch_assoc($result))
+		                      				$result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1");
+
+			                        		while($row = pg_fetch_assoc($result))
+			                        		{
+
+			                          			$tag_id = $row['id'];
+			                          			$detail = $row['detail'];
+			                          			$status = $row['status'];
+			                          			$hoa_id = $row['hoa_id'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE car_detail_id=$detail"));
+
+			                          			$car_make = $row1['car_make_id'];
+			                          			$car_model = $row1['car_model_id'];
+			                          			$car_color = $row1['car_color_id'];
+			                          			$year = $row1['year'];
+			                          			$plate = $row1['notes'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE car_make_id=$car_make"));
+			                          			$car_make = $row1['name'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE car_model_id=$car_model"));
+			                          			$car_model = $row1['name'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE car_color_id=$car_color"));
+			                          			$car_color = $row1['name'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+			                          			$name = $row1['firstname'];
+			                          			$name .= " ";
+			                          			$name .= $row1['lastname'];
+
+			                          			if($plate != "")
+						                        {
+
+						                          	$plate = base64_decode($plate);
+						                          	$plate = decrypt_string($plate);
+
+						                        }
+
+						                        echo "<tr><td>$name<br>($hoa_id)</td><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td></tr>";
+
+			                        		}
+
+		                        		}
+		                        		else if($mode == 2)
 		                        		{
 
-		                          			$tag_id = $row['id'];
-		                          			$detail = $row['detail'];
-		                          			$status = $row['status'];
-		                          			$hoa_id = $row['hoa_id'];
+		                      				$result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1 AND hoa_id=$hoa_id");
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE car_detail_id=$detail"));
+			                        		while($row = pg_fetch_assoc($result))
+			                        		{
 
-		                          			$car_make = $row1['car_make_id'];
-		                          			$car_model = $row1['car_model_id'];
-		                          			$car_color = $row1['car_color_id'];
-		                          			$year = $row1['year'];
-		                          			$plate = $row1['notes'];
+			                          			$tag_id = $row['id'];
+			                          			$detail = $row['detail'];
+			                          			$status = $row['status'];
+			                          			$hoa_id = $row['hoa_id'];
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE car_make_id=$car_make"));
-		                          			$car_make = $row1['name'];
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE car_detail_id=$detail"));
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE car_model_id=$car_model"));
-		                          			$car_model = $row1['name'];
+			                          			$car_make = $row1['car_make_id'];
+			                          			$car_model = $row1['car_model_id'];
+			                          			$car_color = $row1['car_color_id'];
+			                          			$year = $row1['year'];
+			                          			$plate = $row1['notes'];
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE car_color_id=$car_color"));
-		                          			$car_color = $row1['name'];
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE car_make_id=$car_make"));
+			                          			$car_make = $row1['name'];
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-		                          			$name = $row1['firstname'];
-		                          			$name .= " ";
-		                          			$name .= $row1['lastname'];
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE car_model_id=$car_model"));
+			                          			$car_model = $row1['name'];
 
-		                          			if($plate != "")
-					                        {
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE car_color_id=$car_color"));
+			                          			$car_color = $row1['name'];
 
-					                          	$plate = base64_decode($plate);
-					                          	$plate = decrypt_string($plate);
+			                          			if($plate != "")
+						                        {
 
-					                        }
+						                          	$plate = base64_decode($plate);
+						                          	$plate = decrypt_string($plate);
 
-					                        echo "<tr>";
+						                        }
 
-					                        if($mode == 1)
-					                        	echo "<td>$name<br>($hoa_id)</td>";
+						                        echo "<tr><td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td><td><a href='' class='btn btn-link' title='Edit Tag'>Edit Tag</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove Tag</a></td></tr>";
 
-					                        echo "<td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td>";
-
-					                        if($mode == 2)
-					                        {
-
-					                        	echo "<td><a href='' class='btn btn-link' title='Edit Tag'>Edit Tag</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove Tag</a></td>";
-
-					                        }
-
-					                        echo "</tr>";
+			                        		}
 
 		                        		}
 
