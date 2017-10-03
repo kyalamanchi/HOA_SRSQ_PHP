@@ -128,7 +128,7 @@
          <br>SRSQ Path /Billing_Statements/SRSQ/2017/ . 
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" onclick="updateBillingStatements();">Update Now</button>
         <div id="bsResult">
         </div>
       </div>
