@@ -31,9 +31,9 @@
 										<ul class="sub-menu">
 														
 											<li><a>Charges</a></li>
-											<li><a href="processPayment.php">Process Payments</a></li>
+											<li><a href='processPayment.php'>Process Payments</a></li>
 											<li><a href='setReminder.php'>Set Reminders</a></li>
-											<li><a>View Reminders</a></li>
+											<li><a href='viewReminder.php'>View Reminders</a></li>
 												
 										</ul>
 
@@ -55,7 +55,7 @@
 										<ul class="sub-menu">
 														
 											<li><a>Balances</a></li>
-											<li><a href="hoaHomeInfo.php">HOA &amp; Home Info</a></li>
+											<li><a href='hoaHomeInfo.php'>HOA &amp; Home Info</a></li>
 											<li><a>User Dashboard</a></li>
 										
 										</ul>
