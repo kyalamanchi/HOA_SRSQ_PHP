@@ -21,6 +21,7 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
+			$today = date('Y-m-d');
 
 		?>
 
@@ -157,6 +158,30 @@
 									</div>
 
 									<div class='counter-title'>Parking Tags</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<a href='viewReminder.php'>
+
+											<?php 
+															
+												echo pg_num_rows(pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND due_date>='$today'")); 
+
+											?>
+
+										</a>
+														
+									</div>
+
+									<div class='counter-title'>Reminders</div>
 
 								</div>
 

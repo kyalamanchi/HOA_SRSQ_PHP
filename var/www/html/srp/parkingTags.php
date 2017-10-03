@@ -18,6 +18,9 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 
+			if($mode == 2)
+				$hoa_id = $_SESSION['hoa_hoa_id'];
+
 		?>
 
 		<meta charset='UTF-8'>

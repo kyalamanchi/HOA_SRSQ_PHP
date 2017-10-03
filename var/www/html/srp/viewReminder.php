@@ -18,6 +18,14 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 
+			if($mode == 2)
+			{	
+
+				$hoa_id = $_SESSION['hoa_hoa_id'];
+				$home_id = $_SESSION['hoa_home_id'];
+
+			}
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -88,26 +96,24 @@
 										
 								<thead>
 											
-									<?php 
+									<th>Open Date</th>
+			                        <th>Due Date</th>
+			                        <th>Date Updated</th>
+			                        <?php 
 
-										if($mode == 1)
-											echo "<th>Name</th>";
+			                        	if($mode == 1)
+			                        		echo "<th>Assigned To</th><th>Living In</th>";
 
-									?>
-
-			                        <th>Make</th>
-			                        <th>Model</th>
-			                        <th>Color</th>
-			                        <th>Year</th>
-			                        <th>Plate</th>
-			                        <th>Status</th>
+			                        ?>
+			                        <th>Reminder Type</th>
+			                        <th>Comment</th>
+			                        <th>Vendor Assigned</th>
 
 			                        <?php
 
-			                        	if($mode == 2)
-			                        		echo "<th></th>";
-
-			                        ?>
+			                        	if($mode == 1)
+			                        		echo "<th></th><th></th>";
+			                       	?>
 
 								</thead>
 
@@ -115,90 +121,94 @@
 											
 									<?php 
 
-										function decrypt_string($input)
-	                      				{
-	                          
-	                        				$input_count = strlen($input);
-	                                                                                             
-	                        				$dec = explode(".", $input);// splits up the string to any array
-	                        				$x = count($dec);
-	                        				$y = $x-1;// To get the key of the last bit in the array 
-	                                                                                             
-	                        				$calc = $dec[$y]-50;
-	                        				$randkey = chr($calc);// works out the randkey number
-	                                                                                             
-	                        				$i = 0;
-	                                                                                             
-	                        				while ($i < $y)
-	                        				{
-	                                                                                             
-	                          					$array[$i] = $dec[$i]+$randkey; // Works out the ascii characters actual numbers
-	                          					@$real .= chr($array[$i]); //The actual decryption
-	                                                                                             
-	                          					$i++;
+										if($mode == 1)
+										{
 
-	                        				};
-	                                                                                             
-	                        				@$input = $real;
-	                        				return $input;
+											$result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id");
 
-	                      				}
+			                        		while($row = pg_fetch_assoc($result))
+			                        		{
 
-	                      				$result = pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1");
+			                          			$hoa_id = $row['hoa_id'];
+			                          			$home_id = $row['home_id'];
+			                          			$open_date = $row['open_date'];
+			                          			$due_date = $row['due_date'];
+			                          			$update_date = $row['update_date'];
+			                          			$comments = $row['comments'];
+			                          			$vendor_assigned = $row['vendor_assigned'];
+			                          			$reminder_type = $row['reminder_type_id'];
 
-		                        		while($row = pg_fetch_assoc($result))
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM reminder_type WHERE id=$reminder_type"));
+			                          			$reminder_type = $row1['reminder_type'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+			                          			$assigned_to = $row1['firstname'];
+			                          			$assigned_to .= " ";
+			                          			$assigned_to .= $row1['lastname'];
+
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+			                          			$living_in = $row1['address1'];
+
+			                          			if($vendor_assigned != '')
+			                          			{
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
+			                          				$vendor_assigned = $row1['vendor_name'];
+
+			                          			}
+
+			                          			if($open_date != '')
+			                          				$open_date = date('m-d-Y', strtotime($open_date));
+
+			                          			if($due_date != '')
+			                          				$due_date = date('m-d-Y', strtotime($due_date));
+
+			                          			if($update_date != '')
+			                          				$update_date = date('m-d-Y', strtotime($update_date));
+
+						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to</td><td>$living_in</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
+
+			                        		}
+
+		                        		}
+		                        		else
 		                        		{
 
-		                          			$tag_id = $row['id'];
-		                          			$detail = $row['detail'];
-		                          			$status = $row['status'];
-		                          			$hoa_id = $row['hoa_id'];
+		                        			$result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_detail WHERE car_detail_id=$detail"));
+			                        		while($row = pg_fetch_assoc($result))
+			                        		{
 
-		                          			$car_make = $row1['car_make_id'];
-		                          			$car_model = $row1['car_model_id'];
-		                          			$car_color = $row1['car_color_id'];
-		                          			$year = $row1['year'];
-		                          			$plate = $row1['notes'];
+			                          			$open_date = $row['open_date'];
+			                          			$due_date = $row['due_date'];
+			                          			$update_date = $row['update_date'];
+			                          			$comments = $row['comments'];
+			                          			$vendor_assigned = $row['vendor_assigned'];
+			                          			$reminder_type = $row['reminder_type_id'];
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_make WHERE car_make_id=$car_make"));
-		                          			$car_make = $row1['name'];
+			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM reminder_type WHERE id=$reminder_type"));
+			                          			$reminder_type = $row1['reminder_type'];
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_model WHERE car_model_id=$car_model"));
-		                          			$car_model = $row1['name'];
+			                          			if($vendor_assigned != '')
+			                          			{
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM car_color WHERE car_color_id=$car_color"));
-		                          			$car_color = $row1['name'];
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_assigned"));
+			                          				$vendor_assigned = $row1['vendor_name'];
 
-		                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-		                          			$name = $row1['firstname'];
-		                          			$name .= " ";
-		                          			$name .= $row1['lastname'];
+			                          			}
 
-		                          			if($plate != "")
-					                        {
+			                          			if($open_date != '')
+			                          				$open_date = date('m-d-Y', strtotime($open_date));
 
-					                          	$plate = base64_decode($plate);
-					                          	$plate = decrypt_string($plate);
+			                          			if($due_date != '')
+			                          				$due_date = date('m-d-Y', strtotime($due_date));
 
-					                        }
+			                          			if($update_date != '')
+			                          				$update_date = date('m-d-Y', strtotime($update_date));
 
-					                        echo "<tr>";
+						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td></tr>";
 
-					                        if($mode == 1)
-					                        	echo "<td>$name<br>($hoa_id)</td>";
-
-					                        echo "<td>$car_make</td><td>$car_model</td><td>$car_color</td><td>$year</td><td>$plate</td><td>$status</td>";
-
-					                        if($mode == 2)
-					                        {
-
-					                        	echo "<td><a href='' class='btn btn-link' title='Edit Tag'>Edit Tag</a><br><a href='' class='btn btn-link' title='Remove Tag'>Remove Tag</a></td>";
-
-					                        }
-
-					                        echo "</tr>";
+			                        		}
 
 		                        		}
 
