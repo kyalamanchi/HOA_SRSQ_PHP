@@ -21,6 +21,7 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
+			$user_id = $_SESSION['hoa_user_id'];
 			$today = date('Y-m-d');
 
 		?>
@@ -147,12 +148,12 @@
 													
 										<?php 
 															
-											$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
+											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id")); 
 
-											if($parking_tags > 0)
-												echo "<a style='color: green;' href='parkingTags.php'>$parking_tags</a>";
+											if($documents > 0)
+												echo "<a style='color: green;' href='myDocuments.php'>$documents</a>";
 											else
-												echo $parking_tags;
+												echo $documents;
 
 										?>
 														
