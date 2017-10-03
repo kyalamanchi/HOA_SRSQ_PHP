@@ -253,29 +253,24 @@ flush();
 }
 
 else if ( $_GET['id'] == 3){
-	$message  = "Please wait.....";
-	echo 'data: '.$message."\n\n";  
-	ob_end_flush();
-	flush();
-
-
-
+$message  = "Please wait.....";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/allBillingStatementGeneration.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
-
-
+$id = date('Y-m-d H:i:s');
 $message  = "Genereated and uploaded to Dropbox";
+echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-
 $message  = "Done!!!";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
