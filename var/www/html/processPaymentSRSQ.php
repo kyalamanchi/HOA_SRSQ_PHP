@@ -20,16 +20,19 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
     'Content-Type: application/json',                                                                                
     'X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=')                                                                       
-);                                                                                                                   
-                                                                                                                     
+);
+
 $result = curl_exec($ch);
-echo $result;
 $result = json_decode($result);
 if ( $result->response->response_desc){
 	echo $result->response->response_desc;
+	echo " ";
+	echo "Transaction ID ";
+	echo $result->transaction_id;
 }
 else {
-echo $result;
+	echo "An error occured. Please try again.";
+	echo $result->response->response_desc;
 }
 
 ?>
