@@ -252,14 +252,9 @@ flush();
 }
 
 else if ( $_GET['id'] == 3){
-//SRP Generation 
-$message  = "Generating Billing Statements for SRP...";
-echo 'data: '.$message."\n\n";  
-ob_end_flush();
-flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRP.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/allBillingStatementGeneration.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -268,29 +263,13 @@ flush();
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
-//SRSQ Generation 
-$message  = "Generating Billing Statements for SRSQ...";
-echo 'data: '.$message."\n\n";  
-ob_end_flush();
-flush();
 
-$req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/billingStatementsSRSQ.php");
-curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-$message  = curl_exec($req);
-echo 'data: '.$message."\n\n";  
-ob_end_flush();
-flush();
+
 
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$id = date('Y-m-d H:i:s');
-$message  = "Done!!!";
-echo "id: $id\n";
-echo 'data: '.$message."\n\n";  
-ob_end_flush();
-flush();
+
 }
 
 ?>
