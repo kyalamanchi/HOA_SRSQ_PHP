@@ -32,9 +32,6 @@
         }
     }
     function updateBillingStatements(){
-
-
-
         document.getElementById("bsResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=3";
         var source = new EventSource(url);
@@ -42,8 +39,9 @@
             if ( e.data == "Done!!!"){
                 source.close();
               document.getElementById("bsltime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("bsResult").innerHTML += event.data + "<br>";
             }
-            document.getElementById("bsResult").innerHTML += event.data + "<br>";
+            document.getElementById("bsResult").innerHTML = event.data + "<br>";
         }
     }
 </script>
