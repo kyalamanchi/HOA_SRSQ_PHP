@@ -117,7 +117,6 @@ $(document).ready(function() {
             "width" : "25%" },
             { title: "Status",
             "width" : "30%" }
-            
         ]
     } );
 } );
