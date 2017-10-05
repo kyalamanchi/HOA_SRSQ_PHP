@@ -86,7 +86,6 @@ function loadData(){
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
-        dataSet2.push('<input type="button" id="'+data2[i]['id']+'" value="Preview & Send" onclick="previewAndGenerate(this)"></input>');
         dataSet2.push(data2[i]['home_id']);
         dataSet2.push(data2[i]['hoa_id']);
         dataSet2.push(data2[i]['description']);
@@ -102,7 +101,6 @@ $(document).ready(function() {
         data: dataSet,
         select: true,
         columns: [
-            { title: ""},
             { title: "HomeID" },
             { title: "HoaID" },
             { title: "Description",
@@ -158,7 +156,7 @@ function hidePleaseWait() {
 <hr>
 <div class="container"> 
         <div>
-      <h4>Display:</h4>
+      <h4>Search by:</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status" onchange="changeOptions2();">
         <option disabled="disabled" selected="selected">Select Search Options</option>
         <option data-subtext="">HOAID</option>
