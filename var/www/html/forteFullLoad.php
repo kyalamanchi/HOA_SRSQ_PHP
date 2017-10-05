@@ -104,15 +104,17 @@ $(document).ready(function() {
    var table =  $('#example').DataTable( {
         select: true,
         columns: [
-            { title: "HOA ID " },
-            { title: "First Name" },
+            { title: "HOAID " },
+            { title: "First Name",
+            "width" : "30%" },
             { title: "Last name",
             "width" : "30%" },
             { title: "Amount" },
             { title: "Authorization Code" },
             { title: "Date ",
             "width" : "15%" },
-            { title: "Entered by " },
+            { title: "Entered by ",
+            "width" : "30%" },
             { title: "Status",
             "width" : "20%" }
             
