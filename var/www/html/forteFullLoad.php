@@ -44,7 +44,6 @@ function changeOptions2(button){
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
     request.send(null);
     request.onreadystatechange = function(){
-    hidePleaseWait();
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
     let data2 = JSON.parse(data);
@@ -72,14 +71,12 @@ function changeOptions2(button){
 } 
     }
 
-
     else if  ( button.id == 2 ){
-        $('#example').dataTable().fnClearTable();
+    $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
     request.send(null);
     request.onreadystatechange = function(){
-    hidePleaseWait();
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
     let data2 = JSON.parse(data);
@@ -108,12 +105,12 @@ function changeOptions2(button){
 }
 
     else if  ( button.id == 3 ){
-        $('#example').dataTable().fnClearTable();
+    $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
     request.send(null);
     request.onreadystatechange = function(){
-    hidePleaseWait();
+    
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
     let data2 = JSON.parse(data);
@@ -142,12 +139,13 @@ function changeOptions2(button){
 }
 
     else if ( button.id == 4){
-        $('#example').dataTable().fnClearTable();
+    
+    $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
     request.send(null);
     request.onreadystatechange = function(){
-    hidePleaseWait();
+    
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
     let data2 = JSON.parse(data);
