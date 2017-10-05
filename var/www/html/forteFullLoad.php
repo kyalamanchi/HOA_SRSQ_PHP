@@ -39,7 +39,7 @@ function changeOptions3(){
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" class="btn btn-success">Get Transactions</button>';
+    <br><button type="button" id="1" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 2 ){
@@ -47,28 +47,28 @@ function changeOptions3(){
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <label for="exampleInputEmail1">Enter Last Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data2" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" class="btn btn-success">Get Transactions</button>';
+    <br><button type="button" id="2" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
         data = '<label for="exampleInputEmail1">Enter First Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" class="btn btn-success">Get Transactions</button>';
+    <br><button type="button" id="3" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 4 ){
         data = '<label for="exampleInputEmail1">Enter Last Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" class="btn btn-success">Get Transactions</button>';
+    <br><button type="button" id="4" onclick="changeOptions2(this)" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     hidePleaseWait(); 
 }
-function changeOptions2(){
+function changeOptions2(button){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+(document.getElementById("status").selectedIndex),true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
     request.send(null);
     request.onreadystatechange = function(){
     hidePleaseWait();
@@ -78,14 +78,14 @@ function changeOptions2(){
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
-        dataSet2.push(data2[i]['home_id']);
-        dataSet2.push(data2[i]['hoa_id']);
-        dataSet2.push(data2[i]['description']);
-        dataSet2.push(data2[i]['inspection_category_id']);
-        dataSet2.push(data2[i]['inspection_sub_category_id'])
-        dataSet2.push(data2[i]['location_id']);
-        dataSet2.push(data2[i]['inspection_notice_type_id']);
-        dataSet2.push(data2[i]['inspection_status']);
+        dataSet2.push(data2[i]['customer_id']);
+        dataSet2.push(data2[i]['first_name']);
+        dataSet2.push(data2[i]['last_name']);
+        dataSet2.push(data2[i]['authorization_amount']);
+        dataSet2.push(data2[i]['authorization_code'])
+        dataSet2.push(data2[i]['received_date']);
+        dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
