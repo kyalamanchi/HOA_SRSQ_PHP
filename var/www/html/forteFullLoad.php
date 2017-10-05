@@ -101,7 +101,8 @@ function changeOptions2(button){
     }
     } 
     }
-    else if ( button.id == 3){
+}
+    else if  ( button.id == 3 ){
         $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
