@@ -40,14 +40,13 @@ function changeOptions2(button){
     if( button.id == 1 ){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1"),true);
-    alert("https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
+
     request.send(null);
     request.onreadystatechange = function(){
     hidePleaseWait();
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
-    alert(data);
     let data2 = JSON.parse(data);
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
