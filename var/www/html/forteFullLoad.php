@@ -65,18 +65,20 @@ function changeOptions3(){
     hidePleaseWait(); 
 }
 function changeOptions2(button){
-    var url = "https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id;
-    var value1  = document.getElementById("data1").value || "";
-    var value2 = document.getElementById("data2").value || "";
+    if( button.id == 1 ){
+        alert(document.getElementById("data1").value);
 
-    if ( value1 ){
-        url = url+"&data1="+document.getElementById("data1").value;
     }
-    if ( value2 ){
-        url = url+"&data2="+document.getElementById("data2").value;
+    else if  ( button.id == 2 ){
+        alert(document.getElementById("data1").value);
+        alert(document.getElementById("data2").value);  
     }
-
-    alert(url);
+    else if ( button.id == 3){
+        alert(document.getElementById("data1").value);
+    }
+    else if ( button.id == 4){
+        alert(document.getElementById("data1").value);
+    }
 
 //     showPleaseWait();
 //     $('#example').dataTable().fnClearTable();
