@@ -41,7 +41,6 @@ function changeOptions3(){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">';
     document.getElementById("search").innerHTML = data;
-
     }
     else if ( (document.getElementById("status").selectedIndex) == 2 ){
          data = '<label for="exampleInputEmail1">Enter First Name </label>\
@@ -60,36 +59,7 @@ function changeOptions3(){
     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">';
     document.getElementById("search").innerHTML = data;
     }
-    hidePleaseWait();
-//     var request = new XMLHttpRequest();
-//     request.open("POST","https://hoaboardtime.com/getInspectionData.php?id="+(document.getElementById("status").selectedIndex),true);
-//     request.send(null);
-//     request.onreadystatechange = function(){
-//     hidePleaseWait();
-//     if (request.readyState == XMLHttpRequest.DONE){
-//     let data = request.responseText;
-//     let data2 = JSON.parse(data);
-//     var dataSet = new Array();
-//     for (var i = 0; i < data2.length; i++) {
-//         var dataSet2 = new Array();
-//         dataSet2.push(data2[i]['home_id']);
-//         dataSet2.push(data2[i]['hoa_id']);
-//         dataSet2.push(data2[i]['description']);
-//         dataSet2.push(data2[i]['inspection_category_id']);
-//         dataSet2.push(data2[i]['inspection_sub_category_id'])
-//         dataSet2.push(data2[i]['location_id']);
-//         dataSet2.push(data2[i]['inspection_notice_type_id']);
-//         dataSet2.push(data2[i]['inspection_status']);
-//         dataSet.push(dataSet2);
-//     }
-//     if (dataSet.length > 0){
-//     $('#example').dataTable().fnAddData(dataSet);
-//     }
-//     else {
-//         alert("Data not found");
-//     }
-// }
-// } 
+    hidePleaseWait(); 
 }
 
 function changeOptions2(){
@@ -151,9 +121,7 @@ $(document).ready(function() {
     } );
 } );
 hidePleaseWait();
-}
-}
-}
+
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
