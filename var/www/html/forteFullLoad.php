@@ -34,6 +34,53 @@ function showPleaseWait() {
     $(document.body).append(modalLoading);
     $("#pleaseWaitDialog").modal("show");
 }
+
+function changeOptions3(){
+    showPleaseWait();
+    $('#example').dataTable().fnClearTable();
+    if ( (document.getElementById("status").selectedIndex) == 1 ){
+        alert("HOA ID ");
+    }
+    if ( (document.getElementById("status").selectedIndex) == 2 ){
+        alert("F&L");
+    }
+    if ( (document.getElementById("status").selectedIndex) == 3 ){
+        alert("F ");
+    }
+    if ( (document.getElementById("status").selectedIndex) == 1 ){
+        alert("L");
+    }
+//     var request = new XMLHttpRequest();
+//     request.open("POST","https://hoaboardtime.com/getInspectionData.php?id="+(document.getElementById("status").selectedIndex),true);
+//     request.send(null);
+//     request.onreadystatechange = function(){
+//     hidePleaseWait();
+//     if (request.readyState == XMLHttpRequest.DONE){
+//     let data = request.responseText;
+//     let data2 = JSON.parse(data);
+//     var dataSet = new Array();
+//     for (var i = 0; i < data2.length; i++) {
+//         var dataSet2 = new Array();
+//         dataSet2.push(data2[i]['home_id']);
+//         dataSet2.push(data2[i]['hoa_id']);
+//         dataSet2.push(data2[i]['description']);
+//         dataSet2.push(data2[i]['inspection_category_id']);
+//         dataSet2.push(data2[i]['inspection_sub_category_id'])
+//         dataSet2.push(data2[i]['location_id']);
+//         dataSet2.push(data2[i]['inspection_notice_type_id']);
+//         dataSet2.push(data2[i]['inspection_status']);
+//         dataSet.push(dataSet2);
+//     }
+//     if (dataSet.length > 0){
+//     $('#example').dataTable().fnAddData(dataSet);
+//     }
+//     else {
+//         alert("Data not found");
+//     }
+// }
+// } 
+}
+
 function changeOptions2(){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
@@ -68,15 +115,9 @@ function changeOptions2(){
 } 
 }
 
-
-
-
-
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
-
-
 function loadData(){
     showPleaseWait();
     var request = new XMLHttpRequest();
@@ -104,15 +145,15 @@ $(document).ready(function() {
         data: dataSet,
         select: true,
         columns: [
-            { title: "HomeID" },
-            { title: "HoaID" },
-            { title: "Description",
+            { title: "HOA ID " },
+            { title: "First Name" },
+            { title: "Last name",
             "width" : "30%" },
-            { title: "Category" },
-            { title: "SubCategory" },
-            { title: "Location",
+            { title: "Amount" },
+            { title: "Authorization Code" },
+            { title: "Date ",
             "width" : "15%" },
-            { title: "Type" },
+            { title: "Entered by " },
             { title: "Status",
             "width" : "20%" }
             
@@ -160,7 +201,7 @@ function hidePleaseWait() {
 <div class="container"> 
         <div>
       <h4>Search by:</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status" onchange="changeOptions2();">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status" onchange="changeOptions3();">
         <option disabled="disabled" selected="selected">Select Search Options</option>
         <option data-subtext="">HOAID</option>
         <option data-subtext="">First name & Last name</option>
