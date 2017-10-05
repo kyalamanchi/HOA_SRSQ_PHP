@@ -40,7 +40,7 @@ function changeOptions2(button){
     if( button.id == 1 ){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1"),true);
     request.send(null);
     request.onreadystatechange = function(){
     hidePleaseWait();
