@@ -102,7 +102,6 @@ function closeModal(){
 
 $(document).ready(function() {
    var table =  $('#example').DataTable( {
-        data: dataSet,
         select: true,
         columns: [
             { title: "HOA ID " },
