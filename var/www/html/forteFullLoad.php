@@ -35,42 +35,40 @@ function showPleaseWait() {
     $("#pleaseWaitDialog").modal("show");
 }
 function changeOptions3(){
-    // showPleaseWait();
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 2 ){
          data = '<label for="exampleInputEmail1">Enter First Name </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <label for="exampleInputEmail1">Enter Last Name </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data2" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
         data = '<label for="exampleInputEmail1">Enter First Name </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 4 ){
         data = '<label for="exampleInputEmail1">Enter Last Name </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     hidePleaseWait(); 
 }
-
 function changeOptions2(){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/getInspectionData.php?id="+(document.getElementById("status").selectedIndex),true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+(document.getElementById("status").selectedIndex),true);
     request.send(null);
     request.onreadystatechange = function(){
     hidePleaseWait();
