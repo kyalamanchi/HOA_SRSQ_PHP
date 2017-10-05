@@ -67,10 +67,10 @@ function changeOptions3(){
 function changeOptions2(button){
     var url = "https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id;
 
-    if ( document.getElementById("data1").value){
+    if ( document.getElementById("data1").value != null ){
         url = url+"&data1="+document.getElementById("data1").value;
     }
-    if ( document.getElementById("data2").value ){
+    if ( document.getElementById("data2").value != null ){
         url = url+"&data2="+document.getElementById("data2").value;
     }
 
