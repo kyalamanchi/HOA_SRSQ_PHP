@@ -18,6 +18,9 @@ if ( $connection){
          $data['status'] = $transaction->status;
          $data['action'] = $transaction->action;
          $data['authorization_amount'] = $transaction->authorization_amount;
+         if ( $transaction->action == 'credit' ){
+            $data['authorization_amount'] = -$transaction->authorization_amount;
+         }
          $data['authorization_code'] = $transaction->authorization_code;
          $data['entered_by'] = $transaction->entered_by;
          $data['received_date'] = date('Y-m-d H:i:s',$transaction->received_date);
@@ -45,6 +48,9 @@ if ( $connection){
          $data['status'] = $transaction->status;
          $data['action'] = $transaction->action;
          $data['authorization_amount'] = $transaction->authorization_amount;
+         if ( $transaction->action == 'credit' ){
+            $data['authorization_amount'] = -$transaction->authorization_amount;
+         }
          $data['authorization_code'] = $transaction->authorization_code;
          $data['entered_by'] = $transaction->entered_by;
          $data['received_date'] = date('Y-m-d H:i:s',$transaction->received_date);
@@ -73,6 +79,9 @@ if ( $connection){
          $data['status'] = $transaction->status;
          $data['action'] = $transaction->action;
          $data['authorization_amount'] = $transaction->authorization_amount;
+         if ( $transaction->action == 'credit' ){
+            $data['authorization_amount'] = -$transaction->authorization_amount;
+         }
          $data['authorization_code'] = $transaction->authorization_code;
          $data['entered_by'] = $transaction->entered_by;
          $data['received_date'] = date('Y-m-d H:i:s',$transaction->received_date);
@@ -101,6 +110,9 @@ if ( $connection){
          $data['status'] = $transaction->status;
          $data['action'] = $transaction->action;
          $data['authorization_amount'] = $transaction->authorization_amount;
+         if ( $transaction->action == 'credit' ){
+            $data['authorization_amount'] = -$transaction->authorization_amount;
+         }
          $data['authorization_code'] = $transaction->authorization_code;
          $data['entered_by'] = $transaction->entered_by;
          $data['received_date'] = date('Y-m-d H:i:s',$transaction->received_date);
