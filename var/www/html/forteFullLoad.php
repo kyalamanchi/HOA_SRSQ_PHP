@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -66,6 +67,7 @@ function changeOptions2(button){
     else {
         alert("Data not found");
     }
+    hidePleaseWait();
 }
 } 
     }
@@ -99,6 +101,7 @@ function changeOptions2(button){
     else {
         alert("Data not found");
     }
+    hidePleaseWait();
     } 
     }
 }
@@ -133,12 +136,12 @@ function changeOptions2(button){
     else {
         alert("Data not found");
     }
+    hidePleaseWait();
     }
     }
 }
 
     else if ( button.id == 4){
-    
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
@@ -168,13 +171,13 @@ function changeOptions2(button){
     else {
         alert("Data not found");
     }
+    hidePleaseWait();
     }
     }
+
 }  
-hidePleaseWait();
+
 }
-
-
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
