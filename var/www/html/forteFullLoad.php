@@ -37,9 +37,7 @@ function showPleaseWait() {
 
 function changeOptions2(button){
     alert("Message");
-    var search = document.getElementById("search");
-    var month = search.getElementsByTagName("input")[0].innerHTML;
-    alert(month);
+    var search = document.getElementById("data1").value;
     alert(search);
     alert("message");
     // if( button.id == 1 ){
@@ -196,7 +194,7 @@ function hidePleaseWait() {
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="vvdata1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="1" class="btn btn-success" onclick="changeOptions2();">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
@@ -210,7 +208,7 @@ function hidePleaseWait() {
     }
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
         data = '<label for="exampleInputEmail1">Enter First Name </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="vdata1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="3" class="btn btn-success" onclick="changeOptions2();" >Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
