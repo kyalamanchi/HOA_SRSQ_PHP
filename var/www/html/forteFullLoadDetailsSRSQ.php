@@ -4,8 +4,8 @@ $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.co
 if ( $connection){
     
     if ( $_GET['id'] == 1 ){
-        echo "Message";
-    $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+1259+and+start_received_date+eq+\'2016-01-01\'+and+end_received_date+eq+\''.date('Y-m-d').'\'&page_size=100000';
+    echo "Message";
+    $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'.$_GET['data'].'+and+start_received_date+eq+\'2016-01-01\'+and+end_received_date+eq+\''.date('Y-m-d').'\'&page_size=10';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
