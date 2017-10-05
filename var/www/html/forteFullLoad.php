@@ -132,6 +132,7 @@ function changeOptions2(button){
     }
     }
     }
+}
     else if ( button.id == 4){
         $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
@@ -163,9 +164,6 @@ function changeOptions2(button){
     }
     }
     }
-
-
-
 }
 
 function closeModal(){
