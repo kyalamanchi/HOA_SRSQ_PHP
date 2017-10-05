@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
-    <title>Inspeciton Management</title>
+    <title>Transactions Search</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -197,7 +197,7 @@ function hidePleaseWait() {
   </style>
     </head>
     <body onload="loadData();">
-<h1>Inspection Management</h1>
+<h1>Forte Transaction</h1>
 <hr>
 <div class="container"> 
         <div>
