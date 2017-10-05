@@ -106,9 +106,9 @@ $(document).ready(function() {
         columns: [
             { title: "HOAID " },
             { title: "First Name",
-            "width" : "30%" },
+            "width" : "25%" },
             { title: "Last name",
-            "width" : "30%" },
+            "width" : "25%" },
             { title: "Amount" },
             { title: "Authorization Code" },
             { title: "Date ",
