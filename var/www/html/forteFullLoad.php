@@ -165,6 +165,7 @@ function changeOptions2(button){
     }
     }
     }
+    hidePleaseWait();
 }
 
 function closeModal(){
@@ -191,7 +192,6 @@ $(document).ready(function() {
         ]
     } );
 } );
-hidePleaseWait();
 
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
