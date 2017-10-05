@@ -47,7 +47,7 @@ function changeOptions3(){
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
         alert("F ");
     }
-    else if ( (document.getElementById("status").selectedIndex) == 1 ){
+    else if ( (document.getElementById("status").selectedIndex) == 4 ){
         alert("L");
     }
     hidePleaseWait();
