@@ -52,7 +52,7 @@ function changeOptions3(){
     }
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
         data = '<label for="exampleInputEmail1">Enter First Name </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="vdata1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="3" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
@@ -66,7 +66,7 @@ function changeOptions3(){
 }
 function changeOptions2(button){
     if( button.id == 1 ){
-        alert(document.getElementById("data1").value);
+        alert(document.getElementById("vdata1").value);
 
     }
     else if  ( button.id == 2 ){
