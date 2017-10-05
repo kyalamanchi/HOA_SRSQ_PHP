@@ -57,9 +57,9 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
-        dataSet2.push(data2[i]['entered_by'].toUpperCase());
-        dataSet2.push(data2[i]['action'].toUpperCase());
-        dataSet2.push(data2[i]['status'].toUpperCase());
+        dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
+        dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -92,9 +92,9 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
-        dataSet2.push(data2[i]['entered_by'].toUpperCase());
-        dataSet2.push(data2[i]['action'].toUpperCase());
-        dataSet2.push(data2[i]['status'].toUpperCase());
+        dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
+        dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -126,9 +126,9 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
-        dataSet2.push(data2[i]['entered_by'].toUpperCase());
-        dataSet2.push(data2[i]['action'].toUpperCase());
-        dataSet2.push(data2[i]['status'].toUpperCase());
+        dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
+        dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -160,9 +160,9 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
-        dataSet2.push(data2[i]['entered_by'].toUpperCase());
-        dataSet2.push(data2[i]['action'].toUpperCase());
-        dataSet2.push(data2[i]['status'].toUpperCase());
+        dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
+        dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
