@@ -22,11 +22,11 @@ if ( $connection){
          $data['action'] = $transaction->action;
          $data['authorization_amount'] = $transaction->authorization_amount;
          $data['authorization_code'] = $transaction->authorization_code;
-         $data['entered_by'] = $data->entered_by;
-         $data['received_date'] = $data->received_date;
-         $data['first_name'] = $data->billing_address->first_name;
-         $data['last_name'] = $data->billing_address->last_name;
-         $data['masked_account_number'] = $data->echeck->masked_account_number;
+         $data['entered_by'] = $transaction->entered_by;
+         $data['received_date'] = $transaction->received_date;
+         $data['first_name'] = $transaction->billing_address->first_name;
+         $data['last_name'] = $transaction->billing_address->last_name;
+         $data['masked_account_number'] = $transaction->echeck->masked_account_number;
          array_push($sendData, $data);
      }
     }
