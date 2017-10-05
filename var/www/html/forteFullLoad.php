@@ -50,6 +50,7 @@ function changeOptions3(){
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         alert("L");
     }
+    hidePleaseWait();
 //     var request = new XMLHttpRequest();
 //     request.open("POST","https://hoaboardtime.com/getInspectionData.php?id="+(document.getElementById("status").selectedIndex),true);
 //     request.send(null);
