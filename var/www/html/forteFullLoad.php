@@ -65,8 +65,17 @@ function changeOptions3(){
     hidePleaseWait(); 
 }
 function changeOptions2(button){
-    var url = "https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value;
+    var url = "https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id;
+
+    if ( document.getElementById("data1").value){
+        url = url+"&data1="+document.getElementById("data1").value;
+    }
+    if ( document.getElementById("data2").value ){
+        url = url+"&data2="+document.getElementById("data2").value;
+    }
+
     alert(url);
+
 //     showPleaseWait();
 //     $('#example').dataTable().fnClearTable();
 //     var request = new XMLHttpRequest();
