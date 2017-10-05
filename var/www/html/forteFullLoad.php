@@ -35,7 +35,7 @@ function showPleaseWait() {
     $("#pleaseWaitDialog").modal("show");
 }
 function changeOptions3(){
-    showPleaseWait();
+    // showPleaseWait();
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
