@@ -37,7 +37,7 @@ function showPleaseWait() {
 
 function changeOptions2(button){
     if( button.id == 1 ){
-        alert(document.getElementById("vvdata1").value);
+        alert(document.getElementById("data1").value);
 
     }
     else if  ( button.id == 2 ){
@@ -191,7 +191,7 @@ function hidePleaseWait() {
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" id="1" class="btn btn-success" onclick="changeOptions2();">Get Transactions</button>';
+    <br><button type="button" id="1" class="btn btn-success" onclick="changeOptions2(this);">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 2 ){
@@ -199,13 +199,13 @@ function hidePleaseWait() {
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <label for="exampleInputEmail1">Enter Last Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data2" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" id="2" class="btn btn-success" onclick="changeOptions2();" >Get Transactions</button>';
+    <br><button type="button" id="2" class="btn btn-success" onclick="changeOptions2(this);" >Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
         data = '<label for="exampleInputEmail1">Enter First Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
-    <br><button type="button" id="3" class="btn btn-success" onclick="changeOptions2();" >Get Transactions</button>';
+    <br><button type="button" id="3" class="btn btn-success" onclick="changeOptions2(this);" >Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 4 ){
