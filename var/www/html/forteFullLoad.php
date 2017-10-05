@@ -46,6 +46,7 @@ function changeOptions2(button){
     hidePleaseWait();
     if (request.readyState == XMLHttpRequest.DONE){
     let data = request.responseText;
+    alert(data);
     let data2 = JSON.parse(data);
     var dataSet = new Array();
     for (var i = 0; i < data2.length; i++) {
