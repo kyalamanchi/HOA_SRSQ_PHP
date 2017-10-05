@@ -52,8 +52,8 @@ function changeOptions2(button){
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
         dataSet2.push(data2[i]['customer_id']);
-        dataSet2.push(data2[i]['first_name']);
-        dataSet2.push(data2[i]['last_name']);
+          var name = data2[i]['first_name']+' '+data2[i]['last_name'];
+        dataSet2.push(name);
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
@@ -86,8 +86,8 @@ function changeOptions2(button){
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
         dataSet2.push(data2[i]['customer_id']);
-        dataSet2.push(data2[i]['first_name']);
-        dataSet2.push(data2[i]['last_name']);
+          var name = data2[i]['first_name']+' '+data2[i]['last_name'];
+        dataSet2.push(name);
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
@@ -119,8 +119,8 @@ function changeOptions2(button){
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
         dataSet2.push(data2[i]['customer_id']);
-        dataSet2.push(data2[i]['first_name']);
-        dataSet2.push(data2[i]['last_name']);
+          var name = data2[i]['first_name']+' '+data2[i]['last_name'];
+        dataSet2.push(name);
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
