@@ -114,9 +114,9 @@ $(document).ready(function() {
             { title: "Date ",
             "width" : "15%" },
             { title: "Entered by ",
-            "width" : "30%" },
+            "width" : "25%" },
             { title: "Status",
-            "width" : "20%" }
+            "width" : "30%" }
             
         ]
     } );
