@@ -41,13 +41,13 @@ function changeOptions3(){
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         alert("HOA ID ");
     }
-    if ( (document.getElementById("status").selectedIndex) == 2 ){
+    else if ( (document.getElementById("status").selectedIndex) == 2 ){
         alert("F&L");
     }
-    if ( (document.getElementById("status").selectedIndex) == 3 ){
+    else if ( (document.getElementById("status").selectedIndex) == 3 ){
         alert("F ");
     }
-    if ( (document.getElementById("status").selectedIndex) == 1 ){
+    else if ( (document.getElementById("status").selectedIndex) == 1 ){
         alert("L");
     }
     hidePleaseWait();
