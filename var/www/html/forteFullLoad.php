@@ -36,20 +36,21 @@ function showPleaseWait() {
 }
 
 function changeOptions2(button){
-    if( button.id == 1 ){
-        alert(document.getElementById("vvdata1").value);
+    alert($("#vvdata1").text());
+    // if( button.id == 1 ){
+    //     alert(document.getElementById("vvdata1").value);
 
-    }
-    else if  ( button.id == 2 ){
-        alert(document.getElementById("data1").value);
-        alert(document.getElementById("data2").value);  
-    }
-    else if ( button.id == 3){
-        alert(document.getElementById("data1").value);
-    }
-    else if ( button.id == 4){
-        alert(document.getElementById("data1").value);
-    }
+    // }
+    // else if  ( button.id == 2 ){
+    //     alert(document.getElementById("data1").value);
+    //     alert(document.getElementById("data2").value);  
+    // }
+    // else if ( button.id == 3){
+    //     alert(document.getElementById("data1").value);
+    // }
+    // else if ( button.id == 4){
+    //     alert(document.getElementById("data1").value);
+    // }
 
 //     showPleaseWait();
 //     $('#example').dataTable().fnClearTable();
