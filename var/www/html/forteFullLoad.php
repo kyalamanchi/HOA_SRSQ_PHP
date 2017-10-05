@@ -197,8 +197,7 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
   </script>
-  </style>
-    </head>
+</head>
     <body>
 <h1>Forte Transaction</h1>
 <hr>
