@@ -12,8 +12,6 @@ if ( $connection){
      $result = json_decode($result);
      $sendData = array();
      foreach ($result->results as $transaction) {
-            print_r($transaction);
-            print_r(nl2br("\n"));
          $data  = array();
          $data['transction_id']  = $transaction->transaction_id;
          $data['customer_token'] = $transaction->customer_token;
