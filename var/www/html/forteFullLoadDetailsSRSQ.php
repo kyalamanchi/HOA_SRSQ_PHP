@@ -4,6 +4,7 @@ $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.co
 if ( $connection){
     
     if ( $_GET['id'] == 1 ){
+        echo "Message";
     $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+1259&page_size=100000';
     $url = $url.$startDate;
     $ch = curl_init($url);
@@ -11,6 +12,7 @@ if ( $connection){
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
      $result = curl_exec($ch);
+     echo $result;
     }
 
     // $query = "SELECT   * FROM LOCATIONS_IN_COMMUNITY";
