@@ -40,6 +40,7 @@ function changeOptions3(){
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         alert("HOA ID ");
+        document.getElementById("search").innerHTML = "<h4>Some message</h4>";
     }
     else if ( (document.getElementById("status").selectedIndex) == 2 ){
         alert("F&L");
@@ -211,8 +212,10 @@ function hidePleaseWait() {
       </select>
       <br>
       <br>
-      <!-- <button type="button" id="button" class="btn btn-primary" >Select Rows to send Multiple</button> -->
     </div>
+        <div id="search">
+            
+        </div>
         <br>
         <div>
         <table id="example" class="display" cellspacing="0" width="100%"></table>   
@@ -233,7 +236,7 @@ function hidePleaseWait() {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="exampleModalLabel">Edit Inspection</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Please wait...</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
