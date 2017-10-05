@@ -41,7 +41,7 @@ function changeOptions2(button){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1"),true);
-    alert("https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1"));
+    alert("https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value);
     request.send(null);
     request.onreadystatechange = function(){
     hidePleaseWait();
