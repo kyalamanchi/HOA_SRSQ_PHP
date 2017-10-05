@@ -58,6 +58,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
         dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
@@ -92,6 +93,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
         dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
@@ -125,6 +127,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
         dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
@@ -158,6 +161,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
         dataSet2.push(data2[i]['entered_by']);
+        dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
         dataSet.push(dataSet2);
     }
@@ -188,11 +192,13 @@ $(document).ready(function() {
             { title: "Name",
             "width" : "25%" },
             { title: "Amount" },
-            { title: "Authorization Code" },
+            { title: "AuthorizationCode" },
             { title: "Date ",
             "width" : "15%" },
             { title: "Entered by ",
             "width" : "25%" },
+            { title: "Status",
+            "width" : "30%" },
             { title: "Status",
             "width" : "30%" }
         ]
