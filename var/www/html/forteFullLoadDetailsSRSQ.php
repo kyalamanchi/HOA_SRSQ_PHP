@@ -11,7 +11,12 @@ if ( $connection){
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
      $result = curl_exec($ch);
-     echo $result;
+     $result = json_decode($result);
+     $sendData = array();
+     foreach ($result->results as $transaction) {
+         print_r($transaction);
+         print_r(nl2br("\n"));
+     }
     }
 
     // $query = "SELECT   * FROM LOCATIONS_IN_COMMUNITY";
