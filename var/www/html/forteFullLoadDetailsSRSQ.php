@@ -25,6 +25,7 @@ if ( $connection){
          $data['first_name'] = $data->billing_address->first_name;
          $data['last_name'] = $data->billing_address->last_name;
          $data['masked_account_number'] = $data->echeck->masked_account_number;
+         array_push($sendData, $data);
      }
     }
 
