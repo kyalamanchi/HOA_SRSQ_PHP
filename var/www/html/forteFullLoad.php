@@ -34,22 +34,31 @@ function showPleaseWait() {
     $(document.body).append(modalLoading);
     $("#pleaseWaitDialog").modal("show");
 }
-
 function changeOptions3(){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
-        alert("HOA ID ");
-        document.getElementById("search").innerHTML = "<h4>Some message</h4>";
+        data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">';
+    document.getElementById("search").innerHTML = data;
+
     }
     else if ( (document.getElementById("status").selectedIndex) == 2 ){
-        alert("F&L");
+         data = '<label for="exampleInputEmail1">Enter First Name </label>\
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">\
+    <label for="exampleInputEmail1">Enter Last Name </label>\
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">';
+    document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 3 ){
-        alert("F ");
+        data = '<label for="exampleInputEmail1">Enter First Name </label>\
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">';
+    document.getElementById("search").innerHTML = data;
     }
     else if ( (document.getElementById("status").selectedIndex) == 4 ){
-        alert("L");
+        data = '<label for="exampleInputEmail1">Enter Last Name </label>\
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">';
+    document.getElementById("search").innerHTML = data;
     }
     hidePleaseWait();
 //     var request = new XMLHttpRequest();
@@ -120,28 +129,7 @@ function changeOptions2(){
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
-function loadData(){
-    showPleaseWait();
-    var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/getInspectionData.php",true);
-    request.send(null);
-    request.onreadystatechange = function(){
-    if (request.readyState == XMLHttpRequest.DONE){
-    let data = request.responseText;
-    let data2 = JSON.parse(data);
-    var dataSet = new Array();
-    for (var i = 0; i < data2.length; i++) {
-        var dataSet2 = new Array();
-        dataSet2.push(data2[i]['home_id']);
-        dataSet2.push(data2[i]['hoa_id']);
-        dataSet2.push(data2[i]['description']);
-        dataSet2.push(data2[i]['inspection_category_id']);
-        dataSet2.push(data2[i]['inspection_sub_category_id'])
-        dataSet2.push(data2[i]['location_id']);
-        dataSet2.push(data2[i]['inspection_notice_type_id']);
-        dataSet2.push(data2[i]['inspection_status']);
-        dataSet.push(dataSet2);
-}
+
 $(document).ready(function() {
    var table =  $('#example').DataTable( {
         data: dataSet,
@@ -161,31 +149,6 @@ $(document).ready(function() {
             
         ]
     } );
-
-     $('#example tbody').on('click', 'td:not(:first-child)', function () {
-        $(this).closest('tr').toggleClass('selected');
-        $("#button").text("Send  "+table.rows('.selected').data().length+"  notices");   
-
-        if ( table.rows('.selected').data().length == 0 ){
-             $("#button").text("Select Rows to send Multiple");
-        }
-    });
-
-     $('#button').click( function () {
-        if ( table.rows('.selected').data().length == 0 ){
-             alert("Please select atleast one row.");
-             return;
-        }
-        showPleaseWait();
-        var request = new XMLHttpRequest();
-        request.open("POST","https://hoaboardtime.sendMultipleNotices.php",true);
-        request.send(null);
-        request.onreadystatechange = function(){
-            if ( request.readyState == XMLHttpRequest.DONE){
-                hidePleaseWait();
-            }
-        }
-    });
 } );
 hidePleaseWait();
 }
@@ -197,7 +160,7 @@ function hidePleaseWait() {
   </script>
   </style>
     </head>
-    <body onload="loadData();">
+    <body>
 <h1>Forte Transaction</h1>
 <hr>
 <div class="container"> 
