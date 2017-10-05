@@ -152,8 +152,7 @@ function changeOptions2(button){
     for (var i = 0; i < data2.length; i++) {
         var dataSet2 = new Array();
         dataSet2.push(data2[i]['customer_id']);
-        dataSet2.push(data2[i]['first_name']);
-        dataSet2.push(data2[i]['last_name']);
+        dataSet2.push(data2[i]['first_name']+' '+data2[i]['last_name']);
         dataSet2.push(data2[i]['authorization_amount']);
         dataSet2.push(data2[i]['authorization_code'])
         dataSet2.push(data2[i]['received_date']);
@@ -185,9 +184,7 @@ $(document).ready(function() {
         select: true,
         columns: [
             { title: "HOAID " },
-            { title: "First Name",
-            "width" : "25%" },
-            { title: "Last name",
+            { title: "Name",
             "width" : "25%" },
             { title: "Amount" },
             { title: "Authorization Code" },
