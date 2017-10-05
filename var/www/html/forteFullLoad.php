@@ -68,6 +68,10 @@ function changeOptions2(){
 } 
 }
 
+
+
+
+
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
 }
