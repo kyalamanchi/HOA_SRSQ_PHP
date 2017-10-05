@@ -36,7 +36,6 @@ function showPleaseWait() {
 }
 
 function changeOptions2(button){
-   
     showPleaseWait();
     if( button.id == 1 ){
     $('#example').dataTable().fnClearTable();
@@ -136,7 +135,6 @@ function changeOptions2(button){
     }
     }
     }
-    hidePleaseWait();
 }
 
     else if ( button.id == 4){
@@ -172,9 +170,7 @@ function changeOptions2(button){
     }
     }
     }
-    hidePleaseWait();
-}
-        
+}  
 hidePleaseWait();
 }
 
@@ -280,6 +276,7 @@ function hidePleaseWait() {
   </div>
   <script type="text/javascript">
       function changeOptions3(){
+    showPleaseWait();
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
