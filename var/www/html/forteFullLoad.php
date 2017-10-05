@@ -136,6 +136,7 @@ function changeOptions2(button){
     }
     }
     }
+    hidePleaseWait();
 }
 
     else if ( button.id == 4){
@@ -174,7 +175,7 @@ function changeOptions2(button){
     hidePleaseWait();
 }
         
-
+hidePleaseWait();
 }
 
 
