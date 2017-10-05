@@ -36,7 +36,8 @@ function showPleaseWait() {
 }
 
 function changeOptions2(button){
-        showPleaseWait();
+   
+    showPleaseWait();
     if( button.id == 1 ){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
@@ -68,8 +69,9 @@ function changeOptions2(button){
     }
 }
 } 
-
     }
+
+
     else if  ( button.id == 2 ){
         $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
@@ -102,6 +104,7 @@ function changeOptions2(button){
     } 
     }
 }
+
     else if  ( button.id == 3 ){
         $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
@@ -134,6 +137,7 @@ function changeOptions2(button){
     }
     }
 }
+
     else if ( button.id == 4){
         $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
@@ -167,6 +171,10 @@ function changeOptions2(button){
     }
     hidePleaseWait();
 }
+        
+
+}
+
 
 function closeModal(){
     $("#pleaseWaitDialog2").modal("hide");
