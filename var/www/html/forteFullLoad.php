@@ -36,10 +36,12 @@ function showPleaseWait() {
 }
 
 function changeOptions2(button){
+    alert("Message");
     var search = document.getElementById("search");
     var month = search.getElementsByTagName("input")[0].innerHTML;
     alert(month);
     alert(search);
+    alert("message");
     // if( button.id == 1 ){
     //     alert(document.getElementById("vvdata1").value);
 
