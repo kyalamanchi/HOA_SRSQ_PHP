@@ -38,7 +38,7 @@ function changeOptions3(){
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
-    <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
+    <input type="text" style="width: 35%;" class="form-control" id="vvdata1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="1" class="btn btn-success">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
@@ -66,7 +66,7 @@ function changeOptions3(){
 }
 function changeOptions2(button){
     if( button.id == 1 ){
-        alert(document.getElementById("vdata1").value);
+        alert(document.getElementById("vvdata1").value);
 
     }
     else if  ( button.id == 2 ){
