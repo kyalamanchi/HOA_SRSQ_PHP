@@ -66,11 +66,13 @@ function changeOptions3(){
 }
 function changeOptions2(button){
     var url = "https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id;
+    var value1  = document.getElementById("data1").value || "";
+    var value2 = document.getElementById("data2").value || "";
 
-    if ( (document.getElementById("data1").value != null) ){
+    if ( value1 ){
         url = url+"&data1="+document.getElementById("data1").value;
     }
-    if ( (document.getElementById("data2").value != null) ){
+    if ( value2 ){
         url = url+"&data2="+document.getElementById("data2").value;
     }
 
