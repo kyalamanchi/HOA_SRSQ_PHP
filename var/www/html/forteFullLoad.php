@@ -65,37 +65,39 @@ function changeOptions3(){
     hidePleaseWait(); 
 }
 function changeOptions2(button){
-    showPleaseWait();
-    $('#example').dataTable().fnClearTable();
-    var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
-    request.send(null);
-    request.onreadystatechange = function(){
-    hidePleaseWait();
-    if (request.readyState == XMLHttpRequest.DONE){
-    let data = request.responseText;
-    let data2 = JSON.parse(data);
-    var dataSet = new Array();
-    for (var i = 0; i < data2.length; i++) {
-        var dataSet2 = new Array();
-        dataSet2.push(data2[i]['customer_id']);
-        dataSet2.push(data2[i]['first_name']);
-        dataSet2.push(data2[i]['last_name']);
-        dataSet2.push(data2[i]['authorization_amount']);
-        dataSet2.push(data2[i]['authorization_code'])
-        dataSet2.push(data2[i]['received_date']);
-        dataSet2.push(data2[i]['entered_by']);
-        dataSet2.push(data2[i]['status']);
-        dataSet.push(dataSet2);
-    }
-    if (dataSet.length > 0){
-    $('#example').dataTable().fnAddData(dataSet);
-    }
-    else {
-        alert("Data not found");
-    }
-}
-} 
+    var url = "https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value;
+    alert(url);
+//     showPleaseWait();
+//     $('#example').dataTable().fnClearTable();
+//     var request = new XMLHttpRequest();
+//     request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
+//     request.send(null);
+//     request.onreadystatechange = function(){
+//     hidePleaseWait();
+//     if (request.readyState == XMLHttpRequest.DONE){
+//     let data = request.responseText;
+//     let data2 = JSON.parse(data);
+//     var dataSet = new Array();
+//     for (var i = 0; i < data2.length; i++) {
+//         var dataSet2 = new Array();
+//         dataSet2.push(data2[i]['customer_id']);
+//         dataSet2.push(data2[i]['first_name']);
+//         dataSet2.push(data2[i]['last_name']);
+//         dataSet2.push(data2[i]['authorization_amount']);
+//         dataSet2.push(data2[i]['authorization_code'])
+//         dataSet2.push(data2[i]['received_date']);
+//         dataSet2.push(data2[i]['entered_by']);
+//         dataSet2.push(data2[i]['status']);
+//         dataSet.push(dataSet2);
+//     }
+//     if (dataSet.length > 0){
+//     $('#example').dataTable().fnAddData(dataSet);
+//     }
+//     else {
+//         alert("Data not found");
+//     }
+// }
+// } 
 }
 
 function closeModal(){
