@@ -80,11 +80,13 @@ function hidePleaseWait() {
             }
             var json = JSON.parse(request.responseText);
             var str = "";
+            var count = 0;
             for ( var i = 0 ;i<json.length;i++){
                str = str.concat(json[i].email);
                str = str.concat(" ");
+               count = count + 1;
             }
-            if ( json.length > 1){
+            if ( count > 1){
             showEmails(str);
             }
             else {
