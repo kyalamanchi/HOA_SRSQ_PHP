@@ -25,10 +25,10 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $result = curl_exec($ch);
 $result = json_decode($result);
 if ( $result->response->response_desc){
-	echo $result->response->response_desc;
-	echo " ";
+	echo "We have received your payment. Payment Status : ".$result->response->response_desc." .";
+	echo nl2br("\n");
 	echo "Transaction ID ";
-	echo $result->transaction_id;
+	echo $result->transaction_id." .";
 }
 else {
 	echo "An error occured. Please try again.";
