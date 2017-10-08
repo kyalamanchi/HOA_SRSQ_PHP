@@ -39,12 +39,39 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script type="text/javascript">
+        function showPleaseWait() {
+    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
+        <div class="modal-dialog">\
+            <div class="modal-content">\
+                <div class="modal-header">\
+                    <h4 class="modal-title">Please wait...</h4>\
+                </div>\
+                <div class="modal-body">\
+                    <div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100px">\
+                      </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>';
+    $(document.body).append(modalLoading);
+    $("#pleaseWaitDialog").modal("show");
+}
+function hidePleaseWait() {
+    $("#pleaseWaitDialog").modal("hide");
+}
       function emailStatement(hoaid){
+        showPleaseWait();
         alert(hoaid.id);
+        hidePleaseWait();
       }
       function sendSouthData(hoaid){
-        alert(hoaid.id);
+        // alert(hoaid.id);
+        showPleaseWait();
       }
+
     </script>
   </head>
 
