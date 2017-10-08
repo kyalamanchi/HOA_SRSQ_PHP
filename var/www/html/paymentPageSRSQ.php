@@ -88,7 +88,7 @@ function payNow(){
       hidePleaseWait();
       // alert(request.responseText);
       var response = request.responseText.split(" ");
-      if ( response[0] == "Success"){
+      if ( response[0] == "Success" && response[1] != "DUPLICATE"){
             swal({
       title: "Success",
       text: "Payment Status : "+response[1]+".",
@@ -99,7 +99,7 @@ function payNow(){
       else if ( response[0] == "Error" ){
           swal({
       title: "Error",
-      text: "An error occured.\nPayment Status : "+response[1]+".",
+      text: "Payment Status : "+response[1]+".",
       icon: "error",
       button: "Ok",
     });
