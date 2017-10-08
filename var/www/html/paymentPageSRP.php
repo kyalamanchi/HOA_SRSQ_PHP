@@ -174,11 +174,10 @@ function error(){
    swal({
       title: "Failed",
       text: "HOA ID NOT FOUND",
-      icon: "error",
+      icon: "error"
     }.then(function() {
-// Redirect the user
-window.location.href = "https://hoaboardtime.com";
-});
+        window.location.href = "https://hoaboardtime.com";
+    }));
 }
 </script>
 <style type="text/css">
