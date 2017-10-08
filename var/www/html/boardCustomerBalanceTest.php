@@ -120,8 +120,8 @@ function hidePleaseWait() {
         alert(document.getElementById("emails").value);
       }
       function mailStatement2(hoaid,email){
-        alert(button.id);
-        alert(document.getElementById("emails").value);
+        alert(hoaid);
+        alert(email);
       }
     </script>
   </head>
