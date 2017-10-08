@@ -3,6 +3,8 @@ $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.co
 if ( $connection){
     $query  = "SELECT HOME_ID,COMMUNITY_ID FROM HOAID WHERE HOAID = ".$_GET['id'];
     $orderNumber = $_GET['orderID'];
+    print_r($query);
+    print_r(nl2br("\n"));
     $queryResult = pg_query($query);
     $row = pg_fetch_assoc($queryResult);
     $homeID = $row['home_id'];
