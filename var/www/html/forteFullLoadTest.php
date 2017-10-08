@@ -207,9 +207,21 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
 
-$("input[name=link_type]").change(function () {
-    alert(this.id);
+$(window).ready(function() {
+    $('#hoaid').closest('label').click(function() { 
+        alert('hello'); 
+    });
+    $('#flname').closest('label').click(function() { 
+        alert('hello'); 
+    });
+    $('#fname').closest('label').click(function() { 
+        alert('hello'); 
+    });
+    $('#lname').closest('label').click(function() { 
+        alert('hello'); 
+    });
 });
+
 
   </script>
 </head>
@@ -219,18 +231,18 @@ $("input[name=link_type]").change(function () {
 <div class="container"> 
         <div>
       <h4>Search by:</h4>
-    <div id="radios" class="btn-group" data-toggle="buttons">
-    <label class="btn btn-default checked">
-        <input type="radio" name="link_type_options1" class="radio" id="1"     /> HOAID
-    </label>
+    <div class="btn-group" data-toggle="buttons" style="margin-left:50px;"> 
     <label class="btn btn-default">
-        <input type="radio" name="link_type_options2" id="2"  class="radio"  /> First Name And Last Name
+        <input id="hoaid" type="radio"> HOA ID
+    </label> 
+    <label class="btn btn-default"> 
+        <input id="flname" type="radio"> First name & Last name
     </label>
-    <label class="btn btn-default">
-        <input type="radio" name="link_type_options3" id="3"  class="radio"  /> First Name
+     <label class="btn btn-default"> 
+        <input id="fname" type="radio"> First Name
     </label>
-    <label class="btn btn-default">
-        <input type="radio" name="link_type_options4" id="4"  class="radio"  /> Last Name
+     <label class="btn btn-default"> 
+        <input id="lname" type="radio"> Last Name
     </label>
     </div>
 
