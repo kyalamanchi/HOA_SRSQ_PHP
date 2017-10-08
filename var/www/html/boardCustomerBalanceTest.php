@@ -425,7 +425,7 @@
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th><th></th></thead><tbody>";
+                      echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th>1</th><th>1</th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
