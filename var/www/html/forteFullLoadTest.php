@@ -231,7 +231,7 @@ $(window).ready(function() {
 <div class="container"> 
         <div>
       <h4>Search by:</h4>
-    <div class="btn-group" data-toggle="buttons" style="margin-left:50px;"> 
+    <div class="btn-group" data-toggle="buttons" > 
     <label class="btn btn-default">
         <input id="hoaid" type="radio"> HOA ID
     </label> 
@@ -245,16 +245,6 @@ $(window).ready(function() {
         <input id="lname" type="radio"> Last Name
     </label>
     </div>
-
-
-
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status" onchange="changeOptions3();">
-        <option disabled="disabled" selected="selected">Select Search Options</option>
-        <option data-subtext="">HOAID</option>
-        <option data-subtext="">First name & Last name</option>
-        <option>First name</option>
-        <option>Last name</option>
-      </select>
       <br>
       <br>
     </div>
