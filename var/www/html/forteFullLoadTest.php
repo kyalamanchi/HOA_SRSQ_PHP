@@ -207,7 +207,7 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
 
-$("input[name=options]").change(function () {
+$("input[name=link_type]").change(function () {
     alert(this.id);
 });
 
@@ -221,16 +221,16 @@ $("input[name=options]").change(function () {
       <h4>Search by:</h4>
     <div id="radios" class="btn-group" data-toggle="buttons">
     <label class="btn btn-default checked">
-        <input type="radio" name="options" id="1"  onclick="changeOptions3(this);"   /> HOAID
+        <input type="radio" name="link_type_options1" id="1"  onclick="changeOptions3(this);"   /> HOAID
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="options" id="2"  onclick="changeOptions3(this);" checked /> First Name And Last Name
+        <input type="radio" name="link_type_options2" id="2"  onclick="changeOptions3(this);" checked /> First Name And Last Name
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="options" id="3"  onclick="changeOptions3(this);" /> First Name
+        <input type="radio" name="link_type_options3" id="3"  onclick="changeOptions3(this);" /> First Name
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="options" id="4"  onclick="changeOptions3(this);" /> Last Name
+        <input type="radio" name="link_type_options4" id="4"  onclick="changeOptions3(this);" /> Last Name
     </label>
     </div>
 
