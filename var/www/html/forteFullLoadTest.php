@@ -277,6 +277,17 @@ function hidePleaseWait() {
       </div>
     </div>
   </div>
+  <div id="radios" class="btn-group" data-toggle="buttons">
+    <label class="btn btn-default checked">
+        <input type="radio" name="options" id="option1" value="1"   /> Yes
+    </label>
+    <label class="btn btn-default">
+        <input type="radio" name="options" id="option2" value="0" checked /> No
+    </label>
+    <label class="btn btn-default">
+        <input type="radio" name="options" id="option3" value="42" /> Whatever
+    </label>
+</div>
   <script type="text/javascript">
       function changeOptions3(){
     showPleaseWait();
