@@ -136,7 +136,7 @@ function verifyDetails(hoaid){
       source.close();
       hidePleaseWait();
       $("#pleaseWaitDialog2").modal("hide");
-      // document.getElementById("paymentPage").hidden = false;
+      document.getElementById("paymentPage").hidden = false;
       swal({
       title: "Success",
       text: "Verified Successfully!",
