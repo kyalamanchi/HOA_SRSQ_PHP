@@ -214,6 +214,20 @@ function hidePleaseWait() {
 <div class="container"> 
         <div>
       <h4>Search by:</h4>
+    <div id="radios" class="btn-group" data-toggle="buttons">
+    <label class="btn btn-default checked">
+        <input type="radio" name="options" id="option1" value="1"   /> Yes
+    </label>
+    <label class="btn btn-default">
+        <input type="radio" name="options" id="option2" value="0" checked /> No
+    </label>
+    <label class="btn btn-default">
+        <input type="radio" name="options" id="option3" value="42" /> Whatever
+    </label>
+    </div>
+
+
+
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status" onchange="changeOptions3();">
         <option disabled="disabled" selected="selected">Select Search Options</option>
         <option data-subtext="">HOAID</option>
@@ -277,17 +291,7 @@ function hidePleaseWait() {
       </div>
     </div>
   </div>
-  <div id="radios" class="btn-group" data-toggle="buttons">
-    <label class="btn btn-default checked">
-        <input type="radio" name="options" id="option1" value="1"   /> Yes
-    </label>
-    <label class="btn btn-default">
-        <input type="radio" name="options" id="option2" value="0" checked /> No
-    </label>
-    <label class="btn btn-default">
-        <input type="radio" name="options" id="option3" value="42" /> Whatever
-    </label>
-</div>
+
   <script type="text/javascript">
       function changeOptions3(){
     showPleaseWait();
