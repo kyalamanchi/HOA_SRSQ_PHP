@@ -154,7 +154,8 @@ function verifyDetails(hoaid){
       title: "Failed",
       text: "Verification Failed",
       icon: "error",
-      button: "Try Again",
+      confirmButtonClass: 'btn-success',
+      confirmButtonText: 'Ok',
     });
     }
   }
@@ -174,9 +175,10 @@ function error(){
    swal({
       title: "Failed",
       text: "HOA ID NOT FOUND",
-      icon: "error"
+      icon: "error",
+      button: "OK",
     },
-    function() {
+    function(isConfirm) {
         window.location.href = "https://hoaboardtime.com";
     });
 }
