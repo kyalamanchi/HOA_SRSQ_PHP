@@ -34,8 +34,10 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script type="text/javascript">
+      var hoaID = -1;
     function generateForSouthData(button){
       var id = button.id;
+      hoaID = id;
       var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
@@ -73,8 +75,7 @@
                     </div>';
       $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
       $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-      var url = "https://hoaboardtime.com/sendToSouthData.php?data="+button.id;
-
+      var url = "https://hoaboardtime.com/sendToSouthData.php?data="+button.id+"&data1="+hoaID;
       var source = new EventSource(url);
         source.onmessage = function(event){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>'+event.data+'</h3>');
