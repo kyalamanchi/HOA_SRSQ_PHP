@@ -221,16 +221,16 @@ $("input[name=link_type]").change(function () {
       <h4>Search by:</h4>
     <div id="radios" class="btn-group" data-toggle="buttons">
     <label class="btn btn-default checked">
-        <input type="radio" name="link_type_options1" class="radio" id="1"  onclick="changeOptions3(this);"   /> HOAID
+        <input type="radio" name="link_type_options1" class="radio" id="1"     /> HOAID
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="link_type_options2" id="2"  class="radio" onclick="changeOptions3(this);" checked /> First Name And Last Name
+        <input type="radio" name="link_type_options2" id="2"  class="radio"  /> First Name And Last Name
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="link_type_options3" id="3"  class="radio" onclick="changeOptions3(this);" /> First Name
+        <input type="radio" name="link_type_options3" id="3"  class="radio"  /> First Name
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="link_type_options4" id="4"  class="radio" onclick="changeOptions3(this);" /> Last Name
+        <input type="radio" name="link_type_options4" id="4"  class="radio"  /> Last Name
     </label>
     </div>
 
