@@ -7,7 +7,7 @@ $hoaID = $parsedJSON[0]->hoaid;
 $email = $parsedJSON[0]->email;
 $emails = explode(' ', $email);
 foreach ($emails as $em) {
-	if ( $em != " " ){
+	if ( $em != "" ){
 	$url  = "https://hoaboardtime.com/sendViaMandrill.php?hoaid=".$hoaID."&email=".$em;
 	echo $url;
 	// $req = curl_init();
