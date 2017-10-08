@@ -84,12 +84,22 @@ function hidePleaseWait() {
                str = str.concat(json[i].email);
                str = str.concat(" ");
             }
-            alert(str);
+            if ( json.length > 1){
+            showEmails(str);
+            }
+            else {
+              alet(str);
+            }
         }
       }
       }
       function sendSouthData(hoaid){
         showPleaseWait();
+      }
+
+      function showEmails(email){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>')
+        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
       }
 
     </script>
@@ -773,6 +783,17 @@ function hidePleaseWait() {
 
       <div class="control-sidebar-bg"></div>
 
+    </div>
+
+    <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
