@@ -105,7 +105,7 @@ function hidePleaseWait() {
         $("#pleaseWaitDialog2").find('.modal-body').html('\
         <label for="example-text-input">Emails</label>\
         <div>\
-        <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">\
+        <input class="form-control" type="text" value="'+email+'" id="example-text-input">\
         </div>\
         ');
         $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" class="btn btn-success btn-lg" onclick="">Mail Statement</button>\
