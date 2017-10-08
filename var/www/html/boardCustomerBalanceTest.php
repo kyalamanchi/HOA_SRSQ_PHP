@@ -104,7 +104,7 @@ function hidePleaseWait() {
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
 
         $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" class="btn btn-success btn-lg" onclick="">Mail Statement</button>\
-          <button type="button" class="btn btn-danger btn-lg pull-right" onclick="closeModal();">Close</button>');
+          <button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
         $("#pleaseWaitDialog2").modal("show");
       }
       function closeModal(){
