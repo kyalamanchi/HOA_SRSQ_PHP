@@ -175,9 +175,10 @@ function error(){
       title: "Failed",
       text: "HOA ID NOT FOUND",
       icon: "error"
-    }.then(function() {
+    },
+    function() {
         window.location.href = "https://hoaboardtime.com";
-    }));
+    });
 }
 </script>
 <style type="text/css">
