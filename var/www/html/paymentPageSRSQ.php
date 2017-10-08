@@ -118,7 +118,7 @@ var comID = <?php
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
   echo $row['community_id'];
-?>;
+?> || null;
 if ( comID != 2 ||  !(comID) ) {
   error();
   return;
