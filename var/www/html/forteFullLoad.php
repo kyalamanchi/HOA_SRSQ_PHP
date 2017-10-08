@@ -206,6 +206,23 @@ $(document).ready(function() {
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
+
+$(window).ready(function() {
+    $('#hoaid').closest('label').click(function() { 
+        changeOptions3(1);
+    });
+    $('#flname').closest('label').click(function() { 
+        changeOptions3(2);
+    });
+    $('#fname').closest('label').click(function() { 
+        changeOptions3(3);
+    });
+    $('#lname').closest('label').click(function() { 
+        changeOptions3(4);
+    });
+});
+
+
   </script>
 </head>
     <body>
@@ -214,13 +231,20 @@ function hidePleaseWait() {
 <div class="container"> 
         <div>
       <h4>Search by:</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="status" onchange="changeOptions3();">
-        <option disabled="disabled" selected="selected">Select Search Options</option>
-        <option data-subtext="">HOAID</option>
-        <option data-subtext="">First name & Last name</option>
-        <option>First name</option>
-        <option>Last name</option>
-      </select>
+    <div class="btn-group" data-toggle="buttons" > 
+    <label class="btn btn-default">
+        <input id="hoaid" type="radio"> HOA ID
+    </label> 
+    <label class="btn btn-default"> 
+        <input id="flname" type="radio"> First name & Last name
+    </label>
+     <label class="btn btn-default"> 
+        <input id="fname" type="radio"> First Name
+    </label>
+     <label class="btn btn-default"> 
+        <input id="lname" type="radio"> Last Name
+    </label>
+    </div>
       <br>
       <br>
     </div>
@@ -277,17 +301,18 @@ function hidePleaseWait() {
       </div>
     </div>
   </div>
+
   <script type="text/javascript">
-      function changeOptions3(){
+      function changeOptions3(id){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
-    if ( (document.getElementById("status").selectedIndex) == 1 ){
+    if ( id == 1 ){
         data = '<label for="exampleInputEmail1">Enter HOA ID </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="1" class="btn btn-success" onclick="changeOptions2(this);">Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
-    else if ( (document.getElementById("status").selectedIndex) == 2 ){
+    else if ( id == 2 ){
          data = '<label for="exampleInputEmail1">Enter First Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <label for="exampleInputEmail1">Enter Last Name </label>\
@@ -295,13 +320,13 @@ function hidePleaseWait() {
     <br><button type="button" id="2" class="btn btn-success" onclick="changeOptions2(this);" >Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
-    else if ( (document.getElementById("status").selectedIndex) == 3 ){
+    else if ( id == 3 ){
         data = '<label for="exampleInputEmail1">Enter First Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="3" class="btn btn-success" onclick="changeOptions2(this);" >Get Transactions</button>';
     document.getElementById("search").innerHTML = data;
     }
-    else if ( (document.getElementById("status").selectedIndex) == 4 ){
+    else if ( id == 4 ){
         data = '<label for="exampleInputEmail1">Enter Last Name </label>\
     <input type="text" style="width: 35%;" class="form-control" id="data1" aria-describedby="emailHelp" placeholder="">\
     <br><button type="button" id="4" onclick="changeOptions2(this)" class="btn btn-success">Get Transactions</button>';
