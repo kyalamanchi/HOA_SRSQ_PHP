@@ -96,6 +96,16 @@ function verifyUser(){
 var $input = $('#refresh');
     $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_REQUEST['id'];?>;
+var comID = <?php
+  $query = "SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['id'];
+  $queryResult = pg_query($query);
+  $row = pg_fetch_assoc($queryResult);
+  echo $row['community_id'];
+?>
+if ( comID == 2 ) {
+  error();
+  return;
+}
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
 var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
