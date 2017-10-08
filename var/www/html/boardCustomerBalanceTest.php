@@ -157,6 +157,7 @@ function hidePleaseWait() {
             alert(request.responseText);
         }
         }
+}
     </script>
   </head>
 
