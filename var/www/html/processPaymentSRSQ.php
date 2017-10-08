@@ -25,13 +25,18 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $result = curl_exec($ch);
 $result = json_decode($result);
 if ( $result->response->response_desc){
-	echo nl2br("Payment made.\nPayment Status : ".$result->response->response_desc.".");
-	echo "Transaction ID ";
-	echo $result->transaction_id." .";
+	echo "Success";
+	echo " ";
+	echo nl2br($result->response->response_desc);
+	echo " ";
+	echo $result->transaction_id;
 }
 else {
-	echo "An error occured. Please try again.";
+	echo "Error";
+	echo " ";
 	echo $result->response->response_desc;
+	echo " ";
+	echo $result->transaction_id;
 }
 
 ?>

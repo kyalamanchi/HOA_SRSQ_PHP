@@ -86,7 +86,24 @@ function payNow(){
   request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-      alert(request.responseText);
+      // alert(request.responseText);
+      var response = request.responseText.split(" ");
+      if ( response[0] == "Success"){
+            swal({
+      title: "Success",
+      text: "Payment Status : "+response[1]+"\n"+"Transaction ID : "+response[1]+"\n",
+      icon: "success",
+      button: "Ok",
+    });
+      }
+      else if ( response[0] == "Error" ){
+          swal({
+      title: "Error",
+      text: "An error occured.\nPayment Status : "+response[1]+"\n"+"Transaction ID : "+response[1]+"\n",
+      icon: "error",
+      button: "Ok",
+    });
+      }
     }
     hidePleaseWait();
   }
@@ -102,7 +119,7 @@ var comID = <?php
   $row = pg_fetch_assoc($queryResult);
   echo $row['community_id'];
 ?>;
-if ( comID != 2 ) {
+if ( comID != 2  ) {
   error();
   return;
 }
