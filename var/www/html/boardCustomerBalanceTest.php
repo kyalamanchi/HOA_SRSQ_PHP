@@ -63,12 +63,32 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
       function emailStatement(hoaid){
-        showPleaseWait();
-        alert(hoaid.id);
+          showPleaseWait();
+            var request = new XMLHttpRequest();
+  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+  request.send(selectedHoaID);
+  request.onreadystatechange = function (){
+      if (request.readyState == XMLHttpRequest.DONE) {
         hidePleaseWait();
+            if ( request.responseText == "Failed to connect to database"){
+                alert("Failed to connect to database.Please try again");
+                return;
+            }
+            else if (request.responseText == "An error occured" ){
+              alert(request.responseText);
+              return;
+            }
+            var json = JSON.parse(request.responseText);
+            var str = "";
+            for ( var i = 0 ;i<json.length;i++){
+               str = str.concat(json[i].email);
+               str = str.concat(" ");
+            }
+            alert(str);
+        }
+      }
       }
       function sendSouthData(hoaid){
-        // alert(hoaid.id);
         showPleaseWait();
       }
 
