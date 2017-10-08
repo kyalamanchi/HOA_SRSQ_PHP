@@ -117,7 +117,11 @@ var comID = <?php
   $query = "SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['id'];
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
+  if ( $row['community_id'] )
   echo $row['community_id'];
+  else {
+    echo NULL;
+  }
 ?> || null;
 if ( comID != 2 ||  !(comID) ) {
   error();
