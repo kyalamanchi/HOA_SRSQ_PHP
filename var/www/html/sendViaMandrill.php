@@ -5,7 +5,7 @@ $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.c
 $fileContents = "";
 if ($_GET['hoaid']){	
 	$message = "Fetching file...Please wait...";
-	echo 'data: '.$message."\n\n";  
+	// echo 'data: '.$message."\n\n";  
 	ob_end_flush();
 	flush();
 	$url = 'https://content.dropboxapi.com/2/files/download';
@@ -17,7 +17,7 @@ if ($_GET['hoaid']){
 	$fileContents = base64_encode($response);
 	if ( strpos($response, "Error in call to API function") !== false ) {
 		$message =  "An error occured. Please try again.";
-		echo 'data: '.$message."\n\n";  
+		echo $message."\n\n";  
 		ob_end_flush();
 		flush();
 		exit(0);
@@ -52,13 +52,13 @@ $result = curl_exec($ch);
 	$result  = json_decode($result);
 	if ( $result[0]->status == 'error'){
 	$message  = $result[0]->name;
-  	echo 'data: '.$message."\n\n";  
+  	echo $message."\n\n";  
   	ob_end_flush();
   	flush();
   	}
   	else if ( ($result[0]->status == 'sent' ) || ($result[0]->status == 'queued') ){
 	$message  = "Mail sent successfully";
-  	echo 'data: '.$message."\n\n";  
+  	echo $message."\n\n";  
   	ob_end_flush();
   	flush();
   	}	
@@ -66,7 +66,7 @@ $result = curl_exec($ch);
 }
 else {
 	$message =  "An error occured. Please try again.";
-	echo 'data: '.$message."\n\n";  
+	echo $message."\n\n";  
 	ob_end_flush();
 	flush();
 	exit(0);
