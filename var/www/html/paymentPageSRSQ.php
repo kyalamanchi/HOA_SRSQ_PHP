@@ -202,7 +202,7 @@ function closeModal(){
 function error(){
    swal({
       title: "Failed",
-      text: "HOA ID NOT FOUND",
+      text: "HOA ID NOT FOUND FOR THIS COMMUNITY.",
       icon: "error",
       confirmButtonClass: 'btn-success',
       confirmButtonText: 'Ok',
@@ -211,7 +211,6 @@ function error(){
   if (willDelete) {
     window.location = "https://hoaboardtime.com"
   } else {
-    swal("Your imaginary file is safe!"); 
   }
 });
 }

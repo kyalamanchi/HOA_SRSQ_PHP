@@ -86,7 +86,24 @@ function payNow(){
   request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-      alert(request.responseText);
+      // alert(request.responseText);
+      var response = request.responseText.split(" ");
+      if ( response[0] == "Success" && response[1] != "DUPLICATE"){
+            swal({
+      title: "Success",
+      text: "Payment Status : "+response[1]+".",
+      icon: "success",
+      button: "Ok",
+    });
+      }
+      else {
+      swal({
+      title: "Error",
+      text: "Payment Status : "+response[1]+".",
+      icon: "error",
+      button: "Ok",
+    });
+      }
     }
     hidePleaseWait();
   }
@@ -100,9 +117,13 @@ var comID = <?php
   $query = "SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['id'];
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
+  if ( $row['community_id'] )
   echo $row['community_id'];
-?>;
-if ( comID != 1 ) {
+  else {
+    echo "null";
+  }
+?> || null;
+if ( comID != 1 ||  !(comID) ) {
   error();
   return;
 }
@@ -181,7 +202,7 @@ function closeModal(){
 function error(){
    swal({
       title: "Failed",
-      text: "HOA ID NOT FOUND",
+      text: "HOA ID NOT FOUND FOR THIS COMMUNITY.",
       icon: "error",
       confirmButtonClass: 'btn-success',
       confirmButtonText: 'Ok',
@@ -190,7 +211,6 @@ function error(){
   if (willDelete) {
     window.location = "https://hoaboardtime.com"
   } else {
-    swal("Your imaginary file is safe!"); 
   }
 });
 }
