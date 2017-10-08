@@ -178,7 +178,14 @@ function error(){
       icon: "error",
       confirmButtonClass: 'btn-success',
       confirmButtonText: 'Ok',
-    });
+    })
+   .then((willDelete) => {
+  if (willDelete) {
+    window.location = "https://hoaboardtime.com"
+  } else {
+    swal("Your imaginary file is safe!"); 
+  }
+});
 }
 </script>
 <style type="text/css">
