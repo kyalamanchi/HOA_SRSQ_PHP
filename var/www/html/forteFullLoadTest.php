@@ -206,6 +206,11 @@ $(document).ready(function() {
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
+
+$("input[name=options]").change(function () {
+    alert(this.id);
+});
+
   </script>
 </head>
     <body>
