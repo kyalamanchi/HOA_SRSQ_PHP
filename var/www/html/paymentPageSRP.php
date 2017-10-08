@@ -102,7 +102,7 @@ var comID = <?php
   $row = pg_fetch_assoc($queryResult);
   echo $row['community_id'];
 ?>;
-if ( comID == 2 ) {
+if ( comID != 1 ) {
   error();
   return;
 }
@@ -138,9 +138,6 @@ source.onmessage = function(event){
 }
 }
 function verifyDetails(hoaid){
-  <?php
-    echo "error();";
-  ?>
   showPleaseWait();
   var url = "https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
   var source = new EventSource(url);
