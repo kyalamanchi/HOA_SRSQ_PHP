@@ -119,7 +119,7 @@ var comID = <?php
   $row = pg_fetch_assoc($queryResult);
   echo $row['community_id'];
 ?>;
-if ( comID != 2  ) {
+if ( comID != 2 ||  !(comID) ) {
   error();
   return;
 }
