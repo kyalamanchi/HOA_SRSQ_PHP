@@ -2,24 +2,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
     <?php
 
-      	session_start();
+        session_start();
 
-      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-      	if(@!$_SESSION['hoa_username'])
-      		header("Location: logout.php");
+        if(@!$_SESSION['hoa_username'])
+          header("Location: logout.php");
 
-      	$community_id = $_SESSION['hoa_community_id'];
-      	$user_id=$_SESSION['hoa_user_id'];
+        $community_id = $_SESSION['hoa_community_id'];
+        $user_id=$_SESSION['hoa_user_id'];
 
-      	$result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
-    		$num_row = pg_num_rows($result);
+        $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
+        $num_row = pg_num_rows($result);
 
-    		if($num_row == 0)
-    			header("Location: residentDashboard.php");
+        if($num_row == 0)
+          header("Location: residentDashboard.php");
 
     ?>
 
@@ -38,84 +37,220 @@
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script type="text/javascript">
+        function showPleaseWait() {
+    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
+        <div class="modal-dialog">\
+            <div class="modal-content">\
+                <div class="modal-header">\
+                    <h4 class="modal-title">Please wait...</h4>\
+                </div>\
+                <div class="modal-body">\
+                    <div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100px">\
+                      </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>';
+    $(document.body).append(modalLoading);
+    $("#pleaseWaitDialog").modal("show");
+}
+function hidePleaseWait() {
+    $("#pleaseWaitDialog").modal("hide");
+}
+      function emailStatement(hoaid){
+          showPleaseWait();
+            var request = new XMLHttpRequest();
+  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+  request.send(hoaid.id);
+  request.onreadystatechange = function (){
+      if (request.readyState == XMLHttpRequest.DONE) {
+        hidePleaseWait();
+            if ( request.responseText == "Failed to connect to database"){
+                alert("Failed to connect to database.Please try again");
+                return;
+            }
+            else if (request.responseText == "An error occured" ){
+              alert(request.responseText);
+              return;
+            }
+            var json = JSON.parse(request.responseText);
+            var str = "";
+            var count = 0;
+            for ( var i = 0 ;i<json.length;i++){
+               str = str.concat(json[i].email);
+               str = str.concat(" ");
+               count = count + 1;
+            }
+            if ( count > 1){
+            showEmails(str,hoaid.id);
+            }
+            else {
+              mailStatement2(hoaid.id,str);
+            }
+        }
+      }
+      }
+      function sendSouthData(hoaid){
+        showPleaseWait();
+        jsonObj = [];
+        item = {};
+        item["hoaid"] = hoaid.id;
+        jsonObj.push(item);
+        lol =  JSON.stringify(jsonObj);
+        var request= new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/sendViaSouthData.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(lol);
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              hidePleaseWait();
+              alert(request.responseText);
+          }
+          }
+      }
+      function showEmails(email,hoaid){
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html('\
+        <label for="example-text-input">Emails</label>\
+        <div>\
+        <input class="form-control" type="text" value="'+email+'" id="emails">\
+        </div>\
+        ');
+        $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" id="'+hoaid+'" class="btn btn-success btn-lg" onclick="mailStatement(this);">Mail Statement</button>\
+          <button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
+        $("#pleaseWaitDialog2").modal("show");
+      }
+      function closeModal(){
+         $("#pleaseWaitDialog2").modal("hide");
+      }
 
+      function mailStatement(button){
+        closeModal();
+        hidePleaseWait();
+        showPleaseWait();
+          var emails = document.getElementById("emails").value;
+           jsonObj = [];
+          item = {};
+          item["hoaid"] = button.id;
+    item["email"] = emails;
+    jsonObj.push(item);
+    lol =  JSON.stringify(jsonObj);
+    var request= new XMLHttpRequest();
+    request.open("POST", "https://hoaboardtime.com/sendViaMandrillEmails.php", true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(lol);
+    showPleaseWait();
+    request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              hidePleaseWait();
+              alert(request.responseText);
+          }
+          }
+      }
+      function mailStatement2(hoaid,email){
+        closeModal();
+        hidePleaseWait();
+        showPleaseWait();
+        jsonObj = [];
+        item = {};
+        item["hoaid"] = hoaid;
+  item["email"] = email;
+  jsonObj.push(item);
+  lol =  JSON.stringify(jsonObj);
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://hoaboardtime.com/sendViaMandrillEmails.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(lol);
+  showPleaseWait();
+  request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            hidePleaseWait();
+            alert(request.responseText);
+        }
+        }
+}
+    </script>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
     
     <div class="wrapper">
 
-      	<header class="main-header">
+        <header class="main-header">
         
-        	<a class="logo">
+          <a class="logo">
           
-          		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
+              <span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
           
-          		<span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
+              <span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
 
-        	</a>
+          </a>
         
-        	<nav class="navbar navbar-static-top">
+          <nav class="navbar navbar-static-top">
           
-          		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		
-            		<span class="sr-only">Toggle navigation</span>
+              <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                
+                <span class="sr-only">Toggle navigation</span>
 
-          		</a>
+              </a>
 
-	          	<div class="navbar-custom-menu">
-	            
-	            	<ul class="nav navbar-nav">
+              <div class="navbar-custom-menu">
+              
+                <ul class="nav navbar-nav">
 
-		          		<li class="dropdown user user-menu">
-	              
-		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
+                  <li class="dropdown user user-menu">
+                
+                    <a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
 
-		          		</li>
+                  </li>
 
-		          		<li class="dropdown user user-menu">
+                  <li class="dropdown user user-menu">
 
-		            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		              
-		              			<i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  
+                        <i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
 
-		            		</a>
+                    </a>
 
-			            	<ul class="dropdown-menu">
-			              
-			              		<li class="user-header">
-			                
-			                		<i class="fa fa-user fa-5x"></i>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="user-header">
+                      
+                          <i class="fa fa-user fa-5x"></i>
 
-			                		<p>
-			                  
-					                  	<?php echo $_SESSION['hoa_username']; ?>
+                          <p>
+                        
+                              <?php echo $_SESSION['hoa_username']; ?>
 
-					                  	<br>
+                              <br>
 
-					                  	<small><?php echo $_SESSION['hoa_address']; ?></small>
+                              <small><?php echo $_SESSION['hoa_address']; ?></small>
 
-					                  	<a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
+                              <a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
 
-					                	<br>
+                            <br>
 
-					                </p>
+                          </p>
 
-			              		</li>
+                        </li>
 
-			            	</ul>
+                    </ul>
 
-		          		</li>
+                  </li>
 
-	            	</ul>
+                </ul>
 
-	          	</div>
+              </div>
 
-        	</nav>
+          </nav>
 
-      	</header>
+        </header>
       
-      	<aside class="main-sidebar">
+        <aside class="main-sidebar">
         
           <section class="sidebar">
           
@@ -328,9 +463,9 @@
 
         <?php
 
-        	$year = date("Y");
-        	$month = date("m");
-        	$end_date = date("t");
+          $year = date("Y");
+          $month = date("m");
+          $end_date = date("t");
 
           $today = date("Y-m-d");
 
@@ -388,7 +523,7 @@
           
           <div class="row">
 
-          	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
                 
@@ -425,7 +560,7 @@
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></thead><tbody>";
+                     echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -611,12 +746,13 @@
                         else
                           $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
-                        echo "<tr><td>$reminder</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
+                        echo "<tr><td>$reminder</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td><td><button type=\"button\" class=\"btn btn-default\" id=$hoa_id onclick=\"emailStatement(this);\">Email Statement</button>
+                        <button type=\"button\" id=$hoa_id class=\"btn btn-default\" onclick=\"sendSouthData(this);\">Send Via SouthData</button></td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></tfoot><table>";
 
                     }
                     else
@@ -631,7 +767,7 @@
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></thead><tbody>";
+                      echo "<thead><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -684,12 +820,13 @@
                         else
                           $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
-                        echo "<tr><td>$reminder</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
+                        echo "<tr><td>$reminder</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td><td><button type=\"button\" class=\"btn btn-default\" id=$hoa_id onclick=\"emailStatement(this);\">Email Statement</button>
+                        <button type=\"button\" id=$hoa_id class=\"btn btn-default\" onclick=\"sendSouthData(this);\">Send Via SouthData</button></td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></tfoot><table>";
 
                     }
                   
@@ -717,6 +854,19 @@
 
       <div class="control-sidebar-bg"></div>
 
+    </div>
+
+    <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" >
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
