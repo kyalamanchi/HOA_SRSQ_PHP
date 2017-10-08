@@ -117,7 +117,6 @@ function hidePleaseWait() {
       function mailStatement(button){
         hidePleaseWait();
         showPleaseWait();
-        alert(button.id);
           var emails = document.getElementById("emails").value;
            jsonObj = [];
           item = {};
