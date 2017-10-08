@@ -216,13 +216,16 @@ function hidePleaseWait() {
       <h4>Search by:</h4>
     <div id="radios" class="btn-group" data-toggle="buttons">
     <label class="btn btn-default checked">
-        <input type="radio" name="options" id="option1" value="1"   /> Yes
+        <input type="radio" name="options" id="1"  onclick="changeOptions3(this);"   /> HOAID
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="options" id="option2" value="0" checked /> No
+        <input type="radio" name="options" id="2"  onclick="changeOptions3(this);" checked /> First Name And Last Name
     </label>
     <label class="btn btn-default">
-        <input type="radio" name="options" id="option3" value="42" /> Whatever
+        <input type="radio" name="options" id="3"  onclick="changeOptions3(this);" /> First Name
+    </label>
+    <label class="btn btn-default">
+        <input type="radio" name="options" id="4"  onclick="changeOptions3(this);" /> Last Name
     </label>
     </div>
 
@@ -293,7 +296,8 @@ function hidePleaseWait() {
   </div>
 
   <script type="text/javascript">
-      function changeOptions3(){
+      function changeOptions3(button){
+        alert(button.id);
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
