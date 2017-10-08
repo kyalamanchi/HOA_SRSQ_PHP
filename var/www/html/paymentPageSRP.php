@@ -167,7 +167,16 @@ function closeModal(){
   $("#pleaseWaitDialog2").modal("hide");
 }
 
-
+function error(){
+   swal({
+      title: "Failed",
+      text: "HOA ID NOT FOUND",
+      icon: "error",
+      button: "Close",
+    },function() {
+            window.location = "https://hoaboardtime.com";
+    });
+}
 </script>
 <style type="text/css">
   .notbold{
@@ -187,6 +196,9 @@ color: red;
           $queryResult =  pg_query($query);
           $row = pg_fetch_assoc($queryResult);
           $communityID = $row['community_id'];
+          if ( $communityID != 1 ){
+            echo "error();";
+          }
           $query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
           $queryResult = pg_query($query);
           $row2 = pg_fetch_assoc($queryResult);
