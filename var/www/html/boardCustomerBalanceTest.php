@@ -86,12 +86,11 @@ function hidePleaseWait() {
                str = str.concat(" ");
                count = count + 1;
             }
-            alert(str);
             if ( count > 1){
             showEmails(str,hoaid.id);
             }
             else {
-              alet(str);
+              mailStatement2(hoaid.id,str);
             }
         }
       }
@@ -119,7 +118,10 @@ function hidePleaseWait() {
       function mailStatement(button){
         alert(button.id);
         alert(document.getElementById("emails").value);
-
+      }
+      function mailStatement2(hoaid,email){
+        alert(button.id);
+        alert(document.getElementById("emails").value);
       }
     </script>
   </head>
