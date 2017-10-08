@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
     <?php
 
       	session_start();
@@ -119,24 +118,24 @@ function hidePleaseWait() {
         hidePleaseWait();
         showPleaseWait();
         alert(button.id);
-  //       var emails = document.getElementById("emails").value;
-  //        jsonObj = [];
-  //       item = {};
-  //       item["hoaid"] = button.id;
-  // item["email"] = emails;
-  // jsonObj.push(item);
-  // lol =  JSON.stringify(jsonObj);
-  // var request= new XMLHttpRequest();
-  // request.open("POST", "https://hoaboardtime.com/sendViaMandrillEmails.php", true);
-  // request.setRequestHeader("Content-type", "application/json");
-  // request.send(lol);
-  // showPleaseWait();
-  // request.onreadystatechange = function () {
-  //       if (request.readyState == XMLHttpRequest.DONE) {
-  //           hidePleaseWait();
-  //           alert(request.responseText);
-  //       }
-  //       }
+    //       var emails = document.getElementById("emails").value;
+    //        jsonObj = [];
+    //       item = {};
+    //       item["hoaid"] = button.id;
+    // item["email"] = emails;
+    // jsonObj.push(item);
+    // lol =  JSON.stringify(jsonObj);
+    // var request= new XMLHttpRequest();
+    // request.open("POST", "https://hoaboardtime.com/sendViaMandrillEmails.php", true);
+    // request.setRequestHeader("Content-type", "application/json");
+    // request.send(lol);
+    // showPleaseWait();
+    // request.onreadystatechange = function () {
+    //       if (request.readyState == XMLHttpRequest.DONE) {
+    //           hidePleaseWait();
+    //           alert(request.responseText);
+    //       }
+    //       }
       }
       function mailStatement2(hoaid,email){
         hidePleaseWait();
@@ -158,8 +157,6 @@ function hidePleaseWait() {
   //           alert(request.responseText);
   //       }
         }
-
-      }
     </script>
   </head>
 
