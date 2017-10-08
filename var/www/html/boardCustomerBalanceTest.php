@@ -116,13 +116,49 @@ function hidePleaseWait() {
       }
 
       function mailStatement(button){
+        hidePleaseWait();
+        showPleaseWait();
         alert(button.id);
-        alert(document.getElementById("emails").value);
+  //       var emails = document.getElementById("emails").value;
+  //        jsonObj = [];
+  //       item = {};
+  //       item["hoaid"] = button.id;
+  // item["email"] = emails;
+  // jsonObj.push(item);
+  // lol =  JSON.stringify(jsonObj);
+  // var request= new XMLHttpRequest();
+  // request.open("POST", "https://hoaboardtime.com/sendViaMandrillEmails.php", true);
+  // request.setRequestHeader("Content-type", "application/json");
+  // request.send(lol);
+  // showPleaseWait();
+  // request.onreadystatechange = function () {
+  //       if (request.readyState == XMLHttpRequest.DONE) {
+  //           hidePleaseWait();
+  //           alert(request.responseText);
+  //       }
+  //       }
       }
       function mailStatement2(hoaid,email){
         hidePleaseWait();
-        alert(hoaid);
-        alert(email);
+        showPleaseWait();
+  //       jsonObj = [];
+  //       item = {};
+  //       item["hoaid"] = hoaid;
+  // item["email"] = email;
+  // jsonObj.push(item);
+  // lol =  JSON.stringify(jsonObj);
+  // var request= new XMLHttpRequest();
+  // request.open("POST", "https://hoaboardtime.com/sendViaMandrillEmails.php", true);
+  // request.setRequestHeader("Content-type", "application/json");
+  // request.send(lol);
+  // showPleaseWait();
+  // request.onreadystatechange = function () {
+  //       if (request.readyState == XMLHttpRequest.DONE) {
+  //           hidePleaseWait();
+  //           alert(request.responseText);
+  //       }
+        }
+
       }
     </script>
   </head>
