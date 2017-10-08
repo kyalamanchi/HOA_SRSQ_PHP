@@ -301,8 +301,7 @@ $("input[name=options]").change(function () {
   </div>
 
   <script type="text/javascript">
-      function changeOptions3(button){
-        alert(button.id);
+      function changeOptions3(){
     showPleaseWait();
     $('#example').dataTable().fnClearTable();
     if ( (document.getElementById("status").selectedIndex) == 1 ){
