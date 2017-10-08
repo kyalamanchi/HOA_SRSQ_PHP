@@ -178,9 +178,6 @@ function error(){
       icon: "error",
       confirmButtonClass: 'btn-success',
       confirmButtonText: 'Ok',
-    },
-    function(isConfirm) {
-        window.location.href = "https://hoaboardtime.com";
     });
 }
 </script>
