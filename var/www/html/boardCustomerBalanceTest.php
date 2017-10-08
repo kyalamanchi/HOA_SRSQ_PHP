@@ -402,7 +402,7 @@ function hidePleaseWait() {
 
             <center>
               
-              <form method='POST' action='https://hoaboardtime.com/boardCustomerBalance.php'>
+              <form method='POST' action='https://hoaboardtime.com/boardCustomerBalanceTest.php'>
                   
                 <?php
 
