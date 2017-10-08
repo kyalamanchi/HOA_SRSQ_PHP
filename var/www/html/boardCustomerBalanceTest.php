@@ -96,8 +96,22 @@ function hidePleaseWait() {
       }
       function sendSouthData(hoaid){
         showPleaseWait();
+        jsonObj = [];
+        item = {};
+        item["hoaid"] = button.id;
+        jsonObj.push(item);
+        lol =  JSON.stringify(jsonObj);
+        var request= new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/sendViaSouthData.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(lol);
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              hidePleaseWait();
+              alert(request.responseText);
+          }
+          }
       }
-
       function showEmails(email,hoaid){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html('\
@@ -115,6 +129,7 @@ function hidePleaseWait() {
       }
 
       function mailStatement(button){
+        closeModal();
         hidePleaseWait();
         showPleaseWait();
           var emails = document.getElementById("emails").value;
@@ -137,6 +152,7 @@ function hidePleaseWait() {
           }
       }
       function mailStatement2(hoaid,email){
+        closeModal();
         hidePleaseWait();
         showPleaseWait();
         jsonObj = [];
