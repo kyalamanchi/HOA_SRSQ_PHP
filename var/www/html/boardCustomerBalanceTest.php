@@ -120,6 +120,8 @@ function hidePleaseWait() {
         alert(document.getElementById("emails").value);
       }
       function mailStatement2(hoaid,email){
+        hidePleaseWait();
+        
         alert(hoaid);
         alert(email);
       }
