@@ -88,7 +88,7 @@ function hidePleaseWait() {
             }
             alert(str);
             if ( count > 1){
-            showEmails(str);
+            showEmails(str,hoaid.id);
             }
             else {
               alet(str);
@@ -100,15 +100,15 @@ function hidePleaseWait() {
         showPleaseWait();
       }
 
-      function showEmails(email){
+      function showEmails(email,hoaid){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html('\
         <label for="example-text-input">Emails</label>\
         <div>\
-        <input class="form-control" type="text" value="'+email+'" id="example-text-input">\
+        <input class="form-control" type="text" value="'+email+'" id="emails">\
         </div>\
         ');
-        $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" class="btn btn-success btn-lg" onclick="">Mail Statement</button>\
+        $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" id="'+hoaid+'" class="btn btn-success btn-lg" onclick="mailStatement(this);">Mail Statement</button>\
           <button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
         $("#pleaseWaitDialog2").modal("show");
       }
@@ -116,11 +116,11 @@ function hidePleaseWait() {
          $("#pleaseWaitDialog2").modal("hide");
       }
 
-      function mailStatement(){
+      function mailStatement(button){
+        alert(button.id);
+        alert(document.getElementById("emails").value);
 
       }
-
-
     </script>
   </head>
 
