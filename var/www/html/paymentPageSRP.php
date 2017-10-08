@@ -9,6 +9,7 @@
   <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
     <?php
     $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
@@ -35,9 +36,13 @@
 }
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
-}</script>
+}
+function test(){
+  swal("Hello world!");
+}
+</script>
   </head>
-  <body>
+  <body onload="test();">
     <br><br>
 
   <div class="container" style=" margin: 0 auto;" >
