@@ -120,7 +120,7 @@ var comID = <?php
   if ( $row['community_id'] )
   echo $row['community_id'];
   else {
-    echo NULL;
+    echo "NULL";
   }
 ?> || null;
 if ( comID != 2 ||  !(comID) ) {
