@@ -96,8 +96,8 @@ function payNow(){
       button: "Ok",
     });
       }
-      else if ( response[0] == "Error" ){
-          swal({
+      else {
+      swal({
       title: "Error",
       text: "Payment Status : "+response[1]+".",
       icon: "error",
