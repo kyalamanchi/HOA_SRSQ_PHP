@@ -9,7 +9,7 @@ $fname = $names[0];
 $lname  = $names[1];
 $rnumber = $parsedJSON[0]->routing_number;
 $anumber =  $parsedJSON[0]->account_number;
-$data = array("action" => "sale","customer_id" => $customerID ,"reference_id" => $customerID ,"authorization_amount" => $authAmount,"order_number" => $customerID ,"billing_address" => array("first_name"=>$fname,"last_name" =>$lname),"echeck" => array( "sec_code" => "WEB","routing_number"=> $rnumber,"account_number" => $anumber,"account_holder" => $name));
+$data = array("action" => "sale","customer_id" => $customerID ,"authorization_amount" => $authAmount,"billing_address" => array("first_name"=>$fname,"last_name" =>$lname),"echeck" => array( "sec_code" => "WEB","routing_number"=> $rnumber,"account_number" => $anumber,"account_holder" => $name));
 $data_string = json_encode($data); 
 $url = "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions";
 
