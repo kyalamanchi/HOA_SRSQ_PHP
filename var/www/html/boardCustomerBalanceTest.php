@@ -101,8 +101,9 @@ function hidePleaseWait() {
       }
 
       function showEmails(email){
-        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>')
-        $("#pleaseWaitDialog2").find('.modal-body').html('<button type="button" class="btn btn-success btn-lg" onclick="closeModal();">Close</button>\
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
+
+        $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" class="btn btn-success btn-lg" onclick="">Mail Statement</button>\
           <button type="button" class="btn btn-danger btn-lg pull-right" onclick="closeModal();">Close</button>');
         $("#pleaseWaitDialog2").modal("show");
       }
@@ -799,6 +800,8 @@ function hidePleaseWait() {
                 <div class="modal-header">
                 </div>
                 <div class="modal-body">
+                </div>
+                <div class="modal-footer">
                 </div>
             </div>
         </div>
