@@ -175,7 +175,6 @@ function error(){
       title: "Failed",
       text: "HOA ID NOT FOUND",
       icon: "error",
-      button: "Close",
     },function() {
             window.location = "https://hoaboardtime.com";
     });
