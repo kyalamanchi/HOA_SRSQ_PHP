@@ -98,7 +98,8 @@ function hidePleaseWait() {
         showPleaseWait();
         jsonObj = [];
         item = {};
-        item["hoaid"] = button.id;
+        item["hoaid"] = hoaid;
+        alert(hoaid);
         jsonObj.push(item);
         lol =  JSON.stringify(jsonObj);
         var request= new XMLHttpRequest();
