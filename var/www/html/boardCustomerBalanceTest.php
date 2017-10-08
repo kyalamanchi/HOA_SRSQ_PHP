@@ -66,7 +66,7 @@ function hidePleaseWait() {
           showPleaseWait();
             var request = new XMLHttpRequest();
   request.open("POST","https://hoaboardtime.com/getEmails.php",true);
-  request.send(selectedHoaID);
+  request.send(hoaid.id);
   request.onreadystatechange = function (){
       if (request.readyState == XMLHttpRequest.DONE) {
         hidePleaseWait();
