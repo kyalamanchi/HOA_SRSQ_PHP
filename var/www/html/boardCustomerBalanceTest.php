@@ -102,12 +102,12 @@ function hidePleaseWait() {
 
       function showEmails(email){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
-        $("#pleaseWaitDialog2").find('.modal-body').html('<div class="form-group row">\
+        $("#pleaseWaitDialog2").find('.modal-body').html('\
         <label for="example-text-input">Emails</label>\
         <div>\
         <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">\
         </div>\
-        </div>');
+        ');
         $("#pleaseWaitDialog2").find('.modal-footer').html('<button type="button" class="btn btn-success btn-lg" onclick="">Mail Statement</button>\
           <button type="button" class="btn btn-danger btn-lg" onclick="closeModal();">Close</button>');
         $("#pleaseWaitDialog2").modal("show");
