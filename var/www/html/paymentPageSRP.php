@@ -176,7 +176,8 @@ function error(){
       title: "Failed",
       text: "HOA ID NOT FOUND",
       icon: "error",
-      button: "OK",
+      confirmButtonClass: 'btn-success',
+      confirmButtonText: 'Ok',
     },
     function(isConfirm) {
         window.location.href = "https://hoaboardtime.com";
