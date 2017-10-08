@@ -89,9 +89,10 @@ function payNow(){
       // alert(request.responseText);
       var response = request.responseText.split(" ");
       if ( response[0] == "Success" && response[1] != "DUPLICATE"){
+        var message = response.slice(1,response.length-1);
             swal({
       title: "Success",
-      text: "Payment Status : "+response[1]+".",
+      text: "Payment Status : "+message+".",
       icon: "success",
       button: "Ok",
     });
