@@ -121,7 +121,6 @@ function hidePleaseWait() {
       }
       function mailStatement2(hoaid,email){
         hidePleaseWait();
-        
         alert(hoaid);
         alert(email);
       }
