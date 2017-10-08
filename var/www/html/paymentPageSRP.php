@@ -128,6 +128,9 @@ source.onmessage = function(event){
 }
 }
 function verifyDetails(hoaid){
+  <?php
+    echo "error();";
+  ?>
   showPleaseWait();
   var url = "https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
   var source = new EventSource(url);
@@ -196,9 +199,6 @@ color: red;
           $queryResult =  pg_query($query);
           $row = pg_fetch_assoc($queryResult);
           $communityID = $row['community_id'];
-          if ( $communityID != 1 ){
-            echo "error();";
-          }
           $query = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
           $queryResult = pg_query($query);
           $row2 = pg_fetch_assoc($queryResult);
