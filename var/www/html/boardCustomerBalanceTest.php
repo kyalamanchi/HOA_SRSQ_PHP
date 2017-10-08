@@ -686,7 +686,6 @@
 
                         echo "<tr><td>$reminder</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$name'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 
-
                       }
 
                       echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th></tfoot><table>";
