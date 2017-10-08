@@ -91,7 +91,7 @@ function payNow(){
       if ( response[0] == "Success"){
             swal({
       title: "Success",
-      text: "Payment Status : "+response[1]+" \n "+"Transaction ID : "+response[2]+"",
+      text: "Payment Status : "+response[1]+".",
       icon: "success",
       button: "Ok",
     });
@@ -99,7 +99,7 @@ function payNow(){
       else if ( response[0] == "Error" ){
           swal({
       title: "Error",
-      text: "An error occured.\nPayment Status : "+response[1]+"\n"+"Transaction ID : "+response[2]+"\n",
+      text: "An error occured.\nPayment Status : "+response[1]+".",
       icon: "error",
       button: "Ok",
     });
