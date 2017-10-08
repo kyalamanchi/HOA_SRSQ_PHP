@@ -86,6 +86,7 @@ function hidePleaseWait() {
                str = str.concat(" ");
                count = count + 1;
             }
+            alert(str);
             if ( count > 1){
             showEmails(str);
             }
