@@ -25,7 +25,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 $result = curl_exec($ch);
 $result = json_decode($result);
 if ( $result->response->response_desc){
-	echo "Payment received . Payment Status : ".$result->response->response_desc." .";
+	echo nl2br("Payment made.\nPayment Status : ".$result->response->response_desc.".");
 	echo "Transaction ID ";
 	echo $result->transaction_id." .";
 }
