@@ -103,7 +103,7 @@ function hidePleaseWait() {
       function showEmails(email){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Edit Email</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html('<div class="form-group row">\
-        <label for="example-text-input" class="col-2 col-form-label">Text</label>\
+        <label for="example-text-input">Emails</label>\
         <div>\
         <input class="form-control" type="text" value="Artisanal kale" id="example-text-input">\
         </div>\
