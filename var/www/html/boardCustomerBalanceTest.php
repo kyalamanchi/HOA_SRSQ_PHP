@@ -4,21 +4,21 @@
   <head>
     <?php
 
-        session_start();
+      	session_start();
 
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-        if(@!$_SESSION['hoa_username'])
-          header("Location: logout.php");
+      	if(@!$_SESSION['hoa_username'])
+      		header("Location: logout.php");
 
-        $community_id = $_SESSION['hoa_community_id'];
-        $user_id=$_SESSION['hoa_user_id'];
+      	$community_id = $_SESSION['hoa_community_id'];
+      	$user_id=$_SESSION['hoa_user_id'];
 
-        $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
-        $num_row = pg_num_rows($result);
+      	$result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
+    		$num_row = pg_num_rows($result);
 
-        if($num_row == 0)
-          header("Location: residentDashboard.php");
+    		if($num_row == 0)
+    			header("Location: residentDashboard.php");
 
     ?>
 
@@ -180,77 +180,77 @@ function hidePleaseWait() {
     
     <div class="wrapper">
 
-        <header class="main-header">
+      	<header class="main-header">
         
-          <a class="logo">
+        	<a class="logo">
           
-              <span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
+          		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
           
-              <span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
+          		<span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
 
-          </a>
+        	</a>
         
-          <nav class="navbar navbar-static-top">
+        	<nav class="navbar navbar-static-top">
           
-              <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                
-                <span class="sr-only">Toggle navigation</span>
+          		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+            		
+            		<span class="sr-only">Toggle navigation</span>
 
-              </a>
+          		</a>
 
-              <div class="navbar-custom-menu">
-              
-                <ul class="nav navbar-nav">
+	          	<div class="navbar-custom-menu">
+	            
+	            	<ul class="nav navbar-nav">
 
-                  <li class="dropdown user user-menu">
-                
-                    <a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
+		          		<li class="dropdown user user-menu">
+	              
+		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
 
-                  </li>
+		          		</li>
 
-                  <li class="dropdown user user-menu">
+		          		<li class="dropdown user user-menu">
 
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  
-                        <i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
+		            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+		              
+		              			<i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
 
-                    </a>
+		            		</a>
 
-                    <ul class="dropdown-menu">
-                    
-                        <li class="user-header">
-                      
-                          <i class="fa fa-user fa-5x"></i>
+			            	<ul class="dropdown-menu">
+			              
+			              		<li class="user-header">
+			                
+			                		<i class="fa fa-user fa-5x"></i>
 
-                          <p>
-                        
-                              <?php echo $_SESSION['hoa_username']; ?>
+			                		<p>
+			                  
+					                  	<?php echo $_SESSION['hoa_username']; ?>
 
-                              <br>
+					                  	<br>
 
-                              <small><?php echo $_SESSION['hoa_address']; ?></small>
+					                  	<small><?php echo $_SESSION['hoa_address']; ?></small>
 
-                              <a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
+					                  	<a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
 
-                            <br>
+					                	<br>
 
-                          </p>
+					                </p>
 
-                        </li>
+			              		</li>
 
-                    </ul>
+			            	</ul>
 
-                  </li>
+		          		</li>
 
-                </ul>
+	            	</ul>
 
-              </div>
+	          	</div>
 
-          </nav>
+        	</nav>
 
-        </header>
+      	</header>
       
-        <aside class="main-sidebar">
+      	<aside class="main-sidebar">
         
           <section class="sidebar">
           
@@ -463,9 +463,9 @@ function hidePleaseWait() {
 
         <?php
 
-          $year = date("Y");
-          $month = date("m");
-          $end_date = date("t");
+        	$year = date("Y");
+        	$month = date("m");
+        	$end_date = date("t");
 
           $today = date("Y-m-d");
 
@@ -483,7 +483,7 @@ function hidePleaseWait() {
 
             <center>
               
-              <form method='POST' action='https://hoaboardtime.com/boardCustomerBalance.php'>
+              <form method='POST' action='https://hoaboardtime.com/boardCustomerBalanceTest.php'>
                   
                 <?php
 
@@ -523,7 +523,7 @@ function hidePleaseWait() {
           
           <div class="row">
 
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+          	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
                 

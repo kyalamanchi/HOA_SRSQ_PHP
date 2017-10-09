@@ -11,15 +11,15 @@ $rnumber = $parsedJSON[0]->routing_number;
 $anumber =  $parsedJSON[0]->account_number;
 $data = array("action" => "sale","customer_id" => $customerID ,"reference_id" => $customerID ,"authorization_amount" => $authAmount,"order_number" => $customerID ,"billing_address" => array("first_name"=>$fname,"last_name" =>$lname),"echeck" => array( "sec_code" => "WEB","routing_number"=> $rnumber,"account_number" => $anumber,"account_holder" => $name));
 $data_string = json_encode($data); 
-$url = "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions";
+$url = "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions";
 
-$ch = curl_init('https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions');                                                                      
+$ch = curl_init('https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions');                                                                      
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
 curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);                                                                  
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
 curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
     'Content-Type: application/json',                                                                                
-    'X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=')                                                                       
+    'X-Forte-Auth-Organization-Id:org_335357','Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=')                                                                       
 );
 
 $result = curl_exec($ch);

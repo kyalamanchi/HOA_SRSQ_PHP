@@ -10,6 +10,7 @@
   <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script type="text/javascript">
     <?php
     $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
@@ -85,7 +86,25 @@ function payNow(){
   request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-      alert(request.responseText);
+      // alert(request.responseText);
+      var response = request.responseText.split(" ");
+      if ( response[0] == "Success" && response[1] != "DUPLICATE"){
+        var message = response.slice(1,response.length-1);
+            swal({
+      title: "Success",
+      text: "Payment Status : "+message+".",
+      icon: "success",
+      button: "Ok",
+    });
+      }
+      else {
+      swal({
+      title: "Error",
+      text: "Payment Status : "+response[1]+".",
+      icon: "error",
+      button: "Ok",
+    });
+      }
     }
     hidePleaseWait();
   }
@@ -95,6 +114,20 @@ function verifyUser(){
 var $input = $('#refresh');
     $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
 var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_REQUEST['id'];?>;
+var comID = <?php
+  $query = "SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['id'];
+  $queryResult = pg_query($query);
+  $row = pg_fetch_assoc($queryResult);
+  if ( $row['community_id'] )
+  echo $row['community_id'];
+  else {
+    echo "null";
+  }
+?> || null;
+if ( comID != 2 ||  !(comID) ) {
+  error();
+  return;
+}
 $("#pleaseWaitDialog2").find('.modal-header').html('<h4>Please wait</h4>');
 var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
@@ -136,11 +169,23 @@ function verifyDetails(hoaid){
       hidePleaseWait();
       $("#pleaseWaitDialog2").modal("hide");
       document.getElementById("paymentPage").hidden = false;
+      swal({
+      title: "Success",
+      text: "Verified Successfully!",
+      icon: "success",
+      button: "Ok",
+    });
     }
     else if ( (event.data == "failed") ){
       source.close();
       hidePleaseWait();
-      alert("Verification failed. Please try again");
+       swal({
+      title: "Failed",
+      text: "Verification Failed",
+      icon: "error",
+      confirmButtonClass: 'btn-success',
+      confirmButtonText: 'Ok',
+    });
     }
   }
 }
@@ -155,7 +200,21 @@ function closeModal(){
   $("#pleaseWaitDialog2").modal("hide");
 }
 
-
+function error(){
+   swal({
+      title: "Failed",
+      text: "HOA ID NOT FOUND FOR THIS COMMUNITY.",
+      icon: "error",
+      confirmButtonClass: 'btn-success',
+      confirmButtonText: 'Ok',
+    })
+   .then((willDelete) => {
+  if (willDelete) {
+    window.location = "https://hoaboardtime.com"
+  } else {
+  }
+});
+}
 </script>
 <style type="text/css">
   .notbold{
