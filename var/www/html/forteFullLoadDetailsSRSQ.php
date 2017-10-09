@@ -120,7 +120,7 @@ if ( $connection){
             $data['is_inserted'] = ' ';
          }
          else {
-            $data['is_inserted'] = '<button id="'.$transaction->transaction_id.'">Insert Row</button>';
+            $data['is_inserted'] = 'Message';
          }
 
          array_push($sendData, $data);
@@ -161,7 +161,7 @@ if ( $connection){
          else {
             $data['is_inserted'] = '<button id="'.$transaction->transaction_id.'">Insert Row</button>';
          }
-         
+
          array_push($sendData, $data);
      }
 
