@@ -203,7 +203,7 @@ $(document).ready(function() {
             { title: "" }
         ],
         "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    if ( aData[2] == " " )
+                    if ( aData[2] == "Found" )
                     {
                         $('td', nRow).css('background-color', '#cce0cc');
                     }

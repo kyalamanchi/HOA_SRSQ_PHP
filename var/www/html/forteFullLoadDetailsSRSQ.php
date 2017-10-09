@@ -117,10 +117,10 @@ if ( $connection){
          $data['masked_account_number'] = $transaction->echeck->masked_account_number;
 
          if ( $transactionsArray[$transaction->transaction_id] ){
-            $data['is_inserted'] = ' ';
+            $data['is_inserted'] = 'Found';
          }
          else {
-            $data['is_inserted'] = 'Message';
+            $data['is_inserted'] = 'Not Found';
          }
 
          array_push($sendData, $data);
