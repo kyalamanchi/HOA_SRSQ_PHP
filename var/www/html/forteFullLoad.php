@@ -211,9 +211,6 @@ $(window).ready(function() {
     $('#hoaid').closest('label').click(function() { 
         changeOptions3(1);
     });
-    $('#flname').closest('label').click(function() { 
-        changeOptions3(2);
-    });
     $('#fname').closest('label').click(function() { 
         changeOptions3(3);
     });
@@ -234,9 +231,6 @@ $(window).ready(function() {
     <div class="btn-group" data-toggle="buttons" > 
     <label class="btn btn-default">
         <input id="hoaid" type="radio"> HOA ID
-    </label> 
-    <label class="btn btn-default"> 
-        <input id="flname" type="radio"> First name & Last name
     </label>
      <label class="btn btn-default"> 
         <input id="fname" type="radio"> First Name
