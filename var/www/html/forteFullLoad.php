@@ -200,10 +200,11 @@ $(document).ready(function() {
             { title: "Entered by ",
             "width" : "25%" },
             { title: "Action",
-            "width" : "30%" },
+            "width" : "7%" },
             { title: "Status",
-            "width" : "30%" },
-            { title: "" }
+            "width" : "23%" },
+            { title: "",
+            "width" : "25%" }
         ],
         "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
                     if ( aData[8] == "Found" )
