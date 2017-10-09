@@ -70,13 +70,11 @@
 
           	$monthly_total = $assessment_amount * $total_homes;
 
-          	echo $year."-".$month."-".$last;
-
           	$monthly_amount = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
 
           	$monthly_amount = $monthly_amount['sum'];
 
-          	echo $monthly_amount;
+          	$amount_received = ($monthly_amount / $monthly_total) * 100;
 
 		?>
 
@@ -163,7 +161,7 @@
 														
 														<div class="progress">
 															
-															<div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" aria-valuenow="<?php echo $monthly_amount; ?>" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+															<div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" aria-valuenow="<?php echo $amount_received; ?>" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
 														
 														</div>
 
