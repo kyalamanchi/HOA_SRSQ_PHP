@@ -74,6 +74,8 @@
 
           	$monthly_amount = $monthly_amount['sum'];
 
+          	echo $monthly_amount;
+
 		?>
 
 		<meta charset="UTF-8">
