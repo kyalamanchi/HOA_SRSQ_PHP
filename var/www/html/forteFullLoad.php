@@ -198,12 +198,12 @@ $(document).ready(function() {
             { title: "Date ",
             "width" : "15%" },
             { title: "Entered by ",
-            "width" : "25%" },
+            "width" : "15%" },
             { title: "Action",
             "width" : "7%" },
             { title: "Status",
-            "width" : "23%" },
-            { title: "",
+            "width" : "15%" },
+            { title: "           ",
             "width" : "25%" }
         ],
         "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
