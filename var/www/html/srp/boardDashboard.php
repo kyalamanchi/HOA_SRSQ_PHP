@@ -29,6 +29,12 @@
 			$del_acc = 0;
           	$del = 3;
 
+          	$year = date('Y');
+          	$month = date('m');
+          	$last = date('t');
+
+          	echo $last;
+
 			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
 
             $assessment_amount = $row['amount'];
@@ -63,6 +69,10 @@
 	              $del_acc++;
 
           	}
+
+          	$monthly_total = $assessment_amount * $total_homes;
+
+          	#$monthly_amount = pg_fetch_assoc(pg_query("SELECT sum(amount) current_payments WHERE community_id=$community_id AND process_date>='' AND process_date<=''"));
 
 		?>
 
