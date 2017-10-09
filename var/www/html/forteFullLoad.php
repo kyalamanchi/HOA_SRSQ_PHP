@@ -59,7 +59,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
         dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -94,7 +99,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+         if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
         dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -130,7 +140,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+         if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
         dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
