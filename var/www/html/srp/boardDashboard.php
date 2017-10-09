@@ -157,7 +157,7 @@
 
 													<div class="progress-item">
 										
-														<div class="progress-title">Amount Received</div>
+														<div class="progress-title">Amount Received<br></div>
 														
 														<div class="progress">
 															
@@ -175,7 +175,7 @@
 
 													<div class="progress-item">
 										
-														<div class="progress-title">Members Paid</div>
+														<div class="progress-title">Members Paid<br></div>
 														
 														<div class="progress">
 															
