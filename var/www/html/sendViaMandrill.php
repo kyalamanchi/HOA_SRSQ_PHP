@@ -62,6 +62,14 @@ $result = curl_exec($ch);
   	echo $message."\n\n";  
   	ob_end_flush();
   	flush();
+  	$query  = "SELECT HOME_ID,COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['hoaid'];
+  	$queryResult = pg_query($query);
+    $row = pg_fetch_assoc($queryResult);
+    $homeID = $row['home_id'];
+    $communityID = $row['community_id'];
+  	$query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"statement_type_id\",\"notification_type\",\"updated_on\",\"updated_by\") VALUES(".$homeID.",".$_GET['hoaid'].",'".date('Y-m-d')."',".$communityID.",2,1,'".date('Y-m-d')."',401)";
+    pg_query($query);
+    
   	}	
 }
 }
