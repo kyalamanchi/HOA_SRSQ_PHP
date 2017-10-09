@@ -248,7 +248,7 @@
 
 									<div class='counter-number'>
 
-										<div class='counter-timer' data-from='0' data-to='<?php echo $email_homes; ?>'><?php echo $email_homes; ?></div>
+										<div><?php echo $email_homes; ?></div>
 
 									</div>
 
@@ -264,7 +264,7 @@
 
 									<div class='counter-number'>
 
-										<div class='counter-timer' data-from='0' data-to='<?php echo ($total_homes - $tenants); ?>'><?php echo ($total_homes - $tenants); ?></div>
+										<div><?php echo ($total_homes - $tenants); ?></div>
 
 									</div>
 
@@ -280,7 +280,7 @@
 
 									<div class='counter-number'>
 
-										<div class='counter-timer' data-from='0' data-to='<?php echo $tenants; ?>'><?php echo $tenants; ?></div>
+										<div><?php echo $tenants; ?></div>
 
 									</div>
 
@@ -296,7 +296,7 @@
 
 									<div class='counter-number'>
 
-										<div class='counter-timer' data-from='0' data-to='<?php echo $newly_moved_in; ?>'><?php echo $newly_moved_in; ?></div>
+										<div><?php echo $newly_moved_in; ?></div>
 
 									</div>
 
