@@ -232,7 +232,7 @@
 
 									<div class='counter-number'>
 
-										<div class='counter-timer' data-from='0' data-to='<?php echo $res_dir; ?>'><?php echo $res_dir; ?></div>
+										<div><?php echo $res_dir; ?></div>
 
 									</div>
 
