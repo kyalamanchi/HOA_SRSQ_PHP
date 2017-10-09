@@ -70,11 +70,13 @@
 
           	$monthly_total = $assessment_amount * $total_homes;
 
-          	$monthly_amount = pg_fetch_assoc(pg_query("SELECT sum(amount) current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
+          	echo $year."-".$month."-".$last;
 
-          	$monthly_amount = $monthly_amount['sum'];
+          	#$monthly_amount = pg_fetch_assoc(pg_query("SELECT sum(amount) current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
 
-          	echo $monthly_amount;
+          	#$monthly_amount = $monthly_amount['sum'];
+
+          	#echo $monthly_amount;
 
 		?>
 
