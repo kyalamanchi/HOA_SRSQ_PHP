@@ -2,6 +2,15 @@
 $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 if ( $connection){
     if ( $_GET['id'] == 1 ){
+        $transactionIDSQuery = "SELECT bank_transaction_id FROM CURRENT_PAYMENTS WHERE COMMUNITY_ID = 2 AND bank_transaction_id IS NOT NULL";
+        $transactionIDSQueryResult = pg_query($transactionIDSQuery);
+
+        $transactionsArray = array();
+        while ($row = pg_fetch_assoc($transactionIDSQueryResult)) {
+            $transactionsArray[$row['bank_transaction_id']] = 1;
+        }
+
+
     $url = 'https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'.$_GET['data1'].'+and+start_received_date+eq+\'2016-01-01\'+and+end_received_date+eq+\''.date('Y-m-d').'\'&page_size=100000';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -27,6 +36,15 @@ if ( $connection){
          $data['first_name'] = $transaction->billing_address->first_name;
          $data['last_name'] = $transaction->billing_address->last_name;
          $data['masked_account_number'] = $transaction->echeck->masked_account_number;
+
+         if ( $transactionsArray[$transaction->transaction_id] ){
+            $data['is_inserted'] = ' ';
+         }
+         else {
+            $data['is_inserted'] = '<button id="'.$transaction->transaction_id.'">Insert Row</button>';
+         }
+
+
          array_push($sendData, $data);
      }
     }
@@ -57,6 +75,15 @@ if ( $connection){
          $data['first_name'] = $transaction->billing_address->first_name;
          $data['last_name'] = $transaction->billing_address->last_name;
          $data['masked_account_number'] = $transaction->echeck->masked_account_number;
+
+         if ( $transactionsArray[$transaction->transaction_id] ){
+            $data['is_inserted'] = ' ';
+         }
+         else {
+            $data['is_inserted'] = '<button id="'.$transaction->transaction_id.'">Insert Row</button>';
+         }
+
+
          array_push($sendData, $data);
      }
 
@@ -88,6 +115,14 @@ if ( $connection){
          $data['first_name'] = $transaction->billing_address->first_name;
          $data['last_name'] = $transaction->billing_address->last_name;
          $data['masked_account_number'] = $transaction->echeck->masked_account_number;
+
+         if ( $transactionsArray[$transaction->transaction_id] ){
+            $data['is_inserted'] = ' ';
+         }
+         else {
+            $data['is_inserted'] = '<button id="'.$transaction->transaction_id.'">Insert Row</button>';
+         }
+
          array_push($sendData, $data);
      }
 
@@ -119,6 +154,14 @@ if ( $connection){
          $data['first_name'] = $transaction->billing_address->first_name;
          $data['last_name'] = $transaction->billing_address->last_name;
          $data['masked_account_number'] = $transaction->echeck->masked_account_number;
+
+         if ( $transactionsArray[$transaction->transaction_id] ){
+            $data['is_inserted'] = ' ';
+         }
+         else {
+            $data['is_inserted'] = '<button id="'.$transaction->transaction_id.'">Insert Row</button>';
+         }
+         
          array_push($sendData, $data);
      }
 

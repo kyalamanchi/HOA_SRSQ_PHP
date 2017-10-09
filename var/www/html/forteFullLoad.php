@@ -163,6 +163,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        dataSet2.push(data2[i]['is_inserted']);
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -198,8 +199,15 @@ $(document).ready(function() {
             { title: "Action",
             "width" : "30%" },
             { title: "Status",
-            "width" : "30%" }
-        ]
+            "width" : "30%" },
+            { title: "" }
+        ],
+        "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                    if ( aData[2] == " " )
+                    {
+                        $('td', nRow).css('background-color', '#cce0cc');
+                    }
+                }
     } );
 } );
 
