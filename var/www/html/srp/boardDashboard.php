@@ -29,6 +29,10 @@
 			$del_acc = 0;
           	$del = 3;
 
+          	$year = date('Y');
+          	$month = date('m');
+          	$last = date('t');
+
 			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
 
             $assessment_amount = $row['amount'];
@@ -63,6 +67,14 @@
 	              $del_acc++;
 
           	}
+
+          	$monthly_total = $assessment_amount * $total_homes;
+
+          	$monthly_amount = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
+
+          	$monthly_amount = $monthly_amount['sum'];
+
+          	$amount_received = ($monthly_amount / $monthly_total) * 100;
 
 		?>
 
@@ -145,11 +157,11 @@
 
 													<div class="progress-item">
 										
-														<div class="progress-title">Amount Received</div>
+														<div class="progress-title">Amount Received<br><br><br></div>
 														
 														<div class="progress">
 															
-															<div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" aria-valuenow="60" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+															<div class="progress-bar progress-bar-success progress-bar-striped progress-bar-animated" aria-valuenow="<?php echo $amount_received; ?>" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
 														
 														</div>
 
@@ -163,7 +175,7 @@
 
 													<div class="progress-item">
 										
-														<div class="progress-title">Members Paid</div>
+														<div class="progress-title">Members Paid<br><br><br></div>
 														
 														<div class="progress">
 															
