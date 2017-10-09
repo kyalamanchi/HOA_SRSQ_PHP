@@ -17,21 +17,20 @@ if ($hoaID){
 	}
 	else {
 		$fileContent = base64_encode($response);
-		echo $fileContent;
-		// $req = curl_init();
-		// curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
-		// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-		// if(curl_exec($req) === false)
-		// {
-  //   			$message =  "An error occured. Please try again.";
-  //   			echo $message."\n\n";
-		// 		exit(0);
-		// }
-		// else 
-		// {	
-		// 		$message = "File uploaded to South Data.";
-		// 		echo $message."\n\n";  		
-		// }		
+		$req = curl_init();
+		curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
+		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+		if(curl_exec($req) === false)
+		{
+    			$message =  "An error occured. Please try again.";
+    			echo $message."\n\n";
+				exit(0);
+		}
+		else 
+		{	
+				$message = "File uploaded to South Data.";
+				echo $message."\n\n";  		
+		}		
 	}
 }
 else {
