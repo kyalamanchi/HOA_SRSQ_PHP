@@ -47,6 +47,7 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 $result = curl_exec($ch);
 	if (curl_errno($ch)) {
     	echo 'Error:' . curl_error($ch);
+    	exit(0);
 	}
 	curl_close ($ch);
 	$result  = json_decode($result);
@@ -62,7 +63,7 @@ $result = curl_exec($ch);
   	ob_end_flush();
   	flush();
   	}	
-	}
+}
 }
 else {
 	$message =  "An error occured. Please try again.";
@@ -71,5 +72,4 @@ else {
 	flush();
 	exit(0);
 }
-
 ?>
