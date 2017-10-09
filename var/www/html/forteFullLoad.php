@@ -206,7 +206,7 @@ $(document).ready(function() {
             { title: "" }
         ],
         "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    if ( aData[2] == "Found" )
+                    if ( aData[8] == "Found" )
                     {
                         $('td', nRow).css('background-color', '#cce0cc');
                     }
