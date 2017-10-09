@@ -227,7 +227,7 @@ $(document).ready(function() {
             "width" : "25%" }
         ],
         "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    if ( aData[8] == "Found" )
+                    if ( aData[8] == "    " )
                     {
                         $('td', nRow).css('background-color', '#cce0cc');
                     }
