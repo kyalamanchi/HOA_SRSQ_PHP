@@ -153,11 +153,11 @@
 										$balance = $charges - $payments;
 															
 										if($balance <= 0)
-											echo "<div class='counter-number' style='color: green;'><small>$ </small>".$balance."</div>";
+											echo "<div class='counter-number' style='color: green;'>$ ".$balance."</div>";
 										else if($balance > 0 && $balance <= $assessment_amount)
-											echo "<div class='counter-number' style='color: orange;'><small>$ </small>".$balance."</div>";
+											echo "<div class='counter-number' style='color: orange;'>$ ".$balance."</div>";
 										else if($balance > $assessment_amount)
-											echo "<div class='counter-number' style='color: red;'><small>$ </small>".$balance."</div>";
+											echo "<div class='counter-number' style='color: red;'>$ ".$balance."</div>";
 
 									?>
 
