@@ -173,7 +173,7 @@
 
 									<div class='counter-number'>
 													
-										<a href='communityDeposits.php'>
+										<a href='boardOfDirectors.php'>
 
 											<?php 
 															
