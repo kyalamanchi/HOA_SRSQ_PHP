@@ -10,7 +10,7 @@
 
 		<?php
 
-			if(!$_SESSION['hoa_username'] || !$_COOKIE['hoa_username'])
+			if(!$_SESSION['hoa_username'] && !$_COOKIE['hoa_username'])
 				header("Location: logout.php");)
 				header("Location: logout.php");
 
