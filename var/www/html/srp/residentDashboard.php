@@ -151,7 +151,7 @@
 											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id")); 
 
 											if($documents > 0)
-												echo "<a style='color: green;' href='myDocuments.php'>$documents</a>";
+												echo "<a href='myDocuments.php'>$documents</a>";
 											else
 												echo $documents;
 
