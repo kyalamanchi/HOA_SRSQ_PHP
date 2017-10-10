@@ -173,7 +173,17 @@
 													
 										<?php 
 															
-											$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id")); 
+											$result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id"); 
+
+											while($row = pg_fetch_assoc($result))
+											{
+
+												$status = $row['inspection_status'];
+
+												if($status != 2 && $status != 6 && $status != 9 && $status != 13 && $status != 14)
+													$inspection_notices++;
+
+											}
 
 											if($inspection_notices > 0)
 												echo "<a style='color: orange;' href='inspectionNotices.php'>$inspection_notices</a>";
