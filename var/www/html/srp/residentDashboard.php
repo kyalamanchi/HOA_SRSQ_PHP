@@ -64,6 +64,25 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
+							
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Home</h1>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+				</section>
+
 				<div class='modal fade' id='login_modal'>
 					
 					<div class='modal-dialog'>
@@ -110,7 +129,7 @@
 				</div>
 
 				<!-- Counters -->
-				<section class='module module-gray p-b-0'>
+				<section class='module p-b-0'>
 
 					<div class='container'>
 
