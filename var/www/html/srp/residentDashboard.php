@@ -180,7 +180,7 @@
 											while($row = pg_fetch_assoc($result))
 											{
 
-												$status = $row['inspection_status'];
+												$status = $row['inspection_status_id'];
 
 												if($status != 2 && $status != 6 && $status != 9 && $status != 13 && $status != 14)
 													$inspection_notices++;
