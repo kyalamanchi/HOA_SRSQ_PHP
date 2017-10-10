@@ -24,6 +24,9 @@
 			$user_id = $_SESSION['hoa_user_id'];
 			$today = date('Y-m-d');
 
+			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+            $assessment_amount = $row['amount'];
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -138,24 +141,25 @@
 							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
 
 								<div class='counter h6'>
-
-									<div class='counter-number'>
 													
-										<?php 
+									<?php 
 
-											$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
-											$charges = $row['sum'];
+										$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+										$charges = $row['sum'];
 															
-											$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1"));
-											$payments = $row['sum'];
+										$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1"));
+										$payments = $row['sum'];
 
-											$balance = $charges - $payments;
+										$balance = $charges - $payments;
 															
-											echo "$ ".$balance; 
+										if($balance <= 0)
+											echo "<div class='counter-number' style='color: green;'><small>$ </small>".$balance."</div>";
+										else if($balance > 0 && $balance <= $assessment_amount)
+											echo "<div class='counter-number' style='color: orange;'><small>$ </small>".$balance."</div>";
+										else if($balance > $assessment_amount)
+											echo "<div class='counter-number' style='color: red;'><small>$ </small>".$balance."</div>";
 
-										?>
-														
-									</div>
+									?>
 
 									<div class='counter-title'>Account Balance</div>
 
