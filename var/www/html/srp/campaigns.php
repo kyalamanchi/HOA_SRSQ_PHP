@@ -176,7 +176,7 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<table id='example1' class='table table-striped'  style='color: black;'>
+							<table id='example2' class='table table-striped'  style='color: black;'>
 
 								<thead>
 									
@@ -262,6 +262,8 @@
 	      	$(function () {
 	        	
 	        	$("#example1").DataTable({ "pageLength": 50, "order": [[ 0, "asc"]] });
+
+	        	$("#example2").DataTable({ "pageLength": 50, "order": [[ 0, "asc"]] });
 
 	      	});
 

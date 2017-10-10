@@ -294,6 +294,31 @@
 
 															<?php 
 																
+																$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
+
+																if ($late_payments == 0) 
+																	echo $late_payments;
+																else
+																	echo "<a href='latePayments.php' style='color: orange;'>$late_payments</a>";
+
+															?>
+
+														</div>
+
+														<div class='counter-title'>Late Payments</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<?php 
+																
 																$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
 
 																if ($parking_tags > 0) 
