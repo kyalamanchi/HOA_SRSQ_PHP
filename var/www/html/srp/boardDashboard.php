@@ -116,10 +116,28 @@
 
 			<!-- Header-->
 			<?php include "boardHeader.php"; ?>
-			<!-- Header end-->
 
 			<!-- Wrapper-->
 			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
+							
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Home</h1>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+				</section>
 
 				<!-- Tabs-->
 				<section class="module">
