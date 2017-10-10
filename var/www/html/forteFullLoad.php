@@ -59,6 +59,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
+        dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -93,6 +99,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+         if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
+        dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -128,6 +140,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+         if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
+        dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -163,6 +181,12 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        if  ( data2[i]['is_inserted'] == "Found" ){
+            dataSet2.push("    ");
+        }
+        else {
+        dataSet2.push(data2[i]['is_inserted']);
+        }
         dataSet.push(dataSet2);
     }
     if (dataSet.length > 0){
@@ -194,12 +218,20 @@ $(document).ready(function() {
             { title: "Date ",
             "width" : "15%" },
             { title: "Entered by ",
-            "width" : "25%" },
+            "width" : "15%" },
             { title: "Action",
-            "width" : "30%" },
+            "width" : "7%" },
             { title: "Status",
-            "width" : "30%" }
-        ]
+            "width" : "15%" },
+            { title: "           ",
+            "width" : "25%" }
+        ],
+        "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
+                    if ( aData[8] == "    " )
+                    {
+                        $('td', nRow).css('background-color', '#cce0cc');
+                    }
+                }
     } );
 } );
 
@@ -210,9 +242,6 @@ function hidePleaseWait() {
 $(window).ready(function() {
     $('#hoaid').closest('label').click(function() { 
         changeOptions3(1);
-    });
-    $('#flname').closest('label').click(function() { 
-        changeOptions3(2);
     });
     $('#fname').closest('label').click(function() { 
         changeOptions3(3);
@@ -234,9 +263,6 @@ $(window).ready(function() {
     <div class="btn-group" data-toggle="buttons" > 
     <label class="btn btn-default">
         <input id="hoaid" type="radio"> HOA ID
-    </label> 
-    <label class="btn btn-default"> 
-        <input id="flname" type="radio"> First name & Last name
     </label>
      <label class="btn btn-default"> 
         <input id="fname" type="radio"> First Name
