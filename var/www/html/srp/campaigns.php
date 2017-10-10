@@ -72,7 +72,94 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Community Campaigns</h1>
+								<h1 class="h5">Community Campaigns - Mailchimp</h1>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+				</section>
+
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container-fluid">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table table-striped'  style='color: black;'>
+
+								<thead>
+									
+									<th>Send Time</th>
+									<th>Campaign Title</th>
+									<th>Emails Sent</th>
+									<th>Opens</th>
+									<th>Clicks</th>
+
+								</thead>
+
+								<tbody>
+									
+									<?php
+
+										if($community_id == 1)
+										{
+
+											$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
+											curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+
+										}
+										else if($community_id == 2)
+										{
+
+											$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
+											curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+
+										}
+			            				
+			            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+			            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			            
+			            				$result = curl_exec($ch);
+			            				$json_decode = json_decode($result,TRUE);
+
+			            				foreach ($json_decode['campaigns'] as $key ) 
+			            				{
+
+			            					$send_time = $key['send_time'];
+											
+											if($send_time != '')
+												$send_time = date('m-d-Y', strtotime($send_time));
+
+			              					echo "<tr><td>".$send_time."</td><td>".$key['settings']['title']."</td><td>".$key['emails_sent']."</td><td>".$key['report_summary']['opens']."</td><td>".$key['report_summary']['clicks']."</td></tr>";
+
+			            				}
+
+									?>
+
+								</tbody>
+								
+							</table>
+
+						</div>
+
+					</div>
+
+				</section>
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
+							
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Community Campaigns - Mandrill</h1>
 							
 							</div>
 						
