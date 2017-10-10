@@ -64,8 +64,6 @@
 					$community_id = $row['community_id'];
 					$otp = "";
 
-					setcookie('hoa_username', $name, 6000);
-
 					$row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE member_id=$member_id"));
 					$hoa_id = $row['hoa_id'];
 
