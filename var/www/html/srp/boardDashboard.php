@@ -294,6 +294,35 @@
 
 															<?php 
 																
+																$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
+
+																$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
+
+																$inspection_notices = $inspection_notices - $closed;
+
+																if ($inspection_notices == 0) 
+																	echo $inspection_notices;
+																else
+																	echo "<a href='inspectionNotices.php' style='color: orange;'>$inspection_notices</a>";
+
+															?>
+
+														</div>
+
+														<div class='counter-title'>Inspection Notices</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<?php 
+																
 																$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
 
 																if ($late_payments == 0) 
