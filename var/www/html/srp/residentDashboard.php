@@ -141,6 +141,34 @@
 
 									<div class='counter-number'>
 													
+										<?php 
+
+											$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+											$charges = $row['sum'];
+															
+											$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1"));
+											$payments = $row['sum'];
+
+											$balance = $charges - $payments;
+															
+											echo $balance; 
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Account Balance</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
 										<a href='communityDeposits.php'>
 
 											<?php 
