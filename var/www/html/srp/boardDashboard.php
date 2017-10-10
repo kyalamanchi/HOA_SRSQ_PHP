@@ -76,6 +76,8 @@
 
           	$amount_received = ($monthly_amount / $monthly_total) * 100;
 
+          	$members_paid = pg_num_rows(pg_query("SELECT distinct home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
+
 		?>
 
 		<meta charset="UTF-8">
@@ -179,7 +181,7 @@
 														
 														<div class="progress">
 															
-															<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="45" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+															<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="<?php echo $members_paid; ?>" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
 														
 														</div>
 
