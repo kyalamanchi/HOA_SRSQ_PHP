@@ -151,7 +151,7 @@
 
 											$balance = $charges - $payments;
 															
-											echo $balance; 
+											echo "$ ".$balance; 
 
 										?>
 														
