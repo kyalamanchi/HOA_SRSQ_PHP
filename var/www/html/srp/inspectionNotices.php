@@ -133,7 +133,7 @@
 			                          				$home_id = $row['home_id'];
 			                          				$hoa_id = $row['hoa_id'];
 			                          				$description = $row['description'];
-			                          				$location_id = $row['location_id'];
+			                          				$location = $row['location_id'];
 			                          				$inspection_date = $row['inspection_date'];
 			                          				$inspection_category = $row['inspection_category_id'];
 			                          				$item = $row['item'];
@@ -148,6 +148,15 @@
 
 			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 			                          				$living_in = $row1['address1'];
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+			                          				$location = $row1['location'];
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
+			                          				$status = $row1['inspection_status'];
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$inspection_category"));
+			                          				$inspection_category = $row1['name'];
 
 			                          				echo "<tr><td>$inspection_date</td><td>$status</td><td>$name ($hoa_id)</td><td>$living_in ($home_id)</td><td>$location</td><td>$description</td><td>$inspection_category</td><td>$item</td></tr>";
 
@@ -170,13 +179,22 @@
 			                          			{
 
 			                          				$description = $row['description'];
-			                          				$location_id = $row['location_id'];
+			                          				$location = $row['location_id'];
 			                          				$inspection_date = $row['inspection_date'];
 			                          				$inspection_category = $row['inspection_category_id'];
 			                          				$item = $row['item'];
 
 			                          				if($inspection_date != '')
 			                          					$inspection_date = date('m-d-Y', strtotime($inspection_date));
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+			                          				$location = $row1['location'];
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
+			                          				$status = $row1['inspection_status'];
+
+			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$inspection_category"));
+			                          				$inspection_category = $row1['name'];
 
 			                          				echo "<tr><td>$inspection_date</td><td>$status</td><td>$location</td><td>$description</td><td>$inspection_category</td><td>$item</td></tr>";
 
