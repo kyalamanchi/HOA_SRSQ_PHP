@@ -177,6 +177,30 @@
 
 											<?php 
 															
+												echo pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE community_id=$community_id AND term_end_date>='$today'")); 
+
+											?>
+
+										</a>
+														
+									</div>
+
+									<div class='counter-title'>Board of Directors</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<a href='communityDeposits.php'>
+
+											<?php 
+															
 												echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
 
 											?>
