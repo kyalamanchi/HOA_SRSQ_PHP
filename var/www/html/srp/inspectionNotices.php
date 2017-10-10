@@ -88,7 +88,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container">
+					<div>
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
