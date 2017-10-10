@@ -78,6 +78,8 @@
 
           	$members_paid = pg_num_rows(pg_query("SELECT distinct home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
 
+          	$members_paid = ($members_paid / $total_homes) * 100;
+
 		?>
 
 		<meta charset="UTF-8">
