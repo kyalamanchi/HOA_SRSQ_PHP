@@ -173,6 +173,31 @@
 													
 										<?php 
 															
+											$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id")); 
+
+											if($inspection_notices > 0)
+												echo "<a style='color: orange;' href='inspectionNotices.php'>$inspection_notices</a>";
+											else
+												echo $inspection_notices;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Inspection Notices</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
 											$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
 
 											if($parking_tags > 0)
