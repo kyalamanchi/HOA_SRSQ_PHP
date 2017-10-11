@@ -335,7 +335,7 @@
 													
 										<?php 
 															
-											$resident_directory = pg_num_rows(pg_query("SELECT count(*) FROM member_info WHERE community_id=$community_id")); 
+											$resident_directory = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id")); 
 
 											if($resident_directory > 0)
 												echo "<a href='residentDirectory.php'>$resident_directory</a>";
