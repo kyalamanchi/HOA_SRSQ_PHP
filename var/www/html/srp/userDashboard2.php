@@ -212,7 +212,7 @@
 															else
 															{
 
-																$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$hoa_id"));
+																$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
 
 																$mailing_address = $row['address1'];
 																$mailing_city = $row['city_id'];
