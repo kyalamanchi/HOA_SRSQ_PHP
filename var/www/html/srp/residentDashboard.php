@@ -24,6 +24,9 @@
 			$user_id = $_SESSION['hoa_user_id'];
 			$today = date('Y-m-d');
 
+			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+            $assessment_amount = $row['amount'];
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -63,6 +66,25 @@
 
 			<!-- Wrapper-->
 			<div class='wrapper'>
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
+							
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Home</h1>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+				</section>
 
 				<div class='modal fade' id='login_modal'>
 					
@@ -110,11 +132,64 @@
 				</div>
 
 				<!-- Counters -->
-				<section class='module module-gray p-b-0'>
+				<section class='module p-b-0'>
 
 					<div class='container'>
 
 						<div class='row'>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+													
+									<?php 
+
+										$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+										$charges = $row['sum'];
+															
+										$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1"));
+										$payments = $row['sum'];
+
+										$balance = $charges - $payments;
+															
+										if($balance <= 0)
+											echo "<div class='counter-number' style='color: green;'>$ ".$balance."</div>";
+										else if($balance > 0 && $balance <= $assessment_amount)
+											echo "<div class='counter-number' style='color: orange;'>$ ".$balance."</div>";
+										else if($balance > $assessment_amount)
+											echo "<div class='counter-number' style='color: red;'>$ ".$balance."</div>";
+
+									?>
+
+									<div class='counter-title'>Account Balance</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<a href='boardOfDirectors.php'>
+
+											<?php 
+															
+												echo pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE community_id=$community_id")); 
+
+											?>
+
+										</a>
+														
+									</div>
+
+									<div class='counter-title'>Board of Directors</div>
+
+								</div>
+
+							</div>
 
 							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
 
@@ -151,7 +226,7 @@
 											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id")); 
 
 											if($documents > 0)
-												echo "<a style='color: green;' href='myDocuments.php'>$documents</a>";
+												echo "<a href='myDocuments.php'>$documents</a>";
 											else
 												echo $documents;
 
@@ -160,6 +235,43 @@
 									</div>
 
 									<div class='counter-title'>My Documents</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$inspection_notices = 0;
+
+											$result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id"); 
+
+											while($row = pg_fetch_assoc($result))
+											{
+
+												$status = $row['inspection_status_id'];
+
+												if($status != 2 && $status != 6 && $status != 9 && $status != 13 && $status != 14)
+													$inspection_notices++;
+
+											}
+
+											if($inspection_notices > 0)
+												echo "<a style='color: orange;' href='inspectionNotices.php'>$inspection_notices</a>";
+											else
+												echo $inspection_notices;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Inspection Notices</div>
 
 								</div>
 
@@ -210,6 +322,31 @@
 									</div>
 
 									<div class='counter-title'>Reminders</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$resident_directory = pg_num_rows(pg_query("SELECT * FROM member_info WHERE community_id=$community_id")); 
+
+											if($resident_directory > 0)
+												echo "<a href='residentDirectory.php'>$resident_directory</a>";
+											else
+												echo $resident_directory;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Resident Directory</div>
 
 								</div>
 

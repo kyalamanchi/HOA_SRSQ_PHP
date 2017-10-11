@@ -1,7 +1,10 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+	ini_set("session.save_path","/var/www/html/session/");
+	session_start();
+
 ?>
+
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -13,16 +16,15 @@
 			if(!$_SESSION['hoa_username'])
 				header("Location: logout.php");
 
-			if($_SESSION['hoa_mode'] == 1)
-				$_SESSION['hoa_mode'] = 2;
-
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 			$community_id = $_SESSION['hoa_community_id'];
-			$hoa_id = $_SESSION['hoa_hoa_id'];
-			$home_id = $_SESSION['hoa_home_id'];
-			$user_id = $_SESSION['hoa_user_id'];
+			$mode = $_SESSION['hoa_mode'];
+
 			$today = date('Y-m-d');
+
+			if($mode == 2)
+				header('Location: residentDashboard.php');
 
 		?>
 
@@ -31,7 +33,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; ?> | Resident Dashboard</title>
+		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -50,19 +52,19 @@
 		<link href='assets/css/animate.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href='assets/css/template.min.css' rel='stylesheet'>
+		<!-- Datatable -->
+		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
 	</head>
 
 	<body>
 
-		<!-- Layout-->
 		<div class='layout'>
 
 			<!-- Header-->
-			<?php include "residentHeader.php"; ?>
+			<?php include "boardHeader.php"; ?>
 
-			<!-- Wrapper-->
-			<div class='wrapper'>
+			<div class="wrapper">
 
 				<!-- Page Header -->
 				<section class="module-page-title">
@@ -73,7 +75,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">My Documents</h1>
+								<h1 class="h5">User Dashboard</h1>
 							
 							</div>
 						
@@ -83,27 +85,72 @@
 				
 				</section>
 
-				<!-- Counters -->
-				<section class='module module-gray p-b-0'>
-
-					<div class='container'>
-
+				<!-- Content -->
+				<section class="module">
 						
+					<div class="container">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table table-striped'  style='color: black;'>
+
+								<thead>
+									
+									<th>Name (HOA ID)</th>
+									<th>Living In (Home ID)</th>
+									<th>Role</th>
+
+								</thead>
+
+								<tbody>
+									
+									<?php
+
+										$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+										while($row = pg_fetch_assoc($result))
+										{
+
+											$home_id = $row['home_id'];
+											$address = $row['address1'];
+											$living_status = $row['living_status'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
+
+											$name = $row1['firstname'];
+											$name .= " ";
+											$name .= $row1['lastname'];
+											$hoa_id = $row1['hoa_id'];
+
+											if($living_status == 't')
+												$living_status = "Owner";
+											else
+												$living_status = "Tenant";
+
+	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$address ($home_id)</a></td><td>$living_status</td></tr>";
+
+										}
+
+									?>
+
+								</tbody>
+								
+							</table>
+
+						</div>
 
 					</div>
 
 				</section>
 
 				<!-- Footer-->
-				<?php include "footer.php"; ?>
+				<?php include 'footer.php'; ?>
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
 			</div>
-			<!-- Wrapper end-->
 
 		</div>
-		<!-- Layout end-->
 
 		<!-- Scripts-->
 		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
@@ -112,6 +159,19 @@
 		<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
+		<!-- Datatable -->
+		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+
+		<script>
+      	
+	      	$(function () {
+	        	
+	        	$("#example1").DataTable({ "pageLength": 50 });
+
+	      	});
+
+    	</script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->

@@ -1,9 +1,12 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+
+	ini_set("session.save_path","/var/www/html/session/");
+	session_start();
+
 ?>
 
 <!DOCTYPE html>
+
 <html lang="en">
 	<head>
 		
@@ -76,6 +79,10 @@
 
           	$amount_received = ($monthly_amount / $monthly_total) * 100;
 
+          	$members_paid = pg_num_rows(pg_query("SELECT distinct home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
+
+          	$members_paid = ($members_paid / $total_homes) * 100;
+
 		?>
 
 		<meta charset="UTF-8">
@@ -112,10 +119,28 @@
 
 			<!-- Header-->
 			<?php include "boardHeader.php"; ?>
-			<!-- Header end-->
 
 			<!-- Wrapper-->
 			<div class="wrapper">
+
+				<!-- Page Header -->
+				<section class="module-page-title">
+					
+					<div class="container">
+							
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5">Home</h1>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+				</section>
 
 				<!-- Tabs-->
 				<section class="module">
@@ -124,7 +149,7 @@
 
 						<div class="row">
 
-							<div class="col-md-12">
+							<div class="table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								
 								<!-- Tabs-->
 								<ul class="nav nav-tabs">
@@ -179,7 +204,7 @@
 														
 														<div class="progress">
 															
-															<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="45" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+															<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="<?php echo $members_paid; ?>" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
 														
 														</div>
 
@@ -259,6 +284,60 @@
 														</div>
 
 														<div class='counter-title'>Delinquent Accounts</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<?php 
+																
+																$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
+
+																$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
+
+																$inspection_notices = $inspection_notices - $closed;
+
+																if ($inspection_notices == 0) 
+																	echo $inspection_notices;
+																else
+																	echo "<a href='inspectionNotices.php' style='color: orange;'>$inspection_notices</a>";
+
+															?>
+
+														</div>
+
+														<div class='counter-title'>Inspection Notices</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<?php 
+																
+																$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
+
+																if ($late_payments == 0) 
+																	echo $late_payments;
+																else
+																	echo "<a href='latePayments.php' style='color: orange;'>$late_payments</a>";
+
+															?>
+
+														</div>
+
+														<div class='counter-title'>Late Payments</div>
 
 													</div>
 
