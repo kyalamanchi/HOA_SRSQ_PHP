@@ -296,7 +296,7 @@
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 															$home = $row['address1'];
 
-															echo "<tr><td>$name</td><td>$home</td><td>$role</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
+															echo "<tr><td>$name</td><td>$home</td><td>$role_type</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
 
 														?>
 														
