@@ -68,18 +68,18 @@
 			<!-- Header-->
 			<?php include "boardHeader.php"; ?>
 
-			<div class="wrapper">
+			<div class='wrapper'>
 
 				<!-- Page Header -->
-				<section class="module-page-title">
+				<section class='module-page-title'>
 					
-					<div class="container">
+					<div class='container'>
 							
-						<div class="row-page-title">
+						<div class='row-page-title'>
 							
-							<div class="page-title-captions">
+							<div class='page-title-captions'>
 								
-								<h1 class="h5">User Dashboard - <?php echo $name; ?></h1>
+								<h1 class='h5'>User Dashboard - <?php echo $name; ?></h1>
 							
 							</div>
 						
@@ -90,13 +90,193 @@
 				</section>
 
 				<!-- Content -->
-				<section class="module">
+				<section class='module'>
 						
-					<div class="container">
+					<div class='container'>
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							
+							<div class='col-md-12'>
+								
+								<!-- Tabs-->
+								<ul class='nav nav-tabs'>
+									
+									<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Owner &amp; Home</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-2' data-toggle='tab'>Account Statement</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-3' data-toggle='tab'>Agreements</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-4' data-toggle='tab'>Communication</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-5' data-toggle='tab'>Documents</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-6' data-toggle='tab'>Inspections</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-7' data-toggle='tab'>Payments</a></li>
+									<li class='nav-item'><a class='nav-link' href='#tab-8' data-toggle='tab'>Statements Mailed</a></li>
+
+								</ul>
+
+								<div class='tab-content'>
+									
+									<div class='tab-pane in active' id='tab-1'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Owner &amp; Home Info</h4>
+								
+										</div>
+								
+										<div class='container'>
+
+											<div class='row'>
+
+
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-2'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Account Statement</h4>
+								
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-3'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Agreements</h4>
+								
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-4'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Communication</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-5'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Documents</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-6'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Inspections</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-7'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Payments</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+									<div class='tab-pane' id='tab-8'>
+										
+										<div class='special-heading m-b-40'>
+									
+											<h4>Statements Mailed</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
 
 						</div>
 
