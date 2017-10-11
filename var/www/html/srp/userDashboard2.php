@@ -28,6 +28,7 @@
 
 			$hoa_id = $_GET['hoa_id'];
 			$home_id = $_GET['home_id'];
+			$name = $_GET['name'];
 
 		?>
 
@@ -78,7 +79,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">User Dashboard - <?php echo $hoa_id." - ".$home_id; ?></h1>
+								<h1 class="h5">User Dashboard - <?php echo $name; ?></h1>
 							
 							</div>
 						
