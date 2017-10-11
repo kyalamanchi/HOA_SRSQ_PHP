@@ -170,7 +170,7 @@
 												$email = "NOT PERMITTED";
 
 											if($mailing_address_visibility == 'NO')
-												$email = "NOT PERMITTED";
+												$mailing_address = "NOT PERMITTED";
 											else
 											{
 
@@ -180,7 +180,7 @@
 												$mailing_address .= $mailing_state;
 												$mailing_address .= " ";
 												$mailing_address .= $mailing_zip;
-												
+
 											}
 
 											echo "<tr><td>$name";
