@@ -177,7 +177,7 @@
 
 											<?php 
 															
-												echo pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE community_id=$community_id AND (term_end_date='' OR term_end_date>='$today')")); 
+												echo pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE community_id=$community_id")); 
 
 											?>
 
