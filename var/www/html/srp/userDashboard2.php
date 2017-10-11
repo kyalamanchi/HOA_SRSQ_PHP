@@ -222,7 +222,43 @@
 
 											<div class='row'>
 
-												
+												<table class='table'>
+													
+													<thead>
+														
+														<th>Name</th>
+														<th>HOA ID</th>
+														<th>Resident Since</th>
+														<th>Role</th>
+														<th>Email</th>
+														<th>Phone</th>
+
+													</thead>
+
+													<tbody>
+
+														<?php 
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+
+															$name = $row['firstname'];
+															$name .= " ";
+															$name .= $row['lastname'];
+															$resident_since = $row['valid_from'];
+															$role = $row['role_type_id'];
+															$email = $row['email'];
+															$cell_no = $row['cell_no'];
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
+															$role = $row['name'];
+
+															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td></tr>";
+
+														?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
