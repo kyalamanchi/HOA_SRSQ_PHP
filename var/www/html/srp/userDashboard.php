@@ -88,7 +88,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -96,10 +96,8 @@
 
 								<thead>
 									
-									<th>HOA ID</th>
-									<th>Name</th>
-									<th>Home ID</th>
-									<th>Living In</th>
+									<th>Name (HOA ID)</th>
+									<th>Living In (Home ID)</th>
 
 								</thead>
 
@@ -123,7 +121,7 @@
 											$name .= $row1['lastname'];
 											$hoa_id = $row1['hoa_id'];
 
-	                          				echo"<tr><td>$hoa_id</td><td>$name</td><td>$home_id</td><td>$address</td></tr>";
+	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id'>$address ($home_id)</a></td></tr>";
 
 										}
 
