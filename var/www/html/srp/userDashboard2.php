@@ -158,7 +158,23 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Agreements</h4>
+											<h4>Pending Agreements</h4>
+								
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+										<div class='special-heading m-b-40'>
+									
+											<h4>Signed Agreements</h4>
 								
 										</div>
 
@@ -178,7 +194,7 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Communication</h4>
+											<h4>Communication Info</h4>
 						
 										</div>
 
@@ -198,7 +214,7 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Documents</h4>
+											<h4>User Documents</h4>
 						
 										</div>
 
@@ -218,7 +234,7 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Inspections</h4>
+											<h4>Inspection Notices</h4>
 						
 										</div>
 
