@@ -64,160 +64,31 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				<div class='modal fade' id='login_modal'>
+				<!-- Page Header -->
+				<section class="module-page-title">
 					
-					<div class='modal-dialog'>
-						
-						<div class='modal-content'>
+					<div class="container">
 							
-							<form method='POST' action='https://hoaboardtime.com/srp/login.php' role='form'>
-
-							<div class='modal-header'>
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
 								
-								<h5 class='modal-title' style='color: green;'>Log In</h5>
-								<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+								<h1 class="h5">My Documents</h1>
 							
 							</div>
-												
-							<div class='modal-body'>
-								
-								<p>
-
-									<input class='form-control' type='email' name='srp_login_email' id='srp_login_email' placeholder='Email' required>
-
-								</p>
-								
-								<p>
-
-									<input class='form-control' type='password' name='srp_login_password' id='srp_login_password' placeholder='Password' required>
-
-								</p>
-							
-							</div>
-							
-							<div class='modal-footer'>
-													
-								<button class='btn btn-round btn-success btn-sm' type='submit'>Log In</button>
-							
-							</div>
-
-							</form>
 						
 						</div>
-					
+						
 					</div>
 				
-				</div>
+				</section>
 
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
 
 					<div class='container'>
 
-						<div class='row'>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-													
-										<a href='communityDeposits.php'>
-
-											<?php 
-															
-												echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
-
-											?>
-
-										</a>
-														
-									</div>
-
-									<div class='counter-title'>Community Deposits</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-													
-										<?php 
-															
-											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id")); 
-
-											if($documents > 0)
-												echo "<a style='color: green;' href='myDocuments.php'>$documents</a>";
-											else
-												echo $documents;
-
-										?>
-														
-									</div>
-
-									<div class='counter-title'>My Documents</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-													
-										<?php 
-															
-											$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND hoa_id=$hoa_id AND type=1")); 
-
-											if($parking_tags > 0)
-												echo "<a style='color: green;' href='parkingTags.php'>$parking_tags</a>";
-											else
-												echo $parking_tags;
-
-										?>
-														
-									</div>
-
-									<div class='counter-title'>Parking Tags</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-													
-										<?php 
-															
-											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND due_date>='$today'")); 
-
-											if($reminders > 0)
-												echo "<a style='color: orange;' href='viewReminders.php'>$reminders</a>";
-											else
-												echo $reminders;
-
-										?>
-														
-									</div>
-
-									<div class='counter-title'>Reminders</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<br><br>
+						
 
 					</div>
 
