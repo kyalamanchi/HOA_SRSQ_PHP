@@ -118,7 +118,7 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Owner &amp; Home Info</h4>
+											<h4>Owner Details</h4>
 								
 										</div>
 								
@@ -157,6 +157,88 @@
 															$role = $row['name'];
 
 															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td></tr>";
+
+														?>
+														
+													</tbody>
+
+												</table>
+
+											</div>
+
+										</div>
+
+										<div class='special-heading m-b-40'>
+									
+											<h4>Home Details</h4>
+								
+										</div>
+								
+										<div class='container'>
+
+											<div class='row'>
+
+												<table class='table' style='color: black;'>
+													
+													<thead>
+														
+														<th>Living In</th>
+														<th>Home ID</th>
+														<th>Living Status</th>
+														<th>Lot</th>
+														<th>Mailing Address</th>
+
+													</thead>
+
+													<tbody>
+
+														<?php 
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+
+															$living_in = $row['address1'];
+															$living_status = $row['living_status'];
+															$lot = $row['lot'];
+
+															if($living_status == 't')
+															{
+
+																$mailing_address = $row['address1'];
+																$mailing_city = $row['city_id'];
+																$mailing_state = $row['state_id'];
+																$mailing_zip = $row['zip_id'];
+
+															}
+															else
+															{
+
+																$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$hoa_id"));
+
+																$mailing_address = $row['address1'];
+																$mailing_city = $row['city_id'];
+																$mailing_state = $row['state_id'];
+																$mailing_zip = $row['zip_id'];
+
+															}
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
+															$mailing_city = $row['city_name'];
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
+															$mailing_state = $row['state_code'];
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
+															$mailing_zip = $row['zip_code'];
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
+															$role = $row['name'];
+
+															if($living_status == 't')
+																$living_status = "TRUE";
+															else
+																$living_status = "FALSE";
+
+															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td></tr>";
 
 														?>
 														
