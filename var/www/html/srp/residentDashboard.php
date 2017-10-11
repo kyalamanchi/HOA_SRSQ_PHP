@@ -327,6 +327,31 @@
 
 							</div>
 
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$resident_directory = pg_num_rows(pg_query("SELECT count(*) FROM member_info WHERE community_id=$community_id")); 
+
+											if($resident_directory > 0)
+												echo "<a href='residentDirectory.php'>$resident_directory</a>";
+											else
+												echo $resident_directory;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Resident Directory</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 						<br><br>
