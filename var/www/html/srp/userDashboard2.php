@@ -277,7 +277,7 @@
 
 														<?php 
 
-															$row = pg_fetch_assoc(pg_query("SELECT * FROM persons WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id"));
 
 															$name = $row['fname'];
 															$name .= " ";
