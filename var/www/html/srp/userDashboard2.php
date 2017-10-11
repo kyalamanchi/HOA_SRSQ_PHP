@@ -170,7 +170,7 @@
 
 										<div class='special-heading m-b-40'>
 									
-											<h4>Home Details</h4>
+											<h4><br><br>Home Details</h4>
 								
 										</div>
 								
