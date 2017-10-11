@@ -98,6 +98,7 @@
 									
 									<th>Name (HOA ID)</th>
 									<th>Living In (Home ID)</th>
+									<th>Role</th>
 
 								</thead>
 
@@ -112,7 +113,7 @@
 
 											$home_id = $row['home_id'];
 											$address = $row['address1'];
-											#$living_status = $row['living_status'];
+											$living_status = $row['living_status'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
 
@@ -121,7 +122,12 @@
 											$name .= $row1['lastname'];
 											$hoa_id = $row1['hoa_id'];
 
-	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id'>$address ($home_id)</a></td></tr>";
+											if($living_status == 't')
+												$living_status = "Owner";
+											else
+												$living_status = "Tenant";
+
+	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id'>$address ($home_id)</a></td><td>$living_status</td></tr>";
 
 										}
 
