@@ -186,12 +186,12 @@
 											echo "<tr><td>$name";
 
 											if($mode == 1)
-												echo "($hoa_id)";
+												echo " ($hoa_id)";
 
 											echo "</td><td>$living_in";
 
 											if($mode == 1)
-												echo "($home_id)";
+												echo " ($home_id)";
 
 											echo "</td><td>$mailing_address</td><td>$email</td><td>$cell_no</td></tr>";
 
