@@ -239,7 +239,7 @@ function updateName(){
       <br>
        <div class="row-fluid" style="float: left;">
       <h4>Category</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="getSubCategory();">
       <?php
         echo '<option></option>';
         foreach ($inspectionCategoryArray as $category) {
@@ -249,7 +249,7 @@ function updateName(){
       </select>
     </div>
 
-    <div class="row-fluid" style="float: left;">
+    <div class="row-fluid" style="float: left; padding-left: 10px;">
       <h4>Sub Category</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="">
       <?php
