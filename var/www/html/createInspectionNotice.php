@@ -54,6 +54,9 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+[hidden] {
+  display: none !important;
+}
 </style>
 <script type="text/javascript">
 function showPleaseWait() {
