@@ -132,6 +132,31 @@ function sendData(){
       buttons: ["Send Later","Send Now"],
     });
 
+    var hoaID = $("#hoaID").find("option:selected").text();
+    var category = $("#inspectionCategory").find("option:selected").text();
+    var subCategory = $("#documentType").find("option:selected").text();
+    var location  = $("#locations").find("option:selected").text();
+    var legalDocument = $("#legalDocument").find("option:selected").text();
+    var description = document.getElementById("inspectionDescription").value;
+    var noticeType = $("#noticeType").find("option:selected").text();
+    var status = $("#noticeStatus").find("option:selected").text();
+    var cDate = document.getElementById("ComplianceDate").value;
+    var file = document.getElementById("fileInput").files[0];
+    if ( file ){
+      var reader = new FileReader();
+      reader.readAsText(file, "UTF-8");
+      reader.onload = function (evt) {
+         alert(evt.target.result);
+    }
+    reader.onerror = function (evt) {
+        // document.getElementById("fileContents").innerHTML = "error reading file";
+        alert("Error");
+    }
+
+    }
+
+
+
   // var documentCategory = document.getElementById('documentCategory').value;
   // if ( documentCategory == ""){
   //   alert("One or more required fields empty");
@@ -269,7 +294,7 @@ function getSubCategory(){
       <br>
       <div class="row-fluid"n style="float: left;">
       <h4>Legal Document</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="locations">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="legalDocument">
         <option></option>
         <?php
         $query = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE COMMUNITY_ID = 2";
