@@ -223,7 +223,7 @@ function getSubCategory(){
     if (request.readyState == XMLHttpRequest.DONE){
       hidePleaseWait();
       $("#documentType").append('<option selected="true" disabled="disabled"></option>');
-      document.getElementById("documentType").options[0].disabled = false;
+      document.getElementById("documentType").options[0].disabled = true;
      $("#documentType").append('<option >'+request.responseText+'</option>');
      $("#documentType").selectpicker('refresh');
     }
@@ -270,7 +270,7 @@ function getSubCategory(){
     </div>
 
     <div class="row-fluid" style="float: left;padding-left: 10">
-      <h4>Select document to send</h4>
+      <h4>Sub Category</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
       </select>
     </div>
