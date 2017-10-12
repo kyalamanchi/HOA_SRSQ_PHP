@@ -212,6 +212,12 @@ function sendData(){
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
 }
+
+function getSubCategory(){
+  var category = $("#inspectionCategory").find("option:selected").text();
+  alert(category);
+}
+
 </script>
   </head>
   <div class="container">
