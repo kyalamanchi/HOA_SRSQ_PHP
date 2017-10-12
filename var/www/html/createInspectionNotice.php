@@ -131,7 +131,7 @@ function getFileData()
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
-        fileData =evt.target.result.split(',')[1];
+       var  fileData =evt.target.result.split(',')[1];
         alert(fileData);
         return fileData;
     }
@@ -159,9 +159,8 @@ function sendData(){
     var noticeType = $("#noticeType").find("option:selected").text();
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
-    var file = document.getElementById("fileInput").files[0];
-    var fileData = getFileData();
-    alert(fileData);
+    alert(getFileData());
+    
 
 
 
