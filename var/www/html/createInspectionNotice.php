@@ -142,16 +142,17 @@ function sendData(){
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
     var file = document.getElementById("fileInput").files[0];
+    var fileData = "";
     if ( file ){
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
-         alert(evt.target.result.split(',')[1]);
+        fileData =evt.target.result.split(',')[1];
     }
     reader.onerror = function (evt) {
-        alert("Error");
+        fileData = "Error";
     }
-
+    alert(fileData);
     }
 
 
