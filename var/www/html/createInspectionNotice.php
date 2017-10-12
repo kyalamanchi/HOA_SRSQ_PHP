@@ -330,9 +330,9 @@ function getSubCategory(){
       <div style="clear: both;"></div>
       <br>
       <div class="form-group">
-        <label for="Agreement Title">Enter Agreement Title</label>
-      <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 35%">
-      <small id="titleHelp" class="form-text text-muted">This will appear in subject of email being sent</small>
+        <!-- <label for="Agreement Title">Enter Agreement Title</label> -->
+      <h4>Compliance Date</h4>
+      <input type="text" class="form-control" id="ComplianceDate" placeholder="Enter Title" style="width: 35%"><?php echo date('Y-m-d'); ?>
       <br>
       <label for="emails">CCS</label>
       <input type="email" class="form-control" id="ccEmails" aria-describedby="ccHelp" placeholder="Enter email" style="width: 35%">
