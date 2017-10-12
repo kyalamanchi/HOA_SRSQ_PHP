@@ -144,15 +144,9 @@ function sendData(){
     var file = document.getElementById("fileInput").files[0];
     if ( file ){
       var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function (evt) {
-         alert(evt.target.result);
-    }
-    reader.onerror = function (evt) {
-        // document.getElementById("fileContents").innerHTML = "error reading file";
-        alert("Error");
-    }
-
+      var data = reader.readAsDataURL(file);
+      var base64result = data.split(',')[1];
+      alert(base64result);
     }
 
 
