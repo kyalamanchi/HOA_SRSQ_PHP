@@ -276,6 +276,24 @@ function getSubCategory(){
     </div>
       <div style="clear: both;"></div>
       <br>
+
+      <div class="row-fluid" style="float: left;padding-left: 10">
+      <h4>Location</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
+        <?php
+        $query = "SELECT * FROM LOCATIONS_IN_COMMUNITY";
+        $queryResult = pg_query($query);
+        while ( $row = pg_fetch_assoc($queryResult)) {
+          echo "<option id=".$row['id'].">";
+            echo $row['location'];
+          echo "</option>"
+        }
+
+        ?>
+      </select>
+      </div>
+
+      <br>
       <div class="form-group">
           <h4>Description</h4>
           <textarea class="form-control" rows="5" id="inspectionDescription" style="width: 35%"></textarea>
