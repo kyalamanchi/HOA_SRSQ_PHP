@@ -130,7 +130,7 @@ function sendData(){
       text: "Payment Status :",
       closeOnClickOutside: false,
       icon: "success",
-      buttons: ["Send Now","Send Later"],
+      buttons: ["Send Later","Send Now"],
     });
 
   // var documentCategory = document.getElementById('documentCategory').value;
