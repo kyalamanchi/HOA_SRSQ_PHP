@@ -106,8 +106,8 @@ function changeDetails(){
   request.onreadystatechange  = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-      alert(request.responseText);
-      alert( JSON.parse(request.responseText) );
+      alert( JSON.parse(request.responseText).home_id );
+      alert( JSON.parse(request.responseText).community_id );
     }
   }
 }
