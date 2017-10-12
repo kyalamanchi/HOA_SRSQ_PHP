@@ -107,7 +107,7 @@ function changeDetails(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
       var data = JSON.parse(request.responseText);
-      alert(data.home_id);
+      document.getElementById("home_id").value  = data.home_id;
     }
   }
 }
@@ -224,9 +224,9 @@ function updateName(){
       </select>
     </div>
       <div style="width: 35%;">
-      <h4>Email(s)</h4>
-      <input type="email" class="form-control" id="emails" aria-describedby="emailHelp" placeholder="Enter email" >
-      <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
+      <h4>HOME ID</h4>
+      <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ID" disabled="disabled" >
+      <small id="emailHelp" class="form-text text-muted"></small>
       </div>
       <br>
       <div class="form-group">
