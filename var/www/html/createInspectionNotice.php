@@ -361,6 +361,7 @@ function getSubCategory(){
       <div style="clear: both;"></div>
       <br>
       <div>
+      <h4 >Attachment</h4>
       <h4 id="label">Attachment</h4>
       <label class="btn btn-default" >
       Browse <input type="file" id="fileInput" hidden>
@@ -371,7 +372,7 @@ function getSubCategory(){
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           alert(f);
-          document.getElementById("label").innerHTML = "Attachment"+f;
+          document.getElementById("label").innerHTML = f;
         };
       </script>
       <br>
