@@ -280,6 +280,7 @@ function getSubCategory(){
       <div class="row-fluid">
       <h4>Location</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
+        <option></option>
         <?php
         $query = "SELECT * FROM LOCATIONS_IN_COMMUNITY";
         $queryResult = pg_query($query);
