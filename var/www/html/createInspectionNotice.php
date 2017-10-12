@@ -282,7 +282,7 @@ function getSubCategory(){
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
         <option></option>
         <?php
-        $query = "SELECT * FROM LOCATIONS_IN_COMMUNITY";
+        $query = "SELECT * FROM LOCATIONS_IN_COMMUNITY WHERE COMMUNITY_ID = 2";
         $queryResult = pg_query($query);
         while ( $row = pg_fetch_assoc($queryResult)) {
           echo "<option id=".$row['id'].">";
