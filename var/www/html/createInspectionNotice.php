@@ -335,65 +335,6 @@ function getSubCategory(){
         echo '<input type="text" class="form-control" id="ComplianceDate" style="width: 35%" value="'.date('Y-m-d').'">';
       ?>
       <br>
-      <label for="emails">CCS</label>
-      <input type="email" class="form-control" id="ccEmails" aria-describedby="ccHelp" placeholder="Enter email" style="width: 35%">
-      <small id="ccHelp" class="form-text text-muted">Enter multiple emails seperated by space</small>
-      </div>
-      <span class="help-inline"></span>
-      <div class="row-fluid" style="float: left;">
-      <h4>Signature Type</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="signatureType">
-        <option data-subtext="">ESIGN</option>
-        <option data-subtext="">WRITTEN</option>
-      </select>
-    </div>
-      <div class="row-fluid" style="float: left;padding-left: 10">
-      <h4>Role</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="signerRole">
-        <option data-subtext="">SIGNER</option>
-        <option data-subtext="">APPROVER</option>
-        <option data-subtext="">ACCEPTOR</option>
-        <option data-subtext="">FORM_FILLER</option>
-        <option data-subtext="">CERTIFIED_RECIPIENT</option>
-        <option data-subtext="">DELEGATE_TO_SIGNER</option>
-        <option data-subtext="">DELEGATE_TO_APPROVER</option>
-        <option data-subtext="">DELEGATE_TO_ACCEPTOR</option>
-        <option data-subtext="">DELEGATE_TO_FORM_FILLER</option>
-        <option data-subtext="">DELEGATE_TO_CERTIFIED_RECIPIENT</option>
-      </select>
-    </div>
-    <div class="row-fluid" style="float: left; padding-left:10;">
-      <h4>Signature Flow</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="signatureFlow">
-        <option data-subtext="">SENDER_SIGNATURE_NOT_REQUIRED</option>
-        <option data-subtext="">SENDER_SIGNS_LAST</option>
-        <option data-subtext="">SENDER_SIGNS_FIRST</option>
-        <option data-subtext="">SEQUENTIAL</option>
-        <option data-subtext="">PARALLEL</option>
-        <option data-subtext="">SENDER_SIGNS_ONLY</option>
-      </select>
-    </div>
-    <div style="clear: both;padding-left: 10dp;"></div>
-    <div class="form-group">
-          <h4>Custom Message</h4>
-          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%"></textarea>
-    </div>
-      <div>
-      <h4>Complete in order</h4>
-      <label class="switch" >
-        <input type="checkbox" id="completeInOrder" >
-        <span class="slider round"></span>
-      </label>
-      </div>
-      <div>
-      <h4>Enable Password ?</h4>
-      <label class="switch" >
-        <input type="checkbox" id="enablePassword" onclick="calc();">
-        <span class="slider round"></span>
-      </label>
-      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
-      <small id="passwordhelp" class="form-text text-muted">Signer needs to enter this password berfore signing</small>
-      </div>
       <div style="clear: both;"></div>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
