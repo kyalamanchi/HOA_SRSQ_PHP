@@ -144,7 +144,7 @@ function sendData(){
     var file = document.getElementById("fileInput").files[0];
     if ( file ){
       var reader = new FileReader();
-      reader.readAsText(file, "UTF-8");
+      reader.readAsDataURL(file);
       reader.onload = function (evt) {
          alert(evt.target.result);
     }
