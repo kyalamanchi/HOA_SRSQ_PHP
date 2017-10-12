@@ -279,7 +279,7 @@ function getSubCategory(){
 
       <div class="row-fluid">
       <h4>Location</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="locations">
         <option></option>
         <?php
         $query = "SELECT * FROM LOCATIONS_IN_COMMUNITY WHERE COMMUNITY_ID = 2";
@@ -301,7 +301,7 @@ function getSubCategory(){
       
        <div class="row-fluid">
       <h4>Inspection Notice Type</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeType">
         <option></option>
         <?php
         $query = "SELECT * FROM INSPECTION_NOTICE_TYPE";
