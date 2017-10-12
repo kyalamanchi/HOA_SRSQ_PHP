@@ -274,8 +274,11 @@ function getSubCategory(){
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
       </select>
     </div>
-      <div style="clear: both;">
-        
+      <div style="clear: both;"></div>
+      <br>
+      <div class="form-group">
+          <h4>Description</h4>
+          <textarea class="form-control" rows="5" id="inspectionDescription" style="width: 35%"></textarea>
       </div>
       <br>
       <div class="form-group">
