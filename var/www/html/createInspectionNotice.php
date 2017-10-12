@@ -277,7 +277,7 @@ function getSubCategory(){
       <div style="clear: both;"></div>
       <br>
 
-      <div class="row-fluid" style="float: left;padding-left: 10">
+      <div class="row-fluid">
       <h4>Location</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
         <?php
@@ -288,11 +288,9 @@ function getSubCategory(){
             echo $row['location'];
           echo "</option>";
         }
-
         ?>
       </select>
       </div>
-
       <br>
       <div class="form-group">
           <h4>Description</h4>
