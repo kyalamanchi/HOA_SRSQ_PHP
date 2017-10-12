@@ -146,7 +146,7 @@ function sendData(){
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
-         alert(evt.target.result.split(',')[1];);
+         alert(evt.target.result.split(',')[1]);
     }
     reader.onerror = function (evt) {
         alert("Error");
