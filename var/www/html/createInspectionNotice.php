@@ -370,7 +370,7 @@ function getSubCategory(){
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           alert(f);
-          document.getElementById("label").text = f;
+          document.getElementById("label").innerHTML = f;
         };
       </script>
       <br>
