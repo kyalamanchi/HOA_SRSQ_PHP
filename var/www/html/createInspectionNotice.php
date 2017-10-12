@@ -131,7 +131,7 @@ function getFileData()
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
-       var  fileData =evt.target.result.split(',')[1];
+         fileData =evt.target.result.split(',')[1];
         alert(fileData);
         return fileData;
     }
@@ -159,7 +159,7 @@ function sendData(){
     var noticeType = $("#noticeType").find("option:selected").text();
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
-    alert(getFileData());
+    alert(fileData);
     
 
 
@@ -387,6 +387,7 @@ function getSubCategory(){
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           document.getElementById("label").innerHTML = f;
+          getFileData();
         };
       </script>
       <br>
