@@ -252,23 +252,9 @@ updateName();
   </head>
   <div class="container">
     <div class="row">
-      <h2>Adobe Sign - Send Agreement</h2>
+      <h2>Inspection Management</h2>
       <hr />
     </div>
-    <div class="row-fluid" style="float: left;">
-      <h4>Type of document</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
-        <option></option>
-        <option data-subtext="Can be prefilled">Transient Document</option>
-        <option data-subtext="Can not be prefilled">Library Document</option>
-      </select>
-    </div>
-    <div class="row-fluid" style="float: left;padding-left: 10">
-      <h4>Select document to send</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType" onchange="updateName();">
-      </select>
-    </div>
-    <div style="clear: both;"></div>
     <div class="row-fluid">
       <h4>Choose HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeEmail();">
