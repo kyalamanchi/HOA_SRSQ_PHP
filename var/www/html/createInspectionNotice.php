@@ -214,7 +214,6 @@ function updateName(){
 }
 function getSubCategory(){
   $("#documentType").find("option").remove();
-  // $("#documentType").remove();
   var category = $("#inspectionCategory").find("option:selected").text();
   var request = new XMLHttpRequest();
   request.open("POST","https://hoaboardtime.com/getInspectionSubCategories.php",true);
