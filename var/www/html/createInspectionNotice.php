@@ -356,7 +356,6 @@ function getSubCategory(){
       ?>
       <br>
       <div class="fileinput fileinput-new" data-provides="fileinput">
-    <span class="btn btn-default btn-file"><span>Choose file</span><input type="file" /></span>
     <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
       <br>
       <div style="clear: both;"></div>
