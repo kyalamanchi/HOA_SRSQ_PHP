@@ -359,7 +359,7 @@ function getSubCategory(){
         };
       </script>
       <br>
-      <button type="button" class="btn btn-primary btn-lg" onclick="sendData();">Create Inspection</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="sendData();">Create Notice</button>
   </div>
   </form>
 </html>
