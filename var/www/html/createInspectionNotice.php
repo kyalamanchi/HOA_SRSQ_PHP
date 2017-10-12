@@ -299,7 +299,7 @@ function getSubCategory(){
       </div>
       <br>
       
-       <div class="row-fluid">
+       <div class="row-fluid" style="float: left;padding-left: 10px;">
       <h4>Notice Type</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeType">
         <option></option>
@@ -314,8 +314,7 @@ function getSubCategory(){
         ?>
       </select>
       </div>
-      <br>
-      <div class="row-fluid">
+      <div class="row-fluid" style="float: left;padding-left: 10px;">
       <h4>Status</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeStatus">
         <?php
@@ -329,6 +328,7 @@ function getSubCategory(){
         ?>
       </select>
       </div>
+      <div style="clear: both;"></div>
       <br>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
