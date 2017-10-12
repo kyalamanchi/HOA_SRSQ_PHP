@@ -163,9 +163,6 @@ function sendData(){
     alert(fileData);
 
 
-    }
-
-
 
   // var documentCategory = document.getElementById('documentCategory').value;
   // if ( documentCategory == ""){
