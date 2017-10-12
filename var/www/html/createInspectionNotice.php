@@ -210,44 +210,6 @@ function sendData(){
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
 }
-function changeOptions(){
-$("#documentType").find('option').remove();
-$("#documentType").selectpicker('refresh');
-var selectedHoaID = $("#documentCategory").find("option:selected").text();
-if ( selectedHoaID){
-  jsonObj = [];
-  item = {};
-  item["documentName"] = "1";
-  jsonObj.push(item);
-  lol =  JSON.stringify(jsonObj);
-  var request= new XMLHttpRequest();
-  if( selectedHoaID == "Library Document"){
-  request.open("POST", "https://hoaboardtime.com/getLibraryDocuments.php", true);
-  }
-  else {
-   request.open("POST", "https://hoaboardtime.com/getTransientDocuments.php", true); 
-  }
-  request.setRequestHeader("Content-type", "application/json");
-  showPleaseWait();
-  request.send(lol);
-  request.onreadystatechange = function () {
-        if (request.readyState == XMLHttpRequest.DONE) {
-          hidePleaseWait();
-            var jsonData = JSON.parse(request.responseText);
-            $("#documentType").append('<option selected="true" disabled="disabled"></option>');
-            document.getElementById("documentType").options[0].disabled = false;
-            for(i=0 ; i<jsonData.length ; i++){
-            $("#documentType").append('<option >'+jsonData[i]+'</option>');
-            }
-            $("#documentType").selectpicker('refresh');
-        }
-    }
-}
-else {
-  window.alert("Please select a valid document category");
-}
-updateName();
-}
 </script>
   </head>
   <div class="container">
