@@ -298,6 +298,25 @@ function getSubCategory(){
           <textarea class="form-control" rows="5" id="inspectionDescription" style="width: 35%"></textarea>
       </div>
       <br>
+      
+       <div class="row-fluid">
+      <h4>Inspection Notice Type</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
+        <option></option>
+        <?php
+        $query = "SELECT * FROM INSPECTION_NOTICE_TYPE";
+        $queryResult = pg_query($query);
+        while ( $row = pg_fetch_assoc($queryResult)) {
+          echo "<option id=".$row['id'].">";
+            echo $row['name'];
+          echo "</option>";
+        }
+        ?>
+      </select>
+      </div>
+
+
+      <br>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
       <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 35%">
