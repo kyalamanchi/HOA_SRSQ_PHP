@@ -25,7 +25,7 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 			$data2['home_id'] =  $row['home_id'];
 			$data2['community_id'] = $row['community_id'];
 		}
-		echo $data2;
+		echo json_encode($data2);
 	}
 	else {
 	echo "An error occured";
