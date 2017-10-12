@@ -306,6 +306,8 @@ function getSubCategory(){
         ?>
       </select>
       </div>
+
+      <div style="clear: both;"></div>
       <br>
       <div class="form-group">
           <h4>Description</h4>
