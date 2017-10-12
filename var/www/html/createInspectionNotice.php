@@ -298,7 +298,6 @@ function getSubCategory(){
           <textarea class="form-control" rows="5" id="inspectionDescription" style="width: 35%"></textarea>
       </div>
       <br>
-      
        <div class="row-fluid" style="float: left;">
       <h4>Notice Type</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeType">
