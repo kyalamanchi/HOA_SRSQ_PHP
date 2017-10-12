@@ -132,6 +132,7 @@ function getFileData()
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
         fileData =evt.target.result.split(',')[1];
+        alert(fileData);
         return fileData;
     }
     reader.onerror = function (evt) {
@@ -386,7 +387,6 @@ function getSubCategory(){
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
-          alert(f);
           document.getElementById("label").innerHTML = f;
         };
       </script>
