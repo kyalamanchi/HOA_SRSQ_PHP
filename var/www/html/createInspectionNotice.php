@@ -222,6 +222,7 @@ function getSubCategory(){
   request.onreadystatechange = function(){
     if (request.readyState == XMLHttpRequest.DONE){
       hidePleaseWait();
+      alert(request.responseText);
       $("inspectionSubCategory").append('<option>'+request.responseText+'</option>');
     }
   }
