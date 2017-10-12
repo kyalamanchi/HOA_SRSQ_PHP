@@ -222,8 +222,11 @@ function getSubCategory(){
   request.onreadystatechange = function(){
     if (request.readyState == XMLHttpRequest.DONE){
       hidePleaseWait();
-      $("#inspectionSubCategory").append('<option >'+'Some message'+'</option>');
-      $("#inspectionSubCategory").selectpicker('refresh');
+      $("#documentType").append('<option selected="true" disabled="disabled"></option>');
+      document.getElementById("documentType").options[0].disabled = false;
+
+     $("#documentType").append('<option >'+jsonData[i]+'</option>');
+     $("#documentType").selectpicker('refresh');
     }
   }
 
@@ -267,9 +270,9 @@ function getSubCategory(){
       </select>
     </div>
 
-    <div class="row-fluid" style="float: left; padding-left: 10px;">
-      <h4>Sub Category</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionSubCategory" onchange="">
+    <div class="row-fluid" style="float: left;padding-left: 10">
+      <h4>Select document to send</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType">
       </select>
     </div>
       <div style="clear: both;">
