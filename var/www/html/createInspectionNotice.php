@@ -107,7 +107,7 @@ function changeDetails(){
     if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
       var data = JSON.parse(request.responseText);
-      alert(data);
+      alert(data.home_id);
     }
   }
 }
