@@ -362,9 +362,14 @@ function getSubCategory(){
       <div>
       <h4>Attachment</h4>
       <label class="btn btn-default">
-      Browse <input type="file" hidden>
+      Browse <input type="file" id="fileInput" hidden>
       </label>
       </div>
+      <script type="text/javascript">
+        document.getElementById('fileInput').onchange = function () {
+          alert('Selected file: ' + this.value);
+        };
+      </script>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
