@@ -376,7 +376,7 @@ function getSubCategory(){
         };
       </script>
       <br>
-      <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
+      <button type="button" class="btn btn-primary btn-lg" onclick="sendData();">Create Inspection</button>
   </div>
   </form>
 </html>
