@@ -314,8 +314,21 @@ function getSubCategory(){
         ?>
       </select>
       </div>
-
-
+      <br>
+      <div class="row-fluid">
+      <h4>Status</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeStatus">
+        <?php
+        $query = "SELECT * FROM INSPECTION_STATUS";
+        $queryResult = pg_query($query);
+        while ( $row = pg_fetch_assoc($queryResult)) {
+          echo "<option id=".$row['id'].">";
+            echo $row['inspection_status'];
+          echo "</option>";
+        }
+        ?>
+      </select>
+      </div>
       <br>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
