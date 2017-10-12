@@ -276,8 +276,22 @@ function getSubCategory(){
     </div>
       <div style="clear: both;"></div>
       <br>
-
-      <div class="row-fluid">
+      <div class="row-fluid"n style="float: left;">
+      <h4>Legal Document</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="locations">
+        <option></option>
+        <?php
+        $query = "SELECT * FROM CPMMUNITY_LEGAL_DOCS WHERE COMMUNITY_ID = 2";
+        $queryResult = pg_query($query);
+        while ( $row = pg_fetch_assoc($queryResult)) {
+          echo "<option id=".$row['id'].">";
+            echo $row['name'];
+          echo "</option>";
+        }
+        ?>
+      </select>
+      </div>
+      <div class="row-fluid"n style="float: left;padding-left: 10px;">
       <h4>Location</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="locations">
         <option></option>
