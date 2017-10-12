@@ -359,9 +359,12 @@ function getSubCategory(){
       ?>
       <div style="clear: both;"></div>
       <br>
+      <div>
+      <h4>Attachment</h4>
       <label class="btn btn-default">
       Browse <input type="file" hidden>
       </label>
+      </div>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
