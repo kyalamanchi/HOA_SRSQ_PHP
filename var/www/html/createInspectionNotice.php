@@ -126,7 +126,7 @@ function changeDetails(){
 
 function getFileData()
 {
-
+  var file = document.getElementById("fileInput").files[0];
   if ( file ){
       var reader = new FileReader();
       reader.readAsDataURL(file);
