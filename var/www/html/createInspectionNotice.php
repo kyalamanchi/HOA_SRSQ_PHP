@@ -362,7 +362,7 @@ function getSubCategory(){
       <br>
       <div>
       <h4 >Attachment</h4>
-      <h4 id="label">Attachment</h4>
+      <h4 id="label"></h4>
       <label class="btn btn-default" >
       Browse <input type="file" id="fileInput" hidden>
       </label>
