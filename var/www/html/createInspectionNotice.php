@@ -369,6 +369,7 @@ function getSubCategory(){
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
+          alert(f);
           document.getElementById("label").text = f;
         };
       </script>
