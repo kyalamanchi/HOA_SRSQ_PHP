@@ -92,6 +92,13 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
          $hoaIDArray[$row['hoa_id']]  = $name;
          $userEmails[$row['hoa_id']] = $row['email'];
         }
+$inspectionCategoryQuery = "SELECT * FROM INSPECTION_CATEGORY ";
+$inspectionCategoryQueryResult = pg_query($inspectionCategoryQuery);
+$inspectionCategoryArray = array();
+while ($row = pg_fetch_assoc($inspectionCategoryQueryResult)) {
+  array_push($inspectionCategoryArray, $row['name']);
+}
+
 ?>
   function calc()
 {
@@ -228,6 +235,18 @@ function updateName(){
       <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ID" disabled="disabled" >
       <small id="emailHelp" class="form-text text-muted"></small>
       </div>
+      <br>
+       <div class="row-fluid">
+      <h4>Category</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="">
+      <?php
+        echo '<option></option>';
+        foreach ($inspectionCategoryArray as $category) {
+          echo '<option data-subtext="">'.$category.'</option>';
+        }
+      ?>
+      </select>
+    </div>
       <br>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
