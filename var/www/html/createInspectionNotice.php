@@ -97,33 +97,40 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
 {
   document.getElementById("authPassword").disabled = !(document.getElementById("authPassword").disabled);
 }
-function changeEmail(){
+
+function changeDetails(){
   showPleaseWait();
-  var selectedHoaID = $("#hoaID").find("option:selected").text();
-  var request = new XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
-  request.send(selectedHoaID);
-  request.onreadystatechange = function (){
-      if (request.readyState == XMLHttpRequest.DONE) {
-        hidePleaseWait();
-            if ( request.responseText == "Failed to connect to database"){
-                alert("Failed to connect to database.Please try again");
-                return;
-            }
-            else if (request.responseText == "An error occured" ){
-              alert(request.responseText);
-              return;
-            }
-            var json = JSON.parse(request.responseText);
-            var str = "";
-            for ( var i = 0 ;i<json.length;i++){
-               str = str.concat(json[i].email);
-               str = str.concat(" ");
-            }
-            document.getElementById("emails").value =  str; 
-        }
-  }
+  
 }
+
+
+// function changeEmail(){
+//   showPleaseWait();
+//   var selectedHoaID = $("#hoaID").find("option:selected").text();
+//   var request = new XMLHttpRequest();
+//   request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+//   request.send(selectedHoaID);
+//   request.onreadystatechange = function (){
+//       if (request.readyState == XMLHttpRequest.DONE) {
+//         hidePleaseWait();
+//             if ( request.responseText == "Failed to connect to database"){
+//                 alert("Failed to connect to database.Please try again");
+//                 return;
+//             }
+//             else if (request.responseText == "An error occured" ){
+//               alert(request.responseText);
+//               return;
+//             }
+//             var json = JSON.parse(request.responseText);
+//             var str = "";
+//             for ( var i = 0 ;i<json.length;i++){
+//                str = str.concat(json[i].email);
+//                str = str.concat(" ");
+//             }
+//             document.getElementById("emails").value =  str; 
+//         }
+//   }
+// }
 function sendData(){
   var documentCategory = document.getElementById('documentCategory').value;
   if ( documentCategory == ""){
@@ -187,25 +194,6 @@ function sendData(){
         }
         }
   }
-//  var documentName = document.getElementById('documentType').value;
-//  var agreementTitle = document.getElementById('agreementTitle').value;
-//  var emailAddresses = document.getElementById('emails').value;
-//  var ccAddresses = document.getElementById('ccEmails').value;
-//  var signType = document.getElementById('signatureType').value;
-//  var roleType = document.getElementById('signerRole').value;
-//  var signFlow = document.getElementById('signatureFlow').value;
-//  var customeMessage = document.getElementById('customMessage').value;
-//  var completeInOrder  = $('#completeInOrder').is(':checked');
-//  var passwordStatus = $('#enablePassword').is(':checked');
-//  var setPassword = document.getElementById('authPassword').value;
-// if( documentName == "" || emailAddresses == ""){
-//   window.alert("One or more required fileds empty");
-//   return;
-// }
-// if ( passwordStatus && !setPassword){
-//   window.alert("Password cannot be empty");
-// }
-
 }
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
@@ -219,7 +207,7 @@ function updateName(){
     </div>
     <div class="row-fluid">
       <h4>Choose HOA ID</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeEmail();">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
       <?php
         echo '<option></option>';
         foreach ($hoaIDArray as $key => $value) {
