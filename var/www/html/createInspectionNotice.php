@@ -330,7 +330,6 @@ function getSubCategory(){
       <div style="clear: both;"></div>
       <br>
       <div class="form-group">
-        <!-- <label for="Agreement Title">Enter Agreement Title</label> -->
       <h4>Compliance Date</h4>
       <?php
         echo '<input type="text" class="form-control" id="ComplianceDate" style="width: 35%" value="'.date('Y-m-d').'">';
