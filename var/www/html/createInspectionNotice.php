@@ -127,7 +127,8 @@ function sendData(){
 
   swal({
       title: "Success",
-      text: "Payment Status : ",
+      text: "Payment Status :",
+      closeOnClickOutside: false,
       icon: "success",
       button: "Ok",
     });
