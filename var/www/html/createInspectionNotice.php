@@ -354,12 +354,11 @@ function getSubCategory(){
       <?php
         echo '<input type="text" class="form-control" id="ComplianceDate" style="width: 35%" value="'.date('Y-m-d').'">';
       ?>
-      <br>
-      <div class="fileinput fileinput-new" data-provides="fileinput">
-    <span class="btn btn-default btn-file" hidden="hidden"><span>Choose file</span><input type="file" /></span>
-    <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
-      <br>
       <div style="clear: both;"></div>
+      <br>
+      <label class="btn btn-default">
+      Browse <input type="file" hidden>
+      </label>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
