@@ -355,16 +355,9 @@ function getSubCategory(){
         echo '<input type="text" class="form-control" id="ComplianceDate" style="width: 35%" value="'.date('Y-m-d').'">';
       ?>
       <br>
-      <div class="file-loading">
-    <input id="input-folder-1" type="file" webkitdirectory>
-    </div>
-      <script>
-      $(document).on('ready', function() {
-        $("#input-folder-1").fileinput({
-        browseLabel: 'Select Folder...'
-        });
-      });
-      </script>
+      <div class="fileinput fileinput-new" data-provides="fileinput">
+    <span class="btn btn-default btn-file"><span>Choose file</span><input type="file" /></span>
+    <span class="fileinput-filename"></span><span class="fileinput-new">No file chosen</span>
       <br>
       <div style="clear: both;"></div>
       <br>
