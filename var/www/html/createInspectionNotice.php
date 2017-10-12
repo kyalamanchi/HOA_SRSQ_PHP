@@ -222,6 +222,7 @@ function getSubCategory(){
   request.onreadystatechange = function(){
     if (request.readyState == XMLHttpRequest.DONE){
       hidePleaseWait();
+      alert(request.responseText);
       $("#documentType").append('<option selected="true" disabled="disabled"></option>');
       document.getElementById("documentType").options[0].disabled = true;
      $("#documentType").append('<option >'+request.responseText+'</option>');
@@ -257,7 +258,7 @@ function getSubCategory(){
       </div>
       <div style="clear: both;"></div>
       <br>
-       <div class="row-fluid" style="float: left;">
+      <div class="row-fluid" style="float: left;">
       <h4>Category</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="getSubCategory();">
       <?php
