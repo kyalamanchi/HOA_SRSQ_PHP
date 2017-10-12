@@ -299,7 +299,7 @@ function getSubCategory(){
       </div>
       <br>
       
-       <div class="row-fluid" style="float: left;padding-left: 10px;">
+       <div class="row-fluid" style="float: left;">
       <h4>Notice Type</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeType">
         <option></option>
