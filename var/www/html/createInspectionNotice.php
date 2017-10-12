@@ -215,7 +215,18 @@ function updateName(){
 
 function getSubCategory(){
   var category = $("#inspectionCategory").find("option:selected").text();
-  alert(category);
+  var request = new XMLHttpRequest();
+  request.open("POST","https://hoaboardtime.com/getInspectionSubCategories.php",true);
+  request.send(category);
+  showPleaseWait();
+  request.onreadystatechange = function(){
+    if (request.readyState == XMLHttpRequest.DONE){
+      hidePleaseWait();
+      $("inspectionSubCategory").append('<option>'+request.responseText+'</option>');
+    }
+  }
+
+
 }
 
 </script>
@@ -257,7 +268,7 @@ function getSubCategory(){
 
     <div class="row-fluid" style="float: left; padding-left: 10px;">
       <h4>Sub Category</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionSubCategory" onchange="">
       </select>
     </div>
       <div style="clear: both;">
