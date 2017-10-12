@@ -258,12 +258,6 @@ function getSubCategory(){
     <div class="row-fluid" style="float: left; padding-left: 10px;">
       <h4>Sub Category</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="inspectionCategory" onchange="">
-      <?php
-        echo '<option></option>';
-        foreach ($inspectionCategoryArray as $category) {
-          echo '<option data-subtext="">'.$category.'</option>';
-        }
-      ?>
       </select>
     </div>
       <div style="clear: both;">
