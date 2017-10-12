@@ -219,7 +219,7 @@ function updateName(){
       <h2>Inspection Management</h2>
       <hr />
     </div>
-    <div class="row-fluid">
+    <div class="row-fluid" style="float: left;">
       <h4>Choose HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
       <?php
@@ -230,11 +230,12 @@ function updateName(){
       ?>
       </select>
     </div>
-      <div style="width: 35%;">
+      <div style="width: 35%;float: left;">
       <h4>HOME ID</h4>
       <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ID" disabled="disabled" >
       <small id="emailHelp" class="form-text text-muted"></small>
       </div>
+      <div style="clear: both;"></div>
       <br>
        <div class="row-fluid">
       <h4>Category</h4>
