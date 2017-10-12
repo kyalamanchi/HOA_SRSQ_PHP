@@ -100,10 +100,17 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
 
 function changeDetails(){
   showPleaseWait();
-  
+  var request = new XMLHttpRequest();
+  request.open("POST","https://hoaboardtime.com/getHoaIDDetails.php",true);
+  request.send( $("#hoaID").find("option:selected").text() );
+  request.onreadystatechange  = function(){
+    if ( request.readyState == XMLHttpRequest.DONE ){
+      hidePleaseWait();
+      alert(request.responseText);
+      alert( JSON.parse(request.responseText) );
+    }
+  }
 }
-
-
 // function changeEmail(){
 //   showPleaseWait();
 //   var selectedHoaID = $("#hoaID").find("option:selected").text();
