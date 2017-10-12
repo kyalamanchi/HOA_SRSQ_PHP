@@ -222,10 +222,13 @@ function getSubCategory(){
   request.onreadystatechange = function(){
     if (request.readyState == XMLHttpRequest.DONE){
       hidePleaseWait();
-      alert(request.responseText);
+      var data = JSON.parse(request.responseText);
+
       $("#documentType").append('<option selected="true" disabled="disabled"></option>');
       document.getElementById("documentType").options[0].disabled = true;
-     $("#documentType").append('<option >'+request.responseText+'</option>');
+      for( var i=0;i<data.length;i++){
+          $("#documentType").append('<option id='+data[i][0]+'>'+data[i][1]+'</option>');
+      }
      $("#documentType").selectpicker('refresh');
     }
   }
