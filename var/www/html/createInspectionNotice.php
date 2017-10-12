@@ -355,6 +355,17 @@ function getSubCategory(){
         echo '<input type="text" class="form-control" id="ComplianceDate" style="width: 35%" value="'.date('Y-m-d').'">';
       ?>
       <br>
+      <div class="file-loading">
+    <input id="input-folder-1" type="file" webkitdirectory>
+    </div>
+      <script>
+      $(document).on('ready', function() {
+        $("#input-folder-1").fileinput({
+        browseLabel: 'Select Folder...'
+        });
+      });
+      </script>
+      <br>
       <div style="clear: both;"></div>
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
