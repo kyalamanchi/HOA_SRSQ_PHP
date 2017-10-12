@@ -246,6 +246,7 @@ function getSubCategory(){
       <h2>Inspection Management</h2>
       <hr />
     </div>
+    <form>
     <div class="row-fluid" style="float: left;">
       <h4>HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
@@ -376,4 +377,5 @@ function getSubCategory(){
       <br>
       <button type="button" class="btn btn-primary btn-md" onclick="sendData();">Send for signature</button>
   </div>
+  </form>
 </html>
