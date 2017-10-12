@@ -300,7 +300,7 @@ function getSubCategory(){
       <br>
       
        <div class="row-fluid">
-      <h4>Inspection Notice Type</h4>
+      <h4>Notice Type</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="noticeType">
         <option></option>
         <?php
