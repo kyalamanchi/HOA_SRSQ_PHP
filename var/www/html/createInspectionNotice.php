@@ -224,8 +224,7 @@ function getSubCategory(){
       hidePleaseWait();
       $("#documentType").append('<option selected="true" disabled="disabled"></option>');
       document.getElementById("documentType").options[0].disabled = false;
-
-     $("#documentType").append('<option >'+jsonData[i]+'</option>');
+     $("#documentType").append('<option >'+request.responseText+'</option>');
      $("#documentType").selectpicker('refresh');
     }
   }
