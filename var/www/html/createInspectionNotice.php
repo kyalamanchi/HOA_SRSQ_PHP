@@ -220,7 +220,7 @@ function updateName(){
       <hr />
     </div>
     <div class="row-fluid" style="float: left;">
-      <h4>Choose HOA ID</h4>
+      <h4>HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
       <?php
         echo '<option></option>';
