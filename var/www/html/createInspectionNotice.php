@@ -127,7 +127,7 @@ function sendData(){
 
   swal({
       title: "Success",
-      text: "Payment Status : "+message+".",
+      text: "Payment Status : ",
       icon: "success",
       button: "Ok",
     });
