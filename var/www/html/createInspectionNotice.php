@@ -286,7 +286,7 @@ function getSubCategory(){
         while ( $row = pg_fetch_assoc($queryResult)) {
           echo "<option id=".$row['id'].">";
             echo $row['location'];
-          echo "</option>"
+          echo "</option>";
         }
 
         ?>
