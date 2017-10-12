@@ -224,6 +224,7 @@ function getSubCategory(){
       hidePleaseWait();
       alert(request.responseText);
       $("inspectionSubCategory").append('<option>'+request.responseText+'</option>');
+      $("inspectionSubCategory").selectpicker("refresh");
     }
   }
 
