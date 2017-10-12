@@ -126,7 +126,7 @@ function changeDetails(){
 function sendData(){
 
   swal({
-      title: "Success",
+      title: "Notice Created",
       text: "Payment Status :",
       closeOnClickOutside: false,
       icon: "success",
