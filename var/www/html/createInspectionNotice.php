@@ -127,7 +127,6 @@ function sendData(){
 
   swal({
       title: "Notice Created",
-      text: "Payment Status :",
       closeOnClickOutside: false,
       icon: "success",
       buttons: ["Send Later","Send Now"],
