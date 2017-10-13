@@ -181,7 +181,7 @@ function sendData(){
             swal({
   title: "Notice Created",
   icon: "success",
-  buttons: true,
+  buttons: ["Send Now","Send Later"],
   dangerMode: false,
 })
 .then((willDelete) => {
