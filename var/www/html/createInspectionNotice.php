@@ -203,9 +203,9 @@ function sendData(){
 })
 .then((willDelete) => {
   if (willDelete) {
-    return;
-  } else {
       mailStatement(request.responseText);
+  } else {
+      
   }
 });  
       }
