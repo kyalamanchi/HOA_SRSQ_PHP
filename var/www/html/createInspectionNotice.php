@@ -178,22 +178,25 @@ function sendData(){
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-        swal({
-          title: "Notice Created",
-           icon: "success",
-  buttons: {
-    cancel: true,
-    confirm: "Email Statement",
-    roll: {
-      text: "Send Via USPS",
-      value: "roll",
+            swal({
+        title: "Are you sure?",
+        text: "You will not be able to recover this imaginary file!",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        cancelButtonText: "No, cancel plx!",
+        closeOnConfirm: false,
+        closeOnCancel: false 
     },
-    },
-    },
-    function(){
-       alert("Email statement clicked");
-    }
-    );
+      function(isConfirm) {
+        if (isConfirm) {
+            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        } else {
+            swal("Cancelled", "Your imaginary file is safe :)", "error");
+        }
+        }
+      );
       }
     }
 
