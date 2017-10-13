@@ -156,7 +156,7 @@
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
 															$role = $row['name'];
 
-															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td></tr>";
+															echo "<a href='boardDashboard.php'><tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td></tr></a>";
 
 														?>
 														
