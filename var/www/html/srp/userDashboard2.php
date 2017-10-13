@@ -199,6 +199,8 @@
 
 																					</div>
 
+																					<br>
+
 																					<div class='row'>
 
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
@@ -216,6 +218,8 @@
 																						</div>
 
 																					</div>
+
+																					<br>
 
 																					<div class='row'>
 
@@ -235,11 +239,11 @@
 
 																					</div>
 
+																					<br>
+
 																					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 																						<center>
-
-																							<br>
 
 																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
 
