@@ -177,11 +177,12 @@ function sendData(){
     showPleaseWait();
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
-        hidePleaseWait();
+      hidePleaseWait();
       swal({
       title: "Notice Created",
+      text: request.responseText,
       icon: "success",
-      buttons: ["Mail Statement","Send Via USPS","Send Later"],
+      buttons: ["Send Now","Send Later"],
         });
       }
     }
