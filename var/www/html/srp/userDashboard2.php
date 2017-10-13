@@ -296,6 +296,7 @@
 														<th>Living Status</th>
 														<th>Lot</th>
 														<th>Mailing Address</th>
+														<th></th>
 
 													</thead>
 
@@ -347,7 +348,71 @@
 															else
 																$living_status = "FALSE";
 
-															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td></tr>";
+															echo "
+											
+															<div class='modal fade' id='modal_edit_mailing_address'>
+
+																<div class='modal-dialog modal-lg'>
+
+																	<div class='modal-content'>
+
+																		<div class='modal-header'>
+
+																			<h4 class='h4'>Owner Details</h4>
+																			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+																		</div>
+
+																		<div class='modal-body'>
+
+																			<div class='container' style='color: black;'>
+
+																				<form method='POST' action='userDashboardEditHOAID.php'>
+																				
+																					<div class='row'>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Living Status</strong></label><br>
+																							<input type='radio' name='living_status' id='living_status'> True
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<input type='radio' name='living_status' id='living_status'> False
+
+																						</div>
+
+																					</div>
+
+																					<br>
+
+																					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																						<center>
+
+																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+																						</center>
+
+																					</div>
+
+																				</form>
+
+						                                          			</div>
+
+																		</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+															";
+
+															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button></td></tr>";
 
 														?>
 														
