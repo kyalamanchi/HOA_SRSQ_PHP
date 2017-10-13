@@ -182,6 +182,10 @@ function sendData(){
   title: "Notice Created",
   icon: "success",
   buttons: ["Send Now","Send Later"],
+  roll: {
+      text: "Do a barrell roll!",
+      value: "roll",
+    },
   dangerMode: false,
 })
 .then((willDelete) => {
