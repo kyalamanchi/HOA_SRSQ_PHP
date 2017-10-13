@@ -179,24 +179,21 @@ function sendData(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
             swal({
-        title: "Are you sure?",
-        text: "You will not be able to recover this imaginary file!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "Yes, delete it!",
-        cancelButtonText: "No, cancel plx!",
-        closeOnConfirm: false,
-        closeOnCancel: false 
-    },
-      function(isConfirm) {
-        if (isConfirm) {
-            swal("Deleted!", "Your imaginary file has been deleted.", "success");
-        } else {
-            swal("Cancelled", "Your imaginary file is safe :)", "error");
-        }
-        }
-      );
+  title: "Are you sure?",
+  text: "Once deleted, you will not be able to recover this imaginary file!",
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Poof! Your imaginary file has been deleted!", {
+      icon: "success",
+    });
+  } else {
+    swal("Your imaginary file is safe!");
+  }
+});  
       }
     }
 
