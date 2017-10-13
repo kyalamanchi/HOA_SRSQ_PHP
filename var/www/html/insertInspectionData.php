@@ -31,7 +31,7 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 		$decodeData = json_decode($response);
 		$fileID  = $decodeData->id;
 		print_r($fileID);
-		$query = "INSERT INTO DOCUMENT_MANAGEMENT(\"ACTIVE\",\"description\",\"month_of_upload\",\"uploaded_date\",\"url\",\"year_of_upload\",\"community_id\",\"member_id\",\"hoa_id\",\"tech_id\") VALUES('TRUE','".$fileName."','".date('M')."','".date('Y-m-d H:i:s')."','/Inspection_Attachments/".date('Y')."/',".date('Y').",(SELECT COMMINITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),(SELECT MEMEBER_ID FROM MEMEBER_INFO WHERE HOA_ID=".$hoaID."),".$hoaID.",".$fileID.") RETURNING ID";
+		$query = "INSERT INTO DOCUMENT_MANAGEMENT(\"active\",\"description\",\"month_of_upload\",\"uploaded_date\",\"url\",\"year_of_upload\",\"community_id\",\"member_id\",\"hoa_id\",\"tech_id\") VALUES('TRUE','".$fileName."','".date('M')."','".date('Y-m-d H:i:s')."','/Inspection_Attachments/".date('Y')."/',".date('Y').",(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),(SELECT MEMBER_ID FROM MEMBER_INFO WHERE HOA_ID=".$hoaID."),".$hoaID.",'".$fileID."') RETURNING document_id";
 		echo $query;
 
 	}
