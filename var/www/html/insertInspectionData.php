@@ -36,7 +36,11 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 		$techID =  $row['document_id'];
 	}
 
+<<<<<<< HEAD
 	$query = "INSERT INTO INSPECTION_NOTICES(\"attachment\",\"inspection_date\",\"description\",\"community_id\",\"home_id\",\"date_of_upload\",\"location_id\",\"inspection_category_id\",\"inspection_sub_category_id\",\"hoa_id\",\"inspection_notice_type_id\",\"document_id\",\"inspection_status_id\",\"compliance_date\",\"updated_date\",\"updated_by\",\"legal_docs_id\") VALUES('".$fileName."','".date('Y-m-d')."','".$description."',(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),".$homeID.",'".date('Y-m-d')."',(SELECT LOCATION_ID FROM LOCATIONS_IN_COMMUNITY WHERE LOCATION='".$location."' AND COMMUNITY_ID = 2),(SELECT ID FROM INSPECTION_CATEGORY WHERE NAME='".$category."'),(SELECT ID FROM INSPECTION_SUB_CATEGORY WHERE NAME='".$subCategory."'),".$hoaID.",(SELECT ID FROM INSPECTION_NOTICE_TYPE WHERE NAME='".$noticeType."'),".$techID.",(SELECT ID FROM INSPECTION_STATUS WHERE INSPECTION_STATUS='".$status."'),'".$complianceDate."','".date('Y-m-d')."',400,(SELECT ID FROM COMMUNITY_LEGAL_DOCS WHERE NAME='".$legalDocument."')) RETURNING ID";
+=======
+	$query = "INSERT INTO INSPECTION_NOTICES(\"attachment\",\"inspection_date\",\"description\",\"community_id\",\"home_id\",\"date_of_upload\",\"location_id\",\"inspection_category_id\",\"inspection_sub_category_id\",\"hoa_id\",\"inspection_notice_type_id\",\"document_id\",\"inspection_status_id\",\"compliance_date\",\"updated_date\",\"updated_by\",\"legal_docs_id\") VALUES('".$fileName."','".date('Y-m-d')."','".$description."',(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),".$homeID.",'".date('Y-m-d')."',(SELECT LOCATION_ID FROM LOCATIONS_IN_COMMUNITY WHERE LOCATION='".$location."' AND COMMUNITY_ID = 2),(SELECT ID FROM INSPECTION_CATEGORY WHERE NAME='".$category."'),(SELECT ID FROM INSPECTION_SUB_CATEGORY WHERE NAME='".$subCategory."'),".$hoaID.",(SELECT ID FROM INSPECTION_NOTICE_TYPE WHERE NAME='".$noticeType."'),".$techID.",(SELECT ID FROM INSPECTION_STATUS WHERE INSPECTION_STATUS='".$status."'),'".$complianceDate."','".date('Y-m-d')."',401,(SELECT ID FROM COMMUNITY_LEGAL_DOCS WHERE NAME='".$legalDocument."')) RETURNING ID";
+>>>>>>> 198f42aeb4dd0760454af8127f1213bc360dcca8
 	print_r($query);
 }
 }
