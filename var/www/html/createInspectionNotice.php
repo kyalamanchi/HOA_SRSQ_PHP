@@ -179,11 +179,10 @@ function sendData(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
             swal({
-  title: "Are you sure?",
-  text: "Once deleted, you will not be able to recover this imaginary file!",
-  icon: "warning",
+  title: "Notice Created",
+  icon: "success",
   buttons: true,
-  dangerMode: true,
+  dangerMode: false,
 })
 .then((willDelete) => {
   if (willDelete) {
