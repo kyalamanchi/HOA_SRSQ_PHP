@@ -152,6 +152,7 @@
 															$name .= " ";
 															$name .= $lastname;
 															$resident_since = $row['valid_from'];
+															$resident_until = $row['valid_until'];
 															$role = $row['role_type_id'];
 															$email = $row['email'];
 															$cell_no = $row['cell_no'];
@@ -178,29 +179,69 @@
 
 															<div class='container' style='color: black;'>
 
-																<form method='POST'>
+																<form method='POST' action='userDashboardEditHOAID.php'>
 																
 																	<div class='row'>
 
 																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-																			<label>First Name</label><br>
+																			<label><strong>First Name</strong></label><br>
 																			<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='$firstname' required>
 
 																		</div>
 
 																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-																			<label>Last Name</label><br>
+																			<label><strong>Last Name</strong></label><br>
 																			<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='$lastname' required>
 
 																		</div>
 
 																	</div>
 
-																	<div class='row text-center'>
+																	<div class='row'>
 
-																		<center><button class='btn btn-info btn-xs' type='submit'>Update</button></center>
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																			<label><strong>Email</strong></label><br>
+																			<input class='form-control' type='email' name='edit_email' id='edit_email' value='$email' required>
+
+																		</div>
+
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																			<label><strong>Phone</strong></label><br>
+																			<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
+
+																		</div>
+
+																	</div>
+
+																	<div class='row'>
+
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																			<label><strong>Resident Since</strong></label><br>
+																			<input class='form-control' type='date' name='edit_valid_form' id='edit_valid_form' value='$resident_since' required>
+
+																		</div>
+
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																			<label><strong>Resident Until</strong></label><br>
+																			<input class='form-control' type='date' name='edit_valid_until' id='edit_valid_until' value='$resident_until' required>
+
+																		</div>
+
+																	</div>
+
+																	<div class='row'>
+
+																		<center>
+
+																			<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+																		</center>
 
 																	</div>
 
