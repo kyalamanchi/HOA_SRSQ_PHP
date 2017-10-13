@@ -260,7 +260,7 @@
 
 											<div class='row'>
 
-												<table class='table' style='color: black;'>
+												<table class='table table-bordered' style='color: black;'>
 													
 													<thead>
 														
@@ -342,7 +342,29 @@
 
 											<div class='row'>
 
-												
+												<table>
+													
+													<thead>
+
+														<th>Agreement</th>
+														<th>Email</th>
+														<th>Create Date</th>
+														<th>Send Date</th>
+														<th>Last Updated</th>
+														
+													</thead>
+
+													<tbody>
+
+														<?php
+
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE (hoa_id=$hoa_id AND home_id=$home_id) OR ");
+
+														?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
@@ -350,7 +372,7 @@
 
 										<div class='special-heading m-b-40'>
 									
-											<h4>Signed Agreements</h4>
+											<h4><br><br>Signed Agreements</h4>
 								
 										</div>
 
