@@ -188,8 +188,12 @@ function sendData(){
       text: "Send Via USPS",
       value: "roll",
     },
-  },
-});
+    },
+    },
+    function(){
+       alert("Email statement clicked");
+    }
+    );
       }
     }
 
