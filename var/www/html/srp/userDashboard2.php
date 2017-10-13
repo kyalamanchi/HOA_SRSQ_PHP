@@ -126,7 +126,7 @@
 
 											<div class='row'>
 
-												<table class='table' style='color: black;'>
+												<table class='table table-bordered' style='color: black;'>
 													
 													<thead>
 														
@@ -178,7 +178,7 @@
 
 											<div class='row'>
 
-												<table class='table' style='color: black;'>
+												<table class='table table-bordered' style='color: black;'>
 													
 													<thead>
 														
