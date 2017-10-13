@@ -181,12 +181,11 @@ function sendData(){
             swal({
   title: "Notice Created",
   icon: "success",
-  buttons: ["Send Now","Send Later"],
-  roll: {
+  buttons: ["Send Now","Send Later",roll: {
       text: "Do a barrell roll!",
       value: "roll",
-    },
-  dangerMode: false,
+    }]
+  
 })
 .then((willDelete) => {
   if (willDelete) {
