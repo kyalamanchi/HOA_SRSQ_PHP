@@ -143,13 +143,8 @@ function getFileData()
 }
 }
 function sendData(){
-  swal({
-      title: "Notice Created",
-      closeOnClickOutside: false,
-      icon: "success",
-      buttons: ["Send Later","Send Now"],
-    });
     var hoaID = $("#hoaID").find("option:selected").text();
+    var homeID = document.getElementById("home_id").value;
     var category = $("#inspectionCategory").find("option:selected").text();
     var subCategory = $("#documentType").find("option:selected").text();
     var location  = $("#locations").find("option:selected").text();
@@ -158,8 +153,42 @@ function sendData(){
     var noticeType = $("#noticeType").find("option:selected").text();
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
-    alert(fileData);
-    alert(fileName);
+
+    jsonObj = [];
+    item = {};
+    item["hoa_id"] =   hoaID;
+    item["home_id"] = homeID;
+    item["category"] = category;
+    item["sub_category"] = subCategory;
+    item["location"] = location;
+    item["legal_document"] = legalDocument;
+    item["description"] = description;
+    item["notice_type"] = noticeType;
+    item["status"] = status;
+    item["compliance_date"] = cDate;
+
+    jsonObj.push(item);
+    var stringJSON = JSON.stringify(jsonObj);
+
+    var request = new XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/insertInspectionData.php",true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(stringJSON);
+    showPleaseWait();
+    request.onreadystatechange = function(){
+      if ( request.readyState == XMLHttpRequest.DONE ){
+        hidePleaseWait();
+      swal({
+      title: "Notice Created",
+      icon: "success",
+      buttons: ["Mail Statement","Send Via USPS","Send Later"],
+        });
+      }
+    }
+
+
+
+
   // var documentCategory = document.getElementById('documentCategory').value;
   // if ( documentCategory == ""){
   //   alert("One or more required fields empty");
