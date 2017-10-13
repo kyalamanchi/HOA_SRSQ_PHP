@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 require('mc_table.php');
     try{
     $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
@@ -159,11 +159,11 @@ if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
 $zip->addFile($pdfFileNameFinal, $pdfFileNameFinal);
 $zip->addFile($tabFileNameFinal, $tabFileNameFinal);
 $zip->close();
-$fileData = file_get_contents($zipFileNameFinal);
+$fileData = file_get_contents($pdfFileNameFinal);
 $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/ZIP/'.$zipFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/PDF/'.$pdfFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
