@@ -30,10 +30,10 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 		$response = curl_exec($ch);
 		$decodeData = json_decode($response);
 		$fileID  = $decodeData->id;
-		print_r($fileID);
 		$query = "INSERT INTO DOCUMENT_MANAGEMENT(\"active\",\"description\",\"month_of_upload\",\"uploaded_date\",\"url\",\"year_of_upload\",\"community_id\",\"member_id\",\"hoa_id\",\"tech_id\") VALUES('TRUE','".$fileName."','".date('M')."','".date('Y-m-d H:i:s')."','/Inspection_Attachments/".date('Y')."/',".date('Y').",(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),(SELECT MEMBER_ID FROM MEMBER_INFO WHERE HOA_ID=".$hoaID."),".$hoaID.",'".$fileID."') RETURNING document_id";
-		echo $query;
-
+		$result = pg_query($query);
+		$row = pg_fetch_assoc($result);
+		echo $row['document_id'];
 	}
 
 }
