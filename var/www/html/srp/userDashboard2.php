@@ -162,102 +162,102 @@
 
 															echo "
 											
-											<div class='modal fade' id='modal_edit_hoaid'>
+															<div class='modal fade' id='modal_edit_hoaid'>
 
-												<div class='modal-dialog modal-lg'>
+																<div class='modal-dialog modal-lg'>
 
-													<div class='modal-content'>
+																	<div class='modal-content'>
 
-														<div class='modal-header'>
+																		<div class='modal-header'>
 
-															<h4 class='h4'>Owner Details</h4>
-															<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
-
-														</div>
-
-														<div class='modal-body'>
-
-															<div class='container' style='color: black;'>
-
-																<form method='POST' action='userDashboardEditHOAID.php'>
-																
-																	<div class='row'>
-
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																			<label><strong>First Name</strong></label><br>
-																			<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+																			<h4 class='h4'>Owner Details</h4>
+																			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
 																		</div>
 
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																		<div class='modal-body'>
 
-																			<label><strong>Last Name</strong></label><br>
-																			<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='$lastname' required>
+																			<div class='container' style='color: black;'>
+
+																				<form method='POST' action='userDashboardEditHOAID.php'>
+																				
+																					<div class='row'>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>First Name</strong></label><br>
+																							<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Last Name</strong></label><br>
+																							<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='$lastname' required>
+
+																						</div>
+
+																					</div>
+
+																					<div class='row'>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Email</strong></label><br>
+																							<input class='form-control' type='email' name='edit_email' id='edit_email' value='$email' required>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Phone</strong></label><br>
+																							<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
+
+																						</div>
+
+																					</div>
+
+																					<div class='row'>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Resident Since</strong></label><br>
+																							<input class='form-control' type='date' name='edit_valid_form' id='edit_valid_form' value='$resident_since' required>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Resident Until</strong></label><br>
+																							<input class='form-control' type='date' name='edit_valid_until' id='edit_valid_until' value='$resident_until' required>
+
+																						</div>
+
+																					</div>
+
+																					<div class='row'>
+
+																						<center>
+
+																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+																						</center>
+
+																					</div>
+
+																				</form>
+
+						                                          			</div>
 
 																		</div>
 
 																	</div>
 
-																	<div class='row'>
+																</div>
 
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															</div>
 
-																			<label><strong>Email</strong></label><br>
-																			<input class='form-control' type='email' name='edit_email' id='edit_email' value='$email' required>
-
-																		</div>
-
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																			<label><strong>Phone</strong></label><br>
-																			<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
-
-																		</div>
-
-																	</div>
-
-																	<div class='row'>
-
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																			<label><strong>Resident Since</strong></label><br>
-																			<input class='form-control' type='date' name='edit_valid_form' id='edit_valid_form' value='$resident_since' required>
-
-																		</div>
-
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																			<label><strong>Resident Until</strong></label><br>
-																			<input class='form-control' type='date' name='edit_valid_until' id='edit_valid_until' value='$resident_until' required>
-
-																		</div>
-
-																	</div>
-
-																	<div class='row'>
-
-																		<center>
-
-																			<button class='btn btn-info btn-xs' type='submit'>Update</button>
-
-																		</center>
-
-																	</div>
-
-																</form>
-
-		                                          			</div>
-
-														</div>
-
-													</div>
-
-												</div>
-
-											</div>
-
-											";
+															";
 
 															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_hoaid'>Edit</button></td></tr>";
 
