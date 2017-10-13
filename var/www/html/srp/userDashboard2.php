@@ -170,7 +170,7 @@
 
 														<div class='modal-header'>
 
-															<h4>Owner Details</h4>
+															<h4 class='h4'>Owner Details</h4>
 															<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
 														</div>
