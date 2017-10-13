@@ -8,7 +8,7 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 	$hoaID = $jsonData[0]->hoa_id;
 	$homeID = $jsonData[0]->home_id;
 	$category = $jsonData[0]->category;
-	$subCategory = $jsonData[0]->subCategory;
+	$subCategory = $jsonData[0]->sub_category;
 	$location = $jsonData[0]->location;
 	$description = $jsonData[0]->description;
 	$noticeType = $jsonData[0]->notice_type;
