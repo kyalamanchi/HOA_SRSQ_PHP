@@ -37,11 +37,13 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 	}
 
 	$query = "INSERT INTO INSPECTION_NOTICES(\"attachment\",\"inspection_date\",\"description\",\"community_id\",\"home_id\",\"date_of_upload\",\"location_id\",\"inspection_category_id\",\"inspection_sub_category_id\",\"hoa_id\",\"inspection_notice_type_id\",\"document_id\",\"inspection_status_id\",\"compliance_date\",\"updated_date\",\"updated_by\",\"legal_docs_id\") VALUES('".$fileName."','".date('Y-m-d')."','".$description."',(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),".$homeID.",'".date('Y-m-d')."',(SELECT LOCATION_ID FROM LOCATIONS_IN_COMMUNITY WHERE LOCATION='".$location."' AND COMMUNITY_ID = 2),(SELECT ID FROM INSPECTION_CATEGORY WHERE NAME='".$category."'),(SELECT ID FROM INSPECTION_SUB_CATEGORY WHERE NAME='".$subCategory."'),".$hoaID.",(SELECT ID FROM INSPECTION_NOTICE_TYPE WHERE NAME='".$noticeType."'),".$techID.",(SELECT ID FROM INSPECTION_STATUS WHERE INSPECTION_STATUS='".$status."'),'".$complianceDate."','".date('Y-m-d')."',401,(SELECT ID FROM COMMUNITY_LEGAL_DOCS WHERE NAME='".$legalDocument."')) RETURNING ID";
-	print_r($query);
+	$queryResult = pg_query($query);
+	$row = pg_fetch_assoc($queryResult);
+	echo $row['id'];
 }
 }
 catch(Exception  $e){
-	echo $e->getMessage();
+	echo "An error occured";
 }
 // // $personQuery = "SELECT DISTINCT relationship_id,EMAIL,role_type_id FROM PERSON WHERE HOA_ID=".$data."";
 // // if(  $personResult = pg_query($personQuery) ){

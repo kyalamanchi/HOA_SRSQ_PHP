@@ -191,19 +191,24 @@ function sendData(){
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
+
+      if ( request.responseText == "An error occured"){
+
+      }
+      else {
             swal({
-  title: "Notice Created",
-  text: request.responseText,
-  icon: "success",
-  buttons: ["Send Later","Send Now"]
-})
-.then((willDelete) => {
-  if (willDelete) {
-      mailStatement(request.responseText);
-  } else {
-      
-  }
-});  
+              title: "Notice Created",
+              text: request.responseText,
+              icon: "success",
+              buttons: ["Send Later","Send Now"]
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                  mailStatement(request.responseText);
+              } else {
+              }
+              });  
+          }
       }
     }
 }
