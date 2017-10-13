@@ -229,10 +229,7 @@ function getSubCategory(){
      $("#documentType").selectpicker('refresh');
     }
   }
-
-
 }
-
 </script>
   </head>
   <div class="container">
