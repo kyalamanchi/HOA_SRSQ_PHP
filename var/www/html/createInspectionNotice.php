@@ -151,9 +151,9 @@ function mailStatement(id){
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("Mandrill");
+    swal("South Data");
   } else {
-      swal("South Data");
+      swal("Mandrill");
   }
 });
 }
