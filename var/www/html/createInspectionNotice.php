@@ -166,10 +166,10 @@ function sendData(){
     item["notice_type"] = noticeType;
     item["status"] = status;
     item["compliance_date"] = cDate;
-
+    item["file_data"] = fileData;
+    item["file_name"] = fileName;
     jsonObj.push(item);
     var stringJSON = JSON.stringify(jsonObj);
-
     var request = new XMLHttpRequest();
     request.open("POST","https://hoaboardtime.com/insertInspectionData.php",true);
     request.setRequestHeader("Content-type", "application/json");
