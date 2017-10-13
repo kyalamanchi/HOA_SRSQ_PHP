@@ -181,9 +181,27 @@ function sendData(){
       swal({
       title: "Notice Created",
       icon: "success",
-      showCancelButton: true,
-      cancelButtonText: "Send Later",
-      confirmButtonText: "Send Now",
+      cancel: {
+      text: "Send Later",
+      value: null,
+      visible: false,
+      className: "",
+      closeModal: true,
+    },
+    confirm: {
+          text: "Email Notice",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
+      },
+       confirm2: {
+          text: "Send Via USPS",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
+      }
         });
       }
     }
