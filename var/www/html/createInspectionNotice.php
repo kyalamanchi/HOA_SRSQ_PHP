@@ -232,7 +232,7 @@ function sendData(){
       else {
             swal({
               title: "Notice Created",
-              text: request.responseText,
+              text: "Response is"+request.responseText,
               icon: "success",
               buttons: ["Send Later","Send Now"]
             })
