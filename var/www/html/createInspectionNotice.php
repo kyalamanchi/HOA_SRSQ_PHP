@@ -198,7 +198,6 @@ function sendData(){
       else {
             swal({
               title: "Notice Created",
-              text: request.responseText,
               icon: "success",
               buttons: ["Send Later","Send Now"]
             })
