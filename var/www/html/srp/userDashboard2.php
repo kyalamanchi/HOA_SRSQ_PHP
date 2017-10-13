@@ -239,6 +239,8 @@
 
 																						<center>
 
+																							<br>
+
 																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
 
 																						</center>
