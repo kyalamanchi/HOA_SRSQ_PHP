@@ -179,30 +179,21 @@ function sendData(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
       swal({
-      title: "Notice Created",
-      icon: "success",
-      cancel: {
-      text: "Send Later",
-      value: null,
-      visible: false,
-      className: "",
-      closeModal: true,
-    },
-    confirm: {
-          text: "Email Notice",
-          value: true,
-          visible: true,
-          className: "",
-          closeModal: true
-      },
-       confirm2: {
-          text: "Send Via USPS",
-          value: true,
-          visible: true,
-          className: "",
-          closeModal: true
-      }
-        });
+  cancel: {
+    text: "Cancel",
+    value: null,
+    visible: false,
+    className: "",
+    closeModal: true,
+  },
+  confirm: {
+    text: "OK",
+    value: true,
+    visible: true,
+    className: "",
+    closeModal: true
+  }
+});
       }
     }
 
