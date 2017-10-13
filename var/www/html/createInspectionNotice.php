@@ -180,9 +180,10 @@ function sendData(){
       hidePleaseWait();
       swal({
       title: "Notice Created",
-      text: request.responseText,
       icon: "success",
-      buttons: ["Send Now","Send Later"],
+      showCancelButton: true,
+      cancelButtonText: "Send Later",
+      confirmButtonText: "Send Now",
         });
       }
     }
