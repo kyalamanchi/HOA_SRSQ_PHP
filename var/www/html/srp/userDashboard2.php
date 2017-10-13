@@ -119,8 +119,6 @@
 										<div class='special-heading m-b-40'>
 									
 											<h4>Owner Details</h4>
-
-											<i class="fa fa-edit text-right">Edit</i>
 								
 										</div>
 								
@@ -138,6 +136,7 @@
 														<th>Role</th>
 														<th>Email</th>
 														<th>Phone</th>
+														<th></th>
 
 													</thead>
 
@@ -147,9 +146,11 @@
 
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id AND home_id=$home_id"));
 
-															$name = $row['firstname'];
+															$firstname = $row['firstname'];
+															$lastname .= $row['lastname'];
+															$name = $firstname;
 															$name .= " ";
-															$name .= $row['lastname'];
+															$name .= $lastname;
 															$resident_since = $row['valid_from'];
 															$role = $row['role_type_id'];
 															$email = $row['email'];
@@ -158,7 +159,66 @@
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
 															$role = $row['name'];
 
-															echo "<tr><a href='boardDashboard.php'><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td></a></tr>";
+															echo "
+											
+											<div class='modal fade' id='modal_edit_hoaid'>
+
+												<div class='modal-dialog modal-lg'>
+
+													<div class='modal-content'>
+
+														<div class='modal-header'>
+
+															<h4>Owner Details</h4>
+															<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+														</div>
+
+														<div class='modal-body'>
+
+															<div class='container' style='color: black;'>
+
+																<form method='POST'>
+																
+																	<div class='row'>
+
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																			<label>First Name</label><br>
+																			<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+
+																		</div>
+
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																			<label>Last Name</label><br>
+																			<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='$lastname' required>
+
+																		</div>
+
+																	</div>
+
+																	<div class='row text-center'>
+
+																		<center><button class='btn btn-info btn-xs' type='submit'>Update</button></center>
+
+																	</div>
+
+																</form>
+
+		                                          			</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											";
+
+															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_hoaid'>Edit</button></td></tr>";
 
 														?>
 														
@@ -344,7 +404,7 @@
 
 											<div class='row'>
 
-												<table>
+												<table class='table table-striped' style='color: black;'>
 													
 													<thead>
 
