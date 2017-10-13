@@ -343,7 +343,7 @@
 
 											<div class='row'>
 
-												<table>
+												<table class='table table-striped' style='color: black;'>
 													
 													<thead>
 
