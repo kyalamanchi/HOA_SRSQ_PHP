@@ -61,6 +61,8 @@ input:checked + .slider:before {
 }
 </style>
 <script type="text/javascript">
+  var fileData = "";
+  var fileName = "";
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -132,7 +134,6 @@ function getFileData()
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
          fileData =evt.target.result.split(',')[1];
-        alert(fileData);
         return fileData;
     }
     reader.onerror = function (evt) {
@@ -142,14 +143,12 @@ function getFileData()
 }
 }
 function sendData(){
-
   swal({
       title: "Notice Created",
       closeOnClickOutside: false,
       icon: "success",
       buttons: ["Send Later","Send Now"],
     });
-
     var hoaID = $("#hoaID").find("option:selected").text();
     var category = $("#inspectionCategory").find("option:selected").text();
     var subCategory = $("#documentType").find("option:selected").text();
@@ -160,10 +159,7 @@ function sendData(){
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
     alert(fileData);
-    
-
-
-
+    alert(fileName);
   // var documentCategory = document.getElementById('documentCategory').value;
   // if ( documentCategory == ""){
   //   alert("One or more required fields empty");
@@ -386,6 +382,7 @@ function getSubCategory(){
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
+          fileName  = f;
           document.getElementById("label").innerHTML = f;
           getFileData();
         };
