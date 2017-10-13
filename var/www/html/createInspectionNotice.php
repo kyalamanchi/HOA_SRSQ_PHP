@@ -178,21 +178,17 @@ function sendData(){
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-      swal({
-  cancel: {
-    text: "Cancel",
-    value: null,
-    visible: false,
-    className: "",
-    closeModal: true,
+        swal({
+          title: "Notice Created",
+           icon: "success",
+  buttons: {
+    cancel: true,
+    confirm: "Email Statement",
+    roll: {
+      text: "Send Via USPS",
+      value: "roll",
+    },
   },
-  confirm: {
-    text: "OK",
-    value: true,
-    visible: true,
-    className: "",
-    closeModal: true
-  }
 });
       }
     }
