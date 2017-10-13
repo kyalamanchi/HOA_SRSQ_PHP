@@ -118,9 +118,9 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Owner Details</h4>
+											<div class='text-left'><h4>Owner Details</h4></div>
 
-											<i class="fa fa-edit text-right">Edit</i>
+											<div class='text-right'><i class="fa fa-edit">Edit</i></div>
 								
 										</div>
 								
