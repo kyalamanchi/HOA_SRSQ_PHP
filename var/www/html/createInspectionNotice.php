@@ -142,6 +142,24 @@ function getFileData()
     }
 }
 }
+
+function mailStatement(id){
+    swal({
+  title: "Notice Created",
+  icon: "success",
+  buttons: ["Mail Statement","Send Via USPS"]
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("Mandrill");
+  } else {
+      swal("South Data");
+  }
+});
+}
+
+
+
 function sendData(){
     var hoaID = $("#hoaID").find("option:selected").text();
     var homeID = document.getElementById("home_id").value;
@@ -181,16 +199,13 @@ function sendData(){
             swal({
   title: "Notice Created",
   icon: "success",
-  buttons: ["Send Now","Send Later"]
-  
+  buttons: ["Send Later","Send Now"]
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("Poof! Your imaginary file has been deleted!", {
-      icon: "success",
-    });
+    return;
   } else {
-    swal("Your imaginary file is safe!");
+      mailStatement(request.responseText);
   }
 });  
       }
