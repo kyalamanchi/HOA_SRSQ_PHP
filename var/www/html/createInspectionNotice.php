@@ -145,8 +145,7 @@ function getFileData()
 
 function mailStatement(id){
     swal({
-  title: "Notice Created",
-  icon: "success",
+  title: "How would you like to send it ?",
   buttons: ["Mail Statement","Send Via USPS"]
 })
 .then((willDelete) => {
