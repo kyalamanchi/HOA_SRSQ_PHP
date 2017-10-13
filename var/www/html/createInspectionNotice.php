@@ -149,12 +149,46 @@ function mailStatement(id){
 })
 .then((willDelete) => {
   if (willDelete) {
-    swal("South Data"+id);
+    sendViaUSPS(id);
   } else {
-      swal("Mandrill"+id);
+      sendViaMandrill(id);
   }
 });
 }
+
+function sendViaUSPS(id){
+
+  var url = "https://hoaboardtime.com/generateSingleInspectionNoticeSouthData.php?id="+id;
+  var request = new XMLHttpRequest();
+  request.open("POST",url,true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(null);
+  showPleaseWait();
+  request.onreadystatechange = function(){
+      if ( request.readyState == XMLHttpRequest.DONE ){
+          hidePleaseWait();
+          swal("Statement Sent Via USPS");
+      }
+  }
+
+}
+
+function sendViaMandrill(id){
+  var url = "https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id="+id;
+  var request = new XMLHttpRequest();
+  request.open("POST",url,true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(null);
+  showPleaseWait();
+  request.onreadystatechange = function(){
+      if ( request.readyState == XMLHttpRequest.DONE ){
+          hidePleaseWait();
+          swal("Statement Mailed");
+      }
+  }
+
+}
+
 function sendData(){
     var hoaID = $("#hoaID").find("option:selected").text();
     var homeID = document.getElementById("home_id").value;

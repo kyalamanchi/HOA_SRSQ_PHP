@@ -171,10 +171,12 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     unlink($zipFileNameFinal);
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
+    $response = json_decode($response);
+    echo $response->id;
     }
 }
 }
 catch( Exception $ex){
-    print_r($ex->getMessage());
+    print_r("An error occured.");
 }
 ?>

@@ -167,14 +167,17 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
+    $response = json_decode($response);
+    $fileID = $response->id;
     curl_close($ch);
     unlink($zipFileNameFinal);
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
+    print_r($fileID);
     }
 }
 }
 catch( Exception $ex){
-    print_r($ex->getMessage());
+    print_r("An error occured.");
 }
 ?>
