@@ -1,9 +1,44 @@
 <?php
-$data = file_get_contents('php://input');
-echo $data;
-// // error_reporting(E_ERROR | E_PARSE);
-// try{
-// if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database")){
+// error_reporting(E_ERROR | E_PARSE);
+
+$jsonData = json_decode(file_get_contents('php://input'));
+
+try{
+if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database")){
+	$hoaID = $jsonData[0]->hoa_id;
+	$homeID = $jsonData[0]->home_id;
+	$category = $jsonData[0]->category;
+	$subCategory = $jsonData[0]->subCategory;
+	$location = $jsonData[0]->location;
+	$description = $jsonData[0]->description;
+	$noticeType = $jsonData[0]->noticeType;
+	$status = $jsonData[0]->status;
+	$complianceDate = $jsonData[0]->compliance_date;
+	$fileData = $jsonData[0]->file_data;
+	$fileName = $jsonData[0]->file_name;
+	$legalDocument = $jsonData[0]->legal_document;
+	$techID = "";
+	if ( $fileData != ""){
+		//Upload to dropbox
+		$url = 'https://content.dropboxapi.com/2/files/upload';
+		$fileContents = base64_decode($fileData);
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": false,"mute": false}'));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$response = curl_exec($ch);
+		$decodeData = json_decode($response);
+		$fileID  = $decodeData->id;
+		print_r($fileID);
+
+	}
+
+}
+}
+catch(Exception  $e){
+	echo $e->getMessage();
+}
 // // $personQuery = "SELECT DISTINCT relationship_id,EMAIL,role_type_id FROM PERSON WHERE HOA_ID=".$data."";
 // // if(  $personResult = pg_query($personQuery) ){
 // // 	$emailsData = array();
