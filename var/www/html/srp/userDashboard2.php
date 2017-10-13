@@ -180,19 +180,19 @@
 
 																<form method='POST'>
 																
-																	<div class='row text-center'>
+																	<div class='row'>
 
 																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 																			<label>First Name</label><br>
-																			<input type='text' name='edit_firstname' id='edit_firstname' value='$firstname' required>
+																			<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='$firstname' required>
 
 																		</div>
 
 																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 																			<label>Last Name</label><br>
-																			<input type='text' name='edit_lastname' id='edit_lastname' value='$lastname' required>
+																			<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='$lastname' required>
 
 																		</div>
 
@@ -200,7 +200,7 @@
 
 																	<div class='row text-center'>
 
-																		<button class='btn' type='submit'>Update</button>
+																		<center><button class='btn btn-info btn-xs' type='submit'>Update</button></center>
 
 																	</div>
 
