@@ -2,7 +2,6 @@
 // error_reporting(E_ERROR | E_PARSE);
 
 $jsonData = json_decode(file_get_contents('php://input'));
-
 try{
 if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database")){
 	$hoaID = $jsonData[0]->hoa_id;
@@ -36,56 +35,17 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 		$techID =  $row['document_id'];
 	}
 
-<<<<<<< HEAD
 	$query = "INSERT INTO INSPECTION_NOTICES(\"attachment\",\"inspection_date\",\"description\",\"community_id\",\"home_id\",\"date_of_upload\",\"location_id\",\"inspection_category_id\",\"inspection_sub_category_id\",\"hoa_id\",\"inspection_notice_type_id\",\"document_id\",\"inspection_status_id\",\"compliance_date\",\"updated_date\",\"updated_by\",\"legal_docs_id\") VALUES('".$fileName."','".date('Y-m-d')."','".$description."',(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),".$homeID.",'".date('Y-m-d')."',(SELECT LOCATION_ID FROM LOCATIONS_IN_COMMUNITY WHERE LOCATION='".$location."' AND COMMUNITY_ID = 2),(SELECT ID FROM INSPECTION_CATEGORY WHERE NAME='".$category."'),(SELECT ID FROM INSPECTION_SUB_CATEGORY WHERE NAME='".$subCategory."'),".$hoaID.",(SELECT ID FROM INSPECTION_NOTICE_TYPE WHERE NAME='".$noticeType."'),".$techID.",(SELECT ID FROM INSPECTION_STATUS WHERE INSPECTION_STATUS='".$status."'),'".$complianceDate."','".date('Y-m-d')."',400,(SELECT ID FROM COMMUNITY_LEGAL_DOCS WHERE NAME='".$legalDocument."')) RETURNING ID";
-=======
 	$query = "INSERT INTO INSPECTION_NOTICES(\"attachment\",\"inspection_date\",\"description\",\"community_id\",\"home_id\",\"date_of_upload\",\"location_id\",\"inspection_category_id\",\"inspection_sub_category_id\",\"hoa_id\",\"inspection_notice_type_id\",\"document_id\",\"inspection_status_id\",\"compliance_date\",\"updated_date\",\"updated_by\",\"legal_docs_id\") VALUES('".$fileName."','".date('Y-m-d')."','".$description."',(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),".$homeID.",'".date('Y-m-d')."',(SELECT LOCATION_ID FROM LOCATIONS_IN_COMMUNITY WHERE LOCATION='".$location."' AND COMMUNITY_ID = 2),(SELECT ID FROM INSPECTION_CATEGORY WHERE NAME='".$category."'),(SELECT ID FROM INSPECTION_SUB_CATEGORY WHERE NAME='".$subCategory."'),".$hoaID.",(SELECT ID FROM INSPECTION_NOTICE_TYPE WHERE NAME='".$noticeType."'),".$techID.",(SELECT ID FROM INSPECTION_STATUS WHERE INSPECTION_STATUS='".$status."'),'".$complianceDate."','".date('Y-m-d')."',401,(SELECT ID FROM COMMUNITY_LEGAL_DOCS WHERE NAME='".$legalDocument."')) RETURNING ID";
-<<<<<<< HEAD
+
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);
 	echo $row['id'];
-=======
->>>>>>> 198f42aeb4dd0760454af8127f1213bc360dcca8
 	print_r($query);
->>>>>>> 1305118f20bf37fcc5dc05ed77fbc2999102708f
+
 }
 }
 catch(Exception  $e){
 	echo "An error occured";
 }
-// // $personQuery = "SELECT DISTINCT relationship_id,EMAIL,role_type_id FROM PERSON WHERE HOA_ID=".$data."";
-// // if(  $personResult = pg_query($personQuery) ){
-// // 	$emailsData = array();
-// // 	while ($row = pg_fetch_assoc($personResult)) {
-// // 		$data2 = array();
-// // 		$data2['relation'] =  $row['relationship_id'];
-// // 		$data2['email'] =  $row['email'];
-// // 		$data2['role_id'] =  $row['role_type_id'];
-// // 		array_push($emailsData, $data2);
-// // 	}
-// // 	$emailsData  = json_encode($emailsData);
-// // 	print_r($emailsData);
-
-
-// // }
-// 	$data2  = array();
-// 	$query = "SELECT * FROM HOAID WHERE HOA_ID=".$data."";
-// 	if ( $queryResult = pg_query($query) ){
-// 		while($row = pg_fetch_assoc($queryResult)){
-// 			$data2['home_id'] =  $row['home_id'];
-// 			$data2['community_id'] = $row['community_id'];
-// 		}
-// 		echo json_encode($data2);
-// 	}
-// 	else {
-// 	echo "An error occured";
-// 	}
-// }
-// else {
-// 	throw new Exception("Error Processing Request", 1);
-// }
-// }
-// catch(Exception  $e){
-// 	echo $e->getMessage();
-// }
 ?>
