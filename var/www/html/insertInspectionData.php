@@ -38,8 +38,6 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);
 	echo $row['id'];
-	print_r($query);
-
 }
 }
 catch(Exception  $e){
