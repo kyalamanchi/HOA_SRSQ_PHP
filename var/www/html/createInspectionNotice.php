@@ -276,7 +276,7 @@ function getSubCategory(){
   <hr>
   <div class="container">
     <h2>Quick Send</h2>
-      <div class="row-fluid" style="float: left;">
+      <div class="row-fluid">
       <h4>HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
       <?php
