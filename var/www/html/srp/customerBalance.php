@@ -93,6 +93,20 @@
 				<section class='module'>
 						
 					<div class='container-fluid'>
+
+						<div class='row'>
+
+							<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'>
+
+								<div class='alert alert-danger'>
+
+									<center>Show customers having balance <input type='radio' name='mode' id='mode' value='1'> Greater than <input type='radio' name='mode' id='mode' value='2'> Lesser than <input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value' id='value' value='0.00'></center>
+
+								</div>
+
+							</div>
+
+						</div>
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
