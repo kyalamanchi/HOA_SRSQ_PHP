@@ -75,7 +75,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">User Dashboard - <?php echo $_SESSION['hoa_community_name']; ?></h1>
+								<h1 class="h5">Vendor Dashboard - <?php echo $_SESSION['hoa_community_name']; ?></h1>
 							
 							</div>
 						

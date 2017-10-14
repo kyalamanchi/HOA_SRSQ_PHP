@@ -102,7 +102,7 @@
 										
 										<ul class='sub-menu'>
 
-											<li><a>Vendor Dashboard</a></li>
+											<li><a href='vendorDashboard.php'>Vendor Dashboard</a></li>
 										
 										</ul>
 
