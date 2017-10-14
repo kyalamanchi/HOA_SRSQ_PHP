@@ -60,7 +60,10 @@ input:checked + .slider:before {
 [hidden] {
   display: none !important;
 }
-
+.btn.outline {
+  background: none;
+  padding: 12px 22px;
+}
 
 </style>
 <script type="text/javascript">
@@ -303,8 +306,8 @@ function getSubCategory(){
       </select>
     </div>
     <br>
-    <button type="button" class="btn btn-outline-primary outline" onclick="">Email Statement</button>
-    <button type="button" class="btn btn-outline-primary outline" onclick="">Send Via USPS</button>
+    <button type="button" class="btn btn-outline" onclick="">Email Statement</button>
+    <button type="button" class="btn btn-outline" onclick="">Send Via USPS</button>
     <hr>  
     <div style="clear: both;"></div>
     <form>
