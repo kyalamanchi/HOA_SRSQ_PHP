@@ -120,7 +120,36 @@
 
 													$mode = $_POST['mode'];
 
-													echo $mode;
+													if($mode == 1)
+														echo "
+
+														Show customers having balance 
+														<input type='radio' name='mode' id='mode' value='1' checked> Greater than 
+														<input type='radio' name='mode' id='mode' value='2'> Lesser than 
+														<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value' id='value' value='0.00'>
+
+														";
+
+													if($mode == 2)
+														echo "
+
+														Show customers having balance 
+														<input type='radio' name='mode' id='mode' value='1'> Greater than 
+														<input type='radio' name='mode' id='mode' value='2' checked> Lesser than 
+														<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value' id='value' value='0.00'>
+
+														";
+
+													if($mode == 3)
+														echo "
+
+														Show customers having balance 
+														<input type='radio' name='mode' id='mode' value='1' checked> Greater than 
+														<input type='radio' name='mode' id='mode' value='2'> Lesser than 
+														<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value' id='value' value='0.00'>
+
+														";
+														
 												}
 
 											?>
