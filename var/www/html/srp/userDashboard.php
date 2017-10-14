@@ -123,9 +123,9 @@
 											$hoa_id = $row1['hoa_id'];
 
 											if($living_status == 't')
-												$living_status = "Owner";
+												$living_status = "Living";
 											else
-												$living_status = "Tenant";
+												$living_status = "Rented";
 
 	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$address ($home_id)</a></td><td>$living_status</td></tr>";
 
