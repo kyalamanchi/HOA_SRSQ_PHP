@@ -223,7 +223,7 @@
 												}
 												else if($mode == 3)
 												{
-													if($total_balance = $value)
+													if($total_balance == $value)
 														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
 												}
 
