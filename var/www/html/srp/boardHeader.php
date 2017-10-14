@@ -20,7 +20,7 @@
 
 						<li><a href='boardDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
 
-						<li class='menu-item-has-children menu-item-has-mega-menu'><a href='#'><span><i class='fa fa-bars'></i> Menu</span></a>
+						<li class='menu-item-has-children menu-item-has-mega-menu'><a href='#'><span><i class='fa fa-users'></i> Board</span></a>
 
 							<div class='mega-menu'>
 
@@ -38,6 +38,18 @@
 										</ul>
 
 									</li>
+								
+								</ul>
+
+							</div>
+
+						</li>
+
+						<li class='menu-item-has-children menu-item-has-mega-menu'><a href='#'><span><i class='fa fa-institution'></i> Community</span></a>
+
+							<div class='mega-menu'>
+
+								<ul class='sub-menu mega-menu-row'>
 
 									<li class='menu-item-has-children mega-menu-col'><a href='#'><i class='fa fa-institution'></i> Community</a>
 										
@@ -49,24 +61,48 @@
 										</ul>
 
 									</li>
+								
+								</ul>
+
+							</div>
+
+						</li>
+
+						<li class='menu-item-has-children menu-item-has-mega-menu'><a href='#'><span><i class='fa fa-street-view'></i> Users</span></a>
+
+							<div class='mega-menu'>
+
+								<ul class='sub-menu mega-menu-row'>
 
 									<li class='menu-item-has-children mega-menu-col'><a href='#'><i class='fa fa-street-view'></i> Users</a>
 										
 										<ul class='sub-menu'>
 														
-											<li><a>Balances</a></li>
+											<li><a href='customerBalance.php'>Balances</a></li>
 											<li><a href='hoaHomeInfo.php'>HOA &amp; Home Info</a></li>
 											<li><a href='userDashboard.php'>User Dashboard</a></li>
 										
 										</ul>
 										
 									</li>
+								
+								</ul>
+
+							</div>
+
+						</li>
+
+						<li class='menu-item-has-children menu-item-has-mega-menu'><a href='#'><span><i class='fa fa-wrench'></i> Vendors</span></a>
+
+							<div class='mega-menu'>
+
+								<ul class='sub-menu mega-menu-row'>
 
 									<li class='menu-item-has-children mega-menu-col'><a href='#'><i class='fa fa-wrench'></i> Vendors</a>
 										
 										<ul class='sub-menu'>
 
-											<li><a>Vendor Dashboard</a></li>
+											<li><a href='vendorDashboard.php'>Vendor Dashboard</a></li>
 										
 										</ul>
 
