@@ -26,8 +26,8 @@
 			if($mode == 2)
 				header('Location: residentDashboard.php');
 
-			$vendor_name = $_POST['vendor_name'];
-			$vendor_id = $_POST['vendor_id'];
+			$vendor_name = $_GET['vendor_name'];
+			$vendor_id = $_GET['vendor_id'];
 
 		?>
 
