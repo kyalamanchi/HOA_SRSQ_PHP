@@ -198,8 +198,14 @@
 											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE hoa_id=$hoa_id AND home_id=$home_id AND payment_status_id=1"));
 											$total_payments = $row1['sum'];
 
+											if($total_payments == '')
+												$total_payments = 0.0;
+
+											$total_payments = round($total_payments, 2);
+
 											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
 											$total_charges = $row1['sum'];
+											$total_charges = round($total_charges, 2);
 
 											$total_balance = $total_charges - $total_payments;
 											$total_balance = round($total_balance, 2);
