@@ -103,8 +103,7 @@
 									<th>Name</th>
 									<th>Living In</th>
 									<th>Contact Details</th>
-									<th>Total Charges</th>
-									<th>Total Payments</th>
+									<th>Total Charges<br>Total Payments</th>
 									<th>Total Balance</th>
 									<th></th>
 
@@ -138,7 +137,7 @@
 
 											$total_balance = $total_charges - $total_payments;
 
-											echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$email<br>$cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+											echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$email<br>$cell_no</td><td>$ $total_charges<br>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
 											
 										}
 
