@@ -98,15 +98,22 @@
 
 							<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'>
 
-								<div class='alert alert-danger'>
+								<div class='alert alert-info'>
 
 									<center>
+
+										<form method='POST'>
 
 										Show customers having balance 
 										<input type='radio' name='mode' id='mode' value='1'> Greater than 
 										<input type='radio' name='mode' id='mode' value='2'> Lesser than 
-										<input type='radio' name='mode' id='mode' value='3'> Equal to 
-										<input type='number' step='0.01' name='value' id='value' value='0.00'>
+										<input type='radio' name='mode' id='mode' value='3'> Equal to <input class='form-control' type='number' step='0.01' name='value' id='value' value='0.00'>
+										
+										<br><br>
+										
+										<button type='submit' class='btn btn-xs btn-success'>Show</button>
+
+										</form>
 
 									</center>
 
