@@ -122,7 +122,42 @@
 
 												<table class='table table-bordered' style='color: black;'>
 													
-													
+													<thead>
+
+														<th>Vendor Name</th>
+														<th>Active From</th>
+														<th>Approved</th>
+														<th>Vendor Type</th>
+														<th>Payment Method</th>
+														<th>Tax ID</th>
+														<th>Email</th>
+														<th>Phone</th>
+														<th>Address</th>
+
+													</thead>
+
+													<tbody>
+														
+														<?php
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
+
+															$vendor_name = $row['vendor_name'];
+															$active_from = $row['active_from'];
+															$address = $row['address'];
+															$approved = $row['approved'];
+															$email = $row['email'];
+															$phone_no = $row['phone_no'];
+															$vendor_id = $row['vendor_id'];
+
+															if($approved == 't')
+																$approved = 'TRUE';
+															else
+																$approved = 'FALSE';
+
+														?>
+
+													</tbody>
 
 												</table>
 
