@@ -276,7 +276,7 @@ function getSubCategory(){
   <hr>
   <div class="container">
     <h2>Quick Send</h2>
-    <br>
+    <hr>
       <div class="row-fluid">
       <h4>HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
@@ -300,6 +300,7 @@ function getSubCategory(){
       </select>
     </div>
     <br>
+
     <hr>
     <div style="clear: both;"></div>
     <form>
