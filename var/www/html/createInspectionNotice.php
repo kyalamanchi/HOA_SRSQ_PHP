@@ -285,7 +285,7 @@ function getSubCategory(){
     <hr>
       <div class="row-fluid">
       <h4>HOA ID</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qhoaID" onchange="">
       <?php
         echo '<option></option>';
         foreach ($hoaIDArray as $key => $value) {
@@ -297,7 +297,7 @@ function getSubCategory(){
     <br>
     <div class="row-fluid">
       <h4>Notice</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qNotice" onchange="changeDetails();">
       <option>Trash Can</option>
       <option>Basketball</option>
       <option>Unsightly Items</option>
