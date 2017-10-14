@@ -96,7 +96,7 @@
 
 						<div class='row'>
 
-							<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'>
+							<div class='offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1 offset-xs-1 col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'>
 
 								<div class='alert alert-info'>
 
