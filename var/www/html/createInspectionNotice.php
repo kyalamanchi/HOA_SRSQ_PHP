@@ -288,6 +288,7 @@ function getSubCategory(){
       </select>
     </div>
     <br>
+    <br>
     <hr>
     <form>
     <div class="row-fluid" style="float: left;">
