@@ -273,8 +273,9 @@ function getSubCategory(){
   </head>
 <body>
   <h1>Inspection Management</h1>
+  <hr>
   <div class="container">
-    <hr />
+    
     <form>
     <div class="row-fluid" style="float: left;">
       <h4>HOA ID</h4>
