@@ -112,7 +112,7 @@
 													Show customers having balance 
 													<input type='radio' name='mode' id='mode' value='1' checked> Greater than 
 													<input type='radio' name='mode' id='mode' value='2'> Lesser than 
-													<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value1' id='value1' value='0.00'>
+													<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='0.00'>
 
 													";
 												else
@@ -127,7 +127,7 @@
 														Show customers having balance 
 														<input type='radio' name='mode' id='mode' value='1' checked> Greater than 
 														<input type='radio' name='mode' id='mode' value='2'> Lesser than 
-														<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value1' id='value1' value='$value'>
+														<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='$value'>
 
 														";
 
@@ -137,7 +137,7 @@
 														Show customers having balance 
 														<input type='radio' name='mode' id='mode' value='1'> Greater than 
 														<input type='radio' name='mode' id='mode' value='2' checked> Lesser than 
-														<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value1' id='value1' value='$value'>
+														<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='$value'>
 
 														";
 
@@ -147,7 +147,7 @@
 														Show customers having balance 
 														<input type='radio' name='mode' id='mode' value='1'> Greater than 
 														<input type='radio' name='mode' id='mode' value='2'> Lesser than 
-														<input type='radio' name='mode' id='mode' value='3' checked> Equal to <input type='number' step='0.01' name='value1' id='value1' value='$value'>
+														<input type='radio' name='mode' id='mode' value='3' checked> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='$value'>
 
 														";
 
