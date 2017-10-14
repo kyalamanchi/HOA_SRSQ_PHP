@@ -78,7 +78,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Vendor Dashboard - <?php echo $vendor_name; ?></h1>
+								<h1 class="h5">Vendor Dashboard <small>- <?php echo $vendor_name; ?></small></h1>
 							
 							</div>
 						
@@ -149,6 +149,7 @@
 															$email = $row['email'];
 															$phone_no = $row['phone_no'];
 															$vendor_id = $row['vendor_id'];
+
 
 															if($approved == 't')
 																$approved = 'TRUE';
