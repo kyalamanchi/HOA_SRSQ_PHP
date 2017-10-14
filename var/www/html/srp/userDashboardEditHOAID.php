@@ -67,7 +67,7 @@
 
 				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-success'><center><br /><strong style='font-size: 15pt;'>HOA ID Updated!</strong><br /><br /></center></div></div></div>";
 
-				echo "<script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$hoa_id&$home_id=$home_id&name=$name'},1000);</script>";
+				echo "<script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name'},1000);</script>";
 
 			}
 			else
@@ -75,12 +75,12 @@
 
 				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>Some error occured!</strong><br /><br />Please try again.<br /><br /></center></div></div></div>";
 
-				echo "<script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$hoa_id&$home_id=$home_id&name=$name'},1000);</script>";
+				echo "<script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name'},1000);</script>";
 
 			}
 
 
-			echo "<br><br><br><a href='userDashboard2.php?hoa_id=$hoa_id&$home_id=$home_id&name=$name'>Click here</a> if this page doesnot redirect automatically in 5 seconds.";
+			echo "<br><br><br><center><a href='userDashboard2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center>";
 
 		?>
 
