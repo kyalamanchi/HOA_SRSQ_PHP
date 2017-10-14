@@ -129,10 +129,10 @@
 
 								<thead>
 									
-									<th>Name</th>
-									<th>Living In</th>
-									<th>Contact Details</th>
-									<th>Total Charges - Total Payments = Total Balance</th>
+									<th><i class='fa fa-user'></i> Name</th>
+									<th><i class='fa fa-home'></i> Living In</th>
+									<th><i class='fa fa-address-book'></i> Contact Details</th>
+									<th><i class='fa fa-dollar'></i> Total Charges - Total Payments = Total Balance</th>
 									<th></th>
 
 								</thead>
