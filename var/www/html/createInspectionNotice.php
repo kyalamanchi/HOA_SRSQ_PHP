@@ -288,7 +288,6 @@ function getSubCategory(){
       ?>
       </select>
     </div>
-    <button type="button" class="btn btn-outline-primary" onclick="">Email Statement</button>
     <br>
     <div class="row-fluid">
       <h4>Notice</h4>
@@ -301,8 +300,9 @@ function getSubCategory(){
       </select>
     </div>
     <br>
-
-    <hr>
+    <button type="button" class="btn btn-outline-primary" onclick="">Email Statement</button>
+    <button type="button" class="btn btn-outline-primary" onclick="">Send Via USPS</button>
+    <hr>  
     <div style="clear: both;"></div>
     <form>
     <div class="row-fluid" style="float: left;">
