@@ -96,8 +96,9 @@
 
 								<thead>
 									
-									<th>Vendor Name (Vendor ID)</th>
-									<th>Vendor Type</th>
+									<th>Name (HOA ID)</th>
+									<th>Living In (Home ID)</th>
+									<th>Role</th>
 
 								</thead>
 
@@ -105,24 +106,28 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
+										$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
 										while($row = pg_fetch_assoc($result))
 										{
 
-											$vendor_id = $row['vendor_id'];
-											$vendor_name = $row['vendor_name'];
-											$vendor_type = $row['vendor_type_id'];
+											$home_id = $row['home_id'];
+											$address = $row['address1'];
+											$living_status = $row['living_status'];
 
-											if($vendor_type != '')
-											{
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
 
-												$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_type WHERE vendor_type_id=$vendor_type"));
-												$vendor_type = $row1['vendor_type_name'];
+											$name = $row1['firstname'];
+											$name .= " ";
+											$name .= $row1['lastname'];
+											$hoa_id = $row1['hoa_id'];
 
-											}
+											if($living_status == 't')
+												$living_status = "Living";
+											else
+												$living_status = "Rented";
 
-											echo"<tr><td><a href='vendorDashboard2.php?vendor_name=$vendor_name&vendor_id=$vendor_id'>$vendor_name ($vendor_id)</a></td><td>$vendor_type</td></tr>";
+	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$address ($home_id)</a></td><td>$living_status</td></tr>";
 
 										}
 
