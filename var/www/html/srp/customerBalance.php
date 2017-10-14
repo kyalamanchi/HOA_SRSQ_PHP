@@ -107,13 +107,11 @@
 											<?php
 
 												if(!isset($_POST['mode']))
-													echo "
-
+													echo " 
 													Show customers having balance 
 													<input type='radio' name='mode' id='mode' value='1' checked> Greater than 
 													<input type='radio' name='mode' id='mode' value='2'> Lesser than 
-													<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='0.00'>
-
+													<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='0.00'> 
 													";
 												else
 												{
@@ -123,32 +121,24 @@
 
 													if($mode == 1)
 														echo "
-
 														Show customers having balance 
 														<input type='radio' name='mode' id='mode' value='1' checked> Greater than 
 														<input type='radio' name='mode' id='mode' value='2'> Lesser than 
 														<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='$value'>
-
 														";
-
-													if($mode == 2)
+													else if($mode == 2)
 														echo "
-
 														Show customers having balance 
 														<input type='radio' name='mode' id='mode' value='1'> Greater than 
 														<input type='radio' name='mode' id='mode' value='2' checked> Lesser than 
 														<input type='radio' name='mode' id='mode' value='3'> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='$value'>
-
 														";
-
 													if($mode == 3)
 														echo "
-
 														Show customers having balance 
 														<input type='radio' name='mode' id='mode' value='1'> Greater than 
 														<input type='radio' name='mode' id='mode' value='2'> Lesser than 
 														<input type='radio' name='mode' id='mode' value='3' checked> Equal to $ <input type='number' step='0.01' name='value1' id='value1' value='$value'>
-
 														";
 
 												}
@@ -216,33 +206,27 @@
 
 											if(!isset($_POST['mode']))
 											{
+												echo "1";
 
 												if($balance > 0.0)
 													echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
-
 											}
-											else{
-											
+											else
+											{
 												if($mode == 1)
 												{
-
 													if($balance > $value)
 														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
-
 												}	
 												else if($mode == 2)
 												{
-
 													if($balance < $value)
 														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
-
 												}
 												else if($mode == 3)
 												{
-
 													if($balance = $value)
 														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
-
 												}
 
 											}
