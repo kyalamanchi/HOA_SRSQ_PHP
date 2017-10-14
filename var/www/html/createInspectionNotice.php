@@ -289,6 +289,17 @@ function getSubCategory(){
       </select>
     </div>
     <br>
+    <div class="row-fluid">
+      <h4>Notice</h4>
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeDetails();">
+      <option>Trash Can</option>
+      <option>Basketball</option>
+      <option>Unsightly Items</option>
+      <option>RV</option>
+      <option>Garage Use</option>
+      </select>
+    </div>
+    <br>
     <hr>
     <div style="clear: both;"></div>
     <form>
