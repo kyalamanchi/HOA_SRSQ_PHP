@@ -165,7 +165,7 @@
 
 											$total_balance = $total_charges - $total_payments;
 
-											echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$email<br>$cell_no</td><td>$ $total_charges - $ $total_payments = $ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+											echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-at'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = $ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
 											
 										}
 
