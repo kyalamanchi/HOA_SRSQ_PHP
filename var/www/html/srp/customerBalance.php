@@ -102,16 +102,32 @@
 
 									<center>
 
-										<form method='POST'>
+										<form method='POST' action='customerBalance.php'>
 
-										Show customers having balance 
-										<input type='radio' name='mode' id='mode' value='1'> Greater than 
-										<input type='radio' name='mode' id='mode' value='2'> Lesser than 
-										<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value' id='value' value='0.00'>
-										
-										<br>
-										
-										<button type='submit' class='btn btn-xs btn-success'>Show</button>
+											<?php
+
+												if(!isset($_POST['mode']))
+													echo "
+
+													Show customers having balance 
+													<input type='radio' name='mode' id='mode' value='1' selected> Greater than 
+													<input type='radio' name='mode' id='mode' value='2'> Lesser than 
+													<input type='radio' name='mode' id='mode' value='3'> Equal to <input type='number' step='0.01' name='value' id='value' value='0.00'>
+
+													";
+												else
+												{
+
+													$mode = $_POST['mode'];
+
+													echo $mode;
+												}
+
+											?>
+											
+											<br>
+											
+											<button type='submit' class='btn btn-xs btn-success'>Show</button>
 
 										</form>
 
@@ -123,7 +139,7 @@
 
 						</div>
 
-						<br>
+						<br><br>
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
