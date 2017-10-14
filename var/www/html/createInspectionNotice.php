@@ -288,6 +288,7 @@ function getSubCategory(){
       ?>
       </select>
     </div>
+    <button type="button" class="btn btn-outline-primary" onclick="">Email Statement</button>
     <br>
     <div class="row-fluid">
       <h4>Notice</h4>
