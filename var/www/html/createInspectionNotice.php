@@ -290,6 +290,7 @@ function getSubCategory(){
     </div>
     <br>
     <hr>
+    <div style="clear: both;"></div>
     <form>
     <div class="row-fluid" style="float: left;">
       <h4>HOA ID</h4>
