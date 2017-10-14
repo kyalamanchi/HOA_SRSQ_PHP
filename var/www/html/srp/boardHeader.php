@@ -78,7 +78,7 @@
 										
 										<ul class='sub-menu'>
 														
-											<li><a href='customerBalance.php'>Balances</a></li>
+											<li><a href='customerBalance.php'>Balance</a></li>
 											<li><a href='hoaHomeInfo.php'>HOA &amp; Home Info</a></li>
 											<li><a href='userDashboard.php'>User Dashboard</a></li>
 										
