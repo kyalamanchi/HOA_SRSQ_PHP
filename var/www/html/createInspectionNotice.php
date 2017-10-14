@@ -271,11 +271,10 @@ function getSubCategory(){
 }
 </script>
   </head>
+<body>
+  <h1>Inspection Management</h1>
   <div class="container">
-    <div class="row">
-      <h2>Inspection Management</h2>
-      <hr />
-    </div>
+    <hr />
     <form>
     <div class="row-fluid" style="float: left;">
       <h4>HOA ID</h4>
@@ -410,4 +409,5 @@ function getSubCategory(){
       <button type="button" class="btn btn-primary btn-lg" onclick="sendData();">Create Notice</button>
   </div>
   </form>
+</body>
 </html>
