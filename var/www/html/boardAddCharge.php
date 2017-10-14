@@ -3,7 +3,10 @@
 
 	<head>
 		<?php
-			session_start();
+			
+            ini_set("session.save_path","/var/www/html/session/");
+
+            session_start();
 
             ini_set('max_execution_time', 180);
 

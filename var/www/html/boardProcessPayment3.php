@@ -5,8 +5,11 @@
     </head>
     <body>
         <?php
-            ini_set('max_execution_time', 180);
+            ini_set("session.save_path","/var/www/html/session/");
 
+            session_start();
+
+            ini_set('max_execution_time', 180);
 
             $id = $_POST['id'];
             $payment_id = $_POST['payment_id'];
