@@ -306,8 +306,8 @@ function getSubCategory(){
       </select>
     </div>
     <br>
-    <button type="button" class="btn btn-outline" onclick="">Email Statement</button>
-    <button type="button" class="btn btn-outline" onclick="">Send Via USPS</button>
+    <button type="button" class="btn btn-primary" onclick="">Email Statement</button>
+    <button type="button" class="btn btn-primary" onclick="">Send Via USPS</button>
     <hr>  
     <div style="clear: both;"></div>
     <form>
