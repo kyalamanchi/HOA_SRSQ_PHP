@@ -226,7 +226,7 @@
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 																							<label><strong>Resident Since</strong></label><br>
-																							<input class='form-control' type='date' name='edit_valid_form' id='edit_valid_form' value='$resident_since' required>
+																							<input class='form-control' type='date' name='edit_valid_from' id='edit_valid_from' value='$resident_since' required>
 
 																						</div>
 
@@ -234,6 +234,10 @@
 
 																							<label><strong>Resident Until</strong></label><br>
 																							<input class='form-control' type='date' name='edit_valid_until' id='edit_valid_until' value='$resident_until' required>
+
+																							<input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+																							<input type='hidden' name='home_id' id='home_id' value='$home_id'>
+																							<input type='hidden' name='name' id='name' value='$name'>
 
 																						</div>
 
@@ -367,7 +371,7 @@
 
 																			<div class='container' style='color: black;'>
 
-																				<form method='POST' action='userDashboardEditHOAID.php'>
+																				<form method='POST' action='userDashboardEditLivingStatus.php'>
 																				
 																					<div class='row'>
 
@@ -382,7 +386,7 @@
 																					<div class='row'>
 
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-																						
+
 																							<input type='radio' name='living_status' id='living_status'> True
 
 																						</div>
