@@ -60,26 +60,25 @@ $inspectionStatus = 1;
 	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeSouthData.php?id=".$id);
 	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	$docid = curl_exec($req);
-	echo $docid;
-	// if ( $docid ){
-	// $subject = "Inspection Notice";
-	// $body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
-	// $docID = $result;
-	// $email = "dhivysh@gmail.com";
-	// $req = curl_init();
-	// $url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docid."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
-	// $url = str_replace ( ' ', '%20', $url );
-	// curl_setopt($req, CURLOPT_URL,$url);
-	// curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
-	// $result = curl_exec($req);
-	// if ( $result == "An error occured" ) {
-	// 	echo "An error occured";
-	// }
-	// else {
-	// 	echo "Email Sent";
-	// }
-	// }
-	// else{
-	// 	echo "Failed to send";
-	// }
+	$url = 'https://content.dropboxapi.com/2/files/download';
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "'.$docid.'"}'));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	$response = curl_exec($ch);
+	$fileContents = base64_encode($response);
+	$req = curl_init();
+		curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
+		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+		if(curl_exec($req) === false)
+		{
+    			$message =  "An error occured. Please try again.";
+    			echo $message;
+				exit(0);
+		}
+		else 
+		{	
+				$message = "File uploaded to South Data.";
+				echo $message;  		
+		}
 ?>

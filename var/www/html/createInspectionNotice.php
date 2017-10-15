@@ -312,7 +312,12 @@ request.send(Json);
 request.onreadystatechange = function(){
   if ( request.readyState == XMLHttpRequest.DONE ){
     hidePleaseWait();
-   swal("Alert",request.responseText,"success");
+    if ( request.responseText == "File uploaded to South Data." ){
+        swal("File Uploaded to USPS.","","success");
+    }
+    else {
+      swal("Failed to Upload","","error");
+    }
   }
 }
 }
