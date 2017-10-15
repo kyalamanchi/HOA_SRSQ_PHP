@@ -283,9 +283,18 @@ swal(
   {
     title: qNotice+qHoaID,
   });
+hidePleaseWait();
 }
 function quickSendUSPS(){
   showPleaseWait();
+var qNotice = $("#qNotice").find("option:selected").text();
+var qHoaID = $("#qhoaID").find("option:selected").text();
+swal(
+  {
+    title: qNotice+qHoaID,
+  });
+hidePleaseWait();
+
 }
 </script>
   </head>
