@@ -276,10 +276,10 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
-swal("Mandrill");
+showPleaseWait();
 }
 function quickSendUSPS(){
-  swal("SouthData");
+  showPleaseWait();
 }
 </script>
   </head>
