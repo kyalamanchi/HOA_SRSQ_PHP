@@ -125,6 +125,9 @@
 											if($date_payment_cleared != '')
 												$date_payment_cleared = date('m-d-Y', strtotime($date_payment_cleared));
 
+											if($closing_month != '')
+												$closing_month = date('F', strtotime($closing_month));
+
 											if($payment_cleared == 't')
 												$payment_cleared = 'YES';
 											else
