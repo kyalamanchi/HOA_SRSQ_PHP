@@ -67,6 +67,7 @@ $inspectionStatus = 1;
 	$email = "dhivysh@gmail.com";
 	$req = curl_init();
 	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docid."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
+	$url = str_replace ( ' ', '%20', $url );
 	curl_setopt($req, CURLOPT_URL,$url);
 	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	$result = curl_exec($req);
