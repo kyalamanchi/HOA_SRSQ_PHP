@@ -136,6 +136,12 @@
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
 											$vendor_name = $row1['vendor_name'];
 
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+											$payment_type = $row1['payment_type_name'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM bank_account WHERE id=$bank_account"));
+											$bank_account = $row1['bank_name'];
+
 											echo "<tr><td>$pay_date</td><td>$vendor_name ($vendor_id)</td><td>$payment_type</td><td>$ $amount</td><td>$payment_cleared</td><td>$date_payment_cleared</td><td>$bank_account</td><td>$closing_month</td><td>$closing_year</td></tr>";
 
 										}
