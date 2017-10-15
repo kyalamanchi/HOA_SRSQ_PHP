@@ -275,7 +275,7 @@ function getSubCategory(){
     }
   }
 }
-function quickSendEmail(){
+function quickSend(){
 showPleaseWait();
 var qNotice = $("#qNotice").find("option:selected").text();
 var qHoaID = $("#qhoaID").find("option:selected").text();
@@ -284,17 +284,6 @@ swal(
     title: qNotice+qHoaID,
   });
 hidePleaseWait();
-}
-function quickSendUSPS(){
-  showPleaseWait();
-var qNotice = $("#qNotice").find("option:selected").text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
-swal(
-  {
-    title: qNotice+qHoaID,
-  });
-hidePleaseWait();
-
 }
 </script>
   </head>
@@ -328,8 +317,8 @@ hidePleaseWait();
       </select>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" onclick="quickSendEmail();">Email Statement</button>
-    <button type="button" class="btn btn-primary" onclick="quickSendUSPS();">Send Via USPS</button>
+    <button type="button" class="btn btn-primary" onclick="quickSend();">Email Statement</button>
+    <button type="button" class="btn btn-primary" onclick="quickSend();">Send Via USPS</button>
     <hr>  
     <div style="clear: both;"></div>
     <form>
