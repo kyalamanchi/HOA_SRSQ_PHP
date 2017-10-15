@@ -186,7 +186,7 @@
 														
 														<div class='progress'>
 															
-															<div class='progress-bar progress-bar-warning progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															<div class='progress-bar progress-bar-danger progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 														
 														</div>
 
