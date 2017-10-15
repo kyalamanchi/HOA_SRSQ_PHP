@@ -186,7 +186,7 @@
 														
 														<div class='progress'>
 															
-															<div class='progress-bar progress-bar-success progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 														
 														</div>
 
@@ -204,7 +204,7 @@
 														
 														<div class='progress'>
 															
-															<div class='progress-bar progress-bar-success progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 														
 														</div>
 
