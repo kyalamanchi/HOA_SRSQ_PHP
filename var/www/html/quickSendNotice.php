@@ -67,7 +67,7 @@ $inspectionStatus = 1;
 	$docID = $result;
 	$email = "dhivysh@gmail.com";
 	$req = curl_init();
-	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
+	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docid."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
 	curl_setopt($req, CURLOPT_URL,$url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	echo $url;
