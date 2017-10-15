@@ -2,8 +2,6 @@
 	$login_email = $_POST['login_email'];
 	$login_password = $_POST['login_password'];
 
-	ini_set("session.save_path","/var/www/html/session/");
-
 	ini_set('max_execution_time', 180);
 
 	include 'password.php';
@@ -33,6 +31,8 @@
 			$name .= $row['last_name'];
 			$id = $row['id'];
 			$otp = "";
+
+			ini_set("session.save_path","/var/www/html/session/");
 
 			session_start();
 
