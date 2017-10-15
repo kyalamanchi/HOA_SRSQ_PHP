@@ -58,6 +58,7 @@ $inspectionStatus = 1;
 	$id = $row['id'];
 	$req = curl_init();
 	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id=".$id);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$docid = curl_exec($req);
 	if ( $docid ){
 	$subject = "Inspection Notice";
@@ -67,6 +68,7 @@ $inspectionStatus = 1;
 	$req = curl_init();
 	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
 	curl_setopt($req, CURLOPT_URL,$url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	echo $url;
 	// $result = curl_exec($req);
 	// 	echo $result;
