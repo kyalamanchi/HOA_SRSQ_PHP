@@ -71,6 +71,7 @@ $inspectionStatus = 1;
 	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	$result = curl_exec($req);
 	echo $result;
+	echo "URL : ".$url;
 	}
 	else{
 		echo "Failed to send";
