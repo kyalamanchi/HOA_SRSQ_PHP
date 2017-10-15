@@ -275,6 +275,12 @@ function getSubCategory(){
     }
   }
 }
+function quickSendEmail(){
+swal("Mandrill");
+}
+function quickSendUSPS(){
+  swal("SouthData");
+}
 </script>
   </head>
 <body>
@@ -307,8 +313,8 @@ function getSubCategory(){
       </select>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" onclick="">Email Statement</button>
-    <button type="button" class="btn btn-primary" onclick="">Send Via USPS</button>
+    <button type="button" class="btn btn-primary" onclick="quickSendEmail();">Email Statement</button>
+    <button type="button" class="btn btn-primary" onclick="quickSendUSPS();">Send Via USPS</button>
     <hr>  
     <div style="clear: both;"></div>
     <form>
