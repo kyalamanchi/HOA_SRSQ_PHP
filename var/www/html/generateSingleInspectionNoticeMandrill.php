@@ -95,6 +95,9 @@ require('mc_table.php');
         $inspectionSubCategoryNameFinal  = $row['name'];
         $inspectionSubCategoryRuleDescription = $row['rule_description'];
         $inspectionSubCategoryExplanation = $row['explanation'];
+        $inspectionSubCategorySection  = $row['section'];
+        $inspectionLegalDocsID = $row['community_legal_docs_id'];
+        $inspectionFooter = $row['footer'];
         }
         date_default_timezone_set('America/Los_Angeles');
         
@@ -134,6 +137,17 @@ require('mc_table.php');
     $pdf->MultiCell(0,3.5,"\n\nDear ".$personFirstName." ".$personLastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
 \n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDateFinal))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
 $pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b> It was noted that this violation occurred in the following location: <b>".$locationArray[$inspectionLocationID]."</b>.");
+if ( $inspectionSubCategorySection ){
+    $queryy = "SELECT NAME FROM COMMUNITY_LEGAL_DOCS WHERE ID=".$inspectionSubCategorySection;
+    $queryyResult = pg_query($queryy);
+    $row = pg_fetch_assoc($queryyResult);
+    $name  = $row['name'];
+    $pdf->WriteHTML("According to ".$inspectionSubCategorySection." of ".$name.$inspectionSubCategoryRuleDescription.$inspectionFooter);
+
+}
+else {
+    $pdf->WriteHTML($inspectionSubCategoryRuleDescription.$inspectionFooter);
+}
 $pdf->Ln();
 $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
 $pdf->Rect($pdf->w,$pdf->h,100,1);
