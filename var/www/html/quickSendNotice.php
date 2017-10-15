@@ -58,12 +58,10 @@ $inspectionStatus = 1;
 	$id = $row['id'];
 	$req = curl_init();
 	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id=".$id);
-	$result = curl_exec($req);
-	echo $result;
-	if ( $result ){
+	$docid = curl_exec($req);
+	if ( $docid ){
 	$subject = "Inspection Notice";
-	$body  = "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br>
-		During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
+	$body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
 	$docID = $result;
 	$email = "dhivysh@gmail.com";
 	$req = curl_init();

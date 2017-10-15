@@ -17,7 +17,7 @@ if ($_GET['hoaid']){
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
 	if ( strpos($response, "Error in call to API function") !== false ) {
-		echo "An error occured";
+		echo "An error occured.Dropbox";
 		exit(0);
 	}
 	else { 
@@ -49,11 +49,10 @@ $result = curl_exec($ch);
 	curl_close ($ch);
 	$result  = json_decode($result);
 	if ( $result[0]->status == 'error'){
-		echo "An error occured";
+		echo "An error occured.Mandrill";
   	}
   	else if ( ($result[0]->status == 'sent' ) || ($result[0]->status == 'queued') ){
 	$message  = "Mail sent successfully";
-  	echo "An error occured";
   	$query  = "SELECT HOME_ID,COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['hoaid'];
   	$queryResult = pg_query($query);
     $row = pg_fetch_assoc($queryResult);
@@ -67,7 +66,7 @@ $result = curl_exec($ch);
 }
 else {
 	
-	echo "An error occured";
+	echo "An error occured.HOAID";
 	exit(0);
 }
 ?>
