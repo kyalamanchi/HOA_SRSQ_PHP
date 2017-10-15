@@ -293,7 +293,7 @@ request.onreadystatechange = function(){
       swal("Email Sent!", "", "success");
     }
     else{
-      swal("Failed!", "Please try again", "error");
+      swal("Failed!", "Please try again"+request.responseText, "error");
     }
   }
 }
