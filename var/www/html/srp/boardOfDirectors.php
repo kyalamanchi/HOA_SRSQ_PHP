@@ -97,8 +97,8 @@
 								<thead>
 											
 									<th>Name</th>
-									<th>Living In</th>
-									<th>Title</th>
+									<th>Board of Directors / Officers</th>
+									<th>Term end date</th>
 
 								</thead>
 
@@ -118,9 +118,12 @@
 			                        		{
 
 			                          			$hoa_id = $row['hoa_id'];
-			                          			$home_id = $row['home_id'];
 			                          			$user_id = $row['user_id'];
 			                          			$title = $row['title'];
+			                          			$term_end_date = $row['term_end_date'];
+
+			                          			if($term_end_date != '')
+			                          				$term_end_date = date('m-d-Y', strtotime($term_end_date));
 
 			                          			if($hoa_id == '')
 			                          			{
@@ -133,23 +136,12 @@
 
 			                          			}
 
-			                          			if($home_id == '')
-			                          			{
-
-			                          				$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-			                          				$home_id = $row1['home_id'];
-
-			                          			}
-
 			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 			                          			$name = $row1['firstname'];
 			                          			$name .= " ";
 			                          			$name .= $row1['lastname'];
 
-			                          			$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-			                          			$living_in = $row1['address1'];
-
-			                          			echo "<tr><td>$name</td><td>$living_in</td><td>$title</td></tr>";
+			                          			echo "<tr><td>$name</td><td>$title</td><td>$term_end_date</td></tr>";
 
 			                        		}
 
