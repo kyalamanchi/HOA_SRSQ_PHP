@@ -277,6 +277,12 @@ function getSubCategory(){
 }
 function quickSendEmail(){
 showPleaseWait();
+var qNotice = $("#qNotice").find("option:selected").text();
+var qHoaID = $("#qhoaID").find("option:selected").text();
+swal(
+  {
+    title: qNotice+qHoaID;
+  });
 }
 function quickSendUSPS(){
   showPleaseWait();
