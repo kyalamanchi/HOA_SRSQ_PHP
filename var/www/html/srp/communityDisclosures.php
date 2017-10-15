@@ -124,12 +124,19 @@
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$disclosure_type"));
 
-											$disclosure_type = $row1['name'];
-											$disclosure_type .= " (";
-											$disclosure_type .= $row1['civilcode_section'];
-											$disclosure_type .= ")";
+											$civilcode_section = $row1['civilcode_section'];
 											$description = $row1['desc'];
 											$legal_url = $row1['legal_url'];
+											$disclosure_type = $row1['name'];
+
+											if($civilcode_section != '')
+											{
+
+												$disclosure_type .= " (";
+												$disclosure_type .= $civilcode_section;
+												$disclosure_type .= ")";
+
+											}
 
 											if($legal_url != '')
 												$disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
