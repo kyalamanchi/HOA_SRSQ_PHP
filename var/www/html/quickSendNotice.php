@@ -58,7 +58,7 @@ $inspectionStatus = 1;
 	$id = $row['id'];
 	$req = curl_init();
 	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id=".$id);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	$docid = curl_exec($req);
 	echo "Response is ".$docid;
 	// if ( $docid ){
