@@ -137,6 +137,7 @@ require('mc_table.php');
     $pdf->MultiCell(0,3.5,"\n\nDear ".$personFirstName." ".$personLastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
 \n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDateFinal))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
 $pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b> It was noted that this violation occurred in the following location: <b>".$locationArray[$inspectionLocationID]."</b>.");
+$pdf->Ln();
 if ( $inspectionSubCategorySection ){
     $queryy = "SELECT NAME FROM COMMUNITY_LEGAL_DOCS WHERE ID=".$inspectionSubCategorySection;
     $queryyResult = pg_query($queryy);
