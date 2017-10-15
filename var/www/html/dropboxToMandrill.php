@@ -17,7 +17,7 @@ if ($_GET['hoaid']){
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
 	if ( strpos($response, "Error in call to API function") !== false ) {
-		echo "An error occured.Dropbox";
+		echo "An error occured.Dropbox".$response;
 		exit(0);
 	}
 	else { 
