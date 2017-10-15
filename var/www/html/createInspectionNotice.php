@@ -275,7 +275,7 @@ function getSubCategory(){
     }
   }
 }
-function quickSend(){
+function quickSendEmail(){
 showPleaseWait();
 var qNotice = $("#qNotice").find("option:selected").text();
 var qHoaID = $("#qhoaID").find("option:selected").text();
@@ -285,6 +285,29 @@ item["notice_name"] = qNotice;
 var Json = JSON.stringify(item);
 var request = new XMLHttpRequest();
 request.open("POST","https://hoaboardtime.com/quickSendNotice.php",true);
+request.send(Json);
+request.onreadystatechange = function(){
+  if ( request.readyState == XMLHttpRequest.DONE ){
+    hidePleaseWait();
+    if ( request.responseText == "Email Sent" ){
+      swal("Email Sent!", "", "success");
+    }
+    else{
+      swal("Failed!", "Please try again", "error");
+    }
+  }
+}
+}
+function quickSendUSPS(){
+showPleaseWait();
+var qNotice = $("#qNotice").find("option:selected").text();
+var qHoaID = $("#qhoaID").find("option:selected").text();
+item = {};
+item["hoa_id"] = qHoaID;
+item["notice_name"] = qNotice;
+var Json = JSON.stringify(item);
+var request = new XMLHttpRequest();
+request.open("POST","https://hoaboardtime.com/quickSendNoticeUSPS.php",true);
 request.send(Json);
 request.onreadystatechange = function(){
   if ( request.readyState == XMLHttpRequest.DONE ){
@@ -325,8 +348,8 @@ request.onreadystatechange = function(){
       </select>
     </div>
     <br>
-    <button type="button" class="btn btn-primary" onclick="quickSend();">Email Statement</button>
-    <button type="button" class="btn btn-primary" onclick="quickSend();">Send Via USPS</button>
+    <button type="button" class="btn btn-primary" onclick="quickSendEmail();">Email Statement</button>
+    <button type="button" class="btn btn-primary" onclick="quickSendUSPS();">Send Via USPS</button>
     <hr>  
     <div style="clear: both;"></div>
     <form>
