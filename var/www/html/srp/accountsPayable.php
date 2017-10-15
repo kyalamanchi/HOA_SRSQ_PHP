@@ -86,7 +86,54 @@
 						
 							<table id='example1' class='table' style="color: black;">
 										
-								
+								<thead>
+									
+									<th>Pay Date</th>
+									<th>Vendor Name (Vendor ID)</th>
+									<th>Payment Type</th>
+									<th>Amount</th>
+									<th>Payment Cleared</th>
+									<th>Date Payment Cleared</th>
+									<th>Bank Account</th>
+									<th>Closing Month &amp; Year</th>
+
+								</thead>
+
+								<tbody>
+									
+									<?php
+
+										$result = pg_query("SELECT * FROM accounts_payable WHERE community_id=$community_id");
+
+										while ($row = pg_fetch_assoc($result)) 
+										{
+
+											$pay_date = $row['pay_date'];
+											$vendor_id = $row['vendor_id'];
+											$payment_type = $row['payment_type_id'];
+											$amount = $row['amount'];
+											$payment_cleared = $row['payment_cleared'];
+											$date_payment_cleared = $row['date_payment_cleared'];
+											$bank_account = $row['bank_account_id'];
+											$closing_month = $row['closing_month'];
+											$closing_year = $row['closing_year'];
+
+											if($pay_date != '')
+												$pay_date = date('m-d-Y', strtotime($pay_date));
+
+											if($date_payment_cleared != '')
+												$date_payment_cleared = date('m-d-Y', strtotime($date_payment_cleared));
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
+											$vendor_name = $row1['vendor_name'];
+
+											echo "<tr><td>$pay_date</td><td>$vendor_name ($vendor_id)</td><td>$payment_type</td><td>$amount</td><td>$payment_cleared</td><td>$date_payment_cleared</td><td>$bank_account</td><td>$closing_month, $closing_yar</td></tr>";
+
+										}
+
+									?>
+
+								</tbody>
 										
 							</table>
 						
