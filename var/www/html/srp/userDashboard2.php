@@ -79,7 +79,7 @@
 							
 							<div class='page-title-captions'>
 								
-								<h1 class='h5'>User Dashboard - <?php echo $name; ?></h1>
+								<h1 class='h5'>User Dashboard <small>- <?php echo $name; ?></small></h1>
 							
 							</div>
 						

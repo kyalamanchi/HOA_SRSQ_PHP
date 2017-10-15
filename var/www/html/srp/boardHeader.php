@@ -102,6 +102,7 @@
 										
 										<ul class='sub-menu'>
 
+											<li><a href='accountsPayable.php'>Accounts Payable</a></li>
 											<li><a href='vendorDashboard.php'>Vendor Dashboard</a></li>
 										
 										</ul>

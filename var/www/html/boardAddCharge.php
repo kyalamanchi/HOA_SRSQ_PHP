@@ -3,11 +3,23 @@
 
 	<head>
 		<?php
-			session_start();
+			
+            ini_set("session.save_path","/var/www/html/session/");
+
+            session_start();
 
             ini_set('max_execution_time', 180);
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+            if(@!$_SESSION['hoa_username'])
+                header("Location: https://hoaboardtime.com/logout.php");
+
+            $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
+            $num_row = pg_num_rows($result);
+
+            if($num_row == 0)
+                header("Location: https://hoaboardtime.com/residentDashboard.php");
 
 			$community_id = $_SESSION['hoa_community_id'];
 		?>

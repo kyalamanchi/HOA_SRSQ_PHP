@@ -166,7 +166,7 @@
 			                          			if($update_date != '')
 			                          				$update_date = date('m-d-Y', strtotime($update_date));
 
-						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to</td><td>$living_in</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
+						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
 
 			                        		}
 

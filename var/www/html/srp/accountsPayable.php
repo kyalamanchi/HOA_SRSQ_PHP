@@ -1,10 +1,7 @@
 <?php
-	
-	ini_set("session.save_path","/var/www/html/session/");
-	session_start();
-
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
 ?>
-
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -21,11 +18,6 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 
-			$today = date('Y-m-d');
-
-			if($mode == 2)
-				header('Location: residentDashboard.php');
-
 		?>
 
 		<meta charset='UTF-8'>
@@ -33,7 +25,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; ?> | Board Dashboard</title>
+		<title><?php echo $_SESSION['hoa_community_code']; if($mode == 1) echo " | Board Dashboard"; else if($mode == 2) echo " | Resident Dashboard"; ?></title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -62,8 +54,8 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<?php include "boardHeader.php"; ?>
-
+			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
+		
 			<div class="wrapper">
 
 				<!-- Page Header -->
@@ -75,7 +67,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">User Dashboard <small>- <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+								<h1 class="h5">Accounts Payable</h1>
 							
 							</div>
 						
@@ -92,13 +84,19 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<table id='example1' class='table table-striped'  style='color: black;'>
-
+							<table id='example1' class='table' style="color: black;">
+										
 								<thead>
 									
-									<th>Name (HOA ID)</th>
-									<th>Living In (Home ID)</th>
-									<th>Role</th>
+									<th>Pay Date</th>
+									<th>Vendor Name (Vendor ID)</th>
+									<th>Payment Type</th>
+									<th>Amount</th>
+									<th>Payment Cleared</th>
+									<th>Date Payment Cleared</th>
+									<th>Bank Account</th>
+									<th>Closing Month</th>
+									<th>Closing Year</th>
 
 								</thead>
 
@@ -106,37 +104,54 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+										$result = pg_query("SELECT * FROM accounts_payable WHERE community_id=$community_id");
 
-										while($row = pg_fetch_assoc($result))
+										while ($row = pg_fetch_assoc($result)) 
 										{
 
-											$home_id = $row['home_id'];
-											$address = $row['address1'];
-											$living_status = $row['living_status'];
+											$pay_date = $row['pay_date'];
+											$vendor_id = $row['vendor_id'];
+											$payment_type = $row['payment_type_id'];
+											$amount = $row['amount'];
+											$payment_cleared = $row['payment_cleared'];
+											$date_payment_cleared = $row['date_payment_cleared'];
+											$bank_account = $row['bank_account_id'];
+											$closing_month = $row['closing_month'];
+											$closing_year = $row['closing_year'];
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
+											if($pay_date != '')
+												$pay_date = date('m-d-Y', strtotime($pay_date));
 
-											$name = $row1['firstname'];
-											$name .= " ";
-											$name .= $row1['lastname'];
-											$hoa_id = $row1['hoa_id'];
+											if($date_payment_cleared != '')
+												$date_payment_cleared = date('m-d-Y', strtotime($date_payment_cleared));
 
-											if($living_status == 't')
-												$living_status = "Living";
+											if($closing_month != '')
+												$closing_month = date('F', strtotime($closing_month));
+
+											if($payment_cleared == 't')
+												$payment_cleared = 'YES';
 											else
-												$living_status = "Rented";
+												$payment_cleared = 'NO';
 
-	                          				echo"<tr><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$name ($hoa_id)</a></td><td><a href='userDashboard2.php?hoa_id=$hoa_id&name=$name&home_id=$home_id'>$address ($home_id)</a></td><td>$living_status</td></tr>";
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
+											$vendor_name = $row1['vendor_name'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+											$payment_type = $row1['payment_type_name'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM bank_account WHERE id=$bank_account"));
+											$bank_account = $row1['bank_name'];
+
+											echo "<tr><td>$pay_date</td><td>$vendor_name ($vendor_id)</td><td>$payment_type</td><td>$ $amount</td><td>$payment_cleared</td><td>$date_payment_cleared</td><td>$bank_account</td><td>$closing_month</td><td>$closing_year</td></tr>";
 
 										}
 
 									?>
 
 								</tbody>
-								
+										
 							</table>
-
+						
 						</div>
 
 					</div>
@@ -167,7 +182,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50 });
+	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
 	      	});
 

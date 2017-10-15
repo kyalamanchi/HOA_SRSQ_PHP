@@ -32,6 +32,8 @@
 			$id = $row['id'];
 			$otp = "";
 
+			ini_set("session.save_path","/var/www/html/session/");
+
 			session_start();
 
 			$_SESSION['hoa_username'] = $name;

@@ -1,4 +1,7 @@
 <?php
+	
+	ini_set("session.save_path","/var/www/html/session/");
+
 	session_start();
 
     $home_id = $_POST['home_id'];
