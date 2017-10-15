@@ -60,19 +60,20 @@ $inspectionStatus = 1;
 	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id=".$id);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$docid = curl_exec($req);
-	if ( $docid ){
-	$subject = "Inspection Notice";
-	$body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
-	$docID = $result;
-	$email = "dhivysh@gmail.com";
-	$req = curl_init();
-	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
-	curl_setopt($req, CURLOPT_URL,$url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	echo $url;
-	// $result = curl_exec($req);
-	// 	echo $result;
-	}
+	echo $docid;
+	// if ( $docid ){
+	// $subject = "Inspection Notice";
+	// $body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
+	// $docID = $result;
+	// $email = "dhivysh@gmail.com";
+	// $req = curl_init();
+	// $url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
+	// curl_setopt($req, CURLOPT_URL,$url);
+	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	// echo $url;
+	// // $result = curl_exec($req);
+	// // 	echo $result;
+	// }
 	else{
 		echo "Failed to send";
 	}
