@@ -74,7 +74,7 @@ $inspectionStatus = 1;
 	// // $result = curl_exec($req);
 	// // 	echo $result;
 	// }
-	else{
-		echo "Failed to send";
-	}
+	// else{
+	// 	echo "Failed to send";
+	// }
 ?>
