@@ -47,6 +47,7 @@ $inspectionNoticeType = 1;
 $inspectionStatus = 1;
 	$query  = "INSERT INTO INSPECTION_NOTICES(\"inspection_date\",\"description\",\"community_id\",\"home_id\",\"date_of_upload\",\"location_id\",\"inspection_category_id\",\"inspection_sub_category_id\",\"hoa_id\",\"inspection_notice_type_id\",\"inspection_status_id\",\"compliance_date\",\"updated_date\",\"updated_by\",\"legal_docs_id\",\"item\") VALUES('".date('Y-m-d')."','".$description."',".$communityID.",".$homeID.",'".date('Y-m-d')."',".$location.",".$category.",".$subCategory.",".$hoaID.",".$inspectionNoticeType.",".$inspectionStatus.",'".date('Y-m-d')."','".date('Y-m-d')."',401,".$legalDocs.",'".$description."') RETURNING id";
 	$queryResult  = pg_query($query);
+	echo $query;
 	$row = pg_fetch_assoc($queryResult);
 	$id = $row['id'];
 	$req = curl_init();
