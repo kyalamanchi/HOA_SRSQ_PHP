@@ -43,7 +43,6 @@ $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 $homeID = $row['home_id'];
 $communityID = $row['community_id'];
-$toEmail = $row['email'];
 $inspectionNoticeType = 1;
 $inspectionStatus = 1;
 	
@@ -58,28 +57,29 @@ $inspectionStatus = 1;
 	$row = pg_fetch_assoc($queryResult);
 	$id = $row['id'];
 	$req = curl_init();
-	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id=".$id);
+	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeSouthData.php?id=".$id);
 	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	$docid = curl_exec($req);
-	if ( $docid ){
-	$subject = "Inspection Notice";
-	$body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
-	$docID = $result;
-	$email = $toEmail;
-	$req = curl_init();
-	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docid."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
-	$url = str_replace ( ' ', '%20', $url );
-	curl_setopt($req, CURLOPT_URL,$url);
-	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
-	$result = curl_exec($req);
-	if ( $result == "An error occured" ) {
-		echo "An error occured";
-	}
-	else {
-		echo "Email Sent";
-	}
-	}
-	else{
-		echo "Failed to send";
-	}
+	echo $docid;
+	// if ( $docid ){
+	// $subject = "Inspection Notice";
+	// $body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
+	// $docID = $result;
+	// $email = "dhivysh@gmail.com";
+	// $req = curl_init();
+	// $url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docid."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
+	// $url = str_replace ( ' ', '%20', $url );
+	// curl_setopt($req, CURLOPT_URL,$url);
+	// curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
+	// $result = curl_exec($req);
+	// if ( $result == "An error occured" ) {
+	// 	echo "An error occured";
+	// }
+	// else {
+	// 	echo "Email Sent";
+	// }
+	// }
+	// else{
+	// 	echo "Failed to send";
+	// }
 ?>

@@ -312,7 +312,7 @@ request.send(Json);
 request.onreadystatechange = function(){
   if ( request.readyState == XMLHttpRequest.DONE ){
     hidePleaseWait();
-    alert(request.responseText);
+   swal("Alert",request.responseText,"success");
   }
 }
 }
