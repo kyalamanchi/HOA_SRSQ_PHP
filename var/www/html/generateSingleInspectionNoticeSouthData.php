@@ -95,6 +95,9 @@ require('mc_table.php');
         $inspectionSubCategoryNameFinal  = $row['name'];
         $inspectionSubCategoryRuleDescription = $row['rule_description'];
         $inspectionSubCategoryExplanation = $row['explanation'];
+        $inspectionSubCategorySection  = $row['section'];
+        $inspectionLegalDocsID = $row['community_legal_docs_id'];
+        $inspectionFooter = $row['footer'];
         }
         date_default_timezone_set('America/Los_Angeles');
         
@@ -136,6 +139,19 @@ require('mc_table.php');
 
 
 $pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b> It was noted that this violation occurred in the following location: <b>".$locationArray[$inspectionLocationID]."</b>.");
+
+if ( $inspectionSubCategorySection ){
+    $queryy = "SELECT NAME FROM COMMUNITY_LEGAL_DOCS WHERE ID=".$inspectionSubCategorySection;
+    $queryyResult = pg_query($queryy);
+    $row = pg_fetch_assoc($queryyResult);
+    $name  = $row['name'];
+    $pdf->WriteHTML("According to ".$inspectionSubCategorySection." of ".$name.$inspectionSubCategoryRuleDescription.$inspectionFooter);
+
+}
+else {
+    $pdf->WriteHTML($inspectionSubCategoryRuleDescription.$inspectionFooter);
+}
+
 $pdf->Ln();
 
 
