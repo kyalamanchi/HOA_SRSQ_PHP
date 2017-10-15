@@ -139,7 +139,7 @@ require('mc_table.php');
 $pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b> It was noted that this violation occurred in the following location: <b>".$locationArray[$inspectionLocationID]."</b>.");
 $pdf->Ln();
 if ( $inspectionSubCategorySection ){
-    $queryy = "SELECT NAME FROM COMMUNITY_LEGAL_DOCS WHERE ID=".$inspectionSubCategorySection;
+    $queryy = "SELECT NAME FROM COMMUNITY_LEGAL_DOCS WHERE ID=".$inspectionLegalDocsID;
     $queryyResult = pg_query($queryy);
     $row = pg_fetch_assoc($queryyResult);
     $name  = $row['name'];
