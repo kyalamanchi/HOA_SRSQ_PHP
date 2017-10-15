@@ -1,6 +1,9 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+	ini_set("session.save_path","/var/www/html/session/");
+	
+	session_start();
+
 ?>
 <!DOCTYPE html>
 
@@ -99,7 +102,6 @@
 									<th>Disclosure Type</th>
 									<th>Description</th>
 									<th>Delivery Type</th>
-									<th>Civil Code Section</th>
 									<th>Notes</th>
 
 								</thead>
@@ -123,8 +125,14 @@
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$disclosure_type"));
 
 											$disclosure_type = $row1['name'];
+											$disclosure_type .= " (";
+											$disclosure_type .= $row1['civilcode_section'];
+											$disclosure_type .= ")";
 											$description = $row1['desc'];
-											$civilcode_section = $row1['civilcode_section'];
+											$legal_url = $row1['legal_url'];
+
+											if($legal_url != '')
+												$disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
 
 											if($legal_date_from != '')
 												$legal_date_from = date('m-d-Y', strtotime($legal_date_from));
@@ -135,7 +143,7 @@
 											if($actual_date != '')
 												$actual_date = date('m-d-Y', strtotime($actual_date));
 
-	                          				echo "<tr><td>$legal_date_from</td><td>$legal_date_until</td><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$civilcode_section</td><td>$notes</td></tr>";
+	                          				echo "<tr><td>$legal_date_from</td><td>$legal_date_until</td><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$notes</td></tr>";
 
 										}
 
