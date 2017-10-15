@@ -61,7 +61,15 @@ $inspectionStatus = 1;
 	$result = curl_exec($req);
 	echo $result;
 	if ( $result ){
-		
+	$subject = "Inspection Notice";
+	$body  = "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br>
+		During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
+	$docID = $result;
+	$email = "dhivysh@gmail.com";
+	$req = curl_init();
+	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID);
+	$result = curl_exec($req);
+		echo $result;
 	}
 	else{
 		echo "Failed to send";
