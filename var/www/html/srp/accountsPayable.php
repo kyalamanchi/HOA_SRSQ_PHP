@@ -124,6 +124,11 @@
 											if($date_payment_cleared != '')
 												$date_payment_cleared = date('m-d-Y', strtotime($date_payment_cleared));
 
+											if($payment_cleared == 't')
+												$payment_cleared = 'YES';
+											else
+												$payment_cleared = 'NO';
+
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
 											$vendor_name = $row1['vendor_name'];
 
