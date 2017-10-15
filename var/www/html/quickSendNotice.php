@@ -54,11 +54,16 @@ $inspectionStatus = 1;
 
 	}
 	$queryResult  = pg_query($query);
-	echo $query;
 	$row = pg_fetch_assoc($queryResult);
 	$id = $row['id'];
 	$req = curl_init();
 	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/generateSingleInspectionNoticeMandrill.php?id=".$id);
 	$result = curl_exec($req);
 	echo $result;
+	if ( $result ){
+		
+	}
+	else{
+		echo "Failed to send";
+	}
 ?>
