@@ -67,9 +67,11 @@ $inspectionStatus = 1;
 	$docID = $result;
 	$email = "dhivysh@gmail.com";
 	$req = curl_init();
-	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID);
-	$result = curl_exec($req);
-		echo $result;
+	$url = "https://hoaboardtime.com/dropboxToMandrill.php?docid=".$docID."&subject=".$subject."&body=".$body."&email=".$email."&hoaid=".$hoaID;
+	curl_setopt($req, CURLOPT_URL,$url);
+	echo $url;
+	// $result = curl_exec($req);
+	// 	echo $result;
 	}
 	else{
 		echo "Failed to send";
