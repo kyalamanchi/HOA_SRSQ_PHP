@@ -297,7 +297,7 @@ function getSubCategory(){
     <br>
     <div class="row-fluid">
       <h4>Notice</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qNotice" onchange="changeDetails();">
+      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qNotice">
       <option></option>
       <option>Trash Can</option>
       <option>Basketball</option>
