@@ -71,8 +71,12 @@ $inspectionStatus = 1;
 	curl_setopt($req, CURLOPT_URL,$url);
 	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	$result = curl_exec($req);
-	echo $result;
-	echo "URL : ".$url;
+	if ( $result == "An error occured" ) {
+		echo "An error occured";
+	}
+	else {
+		echo "Email Sent";
+	}
 	}
 	else{
 		echo "Failed to send";
