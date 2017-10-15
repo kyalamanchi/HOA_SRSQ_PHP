@@ -145,7 +145,7 @@ if ( $inspectionSubCategorySection ){
     $queryyResult = pg_query($queryy);
     $row = pg_fetch_assoc($queryyResult);
     $name  = $row['name'];
-    $pdf->WriteHTML("According to ".$inspectionSubCategorySection." of ".$name.$inspectionSubCategoryRuleDescription.$inspectionFooter);
+    $pdf->WriteHTML("According to ".$inspectionSubCategorySection." of ".$name." ".$inspectionSubCategoryRuleDescription.$inspectionFooter);
 
 }
 else {
