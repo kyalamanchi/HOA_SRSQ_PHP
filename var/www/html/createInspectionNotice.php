@@ -277,11 +277,17 @@ function getSubCategory(){
 }
 function quickSend(){
 showPleaseWait();
+// var request = new XMLHttpRequest();
+// request.open("POST","https://hoaboardtime.com/quickSendNotice.php",true);
 var qNotice = $("#qNotice").find("option:selected").text();
 var qHoaID = $("#qhoaID").find("option:selected").text();
+item = {};
+item["hoa_id"] = qHoaID;
+item["notice_name"] = qNotice;
+var Json = JSON.stringify(item);
 swal(
   {
-    title: qNotice+qHoaID,
+    title: Json,
   });
 hidePleaseWait();
 }
