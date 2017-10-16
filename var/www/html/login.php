@@ -1,4 +1,9 @@
 <?php
+
+  	ini_set("session.save_path","/var/www/html/session/");
+
+  	session_start();
+
 	$login_email = $_POST['login_email'];
 	$login_password = $_POST['login_password'];
 
@@ -31,10 +36,6 @@
 			$name .= $row['last_name'];
 			$id = $row['id'];
 			$otp = "";
-
-			ini_set("session.save_path","/var/www/html/session/");
-
-			session_start();
 
 			$_SESSION['hoa_username'] = $name;
 			$_SESSION['hoa_email'] = $login_email;

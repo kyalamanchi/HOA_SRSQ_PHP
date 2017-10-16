@@ -1,3 +1,11 @@
+<?php
+
+  ini_set("session.save_path","/var/www/html/session/");
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
 
 <html>
@@ -9,10 +17,6 @@
   <body>
     
     <?php
-
-      ini_set("session.save_path","/var/www/html/session/");
-
-      session_start();
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 

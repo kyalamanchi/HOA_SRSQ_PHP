@@ -1,27 +1,26 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+	ini_set("session.save_path","/var/www/html/session/");
+	
+	session_start();
+
+	if(!$_SESSION['hoa_username'])
+		header("Location: logout.php");
+
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+	$community_id = $_SESSION['hoa_community_id'];
+	$mode = $_SESSION['hoa_mode'];
+
+	if($mode == 2)
+		$hoa_id = $_SESSION['hoa_hoa_id'];
+
 ?>
 <!DOCTYPE html>
 
 <html lang='en'>
 
 	<head>
-
-		<?php
-
-			if(!$_SESSION['hoa_username'])
-				header("Location: logout.php");
-
-			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
-			$community_id = $_SESSION['hoa_community_id'];
-			$mode = $_SESSION['hoa_mode'];
-
-			if($mode == 2)
-				$hoa_id = $_SESSION['hoa_hoa_id'];
-
-		?>
 
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>

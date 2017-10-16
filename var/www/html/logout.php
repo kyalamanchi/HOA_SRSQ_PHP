@@ -1,4 +1,5 @@
 <?php
+	
 	ini_set("session.save_path","/var/www/html/session/");
 
 	session_start();
@@ -9,4 +10,5 @@
     session_regenerate_id(true);
 
 	header('Location: https://hoaboardtime.com/');
+	
 ?>
