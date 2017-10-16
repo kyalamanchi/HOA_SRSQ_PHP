@@ -97,7 +97,7 @@
 
 						$_SESSION['hoa_mode'] = 1;
 
-						header("Location: residentDashboard.php");
+						header("Location: https://hoaboardtime.com/srp/residentDashboard.php");
 
 					}
 					else
@@ -105,7 +105,7 @@
 						
 						$_SESSION['hoa_mode'] = 2;
 
-						header("Location: boardDashboard.php");
+						header("Location: https://hoaboardtime.com/srp/boardDashboard.php");
 
 					}
 
