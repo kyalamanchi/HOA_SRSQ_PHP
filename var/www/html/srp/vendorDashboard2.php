@@ -283,7 +283,19 @@
 
 												<table class='table table-striped' style='color: black;'>
 													
-													
+													<thead>
+
+														<th></th>
+														
+													</thead>
+
+													<tbody>
+														
+														<?php
+
+														?>
+
+													</tbody>
 
 												</table>
 
