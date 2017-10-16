@@ -4,10 +4,6 @@
     
     <?php
 
-      	ini_set("session.save_path","/var/www/html/session/");
-
-        session_start();
-
       	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       	if(@!$_SESSION['hoa_username'])
@@ -23,9 +19,11 @@
     			header("Location: residentDashboard.php");
 
     ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
     <title><?php echo $_SESSION['hoa_community_name']; ?></title>
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">

@@ -1,22 +1,31 @@
+<?php
+
+  ini_set("session.save_path","/var/www/html/session/");
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
+
 <html>
+
 <head>
+
   <?php
 
-    ini_set("session.save_path","/var/www/html/session/");
+    pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-    session_start();
+    if(@!$_SESSION['hoa_username'])
+      header("Location: logout.php");
 
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
-        if(@!$_SESSION['hoa_username'])
-          header("Location: logout.php");
-
-        $community_id = $_SESSION['hoa_community_id'];
+    $community_id = $_SESSION['hoa_community_id'];
 
   ?>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
   <title><?php echo $_GET['name']; ?> | Invoice</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">

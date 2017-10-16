@@ -1,12 +1,18 @@
+<?php
+
+  ini_set("session.save_path","/var/www/html/session/");
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
+
 <html>
+
   <head>
     
     <?php
-
-        ini_set("session.save_path","/var/www/html/session/");
-
-        session_start();
 
         pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
@@ -23,6 +29,7 @@
           header("Location: residentDashboard.php");
 
     ?>
+    
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
