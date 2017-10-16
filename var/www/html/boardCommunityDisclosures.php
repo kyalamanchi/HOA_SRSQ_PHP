@@ -1,10 +1,10 @@
-    <?php
+<?php
 
-        ini_set("session.save_path","/var/www/html/session/");
+  ini_set("session.save_path","/var/www/html/session/");
 
-        session_start();
+  session_start();
         
-        ?>
+?>
 
 <!DOCTYPE html>
 <html>
