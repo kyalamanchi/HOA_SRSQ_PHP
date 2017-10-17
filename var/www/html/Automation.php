@@ -83,7 +83,7 @@
     <br>
     <div class="container">
         <div class="pull-right">
-        <button type="button" class="btn btn-outline-primary" onclick="updateAll();">Run Now</button>
+        <button type="button" class="btn btn-outline-primary" onclick="updateAll();">Run All Jobs</button>
         </div>
         <br>
         <br>
