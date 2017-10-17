@@ -599,19 +599,21 @@
 
 											<?php
 
-												for($i = 1; $i < 12; $i++)
+												for($i = 1; $i <= 12; $i++)
 												{
 
 													$m = $i;
 
 													echo $i."<br><br><br>";
 
-													if($i != 1)
-														echo "<br /><hr /><br />";
+													if($i != 1 && $i % 2 == 1)
+													{
+
+														echo "<br /><hr /><br /><div class='row'>";
+
+													}
 
 													echo"
-
-													<div class='row'>
 
 														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 														
@@ -665,9 +667,10 @@
 														
 														</div>
 
-													</div>
-
 													";
+
+													if($i % 2 == 0)
+														echo "</div>";
 
 												}
 
