@@ -341,6 +341,23 @@ request.onreadystatechange = function(){
       </select>
     </div>
     <br>
+    <div>
+      <h4>Search by:</h4>
+    <div class="btn-group" data-toggle="buttons" > 
+    <label class="btn btn-default">
+        <input id="hoaid" type="radio"> HOA ID
+    </label>
+     <label class="btn btn-default"> 
+        <input id="fname" type="radio"> First Name
+    </label>
+     <label class="btn btn-default"> 
+        <input id="lname" type="radio"> Last Name
+    </label>
+    </div>
+      <br>
+      <br>
+    </div>
+    <br>
     <div class="row-fluid">
       <h4>Notice</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qNotice">
