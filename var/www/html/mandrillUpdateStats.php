@@ -61,9 +61,7 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 $result = curl_exec($ch);	
 $result = json_decode($result);
 print_r($result);
-foreach ($result as $result1) {
-	print_r($result1);
-	print_r(nl2br("\n\n"));
+foreach ($result as $result1) {	
 	if ( $connection ){
 		if (  $mandrillIDS[$result1->_id] != 1 ){
 		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"api_mail_id\",\"sent_date\",\"status\",\"community_id\",\"update_date\",\"updated_by\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d',$result1->ts)."','".$result1->state."',2,'".date('Y-m-d H:i:s')."',401)";
