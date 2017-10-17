@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+$connection  = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
 if ( $_GET['id']){
@@ -26,15 +28,10 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 $result = curl_exec($ch);	
 $result = json_decode($result);
 foreach ($result as $result1) {
-	print_r($result1);
-	print_r(nl2br("\n\n\n"));
-	print_r("Email : ".$result1->email.nl2br("\n"));
-	print_r("Date : ".date('Y-m-d',$result1->ts).nl2br("\n"));
-	print_r("Subject : ".$result1->subject.nl2br("\n"));
-	print_r("Number of clicks : ".$result1->clicks.nl2br("\n"));
-	print_r($result1->_id.nl2br("\n"));
-	print_r($result1->sender.nl2br("\n"));
-	print_r("Number of opens : ".$result1->opens.nl2br("\n\n\n"));
-
+	if ( $connection ){
+		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"email_id\",\"sent_date\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->email."','".date('Y-m-d',$result1->ts)."')";
+		echo $query;
+		echo nl2br("\n\n");
+	}
 }
 ?>
