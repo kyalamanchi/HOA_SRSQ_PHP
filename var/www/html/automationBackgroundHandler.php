@@ -277,4 +277,5 @@ $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB
 pg_query($query);
 }
 
+
 ?>
