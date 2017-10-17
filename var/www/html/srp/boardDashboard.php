@@ -609,7 +609,7 @@
 
 													<div class='row'>
 
-														<div class='progress-item'>
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 										
 															<div class='progress-title'>Amount Received<br><br><br></div>
 															
@@ -627,7 +627,7 @@
 
 													<div class='row'>
 
-														<div class='progress-item'>
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 										
 															<div class='progress-title'>Members Paid<br><br><br></div>
 															
