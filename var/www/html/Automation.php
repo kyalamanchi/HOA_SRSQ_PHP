@@ -45,13 +45,21 @@
         }
     }
 </script>
+<style type="text/css">
+  .pull-right{
+    float: right;
+  }
+</style>
 </head>
 <body>  
     <h1 style="padding-left: 10px;">Automated Jobs</h1>
     <hr>
     <br>
     <div class="container">
-        <button type="button" class="btn btn-outline-primary pull-right">Run Now</button>
+        <div class="pull-right">
+        <button type="button" class="btn btn-outline-primary">Run Now</button>
+        </div>
+        <br>
         <br>
         <div id="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
