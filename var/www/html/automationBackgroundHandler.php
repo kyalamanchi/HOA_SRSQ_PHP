@@ -297,7 +297,7 @@ flush();
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,1,1,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRP paymethods...";
+$message  = "Updating SRP paymethods... ";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
