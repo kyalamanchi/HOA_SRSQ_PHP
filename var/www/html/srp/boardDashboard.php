@@ -617,7 +617,7 @@
 
 																<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
 
-																	<h5 class='h5'>".date('F', strtotime($i))."<br>".date('m', strtotime($i))."</h5>
+																	<h5 class='h5'>".date('F', $i)."<br>".date('m', $i)."</h5>
 
 																</div>
 
@@ -673,7 +673,7 @@
 
 																<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
 
-																	<h5 class='h5'>".date('F', strtotime($i))."<br>".date('m', strtotime($i))."</h5>
+																	<h5 class='h5'>".date('F', $i)."<br>".date('m', $i)."</h5>
 
 																</div>
 
@@ -722,7 +722,7 @@
 													</div>
 
 													";
-													
+
 												}
 
 											?>
