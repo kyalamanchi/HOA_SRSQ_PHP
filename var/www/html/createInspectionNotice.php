@@ -276,9 +276,8 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
-alert($("input:radio[name=notice]:checked").closest('label').text()); 
-// showPleaseWait();
-// var qNotice = $("#qNotice").find("option:selected").text();
+var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
+alert(qNotice);
 // var qHoaID = $("#qhoaID").find("option:selected").text();
 // item = {};
 // item["hoa_id"] = qHoaID;
@@ -300,9 +299,10 @@ alert($("input:radio[name=notice]:checked").closest('label').text());
 // }
 }
 function quickSendUSPS(){
-alert($( "input:radio[name=notice]:checked" ).text()); 
+// alert(); 
 // showPleaseWait();
-// var qNotice = $("#qNotice").find("option:selected").text();
+var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
+alert(qNotice);
 // var qHoaID = $("#qhoaID").find("option:selected").text();
 // item = {};
 // item["hoa_id"] = qHoaID;
@@ -354,18 +354,6 @@ alert($( "input:radio[name=notice]:checked" ).text());
     </div>
       <br>
       <br>
-    </div>
-    <br>
-    <div class="row-fluid">
-      <h4>Notice</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qNotice">
-      <option></option>
-      <option>Trash Can</option>
-      <option>Basketball</option>
-      <option>Unsightly Items</option>
-      <option>RV</option>
-      <option>Garage Use</option>
-      </select>
     </div>
     <br>
     <button type="button" class="btn btn-primary" onclick="quickSendEmail();">Email Statement</button>
