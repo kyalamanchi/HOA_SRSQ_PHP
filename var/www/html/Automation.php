@@ -51,6 +51,7 @@
     <hr>
     <br>
     <div class="container">
+        <button type="button" class="btn btn-outline-primary" onclick="updatePayments();">Run Now</button>
         <div id="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
