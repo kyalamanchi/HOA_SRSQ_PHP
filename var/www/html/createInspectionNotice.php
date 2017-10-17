@@ -276,7 +276,7 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
-alert($( "input:radio[name=notice]:checked" ).prev('label').text()); 
+alert($("input:radio[name=notice]:checked").closest('label').text()); 
 // showPleaseWait();
 // var qNotice = $("#qNotice").find("option:selected").text();
 // var qHoaID = $("#qhoaID").find("option:selected").text();
