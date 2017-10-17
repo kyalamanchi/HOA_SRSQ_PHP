@@ -56,6 +56,20 @@
       }
     }
   }
+  function updateEmailsSent(){
+
+    document.getElementById("emailResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=4";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("eltime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("emailResult").innerHTML += event.data + "<br>";
+            }
+            document.getElementById("emailResult").innerHTML = event.data + "<br>";
+        }
+  }
 </script>
 <style type="text/css">
   .pull-right{
@@ -174,7 +188,7 @@
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 4 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
-        echo '<font size="4" style="float: right;" id="bsltime">Last ran on :'.$row['START_TIME'].'</font>';
+        echo '<font size="4" style="float: right;" id="eltime">Last ran on :'.$row['START_TIME'].'</font>';
         ?>
          Inserts sent email(s) data. If exists, updates status.
         <br>
