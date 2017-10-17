@@ -26,7 +26,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 $result = curl_exec($ch);	
 $result = json_decode($result);
 foreach ($result as $result1) {
-	print_r($result1.nl2br("\n\n\n"));
+	print_r($result1);
+	print_r(nl2br("\n\n\n"));
 	print_r("Email : ".$result1->email.nl2br("\n"));
 	print_r("Date : ".date('Y-m-d',$result1->ts).nl2br("\n"));
 	print_r("Subject : ".$result1->subject.nl2br("\n"));
