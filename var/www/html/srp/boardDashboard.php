@@ -602,6 +602,8 @@
 												for($i = 1; $i < 12; $i++)
 												{
 
+													$m = $i;
+
 													echo $i."<br><br><br>";
 
 													if($i != 1)
@@ -617,7 +619,7 @@
 
 																<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
 
-																	<h5 class='h5'>".date('F', strtotime($i))."<br>".date('m', strtotime($i))."</h5>
+																	<h5 class='h5'>".date('F', $m)."<br>".date('m', $m)."</h5>
 
 																</div>
 
@@ -661,7 +663,11 @@
 
 															</div>
 														
-														</div>
+														</div>";
+
+														$m = $i + 1;
+
+														echo "
 
 														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 														
@@ -669,7 +675,7 @@
 
 																<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
 
-																	<h5 class='h5'>".date('F', strtotime(($i+1)))."<br>".date('m', strtotime(($i+1)))."</h5>
+																	<h5 class='h5'>".date('F', $m)."<br>".date('m', $m)."</h5>
 
 																</div>
 
@@ -719,7 +725,6 @@
 
 													";
 
-													$i++;
 												}
 
 											?>
