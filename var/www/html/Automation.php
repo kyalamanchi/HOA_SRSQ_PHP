@@ -48,8 +48,8 @@
     function updateAll(){
       swal("Payments,Agreements,Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
-      request.open("POST","https://hoaboardtime.com/getHoaIDDetails.php",true);
-      request.send( $("#hoaID").find("option:selected").text() );
+      request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
+      request.send(null);
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           swal("Updation Complete","","success");
