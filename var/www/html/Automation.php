@@ -42,7 +42,7 @@
               document.getElementById("bsltime").innerHTML = "Last ran on : " + event.lastEventId;
               document.getElementById("bsResult").innerHTML += event.data + "<br>";
             }
-            document.getElementById("bsResult").innerHTML = event.data + "<br>";
+            document.getElementById("bsResult").innerHTML += event.data + "<br>";
         }
     }
     function updateAll(){
@@ -67,7 +67,7 @@
               document.getElementById("eltime").innerHTML = "Last ran on : " + event.lastEventId;
               document.getElementById("emailResult").innerHTML += event.data + "<br>";
             }
-            document.getElementById("emailResult").innerHTML = event.data + "<br>";
+            document.getElementById("emailResult").innerHTML += event.data + "<br>";
         }
   }
 </script>
