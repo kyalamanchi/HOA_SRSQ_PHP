@@ -627,7 +627,7 @@
 
 															</div>
 
-															<br>
+															<hr>
 
 															<div class='row'>
 
@@ -679,7 +679,7 @@
 
 															</div>
 
-															<br>
+															<hr>
 
 															<div class='row'>
 
@@ -704,6 +704,8 @@
 												</div>
 
 											</div>
+
+											<hr>
 
 											<div class='row'>
 
@@ -735,7 +737,7 @@
 
 															</div>
 
-															<br>
+															<hr>
 
 															<div class='row'>
 
@@ -787,7 +789,7 @@
 
 															</div>
 
-															<br>
+															<hr>
 
 															<div class='row'>
 
