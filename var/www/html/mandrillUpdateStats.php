@@ -16,7 +16,7 @@ $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
 $postString = '{
     "key": "'.$api_key.'",
-    "query": "sender:info@stoneridgeplace.org",
+    "query": "stoneridgeplace.org",
     "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
 }';
 $ch = curl_init();
@@ -47,7 +47,7 @@ $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
 	$postString = '{
     "key": "'.$api_key.'",
-    "query": "sender:stoneridgesquare.org",
+    "query": "stoneridgesquare.org",
     "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
 }';
 
@@ -60,6 +60,7 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $postString);
 $result = curl_exec($ch);	
 $result = json_decode($result);
+print_r($result);
 foreach ($result as $result1) {
 	print_r($result1);
 	print_r(nl2br("\n\n"));
@@ -74,7 +75,4 @@ foreach ($result as $result1) {
 		}
 	}
 }
-
-
-
 ?>
