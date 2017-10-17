@@ -599,75 +599,23 @@
 
 											<?php
 
-												for($i = 1; $i < 12; $i++)
+												for($i = 1; $i <= 12; $i++)
 												{
 
 													$m = $i;
 
 													echo $i."<br><br><br>";
 
-													if($i != 1)
-														echo "<br /><hr /><br />";
+													if($i == 1)
+														echo "<div class='row'>";
+													else if($i == 3 || $i == 5 || $i == 7 || $i == 9 || $i == 11)
+													{
+
+														echo "<br /><hr /><br /><div class='row'>";
+
+													}
 
 													echo"
-
-													<div class='row'>
-
-														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-														
-															<div class='row'>
-
-																<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
-
-																	<h5 class='h5'>".date('F', strtotime($m))."<br>".date('m', strtotime($m))."</h5>
-
-																</div>
-
-																<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
-
-																	<div class='row'>
-
-																		<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-														
-																			<div class='progress-title'>Amount Received<br><br><br></div>
-																			
-																			<div class='progress'>
-																				
-																				<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-																			
-																			</div>
-
-																		</div>
-
-																	</div>
-
-																	<hr>
-
-																	<div class='row'>
-
-																		<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-														
-																			<div class='progress-title'>Members Paid<br><br><br></div>
-																			
-																			<div class='progress'>
-																				
-																				<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-																			
-																			</div>
-
-																		</div>
-
-																	</div>
-
-																</div>
-
-															</div>
-														
-														</div>";
-
-														$m = $i + 1;
-
-														echo "
 
 														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 														
@@ -721,9 +669,10 @@
 														
 														</div>
 
-													</div>
-
 													";
+
+													if($i == 2 || $i == 4 || $i == 6 || $i == 8 || $i == 10 || $i == 12)
+														echo "</div>";
 
 												}
 
