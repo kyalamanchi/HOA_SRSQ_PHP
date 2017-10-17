@@ -599,6 +599,10 @@
 
 											<div class='row'>
 
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											
+											<div class='row'>
+
 												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
 
 													<h3 class='h3'>January</h3>
@@ -642,6 +646,170 @@
 													</div>
 
 												</div>
+
+											</div>
+											
+											</div>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											
+											<div class='row'>
+
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+													<h3 class='h3'>February</h3>
+
+												</div>
+
+												<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+													<div class='row'>
+
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+										
+															<div class='progress-title'>Amount Received<br><br><br></div>
+															
+															<div class='progress'>
+																
+																<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															
+															</div>
+
+														</div>
+
+													</div>
+
+													<br>
+
+													<div class='row'>
+
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+										
+															<div class='progress-title'>Members Paid<br><br><br></div>
+															
+															<div class='progress'>
+																
+																<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+											
+											</div>
+
+											</div>
+
+											<div class='row'>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											
+											<div class='row'>
+
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+													<h3 class='h3'>March</h3>
+
+												</div>
+
+												<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+													<div class='row'>
+
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+										
+															<div class='progress-title'>Amount Received<br><br><br></div>
+															
+															<div class='progress'>
+																
+																<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															
+															</div>
+
+														</div>
+
+													</div>
+
+													<br>
+
+													<div class='row'>
+
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+										
+															<div class='progress-title'>Members Paid<br><br><br></div>
+															
+															<div class='progress'>
+																
+																<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+											
+											</div>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											
+											<div class='row'>
+
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+													<h3 class='h3'>April</h3>
+
+												</div>
+
+												<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+													<div class='row'>
+
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+										
+															<div class='progress-title'>Amount Received<br><br><br></div>
+															
+															<div class='progress'>
+																
+																<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															
+															</div>
+
+														</div>
+
+													</div>
+
+													<br>
+
+													<div class='row'>
+
+														<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+										
+															<div class='progress-title'>Members Paid<br><br><br></div>
+															
+															<div class='progress'>
+																
+																<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+															
+															</div>
+
+														</div>
+
+													</div>
+
+												</div>
+
+											</div>
+											
+											</div>
 
 											</div>
 
