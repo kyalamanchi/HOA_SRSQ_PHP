@@ -346,21 +346,11 @@ alert($( "input:radio[name=notice]:checked" ).text());
     <div>
       <h4>Notice</h4>
     <div class="btn-group" data-toggle="buttons" > 
-    <label class="btn btn-default">
-        <input id="hoaid" type="radio" name="notice">Trash Can
-    </label>
-     <label class="btn btn-default"> 
-        <input id="fname" type="radio" name="notice">Basketball
-    </label>
-     <label class="btn btn-default"> 
-        <input id="lname" type="radio" name="notice">Unsightly Item
-    </label>
-    <label class="btn btn-default"> 
-        <input id="lname" type="radio" name="notice">RV
-    </label>
-    <label class="btn btn-default"> 
-        <input id="lname" type="radio" name="notice">Garage Use
-    </label>
+    <label class="btn btn-default"><input id="hoaid" type="radio" name="notice">Trash Can</label>
+     <label class="btn btn-default"><input id="fname" type="radio" name="notice">Basketball</label>
+     <label class="btn btn-default"><input id="lname" type="radio" name="notice">Unsightly Item</label>
+    <label class="btn btn-default"><input id="lname" type="radio" name="notice">RV</label>
+    <label class="btn btn-default"><input id="lname" type="radio" name="notice">Garage Use</label>
     </div>
       <br>
       <br>
