@@ -606,7 +606,9 @@
 
 													echo $i."<br><br><br>";
 
-													if($i != 1 && $i % 2 == 1)
+													if($i == 1)
+														echo "<div class='row'>";
+													else if($i == 3 || $i == 5 || $i == 7 || $i == 9 || $i == 11)
 													{
 
 														echo "<br /><hr /><br /><div class='row'>";
