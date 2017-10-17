@@ -705,7 +705,9 @@
 
 											</div>
 
+											<br>
 											<hr>
+											<br>
 
 											<div class='row'>
 
