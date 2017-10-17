@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 date_default_timezone_set('America/Los_Angeles');
 $connection  = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
@@ -12,13 +14,6 @@ while ($row = pg_fetch_assoc($queryResult)) {
 
 $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
-// if ( $_GET['id']){
-// $postString = '{
-//     "key": "'.$api_key.'",
-//     "query": "email:'.$_GET['id'].'",
-//     "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
-// }';
-// }
 $postString = '{
     "key": "'.$api_key.'",
     "query": "sender:info@stoneridgeplace.org",
