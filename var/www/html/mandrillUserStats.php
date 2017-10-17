@@ -32,7 +32,8 @@ foreach ($result as $result1) {
 	print_r("Date : ".date('Y-m-d',$result1->ts).nl2br("\n"));
 	print_r("Subject : ".$result1->subject.nl2br("\n"));
 	print_r("Number of clicks : ".$result1->clicks.nl2br("\n"));
-	print_r($result1->_id);
+	print_r($result1->_id.nl2br("\n"));
+	print_r($result1->sender.nl2br("\n"));
 	print_r("Number of opens : ".$result1->opens.nl2br("\n\n\n"));
 
 }
