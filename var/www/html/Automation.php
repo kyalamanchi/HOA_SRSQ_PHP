@@ -157,6 +157,38 @@
       </div>
     </div>
   </div>
+
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingFour">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <h4>Emails Sent</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="card-block">
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 4 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="bsltime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+         Inserts sent email(s) data. If exists, updates status.
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" onclick="updateEmailsSent();">Update Now</button>
+        <div id="emailResult">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>  
     </div>
 </body>
