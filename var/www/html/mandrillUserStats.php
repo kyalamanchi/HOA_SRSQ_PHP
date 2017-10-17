@@ -2,6 +2,14 @@
 date_default_timezone_set('America/Los_Angeles');
 $connection  = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
+$query = "SELECT api_mail_id FROM community_emails_sent ";
+$queryResult = pg_query($query);
+$mandrillIDS = array();
+
+while ($row = pg_fetch_assoc($queryResult)) {
+	$mandrillIDS[$row['api_mail_id']]  = 1;
+}
+
 $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
 if ( $_GET['id']){
@@ -29,9 +37,16 @@ $result = curl_exec($ch);
 $result = json_decode($result);
 foreach ($result as $result1) {
 	if ( $connection ){
-		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"email_id\",\"sent_date\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d',$result1->ts)."','".$result1->state."')";
+
+		if (  $mandrillIDS[$result1->_id] != 1 ){
+		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"api_mail_id\",\"sent_date\",\"status\",\"community_id\",\"update_date\",\"updated_by\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d',$result1->ts)."','".$result1->state."',1,'".date('Y-m-d H:i:s')."',401)";
 		echo $query;
 		echo nl2br("\n\n");
+		}
+		else {
+			print_r("Update ");
+			print_r(nl2br("\n\n"));
+		}
 	}
 }
 ?>
