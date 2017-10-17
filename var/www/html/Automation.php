@@ -45,7 +45,7 @@
         }
     }
     function updateAll(){
-      alert("Update all");
+      
     }
 </script>
 <style type="text/css">

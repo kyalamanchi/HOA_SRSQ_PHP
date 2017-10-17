@@ -9,6 +9,8 @@ $message  = "Please Wait...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
+
+if ( isset($_GET['id'])){
 if ( $_GET['id'] == 1){
 //SRP UPDATION
 $message  = "Updating SRP Transactions...";
@@ -276,6 +278,9 @@ pg_query($query);
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 }
-
+}
+else {
+	print_r("No value set");
+}
 
 ?>
