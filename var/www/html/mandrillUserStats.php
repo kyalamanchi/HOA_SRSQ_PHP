@@ -29,7 +29,7 @@ $result = curl_exec($ch);
 $result = json_decode($result);
 foreach ($result as $result1) {
 	if ( $connection ){
-		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"email_id\",\"sent_date\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->email."','".date('Y-m-d',$result1->ts)."')";
+		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"email_id\",\"sent_date\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->email."','".date('Y-m-d',$result1->ts)."','".$result1->state."')";
 		echo $query;
 		echo nl2br("\n\n");
 	}
