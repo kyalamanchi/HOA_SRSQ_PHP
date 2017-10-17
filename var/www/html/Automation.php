@@ -44,6 +44,9 @@
             document.getElementById("bsResult").innerHTML = event.data + "<br>";
         }
     }
+    function updateAll(){
+      alert("Update all");
+    }
 </script>
 <style type="text/css">
   .pull-right{
@@ -57,7 +60,7 @@
     <br>
     <div class="container">
         <div class="pull-right">
-        <button type="button" class="btn btn-outline-primary">Run Now</button>
+        <button type="button" class="btn btn-outline-primary" onclick="updateAll();">Run Now</button>
         </div>
         <br>
         <br>
