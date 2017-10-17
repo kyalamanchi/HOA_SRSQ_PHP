@@ -605,7 +605,7 @@
 
 												</div>
 
-												<div class='col-xl-9 col-lg-9 col-md-8 col-sm-6 col-xs-12' style='background-color: blue;'>
+												<div class='col-xl-9 col-lg-9 col-md-8 col-sm-6 col-xs-12'>
 
 													<div class='row'>
 
