@@ -49,6 +49,7 @@
 <body>  
     <h1 style="padding-left: 10px;">Automated Jobs</h1>
     <hr>
+    <button type="button" class="btn btn-outline-primary">Run Now</button>
     <br>
     <div class="container">
         <button type="button" class="btn btn-outline-primary">Run Now</button>
