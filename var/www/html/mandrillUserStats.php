@@ -44,8 +44,8 @@ foreach ($result as $result1) {
 		echo nl2br("\n\n");
 		}
 		else {
-			print_r("Update ");
-			print_r(nl2br("\n\n"));
+			$query = "UPDATE community_emails_sent SET \"status\"='".$result1->state."',\"update_date\"='".date('Y-m-d H:i:s')."',\"updated_by\"=401 WHERE api_mail_id='".$result1->_id."'";
+			print_r($query)
 		}
 	}
 }
