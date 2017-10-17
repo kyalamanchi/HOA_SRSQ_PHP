@@ -276,50 +276,52 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
-showPleaseWait();
-var qNotice = $("#qNotice").find("option:selected").text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
-item = {};
-item["hoa_id"] = qHoaID;
-item["notice_name"] = qNotice;
-var Json = JSON.stringify(item);
-var request = new XMLHttpRequest();
-request.open("POST","https://hoaboardtime.com/quickSendNotice.php",true);
-request.send(Json);
-request.onreadystatechange = function(){
-  if ( request.readyState == XMLHttpRequest.DONE ){
-    hidePleaseWait();
-    if ( request.responseText == "Email Sent" ){
-      swal("Email Sent!", "", "success");
-    }
-    else{
-      swal("Failed!", "Please try again"+request.responseText, "error");
-    }
-  }
-}
+alert($( "input:radio[name=notice]:checked" ).text()); 
+// showPleaseWait();
+// var qNotice = $("#qNotice").find("option:selected").text();
+// var qHoaID = $("#qhoaID").find("option:selected").text();
+// item = {};
+// item["hoa_id"] = qHoaID;
+// item["notice_name"] = qNotice;
+// var Json = JSON.stringify(item);
+// var request = new XMLHttpRequest();
+// request.open("POST","https://hoaboardtime.com/quickSendNotice.php",true);
+// request.send(Json);
+// request.onreadystatechange = function(){
+//   if ( request.readyState == XMLHttpRequest.DONE ){
+//     hidePleaseWait();
+//     if ( request.responseText == "Email Sent" ){
+//       swal("Email Sent!", "", "success");
+//     }
+//     else{
+//       swal("Failed!", "Please try again"+request.responseText, "error");
+//     }
+//   }
+// }
 }
 function quickSendUSPS(){
-showPleaseWait();
-var qNotice = $("#qNotice").find("option:selected").text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
-item = {};
-item["hoa_id"] = qHoaID;
-item["notice_name"] = qNotice;
-var Json = JSON.stringify(item);
-var request = new XMLHttpRequest();
-request.open("POST","https://hoaboardtime.com/quickSendNoticeUSPS.php",true);
-request.send(Json);
-request.onreadystatechange = function(){
-  if ( request.readyState == XMLHttpRequest.DONE ){
-    hidePleaseWait();
-    if ( request.responseText == "File uploaded to South Data." ){
-        swal("File Uploaded to USPS.","","success");
-    }
-    else {
-      swal("Failed to Upload","","error");
-    }
-  }
-}
+alert($( "input:radio[name=notice]:checked" ).text()); 
+// showPleaseWait();
+// var qNotice = $("#qNotice").find("option:selected").text();
+// var qHoaID = $("#qhoaID").find("option:selected").text();
+// item = {};
+// item["hoa_id"] = qHoaID;
+// item["notice_name"] = qNotice;
+// var Json = JSON.stringify(item);
+// var request = new XMLHttpRequest();
+// request.open("POST","https://hoaboardtime.com/quickSendNoticeUSPS.php",true);
+// request.send(Json);
+// request.onreadystatechange = function(){
+//   if ( request.readyState == XMLHttpRequest.DONE ){
+//     hidePleaseWait();
+//     if ( request.responseText == "File uploaded to South Data." ){
+//         swal("File Uploaded to USPS.","","success");
+//     }
+//     else {
+//       swal("Failed to Upload","","error");
+//     }
+//   }
+// }
 }
 </script>
   </head>
@@ -342,16 +344,22 @@ request.onreadystatechange = function(){
     </div>
     <br>
     <div>
-      <h4>Search by:</h4>
+      <h4>Notice</h4>
     <div class="btn-group" data-toggle="buttons" > 
     <label class="btn btn-default">
-        <input id="hoaid" type="radio"> HOA ID
+        <input id="hoaid" type="radio" name="notice">Trash Can
     </label>
      <label class="btn btn-default"> 
-        <input id="fname" type="radio"> First Name
+        <input id="fname" type="radio" name="notice">Basketball
     </label>
      <label class="btn btn-default"> 
-        <input id="lname" type="radio"> Last Name
+        <input id="lname" type="radio" name="notice">Unsightly Item
+    </label>
+    <label class="btn btn-default"> 
+        <input id="lname" type="radio" name="notice">RV
+    </label>
+    <label class="btn btn-default"> 
+        <input id="lname" type="radio" name="notice">Garage Use
     </label>
     </div>
       <br>
