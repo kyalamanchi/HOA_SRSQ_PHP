@@ -45,7 +45,7 @@ foreach ($result as $result1) {
 		}
 		else {
 			$query = "UPDATE community_emails_sent SET \"status\"='".$result1->state."',\"update_date\"='".date('Y-m-d H:i:s')."',\"updated_by\"=401 WHERE api_mail_id='".$result1->_id."'";
-			print_r($query)
+			print_r($query);
 		}
 	}
 }
