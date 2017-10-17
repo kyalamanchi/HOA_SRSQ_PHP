@@ -645,6 +645,44 @@
 
 															</div>
 
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
 														</div>
 
 													</div>
@@ -691,6 +729,44 @@
 																		
 																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
 																	</div>
 
 																</div>
@@ -757,6 +833,44 @@
 
 															</div>
 
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
 														</div>
 
 													</div>
@@ -803,6 +917,44 @@
 																		
 																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			0
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
 																	</div>
 
 																</div>
