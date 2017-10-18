@@ -277,27 +277,29 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
-showPleaseWait();
-var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
-item = {};
-item["hoa_id"] = qHoaID;
-item["notice_name"] = qNotice;
-var Json = JSON.stringify(item);
-var request = new XMLHttpRequest();
-request.open("POST","https://hoaboardtime.com/quickSendNotice.php",true);
-request.send(Json);
-request.onreadystatechange = function(){
-  if ( request.readyState == XMLHttpRequest.DONE ){
-    hidePleaseWait();
-    if ( request.responseText == "Email Sent" ){
-      swal("Email Sent!", "", "success");
-    }
-    else{
-      swal("Failed!", "Please try again"+request.responseText, "error");
-    }
-  }
-}
+  alert($("#qhoaID").find("option:selected").id);
+  swal($("#qhoaID").find("option:selected").id,"","success");
+// showPleaseWait();
+// var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
+// var qHoaID = $("#qhoaID").find("option:selected").text();
+// item = {};
+// item["hoa_id"] = qHoaID;
+// item["notice_name"] = qNotice;
+// var Json = JSON.stringify(item);
+// var request = new XMLHttpRequest();
+// request.open("POST","https://hoaboardtime.com/quickSendNotice.php",true);
+// request.send(Json);
+// request.onreadystatechange = function(){
+//   if ( request.readyState == XMLHttpRequest.DONE ){
+//     hidePleaseWait();
+//     if ( request.responseText == "Email Sent" ){
+//       swal("Email Sent!", "", "success");
+//     }
+//     else{
+//       swal("Failed!", "Please try again"+request.responseText, "error");
+//     }
+//   }
+// }
 }
 function quickSendUSPS(){
   alert($("#qhoaID").find("option:selected").id);
