@@ -390,7 +390,7 @@
 																							<input type='radio'";
 
 																							if($living_status == 't')
-																								echo " selected";
+																								echo " checked";
 
 																							echo " name='living_status' id='living_status'> True
 
@@ -401,7 +401,7 @@
 																							<input type='radio'";
 
 																							if($living_status == 'f')
-																								echo " selected";
+																								echo " checked";
 
 																							echo " name='living_status' id='living_status'> False
 
