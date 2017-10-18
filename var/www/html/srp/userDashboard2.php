@@ -772,7 +772,7 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Payments</h4>
+											<h4>Payment Details</h4>
 						
 										</div>
 
@@ -781,6 +781,101 @@
 											<div class='row'>
 
 												
+
+											</div>
+
+										</div>
+
+										<div class='special-heading m-b-40'>
+									
+											<h4>Current Year Payments Processed</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+										<div class='special-heading m-b-40'>
+									
+											<h4>Forte Transactions</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+												<table id='example3' class='table table-striped'>
+													
+													<thead>
+
+														<th>Date</th>
+														<th>Customer ID</th>
+														<th>Authorization Code</th>
+														<th>Status</th>
+														<th>Amount</th>
+														<th>Entered By</th>
+														<th>Action</th>
+														
+													</thead>
+
+													<tbody>
+
+														<?php
+
+															$ch = curl_init();
+                                  							$header = array();
+                                  							$header[] = 'Content-Type: application/json';
+                                  
+                                  							if($community_id == 1)
+                                  							{
+
+                                    							$header[] = "X-Forte-Auth-Organization-Id:org_335357";
+                                    							$header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
+                                                                              
+                                    							curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
+
+                                  							}
+                                  							else if($community_id == 2)
+                                  							{
+                                      
+                                    							$header[] = "X-Forte-Auth-Organization-Id:org_332536";
+                                    							$header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
+                                                                              
+                                    							curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
+                                                                              
+                                  							}
+
+                                  							curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                                  							curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                  							curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+                                  							$result = curl_exec($ch);
+                                  							$obj = json_decode($result);
+
+                                  							foreach ($obj->results as $key) 
+                                  							{  
+
+                                    							if($key->customer_id == $hoa_id)
+                                      								echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                    
+                                  							}
+
+                                                                              
+                                  							curl_close($ch);
+
+														?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
@@ -888,6 +983,8 @@
 	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	        	$("#example2").DataTable({ "pageLength": 50 });
+
+	        	$("#example3").DataTable({ "pageLength": 50 });
 
 	      	});
 
