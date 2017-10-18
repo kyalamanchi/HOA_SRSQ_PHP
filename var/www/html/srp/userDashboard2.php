@@ -421,17 +421,13 @@
 																				
 																					<div class='row'>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
 																							<label><strong>Living Status</strong></label><br>
 
 																						</div>
 
-																					</div>
-
-																					<div class='row'>
-
-																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
 
 																							<input type='radio'";
 
@@ -442,7 +438,7 @@
 
 																						</div>
 
-																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
 
 																							<input type='radio'";
 
@@ -452,6 +448,10 @@
 																							echo " name='living_status' id='living_status' value='Rented'> Rented
 
 																						</div>
+
+																					</div>
+
+																					<div class='row text-center'>
 
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
