@@ -577,9 +577,28 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												
+												<table class='table table-striped' style='color: black;'>
+
+													<thead>
+														
+														<th>Month</th>
+														<th>Document ID</th>
+														<th>Description</th>
+														<th>Charge</th>
+														<th>Payment</th>
+														<th>Total</th>
+
+													</thead>
+
+													<tbody>
+														
+														<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+														
+													</tbody>
+													
+												</table>
 
 											</div>
 
