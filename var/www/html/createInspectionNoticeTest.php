@@ -102,9 +102,7 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
           $name = $row['firstname'];
           $name = $name.' ';
           $name = $name.$row['lastname'];
-          $name = $name.' ';
-          $name = $name.$row['home_id'];
-         $hoaIDArray[$row['hoa_id']]  = $name;
+          $hoaIDArray[$row['hoa_id']]  = $name;
          $userEmails[$row['hoa_id']] = $row['email'];
          $homeIDArray[$row['hoa_id']] = $row['home_id'];
         }
@@ -338,7 +336,7 @@ request.onreadystatechange = function(){
       <?php
         echo '<option></option>';
         foreach ($homeIDArray as $key => $value) {
-          echo '<option data-subtext="'.$value.'">'.$key.'</option>';
+          echo '<option data-subtext="'.$hoaIDArray[$key]."(".$key.")".'" id="'.$key.'">'.$value.'</option>';
         }
       ?>
       </select>
