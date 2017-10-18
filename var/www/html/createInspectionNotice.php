@@ -94,6 +94,15 @@ function hidePleaseWait() {
 }
 <?php
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+$homeQuery = "SELECT address1 FROM homeid WHERE community_id=2";
+$homeQueryResult = pg_query($homeQuery);
+$homeInfoArray = array();
+
+while ( $r = pg_fetch_assoc($homeQueryResult) ){
+  $homeInfoArray[$r['home_id']] = $r['address1'];
+}
+
+
 $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
         $hoaidqueryresult = pg_query($hoaidquery);
         $hoaIDArray = array();
@@ -343,7 +352,7 @@ request.onreadystatechange = function(){
       <?php
         echo '<option></option>';
         foreach ($homeIDArray as $key => $value) {
-          echo '<option data-subtext="'.$hoaIDArray[$key]."(".$key.")".'" id="'.$key.'">'.$value.'</option>';
+          echo '<option data-subtext="'.$hoaIDArray[$key]."(".$key.")".'" id="'.$key.'">'.$value."-".$homeInfoArray[$value].'</option>';
         }
       ?>
       </select>
