@@ -375,6 +375,8 @@
 																				
 																					<div class='row text-center'>
 
+																						<br><br>
+
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
 																							<label><strong>Lot</strong></label><br>
@@ -388,6 +390,8 @@
 																						</div>
 
 																					</div>
+
+																					<br>
 
 																					<div class='row'>
 
