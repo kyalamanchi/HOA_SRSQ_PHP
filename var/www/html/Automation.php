@@ -50,6 +50,7 @@
       document.getElementById("paymentsButton").disabled  = true;
       document.getElementById("billingStatementsButton").disabled = true;
       document.getElementById("emailsButton").disabled = true;
+      document.getElementById("runAllJobsButton").disabled = true;
       swal("Payments,Agreements,Emails sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
@@ -61,6 +62,7 @@
           document.getElementById("paymentsButton").disabled  = false;
           document.getElementById("billingStatementsButton").disabled = false;
           document.getElementById("emailsButton").disabled = false;
+          document.getElementById("runAllJobsButton").disabled = false;
       }
     }
   }
@@ -91,7 +93,7 @@
     <br>
     <div class="container">
         <div class="pull-right">
-        <button type="button" class="btn btn-outline-primary" onclick="updateAll();">Run All Jobs</button>
+        <button type="button" class="btn btn-outline-primary" id="runAllJobsButton" onclick="updateAll();">Run All Jobs</button>
         </div>
         <br>
         <br>

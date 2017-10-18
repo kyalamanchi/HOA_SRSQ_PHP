@@ -18,11 +18,17 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 
 
 // }
+	$q  = "SELECT * FROM HOMEID";
+	$qr = pg_query($q);
+	$homeDetails = array();
+	while ( $r  = pg_fetch_assoc($qr) ){
+		$homeDetails[$r['home_id']] = $r['address1'];
+	}
 	$data2  = array();
 	$query = "SELECT * FROM HOAID WHERE HOA_ID=".$data."";
 	if ( $queryResult = pg_query($query) ){
 		while($row = pg_fetch_assoc($queryResult)){
-			$data2['home_id'] =  $row['home_id'];
+			$data2['home_id'] =  $homeDetails[$row['home_id']];
 			$data2['community_id'] = $row['community_id'];
 		}
 		echo json_encode($data2);
