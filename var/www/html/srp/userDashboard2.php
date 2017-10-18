@@ -453,11 +453,11 @@
 
 																					<div class='row' id='mailing_address_csz'>
 
-																						<div class='row text-center'>
+																						<div class='row'>
 
-																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-																								<label>Address</label>
+																								<label><strong>Address</strong></label>
 
 																							</div>
 
@@ -737,7 +737,50 @@
 
 											<div class='row'>
 
-												
+												<table id='example2' class="table table-striped">
+
+													<thead>
+														
+														<th>Date Sent</th>
+														<th>Total Due</th>
+														<th>Statement File</th>
+														<th>Notification Type</th>
+
+													</thead>
+
+													<tbody>
+														
+														<?php 
+
+                                							$result = pg_query("SELECT * FROM community_statements_mailed WHERE home_id=$home_id AND hoa_id=$hoa_id");
+
+                                							while ($row = pg_fetch_assoc($result)) 
+                                							{
+                                  								
+                                  								$date_sent = $row['date_sent'];
+                                  								$total_due = $row['total_due'];
+                                  								$statement_file = $row['statement_file'];
+                                  								$statement_type = $row['statement_type'];
+                                  								$notification_type = $row['notification_type'];
+
+                                  								if($total_due != "")
+                                    								$total_due = "$ ".$total_due;
+
+                                  								if($date_sent != "")
+                                    								$date_sent = date("m-d-Y", strtotime($date_sent));
+
+                                  								$row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
+                                  								$notification_type = $row1['notification_mode_type'];
+
+                                  								echo "<tr><td>$date_sent</td><td>$total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
+                                							
+                                							}
+                              
+                              							?>
+
+													</tbody>
+													
+												</table>
 
 											</div>
 
@@ -780,6 +823,8 @@
 	      	$(function () {
 	        	
 	        	$("#example1").DataTable({ "pageLength": 50 });
+
+	        	$("#example2").DataTable({ "pageLength": 50 });
 
 	      	});
 
