@@ -277,8 +277,8 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
-  alert($("#qhoaID").find("option:selected").id);
-  swal($("#qhoaID").find("option:selected").id,"","success");
+  alert($("#qhoaID").find("option:selected").attr("id"));
+  swal($("#qhoaID").find("option:selected").attr("id"),"","success");
 // showPleaseWait();
 // var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
 // var qHoaID = $("#qhoaID").find("option:selected").text();
