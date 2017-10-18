@@ -325,7 +325,7 @@ request.onreadystatechange = function(){
 </script>
 <style type="text/css">
   .data-subtext{
-     color: #64b1d8; 
+     color: white; 
   }
 </style>
   </head>
