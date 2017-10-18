@@ -453,7 +453,7 @@
 
 																					<div class='row' id='mailing_address_csz'>
 
-																						<div class='row'>
+																						<div class='row text-center'>
 
 																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
@@ -463,7 +463,7 @@
 
 																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-																								<input type='text' name='edit_mailing_address' id='edit_mailing_address' placeholder='Ex : 1111 Example St'>
+																								<input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' placeholder='Ex : 1111 Example St'>
 
 																							</div>
 
@@ -475,7 +475,7 @@
 
 																						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-																							<button class='btn btn-info btn-xs' type='submit'>Update Living Status</button>
+																							<!--button class='btn btn-info btn-xs' type='submit'>Update Living Status</button-->
 
 																						</div>
 
