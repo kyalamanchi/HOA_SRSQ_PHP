@@ -22,6 +22,7 @@
 			$mode = $_SESSION['hoa_mode'];
 
 			$today = date('Y-m-d');
+			$year = date('Y');
 
 			if($mode == 2)
 				header('Location: residentDashboard.php');
@@ -96,7 +97,7 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<div class='col-md-12'>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 								
 								<!-- Tabs-->
 								<ul class='nav nav-tabs'>
@@ -348,9 +349,9 @@
 															$role = $row['name'];
 
 															if($living_status == 't')
-																$living_status = "TRUE";
+																$living_status = "Living";
 															else
-																$living_status = "FALSE";
+																$living_status = "Rented";
 
 															echo "
 											
@@ -362,38 +363,30 @@
 
 																		<div class='modal-header'>
 
-																			<h4 class='h4'>Owner Details</h4>
+																			<h4 class='h4'>Home Details</h4>
 																			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
 																		</div>
 
 																		<div class='modal-body'>
 
-																			<div class='container' style='color: black;'>
+																			<div class='container' style='color: black; background-color: gray;'>
 
-																				<form method='POST' action='userDashboardEditLivingStatus.php'>
+																				<br>
+
+																				<form method='POST' action='userDashboardEditLot.php'>
 																				
-																					<div class='row'>
+																					<div class='row text-center'>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-																							<label><strong>Living Status</strong></label><br>
-
-																						</div>
-
-																					</div>
-
-																					<div class='row'>
-
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																							<input type='radio' name='living_status' id='living_status'> True
+																							<label><strong>Lot</strong></label><br>
 
 																						</div>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-																							<input type='radio' name='living_status' id='living_status'> False
+																							<input class='form-control' type='number' name='edit_lot' id='edit_lot' required value='$lot'>
 
 																						</div>
 
@@ -401,13 +394,91 @@
 
 																					<br>
 
-																					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+																					<div class='row'>
 
-																						<center>
+																						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
+																							<center>
 
-																						</center>
+																								<button class='btn btn-info btn-xs' type='submit'>Update Lot</button>
+
+																							</center>
+
+																						</div>
+
+																					</div>
+
+																				</form>
+
+																				<br>
+
+						                                          			</div>
+
+						                                          			<br>
+
+						                                          			<div class='container' style='color: black;'>
+
+																				<form method='POST' action='userDashboardEditLivingStatus.php'>
+																				
+																					<div class='row'>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center'>
+
+																							<label><strong>Living Status</strong></label><br>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+																							<input type='radio'";
+
+																							if($living_status == 'Living')
+																								echo " checked";
+
+																							echo " name='living_status' id='living_status' value='Living'> Living
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+																							<input type='radio'";
+
+																							if($living_status == 'Rented')
+																								echo " checked";
+
+																							echo " name='living_status' id='living_status' value='Rented'> Rented
+
+																						</div>
+
+																					</div>
+
+																					<div class='row' id='mailing_address_csz'>
+
+																						<div class='row'>
+
+																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+																								<label><strong>Address</strong></label>
+
+																							</div>
+
+																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																								<input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' placeholder='Ex : 1111 Example St'>
+
+																							</div>
+
+																						</div>
+
+																					</div>
+
+																					<div class='row text-center'>
+
+																						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																							<!--button class='btn btn-info btn-xs' type='submit'>Update Living Status</button-->
+
+																						</div>
 
 																					</div>
 
@@ -507,9 +578,71 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												
+												<table class='table table-striped' style='color: black;'>
+
+													<thead>
+														
+														<th>Month</th>
+														<th>Document ID</th>
+														<th>Description</th>
+														<th>Charge</th>
+														<th>Payment</th>
+														<th>Total</th>
+
+													</thead>
+
+													<tbody>
+														
+														<?php
+
+                                							for($m = 1; $m <= 12; $m++)
+                                							{
+
+                                  								$last_date = date("Y-m-t", strtotime("$year-$m-1"));
+                                  
+                                  								$charges_results = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id AND assessment_date>='$year-$m-1' AND assessment_date<='$last_date' ORDER BY assessment_date");
+
+                                  								$payments_results = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND process_date>='$year-$m-1' AND process_date<='$last_date' ORDER BY process_date");
+
+                                  								$month_charge = 0.0;
+
+                                  								while($charges_row = pg_fetch_assoc($charges_results))
+                                  								{
+
+                                    								$month_charge += $charges_row['amount'];
+                                    								$tdate = $charges_row['assessment_date'];
+                                    								$desc = $charges_row['assessment_rule_type_id'];
+
+                                    								$r = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$desc"));
+                                    								$desc = $r['name'];
+
+                                    								echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$charges_row['id']."-".$charges_row['assessment_rule_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|".$desc."</td><td>$ ".$charges_row['amount']."</td><td></td><td>$ ".$month_charge."</td></tr>";
+
+                                  								}
+
+                                  								$month_payment = 0.0;
+
+                                  								while($payments_row = pg_fetch_assoc($payments_results))
+                                  								{
+
+                                    								$month_payment += $payments_row['amount'];
+                                    								$tdate = $payments_row['process_date'];
+
+                                    								echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
+
+                                  								}
+
+                                							}
+
+                              							?>
+
+                              							<tr><td></td><td></td><td><strong>Total</strong></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id")); $total_charges = $row['sum']; echo "<strong>$ ".$total_charges."</strong>"; ?></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1")); $total_payments = $row['sum']; if($total_payments == "") $total_payments = 0.0; echo "<strong>$ ".$total_payments."</strong>"; ?></td><td><?php $total = $total_charges - $total_payments; echo "<strong>$ ".$total."</strong>"; ?></td></tr>
+
+													</tbody>
+													
+												</table>
 
 											</div>
 
@@ -665,9 +798,52 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												
+												<table id='example2' class='table table-striped' style='color: black;'>
+
+													<thead>
+														
+														<th>Date Sent</th>
+														<th>Total Due</th>
+														<th>Statement File</th>
+														<th>Notification Type</th>
+
+													</thead>
+
+													<tbody>
+														
+														<?php 
+
+                                							$result = pg_query("SELECT * FROM community_statements_mailed WHERE home_id=$home_id AND hoa_id=$hoa_id");
+
+                                							while ($row = pg_fetch_assoc($result)) 
+                                							{
+                                  								
+                                  								$date_sent = $row['date_sent'];
+                                  								$total_due = $row['total_due'];
+                                  								$statement_file = $row['statement_file'];
+                                  								$statement_type = $row['statement_type'];
+                                  								$notification_type = $row['notification_type'];
+
+                                  								if($total_due != "")
+                                    								$total_due = "$ ".$total_due;
+
+                                  								if($date_sent != "")
+                                    								$date_sent = date("m-d-Y", strtotime($date_sent));
+
+                                  								$row1 = pg_fetch_assoc(pg_query("SELECT * FROM notification_mode WHERE notification_mode_id=$notification_type"));
+                                  								$notification_type = $row1['notification_mode_type'];
+
+                                  								echo "<tr><td>$date_sent</td><td>$total_due</td><td>$statement_file</td><td>$statement_type</td><td>$notification_type</td></tr>";
+                                							
+                                							}
+                              
+                              							?>
+
+													</tbody>
+													
+												</table>
 
 											</div>
 
@@ -710,6 +886,8 @@
 	      	$(function () {
 	        	
 	        	$("#example1").DataTable({ "pageLength": 50 });
+
+	        	$("#example2").DataTable({ "pageLength": 50 });
 
 	      	});
 
