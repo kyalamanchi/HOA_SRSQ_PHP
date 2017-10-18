@@ -22,6 +22,7 @@
 			$mode = $_SESSION['hoa_mode'];
 
 			$today = date('Y-m-d');
+			$year = date('Y');
 
 			if($mode == 2)
 				header('Location: residentDashboard.php');
