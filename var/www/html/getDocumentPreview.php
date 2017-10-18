@@ -14,7 +14,7 @@
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
 
-	echo $path." "$description;
+	echo $path." ".$description;
 	die();
 
 	$client->getFile($path, fopen($description.".pdf", 'wb'));
