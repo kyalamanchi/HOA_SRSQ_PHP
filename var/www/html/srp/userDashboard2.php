@@ -772,7 +772,7 @@
 										
 										<div class='special-heading m-b-40'>
 									
-											<h4>Payments</h4>
+											<h4>Payment Details</h4>
 						
 										</div>
 
@@ -781,6 +781,56 @@
 											<div class='row'>
 
 												
+
+											</div>
+
+										</div>
+
+										<div class='special-heading m-b-40'>
+									
+											<h4>Current Year Payments Processed</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												
+
+											</div>
+
+										</div>
+
+										<div class='special-heading m-b-40'>
+									
+											<h4>Forte Transactions</h4>
+						
+										</div>
+
+										<div class='container'>
+
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+												<table id='example3' class='table table-striped'>
+													
+													<thead>
+
+														<th>Date</th>
+														<th>Customer ID</th>
+														<th>Authorization Code</th>
+														<th>Status</th>
+														<th>Amount</th>
+														<th>Entered By</th>
+														<th>Action</th>
+														
+													</thead>
+
+													<tbody>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
@@ -888,6 +938,8 @@
 	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	        	$("#example2").DataTable({ "pageLength": 50 });
+
+	        	$("#example3").DataTable({ "pageLength": 50 });
 
 	      	});
 
