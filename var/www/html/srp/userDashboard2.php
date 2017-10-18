@@ -371,7 +371,7 @@
 
 																			<div class='container' style='color: black;'>
 
-																				<form method='POST' action='userDashboardEditLivingStatus.php'>
+																				<form method='POST' action='userDashboardEditLot.php'>
 																				
 																					<div class='row'>
 
@@ -387,7 +387,7 @@
 
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-																							<input class='form-control' type='number' name='update_lot' id='update_lot'>
+																							<input class='form-control' type='number' name='edit_lot' id='edit_lot' required value='$lot'>
 
 																						</div>
 
