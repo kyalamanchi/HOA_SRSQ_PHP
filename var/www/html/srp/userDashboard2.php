@@ -373,15 +373,15 @@
 
 																				<form method='POST' action='userDashboardEditLot.php'>
 																				
-																					<div class='row'>
+																					<div class='row text-center'>
 
-																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
 																							<label><strong>Lot</strong></label><br>
 
 																						</div>
 
-																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
 																							<input class='form-control' type='number' name='edit_lot' id='edit_lot' required value='$lot'>
 
@@ -391,7 +391,7 @@
 
 																					<div class='row'>
 
-																						<div class='col-xl-9 col-lg-9 col-md-9 col-sm-8 col-xs-12'>
+																						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 																							<center>
 
