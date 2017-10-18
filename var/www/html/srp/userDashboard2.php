@@ -451,6 +451,26 @@
 
 																					</div>
 
+																					<div class='row' id='mailing_address_csz'>
+
+																						<div class='row'>
+
+																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																								<label>Address</label>
+
+																							</div>
+
+																							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																								<input type='text' name='edit_mailing_address' id='edit_mailing_address' placeholder='Ex : 1111 Example St'>
+
+																							</div>
+
+																						</div>
+
+																					</div>
+
 																					<div class='row text-center'>
 
 																						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
