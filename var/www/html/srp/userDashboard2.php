@@ -371,11 +371,11 @@
 
 																			<div class='container' style='color: black; background-color: gray;'>
 
+																				<br><br>
+
 																				<form method='POST' action='userDashboardEditLot.php'>
 																				
 																					<div class='row text-center'>
-
-																						<br><br>
 
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
@@ -408,6 +408,8 @@
 																					</div>
 
 																				</form>
+
+																				<br><br>
 
 						                                          			</div>
 
