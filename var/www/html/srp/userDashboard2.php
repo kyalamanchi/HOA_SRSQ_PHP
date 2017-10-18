@@ -864,7 +864,16 @@
                                   							{  
 
                                     							if($key->customer_id == $hoa_id)
-                                      								echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                      							{	
+
+                                      								$forte_status = $key->status;
+
+                                      								if($forte_status == 'funded')
+                                      									echo "<tr style='color: green;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                      								else
+                                      									echo "<tr style='color: orange;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+
+                                      							}
                                     
                                   							}
 
