@@ -102,10 +102,9 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
           $name = $row['firstname'];
           $name = $name.' ';
           $name = $name.$row['lastname'];
-          $name = $name.' ';
-          $name = $name.$row['home_id'];
-         $hoaIDArray[$row['hoa_id']]  = $name;
+          $hoaIDArray[$row['hoa_id']]  = $name;
          $userEmails[$row['hoa_id']] = $row['email'];
+         $homeIDArray[$row['hoa_id']] = $row['home_id'];
         }
 $inspectionCategoryQuery = "SELECT * FROM INSPECTION_CATEGORY ";
 $inspectionCategoryQueryResult = pg_query($inspectionCategoryQuery);
@@ -278,9 +277,10 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
+
 showPleaseWait();
 var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
+var qHoaID = $("#qhoaID").find("option:selected").attr("id");
 item = {};
 item["hoa_id"] = qHoaID;
 item["notice_name"] = qNotice;
@@ -301,9 +301,10 @@ request.onreadystatechange = function(){
 }
 }
 function quickSendUSPS(){
+
 showPleaseWait();
 var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
+var qHoaID = $("#qhoaID").find("option:selected").attr("id");
 item = {};
 item["hoa_id"] = qHoaID;
 item["notice_name"] = qNotice;
@@ -324,6 +325,11 @@ request.onreadystatechange = function(){
 }
 }
 </script>
+<style type="text/css">
+  .data-subtext{
+     color: white; 
+  }
+</style>
   </head>
 <body>
   <h1>Inspection Management</h1>
@@ -332,12 +338,12 @@ request.onreadystatechange = function(){
     <h2>Quick Send</h2>
     <hr>
       <div class="row-fluid">
-      <h4>HOA ID</h4>
+      <h4>HOME ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qhoaID" onchange="">
       <?php
         echo '<option></option>';
-        foreach ($hoaIDArray as $key => $value) {
-          echo '<option data-subtext="'.$value.'">'.$key.'</option>';
+        foreach ($homeIDArray as $key => $value) {
+          echo '<option data-subtext="'.$hoaIDArray[$key]."(".$key.")".'" id="'.$key.'">'.$value.'</option>';
         }
       ?>
       </select>
