@@ -594,8 +594,51 @@
 
 													<tbody>
 														
-														<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-														
+														<?php
+
+                                							for($m = 1; $m <= 12; $m++)
+                                							{
+
+                                  								$last_date = date("Y-m-t", strtotime("$year-$m-1"));
+                                  
+                                  								$charges_results = pg_query("SELECT * FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id AND assessment_date>='$year-$m-1' AND assessment_date<='$last_date' ORDER BY assessment_date");
+
+                                  								$payments_results = pg_query("SELECT * FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND process_date>='$year-$m-1' AND process_date<='$last_date' ORDER BY process_date");
+
+                                  								$month_charge = 0.0;
+
+                                  								while($charges_row = pg_fetch_assoc($charges_results))
+                                  								{
+
+                                    								$month_charge += $charges_row['amount'];
+                                    								$tdate = $charges_row['assessment_date'];
+                                    								$desc = $charges_row['assessment_rule_type_id'];
+
+                                    								$r = pg_fetch_assoc(pg_query("SELECT * FROM assessment_rule_type WHERE assessment_rule_type_id=$desc"));
+                                    								$desc = $r['name'];
+
+                                    								echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$charges_row['id']."-".$charges_row['assessment_rule_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|".$desc."</td><td>$ ".$charges_row['amount']."</td><td></td><td>$ ".$month_charge."</td></tr>";
+
+                                  								}
+
+                                  								$month_payment = 0.0;
+
+                                  								while($payments_row = pg_fetch_assoc($payments_results))
+                                  								{
+
+                                    								$month_payment += $payments_row['amount'];
+                                    								$tdate = $payments_row['process_date'];
+
+                                    								echo "<tr><td>".date('F', strtotime($tdate))."</td><td>".$payments_row['id']."-".$payments_row['payment_type_id']."</td><td>".date("m-d-y", strtotime($tdate))."|"."Payment Received # ".$payments_row['document_num']."</td><td></td><td>$ ".$payments_row['amount']."</td><td>$ ".$month_payment."</td></tr>";
+
+                                  								}
+
+                                							}
+
+                              							?>
+
+                              							<tr><td></td><td></td><td><strong>Total</strong></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id")); $total_charges = $row['sum']; echo "<strong>$ ".$total_charges."</strong>"; ?></td><td><?php $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1")); $total_payments = $row['sum']; if($total_payments == "") $total_payments = 0.0; echo "<strong>$ ".$total_payments."</strong>"; ?></td><td><?php $total = $total_charges - $total_payments; echo "<strong>$ ".$total."</strong>"; ?></td></tr>
+
 													</tbody>
 													
 												</table>
