@@ -14,10 +14,9 @@
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
 
-	echo $dropboxKey." ".$dropboxSecret;
-	die();
+	echo $client->getFile($path, fopen($description.".pdf", 'wb'));
 
-	$client->getFile($path, fopen($description.".pdf", 'wb'));
+	die();
 
 	header("Location: https://hoaboardtime.com/".$description.".pdf");
 
