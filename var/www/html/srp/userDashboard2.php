@@ -369,7 +369,7 @@
 
 																		<div class='modal-body'>
 
-																			<div class='container' style='color: black;'>
+																			<div class='container' style='color: black; background-color: gray;'>
 
 																				<form method='POST' action='userDashboardEditLot.php'>
 																				
@@ -429,7 +429,7 @@
 																							if($living_status == 'Living')
 																								echo " checked";
 
-																							echo " name='living_status' id='living_status'> Living
+																							echo " name='living_status' id='living_status' value='Living'> Living
 
 																						</div>
 
@@ -440,7 +440,7 @@
 																							if($living_status == 'Rented')
 																								echo " checked";
 
-																							echo " name='living_status' id='living_status'> Rented
+																							echo " name='living_status' id='living_status' value='Rented'> Rented
 
 																						</div>
 
