@@ -46,7 +46,10 @@
         }
     }
     function updateAll(){
-      
+      document.getElementById("agreementsButton").disabled = true;
+      document.getElementById("paymentsButton").disabled  = true;
+      document.getElementById("billingStatementsButton").disabled = true;
+      document.getElementById("emailsButton").disabled = true;
       swal("Payments,Agreements,Emails sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
@@ -54,6 +57,10 @@
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           swal("Updation Complete","","success");
+          document.getElementById("agreementsButton").disabled = false;
+          document.getElementById("paymentsButton").disabled  = false;
+          document.getElementById("billingStatementsButton").disabled = false;
+          document.getElementById("emailsButton").disabled = false;
       }
     }
   }
@@ -110,7 +117,7 @@
         Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" onclick="updatePayments();">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="paymentsButton" onclick="updatePayments();">Update Now</button>
         <div id="payResult">
             
         </div>
@@ -138,7 +145,7 @@
          Updates agreements, mega sign agreements and mega sign child agreements.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" onclick="updateAgreements();">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="agreementsButton" onclick="updateAgreements();">Update Now</button>
         <div id="agreementResult">
             
         </div>
@@ -166,7 +173,7 @@
          <br>SRSQ Path /Billing_Statements/SRSQ/2017/ . 
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" onclick="updateBillingStatements();">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="billingStatementsButton" onclick="updateBillingStatements();">Update Now</button>
         <div id="bsResult">
         </div>
       </div>
@@ -194,7 +201,7 @@
          Inserts sent email(s) data. If exists, updates status.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" onclick="updateEmailsSent();">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="emailsButton" onclick="updateEmailsSent();">Update Now</button>
         <div id="emailResult">
         </div>
       </div>
