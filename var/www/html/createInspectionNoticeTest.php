@@ -323,6 +323,11 @@ request.onreadystatechange = function(){
 }
 }
 </script>
+<style type="text/css">
+  .data-subtext{
+     color: #64b1d8; 
+  }
+</style>
   </head>
 <body>
   <h1>Inspection Management</h1>
