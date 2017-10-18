@@ -375,7 +375,7 @@
 																				
 																					<div class='row'>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-12'>
 
 																							<label><strong>Lot</strong></label><br>
 
@@ -385,13 +385,13 @@
 
 																					<div class='row'>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-4 col-xs-12'>
 
 																							<input class='form-control' type='number' name='edit_lot' id='edit_lot' required value='$lot'>
 
 																						</div>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-8 col-xs-12'>
 
 																							<button class='btn btn-info btn-xs' type='submit'>Update 
 																							lot</button>
