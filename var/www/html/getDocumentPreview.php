@@ -14,7 +14,7 @@
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
 
-	echo $appName;
+	echo $dropboxKey." ".$dropboxSecret;
 	die();
 
 	$client->getFile($path, fopen($description.".pdf", 'wb'));
