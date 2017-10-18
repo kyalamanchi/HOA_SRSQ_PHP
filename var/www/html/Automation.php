@@ -46,6 +46,7 @@
         }
     }
     function updateAll(){
+      
       swal("Payments,Agreements,Emails sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
