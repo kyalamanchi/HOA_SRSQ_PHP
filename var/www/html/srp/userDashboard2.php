@@ -393,12 +393,8 @@
 
 																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-																							<center>
-
-																								<button class='btn btn-info btn-xs' type='submit'>Update 
+																							<button class='btn btn-info btn-xs' type='submit'>Update 
 																							lot</button>
-
-																							</center>
 
 																						</div>
 
@@ -450,11 +446,7 @@
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-																							<center>
-
-																								<button class='btn btn-info btn-xs' type='submit'>Update Living Status</button>
-
-																							</center>
+																							<button class='btn btn-info btn-xs' type='submit'>Update Living Status</button>
 
 																						</div>
 
