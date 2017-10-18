@@ -338,7 +338,7 @@ request.onreadystatechange = function(){
       <?php
         echo '<option></option>';
         foreach ($homeIDArray as $key => $value) {
-          echo '<option data-subtext="'.$hoaIDArray[$key].'">'.$key.'</option>';
+          echo '<option data-subtext="'.$value.'">'.$key.'</option>';
         }
       ?>
       </select>
