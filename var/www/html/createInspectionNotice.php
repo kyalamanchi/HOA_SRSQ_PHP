@@ -102,6 +102,8 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
           $name = $row['firstname'];
           $name = $name.' ';
           $name = $name.$row['lastname'];
+          $name = $name.' ';
+          $name = $name.$row['home_id'];
          $hoaIDArray[$row['hoa_id']]  = $name;
          $userEmails[$row['hoa_id']] = $row['email'];
         }
