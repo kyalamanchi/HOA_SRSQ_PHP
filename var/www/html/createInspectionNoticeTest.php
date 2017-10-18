@@ -106,6 +106,7 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
           $name = $name.$row['home_id'];
          $hoaIDArray[$row['hoa_id']]  = $name;
          $userEmails[$row['hoa_id']] = $row['email'];
+         $homeIDArray[$row['hoa_id']] = $row['home_id'];
         }
 $inspectionCategoryQuery = "SELECT * FROM INSPECTION_CATEGORY ";
 $inspectionCategoryQueryResult = pg_query($inspectionCategoryQuery);
@@ -336,8 +337,8 @@ request.onreadystatechange = function(){
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qhoaID" onchange="">
       <?php
         echo '<option></option>';
-        foreach ($hoaIDArray as $key => $value) {
-          echo '<option data-subtext="'.$value.'">'.$key.'</option>';
+        foreach ($homeIDArray as $key => $value) {
+          echo '<option data-subtext="'.$hoaIDArray[$key].'">'.$key.'</option>';
         }
       ?>
       </select>
