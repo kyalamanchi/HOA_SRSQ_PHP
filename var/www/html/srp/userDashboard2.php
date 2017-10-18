@@ -371,7 +371,7 @@
 
 																			<div class='container' style='color: black; background-color: gray;'>
 
-																				<br><br>
+																				<br>
 
 																				<form method='POST' action='userDashboardEditLot.php'>
 																				
@@ -409,7 +409,7 @@
 
 																				</form>
 
-																				<br><br>
+																				<br>
 
 						                                          			</div>
 
