@@ -300,27 +300,29 @@ request.onreadystatechange = function(){
 }
 }
 function quickSendUSPS(){
-showPleaseWait();
-var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
-item = {};
-item["hoa_id"] = qHoaID;
-item["notice_name"] = qNotice;
-var Json = JSON.stringify(item);
-var request = new XMLHttpRequest();
-request.open("POST","https://hoaboardtime.com/quickSendNoticeUSPS.php",true);
-request.send(Json);
-request.onreadystatechange = function(){
-  if ( request.readyState == XMLHttpRequest.DONE ){
-    hidePleaseWait();
-    if ( request.responseText == "File uploaded to South Data." ){
-        swal("File Uploaded to USPS.","","success");
-    }
-    else {
-      swal("Failed to Upload","","error");
-    }
-  }
-}
+  alert($("#qhoaID").find("option:selected").id);
+  swal($("#qhoaID").find("option:selected").id,"","success");
+// showPleaseWait();
+// var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
+// var qHoaID = $("#qhoaID").find("option:selected").text();
+// item = {};
+// item["hoa_id"] = qHoaID;
+// item["notice_name"] = qNotice;
+// var Json = JSON.stringify(item);
+// var request = new XMLHttpRequest();
+// request.open("POST","https://hoaboardtime.com/quickSendNoticeUSPS.php",true);
+// request.send(Json);
+// request.onreadystatechange = function(){
+//   if ( request.readyState == XMLHttpRequest.DONE ){
+//     hidePleaseWait();
+//     if ( request.responseText == "File uploaded to South Data." ){
+//         swal("File Uploaded to USPS.","","success");
+//     }
+//     else {
+//       swal("Failed to Upload","","error");
+//     }
+//   }
+// }
 }
 </script>
 <style type="text/css">
@@ -336,7 +338,7 @@ request.onreadystatechange = function(){
     <h2>Quick Send</h2>
     <hr>
       <div class="row-fluid">
-      <h4>HOA ID</h4>
+      <h4>HOME ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qhoaID" onchange="">
       <?php
         echo '<option></option>';
