@@ -348,9 +348,9 @@
 															$role = $row['name'];
 
 															if($living_status == 't')
-																$living_status = "TRUE";
+																$living_status = "Living";
 															else
-																$living_status = "FALSE";
+																$living_status = "Rented";
 
 															echo "
 											
@@ -389,10 +389,10 @@
 
 																							<input type='radio'";
 
-																							if($living_status == 'TRUE')
+																							if($living_status == 'Living')
 																								echo " checked";
 
-																							echo " name='living_status' id='living_status'> True
+																							echo " name='living_status' id='living_status'> Living
 
 																						</div>
 
@@ -400,10 +400,10 @@
 
 																							<input type='radio'";
 
-																							if($living_status == 'FALSE')
+																							if($living_status == 'Rented')
 																								echo " checked";
 
-																							echo " name='living_status' id='living_status'> False
+																							echo " name='living_status' id='living_status'> Rented
 
 																						</div>
 
