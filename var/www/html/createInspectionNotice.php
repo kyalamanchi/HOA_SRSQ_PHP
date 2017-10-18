@@ -380,7 +380,7 @@ request.onreadystatechange = function(){
     </div>
       <div style="width: 25%;float: left;padding-left: 10px;">
       <h4>HOME ADDRESS</h4>
-      <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ID" disabled="disabled" >
+      <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ADDRESS" disabled="disabled" >
       <small id="emailHelp" class="form-text text-muted"></small>
       </div>
       <div style="clear: both;"></div>
