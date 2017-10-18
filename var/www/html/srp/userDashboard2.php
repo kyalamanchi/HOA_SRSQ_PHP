@@ -362,7 +362,7 @@
 
 																		<div class='modal-header'>
 
-																			<h4 class='h4'>Owner Details</h4>
+																			<h4 class='h4'>Home Details</h4>
 																			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
 																		</div>
@@ -370,6 +370,47 @@
 																		<div class='modal-body'>
 
 																			<div class='container' style='color: black;'>
+
+																				<form method='POST' action='userDashboardEditLivingStatus.php'>
+																				
+																					<div class='row'>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<label><strong>Lot</strong></label><br>
+
+																						</div>
+
+																					</div>
+
+																					<div class='row'>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<input class='form-control' type='number' name='update_lot' id='update_lot'>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																							<center>
+
+																								<button class='btn btn-info btn-xs' type='submit'>Update 
+																							lot</button>
+
+																							</center>
+
+																						</div>
+
+																					</div>
+
+																				</form>
+
+						                                          			</div>
+
+						                                          			<br>
+
+						                                          			<div class='container' style='color: black;'>
 
 																				<form method='POST' action='userDashboardEditLivingStatus.php'>
 																				
