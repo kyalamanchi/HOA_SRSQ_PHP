@@ -426,7 +426,7 @@
 
 																					<div class='row'>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
 																							<input type='radio'";
 
@@ -437,7 +437,7 @@
 
 																						</div>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
 																							<input type='radio'";
 
@@ -448,17 +448,15 @@
 
 																						</div>
 
-																					</div>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-																					<br>
+																							<center>
 
-																					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+																								<button class='btn btn-info btn-xs' type='submit'>Update Living Status</button>
 
-																						<center>
+																							</center>
 
-																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
-
-																						</center>
+																						</div>
 
 																					</div>
 
