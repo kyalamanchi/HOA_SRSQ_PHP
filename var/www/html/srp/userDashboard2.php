@@ -870,8 +870,10 @@
 
                                       								if($forte_status == 'funded')
                                       									echo "<tr style='color: green;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
-                                      								else
+                                      								else if($forte_status == 'settling')
                                       									echo "<tr style='color: orange;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                      								else
+                                      									echo "<tr style='color: red;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
 
                                       							}
                                     
