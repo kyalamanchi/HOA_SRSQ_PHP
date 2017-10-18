@@ -902,6 +902,7 @@
 														<th>Date Sent</th>
 														<th>Total Due</th>
 														<th>Statement File</th>
+														<th>Statement Type</th>
 														<th>Notification Type</th>
 
 													</thead>
