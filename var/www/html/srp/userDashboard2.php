@@ -812,7 +812,7 @@
 
 											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												<table id='example3' class='table table-striped'>
+												<table id='example3' class='table table-striped' style='color: black;'>
 													
 													<thead>
 
@@ -864,7 +864,18 @@
                                   							{  
 
                                     							if($key->customer_id == $hoa_id)
-                                      								echo "<tr><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$key->status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                      							{	
+
+                                      								$forte_status = $key->status;
+
+                                      								if($forte_status == 'funded')
+                                      									echo "<tr style='color: green;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                      								else if($forte_status == 'settling')
+                                      									echo "<tr style='color: orange;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                      								else
+                                      									echo "<tr style='color: red;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+
+                                      							}
                                     
                                   							}
 
@@ -902,6 +913,7 @@
 														<th>Date Sent</th>
 														<th>Total Due</th>
 														<th>Statement File</th>
+														<th>Statement Type</th>
 														<th>Notification Type</th>
 
 													</thead>
@@ -984,7 +996,7 @@
 
 	        	$("#example2").DataTable({ "pageLength": 50 });
 
-	        	$("#example3").DataTable({ "pageLength": 50 });
+	        	$("#example3").DataTable({ "pageLength": 50, "order": [[0, "desc"]] });
 
 	      	});
 
