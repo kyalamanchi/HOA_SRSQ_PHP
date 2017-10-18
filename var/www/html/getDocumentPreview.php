@@ -2,6 +2,10 @@
 	
 	session_start();
 
+	echo $_SESSION['hoa_community_id'];
+
+	die();
+
 	require 'app/start.php';
 
 	if($_SESSION['hoa_community_id'] == 1)
