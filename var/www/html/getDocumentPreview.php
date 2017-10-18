@@ -2,10 +2,6 @@
 	
 	session_start();
 
-	echo $_SESSION['hoa_community_id'];
-
-	die();
-
 	require 'app/start.php';
 
 	if($_SESSION['hoa_community_id'] == 1)
@@ -17,6 +13,9 @@
 
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
+
+	echo $path." "$description;
+	die();
 
 	$client->getFile($path, fopen($description.".pdf", 'wb'));
 
