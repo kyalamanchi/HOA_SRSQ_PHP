@@ -14,9 +14,7 @@
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
 
-	echo $client->getFile($path, fopen($description.".pdf", 'wb'));
-
-	die();
+	$client->getFile($path, fopen($description.".pdf", 'wb'));
 
 	header("Location: https://hoaboardtime.com/".$description.".pdf");
 
