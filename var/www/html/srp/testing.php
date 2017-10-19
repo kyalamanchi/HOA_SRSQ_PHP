@@ -8,7 +8,7 @@ $response = curl_exec($ch);
 
 $response = json_decode($response);
 
-echo $response;
+print_r($response);
 $file = fopen('data.pdf', 'w');
 fwrite($file, $response);
 fclose($file);
