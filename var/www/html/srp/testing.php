@@ -6,7 +6,9 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer QwUjEm5GAkAAAA
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 
-echo $response; die();
+$response = json_decode($response);
+
+echo $response;
 $file = fopen('data.pdf', 'w');
 fwrite($file, $response);
 fclose($file);
