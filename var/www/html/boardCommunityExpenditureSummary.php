@@ -384,7 +384,7 @@
                           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
                           curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506452058",oauth_nonce="cEzWCgQy0l5",oauth_version="1.0",oauth_signature="KXtBMOAC0UjBuczxlE7tPlDyPN0%3D"'));
                           curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                          curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase");
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase startposition 1 maxresults 1000");
         
                           $result = curl_exec($ch);
                           $jsonDecode  = json_decode($result,TRUE);
