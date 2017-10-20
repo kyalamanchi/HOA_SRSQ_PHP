@@ -5,8 +5,12 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAAN-KemUHI72QOlDsQxtH6H9JlRixSoi1fqq7D7BCHrNFm','Dropbox-API-Arg: {"path": "id:FM3YTRX_UaAAAAAAAAAATQ"}'));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
+
+$response = json_decode($response);
+
+print_r($response);
 $file = fopen('data.pdf', 'w');
 fwrite($file, $response);
-header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="data.pdf"'); 
-readfile('data.pdf');
+fclose($file);
+header('Locaton: data.pdf');
 ?>
