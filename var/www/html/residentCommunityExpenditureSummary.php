@@ -214,7 +214,7 @@
         
         <section class="content-header">
 
-          <h1><strong>YTDD Expenditures</strong></h1>
+          <h1><strong>YTD Expenditures</strong></h1>
 
         </section>
 
