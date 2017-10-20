@@ -376,8 +376,13 @@
                           $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query?minorversion=8');
                           
                           curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+<<<<<<< HEAD
                           curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdtnlpBxOlv0BmjUwWTfj29gEC0KrzOcJQHaiaUDajyIO",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="AdhLMYh%2FePI5JVFAvaTKZ2sjeG0%3D"'));
                           curl_setopt($ch, CURLOPT_POSTFIELDS, "SELECT * from Deposit startposition 1 maxresults 1000");
+=======
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="430f4323bb313b4660b8d54b133854f327db",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="AdhLMYh%2FePI5JVFAvaTKZ2sjeG0%3D"'));
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, "SELECT * from Deposit startposition 1");
+>>>>>>> 7c2c3dae3523cf4aafef721dc5990abffbf2111e
                           curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
                           $result = curl_exec($ch);
