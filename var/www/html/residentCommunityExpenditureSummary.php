@@ -251,7 +251,7 @@
                         $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
                         
                         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1499066569",oauth_nonce="dl1Fp0S0GK9",oauth_version="1.0",oauth_signature="g3%2BdnQOuVc66cBqdDPl1imbYpUE%3D"'));
+                        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506452058",oauth_nonce="cEzWCgQy0l5",oauth_version="1.0",oauth_signature="KXtBMOAC0UjBuczxlE7tPlDyPN0%3D"'));
                         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                         curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase");
         
@@ -262,7 +262,7 @@
                         foreach ($queryResponse['Purchase'] as $purchase) {
                           
                           echo '<tr><td>';
-                          print_r(date("m/d/Y",strtotime($purchase['TxnDate'])));
+                          print_r(date("m-d-Y",strtotime($purchase['TxnDate'])));
                           echo '</td><td>Expenditure</td><td>';
                           echo $purchase['EntityRef']['name'];
                           echo '</td><td>';
@@ -276,7 +276,18 @@
 
                           }
                           
-                          echo $category;
+                          if ( $count == 1) {
+                            
+                            echo $category;
+                            $count = 0;
+
+                          }
+                          else {
+                            
+                            echo "-Split-";
+                            $count = 0;
+
+                          }
 
                           echo '</td><td>';
                           print_r("$".number_format($purchase['TotalAmt'],2));
