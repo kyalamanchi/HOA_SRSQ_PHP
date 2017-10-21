@@ -252,7 +252,7 @@ updateName();
       <h2>Adobe Sign - Send Agreement</h2>
       <hr/>
     <div class="container">
-      <h3><center>DOCUMENT SELECTION</center></h3>
+      <h4><center>DOCUMENT SELECTION</center></h4>
       <br>
       <hr>
     <div class="row-fluid" style="float: left;">
@@ -269,7 +269,7 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
-    <h3><center>USER SELECTION</center></h3>
+    <h4><center>USER SELECTION</center></h4>
       <br>
       <hr>
     <div class="row-fluid">
