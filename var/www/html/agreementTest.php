@@ -55,6 +55,9 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+[hidden] {
+  display: none !important;
+}
 </style>
 <script type="text/javascript">
 function showPleaseWait() {
@@ -280,6 +283,15 @@ updateName();
       Browse <input type="file" id="fileInput" hidden>
       </label>
     </div>
+     <script type="text/javascript">
+        document.getElementById('fileInput').onchange = function () {
+          var f =  this.value;
+          f = f.replace(/.*[\/\\]/, '');
+          fileName  = f;
+          document.getElementById("label").innerHTML = f;
+          getFileData();
+        };
+      </script>
     <br>
     <h4>RECIPIENT SELECTION</h4>
       <hr>
