@@ -20,7 +20,7 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$path.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
-	header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="'.$description.'.pdf"'); 
+	// header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="'.$description.'.pdf"'); 
 	echo $response;
 
 	
