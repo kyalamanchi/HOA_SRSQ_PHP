@@ -359,7 +359,8 @@ updateName();
       <hr>
 
     <div id="docSelection">
-    <h4>Choose Existing Document</h4>
+    <u><h4>Choose Existing Document</h4></u>
+    <br>
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
@@ -379,7 +380,8 @@ updateName();
     <h4><center>OR</center><h4>
     <br>
     <div id="fileUpload">
-      <h4>Upload New Document</h4>
+      <u><h4>Upload New Document</h4></u>
+      <br>
       <h4 id="label"></h4>
       <label class="btn btn-default" >
       Browse <input type="file" id="fileInput" hidden>
