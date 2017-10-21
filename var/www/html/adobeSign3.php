@@ -19,24 +19,23 @@ $fileName = $fileName.".pdf";
 $myfile = fopen($fileName, "w");
 fwrite($myfile, base64_decode($fileData));
 fclose($myfile);
-if ( file_exists($fileName) ){
-	echo "File Found";
-}
+$path = $fileName;
+$data = array('File' => '@'.$path);
+$ch = curl_init('https://api.na1.echosign.com/api/rest/v5/transientDocuments');
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
+curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: multipart/form-data', 
+    'Access-Token: 3AAABLblqZhBbuoGJoQZXIMhISUIAnh7R_qmzGgn_COsBf1G0kXyDFiaXxE-oM8ZMaL1LPybdYz1U2gYXszLLzpLuenZ3Ojfm'));
+$result = curl_exec($ch);
+curl_close($ch);
+$result = json_decode($result);
+$transientDocumentID = $result->transientDocumentId;
+echo $transientDocumentID;
+
+
 unlink($fileName);
-if ( file_exists($fileName) ){
-	echo "File Found";
-}
-else {
-	echo "File not found";
-}
 
-
-
-
-
-
-
-unlink("adobeTemp.pdf");
 
 
 
