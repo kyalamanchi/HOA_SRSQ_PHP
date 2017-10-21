@@ -253,6 +253,8 @@ updateName();
       <hr/>
     <div class="container">
       <h4><center>Document Selection</center></h4>
+      <br>
+      <hr>
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
@@ -267,6 +269,9 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
+    <h4><center>User Selection</center></h4>
+      <br>
+      <hr>
     <div class="row-fluid">
       <h4>Choose HOA ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeEmail();">
