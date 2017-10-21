@@ -253,7 +253,6 @@ updateName();
       <hr/>
     <div class="container">
       <h4><center>DOCUMENT SELECTION</center></h4>
-      <br>
       <hr>
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
@@ -270,7 +269,6 @@ updateName();
     </div>
     <div style="clear: both;"></div>
     <h4><center>USER SELECTION</center></h4>
-      <br>
       <hr>
     <div class="row-fluid">
       <h4>Choose HOA ID</h4>
@@ -289,6 +287,8 @@ updateName();
       <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
       </div>
       <br>
+      <h4><center>AGREEMENT CONFIGURATION</center></h4>
+      <hr>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
       <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 35%">
