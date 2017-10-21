@@ -177,7 +177,7 @@ function sendData(){
     alert("One or more required fields is empty");
   }
   else {
-    swal("All Data OK!!!","","success");
+    swal("All Data OK!!!",fileData,"success");
   // jsonObj = [];
   // item = {};
   // item["documentCategory"] = documentCategory;
