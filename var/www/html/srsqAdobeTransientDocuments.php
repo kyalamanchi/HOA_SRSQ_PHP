@@ -24,7 +24,7 @@ if ( $current_time >= $valid_until ){
 	$newDateTime = date_format($newDateTime,'Y-m-d H:i:s');
 	print_r("Updating transient document ");
 	$path = "/";
-	$path = $path.$fileName.".pdf";
+	$path = $fileName.".pdf";
 	$data = array('File' => new CURLFile($path));
 	$ch = curl_init('https://api.na1.echosign.com/api/rest/v5/transientDocuments');
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");                                                                     
