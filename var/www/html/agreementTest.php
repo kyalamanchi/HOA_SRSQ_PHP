@@ -73,8 +73,8 @@ function getFileData()
         fileData =evt.target.result.split(',')[1];
         x = 1;
         document.getElementById("agreementTitle").value  = fileName.split('.')[0];
-        document.getElementById("documentCategory").disabled = disabled;
-        document.getElementById("documentType").disabled = disabled;
+        document.getElementById("documentCategory").disabled = true;
+        document.getElementById("documentType").disabled = true;
         return fileData;
     }
     reader.onerror = function (evt) {
