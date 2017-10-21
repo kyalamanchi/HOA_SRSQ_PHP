@@ -224,7 +224,7 @@ if ( selectedHoaID){
   request.open("POST", "https://hoaboardtime.com/getLibraryDocuments.php", true);
   }
   else {
-   request.open("POST", "https://hoaboardtime.com/getTransientDocuments.php", true); 
+   request.open("POST", "https://www.hoaboardtime.com/getTransientDocuments.php", true); 
   }
   request.setRequestHeader("Content-type", "application/json");
   showPleaseWait();
