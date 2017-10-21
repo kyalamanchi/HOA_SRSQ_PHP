@@ -13,8 +13,22 @@ $inORder = $parsedJSON[0]->completeInOrder;
 $pass = $parsedJSON[0]->passwordStatus;
 $setPassword = $parsedJSON[0]->setPassword;
 $hoaID = $parsedJSON[0]->hoaID;
-$fileData  = base64_encode($parsedJSON[0]->file_data);
-echo $fileData;
+$fileData  = $parsedJSON[0]->file_data;
+$myfile = fopen("adobeTemp.pdf", "w");
+fwrite($myfile, base64_decode($fileData));
+fclose($myfile);
+if ( file_exists("adobeTemp.pdf") ){
+	print_r("File Found");
+}
+unlink("adobeTemp.pdf");
+if ( file_exists("adobeTemp.pdf") ){
+	print_r("File Found");
+}
+else {
+	print_r("File not found");
+}
+
+
 
 
 // // $data = date('Y-m-d');
