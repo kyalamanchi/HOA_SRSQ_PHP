@@ -252,7 +252,7 @@ updateName();
       <h2>Adobe Sign - Send Agreement</h2>
       <hr/>
     <div class="container">
-      <h4><center>DOCUMENT SELECTION</center></h4>
+      <h4>DOCUMENT SELECTION</h4>
       <hr>
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
@@ -268,7 +268,7 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
-    <h4><center>USER SELECTION</center></h4>
+    <h4>USER SELECTION</h4>
       <hr>
     <div class="row-fluid">
       <h4>Choose HOA ID</h4>
@@ -287,7 +287,7 @@ updateName();
       <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
       </div>
       <br>
-      <h4><center>AGREEMENT CONFIGURATION</center></h4>
+      <h4>AGREEMENT CONFIGURATION</h4>
       <hr>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
