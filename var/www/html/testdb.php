@@ -6,6 +6,6 @@ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer QwUjEm5GAkAAAA
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 
-header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="data.pdf"'); 
+header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="a.pdf"'); 
 echo $response;
 ?>
