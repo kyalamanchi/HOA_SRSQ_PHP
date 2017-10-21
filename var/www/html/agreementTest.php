@@ -61,6 +61,7 @@ input:checked + .slider:before {
 </style>
 <script type="text/javascript">
 var fileData  = "";
+var fileName = "";
 var x = 0;
 function getFileData()
 {
@@ -71,6 +72,7 @@ function getFileData()
       reader.onload = function (evt) {
         fileData =evt.target.result.split(',')[1];
         x = 1;
+        document.getElementById("agreementTitle").value  = fileName;
         return fileData;
     }
     reader.onerror = function (evt) {
@@ -180,7 +182,7 @@ function sendData(){
   jsonObj = [];
   item = {};
   item["documentCategory"] = "File Upload";
-  item["documentName"]  = documentName;
+  item["documentName"]  = fileName;
   item["agreementTitle"] = agreementTitle;
   item["emailAddresses"] = selectedEmails;
   item["ccAddresses"] = ccEmails;
