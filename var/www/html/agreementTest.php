@@ -58,6 +58,10 @@ input:checked + .slider:before {
 [hidden] {
   display: none !important;
 }
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
 </style>
 <script type="text/javascript">
 var fileData  = "";
@@ -301,6 +305,8 @@ function sendData(){
 }
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
+  $("#fileUpload").addClass("disabledbutton");
+
 }
 function changeOptions(){
 $("#documentType").find('option').remove();
@@ -364,7 +370,7 @@ updateName();
     <br>
     <center>OR</center>
     <br>
-    <div>
+    <div id="fileUpload">
       <h4>Upload a new file</h4>
       <h4 id="label"></h4>
       <label class="btn btn-default" >
