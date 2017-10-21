@@ -374,7 +374,7 @@ updateName();
     <div style="clear: both;"></div>
   </div>
     <br>
-    <center>OR</center>
+    <h3><center>OR</center><h3>
     <br>
     <div id="fileUpload">
       <h4>Upload a new file</h4>
