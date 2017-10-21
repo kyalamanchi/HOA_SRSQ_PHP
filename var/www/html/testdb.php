@@ -8,6 +8,9 @@ if($_SESSION['hoa_community_id'] == 1)
 		$accessToken = 'QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF';
 $path = $_GET['path'];
 $description = $_GET['desc'];
+echo $path;
+echo nl2br("\n");
+echo $description;
 $url = 'https://content.dropboxapi.com/2/files/download';
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
