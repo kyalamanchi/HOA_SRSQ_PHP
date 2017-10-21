@@ -268,6 +268,7 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
+    <br>
     <h4>USER SELECTION</h4>
       <hr>
     <div class="row-fluid">
