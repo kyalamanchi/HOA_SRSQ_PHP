@@ -23,7 +23,7 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 
-	if (strpos($response, 'Error in call to API function') !== false) {
+	if (strpos( json_decode($response), 'error_summary') !== false) {
     echo 'This file could be deleted or moved.';
 	}	
 	else{
