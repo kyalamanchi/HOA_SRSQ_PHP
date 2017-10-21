@@ -221,7 +221,7 @@ if ( selectedHoaID){
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
   if( selectedHoaID == "Library Document"){
-  request.open("POST", "https://hoaboardtime.com/getLibraryDocuments.php", true);
+  request.open("POST", "https://www.hoaboardtime.com/getLibraryDocuments.php", true);
   }
   else {
    request.open("POST", "https://www.hoaboardtime.com/getTransientDocuments.php", true); 
