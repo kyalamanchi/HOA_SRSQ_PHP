@@ -248,7 +248,7 @@
                         $desc = $row1['description'];
                         $document_url = $row1['url'];
 
-                        echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></div>";
+                        echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$desc</a></div>";
 
                       }
 
