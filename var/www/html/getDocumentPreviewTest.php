@@ -2,6 +2,9 @@
 	
 	session_start();
 
+	echo "User ID is";
+	echo $_SESSION['hoa_user_id'];
+
 	if($_SESSION['hoa_community_id'] == 1)
 	{
 		$accessToken = '0gTJRfMcSHAAAAAAAAAADNfolm5IYvkINbXQpejgF8X2Hoy_6kXOlJemzq1a-588';
