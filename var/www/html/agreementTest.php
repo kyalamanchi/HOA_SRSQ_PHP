@@ -270,6 +270,7 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
+    <br>
     <center>OR</center>
     <br>
     <div>
