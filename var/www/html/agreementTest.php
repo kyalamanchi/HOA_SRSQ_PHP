@@ -249,11 +249,9 @@ updateName();
 }
 </script>
   </head>
-  <div class="container">
-    <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
       <hr />
-    </div>
+    <div class="container">
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
