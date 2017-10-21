@@ -268,6 +268,7 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
+    <center>OR</center>
     <br>
     <br>
     <h4>RECIPIENT SELECTION</h4>
