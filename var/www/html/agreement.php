@@ -359,10 +359,10 @@ updateName();
       <hr>
 
     <div id="docSelection">
-    <u><h5>Choose Existing Document</h5></u>
+    <u><h4>Choose Existing Document</h4></u>
     <br>
     <div class="row-fluid" style="float: left;">
-      <h4>Type of document</h4>
+      <h5>Type of document</h5>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
         <option></option>
         <option data-subtext="Can be prefilled">Transient Document</option>
@@ -370,7 +370,7 @@ updateName();
       </select>
     </div>
     <div class="row-fluid" style="float: left;padding-left: 10">
-      <h4>Select document to send</h4>
+      <h5>Select document to send</h5>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType" onchange="updateName();">
       </select>
     </div>
@@ -380,7 +380,7 @@ updateName();
     <h4><center>OR</center><h4>
     <br>
     <div id="fileUpload">
-      <u><h5>Upload New Document</h5></u>
+      <u><h4>Upload New Document</h4></u>
       <br>
       <h4 id="label"></h4>
       <label class="btn btn-default" >
