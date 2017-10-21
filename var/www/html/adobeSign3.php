@@ -127,7 +127,7 @@ $result = curl_exec($ch);
 $result = json_decode($result);
 
 if($result->agreementId){
-	echo "Agreeement Created Successfully. Agreeement ID : ".$result->agreementId;
+	echo $result->agreementId;
 }
 else {
 	echo "An error occured.^".$result;
