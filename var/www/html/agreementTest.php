@@ -77,7 +77,7 @@ function getFileData()
         fileData =evt.target.result.split(',')[1];
         x = 1;
         document.getElementById("agreementTitle").value  = fileName.split('.')[0];
-        $("#docSelection").addClass(disabledbutton);
+        $("#mydiv").addClass("disabledbutton");
         return fileData;
     }
     reader.onerror = function (evt) {
