@@ -14,19 +14,30 @@ $pass = $parsedJSON[0]->passwordStatus;
 $setPassword = $parsedJSON[0]->setPassword;
 $hoaID = $parsedJSON[0]->hoaID;
 $fileData  = $parsedJSON[0]->file_data;
-$myfile = fopen("adobeTemp.pdf", "w");
+$fileName = md5(microtime().rand());
+$fileName = $fileName.".pdf";
+$myfile = fopen($fileName, "w");
 fwrite($myfile, base64_decode($fileData));
 fclose($myfile);
-if ( file_exists("adobeTemp.pdf") ){
-	print_r("File Found");
+if ( file_exists($fileName) ){
+	echo "File Found";
 }
-unlink("adobeTemp.pdf");
-if ( file_exists("adobeTemp.pdf") ){
-	print_r("File Found");
+unlink($fileName);
+if ( file_exists($fileName) ){
+	echo "File Found";
 }
 else {
-	print_r("File not found");
+	echo "File not found";
 }
+
+
+
+
+
+
+
+unlink("adobeTemp.pdf");
+
 
 
 

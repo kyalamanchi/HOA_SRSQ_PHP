@@ -159,8 +159,6 @@ function changeEmail(){
 function sendData(){
 
   if ( Boolean(x) ){
-    swal("File Found!!","","success");
-
     var selectedEmails = document.getElementById("emails").value;
   if ( !selectedEmails ){
     alert("One or more required fields empty");
