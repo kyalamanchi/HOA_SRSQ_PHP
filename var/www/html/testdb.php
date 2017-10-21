@@ -5,6 +5,6 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
 curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAAXpgPRk9SuG-dALQIDg9LbPZOvI3QlSxQ6WI7PsJPKR1h','Dropbox-API-Arg: {"path": "/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_1999_October__Board_Signed.pdf"}'));
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
-header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="a.pdf"'); 
+// header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="a.pdf"'); 
 echo $response;
 ?>
