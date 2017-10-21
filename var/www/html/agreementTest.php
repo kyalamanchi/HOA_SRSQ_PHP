@@ -72,7 +72,7 @@ function getFileData()
       reader.onload = function (evt) {
         fileData =evt.target.result.split(',')[1];
         x = 1;
-        document.getElementById("agreementTitle").value  = fileName;
+        document.getElementById("agreementTitle").value  = fileName.split('.')[0];
         return fileData;
     }
     reader.onerror = function (evt) {
