@@ -288,7 +288,7 @@ updateName();
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
-          document.getElementById("label").innerHTML = f;
+          document.getElementById("label").innerHTML = "Selected File : "+f;
           getFileData();
         };
       </script>
