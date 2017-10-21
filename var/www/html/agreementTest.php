@@ -270,7 +270,7 @@ updateName();
     <div style="clear: both;"></div>
     <br>
     <br>
-    <h4>USER SELECTION</h4>
+    <h4>RECIPIENT SELECTION</h4>
       <hr>
     <div class="row-fluid">
       <h4>Choose HOA ID</h4>
