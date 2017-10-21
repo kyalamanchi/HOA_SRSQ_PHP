@@ -353,6 +353,12 @@
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
 
+    <script>
+      $(function () {
+        $("#example1").DataTable({ "pageLength": 50, "order": [[ 0, "desc" ]] });
+      });
+    </script>
+
   </body>
 
 </html>
