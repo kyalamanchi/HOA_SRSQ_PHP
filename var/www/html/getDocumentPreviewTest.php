@@ -1,9 +1,7 @@
 <?php
 	
 	session_start();
-
-	require 'app/start.php';
-
+	
 	if($_SESSION['hoa_community_id'] == 1)
 	{
 		$accessToken = '0gTJRfMcSHAAAAAAAAAADNfolm5IYvkINbXQpejgF8X2Hoy_6kXOlJemzq1a-588';
