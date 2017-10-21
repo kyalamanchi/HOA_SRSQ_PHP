@@ -269,6 +269,7 @@ updateName();
     </div>
     <div style="clear: both;"></div>
     <br>
+    <br>
     <h4>USER SELECTION</h4>
       <hr>
     <div class="row-fluid">
@@ -288,6 +289,7 @@ updateName();
       <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
       </div>
       <br>
+      <br> 
       <h4>AGREEMENT CONFIGURATION</h4>
       <hr>
       <div class="form-group">
