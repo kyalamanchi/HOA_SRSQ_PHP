@@ -77,8 +77,7 @@ function getFileData()
         fileData =evt.target.result.split(',')[1];
         x = 1;
         document.getElementById("agreementTitle").value  = fileName.split('.')[0];
-        document.getElementById("documentCategory").disabled = true;
-        document.getElementById("documentType").disabled = true;
+        document.getElementById("docSelection").addClass(disabledbutton);
         return fileData;
     }
     reader.onerror = function (evt) {
@@ -353,6 +352,7 @@ updateName();
     <div class="container">
       <h4>DOCUMENT SELECTION</h4>
       <hr>
+    <div id="docSelection">
     <div class="row-fluid" style="float: left;">
       <h4>Type of document</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
@@ -367,6 +367,7 @@ updateName();
       </select>
     </div>
     <div style="clear: both;"></div>
+  </div>
     <br>
     <center>OR</center>
     <br>
