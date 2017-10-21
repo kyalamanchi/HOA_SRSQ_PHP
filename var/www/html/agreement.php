@@ -100,7 +100,7 @@ function changeEmail(){
   showPleaseWait();
   var selectedHoaID = $("#hoaID").find("option:selected").text();
   var request = new XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+  request.open("POST","https://www.hoaboardtime.com/getEmails.php",true);
   request.send(selectedHoaID);
   request.onreadystatechange = function (){
       if (request.readyState == XMLHttpRequest.DONE) {
@@ -175,7 +175,7 @@ function sendData(){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "https://hoaboardtime.com/adobeSign2.php", true);
+  request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   showPleaseWait();
