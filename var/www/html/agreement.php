@@ -352,10 +352,10 @@ updateName();
 }
 </script>
   </head>
-      <h2>Adobe Sign - Send Agreement</h2>
+      <h1>Adobe Sign - Send Agreement</h1>
       <hr/>
     <div class="container">
-      <h4>DOCUMENT SELECTION</h4>
+      <h3>DOCUMENT SELECTION</h3>
       <hr>
 
     <div id="docSelection">
@@ -397,7 +397,7 @@ updateName();
         };
       </script>
     <br>
-    <h4>RECIPIENT SELECTION</h4>
+    <h3>RECIPIENT SELECTION</h3>
       <hr>
     <div class="row-fluid">
       <h4>Select HOA ID</h4>
@@ -417,7 +417,7 @@ updateName();
       </div>
       <br>
       <br> 
-      <h4>AGREEMENT CONFIGURATION</h4>
+      <h3>AGREEMENT CONFIGURATION</h3>
       <hr>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
