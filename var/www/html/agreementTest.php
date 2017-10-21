@@ -168,7 +168,6 @@ function sendData(){
   }
   var selectedHoaID = $("#hoaID").find("option:selected").text();
   var agreementTitle = document.getElementById('agreementTitle').value;
-  var documentName = document.getElementById('documentType').value;
   var ccEmails = document.getElementById('ccEmails').value;
   var signatureType  = document.getElementById('signatureType').value;
   var role = document.getElementById('signerRole').value;
@@ -186,8 +185,7 @@ function sendData(){
   else {
   jsonObj = [];
   item = {};
-  item["documentCategory"] = "File Upload";
-  item["documentName"]  = fileName;
+  item["file_data"] =  fileData;
   item["agreementTitle"] = agreementTitle;
   item["emailAddresses"] = selectedEmails;
   item["ccAddresses"] = ccEmails;
@@ -202,7 +200,7 @@ function sendData(){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
+  request.open("POST", "https://www.hoaboardtime.com/adobeSign3.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   showPleaseWait();
@@ -211,10 +209,13 @@ function sendData(){
             hidePleaseWait();
             alert(request.responseText);
         }
-        }
+  }
   }
 
   }
+
+
+
   else {
   var documentCategory = document.getElementById('documentCategory').value;
   if ( documentCategory == ""){
