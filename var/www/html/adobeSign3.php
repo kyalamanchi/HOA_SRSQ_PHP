@@ -35,7 +35,7 @@ if (  $result->transientDocumentId ){
 $transientDocumentID = $result->transientDocumentId;
 }
 else {
-	echo "An error occured.Failed to upload file";
+	echo "An error occured.^Failed to upload file";
 	exit(0);
 }
 $data = date('Y-m-d');
@@ -130,7 +130,7 @@ if($result->agreementId){
 	echo "Agreeement Created Successfully. Agreeement ID : ".$result->agreementId;
 }
 else {
-	echo "An error occured.".$result;
+	echo "An error occured.^".$result;
 }
 unlink($fileName);
 

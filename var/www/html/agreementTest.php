@@ -205,7 +205,13 @@ function sendData(){
   request.onreadystatechange = function () {
         if (request.readyState == XMLHttpRequest.DONE) {
             hidePleaseWait();
-            alert(request.responseText);
+            // alert(request.responseText);
+            if ( request.responseText.includes("An error occured") ){
+              swal("An error occured",request.responseText.split('^')[1],"error");
+            }
+            else {
+              swal("Agreement Created","Agreement ID is "+request.responseText,"success");
+            }
         }
   }
   }
