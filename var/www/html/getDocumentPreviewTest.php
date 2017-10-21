@@ -5,17 +5,25 @@
 	require 'app/start.php';
 
 	if($_SESSION['hoa_community_id'] == 1)
+	{
 		$accessToken = '0gTJRfMcSHAAAAAAAAAADNfolm5IYvkINbXQpejgF8X2Hoy_6kXOlJemzq1a-588';
-	else if($_SESSION['hoa_community_id'] == 2)
-		$accessToken = 'QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF';
 
-	$client = new Dropbox\Client($accessToken, $appName, 'UTF-8');
+	}
+	else if($_SESSION['hoa_community_id'] == 2){
+		$accessToken = 'QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF';
+	}
 
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
 
-	$client->getFile($path, fopen($description.".pdf", 'wb'));
+	$url = 'https://content.dropboxapi.com/2/files/download';
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF','Dropbox-API-Arg: {"path": "'.$path.'"}'));
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	$response = curl_exec($ch);
+	header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="'.$description.'"'); 
+	echo $response;
 
-	header("Location: https://hoaboardtime.com/".$description.".pdf");
-
+	
 ?>
