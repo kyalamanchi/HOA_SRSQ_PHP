@@ -9,6 +9,7 @@ if($_SESSION['hoa_community_id'] == 1)
 		$accessToken = 'QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF';
 $path = $_GET['path'];
 $description = $_GET['desc'];
+$accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
 echo "Current Token";
 echo $accessToken;
 echo nl2br("\n");
