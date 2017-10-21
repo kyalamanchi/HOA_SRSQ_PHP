@@ -154,70 +154,70 @@ function sendData(){
   if ( Boolean(x) ){
     swal("File Found!!","","success");
   }
-
-  // var documentCategory = document.getElementById('documentCategory').value;
-  // if ( documentCategory == ""){
-  //   alert("One or more required fields empty");
-  //   return;
-  // }
-  // var selectedDocument = $("#documentType").find("option:selected").text();
-  // if ( selectedDocument == ""){
-  //   alert("One or more required fields empty");
-  //   return;
-  // }
-  // var selectedEmails = document.getElementById("emails").value;
-  // if ( !selectedEmails ){
-  //   alert("One or more required fields empty");
-  //   return;
-  // }
-  // var selectedHoaID = $("#hoaID").find("option:selected").text();
-  // var agreementTitle = document.getElementById('agreementTitle').value;
-  // var documentName = document.getElementById('documentType').value;
-  // var ccEmails = document.getElementById('ccEmails').value;
-  // var signatureType  = document.getElementById('signatureType').value;
-  // var role = document.getElementById('signerRole').value;
-  // var signatureFlow = document.getElementById('signatureFlow').value;
-  // var customMessage = document.getElementById('customMessage').value;
-  // var completeInOrder = $('#completeInOrder').is(':checked');
-  // var enablePassword = $('#enablePassword').is(':checked');
-  // var setPassword = document.getElementById('authPassword').value;
-  // if ( enablePassword && !setPassword){
-  //   alert("One or more required fields empty");
-  // }
-  // if ( !emails ){
-  //   alert("One or more required fields is empty");
-  // }
-  // else {
-  // jsonObj = [];
-  // item = {};
-  // item["documentCategory"] = documentCategory;
-  // item["documentName"]  = documentName;
-  // item["agreementTitle"] = agreementTitle;
-  // item["emailAddresses"] = selectedEmails;
-  // item["ccAddresses"] = ccEmails;
-  // item["signType"] = signatureType;
-  // item["roleType"] = role;
-  // item["signFlow"] = signatureFlow;
-  // item["customMessage"] = customMessage;
-  // item["completeInOrder"] = completeInOrder;
-  // item["passwordStatus"] = enablePassword;
-  // item["setPassword"] = setPassword;
-  // item["hoaID"] = selectedHoaID;
-  // jsonObj.push(item);
-  // lol =  JSON.stringify(jsonObj);
-  // var request= new XMLHttpRequest();
-  // request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
-  // request.setRequestHeader("Content-type", "application/json");
-  // request.send(lol);
-  // showPleaseWait();
-  // request.onreadystatechange = function () {
-  //       if (request.readyState == XMLHttpRequest.DONE) {
-  //           hidePleaseWait();
-  //           alert(request.responseText);
-  //       }
-  //       }
-  // }
-
+  else {
+  var documentCategory = document.getElementById('documentCategory').value;
+  if ( documentCategory == ""){
+    alert("One or more required fields empty");
+    return;
+  }
+  var selectedDocument = $("#documentType").find("option:selected").text();
+  if ( selectedDocument == ""){
+    alert("One or more required fields empty");
+    return;
+  }
+  var selectedEmails = document.getElementById("emails").value;
+  if ( !selectedEmails ){
+    alert("One or more required fields empty");
+    return;
+  }
+  var selectedHoaID = $("#hoaID").find("option:selected").text();
+  var agreementTitle = document.getElementById('agreementTitle').value;
+  var documentName = document.getElementById('documentType').value;
+  var ccEmails = document.getElementById('ccEmails').value;
+  var signatureType  = document.getElementById('signatureType').value;
+  var role = document.getElementById('signerRole').value;
+  var signatureFlow = document.getElementById('signatureFlow').value;
+  var customMessage = document.getElementById('customMessage').value;
+  var completeInOrder = $('#completeInOrder').is(':checked');
+  var enablePassword = $('#enablePassword').is(':checked');
+  var setPassword = document.getElementById('authPassword').value;
+  if ( enablePassword && !setPassword){
+    alert("One or more required fields empty");
+  }
+  if ( !emails ){
+    alert("One or more required fields is empty");
+  }
+  else {
+  jsonObj = [];
+  item = {};
+  item["documentCategory"] = documentCategory;
+  item["documentName"]  = documentName;
+  item["agreementTitle"] = agreementTitle;
+  item["emailAddresses"] = selectedEmails;
+  item["ccAddresses"] = ccEmails;
+  item["signType"] = signatureType;
+  item["roleType"] = role;
+  item["signFlow"] = signatureFlow;
+  item["customMessage"] = customMessage;
+  item["completeInOrder"] = completeInOrder;
+  item["passwordStatus"] = enablePassword;
+  item["setPassword"] = setPassword;
+  item["hoaID"] = selectedHoaID;
+  jsonObj.push(item);
+  lol =  JSON.stringify(jsonObj);
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(lol);
+  showPleaseWait();
+  request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            hidePleaseWait();
+            alert(request.responseText);
+        }
+        }
+  }
+}
 
 
 
