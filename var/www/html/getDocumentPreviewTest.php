@@ -24,7 +24,7 @@
 	$response = curl_exec($ch);
 
 	if (strpos( json_decode($response), 'error_summary') !== false) {
-    echo 'This file could be deleted or moved.';
+    echo 'There was an error opening this document. This file cannot be found.';
 	}	
 	else{
 	header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="'.$description.'.pdf"'); 
