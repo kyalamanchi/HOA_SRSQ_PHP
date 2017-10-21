@@ -427,7 +427,7 @@
                           }
                           
                         }
-                        if($community_id == 2)
+                        else if($community_id == 2)
                         {  
 
                           $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
