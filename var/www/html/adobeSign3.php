@@ -13,8 +13,10 @@ $inORder = $parsedJSON[0]->completeInOrder;
 $pass = $parsedJSON[0]->passwordStatus;
 $setPassword = $parsedJSON[0]->setPassword;
 $hoaID = $parsedJSON[0]->hoaID;
-$fileData  = $parsedJSON[0]->file_data;
+$fileData  = base64_encode($parsedJSON[0]->file_data);
 echo $fileData;
+
+
 // // $data = date('Y-m-d');
 
 // $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database") or die("Failed to connect to database");
