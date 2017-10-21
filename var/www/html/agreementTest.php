@@ -270,6 +270,13 @@ updateName();
     <div style="clear: both;"></div>
     <center>OR</center>
     <br>
+    <div>
+      <h4>Upload a new file</h4>
+      <h4 id="label"></h4>
+      <label class="btn btn-default" >
+      Browse <input type="file" id="fileInput" hidden>
+      </label>
+    </div>
     <br>
     <h4>RECIPIENT SELECTION</h4>
       <hr>
