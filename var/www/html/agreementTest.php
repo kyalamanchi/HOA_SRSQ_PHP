@@ -177,35 +177,34 @@ function sendData(){
     alert("One or more required fields is empty");
   }
   else {
-    swal("All Data OK!!!",fileData,"success");
-  // jsonObj = [];
-  // item = {};
-  // item["documentCategory"] = documentCategory;
-  // item["documentName"]  = documentName;
-  // item["agreementTitle"] = agreementTitle;
-  // item["emailAddresses"] = selectedEmails;
-  // item["ccAddresses"] = ccEmails;
-  // item["signType"] = signatureType;
-  // item["roleType"] = role;
-  // item["signFlow"] = signatureFlow;
-  // item["customMessage"] = customMessage;
-  // item["completeInOrder"] = completeInOrder;
-  // item["passwordStatus"] = enablePassword;
-  // item["setPassword"] = setPassword;
-  // item["hoaID"] = selectedHoaID;
-  // jsonObj.push(item);
-  // lol =  JSON.stringify(jsonObj);
-  // var request= new XMLHttpRequest();
-  // request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
-  // request.setRequestHeader("Content-type", "application/json");
-  // request.send(lol);
-  // showPleaseWait();
-  // request.onreadystatechange = function () {
-  //       if (request.readyState == XMLHttpRequest.DONE) {
-  //           hidePleaseWait();
-  //           alert(request.responseText);
-  //       }
-  //       }
+  jsonObj = [];
+  item = {};
+  item["documentCategory"] = "File Upload";
+  item["documentName"]  = documentName;
+  item["agreementTitle"] = agreementTitle;
+  item["emailAddresses"] = selectedEmails;
+  item["ccAddresses"] = ccEmails;
+  item["signType"] = signatureType;
+  item["roleType"] = role;
+  item["signFlow"] = signatureFlow;
+  item["customMessage"] = customMessage;
+  item["completeInOrder"] = completeInOrder;
+  item["passwordStatus"] = enablePassword;
+  item["setPassword"] = setPassword;
+  item["hoaID"] = selectedHoaID;
+  jsonObj.push(item);
+  lol =  JSON.stringify(jsonObj);
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(lol);
+  showPleaseWait();
+  request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            hidePleaseWait();
+            alert(request.responseText);
+        }
+        }
   }
 
   }
