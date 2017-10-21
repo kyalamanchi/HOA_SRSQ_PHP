@@ -22,8 +22,13 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$path.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
+
+	if (strpos($a, 'Error in call to API function') !== false) {
+    echo 'This file could be deleted or moved.';
+	}	
+	else{
 	header('Content-type: application/pdf'); header('Content-Disposition: inline; filename="'.$description.'.pdf"'); 
 	echo $response;
-
+	}
 	
 ?>
