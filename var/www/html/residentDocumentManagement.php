@@ -260,7 +260,7 @@
                         if($uploaded_date != "")
                           $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
 
-                        echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
+                        echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
 
                       }
 
