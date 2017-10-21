@@ -398,7 +398,7 @@ updateName();
     <h4>RECIPIENT SELECTION</h4>
       <hr>
     <div class="row-fluid">
-      <h4>Select HOA ID</h4>
+      <h5>Select HOA ID</h5>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeEmail();">
       <?php
         echo '<option></option>';
@@ -409,7 +409,7 @@ updateName();
       </select>
     </div>
       <div style="width: 35%;">
-      <h4>Email(s)</h4>
+      <h5>Email(s)</h5>
       <input type="email" class="form-control" id="emails" aria-describedby="emailHelp" placeholder="Enter email" >
       <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
       </div>
