@@ -732,7 +732,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-01-16' AND process_date<='$year-01-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -822,7 +826,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-02-16' AND process_date<='$year-02-$feb_days' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -920,7 +928,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-03-16' AND process_date<='$year-03-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1010,7 +1022,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-04-16' AND process_date<='$year-04-30' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1108,7 +1124,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-05-16' AND process_date<='$year-05-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1198,7 +1218,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-06-16' AND process_date<='$year-06-30' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1296,7 +1320,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-07-16' AND process_date<='$year-07-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1386,7 +1414,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-08-16' AND process_date<='$year-08-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1484,7 +1516,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-09-16' AND process_date<='$year-09-30' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1574,7 +1610,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-10-16' AND process_date<='$year-10-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1672,7 +1712,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-11-16' AND process_date<='$year-11-30' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
@@ -1762,7 +1806,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-12-16' AND process_date<='$year-12-31' AND payment_status_id=1");
+
+																			?>
 
 																		</div>
 
