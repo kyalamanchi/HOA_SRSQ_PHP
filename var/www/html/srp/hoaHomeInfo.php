@@ -72,8 +72,19 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5"><i class='fa fa-street-view'></i> Users / HOA &amp; Home Info</h1>
+								<h1 class="h5">HOA &amp; Home Info</h1>
 							
+							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-street-view'></i> Users</li>
+									<li class="breadcrumb-item active">HOA &amp; Home Info</li>
+
+								</ol>
+
 							</div>
 						
 						</div>
