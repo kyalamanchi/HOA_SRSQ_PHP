@@ -752,7 +752,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-01-01' AND assessment_date<='$year-01-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -846,7 +850,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-02-01' AND assessment_date<='$year-02-$feb_days' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -948,7 +956,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-03-01' AND assessment_date<='$year-03-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1042,7 +1054,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-04-01' AND assessment_date<='$year-04-30' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1144,7 +1160,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-05-01' AND assessment_date<='$year-05-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1238,7 +1258,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-06-01' AND assessment_date<='$year-06-30' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1340,7 +1364,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-07-01' AND assessment_date<='$year-07-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1434,7 +1462,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-08-01' AND assessment_date<='$year-08-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1536,7 +1568,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-09-01' AND assessment_date<='$year-09-30' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1630,7 +1666,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-10-01' AND assessment_date<='$year-10-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1732,7 +1772,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-11-01' AND assessment_date<='$year-11-30' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
@@ -1826,7 +1870,11 @@
 
 																		<div class='counter-number'>
 
-																			0
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-12-01' AND assessment_date<='$year-12-31' AND assessment_rule_type_id=9"));
+
+																			?>
 
 																		</div>
 
