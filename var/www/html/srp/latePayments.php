@@ -128,7 +128,7 @@
 											$name .= $row1['lastname'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-											$living_in = $row['address1'];
+											$living_in = $row1['address1'];
 
 											if($amount != "")
 												$amount = "$ ".$amount;
@@ -137,7 +137,7 @@
 												$process_date = date('m-d-Y', strtotime($process_date));
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
-											$payment_type = $row['payment_type_name'];
+											$payment_type = $row1['payment_type_name'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
 											$charges = $row1['sum'];
