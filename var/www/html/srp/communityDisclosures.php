@@ -76,7 +76,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5"><i class='fa fa-institution'></i> Community / Community Disclosures</h1>
+								<h1 class="h5"><i class='fa fa-institution'></i> Community / Disclosures</h1>
 							
 							</div>
 						

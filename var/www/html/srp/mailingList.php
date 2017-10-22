@@ -72,7 +72,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Mailing List</h1>
+								<h1 class="h5"><i class='fa fa-institution'></i> Community / Mailing List</h1>
 							
 							</div>
 						
