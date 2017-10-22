@@ -23,8 +23,6 @@
 			$month = date('m');
 			$last = date('t');
 
-			echo $last;
-
 			if($mode == 2)
 				header('Location: residentDashboard.php');
 
