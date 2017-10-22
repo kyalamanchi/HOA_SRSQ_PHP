@@ -82,6 +82,26 @@
 								<h1 class="h5">View Reminders</h1>
 							
 							</div>
+
+							<?php
+
+							if($mode == 1)
+								echo "
+
+								<div class='page-title-secondary'>
+									
+									<ol class='breadcrumb'>
+										
+										<li class='breadcrumb-item'><i class='fa fa-users'></i> Board</li>
+										<li class='breadcrumb-item active'>View Reminder</li>
+
+									</ol>
+
+								</div>
+
+								";
+
+							?>
 						
 						</div>
 						
