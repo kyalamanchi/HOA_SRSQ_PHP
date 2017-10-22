@@ -98,12 +98,12 @@
 
 								<thead>
 									
-									<th></th>
 									<th>Date</th>
-									<th>Name</th>
-									<th>Living In</th>
+									<th>Name<br>(HOA ID)</th>
+									<th>Living In<br>(Home ID)</th>
 									<th>Amount</th>
 									<th>Payment Type</th>
+									<th>Balance</th>
 
 								</thead>
 
@@ -111,28 +111,35 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'");
-
-										die();
+										$result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last' AND payment_status_id=1");
 
 										while($row = pg_fetch_assoc($result))
 										{
 
 											$home_id = $row['home_id'];
-											$address = $row['address1'];
-											$living_status = $row['living_status'];
+											$hoa_id = $row['hoa_id'];
+											$amount = $row['amount'];
+											$process_date = $row['process_date'];
+											$payment_type = $row['payment_type_id'];
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
-
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 											$name = $row1['firstname'];
 											$name .= " ";
 											$name .= $row1['lastname'];
-											$hoa_id = $row1['hoa_id'];
-											$email = $row1['email'];
-											$cell_no = $row1['cell_no'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+											$living_in = $row['address1'];
+
+											if($amount != "")
+												$amount = "$ ".$amount;
+
+											if($process_date != "")
+												$process_date = date('m-d-Y', strtotime($process_date));
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+											$payment_type = $row['payment_type_name'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-
 											$charges = $row1['sum'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
@@ -145,43 +152,7 @@
 											$balance = $charges - $payments;
 											$balance = "$ ".$balance;
 
-											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date>='$today'"));
-
-											//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
-
-											//$m[1] = $row1['m1_pmt_processed'];
-	                          				//$m[2] = $row1['m2_pmt_processed'];
-	                          				//$m[3] = $row1['m3_pmt_processed'];
-	                          				//$m[4] = $row1['m4_pmt_processed'];
-	                          				//$m[5] = $row1['m5_pmt_processed'];
-	                          				//$m[6] = $row1['m6_pmt_processed'];
-	                          				//$m[7] = $row1['m7_pmt_processed'];
-	                          				//$m[8] = $row1['m8_pmt_processed'];
-	                          				//$m[9] = $row1['m9_pmt_processed'];
-	                         				//$m[10] = $row1['m10_pmt_processed'];
-	                          				//$m[11] = $row1['m11_pmt_processed'];
-	                          				//$m[12] = $row1['m12_pmt_processed'];
-
-	                          				//for ($i = 1; $i <= 12; $i++)
-	                          				//{
-	                            
-	                            			//	if($m[$i] == 't')
-	                              			//		$m[$i] = "<center style='color: green;'><i class='fa fa-check-square'></i></center>";
-	                            			//	else
-	                              			//		$m[$i] = "<center style='color: orange;'><i class='fa fa-square-o'></i></center>";
-
-	                          				//}
-
-	                          				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
-
-	                          				echo "<tr><td>";
-
-	                          				if($reminders == 0)
-	                          					echo "<center><a title='Set Reminder' style='color: green;'><i class='fa fa-bell'></i></a></center>";
-	                          				else
-	                          					echo "<center><a title='Edit Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
-
-	                          				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
+	                          				echo "<tr><td>$process_date</td><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$amount</td><td>$payment_type</td><td>$balance</td></tr>";
 
 										}
 
