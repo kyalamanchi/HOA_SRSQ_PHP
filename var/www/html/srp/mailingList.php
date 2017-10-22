@@ -72,8 +72,19 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5"><i class='fa fa-institution'></i> Community / Mailing List</h1>
+								<h1 class="h5">Mailing List</h1>
 							
+							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-institution'></i> Community</li>
+									<li class="breadcrumb-item active">Mailing List</li>
+
+								</ol>
+
 							</div>
 						
 						</div>
