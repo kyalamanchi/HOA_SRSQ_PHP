@@ -80,7 +80,7 @@
 							
 							<div class='page-title-captions'>
 								
-								<h1 class='h5'>Customer Balance</h1>
+								<h1 class='h5'><i class='fa fa-street-view'></i> Users / Customer Balance</h1>
 							
 							</div>
 						

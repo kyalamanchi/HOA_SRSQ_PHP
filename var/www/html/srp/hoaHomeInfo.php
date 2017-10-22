@@ -72,7 +72,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">HOA &amp; Home Info</h1>
+								<h1 class="h5"><i class='fa fa-street-view'></i> Users / HOA &amp; Home Info</h1>
 							
 							</div>
 						

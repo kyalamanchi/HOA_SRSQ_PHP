@@ -80,7 +80,7 @@
 							
 							<div class='page-title-captions'>
 								
-								<h1 class='h5'>User Dashboard <small>- <?php echo $name; ?></small></h1>
+								<h1 class='h5'><i class='fa fa-street-view'></i> Users / User Dashboard <small>- <?php echo $name; ?></small></h1>
 							
 							</div>
 						
