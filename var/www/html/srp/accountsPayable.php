@@ -71,7 +71,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Accounts Payable</h1>
+								<h1 class="h5"><i class='fa fa-wrench'></i> Vendors / Accounts Payable</h1>
 							
 							</div>
 						
