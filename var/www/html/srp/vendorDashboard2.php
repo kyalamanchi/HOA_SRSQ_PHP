@@ -79,8 +79,19 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5"><i class='fa fa-wrench'></i> Vendors / Vendor Dashboard <small>- <?php echo $vendor_name; ?></small></h1>
+								<h1 class="h5">Vendor Dashboard <small>- <?php echo $vendor_name; ?></small></h1>
 							
+							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-wrench'></i> Vendors</li>
+									<li class="breadcrumb-item active">Vendor Dashboard</li>
+
+								</ol>
+
 							</div>
 						
 						</div>
