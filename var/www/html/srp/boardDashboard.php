@@ -84,6 +84,59 @@
 
           	$members_paid = ($members_paid / $total_homes) * 100;
 
+          	$row = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
+          	$jan_amount_received = ;
+          	$jan_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
+
+          	if( (0 == $year % 4) and (0 != $year % 100) or (0 == $year % 400) )
+          		$feb_days = 29;
+          	else
+          		$feb_days = 28;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
+          	$feb_amount_received = $row['sum'];
+          	$feb_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
+          	$mar_amount_received = $row['sum'];
+          	$mar_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
+          	$apr_amount_received = $row['sum'];
+          	$apr_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
+          	$may_amount_received = $row['sum'];
+          	$may_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
+          	$jun_amount_received = $row['sum'];
+          	$jun_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
+          	$jul_amount_received = $row['sum'];
+          	$jul_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
+          	$aug_amount_received = $row['sum'];
+          	$aug_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
+          	$sep_amount_received = $row['sum'];
+          	$sep_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
+          	$oct_amount_received = $row['sum'];
+          	$oct_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
+          	$nov_amount_received = $row['sum'];
+          	$nov_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
+          	$dec_amount_received = $row['sum'];
+          	$dec_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));;
+
 		?>
 
 		<meta charset="UTF-8">
@@ -619,7 +672,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jan_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -637,7 +690,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jan_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -709,7 +762,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $feb_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -727,7 +780,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $feb_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -807,7 +860,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $mar_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -825,7 +878,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $mar_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -897,7 +950,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $apr_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -915,7 +968,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $apr_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -995,7 +1048,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $may_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1013,7 +1066,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $may_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1085,7 +1138,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jun_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1103,7 +1156,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jun_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1183,7 +1236,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jul_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1201,7 +1254,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jul_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1273,7 +1326,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $aug_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1291,7 +1344,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $aug_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1371,7 +1424,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $sep_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1389,7 +1442,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $sep_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1461,7 +1514,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $oct_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1479,7 +1532,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $oct_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1559,7 +1612,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $nov_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1577,7 +1630,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $nov_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1649,7 +1702,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='50' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $dec_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
@@ -1667,7 +1720,7 @@
 																	
 																	<div class='progress'>
 																		
-																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='80' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $dec_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
 																	
 																	</div>
 
