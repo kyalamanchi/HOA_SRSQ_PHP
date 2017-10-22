@@ -84,8 +84,8 @@
 
           	$members_paid = ($members_paid / $total_homes) * 100;
 
-          	$row = pg_fetch_assoc(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
-          	$jan_amount_received = ;
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
+          	$jan_amount_received = $row['sum'];
           	$jan_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
 
           	if( (0 == $year % 4) and (0 != $year % 100) or (0 == $year % 400) )
