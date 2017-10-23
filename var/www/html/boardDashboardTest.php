@@ -1,9 +1,8 @@
 <?php
-
+  
   ini_set("session.save_path","/var/www/html/session/");
-  session_set_cookie_params(3600,"/");
   session_start();
-
+  print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
