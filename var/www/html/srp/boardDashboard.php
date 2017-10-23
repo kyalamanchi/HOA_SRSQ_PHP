@@ -383,11 +383,11 @@
 
 														<div class='counter-number'>
 															
-															<a href='communityDeposits.php'>
+															<a href='homePayMethod.php'>
 
 																<?php 
 																	
-																	echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
 
 																?>
 
@@ -407,11 +407,11 @@
 
 														<div class='counter-number'>
 
-															<a href='communityDocuments.php'>
+															<a href='homePayMethod.php'>
 
 																<?php 
-																
-																	echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
+																	
+																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
 
 																?>
 
@@ -431,14 +431,15 @@
 
 														<div class='counter-number'>
 															
-															<?php
+															<a href='homePayMethod.php'>
 
-																if($del_acc > 0)
-																	echo "<a href='delinquentAccounts.php' style='color: orange;'>$del_acc</a>";
-																else
-																	echo "$del_acc";
+																<?php 
+																	
+																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
 
-															?>
+																?>
+
+															</a>
 
 														</div>
 
@@ -454,20 +455,15 @@
 
 														<div class='counter-number'>
 
-															<?php 
-																
-																$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
+															<a href='homePayMethod.php'>
 
-																$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
+																<?php 
+																	
+																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id>3")); 
 
-																$inspection_notices = $inspection_notices - $closed;
+																?>
 
-																if ($inspection_notices == 0) 
-																	echo $inspection_notices;
-																else
-																	echo "<a href='inspectionNotices.php' style='color: orange;'>$inspection_notices</a>";
-
-															?>
+															</a>
 
 														</div>
 
