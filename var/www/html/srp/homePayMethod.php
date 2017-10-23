@@ -400,8 +400,7 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND 
-											(payment_type_id>3 OR payment_type_id IS NULL)");
+										$result = pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND home_id NOT IN (SELECT * FROM home_pay_method WHERE community_id=$community_id AND (payment_type_id=1 OR payment_type_id=2 OR payment_type_id=3))");
 
 										while($row = pg_fetch_assoc($result))
 										{
