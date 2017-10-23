@@ -15,7 +15,7 @@
 
       if(@!$_SESSION['hoa_username']){
       	header("Location: https://hoaboardtime.com/logout.php");
-        exit(0);
+        exit;
       }
 
       $community_id = $_SESSION['hoa_community_id'];
@@ -26,7 +26,7 @@
 
 		  if($num_row == 0){
 			 header("Location: https://hoaboardtime.com/residentDashboard.php");
-        exit(0);
+        exit;
       }
 
     ?>
