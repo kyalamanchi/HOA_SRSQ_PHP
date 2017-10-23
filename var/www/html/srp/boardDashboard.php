@@ -254,7 +254,7 @@
 
 											<div class='row module-gray'>
 
-												<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><center><h3 class='h3'>Payment Information</h3></center></div>
+												<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>PAYMENT INFORMATION</h3></center></div>
 
 											</div>
 
