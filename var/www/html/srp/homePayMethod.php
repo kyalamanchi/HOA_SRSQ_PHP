@@ -257,7 +257,7 @@
 											$balance = $charges - $payments;
 											$balance = "$ ".$balance;
 
-	                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</th><th>$home_id</td><td>$balance</td></tr>";
+	                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</td><td>$home_id</td><td>$balance</td></tr>";
 
 										}
 
