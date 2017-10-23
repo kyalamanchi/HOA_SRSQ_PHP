@@ -1,6 +1,7 @@
 <?php 
   ini_set("session.save_path","/var/www/html/session/");
   session_start();
+  print_r("Session Data");
   print_r($_SESSION);
 ?>
 
