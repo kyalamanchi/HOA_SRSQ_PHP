@@ -250,51 +250,55 @@
 								
 										</div>
 								
-										<div class='container module-gray'>
+										<div class='container'>
 
-											<div class='row text-center'>
+											<div class='row module-gray'>
+											
+												<div class='row text-center'>
 
-												<h3 class='h3'>Payment Information</h3>
-
-											</div>
-
-											<div class='row'>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-													<div class='counter h3'>
-
-														<div class='counter-number'>
-															
-															<a href='currentMonthPayments.php'>
-
-																<?php echo round($amount_received, 1); ?>
-
-															</a>
-																
-														</div>
-
-														<div class='counter-title'>Amount Received</div>
-
-													</div>
+													<h3 class='h3'>Payment Information</h3>
 
 												</div>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												<div class='row'>
 
-													<div class='counter h3'>
+													<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-														<div class='counter-number'>
+														<div class='counter h3'>
 
-															<a href='currentMonthPayments.php'>
+															<div class='counter-number'>
+																
+																<a href='currentMonthPayments.php'>
 
-																<?php echo round($members_paid, 1); ?>
+																	<?php echo round($amount_received, 1); ?>
 
-															</a>
+																</a>
+																	
+															</div>
+
+															<div class='counter-title'>Amount Received</div>
 
 														</div>
 
-														<div class='counter-title'>Members Paid</div>
+													</div>
+
+													<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+														<div class='counter h3'>
+
+															<div class='counter-number'>
+
+																<a href='currentMonthPayments.php'>
+
+																	<?php echo round($members_paid, 1); ?>
+
+																</a>
+
+															</div>
+
+															<div class='counter-title'>Members Paid</div>
+
+														</div>
 
 													</div>
 
