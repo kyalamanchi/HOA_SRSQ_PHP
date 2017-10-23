@@ -843,6 +843,28 @@
 
 														<div class='counter-number'>
 															
+															<?php
+
+																$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
+
+																echo $email_homes;
+																
+															?>
+																
+														</div>
+
+														<div class='counter-title'>Email Signup</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
 															<a href='campaigns.php'>
 
 																<i class='fa fa-envelope'></i>
@@ -851,7 +873,7 @@
 																
 														</div>
 
-														<div class='counter-title'>Campaigns</div>
+														<div class='counter-title'>Community Notifications</div>
 
 													</div>
 
