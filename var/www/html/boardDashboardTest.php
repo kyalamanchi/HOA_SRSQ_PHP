@@ -2019,7 +2019,10 @@
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/pages/dashboard.js"></script>
     <script src="dist/js/demo.js"></script>
+    <?php
 
+    echo phpinfo();
+    ?>
   </body>
 
 </html>
