@@ -518,7 +518,7 @@
                     <div class="icon">
                       
                       <!--i style="font-size: 50px;" class="fa fa-users"></i-->
-                      <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'>
+                      <!-- <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'> -->
 
                     </div>
 
