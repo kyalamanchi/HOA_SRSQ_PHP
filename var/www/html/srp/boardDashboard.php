@@ -253,52 +253,48 @@
 										<div class='container'>
 
 											<div class='row module-gray'>
-											
-												<div class='row text-center'>
 
-													<h3 class='h3'>Payment Information</h3>
+												<center><h3 class='h3'>Payment Information</h3></center>
 
-												</div>
+											</div>
 
-												<div class='row'>
+											<div class='row module-gray'>
 
-													<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-														<div class='counter h3'>
+													<div class='counter h3'>
 
-															<div class='counter-number'>
+														<div class='counter-number'>
+															
+															<a href='currentMonthPayments.php'>
+
+																<?php echo round($amount_received, 1); ?>
+
+															</a>
 																
-																<a href='currentMonthPayments.php'>
-
-																	<?php echo round($amount_received, 1); ?>
-
-																</a>
-																	
-															</div>
-
-															<div class='counter-title'>Amount Received</div>
-
 														</div>
+
+														<div class='counter-title'>Amount Received</div>
 
 													</div>
 
-													<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												</div>
 
-														<div class='counter h3'>
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-															<div class='counter-number'>
+													<div class='counter h3'>
 
-																<a href='currentMonthPayments.php'>
+														<div class='counter-number'>
 
-																	<?php echo round($members_paid, 1); ?>
+															<a href='currentMonthPayments.php'>
 
-																</a>
+																<?php echo round($members_paid, 1); ?>
 
-															</div>
-
-															<div class='counter-title'>Members Paid</div>
+															</a>
 
 														</div>
+
+														<div class='counter-title'>Members Paid</div>
 
 													</div>
 
