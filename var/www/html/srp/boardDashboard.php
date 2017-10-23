@@ -841,17 +841,16 @@
 
 													<div class='counter h6'>
 
-														<div class='counter-number'>
-															
-															<?php
+														<?php
 
-																$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
+															$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
 
-																echo $email_homes;
-																
-															?>
-																
-														</div>
+															if($email_homes > 0)
+																echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
+															else
+																echo "<div class='counter-number'>".$email_homes."</div>";
+
+														?>
 
 														<div class='counter-title'>Email Signup</div>
 
