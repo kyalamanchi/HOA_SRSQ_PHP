@@ -1,6 +1,4 @@
-<?php
-  ini_set("session.gc_maxlifetime", 36000);
-  ini_set("session.cache_expire", 36000);  
+<?php 
   ini_set("session.save_path","/var/www/html/session/");
   session_start();
   print_r($_SESSION);
@@ -14,10 +12,10 @@
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-      if(@!$_SESSION['hoa_username']){
-      	header("Location: https://hoaboardtime.com/logout.php");
-        exit;
-      }
+      // if(@!$_SESSION['hoa_username']){
+      // 	header("Location: https://hoaboardtime.com/logout.php");
+      //   exit;
+      // }
 
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
