@@ -392,6 +392,7 @@
 									<th>HOA ID</th>
 									<th>Living In</th>
 									<th>Home ID</th>
+									<th>Pay Method</th>
 									<th>Balance</th>
 
 								</thead>
@@ -400,13 +401,16 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND home_id NOT IN (SELECT * FROM home_pay_method WHERE community_id=$community_id AND (payment_type_id=1 OR payment_type_id=2 OR payment_type_id=3))");
+										$result = pg_query("SELECT home_id FROM home_pay_method WHERE community_id=$community_id AND home_id NOT IN (SELECT * FROM home_pay_method WHERE community_id=$community_id AND (payment_type_id=1 OR payment_type_id=2 OR payment_type_id=3))");
 
 										while($row = pg_fetch_assoc($result))
 										{
 
 											$home_id = $row['home_id'];
-											$hoa_id = $row['hoa_id'];
+											
+											$row1 = pg_fetch_assoc(pg_query("SELECT home_id FROM home_pay_method WHERE home_id=$home_id"))
+											$hoa_id = $row1['hoa_id'];
+											$payment_type = $row1['payment_type_id'];
 											
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 											$name = $row1['firstname'];
@@ -429,7 +433,7 @@
 											$balance = $charges - $payments;
 											$balance = "$ ".$balance;
 
-	                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</td><td>$home_id</td><td>$balance</td></tr>";
+	                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</td><td>$home_id</td><td>$payment_type</td><td>$balance</td></tr>";
 
 										}
 
