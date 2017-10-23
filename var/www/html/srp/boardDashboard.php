@@ -250,9 +250,15 @@
 								
 										</div>
 								
-										<div class='container'>
+										<div class='container module-gray'>
 
-											<div class='row module module-gray'>
+											<div class='row text-center'>
+
+												<h3 class='h3'>Payment Information</h3>
+
+											</div>
+
+											<div class='row'>
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
