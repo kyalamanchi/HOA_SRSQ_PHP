@@ -13,8 +13,10 @@
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-      if(@!$_SESSION['hoa_username'])
+      if(@!$_SESSION['hoa_username']){
       	header("Location: https://hoaboardtime.com/logout.php");
+        exit(0);
+      }
 
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
@@ -22,8 +24,10 @@
       $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
 		  $num_row = pg_num_rows($result);
 
-		  if($num_row == 0)
+		  if($num_row == 0){
 			 header("Location: https://hoaboardtime.com/residentDashboard.php");
+        exit(0);
+      }
 
     ?>
 
@@ -57,7 +61,7 @@
 
     <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-    
+
     <script type="text/javascript">
       var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
       var dimensionValue2 = "${communityInfo.communityCode}";
