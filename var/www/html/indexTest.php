@@ -255,7 +255,7 @@
 
                 <ul class="dropdown-menu">
                   
-                  <form class="container-fluid" method="POST" action="https://hoaboardtime.com/login.php">
+                  <form class="container-fluid" method="POST" action="https://www.hoaboardtime.com/loginTest.php">
                     
                     <li class="user-body">
 
