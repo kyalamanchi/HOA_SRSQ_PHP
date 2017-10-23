@@ -290,6 +290,46 @@
 													
 												</div>
 
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<a href='communityDeposits.php'>
+
+																<?php echo $amount_received; ?>
+
+															</a>
+																
+														</div>
+
+														<div class='counter-title'>Amount Received</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='communityDocuments.php'>
+
+																<?php echo $members_paid; ?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Members Paid</div>
+
+													</div>
+
+												</div>
+
 											</div>
 
 											<br /><br />
