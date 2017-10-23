@@ -14,7 +14,7 @@
 	{
 		
 		$accessToken = 'QwUjEm5GAkAAAAAAAAAAN-KemUHI72QOlDsQxtH6H9JlRixSoi1fqq7D7BCHrNFm';
-		
+
 	}
 
 	$path = $_GET['path'];
@@ -30,7 +30,7 @@
 	if (strpos( json_decode($response), 'error_summary') !== false) 
 	{
     	
-    	echo 'There was an error opening this document. This file cannot be found.';
+    	echo '<br><br><br><br><br><center><h3>There was an error opening this document. This file cannot be found.</h3></center>';
 
 	}	
 	else
