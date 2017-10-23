@@ -109,7 +109,7 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last' AND payment_status_id=1");
+										$result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-01' AND process_date<='$year-$month-$last' AND payment_status_id=1");
 
 										while($row = pg_fetch_assoc($result))
 										{

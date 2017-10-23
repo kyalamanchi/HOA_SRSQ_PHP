@@ -163,6 +163,79 @@
 
 		?>
 
+		<?php
+
+			if($community_id == 1)
+            { 
+                      
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
+                      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                $result = curl_exec($ch);
+                $json_decode = json_decode($result,TRUE);
+                $srp_primarySavings = $json_decode['Account'];
+                $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+                            
+                curl_close($ch);
+
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
+                            
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539532",oauth_nonce="2nX9kd69aNw",oauth_version="1.0",oauth_signature="5ZScoTRHF28D3YT0kHO27%2Br8Hvo%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                $result2 = curl_exec($ch);
+                $json_decode2 = json_decode($result2,TRUE);
+                $srp = $json_decode2['Account'];
+                $srp_savings_balance = $srp['CurrentBalance'];
+
+            }
+            else if($community_id == 2)
+            {
+                      
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506682054",oauth_nonce="skPZikoZJCt",oauth_version="1.0",oauth_signature="aEBIdXcJdXSWiLp5k9gxlVuvsbs%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $result = curl_exec($ch);
+                $json_decode = json_decode($result,TRUE);
+                $srp_primarySavings = $json_decode['Account'];
+                $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+
+                curl_close($ch);
+
+                 $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
+                      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="5IDpz%2F%2FItyjMYbh4Ke3JoBx3YGY%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $result2 = curl_exec($ch);
+                $json_decode2 = json_decode($result2,TRUE);
+                $srp = $json_decode2['Account'];
+                $srp_savings = $srp['CurrentBalance'];
+
+                curl_close($ch);
+
+                $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
+                      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="HDWt%2BfIz3NrAhJE9fO9G%2FI8Q%2Fcg%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $result3 = curl_exec($ch);
+                $json_decode3 = json_decode($result3,TRUE);
+                $srsq_third_Account = $json_decode3['Account'];
+                $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+            
+            }
+
+		?>
+
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
@@ -295,6 +368,112 @@
 														</div>
 
 														<div class='counter-title'>Members Paid</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
+											<div class='row module-gray'>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
+
+																	echo $ach;
+
+																?>
+
+															</a>
+																
+														</div>
+
+														<div class='counter-title'>ACH</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
+
+																	echo $bill_pay;
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Bill Pay</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
+
+																	echo $check;
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Check</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	echo ($total_homes - ( $ach + $bill_pay + $check ) ); 
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Others</div>
 
 													</div>
 
@@ -524,13 +703,13 @@
 
 															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-																<div class='counter h3'>
+																<div class='counter h6'>
 
 																	<div class='counter-number'>
 																		
-																		<a href='currentMonthPayments.php'>
+																		<a href='communityIncome.php'>
 
-																			".round($amount_received, 1)."
+																			$ ".round($srp_savings_balance, 0)."
 
 																		</a>
 																			
@@ -544,13 +723,13 @@
 
 															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-																<div class='counter h3'>
+																<div class='counter h6'>
 
 																	<div class='counter-number'>
 
-																		<a href='currentMonthPayments.php'>
+																		<a href='communityIncome.php'>
 
-																			".round($members_paid, 1)."
+																			$ ".round($srp_current_balance, 0)."
 
 																		</a>
 
@@ -578,13 +757,13 @@
 
 															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																<div class='counter h3'>
+																<div class='counter h6'>
 
 																	<div class='counter-number'>
 																		
-																		<a href='currentMonthPayments.php'>
+																		<a href='communityIncome.php'>
 
-																			".round($amount_received, 1)."
+																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
 
 																		</a>
 																			
@@ -598,13 +777,13 @@
 
 															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																<div class='counter h3'>
+																<div class='counter h6'>
 
 																	<div class='counter-number'>
 
-																		<a href='currentMonthPayments.php'>
+																		<a href='communityIncome.php'>
 
-																			".round($members_paid, 1)."
+																			$ ".round($srp_savings, 0)."
 
 																		</a>
 
@@ -618,13 +797,13 @@
 
 															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																<div class='counter h3'>
+																<div class='counter h6'>
 
 																	<div class='counter-number'>
 
-																		<a href='currentMonthPayments.php'>
+																		<a href='communityIncome.php'>
 
-																			".round($members_paid, 1)."
+																			$ ".round($srsq_third_Account_Balance, 0)."
 
 																		</a>
 
