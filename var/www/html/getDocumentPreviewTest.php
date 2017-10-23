@@ -6,12 +6,15 @@
 
 	if($_GET['cid'] == 1)
 	{
+		
 		$accessToken = '0gTJRfMcSHAAAAAAAAAADNfolm5IYvkINbXQpejgF8X2Hoy_6kXOlJemzq1a-588';
 
 	}
 	else if($_GET['cid'] == 2)
 	{
+		
 		$accessToken = 'QwUjEm5GAkAAAAAAAAAAN-KemUHI72QOlDsQxtH6H9JlRixSoi1fqq7D7BCHrNFm';
+		
 	}
 
 	$path = $_GET['path'];
