@@ -418,9 +418,9 @@
                             $desc = $row2['desc'];
                             $civilcode_section = $row2['civilcode_section'];
 
-                            if ( $row['document_id'] ){
-                              $notes = "<a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?path=$row['document_id']&cid=$community_id&desc=$desc\" target=\"_blank\">View Document</a>";
-                            }
+                            // if ( $row['document_id'] ){
+                            //   $notes = "<a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?path=$row['document_id']&cid=$community_id&desc=$desc\" target=\"_blank\">View Document</a>";
+                            // }
 
 
                             echo "
