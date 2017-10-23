@@ -126,7 +126,7 @@
 											$continous = $row['continous'];
 											$expires_on = $row['sch_expires'];
 											$next_schedule = $row['next_sch'];
-											$frequency = $row['frequency'];
+											$frequency = $row['sch_frequency'];
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 											$name = $row1['firstname'];
@@ -148,6 +148,28 @@
 
 											$balance = $charges - $payments;
 											$balance = "$ ".$balance;
+
+											if($recurring_pay == 't')
+												$recurring_pay = "Enabled";
+											else
+												$recurring_pay = "Not Set";
+
+											if($continous == 't')
+												$continous = "True";
+											else
+												$continous = "False";
+
+											if($sch_start != "")
+												$sch_start = date('m-d-Y', strtotime($sch_start));
+
+											if($sch_end != "")
+												$sch_end = date('m-d-Y', strtotime($sch_end));
+
+											if($expires_on != "")
+												$expires_on = date('m-d-Y', strtotime($expires_on));
+
+											if($next_schedule != "")
+												$next_schedule = date('m-d-Y', strtotime($next_schedule));
 
 	                          				echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td>$recurring_pay</td><td>$sch_start</td><td>$sch_end</td><td>$continous</td><td>$expires_on</td><td>$next_schedule</td><td>$frequency</td><td>$balance</td></tr>";
 
