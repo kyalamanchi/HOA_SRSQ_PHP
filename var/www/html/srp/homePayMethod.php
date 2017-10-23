@@ -187,6 +187,92 @@
 
 				</section>
 
+				<section class="module-page-title p-t-0">
+					
+					<div class="container">
+							
+						<div class="row-page-title">
+							
+							<div class="page-title-captions">
+								
+								<h1 class="h5"><br>Home Pay Method - Bill Pay</h1>
+							
+							</div>
+						
+						</div>
+						
+					</div>
+				
+				</section>
+
+				<!-- Content -->
+				<section class="module">
+						
+					<div class="container-fluid">
+							
+						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						
+							<table id='example1' class='table table-striped'  style='color: black;'>
+
+								<thead>
+									
+									<th>Name</th>
+									<th>HOA ID</th>
+									<th>Living In</th>
+									<th>Home ID</th>
+									<th>Balance</th>
+
+								</thead>
+
+								<tbody>
+									
+									<?php
+
+										$result = pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2");
+
+										while($row = pg_fetch_assoc($result))
+										{
+
+											$home_id = $row['home_id'];
+											$hoa_id = $row['hoa_id'];
+											
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+											$name = $row1['firstname'];
+											$name .= " ";
+											$name .= $row1['lastname'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+											$living_in = $row1['address1'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+											$charges = $row1['sum'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
+
+											$payments = $row1['sum'];
+
+											if($payments == "")
+												$payments = 0.0;
+
+											$balance = $charges - $payments;
+											$balance = "$ ".$balance;
+
+	                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</td><td>$home_id</td><td>$balance</td></tr>";
+
+										}
+
+									?>
+
+								</tbody>
+								
+							</table>
+
+						</div>
+
+					</div>
+
+				</section>
+
 				<!-- Footer-->
 				<?php include 'footer.php'; ?>
 
