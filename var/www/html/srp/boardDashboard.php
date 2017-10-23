@@ -603,7 +603,7 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".$srp_savings_balance."
+																			$ ".round($srp_savings_balance, 0)."
 
 																		</a>
 																			
@@ -623,7 +623,7 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".$srp_current_balance."
+																			$ ".round($srp_current_balance, 0)."
 
 																		</a>
 
@@ -657,7 +657,7 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".$srp_primary_Savings_CurrentBalance."
+																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
 
 																		</a>
 																			
@@ -677,7 +677,7 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".$srp_savings."
+																			$ ".round($srp_savings, 0)."
 
 																		</a>
 
@@ -697,7 +697,7 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".$srsq_third_Account_Balance."
+																			$ ".round($srsq_third_Account_Balance, 0)."
 
 																		</a>
 
