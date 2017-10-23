@@ -401,39 +401,43 @@
 									
 									<?php
 
-										$result = pg_query("SELECT home_id FROM home_pay_method WHERE community_id=$community_id AND home_id NOT IN (SELECT * FROM home_pay_method WHERE community_id=$community_id AND (payment_type_id=1 OR payment_type_id=2 OR payment_type_id=3))");
+										$result = pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id");
 
 										while($row = pg_fetch_assoc($result))
 										{
 
-											$home_id = $row['home_id'];
-											
-											$row1 = pg_fetch_assoc(pg_query("SELECT home_id FROM home_pay_method WHERE home_id=$home_id"));
-											$hoa_id = $row1['hoa_id'];
-											$payment_type = $row1['payment_type_id'];
-											
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-											$name = $row1['firstname'];
-											$name .= " ";
-											$name .= $row1['lastname'];
+											$payment_type = $row['payment_type_id'];
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-											$living_in = $row1['address1'];
+											if($payment_type == "" OR $payment_type > 3)
+											{
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-											$charges = $row1['sum'];
+												$home_id = $row['home_id'];
+												$hoa_id = $row['hoa_id'];
+												
+												$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+												$name = $row1['firstname'];
+												$name .= " ";
+												$name .= $row1['lastname'];
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
+												$row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+												$living_in = $row1['address1'];
 
-											$payments = $row1['sum'];
+												$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
+												$charges = $row1['sum'];
 
-											if($payments == "")
-												$payments = 0.0;
+												$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
 
-											$balance = $charges - $payments;
-											$balance = "$ ".$balance;
+												$payments = $row1['sum'];
 
-	                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</td><td>$home_id</td><td>$payment_type</td><td>$balance</td></tr>";
+												if($payments == "")
+													$payments = 0.0;
+
+												$balance = $charges - $payments;
+												$balance = "$ ".$balance;
+
+		                          				echo "<tr><td>$name</td><td>$hoa_id</td><td>$living_in</td><td>$home_id</td><td>$payment_type</td><td>$balance</td></tr>";
+
+	                          				}
 
 										}
 
