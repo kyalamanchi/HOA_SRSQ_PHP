@@ -254,42 +254,6 @@
 
 											<div class='row'>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<br>
-
-													<div class='progress-item'>
-										
-														<div class='progress-title'>Amount Received<br><br><br></div>
-														
-														<div class='progress'>
-															
-															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-														
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<br>
-
-													<div class='progress-item'>
-										
-														<div class='progress-title'>Members Paid<br><br><br></div>
-														
-														<div class='progress'>
-															
-															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-														
-														</div>
-
-													</div>
-													
-												</div>
-
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
