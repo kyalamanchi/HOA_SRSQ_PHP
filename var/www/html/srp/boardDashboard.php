@@ -375,6 +375,110 @@
 
 											</div>
 
+											<div class='row module-gray'>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<a href='communityDeposits.php'>
+
+																<?php 
+																	
+																	echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+
+																?>
+
+															</a>
+																
+														</div>
+
+														<div class='counter-title'>ACH</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='communityDocuments.php'>
+
+																<?php 
+																
+																	echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Bill Pay</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<?php
+
+																if($del_acc > 0)
+																	echo "<a href='delinquentAccounts.php' style='color: orange;'>$del_acc</a>";
+																else
+																	echo "$del_acc";
+
+															?>
+
+														</div>
+
+														<div class='counter-title'>Check</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<?php 
+																
+																$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
+
+																$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
+
+																$inspection_notices = $inspection_notices - $closed;
+
+																if ($inspection_notices == 0) 
+																	echo $inspection_notices;
+																else
+																	echo "<a href='inspectionNotices.php' style='color: orange;'>$inspection_notices</a>";
+
+															?>
+
+														</div>
+
+														<div class='counter-title'>Others</div>
+
+													</div>
+
+												</div>
+
+											</div>
+
 											<br /><br />
 
 											<div class='row'>
