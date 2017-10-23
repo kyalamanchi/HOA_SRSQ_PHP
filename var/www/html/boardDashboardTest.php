@@ -36,7 +36,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="icon" 
     type="image/png" 
-    href="srsq_logo.JPG">
+    href="https://www.hoaboardtime.com/favicon.ico">
     <title><?php echo $_SESSION['hoa_community_name']; ?></title>
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
