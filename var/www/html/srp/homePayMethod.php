@@ -425,6 +425,14 @@
 												$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
 												$charges = $row1['sum'];
 
+												if($payment_type != "")
+												{
+
+													$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
+													$payment_type = $row1['payment_type_name'];
+													
+												}
+
 												$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
 
 												$payments = $row1['sum'];
