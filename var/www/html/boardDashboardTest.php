@@ -35,7 +35,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
+    <link rel="icon" 
+    type="image/png" 
+    href="https://mysite.com/icon.png">
     <title><?php echo $_SESSION['hoa_community_name']; ?></title>
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
@@ -105,7 +107,7 @@
 
 		          		<li class="dropdown user user-menu">
 	              
-		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
+		            		<a href="https://hoaboardtime.com/residentDashboardTest.php">Resident Dashboard</a>
 
 		          		</li>
 
