@@ -232,10 +232,10 @@
 								<!-- Tabs-->
 								<ul class="nav nav-tabs">
 									
-									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Communications Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Quickbooks Reports</a></li>
+									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
 									<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab">Yearly Reports - <?php echo date('Y'); ?></a></li>
 
 								</ul>
@@ -252,42 +252,52 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row module-gray'>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<br>
+												<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>PAYMENT INFORMATION</h3></center></div>
 
-													<div class='progress-item'>
-										
-														<div class='progress-title'>Amount Received<br><br><br></div>
-														
-														<div class='progress'>
+											</div>
+
+											<div class='row module-gray'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+													<div class='counter h3'>
+
+														<div class='counter-number'>
 															
-															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-														
+															<a href='currentMonthPayments.php'>
+
+																<?php echo round($amount_received, 1); ?>
+
+															</a>
+																
 														</div>
+
+														<div class='counter-title'>Amount Received</div>
 
 													</div>
 
 												</div>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<br>
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-													<div class='progress-item'>
-										
-														<div class='progress-title'>Members Paid<br><br><br></div>
-														
-														<div class='progress'>
-															
-															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-														
+													<div class='counter h3'>
+
+														<div class='counter-number'>
+
+															<a href='currentMonthPayments.php'>
+
+																<?php echo round($members_paid, 1); ?>
+
+															</a>
+
 														</div>
 
+														<div class='counter-title'>Members Paid</div>
+
 													</div>
-													
+
 												</div>
 
 											</div>
@@ -497,6 +507,141 @@
 
 											</div>
 
+											<br /><br />
+
+											<?php
+
+												if($community_id == 1)
+													echo "
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+														</div>
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h3'>
+
+																	<div class='counter-number'>
+																		
+																		<a href='currentMonthPayments.php'>
+
+																			".round($amount_received, 1)."
+
+																		</a>
+																			
+																	</div>
+
+																	<div class='counter-title'>Savings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h3'>
+
+																	<div class='counter-number'>
+
+																		<a href='currentMonthPayments.php'>
+
+																			".round($members_paid, 1)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Checkings</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													";
+												else if($community_id == 2)
+													echo "
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+														</div>
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h3'>
+
+																	<div class='counter-number'>
+																		
+																		<a href='currentMonthPayments.php'>
+
+																			".round($amount_received, 1)."
+
+																		</a>
+																			
+																	</div>
+
+																	<div class='counter-title'>Checkings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h3'>
+
+																	<div class='counter-number'>
+
+																		<a href='currentMonthPayments.php'>
+
+																			".round($members_paid, 1)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Savings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h3'>
+
+																	<div class='counter-number'>
+
+																		<a href='currentMonthPayments.php'>
+
+																			".round($members_paid, 1)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Investments</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													";
+
+											?>
+
 										</div>
 
 									</div>
@@ -658,7 +803,7 @@
 										
 										<div class="special-heading m-b-40">
 									
-											<h4><i class="fa fa-dollar"></i> Quickbooks Reports</h4>
+											<h4><i class="fa fa-dollar"></i> Finance Dashboard</h4>
 						
 										</div>
 
