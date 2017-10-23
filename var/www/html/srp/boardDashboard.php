@@ -232,10 +232,10 @@
 								<!-- Tabs-->
 								<ul class="nav nav-tabs">
 									
-									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Communications Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Quickbooks Reports</a></li>
+									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
 									<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab">Yearly Reports - <?php echo date('Y'); ?></a></li>
 
 								</ul>
@@ -658,7 +658,7 @@
 										
 										<div class="special-heading m-b-40">
 									
-											<h4><i class="fa fa-dollar"></i> Quickbooks Reports</h4>
+											<h4><i class="fa fa-dollar"></i> Finance Dashboard</h4>
 						
 										</div>
 
