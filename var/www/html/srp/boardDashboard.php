@@ -298,7 +298,7 @@
 															
 															<a href='communityDeposits.php'>
 
-																<?php echo $amount_received; ?>
+																<?php echo round($amount_received, 1); ?>
 
 															</a>
 																
@@ -318,7 +318,7 @@
 
 															<a href='communityDocuments.php'>
 
-																<?php echo $members_paid; ?>
+																<?php echo round($members_paid, 1); ?>
 
 															</a>
 
