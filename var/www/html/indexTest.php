@@ -4,16 +4,16 @@
     
     <?php
 
-      ini_set("session.save_path","/var/www/html/session/");
+      // ini_set("session.save_path","/var/www/html/session/");
 
-      session_start();
+      // session_start();
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $community_id = 2;
 
-      if(@$_SESSION['hoa_username'])
-        header("Location: logout.php");
+      // if(@$_SESSION['hoa_username'])
+      //   header("Location: logout.php");
 
       $year = date("Y");
       $month = date("m");
@@ -518,7 +518,7 @@
                     <div class="icon">
                       
                       <!--i style="font-size: 50px;" class="fa fa-users"></i-->
-                      <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'>
+                      <!-- <img src='delinquent_accounts.png' width=50 height=50 alt='Tenants'> -->
 
                     </div>
 
