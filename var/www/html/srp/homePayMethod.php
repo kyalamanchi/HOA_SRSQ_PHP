@@ -408,7 +408,7 @@
 
 											$home_id = $row['home_id'];
 											
-											$row1 = pg_fetch_assoc(pg_query("SELECT home_id FROM home_pay_method WHERE home_id=$home_id"))
+											$row1 = pg_fetch_assoc(pg_query("SELECT home_id FROM home_pay_method WHERE home_id=$home_id"));
 											$hoa_id = $row1['hoa_id'];
 											$payment_type = $row1['payment_type_id'];
 											
