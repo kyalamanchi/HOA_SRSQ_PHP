@@ -387,7 +387,9 @@
 
 																<?php 
 																	
-																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
+																	$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
+
+																	echo $ach;
 
 																?>
 
@@ -411,7 +413,9 @@
 
 																<?php 
 																	
-																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
+																	$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
+
+																	echo $bill_pay;
 
 																?>
 
@@ -435,7 +439,9 @@
 
 																<?php 
 																	
-																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
+																	$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
+
+																	echo $check;
 
 																?>
 
@@ -459,7 +465,7 @@
 
 																<?php 
 																	
-																	echo pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id>3")); 
+																	echo ($total_homes - ( $ach + $bill_pay + $check ) ); 
 
 																?>
 
