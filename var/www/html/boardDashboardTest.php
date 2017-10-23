@@ -1,5 +1,6 @@
 <?php
-  
+  ini_set("session.gc_maxlifetime", 36000);
+  ini_set("session.cache_expire", 36000);  
   ini_set("session.save_path","/var/www/html/session/");
   session_start();
   print_r($_SESSION);
