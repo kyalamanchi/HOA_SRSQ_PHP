@@ -11,5 +11,18 @@ $fileNames = array("AutomationTest.php","InspectionManagementTest.php","boardCom
 foreach ($fileNames as $key) {
 	print_r($key);
 	print_r(nl2br("\n"));
+	if ( file_exists($key) ){
+	print_r($key."File Found");
+	unlink($key);
+	}
+	print_r(nl2br("\n"));
+	if ( file_exists($key) ){
+		print_r("File found".$key);
+		print_r(nl2br("\n"));
+	}
+	else {
+		print_r($key."File removed");
+	}
+	print_r(nl2br("\n"));
 }
 ?>
