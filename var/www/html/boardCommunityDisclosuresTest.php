@@ -409,7 +409,7 @@
                             $fiscal_year_end = $row['fiscal_year_end'];
                             $notes = $row['notes'];
                             if ( $row['document_id'] ){
-                              $notes = "<a href=\"https://www.google.com\">Click Here</a>";
+                              $notes = "<a href=\"https://www.google.com\" target=\"_blank\">View Document</a>";
                             }
 
                             $result2 = pg_query("SELECT * FROM community_disclosure_type WHERE id=".$type_id);
