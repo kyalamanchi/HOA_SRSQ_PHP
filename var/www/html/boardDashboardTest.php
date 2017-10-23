@@ -55,6 +55,9 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="dist/js/googleanalytics.js"></script>
 
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    
     <script type="text/javascript">
       var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
       var dimensionValue2 = "${communityInfo.communityCode}";
@@ -1989,8 +1992,7 @@
 
     </div>
 
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
