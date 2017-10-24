@@ -104,13 +104,11 @@ function hidePleaseWait() {
         }
   }
     function addCharges(){    
-      showPleaseWait();
     var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/addCurrentChargesSRSQ.php",true);
       request.send(null);
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
-        hidePleaseWait();
           if ( request.responseText.includes("CHARGES ADDED") ){
             swal(request.responseText,"","success");
           }
