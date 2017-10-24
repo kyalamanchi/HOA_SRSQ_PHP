@@ -97,7 +97,7 @@
 
 						$_SESSION['hoa_mode'] = 1;
 
-						header("Location: https://stoneridgeplace.com/residentDashboard.php");
+						header("Location: residentDashboard.php");
 
 					}
 					else
@@ -105,7 +105,7 @@
 						
 						$_SESSION['hoa_mode'] = 2;
 
-						header("Location: https://stoneridgeplace.com/boardDashboard.php");
+						header("Location: boardDashboard.php");
 
 					}
 
