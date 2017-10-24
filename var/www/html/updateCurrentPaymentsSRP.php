@@ -175,7 +175,7 @@ if (!empty($failedTransactionIDS)){
 			if ( $updateHPM ){
 			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
 			pg_query($qr);		
-		}
+			}
 			// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
 		}
 	}
