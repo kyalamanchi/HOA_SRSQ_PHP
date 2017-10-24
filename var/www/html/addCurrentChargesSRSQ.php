@@ -43,6 +43,10 @@ else
 }
 }
 else {
+		if ( date('d') < 25 ){
+	echo "Charges cannot be added until 25th ";
+	exit(0);
+}
 		$value = 0;
 		$assessmentQuery = "SELECT AMOUNT FROM ASSESSMENT_AMOUNTS WHERE COMMUNITY_ID = 2 AND ASSESSMENT_RULE_TYPE_ID = 1";
 		$assessmentQueryResult = pg_query($assessmentQuery);
