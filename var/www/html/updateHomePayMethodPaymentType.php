@@ -5,10 +5,8 @@ if ( $connection ){
 	$query = "SELECT A.HOA_ID FROM  (SELECT PROCESS_DATE,HOA_ID FROM CURRENT_PAYMENTS CP1 WHERE PROCESS_DATE = ( SELECT MAX(PROCESS_DATE) FROM CURRENT_PAYMENTS WHERE CP1.HOA_ID = CURRENT_PAYMENTS.HOA_ID ) ORDER BY PROCESS_DATE DESC) AS A ORDER BY HOA_ID";
 	$qr = pg_query($query);
 	while ($row = pg_fetch_assoc($qr)) {
-		print_r($row['A.HOA_ID']);
+		print_r($row['HOA_ID']);
 		print_r(nl2br("\n"));
-		print_r($row);
-		print_r(nl2br("\n\n"));
 	}
 }
 ?>
