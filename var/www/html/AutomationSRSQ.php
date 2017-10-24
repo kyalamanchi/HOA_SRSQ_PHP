@@ -80,6 +80,21 @@
             document.getElementById("emailResult").innerHTML += event.data + "<br>";
         }
   }
+    function addCharges(){    
+    var request = new XMLHttpRequest();
+      request.open("POST","https://hoaboardtime.com/addCurrentChargesSRSQ.php",true);
+      request.send(null);
+      request.onreadystatechange  = function(){
+      if ( request.readyState == XMLHttpRequest.DONE ){
+          if ( request.responseText.includes("CHARGES ADDED") ){
+            swal(request.responseText,"","success");
+          }
+          else {
+            swal(request.responseText,"","error");
+          }
+      }
+    }
+  }
 </script>
 <style type="text/css">
   .pull-right{
@@ -210,6 +225,23 @@
     </div>
   </div>
 
+<div class="card">
+    <div class="card-header" role="tab" id="headingFive">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          <h4>Charges</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="card-block">
+         Adds regular assessment amount to all the members.
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" id="chargesButton" onclick="addCharges();">Update Now</button>
+      </div>
+    </div>
+  </div>
 
 
 
