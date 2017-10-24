@@ -7,6 +7,19 @@
 <html lang='en'>
 
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
+<script>
+var dimensionValue = <?php $_SESSION['hoa_hoa_id'] ?>;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  gtag('config', 'UA-102881886-3', {
+  'custom_map': {'dimension1': dimensionValue}
+});
+  
+</script>
 
 		<?php
 
