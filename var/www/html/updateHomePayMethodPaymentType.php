@@ -7,6 +7,8 @@ if ( $connection ){
 	while ($row = pg_fetch_assoc($qr)) {
 		print_r($row['A.HOA_ID']);
 		print_r(nl2br("\n"));
+		print_r($row);
+		print_r(nl2br("\n\n"));
 	}
 }
 ?>
