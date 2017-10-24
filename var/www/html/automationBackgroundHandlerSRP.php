@@ -12,6 +12,11 @@ flush();
 
 if ( isset($_GET['id'])){
 if ( $_GET['id'] == 1){
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
 //SRP UPDATION
 $message  = "Updating SRP Transactions...";
 echo 'data: '.$message."\n\n";  
@@ -331,6 +336,11 @@ ob_end_flush();
 flush();
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,4,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
 
 }
 
