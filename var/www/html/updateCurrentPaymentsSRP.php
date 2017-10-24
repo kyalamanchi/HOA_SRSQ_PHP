@@ -71,8 +71,7 @@ foreach ($result->results as $transaction) {
 		$updateCount = $updateCount + 1;
 		if ( $updateHPM ){
 			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$val;
-			print_r($qr);
-			print_r(nl2br("\n\n"));
+			pg_query($qr);
 		}
 	}
 
@@ -117,8 +116,7 @@ foreach ($result->results as $transaction) {
 		$insertCount = $insertCount  + 1;
 		if ( $updateHPM ){
 			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
-			print_r($qr);
-			print_r(nl2br("\n\n"));
+			pg_query($qr);
 		}
 
 		// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n").$insertQuery.nl2br("\n"));
@@ -131,6 +129,7 @@ foreach ($result->results as $transaction) {
 }
 if (!empty($failedTransactionIDS)){
 	foreach ($failedTransactionIDS as $key => $value) {
+		$updateHPM = 0;
 		// print_r("Transaction ID is".$key.nl2br("\n"));
 		// print_r("Checking echeck object......".nl2br("\n"));
 		$transactionURL = "https://api.forte.net/v3/transactions/";
@@ -175,8 +174,7 @@ if (!empty($failedTransactionIDS)){
 			$insertCount = $insertCount + 1;
 			if ( $updateHPM ){
 			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
-			print_r($qr);
-			print_r(nl2br("\n\n"));
+			pg_query($qr);		
 		}
 			// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
 		}

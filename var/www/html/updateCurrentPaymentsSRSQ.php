@@ -38,6 +38,7 @@ curl_close($ch);
 $result = json_decode($result);
 $val = 0;
 foreach ($result->results as $transaction) {
+		$updateHPM = 0;
 	if ( $bankTransactionsIDSArray[$transaction->transaction_id] ){
 		if ( $transaction->status != 'voided'){
 		if ( $transaction->status == 'funded' ){
@@ -45,12 +46,15 @@ foreach ($result->results as $transaction) {
 		}
 		else if ( $transaction->status == 'settling' ){
 			$paymentStatusIDUpdate = 8;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'approved' ){
 			$paymentStatusIDUpdate = 6;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'ready' ){
 			$paymentStatusIDUpdate = 10;
+			$updateHPM = 1;
 		}
 		$val = $val+1;
 		$transactionAmount = $transaction->authorization_amount;
@@ -58,11 +62,14 @@ foreach ($result->results as $transaction) {
 			$transactionAmount = -$transaction->authorization_amount;
 		}
 
-		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."'";
+		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."' RETURNING HOA_ID";
 		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
 		pg_query($updateQuery);
 		$updateCount = $updateCount + 1;
-
+		if ( $updateHPM ){
+			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$val;
+			pg_query($qr);
+		}
 	}
 	}
 	else{
@@ -81,15 +88,19 @@ foreach ($result->results as $transaction) {
 		}
 		if ( $transaction->status == 'funded' ){
 			$paymentStatusID = 1;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'settling' ){
 			$paymentStatusID = 8;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'approved' ){
 			$paymentStatusID = 6;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'ready' ){
 			$paymentStatusID = 10;
+			$updateHPM = 1;
 		}
 		$transactionAmount = $transaction->authorization_amount;
 		if ($transaction->action == 'credit' || $transaction->action == 'CREDIT'){
@@ -102,6 +113,10 @@ foreach ($result->results as $transaction) {
 		
 		pg_query($insertQuery);
 		$insertCount  = $insertCount + 1;
+		if ( $updateHPM ){
+			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
+			pg_query($qr);
+		}
 		// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n").$insertQuery.nl2br("\n"));
 	}
 	else{
@@ -112,6 +127,7 @@ foreach ($result->results as $transaction) {
 }
 if (!empty($failedTransactionIDS)){
 	foreach ($failedTransactionIDS as $key => $value) {
+		$updateHPM = 0;
 		// print_r("Transaction ID is".$key.nl2br("\n"));
 		// print_r("Checking echeck object......".nl2br("\n"));
 		$transactionURL = "https://api.forte.net/v3/transactions/";
@@ -127,15 +143,19 @@ if (!empty($failedTransactionIDS)){
 
 		if ( $transactionresult->status == 'funded' || $transactionresult->status == 'FUNDED'){
 			$paymentStatusID = 1;
+			$updateHPM = 1;
 		}
 		else if ( $transactionresult->status == 'settling' || $transactionresult->status == 'SETTLING' ){
 			$paymentStatusID = 8;
+			$updateHPM = 1;
 		}
 		else if ( $transactionresult->status == 'approved' || $transactionresult->status == 'APPROVED'){
 			$paymentStatusID = 6;
+			$updateHPM = 1;
 		}
 		else if ( $transactionresult->status == 'ready'){
 			$paymentStatusID = 10;
+			$updateHPM = 1;
 		}
 
 		if ($transactionresult->action == 'credit' || $transactionresult->action == 'CREDIT'){
@@ -152,6 +172,10 @@ if (!empty($failedTransactionIDS)){
 			$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionAmount.",'".$transactionresult->received_date."',".$transactionresult->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transactionresult->transaction_id."')";
 			pg_query($insertQuery);
 			$insertCount  = $insertCount + 1;
+			if ( $updateHPM ){
+			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
+			pg_query($qr);		
+		}
 			// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
 		}
 	}
