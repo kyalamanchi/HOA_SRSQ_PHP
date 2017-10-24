@@ -37,6 +37,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 $result = json_decode($result);
 foreach ($result->results as $transaction) {
+		$updateHPM = 1;
 	if ( $bankTransactionsIDSArray[$transaction->transaction_id] ){
 
 		if ( $transaction->status != 'voided'){
@@ -45,12 +46,15 @@ foreach ($result->results as $transaction) {
 		}
 		else if ( $transaction->status == 'settling' ){
 			$paymentStatusIDUpdate = 8;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'approved' ){
 			$paymentStatusIDUpdate = 6;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'ready' ){
 			$paymentStatusIDUpdate = 10;
+			$updateHPM = 1;
 		}
 		$val = $val+1;
 
@@ -59,10 +63,17 @@ foreach ($result->results as $transaction) {
 			$transactionAmount = -$transaction->authorization_amount;
 		}
 
-		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."'";
+		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."' RETURNING HOA_ID";
 		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
-		pg_query($updateQuery);
+		$VAL = pg_query($updateQuery);
+		$VAL = pg_fetch_assoc($VAL);
+		$val = $VAL['hoa_id'];
 		$updateCount = $updateCount + 1;
+		if ( $updateHPM ){
+			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$val;
+			print_r($qr);
+			print_r(nl2br("\n\n"));
+		}
 	}
 
 	}
@@ -94,6 +105,7 @@ foreach ($result->results as $transaction) {
 			$transactionAmount = -$transaction->authorization_amount;
 		}
 		if ( $hoaID ){
+		$updateHPM = 1;
 		$paymentID = $hoaID.$hoaIDSArray[$hoaID];
 		$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionAmount.",'".$transaction->received_date."',".$transaction->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transaction->transaction_id."')";
 		
