@@ -19,6 +19,11 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
+$req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRP.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
@@ -306,6 +311,12 @@ pg_query($query);
 }
 }
 else {
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
 	//SRP UPDATION
 $message  = "Updating SRP Transactions...";
 echo 'data: '.$message."\n\n";  
