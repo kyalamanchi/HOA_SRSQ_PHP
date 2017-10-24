@@ -8,7 +8,7 @@ if  ( $time ){
 $lastRanMonth =  date('m',strtotime($time));
 $lastRanYear = date('Y',strtotime($time));
 if ( $lastRanMonth == date('m') ){
-	echo "Charges can be added once per month";
+	echo "Charges cannot be added more than once per month";
 }
 
 else if ( date('d') < 25 ){
@@ -38,10 +38,14 @@ else
 			$value = $value + 1;
 			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1)";
 		}
+		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
+		pg_query($query);
+
 		echo "CHARGES ADDED";
 }
 }
 else {
+
 
 		$value = 0;
 		$assessmentQuery = "SELECT AMOUNT FROM ASSESSMENT_AMOUNTS WHERE COMMUNITY_ID = 1 AND ASSESSMENT_RULE_TYPE_ID = 1";
@@ -65,6 +69,9 @@ else {
 			$value = $value + 1;
 			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1)";
 		}
-		echo "CHARGES ADDED";
+		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
+		pg_query($query);
+
+		echo "CHARGES ADDED";	
 }
 ?>
