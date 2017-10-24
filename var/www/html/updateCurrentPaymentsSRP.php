@@ -37,7 +37,7 @@ $result = curl_exec($ch);
 curl_close($ch);
 $result = json_decode($result);
 foreach ($result->results as $transaction) {
-		$updateHPM = 1;
+		$updateHPM = 0;
 	if ( $bankTransactionsIDSArray[$transaction->transaction_id] ){
 
 		if ( $transaction->status != 'voided'){
@@ -90,15 +90,19 @@ foreach ($result->results as $transaction) {
 		}
 		if ( $transaction->status == 'funded' ){
 			$paymentStatusID = 1;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'settling' ){
 			$paymentStatusID = 8;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'approved' ){
 			$paymentStatusID = 6;
+			$updateHPM = 1;
 		}
 		else if ( $transaction->status == 'ready' ){
 			$paymentStatusID = 10;
+			$updateHPM = 1;
 		}
 		$transactionAmount = $transaction->authorization_amount;
 		if ($transaction->action == 'credit' || $transaction->action == 'CREDIT'){
@@ -111,6 +115,12 @@ foreach ($result->results as $transaction) {
 		
 		pg_query($insertQuery);
 		$insertCount = $insertCount  + 1;
+		if ( $updateHPM ){
+			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
+			print_r($qr);
+			print_r(nl2br("\n\n"));
+		}
+
 		// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n").$insertQuery.nl2br("\n"));
 	}
 	else{
@@ -135,15 +145,19 @@ if (!empty($failedTransactionIDS)){
 		$paymentStatusID = 0;
 		if ( $transactionresult->status == 'funded' || $transactionresult->status == 'FUNDED'){
 			$paymentStatusID = 1;
+			$updateHPM = 1;
 		}
 		else if ( $transactionresult->status == 'settling' || $transactionresult->status == 'SETTLING' ){
 			$paymentStatusID = 8;
+			$updateHPM = 1;
 		}
 		else if ( $transactionresult->status == 'approved' || $transactionresult->status == 'APPROVED'){
 			$paymentStatusID = 6;
+			$updateHPM = 1;
 		}
 		else if ( $transactionresult->status == 'ready'){
 			$paymentStatusID = 10;
+			$updateHPM = 1;
 		}
 
 		if ($transactionresult->action == 'credit' || $transactionresult->action == 'CREDIT'){
@@ -159,6 +173,11 @@ if (!empty($failedTransactionIDS)){
 			$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionAmount.",'".$transactionresult->received_date."',".$transactionresult->response->authorization_code.",1,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transactionresult->transaction_id."')";
 			pg_query($insertQuery);
 			$insertCount = $insertCount + 1;
+			if ( $updateHPM ){
+			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$hoaID;
+			print_r($qr);
+			print_r(nl2br("\n\n"));
+		}
 			// print_r("Inserting new record ".$transaction->transaction_id.nl2br("\n"));
 		}
 	}
