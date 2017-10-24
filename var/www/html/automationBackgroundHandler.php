@@ -18,10 +18,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 
-$req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
-curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-curl_exec($req);
+
 
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRP.php");
@@ -145,6 +142,12 @@ echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
 }
 else if ( $_GET['id'] == 2){
 
