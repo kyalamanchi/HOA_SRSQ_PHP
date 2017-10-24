@@ -80,9 +80,159 @@
 
           	$amount_received = ($monthly_amount / $monthly_total) * 100;
 
-          	$members_paid = pg_num_rows(pg_query("SELECT distinct home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
+          	$members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$last' AND payment_status_id=1"));
 
           	$members_paid = ($members_paid / $total_homes) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
+          	$jan_amount_received = $row['sum'];
+          	$jan_amount_received = ( $jan_amount_received / $monthly_total ) * 100;
+          	$jan_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
+          	$jan_members_paid = ( $jan_members_paid / $total_homes ) * 100;
+
+          	if( (0 == $year % 4) and (0 != $year % 100) or (0 == $year % 400) )
+          		$feb_days = 29;
+          	else
+          		$feb_days = 28;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
+          	$feb_amount_received = $row['sum'];
+          	$feb_amount_received = ( $feb_amount_received / $monthly_total ) * 100;
+          	$feb_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
+          	$feb_members_paid = ( $feb_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
+          	$mar_amount_received = $row['sum'];
+          	$mar_amount_received = ( $mar_amount_received / $monthly_total ) * 100;
+          	$mar_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
+          	$mar_members_paid = ( $mar_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
+          	$apr_amount_received = $row['sum'];
+          	$apr_amount_received = ( $apr_amount_received / $monthly_total ) * 100;
+          	$apr_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
+          	$apr_members_paid = ( $apr_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
+          	$may_amount_received = $row['sum'];
+          	$may_amount_received = ( $may_amount_received / $monthly_total ) * 100;
+          	$may_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
+          	$may_members_paid = ( $may_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
+          	$jun_amount_received = $row['sum'];
+          	$jun_amount_received = ( $jun_amount_received / $monthly_total ) * 100;
+          	$jun_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
+          	$jun_members_paid = ( $jun_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
+          	$jul_amount_received = $row['sum'];
+          	$jul_amount_received = ( $jul_amount_received / $monthly_total ) * 100;
+          	$jul_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
+          	$jul_members_paid = ( $jul_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
+          	$aug_amount_received = $row['sum'];
+          	$aug_amount_received = ( $aug_amount_received / $monthly_total ) * 100;
+          	$aug_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
+          	$aug_members_paid = ( $aug_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
+          	$sep_amount_received = $row['sum'];
+          	$sep_amount_received = ( $sep_amount_received / $monthly_total ) * 100;
+          	$sep_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
+          	$sep_members_paid = ( $sep_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
+          	$oct_amount_received = $row['sum'];
+          	$oct_amount_received = ( $oct_amount_received / $monthly_total ) * 100;
+          	$oct_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
+          	$oct_members_paid = ( $oct_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
+          	$nov_amount_received = $row['sum'];
+          	$nov_amount_received = ( $nov_amount_received / $monthly_total ) * 100;
+          	$nov_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
+          	$nov_members_paid = ( $nov_members_paid / $total_homes ) * 100;
+
+          	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
+          	$dec_amount_received = $row['sum'];
+          	$dec_amount_received = ( $dec_amount_received / $monthly_total ) * 100;
+          	$dec_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
+          	$dec_members_paid = ( $dec_members_paid / $total_homes ) * 100;
+
+		?>
+
+		<?php
+
+			if($community_id == 1)
+            { 
+                      
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
+                      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                $result = curl_exec($ch);
+                $json_decode = json_decode($result,TRUE);
+                $srp_primarySavings = $json_decode['Account'];
+                $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+                            
+                curl_close($ch);
+
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
+                            
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539532",oauth_nonce="2nX9kd69aNw",oauth_version="1.0",oauth_signature="5ZScoTRHF28D3YT0kHO27%2Br8Hvo%3D"'));
+                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+                $result2 = curl_exec($ch);
+                $json_decode2 = json_decode($result2,TRUE);
+                $srp = $json_decode2['Account'];
+                $srp_savings_balance = $srp['CurrentBalance'];
+
+            }
+            else if($community_id == 2)
+            {
+                      
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506682054",oauth_nonce="skPZikoZJCt",oauth_version="1.0",oauth_signature="aEBIdXcJdXSWiLp5k9gxlVuvsbs%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $result = curl_exec($ch);
+                $json_decode = json_decode($result,TRUE);
+                $srp_primarySavings = $json_decode['Account'];
+                $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+
+                curl_close($ch);
+
+                 $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
+                      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="5IDpz%2F%2FItyjMYbh4Ke3JoBx3YGY%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $result2 = curl_exec($ch);
+                $json_decode2 = json_decode($result2,TRUE);
+                $srp = $json_decode2['Account'];
+                $srp_savings = $srp['CurrentBalance'];
+
+                curl_close($ch);
+
+                $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
+                      
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="HDWt%2BfIz3NrAhJE9fO9G%2FI8Q%2Fcg%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                $result3 = curl_exec($ch);
+                $json_decode3 = json_decode($result3,TRUE);
+                $srsq_third_Account = $json_decode3['Account'];
+                $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+            
+            }
 
 		?>
 
@@ -155,10 +305,10 @@
 								<!-- Tabs-->
 								<ul class="nav nav-tabs">
 									
-									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Communications Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves Dashboard</a></li>
-									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Quickbooks Reports</a></li>
+									<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
+									<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
 									<li class="nav-item"><a class="nav-link" href="#tab-5" data-toggle="tab">Yearly Reports - <?php echo date('Y'); ?></a></li>
 
 								</ul>
@@ -175,42 +325,158 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row module-gray'>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<br>
+												<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>PAYMENT INFORMATION</h3></center></div>
 
-													<div class='progress-item'>
-										
-														<div class='progress-title'>Amount Received<br><br><br></div>
-														
-														<div class='progress'>
+											</div>
+
+											<div class='row module-gray'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
 															
-															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-														
+															<a href='currentMonthPayments.php'>
+
+																<?php echo round($amount_received, 1); ?>
+
+															</a>
+																
 														</div>
+
+														<div class='counter-title'>Amount Received</div>
 
 													</div>
 
 												</div>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-													
-													<br>
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-													<div class='progress-item'>
-										
-														<div class='progress-title'>Members Paid<br><br><br></div>
-														
-														<div class='progress'>
-															
-															<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
-														
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='currentMonthPayments.php'>
+
+																<?php echo round($members_paid, 1); ?>
+
+															</a>
+
 														</div>
 
+														<div class='counter-title'>Members Paid</div>
+
 													</div>
-													
+
+												</div>
+
+											</div>
+
+											<div class='row module-gray'>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
+
+																	echo $ach;
+
+																?>
+
+															</a>
+																
+														</div>
+
+														<div class='counter-title'>ACH</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
+
+																	echo $bill_pay;
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Bill Pay</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+															
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
+
+																	echo $check;
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Check</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<div class='counter-number'>
+
+															<a href='homePayMethod.php'>
+
+																<?php 
+																	
+																	echo ($total_homes - ( $ach + $bill_pay + $check ) ); 
+
+																?>
+
+															</a>
+
+														</div>
+
+														<div class='counter-title'>Others</div>
+
+													</div>
+
 												</div>
 
 											</div>
@@ -420,6 +686,141 @@
 
 											</div>
 
+											<br /><br />
+
+											<?php
+
+												if($community_id == 1)
+													echo "
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+														</div>
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																		
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_savings_balance, 0)."
+
+																		</a>
+																			
+																	</div>
+
+																	<div class='counter-title'>Savings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_current_balance, 0)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Checkings</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													";
+												else if($community_id == 2)
+													echo "
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+														</div>
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																		
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
+
+																		</a>
+																			
+																	</div>
+
+																	<div class='counter-title'>Checkings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_savings, 0)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Savings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srsq_third_Account_Balance, 0)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Investments</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													";
+
+											?>
+
 										</div>
 
 									</div>
@@ -440,6 +841,27 @@
 
 													<div class='counter h6'>
 
+														<?php
+
+															$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
+
+															if($email_homes > 0)
+																echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
+															else
+																echo "<div class='counter-number'>".$email_homes."</div>";
+
+														?>
+
+														<div class='counter-title'>Email Signup</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
 														<div class='counter-number'>
 															
 															<a href='campaigns.php'>
@@ -450,7 +872,7 @@
 																
 														</div>
 
-														<div class='counter-title'>Campaigns</div>
+														<div class='counter-title'>Community Notifications</div>
 
 													</div>
 
@@ -581,7 +1003,7 @@
 										
 										<div class="special-heading m-b-40">
 									
-											<h4><i class="fa fa-dollar"></i> Quickbooks Reports</h4>
+											<h4><i class="fa fa-dollar"></i> Finance Dashboard</h4>
 						
 										</div>
 
@@ -593,6 +1015,1232 @@
 									
 											<h4><i class="fa fa-area-chart"></i> Yearly Reports - <?php echo date('Y'); ?></h4>
 						
+										</div>
+
+										<div class='container'>
+
+											<div class='row'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>January<br>01</h3>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jan_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jan_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-01-16' AND process_date<='$year-01-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-01-01' AND assessment_date<='$year-01-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>February<br>02</h3>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $feb_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $feb_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-02-16' AND process_date<='$year-02-$feb_days' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-02-01' AND assessment_date<='$year-02-$feb_days' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+											</div>
+
+											<br>
+											<hr>
+											<br>
+
+											<div class='row'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>March<br>03</h3>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $mar_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $mar_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-03-16' AND process_date<='$year-03-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-03-01' AND assessment_date<='$year-03-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>April<br>04</h3>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $apr_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $apr_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-04-16' AND process_date<='$year-04-30' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-04-01' AND assessment_date<='$year-04-30' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+											</div>
+
+											<br>
+											<hr>
+											<br>
+
+											<div class='row'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>May<br>05</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $may_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $may_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-05-16' AND process_date<='$year-05-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-05-01' AND assessment_date<='$year-05-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>June<br>06</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jun_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jun_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-06-16' AND process_date<='$year-06-30' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-06-01' AND assessment_date<='$year-06-30' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+											</div>
+
+											<br>
+											<hr>
+											<br>
+
+											<div class='row'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>July<br>07</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jul_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $jul_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-07-16' AND process_date<='$year-07-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-07-01' AND assessment_date<='$year-07-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>August<br>08</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $aug_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $aug_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-08-16' AND process_date<='$year-08-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-08-01' AND assessment_date<='$year-08-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+											</div>
+
+											<br>
+											<hr>
+											<br>
+
+											<div class='row'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>September<br>09</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $sep_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $sep_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-09-16' AND process_date<='$year-09-30' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-09-01' AND assessment_date<='$year-09-30' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>October<br>10</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $oct_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $oct_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-10-16' AND process_date<='$year-10-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-10-01' AND assessment_date<='$year-10-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+											</div>
+
+											<br>
+											<hr>
+											<br>
+
+											<div class='row'>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>November<br>11</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $nov_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $nov_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-11-16' AND process_date<='$year-11-30' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-11-01' AND assessment_date<='$year-11-30' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+												
+													<div class='row'>
+
+														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+
+															<h5 class='h5'>December<br>12</h5>
+
+														</div>
+
+														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Amount Received<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $dec_amount_received; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='progress-item col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+												
+																	<div class='progress-title'>Members Paid<br><br><br></div>
+																	
+																	<div class='progress'>
+																		
+																		<div class='progress-bar progress-bar-brand progress-bar-striped progress-bar-animated' aria-valuenow='<?php echo $dec_members_paid; ?>' role='progressbar' aria-valuemin='0' aria-valuemax='100'><span class='pb-number-box'><span class='pb-number'></span>%</span></div>
+																	
+																	</div>
+
+																</div>
+
+															</div>
+
+															<hr>
+
+															<div class='row'>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-12-16' AND process_date<='$year-12-31' AND payment_status_id=1"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Late Payments</div>
+
+																	</div>
+
+																</div>
+
+																<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																	<div class='counter h6'>
+
+																		<div class='counter-number'>
+
+																			<?php
+
+																				echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_charges WHERE community_id=$community_id AND assessment_date>='$year-12-01' AND assessment_date<='$year-12-31' AND assessment_rule_type_id=9"));
+
+																			?>
+
+																		</div>
+
+																		<div class='counter-title'>Board Write Offs</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+												
+												</div>
+
+											</div>
+
+
+
 										</div>
 
 									</div>

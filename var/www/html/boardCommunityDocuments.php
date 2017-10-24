@@ -1,12 +1,18 @@
+<?php
+
+  ini_set("session.save_path","/var/www/html/session/");
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
+
 <html>
+
   <head>
     
     <?php
-
-      ini_set("session.save_path","/var/www/html/session/");
-
-      session_start();
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
@@ -538,7 +544,7 @@
                                 else
                                   $category = 'Others';
 
-                                echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$date_of_upload</a></td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td></tr>";
+                                echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$date_of_upload</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$desc</a></td></tr>";
 
                               }
 

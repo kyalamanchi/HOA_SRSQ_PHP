@@ -4,7 +4,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    <style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
 .switch {
   position: relative;
   display: inline-block;
@@ -53,8 +55,39 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+[hidden] {
+  display: none !important;
+}
+.disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+}
 </style>
 <script type="text/javascript">
+var fileData  = "";
+var fileName = "";
+var x = 0;
+function getFileData()
+{
+  var file = document.getElementById("fileInput").files[0];
+  if ( file ){
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function (evt) {
+        fileData =evt.target.result.split(',')[1];
+        x = 1;
+        document.getElementById("agreementTitle").value  = fileName.split('.')[0];
+        $("#docSelection").addClass("disabledbutton");
+        return fileData;
+    }
+    reader.onerror = function (evt) {
+        fileData = "Error";
+        x = 0;
+        return fileData;
+    }
+}
+}
+
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -100,7 +133,7 @@ function changeEmail(){
   showPleaseWait();
   var selectedHoaID = $("#hoaID").find("option:selected").text();
   var request = new XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/getEmails.php",true);
+  request.open("POST","https://www.hoaboardtime.com/getEmails.php",true);
   request.send(selectedHoaID);
   request.onreadystatechange = function (){
       if (request.readyState == XMLHttpRequest.DONE) {
@@ -124,6 +157,70 @@ function changeEmail(){
   }
 }
 function sendData(){
+
+  if ( Boolean(x) ){
+    var selectedEmails = document.getElementById("emails").value;
+  if ( !selectedEmails ){
+    alert("One or more required fields empty");
+    return;
+  }
+  var selectedHoaID = $("#hoaID").find("option:selected").text();
+  var agreementTitle = document.getElementById('agreementTitle').value;
+  var ccEmails = document.getElementById('ccEmails').value;
+  var signatureType  = document.getElementById('signatureType').value;
+  var role = document.getElementById('signerRole').value;
+  var signatureFlow = document.getElementById('signatureFlow').value;
+  var customMessage = document.getElementById('customMessage').value;
+  var completeInOrder = $('#completeInOrder').is(':checked');
+  var enablePassword = $('#enablePassword').is(':checked');
+  var setPassword = document.getElementById('authPassword').value;
+  if ( enablePassword && !setPassword){
+    alert("One or more required fields empty");
+  }
+  if ( !emails ){
+    alert("One or more required fields is empty");
+  }
+  else {
+  jsonObj = [];
+  item = {};
+  item["file_data"] =  fileData;
+  item["agreementTitle"] = agreementTitle;
+  item["emailAddresses"] = selectedEmails;
+  item["ccAddresses"] = ccEmails;
+  item["signType"] = signatureType;
+  item["roleType"] = role;
+  item["signFlow"] = signatureFlow;
+  item["customMessage"] = customMessage;
+  item["completeInOrder"] = completeInOrder;
+  item["passwordStatus"] = enablePassword;
+  item["setPassword"] = setPassword;
+  item["hoaID"] = selectedHoaID;
+  jsonObj.push(item);
+  lol =  JSON.stringify(jsonObj);
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://www.hoaboardtime.com/adobeSign3.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(lol);
+  showPleaseWait();
+  request.onreadystatechange = function () {
+        if (request.readyState == XMLHttpRequest.DONE) {
+            hidePleaseWait();
+            // alert(request.responseText);
+            if ( request.responseText.includes("An error occured") ){
+              swal("An error occured",request.responseText.split('^')[1],"error");
+            }
+            else {
+              swal("Agreement Created","Agreement ID is "+request.responseText,"success");
+            }
+        }
+  }
+  }
+
+  }
+
+
+
+  else {
   var documentCategory = document.getElementById('documentCategory').value;
   if ( documentCategory == ""){
     alert("One or more required fields empty");
@@ -175,7 +272,7 @@ function sendData(){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "https://hoaboardtime.com/adobeSign2.php", true);
+  request.open("POST", "https://www.hoaboardtime.com/adobeSign2.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   showPleaseWait();
@@ -186,6 +283,10 @@ function sendData(){
         }
         }
   }
+}
+
+
+
 //  var documentName = document.getElementById('documentType').value;
 //  var agreementTitle = document.getElementById('agreementTitle').value;
 //  var emailAddresses = document.getElementById('emails').value;
@@ -208,6 +309,8 @@ function sendData(){
 }
 function updateName(){
   document.getElementById("agreementTitle").value = $("#documentType").find("option:selected").text();
+  $("#fileUpload").addClass("disabledbutton");
+
 }
 function changeOptions(){
 $("#documentType").find('option').remove();
@@ -221,10 +324,10 @@ if ( selectedHoaID){
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
   if( selectedHoaID == "Library Document"){
-  request.open("POST", "https://hoaboardtime.com/getLibraryDocuments.php", true);
+  request.open("POST", "https://www.hoaboardtime.com/getLibraryDocuments.php", true);
   }
   else {
-   request.open("POST", "https://hoaboardtime.com/getTransientDocuments.php", true); 
+   request.open("POST", "https://www.hoaboardtime.com/getTransientDocuments.php", true); 
   }
   request.setRequestHeader("Content-type", "application/json");
   showPleaseWait();
@@ -249,13 +352,17 @@ updateName();
 }
 </script>
   </head>
-  <div class="container">
-    <div class="row">
       <h2>Adobe Sign - Send Agreement</h2>
-      <hr />
-    </div>
+      <hr/>
+    <div class="container">
+      <h4>DOCUMENT SELECTION</h4>
+      <hr>
+
+    <div id="docSelection">
+    <u><h4>Choose Existing Document</h4></u>
+    <br>
     <div class="row-fluid" style="float: left;">
-      <h4>Type of document</h4>
+      <h5>Type of document</h5>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
         <option></option>
         <option data-subtext="Can be prefilled">Transient Document</option>
@@ -263,13 +370,35 @@ updateName();
       </select>
     </div>
     <div class="row-fluid" style="float: left;padding-left: 10">
-      <h4>Select document to send</h4>
+      <h5>Select document to send</h5>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentType" onchange="updateName();">
       </select>
     </div>
     <div style="clear: both;"></div>
+  </div>
+    <h4><center>OR</center><h4>
+    <div id="fileUpload">
+      <u><h4>Upload New Document</h4></u>
+      <br>
+      <h4 id="label"></h4>
+      <label class="btn btn-default" >
+      Browse <input type="file" id="fileInput" hidden>
+      </label>
+    </div>
+     <script type="text/javascript">
+        document.getElementById('fileInput').onchange = function () {
+          var f =  this.value;
+          f = f.replace(/.*[\/\\]/, '');
+          fileName  = f;
+          document.getElementById("label").innerHTML = "Selected File : "+f;
+          getFileData();
+        };
+      </script>
+    <br>
+    <h4>RECIPIENT SELECTION</h4>
+      <hr>
     <div class="row-fluid">
-      <h4>Choose HOA ID</h4>
+      <h5>Select HOA ID</h5>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="hoaID" onchange="changeEmail();">
       <?php
         echo '<option></option>';
@@ -280,11 +409,14 @@ updateName();
       </select>
     </div>
       <div style="width: 35%;">
-      <h4>Email(s)</h4>
+      <h5>Email(s)</h5>
       <input type="email" class="form-control" id="emails" aria-describedby="emailHelp" placeholder="Enter email" >
       <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
       </div>
       <br>
+      <br> 
+      <h4>AGREEMENT CONFIGURATION</h4>
+      <hr>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
       <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 35%">

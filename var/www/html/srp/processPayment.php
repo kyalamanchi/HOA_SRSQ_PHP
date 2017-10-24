@@ -75,6 +75,17 @@
 								<h1 class="h5">Process Payments</h1>
 							
 							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-users'></i> Board</li>
+									<li class="breadcrumb-item active">Process Payments</li>
+
+								</ol>
+
+							</div>
 						
 						</div>
 						

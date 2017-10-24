@@ -408,7 +408,6 @@
                             $fiscal_year_start = $row['fiscal_year_start'];
                             $fiscal_year_end = $row['fiscal_year_end'];
                             $notes = $row['notes'];
-
                             $result2 = pg_query("SELECT * FROM community_disclosure_type WHERE id=".$type_id);
                             $row2 = pg_fetch_assoc($result2);
 
@@ -418,6 +417,11 @@
                             $name = $row2['name'];
                             $desc = $row2['desc'];
                             $civilcode_section = $row2['civilcode_section'];
+
+                            if ( $row['document_id'] ){
+                              $notes = '<a href="https://hoaboardtime.com/getDocumentPreviewTest.php?path='.$row['document_id'].'&cid='.$community_id.'&desc='.$desc.'" target="_blank">View Document</a>';
+                            }
+
 
                             echo "
 

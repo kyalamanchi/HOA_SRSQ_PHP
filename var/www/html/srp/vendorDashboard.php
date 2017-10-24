@@ -79,6 +79,17 @@
 								<h1 class="h5">Vendor Dashboard <small>- <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 							
 							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-wrench'></i> Vendors</li>
+									<li class="breadcrumb-item active">Vendor Dashboard</li>
+
+								</ol>
+
+							</div>
 						
 						</div>
 						

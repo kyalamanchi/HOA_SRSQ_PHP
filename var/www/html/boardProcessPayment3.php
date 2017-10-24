@@ -1,16 +1,25 @@
+<?php
+
+  ini_set("session.save_path","/var/www/html/session/");
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
+
 <html>
+
     <head>
+
         <title><?php echo $_SESSION['hoa_community_name']; ?></title>
+
     </head>
+
     <body>
+
         <?php
-            ini_set("session.save_path","/var/www/html/session/");
-
-            session_start();
-
-            ini_set('max_execution_time', 180);
-
+            
             $id = $_POST['id'];
             $payment_id = $_POST['payment_id'];
             $home_id = $_POST['home_id'];

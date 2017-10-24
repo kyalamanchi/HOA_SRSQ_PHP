@@ -94,6 +94,15 @@ function hidePleaseWait() {
 }
 <?php
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+$homeQuery = "SELECT * FROM homeid WHERE community_id=2";
+$homeQueryResult = pg_query($homeQuery);
+$homeInfoArray = array();
+
+while ( $r = pg_fetch_assoc($homeQueryResult) ){
+  $homeInfoArray[$r['home_id']] = $r['address1'];
+}
+
+
 $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
         $hoaidqueryresult = pg_query($hoaidquery);
         $hoaIDArray = array();
@@ -102,8 +111,9 @@ $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
           $name = $row['firstname'];
           $name = $name.' ';
           $name = $name.$row['lastname'];
-         $hoaIDArray[$row['hoa_id']]  = $name;
+          $hoaIDArray[$row['hoa_id']]  = $name;
          $userEmails[$row['hoa_id']] = $row['email'];
+         $homeIDArray[$row['hoa_id']] = $row['home_id'];
         }
 $inspectionCategoryQuery = "SELECT * FROM INSPECTION_CATEGORY ";
 $inspectionCategoryQueryResult = pg_query($inspectionCategoryQuery);
@@ -276,9 +286,10 @@ function getSubCategory(){
   }
 }
 function quickSendEmail(){
+
 showPleaseWait();
-var qNotice = $("#qNotice").find("option:selected").text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
+var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
+var qHoaID = $("#qhoaID").find("option:selected").attr("id");
 item = {};
 item["hoa_id"] = qHoaID;
 item["notice_name"] = qNotice;
@@ -299,9 +310,10 @@ request.onreadystatechange = function(){
 }
 }
 function quickSendUSPS(){
+
 showPleaseWait();
-var qNotice = $("#qNotice").find("option:selected").text();
-var qHoaID = $("#qhoaID").find("option:selected").text();
+var qNotice = $("input:radio[name=notice]:checked").closest('label').text();
+var qHoaID = $("#qhoaID").find("option:selected").attr("id");
 item = {};
 item["hoa_id"] = qHoaID;
 item["notice_name"] = qNotice;
@@ -322,6 +334,11 @@ request.onreadystatechange = function(){
 }
 }
 </script>
+<style type="text/css">
+  .data-subtext{
+     color: white; 
+  }
+</style>
   </head>
 <body>
   <h1>Inspection Management</h1>
@@ -330,27 +347,28 @@ request.onreadystatechange = function(){
     <h2>Quick Send</h2>
     <hr>
       <div class="row-fluid">
-      <h4>HOA ID</h4>
+      <h4>HOME ID</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qhoaID" onchange="">
       <?php
         echo '<option></option>';
-        foreach ($hoaIDArray as $key => $value) {
-          echo '<option data-subtext="'.$value.'">'.$key.'</option>';
+        foreach ($homeIDArray as $key => $value) {
+          echo '<option data-subtext="'.$hoaIDArray[$key]."(".$key.")".'" id="'.$key.'">'.$value."-".$homeInfoArray[$value].'</option>';
         }
       ?>
       </select>
     </div>
     <br>
-    <div class="row-fluid">
+    <div>
       <h4>Notice</h4>
-      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="qNotice">
-      <option></option>
-      <option>Trash Can</option>
-      <option>Basketball</option>
-      <option>Unsightly Items</option>
-      <option>RV</option>
-      <option>Garage Use</option>
-      </select>
+    <div class="btn-group" data-toggle="buttons" > 
+    <label class="btn btn-default"><input id="hoaid" type="radio" name="notice">Trash Can</label>
+     <label class="btn btn-default"><input id="fname" type="radio" name="notice">Basketball</label>
+     <label class="btn btn-default"><input id="lname" type="radio" name="notice">Unsightly Item</label>
+    <label class="btn btn-default"><input id="lname" type="radio" name="notice">RV</label>
+    <label class="btn btn-default"><input id="lname" type="radio" name="notice">Garage Use</label>
+    </div>
+      <br>
+      <br>
     </div>
     <br>
     <button type="button" class="btn btn-primary" onclick="quickSendEmail();">Email Statement</button>
@@ -370,8 +388,8 @@ request.onreadystatechange = function(){
       </select>
     </div>
       <div style="width: 25%;float: left;padding-left: 10px;">
-      <h4>HOME ID</h4>
-      <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ID" disabled="disabled" >
+      <h4>HOME ADDRESS</h4>
+      <input type="email" class="form-control" id="home_id" aria-describedby="homeID" placeholder="HOME ADDRESS" disabled="disabled" >
       <small id="emailHelp" class="form-text text-muted"></small>
       </div>
       <div style="clear: both;"></div>

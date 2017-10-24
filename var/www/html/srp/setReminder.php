@@ -75,6 +75,17 @@
 								<h1 class="h5">Set Reminders</h1>
 							
 							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-users'></i> Board</li>
+									<li class="breadcrumb-item active">Set Reminder</li>
+
+								</ol>
+
+							</div>
 						
 						</div>
 						

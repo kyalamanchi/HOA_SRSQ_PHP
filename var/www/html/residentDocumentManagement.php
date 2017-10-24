@@ -1,12 +1,18 @@
+<?php
+
+  ini_set("session.save_path","/var/www/html/session/");
+
+  session_start();
+
+?>
+
 <!DOCTYPE html>
+
 <html>
+
   <head>
     
     <?php
-
-        ini_set("session.save_path","/var/www/html/session/");
-
-        session_start();
 
         pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
@@ -47,7 +53,7 @@
     
     <div class="wrapper">
 
-      	<header class="main-header">
+        <header class="main-header">
         
           <a class="logo">
           
@@ -190,9 +196,9 @@
 
         <?php
 
-        	$year = date("Y");
-        	$month = date("m");
-        	$end_date = date("t");
+          $year = date("Y");
+          $month = date("m");
+          $end_date = date("t");
 
           $result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id");
 
@@ -208,7 +214,7 @@
           
           <div class="row container-fluid">
 
-          	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="row container-fluid table-responsive" style="background-color: white;">
 
@@ -254,7 +260,7 @@
                         if($uploaded_date != "")
                           $uploaded_date = date('m-d-Y', strtotime($uploaded_date));
 
-                        echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreview.php?path=$document_url&desc=$desc' target='_blank'>$desc</a></td><td>$category</td></tr>";
+                        echo "<tr><td>$uploaded_date</td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$desc</a></td><td>$category</td></tr>";
 
                       }
 

@@ -83,6 +83,17 @@
 								<h1 class='h5'>Customer Balance</h1>
 							
 							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-street-view'></i> Users</li>
+									<li class="breadcrumb-item active">Balance</li>
+
+								</ol>
+
+							</div>
 						
 						</div>
 						

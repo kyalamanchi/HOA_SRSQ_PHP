@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <title>Automated Jobs</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
     function updatePayments(){
         document.getElementById("payResult").innerHTML = "";
-        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=1";
+        var url = "https://hoaboardtime.com/automationBackgroundHandlerSRP.php?id=1";
         var source = new EventSource(url);
         source.onmessage  = function(e){
             if ( e.data == "Done!!!"){
@@ -19,8 +21,8 @@
         }
     }
     function updateAgreements(){
-        document.getElementById("payResult").innerHTML = "";
-        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=2";
+        document.getElementById("agreementResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandlerSRP.php?id=2";
         var source = new EventSource(url);
         source.onmessage  = function(e){
             if ( e.data == "Done!!!"){
@@ -31,24 +33,70 @@
         }
     }
     function updateBillingStatements(){
-        document.getElementById("payResult").innerHTML = "";
-        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=3";
+        document.getElementById("bsResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandlerSRP.php?id=3";
         var source = new EventSource(url);
         source.onmessage  = function(e){
             if ( e.data == "Done!!!"){
                 source.close();
-                document.getElementById("bsltime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("bsltime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("bsResult").innerHTML += event.data + "<br>";
             }
             document.getElementById("bsResult").innerHTML += event.data + "<br>";
         }
     }
+    function updateAll(){
+      document.getElementById("agreementsButton").disabled = true;
+      document.getElementById("paymentsButton").disabled  = true;
+      document.getElementById("billingStatementsButton").disabled = true;
+      document.getElementById("emailsButton").disabled = true;
+      document.getElementById("runAllJobsButton").disabled = true;
+      swal("Payments,Agreements,Emails sent and Billing Statements will be updated.","","success");
+      var request = new XMLHttpRequest();
+      request.open("POST","https://hoaboardtime.com/automationBackgroundHandlerSRP.php",true);
+      request.send(null);
+      request.onreadystatechange  = function(){
+      if ( request.readyState == XMLHttpRequest.DONE ){
+          swal("Updation Complete","","success");
+          document.getElementById("agreementsButton").disabled = false;
+          document.getElementById("paymentsButton").disabled  = false;
+          document.getElementById("billingStatementsButton").disabled = false;
+          document.getElementById("emailsButton").disabled = false;
+          document.getElementById("runAllJobsButton").disabled = false;
+      }
+    }
+  }
+  function updateEmailsSent(){
+
+    document.getElementById("emailResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandlerSRP.php?id=4";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("eltime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("emailResult").innerHTML += event.data + "<br>";
+            }
+            document.getElementById("emailResult").innerHTML += event.data + "<br>";
+        }
+  }
 </script>
+<style type="text/css">
+  .pull-right{
+    float: right;
+  }
+</style>
 </head>
 <body>  
     <h1 style="padding-left: 10px;">Automated Jobs</h1>
     <hr>
     <br>
     <div class="container">
+        <div class="pull-right">
+        <button type="button" class="btn btn-outline-primary" id="runAllJobsButton" onclick="updateAll();">Run All Jobs</button>
+        </div>
+        <br>
+        <br>
         <div id="accordion" role="tablist" aria-multiselectable="true">
   <div class="card">
     <div class="card-header" role="tab" id="headingOne">
@@ -59,7 +107,7 @@
       </h5>
     </div>
 
-    <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
         <?php
         $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
@@ -71,7 +119,7 @@
         Updates transactions, paymethods, deposits and deposit  transactions.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" onclick="updatePayments();">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="paymentsButton" onclick="updatePayments();">Update Now</button>
         <div id="payResult">
             
         </div>
@@ -99,7 +147,7 @@
          Updates agreements, mega sign agreements and mega sign child agreements.
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" onclick="updateAgreements();">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="agreementsButton" onclick="updateAgreements();">Update Now</button>
         <div id="agreementResult">
             
         </div>
@@ -127,12 +175,44 @@
          <br>SRSQ Path /Billing_Statements/SRSQ/2017/ . 
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary">Update Now</button>
+        <button type="button" class="btn btn-outline-primary" id="billingStatementsButton" onclick="updateBillingStatements();">Update Now</button>
         <div id="bsResult">
         </div>
       </div>
     </div>
   </div>
+
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingFour">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <h4>Emails Sent</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="card-block">
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 4 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="eltime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+         Inserts sent email(s) data. If exists, updates status.
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" id="emailsButton" onclick="updateEmailsSent();">Update Now</button>
+        <div id="emailResult">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
 </div>  
     </div>
 </body>

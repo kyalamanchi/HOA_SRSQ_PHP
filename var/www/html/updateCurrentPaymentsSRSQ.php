@@ -53,7 +53,12 @@ foreach ($result->results as $transaction) {
 			$paymentStatusIDUpdate = 10;
 		}
 		$val = $val+1;
-		$updateQuery = "UPDATE current_payments SET payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."'";
+		$transactionAmount = $transaction->authorization_amount;
+		if ($transaction->action == 'credit' || $transaction->action == 'CREDIT'){
+			$transactionAmount = -$transaction->authorization_amount;
+		}
+
+		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."'";
 		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
 		pg_query($updateQuery);
 		$updateCount = $updateCount + 1;
@@ -86,9 +91,14 @@ foreach ($result->results as $transaction) {
 		else if ( $transaction->status == 'ready' ){
 			$paymentStatusID = 10;
 		}
+		$transactionAmount = $transaction->authorization_amount;
+		if ($transaction->action == 'credit' || $transaction->action == 'CREDIT'){
+			$transactionAmount = -$transaction->authorization_amount;
+		}
+
 		if ( $hoaID ){
 		$paymentID = $hoaID.$hoaIDSArray[$hoaID];
-		$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transaction->authorization_amount.",'".$transaction->received_date."',".$transaction->response->authorization_code.",2,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transaction->transaction_id."')";
+		$insertQuery = "INSERT INTO current_payments (\"payment_id\",\"home_id\",\"payment_type_id\",\"amount\",\"process_date\",\"document_num\",\"community_id\",\"hoa_id\",\"referred_to_attorney\",\"payment_status_id\",\"transaction_balance\",\"last_updated_on\",\"email_notification_sent\",\"updated_by\",\"bank_transaction_id\") VALUES(".$paymentID.",".$hoaIDSArray[$hoaID].",1,".$transactionAmount.",'".$transaction->received_date."',".$transaction->response->authorization_code.",2,".$hoaID.",'FALSE',".$paymentStatusID.",0,'".date("Y-m-d")."','TRUE',401,'".$transaction->transaction_id."')";
 		
 		pg_query($insertQuery);
 		$insertCount  = $insertCount + 1;

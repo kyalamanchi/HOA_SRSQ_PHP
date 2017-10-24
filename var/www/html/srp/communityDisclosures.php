@@ -76,8 +76,19 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Community Disclosures</h1>
+								<h1 class="h5">Disclosures</h1>
 							
+							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li class="breadcrumb-item"><i class='fa fa-institution'></i> Community</li>
+									<li class="breadcrumb-item active">Disclosures</li>
+
+								</ol>
+
 							</div>
 						
 						</div>
@@ -97,8 +108,6 @@
 
 								<thead>
 									
-									<th>Legal Date From</th>
-									<th>Legal Date Until</th>
 									<th>Actual Date</th>
 									<th>Disclosure Type</th>
 									<th>Description</th>
@@ -116,8 +125,6 @@
 										while($row = pg_fetch_assoc($result))
 										{
 
-											$legal_date_from = $row['legal_date_from'];
-											$legal_date_until = $row['legal_date_until'];
 											$actual_date = $row['actual_date'];
 											$disclosure_type = $row['type_id'];
 											$delivery_type = $row['delivery_type'];
@@ -142,16 +149,10 @@
 											if($legal_url != '')
 												$disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
 
-											if($legal_date_from != '')
-												$legal_date_from = date('m-d-Y', strtotime($legal_date_from));
-											
-											if($legal_date_until != '')
-												$legal_date_until = date('m-d-Y', strtotime($legal_date_until));
-
 											if($actual_date != '')
 												$actual_date = date('m-d-Y', strtotime($actual_date));
 
-	                          				echo "<tr><td>$legal_date_from</td><td>$legal_date_until</td><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$notes</td></tr>";
+	                          				echo "<tr><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$notes</td></tr>";
 
 										}
 

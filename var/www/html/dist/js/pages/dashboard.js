@@ -124,6 +124,7 @@ $(function () {
 
   /* Morris.js Charts */
   // Sales chart
+  try {
   var area = new Morris.Area({
     element: 'revenue-chart',
     resize: true,
@@ -145,6 +146,10 @@ $(function () {
     lineColors: ['#a0d0e0', '#3c8dbc'],
     hideHover: 'auto'
   });
+  }
+  catch(err){
+    
+  }
   var line = new Morris.Line({
     element: 'line-chart',
     resize: true,
