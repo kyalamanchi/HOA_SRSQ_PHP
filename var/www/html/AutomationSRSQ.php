@@ -8,6 +8,29 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
+  function showPleaseWait() {
+    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
+        <div class="modal-dialog">\
+            <div class="modal-content">\
+                <div class="modal-header">\
+                    <h4 class="modal-title">Please wait...</h4>\
+                </div>\
+                <div class="modal-body">\
+                    <div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100%">\
+                      </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>';
+    $(document.body).append(modalLoading);
+    $("#pleaseWaitDialog").modal("show");
+}
+function hidePleaseWait() {
+    $("#pleaseWaitDialog").modal("hide");
+}
     function updatePayments(){
         document.getElementById("payResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandlerSRSQ.php?id=1";
@@ -81,11 +104,13 @@
         }
   }
     function addCharges(){    
+      showPleaseWait();
     var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/addCurrentChargesSRSQ.php",true);
       request.send(null);
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
+        hidePleaseWait();
           if ( request.responseText.includes("CHARGES ADDED") ){
             swal(request.responseText,"","success");
           }
