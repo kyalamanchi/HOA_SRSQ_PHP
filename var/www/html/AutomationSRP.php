@@ -2,37 +2,17 @@
 <html>
     <head>
       <title>Automated Jobs</title>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+
+
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
-  function showPleaseWait() {
-    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
-        <div class="modal-dialog">\
-            <div class="modal-content">\
-                <div class="modal-header">\
-                    <h4 class="modal-title">Please wait...</h4>\
-                </div>\
-                <div class="modal-body">\
-                    <div class="progress">\
-                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100%">\
-                      </div>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-    </div>';
-    $(document.body).append(modalLoading);
-    $("#pleaseWaitDialog").modal("show");
-}
-function hidePleaseWait() {
-    $("#pleaseWaitDialog").modal("hide");
-}
     function updatePayments(){
         document.getElementById("payResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandlerSRP.php?id=1";
@@ -106,13 +86,11 @@ function hidePleaseWait() {
         }
   }
     function addCharges(){  
-    showPleaseWait();  
     var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/addCurrentChargesSRP.php",true);
       request.send(null);
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
-        hidePleaseWait();
           if ( request.responseText.includes("CHARGES ADDED") ){
             swal(request.responseText,"","success");
           }
