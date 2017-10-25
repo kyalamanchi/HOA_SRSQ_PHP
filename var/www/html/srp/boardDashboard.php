@@ -346,7 +346,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 											<div class='row module-gray'>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -366,7 +366,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -386,11 +386,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-											</div>
-
-											<div class='row module-gray'>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -416,7 +412,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -442,7 +438,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -468,7 +464,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
