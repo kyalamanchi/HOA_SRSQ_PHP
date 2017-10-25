@@ -2,7 +2,7 @@
 	
 	ini_set("session.save_path","/var/www/html/session/");
 	session_start();
-	
+
 ?>
 <!DOCTYPE html>
 
@@ -193,7 +193,7 @@
 													
 										<?php 
 
-											echo "<a target='_blank' href='accountStatement.php?home_id=$home_id&hoa_id=$hoa_id&name=$username'><img src='account_statement.png' alt='Account Statement Icon'></a>";
+											echo "<a target='_blank' href='accountStatement.php?home_id=$home_id&hoa_id=$hoa_id&community_id=$community_id'><img src='account_statement.png' alt='Account Statement Icon'></a>";
 
 										?>
 														
