@@ -188,7 +188,7 @@
 
 									<div class='counter-number'>
 													
-										<a href='boardOfDirectors.php'>
+										<a target='_blank' href="https://hoaboardtime.com/boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$_SESSION['hoa_username']">
 
 											<img src='account_statement.png' alt='Account Statement Icon'>
 
