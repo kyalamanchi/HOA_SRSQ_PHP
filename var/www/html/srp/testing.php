@@ -182,7 +182,7 @@ function hidePleaseWait() {
 }
 <?php
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
-$hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
+$hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=$community_id";
         $hoaidqueryresult = pg_query($hoaidquery);
         $hoaIDArray = array();
         $userEmails = array();
