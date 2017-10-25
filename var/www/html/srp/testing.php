@@ -503,7 +503,7 @@ updateName();
       <hr>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
-      <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 35%">
+      <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 55%">
       <small id="titleHelp" class="form-text text-muted">This will appear in subject of email being sent</small>
       <br>
       <label for="emails">CCS</label>
