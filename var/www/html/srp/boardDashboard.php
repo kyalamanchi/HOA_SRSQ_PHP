@@ -875,7 +875,37 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 															
 															<a href='campaigns.php'>
 
-																<i class='fa fa-envelope'></i>
+																<?php
+
+																	$campaigns = 0;
+
+																	if($community_id == 1)
+																	{
+
+																		$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
+																		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+
+																	}
+																	else if($community_id == 2)
+																	{
+
+																		$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
+																		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+
+																	}
+										            				
+										            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+										            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+										            
+										            				$result = curl_exec($ch);
+										            				$json_decode = json_decode($result,TRUE);
+
+										            				foreach ($json_decode['campaigns'] as $key ) 
+										            					$campaigns++;
+
+										            				echo $campaigns;
+
+																?>
 
 															</a>
 																
