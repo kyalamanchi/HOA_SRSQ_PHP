@@ -9,20 +9,23 @@
 <!DOCTYPE html>
 
 <html lang="en">
+	
 	<head>
+		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
-<script>
-var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  gtag('config', 'UA-102881886-3', {
-  'custom_map': {'dimension1': dimensionValue}
-});
-  
-</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
+		<script>
+			
+			var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
+			  	window.dataLayer = window.dataLayer || [];
+			  	function gtag(){dataLayer.push(arguments);}
+			  	gtag('js', new Date());
+			  
+			  	gtag('config', 'UA-102881886-3', {
+			  	'custom_map': {'dimension1': dimensionValue}
+			});
+		  
+		</script>
 		
 
 		<?php
@@ -346,7 +349,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 											<div class='row module-gray'>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -354,7 +357,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 															
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($amount_received, 1); ?>
+																<?php echo round($amount_received, 1); ?>%
 
 															</a>
 																
@@ -366,7 +369,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -374,7 +377,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($members_paid, 1); ?>
+																<?php echo round($members_paid, 1); ?>%
 
 															</a>
 
@@ -386,11 +389,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-											</div>
-
-											<div class='row module-gray'>
-
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -416,7 +415,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -442,7 +441,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -468,7 +467,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -879,7 +878,37 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 															
 															<a href='campaigns.php'>
 
-																<i class='fa fa-envelope'></i>
+																<?php
+
+																	$campaigns = 0;
+
+																	if($community_id == 1)
+																	{
+
+																		$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
+																		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+
+																	}
+																	else if($community_id == 2)
+																	{
+
+																		$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
+																		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+
+																	}
+										            				
+										            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+										            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+										            
+										            				$result = curl_exec($ch);
+										            				$json_decode = json_decode($result,TRUE);
+
+										            				foreach ($json_decode['campaigns'] as $key ) 
+										            					$campaigns++;
+
+										            				echo $campaigns;
+
+																?>
 
 															</a>
 																
@@ -899,7 +928,8 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 															
 															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
 
-																<i class='fa fa-paper-plane'></i>
+																<!--i class='fa fa-file'></i-->
+																<img src='send_agreements.png' alt='Send Agreements'>
 
 															<?php if($community_id == 2) echo "</a>"; ?>
 																

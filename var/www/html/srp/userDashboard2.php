@@ -546,27 +546,31 @@
 
 														<?php 
 
-															$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+															$result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
-															$name = $row['fname'];
-															$name .= " ";
-															$name .= $row['lname'];
-															$role_type = $row['role_type_id'];
-															$relationship = $row['relationship_id'];
-															$email = $row['email'];
-															$cell_no = $row['cell_no'];
+															while($row = pg_fetch_assoc($result))
+															{
+																
+																$name = $row['fname'];
+																$name .= " ";
+																$name .= $row['lname'];
+																$role_type = $row['role_type_id'];
+																$relationship = $row['relationship_id'];
+																$email = $row['email'];
+																$cell_no = $row['cell_no'];
 
-															$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
-															$role_type = $row['name'];
+																$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
+																$role_type = $row['name'];
 
-															$row = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
-															$relationship = $row['name'];
+																$row = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
+																$relationship = $row['name'];
 
-															$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-															$home = $row['address1'];
+																$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+																$home = $row['address1'];
 
-															echo "<tr><td>$name</td><td>$home</td><td>$role_type</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
+																echo "<tr><td>$name</td><td>$home</td><td>$role_type</td><td>$relationship</td><td>$email</td><td>$cell_no</td></tr>";
 
+															}
 														?>
 														
 													</tbody>

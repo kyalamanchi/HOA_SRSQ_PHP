@@ -1,25 +1,29 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+	ini_set("session.save_path","/var/www/html/session/");
+	session_start();
+
 ?>
 <!DOCTYPE html>
 
 <html lang='en'>
 
 	<head>
+		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
-<script>
-var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  gtag('config', 'UA-102881886-3', {
-  'custom_map': {'dimension1': dimensionValue}
-});
-  
-</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
+		<script>
+			
+			var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
+			  	window.dataLayer = window.dataLayer || [];
+			  	function gtag(){dataLayer.push(arguments);}
+			  	gtag('js', new Date());
+			  
+			  	gtag('config', 'UA-102881886-3', {
+			  	'custom_map': {'dimension1': dimensionValue}
+			});
+		  
+		</script>
 
 		<?php
 
@@ -35,6 +39,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
 			$user_id = $_SESSION['hoa_user_id'];
+			$username = $_SESSION['hoa_username'];
 			$today = date('Y-m-d');
 
 			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
@@ -175,6 +180,26 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 									?>
 
 									<div class='counter-title'>Account Balance</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+
+											echo "<a target='_blank' href='accountStatement.php?home_id=$home_id&hoa_id=$hoa_id&community_id=$community_id'><img src='account_statement.png' alt='Account Statement Icon'></a>";
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Account Statement</div>
 
 								</div>
 

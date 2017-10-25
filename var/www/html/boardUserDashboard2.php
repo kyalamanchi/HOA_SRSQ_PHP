@@ -702,7 +702,7 @@
                                 while($r = pg_fetch_assoc($res))
                                 {
 
-                                  $role_type = $r['role_type_id'];
+                                  $person_role_type = $r['role_type_id'];
                                   $relationship = $r['relationship_id'];
                                   $person_email = $r['email'];
                                   $person_cell_no = $r['cell_no'];
@@ -714,8 +714,8 @@
                                   $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
                                   $address = $r1['address1'];
 
-                                  $r1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
-                                  $role_type = $r1['name'];
+                                  $r1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role_type"));
+                                  $person_role_type = $r1['name'];
 
                                   $r1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$relationship"));
                                   $relationship = $r1['name'];
@@ -887,7 +887,7 @@
 
                                     ";
 
-                                  echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$role</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
+                                  echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$person_role_type</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
                                 }
 
                               ?>
