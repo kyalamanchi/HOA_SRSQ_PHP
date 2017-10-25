@@ -46,6 +46,8 @@
 			{
 				$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
 
+				$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
+
 				header("Location: https://hoaboardtime.com/backendBalance.php");
 				
 			}
@@ -79,9 +81,20 @@
 				$num_row = pg_num_rows($result);
 
 				if($num_row == 0)
+				{
+					
+					$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
+
 					header("Location: https://hoaboardtime.com/residentDashboard.php");
+
+				}
 				else
+				{
+
+					$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
+
 					header("Location: https://hoaboardtime.com/boardDashboard.php");
+				}
 
 			}
 		}
