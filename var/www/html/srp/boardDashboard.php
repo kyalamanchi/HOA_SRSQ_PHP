@@ -354,7 +354,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 															
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($amount_received, 1); ?>
+																<?php echo round($amount_received, 1); ?>%
 
 															</a>
 																
@@ -374,7 +374,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($members_paid, 1); ?>
+																<?php echo round($members_paid, 1); ?>%
 
 															</a>
 
