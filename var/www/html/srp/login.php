@@ -48,6 +48,8 @@
 
 			$users = pg_num_rows($result);
 
+			$now = date('Y-m-d');
+
 			if($users)
 			{
 				$row = pg_fetch_assoc($result);
@@ -97,6 +99,8 @@
 
 						$_SESSION['hoa_mode'] = 1;
 
+						$result = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
+
 						header("Location: residentDashboard.php");
 
 					}
@@ -104,6 +108,8 @@
 					{
 						
 						$_SESSION['hoa_mode'] = 2;
+
+						$result = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
 						header("Location: boardDashboard.php");
 
