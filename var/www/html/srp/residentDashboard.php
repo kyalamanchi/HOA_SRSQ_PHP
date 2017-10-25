@@ -1,6 +1,8 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+	ini_set("session.save_path","/var/www/html/session/");
+	session_start();
+	
 ?>
 <!DOCTYPE html>
 
@@ -37,6 +39,7 @@
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
 			$user_id = $_SESSION['hoa_user_id'];
+			$username = $_SESSION['hoa_username'];
 			$today = date('Y-m-d');
 
 			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
@@ -190,7 +193,7 @@
 													
 										<?php 
 
-											echo "<a target='_blank' href='accountStatement.php?home_id=$home_id&hoa_id=$hoa_id'><img src='account_statement.png' alt='Account Statement Icon'></a>";
+											echo "<a target='_blank' href='accountStatement.php?home_id=$home_id&hoa_id=$hoa_id&name=$username'><img src='account_statement.png' alt='Account Statement Icon'></a>";
 
 										?>
 														
