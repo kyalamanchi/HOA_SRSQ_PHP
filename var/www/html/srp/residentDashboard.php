@@ -7,19 +7,21 @@
 <html lang='en'>
 
 	<head>
+		
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
-<script>
-var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  
-  gtag('config', 'UA-102881886-3', {
-  'custom_map': {'dimension1': dimensionValue}
-});
-  
-</script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
+		<script>
+			
+			var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
+			  	window.dataLayer = window.dataLayer || [];
+			  	function gtag(){dataLayer.push(arguments);}
+			  	gtag('js', new Date());
+			  
+			  	gtag('config', 'UA-102881886-3', {
+			  	'custom_map': {'dimension1': dimensionValue}
+			});
+		  
+		</script>
 
 		<?php
 
@@ -175,6 +177,26 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 									?>
 
 									<div class='counter-title'>Account Balance</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<a href='boardOfDirectors.php'>
+
+											<img src='account_statement.png' alt='Account Statement Icon'>
+
+										</a>
+														
+									</div>
+
+									<div class='counter-title'>Account Statement</div>
 
 								</div>
 
