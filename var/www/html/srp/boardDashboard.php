@@ -895,7 +895,7 @@ var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
 															
 															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
 
-																<i class='fa fa-paper-plane'></i>
+																<i class='fa fa-file'></i>
 
 															<?php if($community_id == 2) echo "</a>"; ?>
 																
