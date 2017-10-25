@@ -37,6 +37,7 @@
 			$hoa_id = $_SESSION['hoa_hoa_id'];
 			$home_id = $_SESSION['hoa_home_id'];
 			$user_id = $_SESSION['hoa_user_id'];
+			$username = $_SESSION['hoa_username'];
 			$today = date('Y-m-d');
 
 			$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
@@ -188,11 +189,11 @@
 
 									<div class='counter-number'>
 													
-										<a target='_blank' href="https://hoaboardtime.com/boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$_SESSION['hoa_username']">
+										<?php 
 
-											<img src='account_statement.png' alt='Account Statement Icon'>
+											echo "<a target='_blank' href='https://hoaboardtime.com/boardPrintCustomerInvoice.php?home_id=$home_id&hoa_id=$hoa_id&name=$username'><img src='account_statement.png' alt='Account Statement Icon'></a>";
 
-										</a>
+										?>
 														
 									</div>
 
