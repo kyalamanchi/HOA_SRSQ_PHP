@@ -492,7 +492,7 @@ updateName();
       ?>
       </select>
     </div>
-      <div style="width: 35%;">
+      <div style="width: 60%;">
       <h5>Email(s)</h5>
       <input type="email" class="form-control" id="emails" aria-describedby="emailHelp" placeholder="Enter email" >
       <small id="emailHelp" class="form-text text-muted">Email is filled automatically. Change if incorrect</small>
@@ -503,11 +503,11 @@ updateName();
       <hr>
       <div class="form-group">
         <label for="Agreement Title">Enter Agreement Title</label>
-      <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 55%">
+      <input type="text" class="form-control" id="agreementTitle" aria-describedby="titleHelp" placeholder="Enter Title" style="width: 60%">
       <small id="titleHelp" class="form-text text-muted">This will appear in subject of email being sent</small>
       <br>
       <label for="emails">CCS</label>
-      <input type="email" class="form-control" id="ccEmails" aria-describedby="ccHelp" placeholder="Enter email" style="width: 35%">
+      <input type="email" class="form-control" id="ccEmails" aria-describedby="ccHelp" placeholder="Enter email" style="width: 60%">
       <small id="ccHelp" class="form-text text-muted">Enter multiple emails seperated by space</small>
       </div>
       <span class="help-inline"></span>
@@ -547,7 +547,7 @@ updateName();
     <div style="clear: both;padding-left: 10dp;"></div>
     <div class="form-group">
           <h4>Custom Message</h4>
-          <textarea class="form-control" rows="5" id="customMessage" style="width: 35%"></textarea>
+          <textarea class="form-control" rows="5" id="customMessage" style="width: 60%"></textarea>
     </div>
       <div>
       <h4>Complete in order</h4>
@@ -562,7 +562,7 @@ updateName();
         <input type="checkbox" id="enablePassword" onclick="calc();">
         <span class="slider round"></span>
       </label>
-      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 35%">
+      <input type="password" class="form-control" id="authPassword" aria-describedby="passwordhelp" placeholder="Enter password" disabled="disabled" style="width: 60%">
       <small id="passwordhelp" class="form-text text-muted">Signer needs to enter this password berfore signing</small>
       </div>
       <div style="clear: both;"></div>
