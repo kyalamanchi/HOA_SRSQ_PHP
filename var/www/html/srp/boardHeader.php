@@ -56,6 +56,8 @@
 										<ul class='sub-menu'>
 														
 											<li><a href='communityDisclosures.php'>Disclosures</a></li>
+											<li><a href='communityExpenses.php'>Expenses</a></li>
+											<li><a href='communityIncome.php'>Income</a></li>
 											<li><a href='mailingList.php'>Mailing List</a></li>
 										
 										</ul>
