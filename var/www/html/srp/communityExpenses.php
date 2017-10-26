@@ -108,17 +108,120 @@
 
 								<thead>
 									
-									<th>Actual Date</th>
-									<th>Disclosure Type</th>
-									<th>Description</th>
-									<th>Delivery Type</th>
-									<th>Notes</th>
+									<th>Date</th>
+                        			<th>Type</th>
+                        			<th>Payee</th>
+                        			<th>Category</th>
+                        			<th>Total</th>
 
 								</thead>
 
 								<tbody>
 									
-									
+									<?php
+                        
+                        				if($community_id == 1)
+                        				{  
+
+                          					$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query?minorversion=8');
+                          					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                          					curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539671",oauth_nonce="TTJKx4StAFv",oauth_version="1.0",oauth_signature="hPukL2qGZM2duER7bBV%2BZcMEtNs%3D"'));
+                          					curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                          					curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase startposition 1 maxresults 1000");
+        
+                          					$result = curl_exec($ch);
+                          					$jsonDecode  = json_decode($result,TRUE);
+                          					$queryResponse = $jsonDecode['QueryResponse'];
+                        
+                          					foreach ($queryResponse['Purchase'] as $purchase) {
+                          
+                           					 	echo '<tr><td>';
+                            					print_r(date("m-d-Y",strtotime($purchase['TxnDate'])));
+                            					echo '</td><td>Expenditure</td><td>';
+                            					echo $purchase['EntityRef']['name'];
+                            					echo '</td><td>';
+                            
+                            					$count = 0;
+                            
+                            					foreach ($purchase['Line'] as $line) {
+                              
+                              						$count = $count + 1;
+                              						$category = $line['AccountBasedExpenseLineDetail']['AccountRef']['name'];
+
+                            					}
+                            
+                            					if ( $count == 1) {
+                              
+                              						echo $category;
+                              						$count = 0;
+
+                            					}
+                            					else {
+                              
+                              						echo "-Split-";
+                              						$count = 0;
+
+                            					}
+
+                            					echo '</td><td>';
+                            					print_r("$".number_format($purchase['TotalAmt'],2));
+                            					echo '</td></tr>';
+
+                          					}
+                          
+                        				}
+                        				else if($community_id == 2)
+                        				{  
+
+                          					$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
+                          					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                          					curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506452058",oauth_nonce="cEzWCgQy0l5",oauth_version="1.0",oauth_signature="KXtBMOAC0UjBuczxlE7tPlDyPN0%3D"'));
+                          					curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                          					curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase startposition 1 maxresults 1000");
+        
+                          					$result = curl_exec($ch);
+                          					$jsonDecode  = json_decode($result,TRUE);
+                          					$queryResponse = $jsonDecode['QueryResponse'];
+                        
+                          					foreach ($queryResponse['Purchase'] as $purchase) {
+                          
+                            					echo '<tr><td>';
+                            					print_r(date("m-d-Y",strtotime($purchase['TxnDate'])));
+                            					echo '</td><td>Expenditure</td><td>';
+                            					echo $purchase['EntityRef']['name'];
+                            					echo '</td><td>';
+                            
+                            					$count = 0;
+                            
+                            					foreach ($purchase['Line'] as $line) {
+                              
+                              						$count = $count + 1;
+                              						$category = $line['AccountBasedExpenseLineDetail']['AccountRef']['name'];
+
+                            					}
+                            
+                            					if ( $count == 1) {
+                              
+                              						echo $category;
+                              						$count = 0;
+
+                            					}
+                            					else {
+                              
+                              						echo "-Split-";
+                              						$count = 0;
+
+                            					}
+
+                            					echo '</td><td>';
+                            					print_r("$".number_format($purchase['TotalAmt'],2));
+                            					echo '</td></tr>';
+
+                          					}
+                          
+                        				}
+
+                      				?>
 
 								</tbody>
 								
