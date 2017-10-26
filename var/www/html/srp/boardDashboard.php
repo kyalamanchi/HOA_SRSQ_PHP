@@ -1050,6 +1050,143 @@
 						
 										</div>
 
+										<div class='container'>
+
+											<?php
+
+												if($community_id == 1)
+													echo "
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+														</div>
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																		
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_savings_balance, 0)."
+
+																		</a>
+																			
+																	</div>
+
+																	<div class='counter-title'>Savings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_current_balance, 0)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Checkings</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													";
+												else if($community_id == 2)
+													echo "
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+														</div>
+
+														<div class='row module-gray'>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																		
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
+
+																		</a>
+																			
+																	</div>
+
+																	<div class='counter-title'>Checkings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srp_savings, 0)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Savings</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<a href='communityIncome.php'>
+
+																			$ ".round($srsq_third_Account_Balance, 0)."
+
+																		</a>
+
+																	</div>
+
+																	<div class='counter-title'>Investments</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													";
+
+											?>
+
+										</div>
+
 									</div>
 
 									<div class="tab-pane" id="tab-5">
