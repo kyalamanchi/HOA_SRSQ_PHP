@@ -18,6 +18,7 @@ if ($_GET['hoaid']){
 	if ( strpos($response, "Error in call to API function") !== false ) {
 		$message =  "An error occured. Please try again.";
 		echo $message."\n\n";  
+		
 		ob_end_flush();
 		flush();
 		exit(0);
