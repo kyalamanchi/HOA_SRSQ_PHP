@@ -186,6 +186,26 @@ $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"STA
 pg_query($query);
 
 }
+
+else if ( $_GET['id'] == 5 ){
+$message  = "Updating sms data...Please wait.....";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateSMSStatus.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+$id = date('Y-m-d H:i:s');
+$message  = "Done!!!";
+echo "id: $id\n";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,6,'".$id."')";
+pg_query($query);
+}
+
 }
 else {
 	//SRP UPDATION
@@ -344,6 +364,24 @@ $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodPaymentType.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
+
+$message  = "Updating sms data...Please wait.....";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateSMSStatus.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+$id = date('Y-m-d H:i:s');
+$message  = "Done!!!";
+echo "id: $id\n";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,6,'".$id."')";
+pg_query($query);
+
 
 }
 
