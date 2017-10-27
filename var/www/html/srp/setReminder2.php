@@ -102,7 +102,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -304,9 +304,17 @@
 
 			            		<br><br>
 
-			            		<div class="row">
+			            		<div class="row text-center">
 
-			            			<center><button type="submit" class="btn btn-info btn-xs">Set Reminder</button></center>
+			            			<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+			            				
+			            				<center>
+			            					
+			            					<button type="submit" class="btn btn-info btn-xs">Set Reminder</button>
+			            			
+			            				</center>
+
+			            			</div>
 
 			            		</div>
 
