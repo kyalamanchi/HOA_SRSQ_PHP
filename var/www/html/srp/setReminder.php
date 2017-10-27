@@ -153,39 +153,21 @@
 
 											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date>='$today'"));
 
-											//$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
-
-											//$m[1] = $row1['m1_pmt_processed'];
-	                          				//$m[2] = $row1['m2_pmt_processed'];
-	                          				//$m[3] = $row1['m3_pmt_processed'];
-	                          				//$m[4] = $row1['m4_pmt_processed'];
-	                          				//$m[5] = $row1['m5_pmt_processed'];
-	                          				//$m[6] = $row1['m6_pmt_processed'];
-	                          				//$m[7] = $row1['m7_pmt_processed'];
-	                          				//$m[8] = $row1['m8_pmt_processed'];
-	                          				//$m[9] = $row1['m9_pmt_processed'];
-	                         				//$m[10] = $row1['m10_pmt_processed'];
-	                          				//$m[11] = $row1['m11_pmt_processed'];
-	                          				//$m[12] = $row1['m12_pmt_processed'];
-
-	                          				//for ($i = 1; $i <= 12; $i++)
-	                          				//{
-	                            
-	                            			//	if($m[$i] == 't')
-	                              			//		$m[$i] = "<center style='color: green;'><i class='fa fa-check-square'></i></center>";
-	                            			//	else
-	                              			//		$m[$i] = "<center style='color: orange;'><i class='fa fa-square-o'></i></center>";
-
-	                          				//}
-
-	                          				//echo "<tr><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$name<br>($hoa_id)</td><td><a href='processPayment2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name' style='color: blue;'>$address<br>($home_id)</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
-
 	                          				echo "<tr><td>";
 
 	                          				if($reminders == 0)
-	                          					echo "<center><a title='Set Reminder' style='color: green;'><i class='fa fa-bell'></i></a></center>";
+	                          				{	
+	                          					echo "<center><a ";
+
+	                          					if($email != '')
+	                          						echo "title='Set Reminder' href='setReminder2.php' ";
+	                          					else 
+	                          						echo "title='Email not available'";
+
+	                          					echo "style='color: green;'><i class='fa fa-bell'></i></a></center>";
+	                          				}
 	                          				else
-	                          					echo "<center><a title='Edit Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
+	                          					echo "<center><a title='Edit / View Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
 
 	                          				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
 
