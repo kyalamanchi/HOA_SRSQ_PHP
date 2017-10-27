@@ -21,6 +21,7 @@
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
+			$today = date('Y-m-d');
 
 			if($mode == 2)
 			{	
