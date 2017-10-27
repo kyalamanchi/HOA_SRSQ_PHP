@@ -140,7 +140,7 @@
 
 			            		<br>
 
-			            		<div class="row">
+			            		<div class="row" style='color: black;'>
 
 			            			<?php
 
@@ -257,7 +257,7 @@
 
 	                						<div class="input-group container-fluid">
 
-	                  							<select class='form-control' name='vendor_assigned' id='vendor_assigned'>
+	                  							<select name='vendor_assigned' id='vendor_assigned'>
 
 		                  							<option selected value=''>NONE</option>
 
