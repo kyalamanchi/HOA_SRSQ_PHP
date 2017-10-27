@@ -1000,7 +1000,7 @@
 															$reserve_allocation = round($reserve_allocation, 0);
 
 															if($cur_bal_vs_ideal_bal >= 70)
-																echo "<div class='counter-number' style='color: yellow;'>".$reserve_allocation."</div>";
+																echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
 															else
 																echo "<div class='counter-number' style='color: red;'>".$reserve_allocation."</div>";
 
@@ -1030,7 +1030,7 @@
 															if($cur_bal_vs_ideal_bal >= 70)
 																echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
 															else
-																echo "<div class='counter-number' style='color: yellow;'>".$reserve_allocation."</div>";
+																echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
 
 														?>
 
