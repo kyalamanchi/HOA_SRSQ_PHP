@@ -77,9 +77,9 @@
             if ( e.data == "Done!!!"){
               source.close();
               document.getElementById("eltime").innerHTML = "Last ran on : " + event.lastEventId;
-              document.getElementById("emailResult").innerHTML += event.data + "<br>";
+              document.getElementById("emailResult").innerHTML = event.data + "<br>";
             }
-            document.getElementById("emailResult").innerHTML += event.data + "<br>";
+            document.getElementById("emailResult").innerHTML = event.data + "<br>";
         }
   }
   function updateSMSSent(){
@@ -93,7 +93,7 @@
               document.getElementById("smstime").innerHTML = "Last ran on : " + event.lastEventId;
               document.getElementById("smsResult").innerHTML = event.data + "<br>";
             }
-            document.getElementById("smsResult").innerHTML += event.data + "<br>";
+            document.getElementById("smsResult").innerHTML = event.data + "<br>";
         }
   }
 </script>
