@@ -230,7 +230,7 @@
 			                          			if($update_date != '')
 			                          				$update_date = date('m-d-Y', strtotime($update_date));
 
-						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td></tr>";
+						                        echo "<tr class='text-muted'><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td></tr>";
 
 			                        		}
 
