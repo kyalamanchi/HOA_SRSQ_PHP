@@ -227,14 +227,16 @@
 																				<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 
 																					<label>Open Date</label>
-																					<input type='date' readonly value='$open_date'>
+																					<br>
+																					<input class='form-control' type='date' readonly value='$open_date'>
 
 																				</div>
 
 																				<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 
 																					<label>Due Date</label>
-																					<input type='date' value='$due_date' name='due_date' id='due_date' required>
+																					<br>
+																					<input class='form-control' type='date' value='$due_date' name='due_date' id='due_date' required>
 
 																				</div>
 
