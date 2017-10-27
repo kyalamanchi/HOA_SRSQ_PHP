@@ -721,13 +721,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings_balance, 0)."
+																			".round($srp_savings_balance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -741,13 +741,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_current_balance, 0)."
+																			".round($srp_current_balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -775,13 +775,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
+																			".round($srp_primary_Savings_CurrentBalance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -795,13 +795,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings, 0)."
+																			".round($srp_savings, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -815,13 +815,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srsq_third_Account_Balance, 0)."
+																			".round($srsq_third_Account_Balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Investments</div>
+																	<div class='counter-title'>Investments ($)</div>
 
 																</div>
 
@@ -1123,13 +1123,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings_balance, 0)."
+																			".round($srp_savings_balance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -1143,13 +1143,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_current_balance, 0)."
+																			".round($srp_current_balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -1177,13 +1177,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
+																			".round($srp_primary_Savings_CurrentBalance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -1197,13 +1197,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings, 0)."
+																			".round($srp_savings, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -1217,13 +1217,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srsq_third_Account_Balance, 0)."
+																			".round($srsq_third_Account_Balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Investments</div>
+																	<div class='counter-title'>Investments ($)</div>
 
 																</div>
 
