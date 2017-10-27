@@ -157,14 +157,14 @@
 
 	                          				if($reminders == 0)
 	                          				{	
-	                          					echo "<center><a ";
+	                          					echo "<center>";
 
 	                          					if($email != '')
-	                          						echo "title='Set Reminder' href='setReminder2.php' ";
+	                          						echo "<a title='Set Reminder' href='setReminder2.php' style='color: green;'><i class='fa fa-bell'></i></a>";
 	                          					else 
-	                          						echo "title='Email not available'";
+	                          						echo "<a title='Email not available' style='color: red;'><i class='fa fa-bell'></i></a>";
 
-	                          					echo "style='color: green;'><i class='fa fa-bell'></i></a></center>";
+	                          					echo "</center>";
 	                          				}
 	                          				else
 	                          					echo "<center><a title='Edit / View Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
