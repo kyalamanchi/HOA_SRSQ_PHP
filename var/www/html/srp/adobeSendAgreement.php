@@ -1,10 +1,16 @@
-<html>
-  
-    <head>
+<?php
 
-      <?php
       ini_set("session.save_path","/var/www/html/session/");
       session_start();
+?>
+
+<!DOCTYPE html>
+
+<html>
+  
+  <head>
+
+    <?php
 
       if(!$_SESSION['hoa_username'])
         header("Location: logout.php");
@@ -15,7 +21,6 @@
         header('Location: residentDashboard.php');
 
       $community_id = $_SESSION['hoa_community_id'];
-
 
     ?>
 
