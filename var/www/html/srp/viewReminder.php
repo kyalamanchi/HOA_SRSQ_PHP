@@ -232,7 +232,38 @@
 
 													";
 
-						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#edit_reminder_$hoa_id'><i style='color: orange;' class='fa fa-edit'></i></button></td><td><i style='color: red;' class='fa fa-close'></i></td></tr>";
+													echo "
+											
+													<div class='modal fade' id='close_reminder_$hoa_id'>
+
+														<div class='modal-dialog modal-lg'>
+
+															<div class='modal-content'>
+
+																<div class='modal-header'>
+
+																	<h4>Close Reminder - <strong>$assigned_to</strong></h4>
+																	<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+																</div>
+
+																<div class='modal-body'>
+
+																	<div class='container' style='color: black;'>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+													</div>
+
+													";
+
+						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#edit_reminder_$hoa_id'><i style='color: orange;' class='fa fa-edit'></i></button></td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#close_reminder_$hoa_id'><i style='color: red;' class='fa fa-close'></i></button></td></tr>";
 
 						                		}
 
