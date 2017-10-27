@@ -41,7 +41,6 @@ else
 		}
 		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
 		pg_query($query);
-
 		echo "CHARGES ADDED";
 }
 }
@@ -76,7 +75,6 @@ else {
 		}
 		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
 		pg_query($query);
-
-		echo "CHARGES ADDED";	
+		print_r("CHARGES ADDED");
 }
 ?>
