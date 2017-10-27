@@ -167,7 +167,7 @@
 	                          					echo "</center>";
 	                          				}
 	                          				else
-	                          					echo "<center><a title='Edit / View Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
+	                          					echo "<center><a href='viewReminder.php' title='Edit / View Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
 
 	                          				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
 
