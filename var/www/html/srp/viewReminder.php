@@ -21,6 +21,7 @@
 
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
+			$today = date('Y-m-d');
 
 			if($mode == 2)
 			{	
@@ -112,7 +113,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container">
+					<div class="container-fluid">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -184,13 +185,23 @@
 			                          			if($open_date != '')
 			                          				$open_date = date('m-d-Y', strtotime($open_date));
 
+			                          			if($due_date < $today) 
+						                        	$ddtm = 't';
+						                        else
+						                        	$ddtm = 'f';
+
 			                          			if($due_date != '')
 			                          				$due_date = date('m-d-Y', strtotime($due_date));
 
 			                          			if($update_date != '')
 			                          				$update_date = date('m-d-Y', strtotime($update_date));
 
-						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
+						                        echo "<tr ";
+
+						                        if($ddtm == 't') 
+						                        	echo "class='text-muted'";
+
+						                        echo "><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
 
 			                        		}
 
@@ -224,13 +235,23 @@
 			                          			if($open_date != '')
 			                          				$open_date = date('m-d-Y', strtotime($open_date));
 
+			                          			if($due_date < $today) 
+						                        	$ddtm = 't';
+						                        else
+						                        	$ddtm = 'f';
+
 			                          			if($due_date != '')
 			                          				$due_date = date('m-d-Y', strtotime($due_date));
 
 			                          			if($update_date != '')
 			                          				$update_date = date('m-d-Y', strtotime($update_date));
 
-						                        echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td></tr>";
+						                        echo "<tr ";
+
+						                        if($ddtm == 't') 
+						                        	echo "class='text-muted'";
+
+						                        echo "><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td></tr>";
 
 			                        		}
 

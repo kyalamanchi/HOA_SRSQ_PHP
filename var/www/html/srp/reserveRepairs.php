@@ -71,19 +71,8 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Accounts Payable</h1>
+								<h1 class="h5">Reserve Repairs</h1>
 							
-							</div>
-
-							<div class="page-title-secondary">
-								
-								<ol class="breadcrumb">
-									
-									<li class="breadcrumb-item"><i class='fa fa-wrench'></i> Vendors</li>
-									<li class="breadcrumb-item active">Accounts Payable</li>
-
-								</ol>
-
 							</div>
 						
 						</div>
@@ -103,15 +92,12 @@
 										
 								<thead>
 									
-									<th>Pay Date</th>
+									<th>Invoice Date</th>
 									<th>Vendor Name (Vendor ID)</th>
-									<th>Payment Type</th>
-									<th>Amount</th>
-									<th>Payment Cleared</th>
-									<th>Date Payment Cleared</th>
-									<th>Bank Account</th>
-									<th>Closing Month</th>
-									<th>Closing Year</th>
+									<th>Work Status</th>
+									<th>Payment Status</th>
+									<th>Invoice Amount</th>
+									<th>Invoice</th>
 
 								</thead>
 
@@ -119,45 +105,28 @@
 									
 									<?php
 
-										$result = pg_query("SELECT * FROM accounts_payable WHERE community_id=$community_id");
+										$result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
 
 										while ($row = pg_fetch_assoc($result)) 
 										{
 
-											$pay_date = $row['pay_date'];
+											$invoice_date = $row['invoice_date'];
 											$vendor_id = $row['vendor_id'];
-											$payment_type = $row['payment_type_id'];
-											$amount = $row['amount'];
-											$payment_cleared = $row['payment_cleared'];
-											$date_payment_cleared = $row['date_payment_cleared'];
-											$bank_account = $row['bank_account_id'];
-											$closing_month = $row['closing_month'];
-											$closing_year = $row['closing_year'];
+											$work_status = $row['work_status'];
+											$invoice_amount = $row['invoice_amount'];
+											$payment_status = $row['payment_status'];
+											$invoice_id = $row['invoice_id'];
 
-											if($pay_date != '')
-												$pay_date = date('m-d-Y', strtotime($pay_date));
-
-											if($date_payment_cleared != '')
-												$date_payment_cleared = date('m-d-Y', strtotime($date_payment_cleared));
-
-											if($closing_month != '')
-												$closing_month = date('F', strtotime($closing_month));
-
-											if($payment_cleared == 't')
-												$payment_cleared = 'YES';
-											else
-												$payment_cleared = 'NO';
+											if($invoice_date != '')
+												$invoice_date = date('m-d-Y', strtotime($invoice_date));
 
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
 											$vendor_name = $row1['vendor_name'];
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
-											$payment_type = $row1['payment_type_name'];
+											if($invoice_amount != '')
+												$invoice_amount = "$ ".$invoice_amount;
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM bank_account WHERE id=$bank_account"));
-											$bank_account = $row1['bank_name'];
-
-											echo "<tr><td>$pay_date</td><td>$vendor_name ($vendor_id)</td><td>$payment_type</td><td>$ $amount</td><td>$payment_cleared</td><td>$date_payment_cleared</td><td>$bank_account</td><td>$closing_month</td><td>$closing_year</td></tr>";
+											echo "<tr><td>$invoice_date</td><td>$vendor_name ($vendor_id)</td><td>$work_status</td><td>$payment_status</td><td>$invoice_amount</td><td>$invoice_id</td></tr>";
 
 										}
 

@@ -23,6 +23,20 @@
 			if($mode == 2)
 				header('Location: residentDashboard.php');
 
+			$year = date("Y");
+        	$month = date("m");
+        	$end_date = date("t");
+
+          	$hoa_id = $_POST['hoa_id'];
+          	$home_id = $_POST['home_id'];
+          	$open_date = $_POST['open_date'];
+          	$due_date = $_POST['due_date'];
+          	$assigned_to = $_POST['assigned_to'];
+          	$vendor_assigned = $_POST['vendor_assigned'];
+          	$comment = $_POST['comment'];
+          	$update_date = $_POST['update_date'];
+          	$reminder_type = $_POST['reminder_type'];
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -96,88 +110,37 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<table id='example1' class='table table-striped'  style='color: black;'>
+							<?php 
 
-								<thead>
-									
-									<th></th>
-									<th>HOA ID</th>
-									<th>Name</th>
-									<th>Email</th>
-									<th>Phone</th>
-									<th>Home ID</th>
-									<th>Living In</th>
-									<th>Balance</th>
+                    			if($vendor_assigned == "")
+                      				$query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id,reminder_status_id) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.", 1)";
+                    			else
+                      				$query = "INSERT INTO reminders(hoa_id,home_id,community_id,open_date,due_date,assigned_to,update_date,comments,reminder_type_id,vendor_assigned,reminder_status_id) VALUES(".$hoa_id.",".$home_id.",".$community_id.",'".$open_date."','".$due_date."',".$assigned_to.",'".$update_date."','".$comment."',".$reminder_type.",".$vendor_assigned.", 1)";
 
-								</thead>
+                    			$result = pg_query($query);
 
-								<tbody>
-									
-									<?php
+                    			if(!$result)
+                    			{
+                      
+                      				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>An error occured while creating reminder!</strong><br /><br />Please try again.<br /><br /></center></div></div></div>";
 
-										$result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+                      				echo "<br><br><center><a href='setReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='setReminder.php'},1000);</script>";
 
-										while($row = pg_fetch_assoc($result))
-										{
+                    			}
+                    			else 
+                    			{
+                      
+                      				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-success'><center><br /><strong style='font-size: 15pt;'>Reminder created successfully!</strong><br /><br /><br /></center></div></div></div>";
 
-											$home_id = $row['home_id'];
-											$address = $row['address1'];
-											$living_status = $row['living_status'];
+                      				echo "<br><br><center><a href='viewReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='viewReminder.php'},1000);</script>";
 
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id AND valid_until>='$today'"));
+                    			}
 
-											$name = $row1['firstname'];
-											$name .= " ";
-											$name .= $row1['lastname'];
-											$hoa_id = $row1['hoa_id'];
-											$email = $row1['email'];
-											$cell_no = $row1['cell_no'];
-
-											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-
-											$charges = $row1['sum'];
-
-											$row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE home_id=$home_id AND hoa_id=$hoa_id AND payment_status_id=1"));
-
-											$payments = $row1['sum'];
-
-											if($payments == "")
-												$payments = 0.0;
-
-											$balance = $charges - $payments;
-											$balance = "$ ".$balance;
-
-											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND due_date>='$today'"));
-
-	                          				echo "<tr><td>";
-
-	                          				if($reminders == 0)
-	                          				{	
-	                          					echo "<center>";
-
-	                          					if($email != '')
-	                          						echo "<a title='Set Reminder' href='setReminder2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name&living_in=$address&email=$email' style='color: green;'><i class='fa fa-bell'></i></a>";
-	                          					else 
-	                          						echo "<a title='Email not available' style='color: red;'><i class='fa fa-bell'></i></a>";
-
-	                          					echo "</center>";
-	                          				}
-	                          				else
-	                          					echo "<center><a title='Edit / View Reminder' style='color: orange;'><i class='fa fa-bell'></i></a></center>";
-
-	                          				echo"</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$cell_no</td><td>$home_id</td><td>$address</td><td>$balance</td></tr>";
-
-										}
-
-									?>
-
-								</tbody>
-								
-							</table>
+                  			?>
 
 						</div>
 
