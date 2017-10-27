@@ -323,7 +323,7 @@ else if ( $_GET['id'] == 5 ){
 	ob_end_flush();
 	flush();
 	$req = curl_init();
-	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/mandrillUpdateStats.php");
+	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateSMSStatus.php");
 	curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 	curl_exec($req);
 	$id = date('Y-m-d H:i:s');
