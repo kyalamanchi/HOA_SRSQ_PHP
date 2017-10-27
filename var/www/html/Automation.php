@@ -83,19 +83,18 @@
         }
   }
   function updateSMSSent(){
-    
-    document.getElementById("smsResult").innerHTML = "";
-    var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=5";
-    var source = new EventSource(url);
-    source.onmessage = function(e){
-        document.getElementById("smsResult").innerHTML += event.data+"<br>";
-        if ( e.data = "Done!!!" ){
-          source.close();
-          document.getElementById("smstime").innerHTML = "Last ran on : " + event.lastEventId;
-          document.getElementById("smsResult").innerHTML += event.data+"<br>";
+
+    document.getElementById("emailResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=5";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("smstime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("smsResult").innerHTML = event.data + "<br>";
+            }
+            document.getElementById("smsResult").innerHTML += event.data + "<br>";
         }
-        
-    }
   }
 </script>
 <style type="text/css">
