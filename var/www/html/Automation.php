@@ -90,7 +90,7 @@
           document.getElementById("smstime").innerHTML = "Last ran on : " + event.lastEventId;
           document.getElementById("smsResult").innerHTML += event.data+"<br>";
         }
-        document.getElementById("smsResult").innerHTML += event.data+"<br>";
+        document.getElementById("smsResult").innerHTML = event.data+"<br>";
     }
   }
 </script>
