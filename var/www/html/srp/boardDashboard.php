@@ -1046,14 +1046,14 @@
 
 														<?php 
 
-															$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE community_id=$community_id"));
+															$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
 
 															$repairs = $row['sum'];
 
 															$repairs = round($repairs, 0);
 
 															if($repairs > 0)
-																echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
+																echo "<div class='counter-number' style='color: green;'><a href='reserveRepairs.php'>".$repairs."</a></div>";
 															else
 																echo "<div class='counter-number'>".$repairs."</div>";
 
