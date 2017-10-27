@@ -215,7 +215,7 @@ $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-
+$id = date('Y-m-d H:i:s');
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,4,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
@@ -233,7 +233,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,5,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,5,'".$id."')";
 pg_query($query);
 
 
@@ -250,7 +250,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,6,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,2,6,'".$id."')";
 pg_query($query);
 
 $id = date('Y-m-d H:i:s');
@@ -283,9 +283,9 @@ echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,3,7,'".$id."')";
 pg_query($query);
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,3,7,'".$id."')";
 pg_query($query);
 }
 else if ( $_GET['id'] == 4 ){
@@ -307,32 +307,31 @@ echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,4,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,4,'".$id."')";
 pg_query($query);
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(2,4,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(2,4,'".$id."')";
 pg_query($query);
 }
 
 else if ( $_GET['id'] == 5 ){
-
-	$message  = "Updating SMS data...Please wait...";
-	echo 'data: '.$message."\n\n";  
-	ob_end_flush();
-	flush();
-	$req = curl_init();
-	curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateSMSStatus.php");
-	curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-	curl_exec($req);
-	$id = date('Y-m-d H:i:s');
-	$message  = "Done!!!";
-	echo "id: $id\n";
-	echo 'data: '.$message."\n\n";  
-	ob_end_flush();
-	flush();
-	$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,6,'".date('Y-m-d H:i:s')."')";
-	pg_query($query);
-	$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(2,6,'".date('Y-m-d H:i:s')."')";
-	pg_query($query);
+$message  = "Updating sms data...Please wait.....";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateSMSStatus.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+$id = date('Y-m-d H:i:s');
+$message  = "Done!!!";
+echo "id: $id\n";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,6,'".$id."')";
+pg_query($query);
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(2,6,'".$id."')";
+pg_query($query);
 }
 
 }
