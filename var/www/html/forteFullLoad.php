@@ -255,7 +255,7 @@ $(window).ready(function() {
   </script>
 </head>
     <body>
-<h1>Forte Transaction</h1>
+<h1>Forte Transactions</h1>
 <hr>
 <div class="container"> 
         <div>
