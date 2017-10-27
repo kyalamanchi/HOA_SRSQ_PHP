@@ -83,6 +83,7 @@
         }
   }
   function updateSMSSent(){
+    
     document.getElementById("smsResult").innerHTML = "";
     var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=5";
     var source = new EventSource(url);
