@@ -357,13 +357,13 @@
 															
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($amount_received, 0); ?>%
+																<?php echo round($amount_received, 0); ?>
 
 															</a>
 																
 														</div>
 
-														<div class='counter-title'>Amount Received</div>
+														<div class='counter-title'>Amount Received (%)</div>
 
 													</div>
 
@@ -377,13 +377,13 @@
 
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($members_paid, 0); ?>%
+																<?php echo round($members_paid, 0); ?>
 
 															</a>
 
 														</div>
 
-														<div class='counter-title'>Members Paid</div>
+														<div class='counter-title'>Members Paid (%)</div>
 
 													</div>
 
@@ -721,13 +721,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings_balance, 0)."
+																			".round($srp_savings_balance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -741,13 +741,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_current_balance, 0)."
+																			".round($srp_current_balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -775,13 +775,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
+																			".round($srp_primary_Savings_CurrentBalance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -795,13 +795,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings, 0)."
+																			".round($srp_savings, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -815,13 +815,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srsq_third_Account_Balance, 0)."
+																			".round($srsq_third_Account_Balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Investments</div>
+																	<div class='counter-title'>Investments ($)</div>
 
 																</div>
 
@@ -992,18 +992,21 @@
 
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
-															$current_monthly_allocation = $row['cur_mthly_alloc'];
+															$minimum_monthly_allocation_units = $row['min_mthly_alloc_unit'];
+															$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
 
-															$reserve_allocation = $current_monthly_allocation * $month;
+															$reserve_allocation = $minimum_monthly_allocation_units * $month;
 
-															if($reserve_allocation > 0)
-																echo "<div class='counter-number' style='color: green;'>$ ".$reserve_allocation."</div>";
+															$reserve_allocation = round($reserve_allocation, 0);
+
+															if($cur_bal_vs_ideal_bal >= 70)
+																echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
 															else
-																echo "<div class='counter-number'>$ ".$reserve_allocation."</div>";
+																echo "<div class='counter-number'>".$reserve_allocation."</div>";
 
 														?>
 
-														<div class='counter-title'>Reserve Allocation</div>
+														<div class='counter-title'>YTD Reserve Allocation ($)</div>
 
 													</div>
 
@@ -1019,14 +1022,16 @@
 
 															$repairs = $row['sum'];
 
+															$repairs = round($repairs, 0);
+
 															if($repairs > 0)
-																echo "<div class='counter-number' style='color: green;'>$ ".$repairs."</div>";
+																echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
 															else
-																echo "<div class='counter-number'>$ ".$repairs."</div>";
+																echo "<div class='counter-number'>".$repairs."</div>";
 
 														?>
 
-														<div class='counter-title'>Reserve Repairs</div>
+														<div class='counter-title'>Reserve Repairs ($)</div>
 
 													</div>
 
@@ -1044,16 +1049,13 @@
 
 																$reserves = $row['cur_bal_vs_ideal_bal'];
 
-																if($reserves != '')
-																	echo $reserves."%";
-																else
-																	echo "0%";
+																echo $reserves;
 
 															?>
 																
 														</div>
 
-														<div class='counter-title'>Reserves Funded</div>
+														<div class='counter-title'>Reserves Funded (%)</div>
 
 													</div>
 
@@ -1121,13 +1123,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings_balance, 0)."
+																			".round($srp_savings_balance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -1141,13 +1143,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_current_balance, 0)."
+																			".round($srp_current_balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -1175,13 +1177,13 @@
 																		
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_primary_Savings_CurrentBalance, 0)."
+																			".round($srp_primary_Savings_CurrentBalance, 0)."
 
 																		</a>
 																			
 																	</div>
 
-																	<div class='counter-title'>Checkings</div>
+																	<div class='counter-title'>Checkings ($)</div>
 
 																</div>
 
@@ -1195,13 +1197,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srp_savings, 0)."
+																			".round($srp_savings, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Savings</div>
+																	<div class='counter-title'>Savings ($)</div>
 
 																</div>
 
@@ -1215,13 +1217,13 @@
 
 																		<a href='communityIncome.php'>
 
-																			$ ".round($srsq_third_Account_Balance, 0)."
+																			".round($srsq_third_Account_Balance, 0)."
 
 																		</a>
 
 																	</div>
 
-																	<div class='counter-title'>Investments</div>
+																	<div class='counter-title'>Investments ($)</div>
 
 																</div>
 
