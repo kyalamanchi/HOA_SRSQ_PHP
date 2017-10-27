@@ -196,12 +196,10 @@
 			                          			if($update_date != '')
 			                          				$update_date = date('m-d-Y', strtotime($update_date));
 
-						                        echo "<tr ";
-
 						                        if($ddtm == 't') 
-						                        	echo "class='text-muted'";
-
-						                        echo "><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
+						                        	echo "<tr class='text-muted'><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
+						                        else
+						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><i class='text-blue fa fa-edit'></i></td><td><i class='text-red fa fa-close'></i></td></tr>";
 
 			                        		}
 
