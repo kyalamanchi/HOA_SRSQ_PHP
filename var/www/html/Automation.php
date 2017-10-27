@@ -52,7 +52,7 @@
       document.getElementById("emailsButton").disabled = true;
       document.getElementById("runAllJobsButton").disabled = true;
       document.getElementById("smsButton").disabled = true;
-      swal("Payments,Agreements,Emails sent and Billing Statements will be updated.","","success");
+      swal("Payments,Agreements,Emails sent, SMS sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
       request.send(null);
