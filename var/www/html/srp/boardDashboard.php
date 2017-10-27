@@ -992,18 +992,19 @@
 
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
-															$current_monthly_allocation = $row['cur_mthly_alloc'];
+															$minimum_monthly_allocation_units = $row['min_mthly_alloc_unit'];
+															$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
 
-															$reserve_allocation = $current_monthly_allocation * $month;
+															$reserve_allocation = $minimum_monthly_allocation_units * $month;
 
-															if($reserve_allocation > 0)
+															if($cur_bal_vs_ideal_bal >= 70)
 																echo "<div class='counter-number' style='color: green;'>$ ".$reserve_allocation."</div>";
 															else
 																echo "<div class='counter-number'>$ ".$reserve_allocation."</div>";
 
 														?>
 
-														<div class='counter-title'>Reserve Allocation</div>
+														<div class='counter-title'>YTD Reserve Allocation</div>
 
 													</div>
 
