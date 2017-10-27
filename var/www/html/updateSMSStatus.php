@@ -32,8 +32,5 @@ date_default_timezone_set('America/Los_Angeles');
 			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,TO_NUMBER,FROM_NUMBER,STATUS,URI) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->to','$message->from','$message->status','$message->uri')";
 			pg_query($qr);
 		}
-		print_r(nl2br("\n"));
 	}
-	print_r("Done");
-
 ?>
