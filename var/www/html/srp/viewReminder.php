@@ -199,7 +199,7 @@
 						                        if($ddtm == 't') 
 						                        	echo "<tr class='text-muted'><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
 						                        else
-						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><i style='color: orange;' class='fa fa-edit'></i> Edit</td><td><i style='color: red;' class='fa fa-close'></i> Remove</td></tr>";
+						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><i style='color: orange;' class='fa fa-edit'></i>Edit</td><td><i style='color: red;' class='fa fa-close'></i>Remove</td></tr>";
 
 			                        		}
 
