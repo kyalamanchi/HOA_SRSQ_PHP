@@ -992,12 +992,14 @@
 
 															$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
-															$repairs = $row['rec_mthly_alloc'];
+															$current_monthly_allocation = $row['cur_mthly_alloc'];
 
-															if($repairs > 0)
-																echo "<div class='counter-number' style='color: green;'>$ ".$repairs."</div>";
+															$reserve_allocation = $current_monthly_allocation * $month;
+
+															if($reserve_allocation > 0)
+																echo "<div class='counter-number' style='color: green;'>$ ".$reserve_allocation."</div>";
 															else
-																echo "<div class='counter-number'>$ ".$repairs."</div>";
+																echo "<div class='counter-number'>$ ".$reserve_allocation."</div>";
 
 														?>
 
