@@ -49,6 +49,8 @@ if ( $current_time >= $valid_until ){
 //No need to update record
 else {
 	print_r("Document need not be updated");
+	$updateQuery = "UPDATE community_transient_documents SET updated_by = 401,updated_on='".date('Y-m-d H:i:s')."' WHERE id=".$documentID;
+	// $tableName = "community_transient_documents";
 }//End of No need to update record block
 }//End of while block
 }//End of Connection Success If case block
