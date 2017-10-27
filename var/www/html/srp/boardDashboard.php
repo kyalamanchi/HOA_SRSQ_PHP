@@ -988,6 +988,29 @@
 
 													<div class='counter h6'>
 
+														<?php 
+
+															$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE community_id=$community_id"));
+
+															$repairs = $row['sum'];
+
+															if($repairs > 0)
+																echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
+															else
+																echo "<div class='counter-number'>".$repairs."</div>";
+
+														?>
+
+														<div class='counter-title'>Reserve Repairs</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
 														<div class='counter-number'>
 															
 															<?php 
