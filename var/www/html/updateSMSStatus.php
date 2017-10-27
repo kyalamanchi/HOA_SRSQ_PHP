@@ -23,7 +23,7 @@ date_default_timezone_set('America/Los_Angeles');
 	foreach ($res->messages as $message) {
 
 		if ( $smsArray[$message->sid] ){
-			$qr = "UPDATE SMS_SENT SET UPDATED_BY=401,UPDATED_ON='".date('Y-m-d H:i:s')."' STATUS='$message->status',date_updated='".date('Y-m-d H:i:s',strtotime($message->date_updated))."' WHERE SID='$message->sid'";
+			$qr = "UPDATE SMS_SENT SET UPDATED_BY=401,UPDATED_ON='".date('Y-m-d H:i:s')."', STATUS='$message->status',date_updated='".date('Y-m-d H:i:s',strtotime($message->date_updated))."' WHERE SID='$message->sid'";
 			pg_query($qr);
 		}
 		else {
