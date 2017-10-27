@@ -22,7 +22,7 @@ while ($row = pg_fetch_row($pullAgreementsQueryResult)) {
 foreach ($result->userAgreementList as $agreement) {
     if ( $agreementIDS[$agreement->agreementId] ){
         
-        $updateQuery = "UPDATE COMMUNITY_SIGN_AGREEMENTS SET AGREEMENT_STATUS='".$agreement->status."',LAST_UPDATED='".date('Y-m-d H:i:s')."' WHERE agreement_id='".$agreement->agreementId."'";
+        $updateQuery = "UPDATE COMMUNITY_SIGN_AGREEMENTS SET AGREEMENT_STATUS='".$agreement->status."',LAST_UPDATED='".date('Y-m-d H:i:s')."',UPDATED_BY = 401 WHERE agreement_id='".$agreement->agreementId."'";
         if (!pg_query($updateQuery)){
                 // print_r("Failed to update".nl2br("\n"));
         }
