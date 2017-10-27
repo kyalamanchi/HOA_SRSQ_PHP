@@ -37,7 +37,7 @@ if ( $current_time >= $valid_until ){
 	curl_close($ch);
 	$result = json_decode($result);
 	$transientDocumentID = $result->transientDocumentId;
-	$updateQuery = "UPDATE community_transient_documents SET transient_document_id='".$transientDocumentID."',valid_until='".$newDateTime."' WHERE id=".$documentID;
+	$updateQuery = "UPDATE community_transient_documents SET transient_document_id='".$transientDocumentID."',valid_until='".$newDateTime."',updated_by = 401,updated_on='".date('Y-m-d H:i:s')."' WHERE id=".$documentID;
 	$tableName = "community_transient_documents";
 	$insertData = array();
 	$insertData['transient_document_id'] = $transientDocumentID;
