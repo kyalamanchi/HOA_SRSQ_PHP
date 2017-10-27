@@ -136,7 +136,7 @@
                                 foreach ($result['results'] as $transactions) {
                                 //Inner if 0
                                 if ( $transactionArray[$transactions['transaction_id']] == '1') {
-                                        $updateQuery = "UPDATE community_funding_transactions SET status = '".$transactions['status']."' WHERE transaction_id='".$transactions['transaction_id']."'";
+                                        $updateQuery = "UPDATE community_funding_transactions SET status = '".$transactions['status']."',updated_on='".date('Y-m-d H:i:s')."',updated_by = 401 WHERE transaction_id='".$transactions['transaction_id']."'";
                                         pg_query($updateQuery);
                                     print_r("Updating a exisiting record");
                                 }//End of inner if 0
