@@ -1000,13 +1000,41 @@
 															$reserve_allocation = round($reserve_allocation, 0);
 
 															if($cur_bal_vs_ideal_bal >= 70)
-																echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
+																echo "<div class='counter-number' style='color: yellow;'>".$reserve_allocation."</div>";
 															else
-																echo "<div class='counter-number'>".$reserve_allocation."</div>";
+																echo "<div class='counter-number' style='color: red;'>".$reserve_allocation."</div>";
 
 														?>
 
-														<div class='counter-title'>YTD Reserve Allocation ($)</div>
+														<div class='counter-title'>Minimum Reserve Allocation ($)</div>
+
+													</div>
+
+												</div>
+
+												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+													<div class='counter h6'>
+
+														<?php 
+
+															$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+
+															$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+															$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+
+															$reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+															$reserve_allocation = round($reserve_allocation, 0);
+
+															if($cur_bal_vs_ideal_bal >= 70)
+																echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
+															else
+																echo "<div class='counter-number' style='color: yellow;'>".$reserve_allocation."</div>";
+
+														?>
+
+														<div class='counter-title'>Recommended Reserve Allocation ($)</div>
 
 													</div>
 
