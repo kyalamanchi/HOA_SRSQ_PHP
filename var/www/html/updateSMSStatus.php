@@ -23,13 +23,13 @@ date_default_timezone_set('America/Los_Angeles');
 	foreach ($res->messages as $message) {
 
 		if ( $smsArray[$message->sid] ){
-			$qr = "UPDATE SMS_SENT SET STATUS='$message->status',date_updated='".date('Y-m-d H:i:s',strtotime($message->date_updated))."' WHERE SID='$message->sid'";
+			$qr = "UPDATE SMS_SENT SET UPDATED_BY=401,UPDATED_ON='".date('Y-m-d H:i:s')."' STATUS='$message->status',date_updated='".date('Y-m-d H:i:s',strtotime($message->date_updated))."' WHERE SID='$message->sid'";
 			pg_query($qr);
 		}
 		else {
 			$dateCreated2 = $message->date_created;
 			$dateUpdated2 = $message->date_updated;
-			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,TO_NUMBER,FROM_NUMBER,STATUS,URI) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->to','$message->from','$message->status','$message->uri')";
+			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,TO_NUMBER,FROM_NUMBER,STATUS,URI,UPDATED_BY,UPDATED_ON) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->to','$message->from','$message->status','$message->uri',401,'".date('Y-m-d H:i:s')."')";
 			pg_query($qr);
 		}
 	}
