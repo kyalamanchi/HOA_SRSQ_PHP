@@ -73,4 +73,29 @@ foreach ($result as $result1) {
 		}
 	}
 }
+$query = "SELECT DISTINCT TO_EMAIL FROM COMMUNITY_EMAILS_SENT WHERE HOA_ID IS NULL OR PERSON_ID IS NULL";
+	$queryResult = pg_query($query);
+	while ($row = pg_fetch_assoc($queryResult)) {
+		$email = $row['to_email'];
+		$personQuery  = "SELECT HOA_ID,ID FROM PERSON WHERE EMAIL LIKE '".$email."'";
+		$personQueryResult = pg_query($personQuery);
+
+		$row = pg_fetch_assoc($personQueryResult);
+		$hoaID = $row['hoa_id'];
+		$personID = $row['id'];
+		if ( $hoaID && $personID ){
+		$updateQuery = "UPDATE COMMUNITY_EMAILS_SENT SET HOA_ID=$hoaID,PERSON_ID=$personID WHERE TO_EMAIL LIKE '$email'";
+		pg_query($updateQuery);
+		}
+		else if ( $hoaID ){
+			$updateQuery = "UPDATE COMMUNITY_EMAILS_SENT SET HOA_ID=$hoaID WHERE TO_EMAIL LIKE '$email'";
+			pg_query($updateQuery);
+		}
+		else if  ( $personID ){
+			$updateQuery = "UPDATE COMMUNITY_EMAILS_SENT SET PERSON_ID=$personID WHERE TO_EMAIL LIKE '$email'";
+			pg_query($updateQuery);
+		}
+		
+
+	}
 ?>
