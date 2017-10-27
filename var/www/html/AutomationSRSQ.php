@@ -118,6 +118,21 @@ function hidePleaseWait() {
       }
     }
   }
+   function updateSMSSent(){
+
+    document.getElementById("emailResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandlerSRSQ.php?id=5";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("smstime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("smsResult").innerHTML = event.data + "<br>";
+            }
+            document.getElementById("smsResult").innerHTML = event.data + "<br>";
+        }
+  }
+
 </script>
 <style type="text/css">
   .pull-right{
@@ -266,6 +281,33 @@ function hidePleaseWait() {
     </div>
   </div>
 
+
+<div class="card">
+    <div class="card-header" role="tab" id="headingFive">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          <h4>SMS Sent</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+      <div class="card-block">
+        <?php 
+        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 6 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="smstime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+         Inserts sent SMS(s) data. If exists, updates status.
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" id="smsButton" onclick="updateSMSSent();">Update Now</button>
+        <div id="smsResult">
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 </div>  
