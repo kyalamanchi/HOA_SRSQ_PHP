@@ -160,7 +160,7 @@
 	                          					echo "<center>";
 
 	                          					if($email != '')
-	                          						echo "<a title='Set Reminder' href='setReminder2.php' style='color: green;'><i class='fa fa-bell'></i></a>";
+	                          						echo "<a title='Set Reminder' href='setReminder2.php?hoa_id=$hoa_id&home_id=$home_id&name=$name&living_in=$address&email=$email' style='color: green;'><i class='fa fa-bell'></i></a>";
 	                          					else 
 	                          						echo "<a title='Email not available' style='color: red;'><i class='fa fa-bell'></i></a>";
 
