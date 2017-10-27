@@ -96,6 +96,7 @@
 									<th>Vendor Name (Vendor ID)</th>
 									<th>Work Status</th>
 									<th>Payment Status</th>
+									<th>Invoice Amount</th>
 									<th>Invoice</th>
 
 								</thead>
@@ -122,7 +123,10 @@
 											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
 											$vendor_name = $row1['vendor_name'];
 
-											echo "<tr><td>$invoice_date</td><td>$vendor_name ($vendor_id)</td><td>$work_status</td><td>$payment_status</td><td>$invoice_id</td></tr>";
+											if($invoice_amount != '')
+												$invoice_amount = "$ ".$invoice_amount;
+
+											echo "<tr><td>$invoice_date</td><td>$vendor_name ($vendor_id)</td><td>$work_status</td><td>$payment_status</td><td>$invoice_amount</td><td>$invoice_id</td></tr>";
 
 										}
 
