@@ -134,8 +134,6 @@
 
 			            		</div>
 
-			            		<br>
-
 			            		<div class="row" style='color: black;'>
 
 			            			<?php
@@ -290,15 +288,13 @@
 
 			            		</div>
 
-			            		<br>
-
 			            		<div class="row container-fluid">
 
 			            			<textarea id='comment' name='comment' class='form-control' required></textarea>
 			            			
 			            		</div>
 
-			            		<br><br>
+			            		<br>
 
 			            		<div class="row text-center">
 
