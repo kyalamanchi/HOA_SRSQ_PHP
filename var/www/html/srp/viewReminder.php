@@ -242,6 +242,48 @@
 
 																			</div>
 
+																			<div class='row container-fluid'>
+
+																				<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																					<label>Reminder Type</label>
+																					<br>
+																					<input class='form-control' type='date' readonly value='$open_date'>
+
+																				</div>
+
+																				<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+																					<label>Vendor Assigned</label>
+																					<br>
+																					<input class='form-control' type='date' value='$due_date' name='due_date' id='due_date' required>
+
+																				</div>
+
+																			</div>
+
+																			<div class='row container-fluid'>
+
+																				<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																					<label>Comment</label>
+																					<br>
+																					<textarea class='form-control' required>$comments</textarea>
+
+																				</div>
+
+																			</div>
+
+																			<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																				<center>
+
+																					<button class='btn btn-info' type='submit'>Edit Reminder</button>
+
+																				</center>
+
+																			</div>
+
 																		</form>
 
 																	</div>
