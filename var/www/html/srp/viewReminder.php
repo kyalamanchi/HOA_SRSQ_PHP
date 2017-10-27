@@ -224,6 +224,11 @@
 			                          			if($open_date != '')
 			                          				$open_date = date('m-d-Y', strtotime($open_date));
 
+			                          			if($due_date < $today) 
+						                        	$ddtm = 't';
+						                        else
+						                        	$ddtm = 'f';
+
 			                          			if($due_date != '')
 			                          				$due_date = date('m-d-Y', strtotime($due_date));
 
@@ -232,7 +237,7 @@
 
 						                        echo "<tr ";
 
-						                        if($due_date < $today) 
+						                        if($ddtm == 't') 
 						                        	echo "class='text-muted'";
 
 						                        echo "><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td></tr>";
