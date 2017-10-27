@@ -997,6 +997,8 @@
 
 															$reserve_allocation = $minimum_monthly_allocation_units * $month;
 
+															$reserve_allocation = round($reserve_allocation, 0);
+
 															if($cur_bal_vs_ideal_bal >= 70)
 																echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
 															else
@@ -1019,6 +1021,8 @@
 															$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE community_id=$community_id"));
 
 															$repairs = $row['sum'];
+
+															$repairs = round($repairs, 0);
 
 															if($repairs > 0)
 																echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
