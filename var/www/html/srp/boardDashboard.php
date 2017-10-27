@@ -357,7 +357,7 @@
 															
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($amount_received, 1); ?>%
+																<?php echo round($amount_received, 0); ?>%
 
 															</a>
 																
@@ -377,7 +377,7 @@
 
 															<a href='currentMonthPayments.php'>
 
-																<?php echo round($members_paid, 1); ?>%
+																<?php echo round($members_paid, 0); ?>%
 
 															</a>
 
