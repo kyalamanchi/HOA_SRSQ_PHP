@@ -314,10 +314,7 @@ pg_query($query);
 }
 
 else if ( $_GET['id'] == 5 ){
-	$message  = "Please wait.....";
-	echo 'data: '.$message."\n\n";  
-	ob_end_flush();
-	flush();
+
 	$message  = "Updating SMS data...Please wait...";
 	echo 'data: '.$message."\n\n";  
 	ob_end_flush();
