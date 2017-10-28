@@ -154,7 +154,8 @@
 			                        		while($row = pg_fetch_assoc($result))
 			                        		{
 
-			                          			$hoa_id = $row['hoa_id'];
+			                          			$ridf = $row['id'];
+                            					$hoa_id = $row['hoa_id'];
 			                          			$home_id = $row['home_id'];
 			                          			$open_date = $row['open_date'];
 			                          			$due_date = $row['due_date'];
@@ -203,7 +204,7 @@
 
 						                        	echo "
 											
-													<div class='modal fade' id='edit_reminder_$hoa_id'>
+													<div class='modal fade' id='edit_reminder_$rid'>
 
 														<div class='modal-dialog modal-lg'>
 
@@ -220,7 +221,7 @@
 
 																	<div class='container' style='color: black;'>
 
-																		<form action='' method='POST'>
+																		<form action='editReminder.php' method='POST'>
 
 																			<div class='row container-fluid'>
 
@@ -236,7 +237,7 @@
 
 																					<label>Due Date</label>
 																					<br>
-																					<input class='form-control' type='date' value='$due_date' name='due_date' id='due_date' required>
+																					<input class='form-control' type='date' value='$due_date' name='edit_due_date' id='edit_due_date' required>
 
 																				</div>
 
@@ -248,7 +249,27 @@
 
 																					<label>Reminder Type</label>
 																					<br>
-																					<input class='form-control' type='date' readonly value='$open_date'>
+																					<select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' required>
+
+                                              											<option value='' selected disabled>Select Reminder Type</option>";
+																						
+																						$ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+
+                                              											while($roo = pg_fetch_assoc($ree))
+                                              											{
+
+                                                											$r_id = $roo['id'];
+                                                											$r_type = $roo['reminder_type'];
+
+                                                											echo "<option ";
+
+                                                											if($r_type == $reminder_type)
+                                                  												echo " selected ";
+
+                                                											echo "value='$r_id'>$r_type</option>";
+                                              											}
+
+																					echo "<select>
 
 																				</div>
 
@@ -256,7 +277,28 @@
 
 																					<label>Vendor Assigned</label>
 																					<br>
-																					<input class='form-control' type='date' value='$due_date' name='due_date' id='due_date' required>
+																					<select class='form-control' type='date' name='edit_vendor' id='edit_vendor'>
+
+                                              											<option value='' selected>NONE</option>";
+																						
+																						$ree = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
+											
+                                              											while($roo = pg_fetch_assoc($ree))
+                                              											{
+
+											                                                $vendor_id = $roo['vendor_id'];
+											                                                $vendor_name = $roo['vendor_name'];
+
+											                                                echo "<option ";
+
+											                                                if($vendor_name == $vendor_assigned)
+											                                                  	echo " selected ";
+
+											                                                echo "value='$vendor_id'>$vendor_name</option>";
+
+                                              											}
+
+																					echo "<select>
 
 																				</div>
 
@@ -268,7 +310,7 @@
 
 																					<label>Comment</label>
 																					<br>
-																					<textarea class='form-control' required>$comments</textarea>
+																					<textarea class='form-control' name='edit_comments' id='edit_comments' required>$comments</textarea>
 
 																				</div>
 
@@ -276,9 +318,12 @@
 
 																			<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+																				<br><br>
+
 																				<center>
 
-																					<button class='btn btn-info' type='submit'>Edit Reminder</button>
+																					<input type='hidden' name='rid' id='rid' value='$rid'>
+																					<button class='btn btn-info' type='submit'>Update Reminder</button>
 
 																				</center>
 
@@ -329,7 +374,7 @@
 
 													";
 
-						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#edit_reminder_$hoa_id'><i style='color: orange;' class='fa fa-edit'></i></button></td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#close_reminder_$hoa_id'><i style='color: red;' class='fa fa-close'></i></button></td></tr>";
+						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#edit_reminder_$rid'><i style='color: orange;' class='fa fa-edit'></i></button></td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#close_reminder_$rid'><i style='color: red;' class='fa fa-close'></i></button></td></tr>";
 
 						                		}
 
