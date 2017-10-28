@@ -236,7 +236,7 @@
 
 																					<label>Due Date</label>
 																					<br>
-																					<input class='form-control' type='date' value='$due_date' name='due_date' id='due_date' required>
+																					<input class='form-control' type='date' value='$due_date' name='edit_due_date' id='edit_due_date' required>
 
 																				</div>
 
@@ -294,7 +294,7 @@
 											                                                  	echo " selected ";
 
 											                                                echo "value='$vendor_id'>$vendor_name</option>";
-											                                                
+
                                               											}
 
 																					echo "<select>
@@ -309,7 +309,7 @@
 
 																					<label>Comment</label>
 																					<br>
-																					<textarea class='form-control' required>$comments</textarea>
+																					<textarea class='form-control' name='edit_comments' id='edit_comments' required>$comments</textarea>
 
 																				</div>
 
@@ -321,7 +321,9 @@
 
 																				<center>
 
-																					<button class='btn btn-info' type='submit'>Edit Reminder</button>
+																					<input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+																					<input type='hidden' name='home_id' id='home_id' value='$home_id'>
+																					<button class='btn btn-info' type='submit'>Update Reminder</button>
 
 																				</center>
 
