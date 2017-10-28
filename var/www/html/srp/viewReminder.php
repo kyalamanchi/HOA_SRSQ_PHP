@@ -154,7 +154,8 @@
 			                        		while($row = pg_fetch_assoc($result))
 			                        		{
 
-			                          			$hoa_id = $row['hoa_id'];
+			                          			$ridf = $row['id'];
+                            					$hoa_id = $row['hoa_id'];
 			                          			$home_id = $row['home_id'];
 			                          			$open_date = $row['open_date'];
 			                          			$due_date = $row['due_date'];
@@ -203,7 +204,7 @@
 
 						                        	echo "
 											
-													<div class='modal fade' id='edit_reminder_$hoa_id'>
+													<div class='modal fade' id='edit_reminder_$rid'>
 
 														<div class='modal-dialog modal-lg'>
 
@@ -220,7 +221,7 @@
 
 																	<div class='container' style='color: black;'>
 
-																		<form action='' method='POST'>
+																		<form action='editReminder.php' method='POST'>
 
 																			<div class='row container-fluid'>
 
@@ -321,8 +322,7 @@
 
 																				<center>
 
-																					<input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
-																					<input type='hidden' name='home_id' id='home_id' value='$home_id'>
+																					<input type='hidden' name='rid' id='rid' value='$rid'>
 																					<button class='btn btn-info' type='submit'>Update Reminder</button>
 
 																				</center>
@@ -374,7 +374,7 @@
 
 													";
 
-						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#edit_reminder_$hoa_id'><i style='color: orange;' class='fa fa-edit'></i></button></td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#close_reminder_$hoa_id'><i style='color: red;' class='fa fa-close'></i></button></td></tr>";
+						                        	echo "<tr><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#edit_reminder_$rid'><i style='color: orange;' class='fa fa-edit'></i></button></td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#close_reminder_$rid'><i style='color: red;' class='fa fa-close'></i></button></td></tr>";
 
 						                		}
 
