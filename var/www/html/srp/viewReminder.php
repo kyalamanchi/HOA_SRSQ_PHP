@@ -248,7 +248,27 @@
 
 																					<label>Reminder Type</label>
 																					<br>
-																					<input class='form-control' type='date' readonly value='$open_date'>
+																					<select class='form-control' type='date' name='edit_reminder_type' id='edit_reminder_type' required>
+
+                                              											<option value='' selected disabled>Select Reminder Type</option>";
+																						
+																						$ree = pg_query("SELECT * FROM reminder_type ORDER BY reminder_type");
+
+                                              											while($roo = pg_fetch_assoc($ree))
+                                              											{
+
+                                                											$r_id = $roo['id'];
+                                                											$r_type = $roo['reminder_type'];
+
+                                                											echo "<option ";
+
+                                                											if($r_type == $reminder_type)
+                                                  												echo " selected ";
+
+                                                											echo "value='$r_id'>$r_type</option>";
+                                              											}
+
+																					echo "<select>
 
 																				</div>
 
@@ -256,7 +276,28 @@
 
 																					<label>Vendor Assigned</label>
 																					<br>
-																					<input class='form-control' type='date' value='$due_date' name='due_date' id='due_date' required>
+																					<select class='form-control' type='date' name='edit_vendor' id='edit_vendor'>
+
+                                              											<option value='' selected>NONE</option>";
+																						
+																						$ree = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
+											
+                                              											while($roo = pg_fetch_assoc($ree))
+                                              											{
+
+											                                                $vendor_id = $roo['vendor_id'];
+											                                                $vendor_name = $roo['vendor_name'];
+
+											                                                echo "<option ";
+
+											                                                if($vendor_name == $vendor_assigned)
+											                                                  	echo " selected ";
+
+											                                                echo "value='$vendor_id'>$vendor_name</option>";
+											                                                
+                                              											}
+
+																					echo "<select>
 
 																				</div>
 
@@ -275,6 +316,8 @@
 																			</div>
 
 																			<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																				<br><br>
 
 																				<center>
 
