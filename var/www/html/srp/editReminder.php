@@ -29,10 +29,10 @@
 
           	$rid = $_POST['rid'];
           	$due_date = $_POST['edit_due_date'];
-          	$reminder_type = $_POST['edit_reminder_type'];
           	$vendor_assigned = $_POST['edit_vendor'];
-          	$comments = $_POST['edit_comments'];
+          	$comment = $_POST['edit_comments'];
           	$update_date = date('Y-m-d');
+          	$reminder_type = $_POST['edit_reminder_type'];
 
 		?>
 
