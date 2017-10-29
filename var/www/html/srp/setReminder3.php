@@ -126,7 +126,7 @@
                     			if(!$result)
                     			{
                       
-                      				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>An error occured while creating reminder!</strong><br /><br />Please try again.<br /><br /></center></div></div></div>";
+                      				echo "<br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>An error occured while creating reminder!</strong><br /><br />Please try again.<br /><br /></center></div></div></div>";
 
                       				echo "<br><br><center><a href='setReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='setReminder.php'},1000);</script>";
 
@@ -134,7 +134,7 @@
                     			else 
                     			{
                       
-                      				echo "<br /><br /><br /><br /><br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-success'><center><br /><strong style='font-size: 15pt;'>Reminder created successfully!</strong><br /><br /><br /></center></div></div></div>";
+                      				echo "<br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-success'><center><br /><strong style='font-size: 15pt;'>Reminder created successfully!</strong><br /><br /><br /></center></div></div></div>";
 
                       				echo "<br><br><center><a href='viewReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='viewReminder.php'},1000);</script>";
 
