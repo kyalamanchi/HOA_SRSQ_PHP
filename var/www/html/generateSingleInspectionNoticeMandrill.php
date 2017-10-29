@@ -2,7 +2,7 @@
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 require('mc_table.php');
-    try{
+
     $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
         $cityQuery = "SELECT * FROM CITY";
         $cityQueryResult = pg_query($cityQuery);
@@ -159,23 +159,22 @@ else {
 $pdf->Ln();
 $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
 $pdf->Rect($pdf->w,$pdf->h,100,1);
-
     if ( $documentID ){
         $format = explode('.', $attachDescription);
         $format = end($format);
         $url = 'https://content.dropboxapi.com/2/files/download';
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "$techID"}'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "'.$techID.'"}'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $response = curl_exec($ch);
         curl_close($ch);
         $attachmentName = uniqid();
-        $attachmentName = $attachmentName.$format;
+        $attachmentName = $attachmentName.".".$format;
         $file = fopen($attachmentName, "w");
         fwrite($file, $response);
         fclose($file);
-        $pdf->Image($attachmentName);
+        $pdf->WriteHTML($pdf->Image($attachmentName,null,null,0,90));
         unlink($attachmentName);
     }
 
@@ -216,9 +215,5 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     unlink($pdfFileNameFinal);
     print_r($fileID);
     }
-}
-}
-catch( Exception $ex){
-    print_r("An error occured.");
 }
 ?>
