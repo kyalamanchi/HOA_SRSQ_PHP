@@ -216,7 +216,6 @@ function sendData(){
     var noticeType = $("#noticeType").find("option:selected").text();
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
-
     jsonObj = [];
     item = {};
     item["hoa_id"] =   hoaID;
@@ -241,7 +240,6 @@ function sendData(){
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-
       if ( request.responseText == "An error occured"){
 
       }
