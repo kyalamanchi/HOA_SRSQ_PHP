@@ -67,6 +67,7 @@ require('mc_table.php');
         $homeAddressZipFinal  = $row['zip_id'];
         $homeAddressCommunityIdFinal = $row['community_id'];
         $currentLivingStatus = $row['living_status'];
+        $sendToEmail = $row['email'];
         $communityInfoQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$inspectionCommunityIDFinal;
         $communityInfoQueryResult = pg_query($communityInfoQuery);
         $row = pg_fetch_assoc($communityInfoQueryResult);
@@ -213,7 +214,16 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     unlink($zipFileNameFinal);
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
-    print_r($fileID);
+    $subject = "Inspection Notice";
+    $documentID = $fileID;
+    $body = "";
+    $email = $sendToEmail;
+    $hoaID = $inspectionHOAID;
+    $sendURL = "https://hoaboardtime.com/dropboxToMandrill.php?hoaid=".$hoaID."&subject=".$subject."&body=".$body."&docid=".$documentID."&email=dhivysh@gmail.com";
+    $req = curl_init();
+    curl_setopt($req, CURLOPT_URL,$sendURL);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+     curl_exec($req);
     }
 }
 ?>
