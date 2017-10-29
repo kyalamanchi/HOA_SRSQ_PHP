@@ -183,7 +183,7 @@ function sendViaUSPS(id){
   request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           hidePleaseWait();
-          swal("Statement Sent Via USPS","","success");
+          swal("Statement Sent Via USPS");
       }
   }
 
@@ -199,7 +199,7 @@ function sendViaMandrill(id){
   request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           hidePleaseWait();
-          swal("Statement Mailed","","success");
+          swal("Statement Mailed");
       }
   }
 
@@ -233,7 +233,7 @@ function sendData(){
     jsonObj.push(item);
     var stringJSON = JSON.stringify(jsonObj);
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/insertInspectionData.php",true);
+    request.open("POST","https://hoaboardtime.com/insertInspectionDataTest.php",true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(stringJSON);
     showPleaseWait();

@@ -2,7 +2,7 @@
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 require('mc_table.php');
-    try{
+
     $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
         $cityQuery = "SELECT * FROM CITY";
         $cityQueryResult = pg_query($cityQuery);
@@ -32,8 +32,15 @@ require('mc_table.php');
         $allInspectionQueryResult = pg_query($allInspectionQuery);
         while($row = pg_fetch_assoc($allInspectionQueryResult))
         {
-            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
-            $id = $row['id']; 
+        $id = $row['id']; 
+        $documentID = $row['document_id'];
+        if ( $documentID ){
+            $docQuery = "SELECT * FROM DOCUMENT_MANAGEMENT WHERE DOCUMENT_ID=$documentID";
+            $docQueryResult  = pg_query($docQuery);
+            $docRess = pg_fetch_assoc($docQueryResult);
+            $techID = $docRess['tech_id'];
+            $attachDescription = $docRess['description'];
+        }
         $inspectionDateFinal = $row['inspection_date'];
         $inspectionStatusIDFinal = $row['inspection_status_id'];
         $inspectionDescriptionFinal = $row['description'];
@@ -60,6 +67,7 @@ require('mc_table.php');
         $homeAddressZipFinal  = $row['zip_id'];
         $homeAddressCommunityIdFinal = $row['community_id'];
         $currentLivingStatus = $row['living_status'];
+        $sendToEmail = $row['email'];
         $communityInfoQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$inspectionCommunityIDFinal;
         $communityInfoQueryResult = pg_query($communityInfoQuery);
         $row = pg_fetch_assoc($communityInfoQueryResult);
@@ -152,6 +160,24 @@ else {
 $pdf->Ln();
 $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
 $pdf->Rect($pdf->w,$pdf->h,100,1);
+    if ( $documentID ){
+        $format = explode('.', $attachDescription);
+        $format = end($format);
+        $url = 'https://content.dropboxapi.com/2/files/download';
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "'.$techID.'"}'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $attachmentName = uniqid();
+        $attachmentName = $attachmentName.".".$format;
+        $file = fopen($attachmentName, "w");
+        fwrite($file, $response);
+        fclose($file);
+        $pdf->WriteHTML($pdf->Image($attachmentName,null,null,0,90));
+        unlink($attachmentName);
+    }
 
  if (file_exists('data.zip')) { 
     unlink ('data.zip'); 
@@ -188,11 +214,18 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     unlink($zipFileNameFinal);
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
-    print_r($fileID);
+    $subject = "Inspection Notice";
+    $documentID = $fileID;
+    $body = "";
+    $email = $sendToEmail;
+    $hoaID = $inspectionHOAID;
+    $sendURL = "https://hoaboardtime.com/dropboxInspectionToMandrill.php?hoaid=".$hoaID."&docid=".$documentID."&email=dhivysh@gmail.com";
+    print_r($sendURL);
+    $req = curl_init();
+    curl_setopt($req, CURLOPT_URL,$sendURL);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+    $message = curl_exec($req);
+    print_r($message);
     }
-}
-}
-catch( Exception $ex){
-    print_r("An error occured.");
 }
 ?>
