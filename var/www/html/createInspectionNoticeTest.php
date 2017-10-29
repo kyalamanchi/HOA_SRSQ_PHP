@@ -234,14 +234,14 @@ function sendData(){
     jsonObj.push(item);
     var stringJSON = JSON.stringify(jsonObj);
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/insertInspectionData.php",true);
+    request.open("POST","https://hoaboardtime.com/insertInspectionDataTest.php",true);
     request.setRequestHeader("Content-type", "application/json");
     request.send(stringJSON);
     showPleaseWait();
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-
+      alert(request.responseText);
       if ( request.responseText == "An error occured"){
 
       }
