@@ -216,7 +216,6 @@ function sendData(){
     var noticeType = $("#noticeType").find("option:selected").text();
     var status = $("#noticeStatus").find("option:selected").text();
     var cDate = document.getElementById("ComplianceDate").value;
-    alert(fileData);
     jsonObj = [];
     item = {};
     item["hoa_id"] =   hoaID;
