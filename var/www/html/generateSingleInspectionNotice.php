@@ -28,7 +28,8 @@ require('mc_table.php');
         while($row = pg_fetch_assoc($locationQueryResult)){
             $locationArray[$row['location_id']] = $row['location'];
         }
-        $allInspectionQuery = "SELECT * FROM INSPECTION_NOTICES WHERE ID=45";
+        $inspectionNoticeID = $_GET['id'];
+        $allInspectionQuery = "SELECT * FROM INSPECTION_NOTICES WHERE ID=$inspectionNoticeID";
         $allInspectionQueryResult = pg_query($allInspectionQuery);
         while($row = pg_fetch_assoc($allInspectionQueryResult))
         {
