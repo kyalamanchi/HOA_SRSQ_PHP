@@ -220,10 +220,12 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     $email = $sendToEmail;
     $hoaID = $inspectionHOAID;
     $sendURL = "https://hoaboardtime.com/dropboxToMandrill.php?hoaid=".$hoaID."&subject=".$subject."&body=".$body."&docid=".$documentID."&email=dhivysh@gmail.com";
+    print_r($sendURL);
     $req = curl_init();
     curl_setopt($req, CURLOPT_URL,$sendURL);
     curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-     curl_exec($req);
+    $message = curl_exec($req);
+    print_r($message);
     }
 }
 ?>
