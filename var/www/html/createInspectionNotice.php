@@ -183,7 +183,7 @@ function sendViaUSPS(id){
   request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           hidePleaseWait();
-          swal("Statement Sent Via USPS");
+          swal("Statement Sent Via USPS","","success");
       }
   }
 
@@ -199,7 +199,7 @@ function sendViaMandrill(id){
   request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           hidePleaseWait();
-          swal("Statement Mailed");
+          swal("Statement Mailed","","success");
       }
   }
 
