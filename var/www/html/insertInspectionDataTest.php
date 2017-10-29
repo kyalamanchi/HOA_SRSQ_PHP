@@ -18,15 +18,22 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 	$techID = "";
 	if ( $fileData != ""){
 		//Upload to dropbox
-		echo $fileData;
-		// $url = 'https://content.dropboxapi.com/2/files/upload';
-		// $fileContents = base64_decode($fileData);
-		// $ch = curl_init($url);
-		// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-		// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
-		// curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-  //   	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		// $response = curl_exec($ch);
+		$name =  uniqid();
+		$type = explode('.', $name);
+		$type = end($type);
+		$name = $name.".".$type;
+		$file = fopen($name, "w");
+		fwrite($file, base64_decode($fileData));
+		fclose($file);
+		$url = 'https://content.dropboxapi.com/2/files/upload';
+		$fileContents = file_get_contents($name);
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$response = curl_exec($ch);
+		echo $response;
 		// $decodeData = json_decode($response);
 		// echo "Response ";
 		// $fileID  = $decodeData->id;
