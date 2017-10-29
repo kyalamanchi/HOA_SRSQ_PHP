@@ -240,7 +240,6 @@ function sendData(){
     request.onreadystatechange = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
       hidePleaseWait();
-      alert(request.responseText);
       if ( request.responseText == "An error occured"){
 
       }
