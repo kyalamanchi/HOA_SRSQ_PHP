@@ -219,7 +219,7 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     $body = "";
     $email = $sendToEmail;
     $hoaID = $inspectionHOAID;
-    $sendURL = "https://hoaboardtime.com/dropboxToMandrill.php?hoaid=".$hoaID."&subject=".$subject."&body=".$body."&docid=".$documentID."&email=dhivysh@gmail.com";
+    $sendURL = "https://hoaboardtime.com/dropboxInspectionToMandrill.php?hoaid=".$hoaID."&docid=".$documentID."&email=dhivysh@gmail.com";
     print_r($sendURL);
     $req = curl_init();
     curl_setopt($req, CURLOPT_URL,$sendURL);
