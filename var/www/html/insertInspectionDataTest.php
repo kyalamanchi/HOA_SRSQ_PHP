@@ -18,15 +18,16 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 	$techID = "";
 	if ( $fileData != ""){
 		//Upload to dropbox
-		$url = 'https://content.dropboxapi.com/2/files/upload';
-		$fileContents = base64_decode($fileData);
-		$ch = curl_init($url);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-    	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		$response = curl_exec($ch);
-		$decodeData = json_decode($response);
+		echo $fileData;
+		// $url = 'https://content.dropboxapi.com/2/files/upload';
+		// $fileContents = base64_decode($fileData);
+		// $ch = curl_init($url);
+		// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+		// curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+  //   	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		// $response = curl_exec($ch);
+		// $decodeData = json_decode($response);
 		// echo "Response ";
 		// $fileID  = $decodeData->id;
 		// $query = "INSERT INTO DOCUMENT_MANAGEMENT(\"active\",\"description\",\"month_of_upload\",\"uploaded_date\",\"url\",\"year_of_upload\",\"community_id\",\"member_id\",\"hoa_id\",\"tech_id\") VALUES('TRUE','".$fileName."','".date('M')."','".date('Y-m-d H:i:s')."','/Inspection_Attachments/".date('Y')."/',".date('Y').",(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),(SELECT MEMBER_ID FROM MEMBER_INFO WHERE HOA_ID=".$hoaID."),".$hoaID.",'".$fileID."') RETURNING document_id";
