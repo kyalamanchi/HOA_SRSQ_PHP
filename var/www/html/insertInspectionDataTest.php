@@ -44,6 +44,7 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
 	$row = pg_fetch_assoc($queryResult);
 	echo $query;
 	echo $row['id'];
+	exit(0);
 }
 }
 }
