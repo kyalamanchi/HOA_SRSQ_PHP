@@ -34,6 +34,7 @@ if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazona
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		$response = curl_exec($ch);
 		echo $response;
+		unlink($name);
 		// $decodeData = json_decode($response);
 		// echo "Response ";
 		// $fileID  = $decodeData->id;
