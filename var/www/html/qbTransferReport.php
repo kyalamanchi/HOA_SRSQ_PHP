@@ -100,7 +100,7 @@ function hidePleaseWait() {
                 $result = json_decode($result);
                 foreach ($result->QueryResponse->Transfer as $transfer) {
                      setlocale(LC_MONETARY, 'en_US');
-                    $finalAmount = money_format('%(#10n', $transfer->Amount);
+                    $finalAmount = money_format('%#10n', $transfer->Amount);
                     echo '<tr>';
                         echo '<td>';
                             echo $transfer->FromAccountRef->name;

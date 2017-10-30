@@ -108,13 +108,13 @@ function hidePleaseWait() {
                 if ( $row->ColData ){
                     $finalAmount = $row->ColData[1]->value;
                     setlocale(LC_MONETARY, 'en_US');
-                    $finalAmount = money_format('%(#10n', $finalAmount);
+                    $finalAmount = money_format('%#10n', $finalAmount);
 
                 }
                 else {
                    $vendorsArray[$row[0]->value] = $row[1]->value;
                    setlocale(LC_MONETARY, 'en_US');
-                    $vendorsArray[$row[0]->value] = money_format('%(#10n', $row[1]->value);
+                    $vendorsArray[$row[0]->value] = money_format('%#10n', $row[1]->value);
                 }
             }
         }

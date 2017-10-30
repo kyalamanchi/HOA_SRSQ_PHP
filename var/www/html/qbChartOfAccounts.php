@@ -136,7 +136,7 @@ function hidePleaseWait() {
                         echo '</td>';
                         echo '<td>';
                             setlocale(LC_MONETARY, 'en_US');
-                            echo    money_format('%(#10n', $account->CurrentBalanceWithSubAccounts);
+                            echo    money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
                         echo '</td>';
                     echo '</tr>';
                 }
@@ -157,7 +157,7 @@ function hidePleaseWait() {
                         echo '</td>';
                         echo '<td>';
                             setlocale(LC_MONETARY, 'en_US');
-                                echo    money_format('%(#10n', $account->CurrentBalanceWithSubAccounts);
+                                echo    money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
                               
                         echo '</td>';
                     echo '</tr>';
