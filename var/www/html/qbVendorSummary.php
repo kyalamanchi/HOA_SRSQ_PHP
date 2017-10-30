@@ -45,12 +45,14 @@ function showPleaseWait() {
 $(document).ready(function() {
    var table =  $('#example').DataTable( {
         select: true,
+        "pageLength":100,
         columns: [
         { title: "",
         "width" : "75%"},
         { title: "TOTAL"}
         ]
     } );
+   table.order([1,"desc"]).draw();
 } );
 
 function hidePleaseWait() {
