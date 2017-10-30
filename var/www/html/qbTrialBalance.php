@@ -55,7 +55,7 @@ $(document).ready(function() {
             "width": "25%"
         }
         ],
-        "order": [[ 1, "desc" ]]
+        "order": [[ 0, "asc" ]]
     } );
 } 
 
