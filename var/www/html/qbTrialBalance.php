@@ -55,6 +55,8 @@ $(document).ready(function() {
             "width": "25%"
         }
         ],
+         "scrollY":        "500px",
+        "scrollCollapse": true,
         "order": [[ 0, "asc" ]]
     } );
 } 

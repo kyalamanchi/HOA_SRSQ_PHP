@@ -44,7 +44,9 @@ function showPleaseWait() {
 
 $(document).ready(function() {
    var table =  $('#example').DataTable( {
-        select: true
+        select: true,
+         "scrollY":        "500px",
+        "scrollCollapse": true,
     } );
 } );
 

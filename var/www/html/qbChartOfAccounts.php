@@ -63,7 +63,9 @@ null,
 null,
 null,
 null
-]
+],
+ "scrollY":        "500px",
+        "scrollCollapse": true,
     } );
    table.order([0,'asc']);
    

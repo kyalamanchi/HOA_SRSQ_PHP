@@ -50,7 +50,9 @@ $(document).ready(function() {
         { title: "",
         "width" : "75%"},
         { title: "TOTAL"}
-        ]
+        ],
+         "scrollY":        "500px",
+        "scrollCollapse": true
     } );
    table.order([1,"desc"]).draw();
 } );
