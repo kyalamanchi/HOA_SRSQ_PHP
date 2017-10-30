@@ -79,12 +79,6 @@ function hidePleaseWait() {
         <br>
         <br>
         <table id="example" class="table " cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th></th>
-                <th>Total</th>
-            </tr>
-        </thead>
         <tfoot>
             <tr>
                 <th></th>
