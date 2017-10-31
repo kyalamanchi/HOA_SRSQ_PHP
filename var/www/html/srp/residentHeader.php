@@ -1,9 +1,10 @@
 <?php
 
-ini_set("session.save_path","/var/www/html/session/");
-session_start();
+	ini_set("session.save_path","/var/www/html/session/");
+	session_start();
 
 	$user_id = $_SESSION['hoa_user_id'];
+	$hoa_id = $_SESSION['hoa_hoa_id'];
 
 	$board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id"));
 
@@ -29,7 +30,7 @@ session_start();
 
 						<li><a href='residentDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
 						
-						<li><a class='smoothscroll' href='#pay_online'><span><i class='fa fa-dollar'></i> Quick Pay</span></a></li>
+						<li><a href='paymentPage2.php?id=$hoa_id'><span><i class='fa fa-dollar'></i> Quick Pay</span></a></li>
 						
 						<?php
 

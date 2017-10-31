@@ -1,7 +1,10 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+	ini_set("session.save_path","/var/www/html/session/");
+	session_start();
+
 ?>
+
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -14,7 +17,7 @@
 				header("Location: logout.php");
 
 			if($_SESSION['hoa_mode'] == 1)
-				$_SESSION['hoa_mode'] = 2;
+				header("Location: boardDashboard.php");
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 

@@ -1,10 +1,15 @@
 <?php
 
-	$id = $_POST['id'];
+	session_start();
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$community_id = 1;
+	if(!$_SESSION['hoa_username'])
+		$community_id = 1;
+	else
+		$community_id = $_SESSION['hoa_community_id'];
+
+	$id = $_REQUEST['id'];
 
 	$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND hoa_id=$id");
 
