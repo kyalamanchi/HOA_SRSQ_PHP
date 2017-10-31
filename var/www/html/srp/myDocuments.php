@@ -50,6 +50,8 @@
 		<link href='assets/css/animate.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href='assets/css/template.min.css' rel='stylesheet'>
+		<!-- Datatable -->
+		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
 	</head>
 
@@ -84,11 +86,54 @@
 				</section>
 
 				<!-- Counters -->
-				<section class='module module-gray p-b-0'>
+				<section class='module p-b-0'>
 
 					<div class='container'>
 
-						
+						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+							<table id='example1' class='table table-striped'>
+
+								<thead>
+									
+									<th>Year</th>
+									<th>Date of Upload</th>
+									<th>Description</th>
+
+								</thead>
+
+								<tbody>
+									
+									<?php
+
+										$result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id");
+
+										while ($row = pg_fetch_assoc($result)) 
+										{
+											
+											$document_id = $row['document_id'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
+
+											$year = $row1['year_of_upload'];
+											$upload_date = $row1['uploaded_date'];
+											$description = $row1['description'];
+											$document_url = $row1['url'];
+
+											if($upload_date != "")
+												$upload_date = date('m-d-Y', strtotime($upload_date));
+
+											echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$description</a></td></tr>";
+
+										}
+
+									?>
+
+								</tbody>
+								
+							</table>
+
+						</div>
 
 					</div>
 
@@ -112,6 +157,19 @@
 		<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
+		<!-- Datatable -->
+		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+
+		<script>
+      	
+	      	$(function () {
+	        	
+	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc'], [1, 'desc']] });
+
+	      	});
+
+    	</script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->
