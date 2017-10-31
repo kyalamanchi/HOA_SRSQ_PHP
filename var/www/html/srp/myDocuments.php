@@ -86,7 +86,7 @@
 				</section>
 
 				<!-- Counters -->
-				<section class='module p-b-0'>
+				<section class='module'>
 
 					<div class='container'>
 
