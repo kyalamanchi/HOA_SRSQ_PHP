@@ -92,7 +92,7 @@
 
 						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-							<table id='example1' class='table table-striped'>
+							<table id='example1' class='table table-striped' style='color: black;'>
 
 								<thead>
 									
