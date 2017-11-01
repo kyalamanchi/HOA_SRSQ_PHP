@@ -2762,6 +2762,8 @@
     <script type="text/javascript">
       
       var ctx = document.getElementById('myChart1').getContext('2d');
+      ctx.width = 1;
+      ctx.height = 1;
       var myBarChart = new Chart(ctx, {
         
         type: 'horizontalBar',
@@ -2770,7 +2772,7 @@
           datasets: [{
 
             data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?>, <?php echo $jul_members_paid; ?>, <?php echo $aug_members_paid; ?>, <?php echo $sep_members_paid; ?>, <?php echo $oct_members_paid; ?>, <?php echo $nov_members_paid; ?>, <?php echo $dec_members_paid; ?> ],
-            backgroundColor: [ '#385114', '#ff9827', '#a21fff', '#70ff4d', '#3688ff', '#d1cc20', '#385114', '#ff9827', '#a21fff', '#70ff4d', '#3688ff', '#d1cc20' ]
+            backgroundColor: [ '#c58ced', '#d58ced', '#ed8ca5', '#7f8be5', '#7fd9e5', '#7fe590', '#c58ced', '#d58ced', '#ed8ca5', '#7f8be5', '#7fd9e5', '#7fe590' ]
 
           }],
 
