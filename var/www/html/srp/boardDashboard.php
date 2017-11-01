@@ -2838,6 +2838,7 @@
           {
             
             label: 'Line Dataset',
+            steppedLine: true,
             data: [ <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?> ],
 
             // Changes this dataset to become a line
