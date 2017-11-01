@@ -17,7 +17,12 @@
 		header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$id");
 	else
 	{
-		echo "<br><br><br><br><center><h3>Invalid HOA Account Number.<br>Please check the HOA Account Number and try again.</h3></center><br><br><br><br><center><a href='paymentPage1.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.<script>setTimeout(function(){window.location.href='paymentPage1.php'},2000);</script>";
+		
+		if(!$_SESSION['hoa_username'])
+			echo "<br><br><br><br><center><h3>Invalid HOA Account Number.<br>Please check the HOA Account Number and try again.</h3></center><br><br><br><br><center><a href='paymentPage1.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.<script>setTimeout(function(){window.location.href='paymentPage1.php'},2000);</script>";
+		else
+			echo "<br><br><br><br><center><h3>Invalid HOA Account Number.<br>Please check the HOA Account Number and try again.</h3></center><br><br><br><br><center><a href='residentDashboard.php'>Click here</a> if this page doesnot redirect automatically in 5 seconds.<script>setTimeout(function(){window.location.href='residentDashboard.php'},2000);</script>";
+
 	}
 
 ?>
