@@ -2724,7 +2724,7 @@
 
           title: {
             display: true,
-            fontSize: 14,
+            fontSize: 55,
             fontStyle: 'bold',
             text: 'Top spendings (Testing)'
           },
