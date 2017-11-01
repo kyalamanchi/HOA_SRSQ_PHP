@@ -1416,9 +1416,13 @@
 
                       <div class='row'>
 
-                        <center>Quickbooks top spendings testing</center>
+                        <div class='col-xl-6 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-2 offset-md-2 offset-sm-1'>
+                          
+                          <center>Quickbooks top spendings testing</center>
 
-                        <canvas id="myChart"></canvas>
+                          <canvas id="myChart"></canvas>
+
+                        </div>
 
                       </div>
 
