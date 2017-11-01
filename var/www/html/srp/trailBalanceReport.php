@@ -80,29 +80,9 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">View Reminders</h1>
+								<h1 class="h5">Trail Balance Report</h1>
 							
 							</div>
-
-							<?php
-
-							if($mode == 1)
-								echo "
-
-								<div class='page-title-secondary'>
-									
-									<ol class='breadcrumb'>
-										
-										<li class='breadcrumb-item'><i class='fa fa-users'></i> Board</li>
-										<li class='breadcrumb-item active'>View Reminder</li>
-
-									</ol>
-
-								</div>
-
-								";
-
-							?>
 						
 						</div>
 						
@@ -129,15 +109,53 @@
 
 								<tbody>
 											
-									
+									<?php
+
+										$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/TrialBalance?minorversion=8');
+							            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+							            curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="yeSJRub0GHEFGr7Z%2FrWPdBljvm4%3D"'));
+							            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+							            $result = curl_exec($ch);
+							            
+							            $result =  json_decode($result);
+
+							            foreach ($result->Rows->Row as $row) 
+							            {
+
+							            	if ( $row->ColData )
+							            	{
+
+							            		echo "<tr><td>".$row->ColData[0]->value."</td><td>";
+                                				
+                                				if ( $row->ColData[1]->value != "" )
+                                					echo $row->ColData[1]->value;
+                                
+                            					echo "</td><td>";
+                                				
+                                				if ( $row->ColData[2]->value != "" )
+                                				echo $row->ColData[2]->value;
+                                
+                            					echo "</td></tr>";
+
+							            	}
+							            	else if ( $row->Summary ){
+                    
+                    							$totalDebitAmount = $row->Summary->ColData[1]->value;
+                    							$totalCreditAmount = $row->Summary->ColData[2]->value;
+
+                							}
+
+							            }
+
+									?>
 
 								</tbody>
 
 								<tfoot>
 									
 									<th>Total</th>
-									<th>$ <?php #echo ; ?></th>
-									<th>$ <?php #echo ; ?></th>
+									<th>$ <?php echo $totalDebitAmount; ?></th>
+									<th>$ <?php echo $totalCreditAmount; ?></th>
 
 								</tfoot>
 										
@@ -148,20 +166,6 @@
 					</div>
 
 				</section>
-
-				<?php
-
-					$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/TrialBalance?minorversion=8');
-		            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-		            curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="yeSJRub0GHEFGr7Z%2FrWPdBljvm4%3D"'));
-		            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		            $result = curl_exec($ch);
-		            
-		            $result =  json_decode($result);
-
-		            print_r($result);
-
-				?>
 
 				<!-- Footer-->
 				<?php include 'footer.php'; ?>
