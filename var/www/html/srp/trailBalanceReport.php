@@ -93,7 +93,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -116,7 +116,7 @@
 
 										if($community_id == 1)
 										{
-											
+
 											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/TrialBalance?minorversion=8');
 								            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
 								            curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));

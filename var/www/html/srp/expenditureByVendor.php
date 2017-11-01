@@ -93,7 +93,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -101,9 +101,8 @@
 										
 								<thead>
 											
-									<th></th>
-									<th>Debit</th>
-									<th>Credit</th>
+									<th>Vendor</th>
+									<th>Total</th>
 
 								</thead>
 
@@ -111,8 +110,7 @@
 											
 									<?php
 
-										$totalDebitAmount = "NULL";
-										$totalCreditAmount = "NULL";
+										$finalAmount = "NULL";
 
 										if($community_id == 1)
 										{
@@ -157,41 +155,60 @@
 										else if($community_id == 2)
 										{
 
-											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/TrialBalance?minorversion=8');
-								            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-								            curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="yeSJRub0GHEFGr7Z%2FrWPdBljvm4%3D"'));
-								            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-								            $result = curl_exec($ch);
-								            
-								            $result =  json_decode($result);
+											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+        									// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+        									curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        									curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+        									// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+        									curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        									$result = curl_exec($ch);
+        									$result  = json_decode($result);
+        
+        									$vendorsArray = array();
 
-								            foreach ($result->Rows->Row as $row) 
+								            foreach ($result->Rows->Row as $ColumnData) 
 								            {
+            									
+            									$values = array();
+            									$id = -10;
+            									$vendors = array();
+            									$amounts = array();
+            
+            									foreach ($ColumnData as $row) 
+            									{
+                									
+                									$name = "";
+                									$id = "";
+                									$amount = "";
+                									
+                									if ( $row->ColData )
+                									{
+                    									
+                    									$finalAmount = $row->ColData[1]->value;
+                    									setlocale(LC_MONETARY, 'en_US');
+                    									$finalAmount = money_format('%#10n', $finalAmount);
 
-								            	if ( $row->ColData )
-								            	{
+                									}
+                									else 
+                									{
+                   
+                   										$vendorsArray[$row[0]->value] = $row[1]->value;
+                   										setlocale(LC_MONETARY, 'en_US');
+                    									$vendorsArray[$row[0]->value] = money_format('%#10n', $row[1]->value);
 
-								            		echo "<tr><td>".$row->ColData[0]->value."</td><td>";
-	                                				
-	                                				if ( $row->ColData[1]->value != "" )
-	                                					echo "$ ".$row->ColData[1]->value;
-	                                
-	                            					echo "</td><td>";
-	                                				
-	                                				if ( $row->ColData[2]->value != "" )
-	                                					echo "$ ".$row->ColData[2]->value;
-	                                
-	                            					echo "</td></tr>";
+                									}
 
-								            	}
-								            	else if ( $row->Summary ){
-	                    
-	                    							$totalDebitAmount = $row->Summary->ColData[1]->value;
-	                    							$totalCreditAmount = $row->Summary->ColData[2]->value;
+            									}
 
-	                							}
+            									foreach ($vendorsArray as $key => $value) 
+            									{
+            										
+            										if ( $key && $value )
+            											echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 
-								            }
+        										}
+        									
+        									}
 
 							        	}
 
@@ -202,8 +219,7 @@
 								<tfoot>
 									
 									<th>Total</th>
-									<th><?php if($totalDebitAmount != 'NULL') echo "$ ".$totalDebitAmount; ?></th>
-									<th><?php if($totalCreditAmount != 'NULL') echo "$ ".$totalCreditAmount; ?></th>
+									<th><?php if($finalAmount != 'NULL') echo "$ ".$finalAmount; ?></th>
 
 								</tfoot>
 										
