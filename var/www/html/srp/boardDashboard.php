@@ -1412,7 +1412,11 @@
 
                       </div>
 
+                      <br><br>
+
                       <div class='row'>
+
+                        <center>Quickbooks top spendings testing</center>
 
                         <canvas id="myChart"></canvas>
 
@@ -2651,8 +2655,6 @@
 												</div>
 
 											</div>
-
-
 
 										</div>
 
