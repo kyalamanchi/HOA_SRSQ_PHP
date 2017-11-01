@@ -2700,28 +2700,25 @@
       var myDoughnutChart = new Chart(ctx, {
     
         type: 'doughnut',
-        data: data
-        //options: options
+        data: {
+    
+          datasets: [{
+            
+            data: [10, 20, 30]
+
+          }],
+
+          labels: [
+
+            'Red',
+            'Yellow',
+            'Blue'
+          
+          ]
+
+        }
       
       });
-
-      data = {
-    
-        datasets: [{
-          
-          data: [10, 20, 30]
-
-        }],
-
-        labels: [
-
-          'Red',
-          'Yellow',
-          'Blue'
-        
-        ]
-
-      };
 
     </script>
 		
