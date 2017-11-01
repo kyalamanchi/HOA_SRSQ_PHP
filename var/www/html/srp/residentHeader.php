@@ -30,7 +30,7 @@
 
 						<li><a href='residentDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
 						
-						<li><a href='paymentPage2.php?id=$hoa_id'><span><i class='fa fa-dollar'></i> Quick Pay - <?php echo $hoa_id; ?></span></a></li>
+						<li><a href='paymentPage2.php?id=<?php echo $hoa_id; ?>'><span><i class='fa fa-dollar'></i> Quick Pay - <?php echo $hoa_id; ?></span></a></li>
 						
 						<?php
 
