@@ -1296,52 +1296,49 @@
 
                             <div class='counter-number'>
                               
-                              <a href=''>
-                                
-                                <?php 
+                              <?php 
 
-                                  if($community_id == 2)
+                                if($community_id == 2)
+                                {
+
+                                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+                                  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+                                  // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+                                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                                  
+                                  $result = curl_exec($ch);
+                                  $result  = json_decode($result);
+                                  $vendorsArray = array();
+
+                                  foreach ($result->Rows->Row as $ColumnData) 
                                   {
-
-                                    $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
-                                    // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
-                                    // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
-                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                                    $result = curl_exec($ch);
-                                    $result  = json_decode($result);
-                                    $vendorsArray = array();
-
-                                    foreach ($result->Rows->Row as $ColumnData) 
+                                      
+                                    $values = array();
+                                    $id = -10;
+                                    $vendors = array();
+                                    $amounts = array();
+                                      
+                                    foreach ($ColumnData as $row) 
                                     {
-                                      
-                                      $values = array();
-                                      $id = -10;
-                                      $vendors = array();
-                                      $amounts = array();
-                                      
-                                      foreach ($ColumnData as $row) 
-                                      {
                                         
-                                        $name = "";
-                                        $id = "";
-                                        $amount = "";
+                                      $name = "";
+                                      $id = "";
+                                      $amount = "";
                                           
-                                        if ( $row->ColData )
-                                          $finalAmount = $row->ColData[1]->value;
-
-                                      }
+                                      if ( $row->ColData )
+                                        $finalAmount = $row->ColData[1]->value;
 
                                     }
 
-                                    echo round($finalAmount, 0);
-
                                   }
 
-                                ?>
+                                  echo "<a href='expenditureByVendor.php'".round($finalAmount, 0)."";
 
-                              </a>
+                                }
+
+                              ?>
                                 
                             </div>
 
