@@ -349,7 +349,7 @@
 
 											<div class='row module-gray'>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -369,7 +369,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -389,7 +389,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -415,7 +415,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -441,7 +441,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -467,7 +467,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
