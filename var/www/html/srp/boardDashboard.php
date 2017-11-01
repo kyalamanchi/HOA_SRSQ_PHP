@@ -2727,7 +2727,7 @@
 
           title: {
             display: true,
-            text: 'Custom Chart Title'
+            text: 'Top spendings (Testing)'
           }
 
         }
