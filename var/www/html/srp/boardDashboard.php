@@ -2716,7 +2716,7 @@
         },
         options: {
 
-          cutoutPercentage: 90,
+          cutoutPercentage: 75,
 
           title: {
             display: true,
