@@ -2763,7 +2763,7 @@
       
       var ctx = document.getElementById('myChart1').getContext('2d');
       ctx.width = 2;
-      ctx.height = 1;
+      ctx.height = 3;
       var myBarChart = new Chart(ctx, {
         
         type: 'horizontalBar',
@@ -2822,7 +2822,7 @@
       
       var ctx = document.getElementById('myChart2').getContext('2d');
       ctx.width = 2;
-      ctx.height = 1;
+      ctx.height = 3;
       var mixedChart = new Chart(ctx, {
         
         type: 'bar',
