@@ -199,15 +199,15 @@
                 									}
 
             									}
-
-            									foreach ($vendorsArray as $key => $value) 
-            									{
-            										
-            										if ( $key && $value )
-            											echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
-
-        										}
         									
+        									}
+
+        									foreach ($vendorsArray as $key => $value) 
+            								{
+            										
+            									if ( $key && $value )
+            										echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
+
         									}
 
 							        	}
@@ -219,7 +219,7 @@
 								<tfoot>
 									
 									<th>Total</th>
-									<th><?php if($finalAmount != 'NULL') echo "$ ".$finalAmount; ?></th>
+									<th><?php if($finalAmount != 'NULL') echo $finalAmount; ?></th>
 
 								</tfoot>
 										
