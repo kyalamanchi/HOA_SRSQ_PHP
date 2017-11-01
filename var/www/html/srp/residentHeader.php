@@ -30,7 +30,28 @@
 
 						<li><a href='residentDashboard.php'><span><i class='fa fa-home'></i> Home</span></a></li>
 						
-						<li><a target='_blank' href='paymentPage2.php?id=<?php echo $hoa_id; ?>'><span><i class='fa fa-dollar'></i> Quick Pay</span></a></li>
+						<li class='menu-item-has-children menu-item-has-mega-menu'><a href='#'><span><i class='fa fa-users'></i> Board</span></a>
+
+							<div class='mega-menu'>
+
+								<ul class='sub-menu mega-menu-row'>
+
+									<li class='menu-item-has-children mega-menu-col'><a href='#'><i class='fa fa-dollar'></i> Payments</a>
+										
+										<ul class='sub-menu'>
+														
+											<li><a target='_blank' href='paymentPage2.php?id=<?php echo $hoa_id; ?>'>Quick Pay</a></li>
+											<li><a>Recurring Pay</a></li>
+												
+										</ul>
+
+									</li>
+								
+								</ul>
+
+							</div>
+
+						</li>
 						
 						<?php
 
