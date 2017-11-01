@@ -2716,7 +2716,7 @@
         },
         options: {
 
-          percentageInnerCutout: 40,
+          percentageInnerCutout: 90,
 
           title: {
             display: true,
