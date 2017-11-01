@@ -2710,8 +2710,7 @@
     
           datasets: [{
             
-            data: [10, 20, 30],
-            backgroundColor: ['Red', 'Yellow', 'Blue']
+            data: [10, 20, 30]
 
           }],
 
@@ -2726,8 +2725,12 @@
         }
         options: {
 
-          responsive: true,
-          responsiveAnimationDuration: 1
+          title: {
+
+            display: true,
+            text: 'Quickbooks Testing'
+
+          }
 
         }
       
