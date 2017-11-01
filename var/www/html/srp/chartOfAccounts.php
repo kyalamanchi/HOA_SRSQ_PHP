@@ -119,7 +119,7 @@
             								$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query');
             							
 	            							curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-	            							curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+	            							curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509536291",oauth_nonce="pD5hwOezeFW",oauth_version="1.0",oauth_signature="BTZvDhlbKoBH6Vf5p%2BdNR4TcC0c%3D"'));
 	            							curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
 	            							curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	            
