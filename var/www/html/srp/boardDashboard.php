@@ -1275,7 +1275,7 @@
 
                             <div class='counter-number'>
                               
-                              <a href='trailBalanceReport.php'>
+                              <a href='chartOfAccounts.php'>
 
                                 <!--i class='fa fa-file'></i-->
                                 <img src='trail_balance_report.png' alt='Trail Balance'>
