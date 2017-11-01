@@ -1609,7 +1609,7 @@
             label: 'Bar Dataset',
             data: [ <?php echo $jan_amount_received; ?>, <?php echo $feb_amount_received; ?>, <?php echo $mar_amount_received; ?>, <?php echo $apr_amount_received; ?>, <?php echo $may_amount_received; ?>, <?php echo $jun_amount_received; ?>, <?php echo $jul_amount_received; ?>, <?php echo $aug_amount_received; ?>, <?php echo $sep_amount_received; ?>, <?php echo $oct_amount_received; ?>, <?php echo $nov_amount_received; ?>, <?php echo $dec_amount_received; ?> ],
             backgroundColor: [ '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2', '#A6B8F2' ],
-            borderColor: [ '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF', '#0051BF' ]
+            borderColor: '#0051BF'
 
           }, 
           {
