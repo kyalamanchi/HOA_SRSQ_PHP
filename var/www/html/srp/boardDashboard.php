@@ -1300,12 +1300,34 @@
                                 
                                 <?php 
 
-                                  $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+                                  if($community_id == 2)
+                                  {
 
-                                  if($assets != '')
-                                    echo "<a style='color: green;' href='communityAssets.php'>$assets</a>";
-                                  else
-                                    echo $assets;
+                                    $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+                                    // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+                                    // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                                    $result = curl_exec($ch);
+                                    $result  = json_decode($result);
+                                    $vendorsArray = array();
+
+                                    foreach ($ColumnData as $row) 
+                                    {
+                                      
+                                      $name = "";
+                                      $id = "";
+                                      $amount = "";
+                                      
+                                      if ( $row->ColData )
+                                        $finalAmount = $row->ColData[1]->value;
+
+                                    }
+
+                                    echo "$ ".$finalAmount;
+
+                                  }
 
                                 ?>
 
