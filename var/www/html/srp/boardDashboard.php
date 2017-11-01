@@ -2840,7 +2840,7 @@
             label: 'Line Dataset',
             steppedLine: true,
             borderColor: "#c080f9",
-            backgroundColor: "#cca6ed",
+            backgroundColor: "#e4caf9",
             pointBackgroundColor: "rgba(255,99,132,1)",
             pointBorderColor: "#fff",
             data: [ <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?> ],
