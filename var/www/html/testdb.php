@@ -1,4 +1,5 @@
 <?php
+echo phpinfo();
 $url = 'https://content.dropboxapi.com/2/files/download';
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
