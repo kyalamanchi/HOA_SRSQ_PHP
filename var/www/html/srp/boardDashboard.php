@@ -2729,6 +2729,11 @@
           title: {
             display: true,
             text: 'Top spendings (Testing)'
+          },
+
+          legend: {
+            display: true,
+            position: 'right'
           }
 
         }
