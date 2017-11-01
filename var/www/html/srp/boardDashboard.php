@@ -2763,7 +2763,7 @@
       
       var ctx = document.getElementById('myChart1').getContext('2d');
       ctx.width = 1;
-      ctx.height = 1;
+      ctx.height = 2;
       var myBarChart = new Chart(ctx, {
         
         type: 'horizontalBar',
