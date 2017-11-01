@@ -1290,6 +1290,35 @@
 
                         </div>
 
+                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <a href=''>
+                                
+                                <?php 
+
+                                  $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+
+                                  if($assets != '')
+                                    echo "<a style='color: green;' href='communityAssets.php'>$assets</a>";
+                                  else
+                                    echo $assets;
+
+                                ?>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Expenditure By Vendors ($)</div>
+
+                          </div>
+
+                        </div>
+
                       </div>
 
 										</div>
