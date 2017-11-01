@@ -1414,7 +1414,7 @@
 
                       <br><br>
 
-                      <div class='row module-gray'>
+                      <!--div class='row module-gray'>
 
                         <br>
 
@@ -1425,6 +1425,22 @@
                         </div>
 
                         <br>
+
+                      </div-->
+
+                      <div class='row'>
+
+                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                          
+                          <canvas id="myChart1"></canvas>
+
+                        </div>
+
+                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                          
+                          <canvas id="myChart2"></canvas>
+
+                        </div>
 
                       </div>
 
@@ -2700,6 +2716,8 @@
 
     <!-- Chart JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    
+    <!-- MyChart -->
     <script type="text/javascript">
       
       var ctx = document.getElementById('myChart').getContext('2d');
@@ -2734,6 +2752,45 @@
             position: 'right'
           }
 
+        }
+      
+      });
+
+    </script>
+
+    <!-- My Chart 1 -->
+    <script type="text/javascript">
+      
+      var ctx = document.getElementById('myChart1').getContext('2d');
+      var myBarChart = new Chart(ctx, {
+        
+        type: 'horizontalBar',
+        data: {
+
+          datasets: [{
+
+            data: [ 10, 20, 30 ],
+            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe' ]
+
+          }],
+
+          labels: [ 'Red', 'Yellow', 'Blue' ]
+
+        },
+        options: {
+
+          title: {
+            display: true,
+            fontSize: 30,
+            fontStyle: 'bold',
+            text: 'Top spendings (Testing)'
+          },
+
+          legend: {
+            display: true,
+            position: 'right'
+          }
+          
         }
       
       });
