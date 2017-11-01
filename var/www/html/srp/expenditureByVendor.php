@@ -114,42 +114,61 @@
 
 										if($community_id == 1)
 										{
-											
-											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/TrialBalance?minorversion=8');
-								            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-								            curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
-								            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-								            $result = curl_exec($ch);
-								            
-								            $result =  json_decode($result);
 
-								            foreach ($result->Rows->Row as $row) 
+											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
+        									// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+        									curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        									curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+        									// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+        									curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        									$result = curl_exec($ch);
+        									$result  = json_decode($result);
+        
+        									$vendorsArray = array();
+
+								            foreach ($result->Rows->Row as $ColumnData) 
 								            {
+            									
+            									$values = array();
+            									$id = -10;
+            									$vendors = array();
+            									$amounts = array();
+            
+            									foreach ($ColumnData as $row) 
+            									{
+                									
+                									$name = "";
+                									$id = "";
+                									$amount = "";
+                									
+                									if ( $row->ColData )
+                									{
+                    									
+                    									$finalAmount = $row->ColData[1]->value;
+                    									setlocale(LC_MONETARY, 'en_US');
+                    									$finalAmount = money_format('%#10n', $finalAmount);
 
-								            	if ( $row->ColData )
-								            	{
+                									}
+                									else 
+                									{
+                   
+                   										$vendorsArray[$row[0]->value] = $row[1]->value;
+                   										setlocale(LC_MONETARY, 'en_US');
+                    									$vendorsArray[$row[0]->value] = money_format('%#10n', $row[1]->value);
 
-								            		echo "<tr><td>".$row->ColData[0]->value."</td><td>";
-	                                				
-	                                				if ( $row->ColData[1]->value != "" )
-	                                					echo "$ ".$row->ColData[1]->value;
-	                                
-	                            					echo "</td><td>";
-	                                				
-	                                				if ( $row->ColData[2]->value != "" )
-	                                					echo "$ ".$row->ColData[2]->value;
-	                                
-	                            					echo "</td></tr>";
+                									}
 
-								            	}
-								            	else if ( $row->Summary ){
-	                    
-	                    							$totalDebitAmount = $row->Summary->ColData[1]->value;
-	                    							$totalCreditAmount = $row->Summary->ColData[2]->value;
+            									}
+        									
+        									}
 
-	                							}
+        									foreach ($vendorsArray as $key => $value) 
+            								{
+            										
+            									if ( $key && $value )
+            										echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 
-								            }
+        									}
 
 							        	}
 										else if($community_id == 2)
