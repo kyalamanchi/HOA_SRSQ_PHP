@@ -1185,6 +1185,8 @@
 
 														</div>
 
+                            <br><br><br><br>
+
 													";
 												else if($community_id == 2)
 													echo "
@@ -1257,9 +1259,9 @@
 
 															</div>
 
-                              <br><br><br><br>
-
 														</div>
+
+                            <br><br><br><br>
 
 													";
 
