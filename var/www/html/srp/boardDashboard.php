@@ -1418,7 +1418,7 @@
 
                         <div class='col-xl-6 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-2 offset-md-2 offset-sm-1'>
                           
-                          <div class="chart-container" style="position: relative; height:40vh; width:80vw"><canvas id="myChart"></canvas></div>
+                          <canvas id="myChart"></canvas>
 
                         </div>
 
