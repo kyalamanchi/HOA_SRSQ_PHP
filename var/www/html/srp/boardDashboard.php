@@ -2710,12 +2710,7 @@
     
           datasets: [{
             
-            data: [10, 20, 30],
-            backgroundColor: [
-              pattern.draw('circle', '#36a2eb'),
-              pattern.draw('diamond', '#cc65fe'),
-              pattern.draw('triangle', '#ffce56'),
-            ]
+            data: [10, 20, 30]
 
           }],
 
@@ -2729,9 +2724,6 @@
 
         },
         options: {
-
-          responsive: true,
-          responsiveAnimationDuration: 1,
 
           title: {
             display: true,
