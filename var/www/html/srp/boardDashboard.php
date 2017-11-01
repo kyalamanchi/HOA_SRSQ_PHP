@@ -1313,19 +1313,29 @@
                                     $result  = json_decode($result);
                                     $vendorsArray = array();
 
-                                    foreach ($ColumnData as $row) 
+                                    foreach ($result->Rows->Row as $ColumnData) 
                                     {
                                       
-                                      $name = "";
-                                      $id = "";
-                                      $amount = "";
+                                      $values = array();
+                                      $id = -10;
+                                      $vendors = array();
+                                      $amounts = array();
                                       
-                                      if ( $row->ColData )
-                                        $finalAmount = $row->ColData[1]->value;
+                                      foreach ($ColumnData as $row) 
+                                      {
+                                        
+                                        $name = "";
+                                        $id = "";
+                                        $amount = "";
+                                          
+                                        if ( $row->ColData )
+                                          $finalAmount = $row->ColData[1]->value;
+
+                                      }
 
                                     }
 
-                                    echo "$ ".$finalAmount;
+                                    echo $finalAmount;
 
                                   }
 
