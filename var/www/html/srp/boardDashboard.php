@@ -1335,7 +1335,7 @@
 
                                     }
 
-                                    echo $finalAmount;
+                                    echo round($finalAmount, 0);
 
                                   }
 
