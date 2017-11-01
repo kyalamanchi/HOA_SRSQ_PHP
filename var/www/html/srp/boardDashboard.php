@@ -2772,7 +2772,7 @@
           datasets: [{
 
             data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?>, <?php echo $jul_members_paid; ?>, <?php echo $aug_members_paid; ?>, <?php echo $sep_members_paid; ?>, <?php echo $oct_members_paid; ?>, <?php echo $nov_members_paid; ?>, <?php echo $dec_members_paid; ?> ],
-            backgroundColor: [ '#123456', '#234561', '#345612', '#456123', '#561234', '#612345', '#123456', '#234561', '#345612', '#456123', '#561234', '#612345' ]
+            backgroundColor: [ '#123abc', '#abc123', '#456def', '#def456', '#123456', '#abcdef', '#123abc', '#abc123', '#456def', '#def456', '#123456', '#abcdef' ]
 
           }],
 
