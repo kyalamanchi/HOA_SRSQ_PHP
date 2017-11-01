@@ -2779,6 +2779,7 @@
           labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
 
         },
+        
         options: {
 
           scales: {
@@ -2848,7 +2849,38 @@
 
         },
 
-        options: options
+        options: {
+
+          scales: {
+            
+            xAxes: [{
+              
+              ticks: {
+                
+                beginAtZero:true
+
+              }
+            
+            }]
+          
+          },
+
+          legend: {
+
+            display: false
+
+          },
+          
+          title: {
+
+            display: true,
+            fontSize: 15,
+            fontStyle: 'bold',
+            text: 'Members Paid'
+
+          }
+
+        }
 
       });
 
