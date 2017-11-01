@@ -2769,12 +2769,12 @@
 
           datasets: [{
 
-            data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?> ],
-            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe', '#ff6384', '#36a2eb', '#cc65fe' ]
+            data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?>, <?php echo $jul_members_paid; ?>, <?php echo $aug_members_paid; ?>, <?php echo $sep_members_paid; ?>, <?php echo $oct_members_paid; ?>, <?php echo $nov_members_paid; ?>, <?php echo $dec_members_paid; ?> ],
+            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe', '#ff6384', '#36a2eb', '#cc65fe', '#ff6384', '#36a2eb', '#cc65fe', '#ff6384', '#36a2eb', '#cc65fe' ]
 
           }],
 
-          labels: [ 'January', 'February', 'March', 'April', 'May', 'June' ]
+          labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
 
         },
         options: {
