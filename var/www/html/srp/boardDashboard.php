@@ -1341,13 +1341,13 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
+														<div class='container row'>
 
 															<h5 class='h5'>January<br>01</h3>
 
 														</div>
 
-														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+														<div class='container row'>
 
 															<div class='row'>
 
@@ -1439,13 +1439,13 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
+														<div class='container row'>
 
 															<h5 class='h5'>February<br>02</h3>
 
 														</div>
 
-														<div class='col-xl-10 col-lg-10 col-md-9 col-sm-8 col-xs-12'>
+														<div class='container row'>
 
 															<div class='row'>
 
