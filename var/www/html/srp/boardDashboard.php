@@ -2710,7 +2710,12 @@
     
           datasets: [{
             
-            data: [10, 20, 30]
+            data: [10, 20, 30],
+            backgroundColor: [
+              pattern.draw('square', '#ff6384'),
+              pattern.draw('circle', '#36a2eb'),
+              pattern.draw('diamond', '#cc65fe')
+            ]
 
           }],
 
