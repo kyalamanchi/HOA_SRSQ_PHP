@@ -278,7 +278,9 @@
 		<link href="assets/css/animate.css" rel="stylesheet">
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
+
 	</head>
+
 	<body>
 
 		<!-- Layout-->
@@ -349,7 +351,7 @@
 
 											<div class='row module-gray'>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -369,7 +371,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -389,7 +391,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -415,7 +417,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -441,7 +443,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -467,7 +469,7 @@
 
 												</div>
 
-												<div class='col-xl-2 col-lg-2 col-md-2 col-sm-6 col-xs-6'>
+												<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -497,7 +499,7 @@
 
 											<div class='row'>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -521,7 +523,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -545,7 +547,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -568,7 +570,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -597,7 +599,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -622,7 +624,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -647,7 +649,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -672,7 +674,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -849,7 +851,7 @@
 
 											<div class='row'>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -870,7 +872,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -920,7 +922,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -941,7 +943,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -984,7 +986,7 @@
 
 											<div class='row'>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1012,7 +1014,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1040,7 +1042,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1065,7 +1067,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1089,7 +1091,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1185,6 +1187,8 @@
 
 														</div>
 
+                            <br><br>
+
 													";
 												else if($community_id == 2)
 													echo "
@@ -1259,9 +1263,186 @@
 
 														</div>
 
+                            <br><br>
+
 													";
 
 											?>
+
+                      <div class='row'>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <a href='trailBalanceReport.php'>
+
+                                <!--i class='fa fa-file'></i-->
+                                <img src='trail_balance_report.png' alt='Trail Balance'>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Trail Balance Report</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <?php 
+
+                                if($community_id == 1)
+                                {
+
+                                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
+                                  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+                                  // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+                                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                                  
+                                  $result = curl_exec($ch);
+                                  $result  = json_decode($result);
+                                  $vendorsArray = array();
+
+                                  foreach ($result->Rows->Row as $ColumnData) 
+                                  {
+                                      
+                                    $values = array();
+                                    $id = -10;
+                                    $vendors = array();
+                                    $amounts = array();
+                                      
+                                    foreach ($ColumnData as $row) 
+                                    {
+                                        
+                                      $name = "";
+                                      $id = "";
+                                      $amount = "";
+                                          
+                                      if ( $row->ColData )
+                                        $finalAmount = $row->ColData[1]->value;
+
+                                    }
+
+                                  }
+
+                                  echo "<a href='expenditureByVendor.php'>".round($finalAmount, 0)."</a>";
+
+                                }
+                                else if($community_id == 2)
+                                {
+
+                                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+                                  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+                                  // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+                                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                                  
+                                  $result = curl_exec($ch);
+                                  $result  = json_decode($result);
+                                  $vendorsArray = array();
+
+                                  foreach ($result->Rows->Row as $ColumnData) 
+                                  {
+                                      
+                                    $values = array();
+                                    $id = -10;
+                                    $vendors = array();
+                                    $amounts = array();
+                                      
+                                    foreach ($ColumnData as $row) 
+                                    {
+                                        
+                                      $name = "";
+                                      $id = "";
+                                      $amount = "";
+                                          
+                                      if ( $row->ColData )
+                                        $finalAmount = $row->ColData[1]->value;
+
+                                    }
+
+                                  }
+
+                                  echo "<a href='expenditureByVendor.php'>".round($finalAmount, 0)."</a>";
+
+                                }
+
+                              ?>
+                                
+                            </div>
+
+                            <div class='counter-title'>Expenditure By Vendors ($)</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <a href='chartOfAccounts.php'>
+
+                                <!--i class='fa fa-file'></i-->
+                                <img src='chartOfAccounts.png' alt='Chart of Accounts'>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Chart Of Accounts</div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
+                      <br><br>
+
+                      <!--div class='row module-gray'>
+
+                        <br>
+
+                        <div class='col-xl-4 col-lg-6 col-md-6 col-sm-8 col-xs-10 offset-xl-4 offset-lg-3 offset-md-3 offset-sm-2 offset-xs-1'>
+                          
+                          <canvas id="myChart"></canvas>
+
+                        </div>
+
+                        <br>
+
+                      </div-->
+
+                      <div class='row'>
+
+                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                          
+                          <canvas id="myChart1"></canvas>
+
+                        </div>
+
+                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                          
+                          <canvas id="myChart2"></canvas>
+
+                        </div>
+
+                      </div>
 
 										</div>
 
@@ -1283,7 +1464,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>January<br>01</h3>
 
@@ -1381,7 +1562,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>February<br>02</h3>
 
@@ -1487,7 +1668,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>March<br>03</h3>
 
@@ -1585,7 +1766,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>April<br>04</h3>
 
@@ -1691,7 +1872,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>May<br>05</h5>
 
@@ -1789,7 +1970,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>June<br>06</h5>
 
@@ -1895,7 +2076,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>July<br>07</h5>
 
@@ -1993,7 +2174,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>August<br>08</h5>
 
@@ -2099,7 +2280,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>September<br>09</h5>
 
@@ -2197,7 +2378,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>October<br>10</h5>
 
@@ -2303,7 +2484,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>November<br>11</h5>
 
@@ -2401,7 +2582,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>December<br>12</h5>
 
@@ -2497,8 +2678,6 @@
 
 											</div>
 
-
-
 										</div>
 
 									</div>
@@ -2535,7 +2714,88 @@
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src="assets/js/style-switcher.min.js"></script-->
 
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    
+    <!-- MyChart -->
+    <script type="text/javascript">
+      
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myDoughnutChart = new Chart(ctx, {
+    
+        type: 'doughnut',
+        data: {
+    
+          datasets: [{
+            
+            data: [ 10, 20, 30 ],
+            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe' ]
 
+          }],
+
+          labels: [ 'Red', 'Yellow', 'Blue' ]
+
+        },
+        options: {
+
+          cutoutPercentage: 75,
+
+          title: {
+            display: true,
+            fontSize: 30,
+            fontStyle: 'bold',
+            text: 'Top spendings (Testing)'
+          },
+
+          legend: {
+            display: true,
+            position: 'right'
+          }
+
+        }
+      
+      });
+
+    </script>
+
+    <!-- My Chart 1 -->
+    <script type="text/javascript">
+      
+      var ctx = document.getElementById('myChart1').getContext('2d');
+      var myBarChart = new Chart(ctx, {
+        
+        type: 'horizontalBar',
+        data: {
+
+          datasets: [{
+
+            data: [ 10, 20, 30 ],
+            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe' ]
+
+          }],
+
+          labels: [ 'Red', 'Yellow', 'Blue' ]
+
+        },
+        options: {
+
+          title: {
+            display: true,
+            fontSize: 30,
+            fontStyle: 'bold',
+            text: 'Top spendings (Testing)'
+          },
+
+          legend: {
+            display: true,
+            position: 'right'
+          }
+          
+        }
+      
+      });
+
+    </script>
 		
 	</body>
 

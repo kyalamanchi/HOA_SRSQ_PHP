@@ -107,7 +107,7 @@
 
 						<div class='row'>
 
-							<div class='col-md-4 offset-md-4'>
+							<div class='col-xl-4 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-4 offset-lg-3 offset-md-2 offset-sm-1'>
 
 								<div class='up-logo'>
 
