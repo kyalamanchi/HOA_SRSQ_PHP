@@ -2838,7 +2838,7 @@
           {
             
             label: 'Line Dataset',
-            data: [50, 50, 50, 50],
+            data: [ <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?> ],
 
             // Changes this dataset to become a line
             type: 'line'
@@ -2853,7 +2853,7 @@
 
           scales: {
             
-            xAxes: [{
+            yAxes: [{
               
               ticks: {
                 
