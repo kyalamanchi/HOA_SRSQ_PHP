@@ -2702,7 +2702,6 @@
       var myDoughnutChart = new Chart(ctx, {
     
         type: 'doughnut',
-        radius:  "90%",
         data: {
     
           datasets: [{
@@ -2716,6 +2715,8 @@
 
         },
         options: {
+
+          percentageInnerCutout: 40,
 
           title: {
             display: true,
