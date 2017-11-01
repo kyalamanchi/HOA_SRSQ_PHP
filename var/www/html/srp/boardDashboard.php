@@ -2702,6 +2702,7 @@
       var myDoughnutChart = new Chart(ctx, {
     
         type: 'doughnut',
+        innerRadius: "90%",
         data: {
     
           datasets: [{
@@ -2710,7 +2711,7 @@
             backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe' ]
 
           }],
-          innerRadius: "90%",
+
           labels: [ 'Red', 'Yellow', 'Blue' ]
 
         },
