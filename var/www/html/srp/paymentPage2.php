@@ -8,11 +8,15 @@
 	{	
 		$community_id = 1;
 		$id = $_POST['id'];
+
+		echo "1";
 	}
 	else
 	{	
 		$community_id = $_SESSION['hoa_community_id'];
 		$id = $_GET['id'];
+
+		echo "2";
 	}
 
 	echo $_SESSION['hoa_community_id']." - - - ".$community_id." - - - ".$id;
