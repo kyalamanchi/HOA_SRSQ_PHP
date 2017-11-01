@@ -162,8 +162,8 @@
 								<tfoot>
 									
 									<th>Total</th>
-									<th>$ <?php if($totalDebitAmount != 'NULL') echo "$ ".$totalDebitAmount; ?></th>
-									<th>$ <?php if($totalCreditAmount != 'NULL') echo "$ ".$totalCreditAmount; ?></th>
+									<th><?php if($totalDebitAmount != 'NULL') echo "$ ".$totalDebitAmount; ?></th>
+									<th><?php if($totalCreditAmount != 'NULL') echo "$ ".$totalCreditAmount; ?></th>
 
 								</tfoot>
 										
