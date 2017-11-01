@@ -497,7 +497,7 @@
 
 											<div class='row'>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -521,7 +521,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -545,7 +545,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -568,7 +568,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -597,7 +597,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -622,7 +622,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -647,7 +647,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -672,7 +672,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -849,7 +849,7 @@
 
 											<div class='row'>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -870,7 +870,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -920,7 +920,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -941,7 +941,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1040,7 +1040,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1065,7 +1065,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1089,7 +1089,7 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
 
@@ -1269,7 +1269,7 @@
 
                       <div class='row'>
 
-                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
                           <div class='counter h6'>
 
@@ -1290,7 +1290,7 @@
 
                         </div>
 
-                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
                           <div class='counter h6'>
 
@@ -1341,7 +1341,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>January<br>01</h3>
 
@@ -1439,7 +1439,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>February<br>02</h3>
 
@@ -1545,7 +1545,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>March<br>03</h3>
 
@@ -1643,7 +1643,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>April<br>04</h3>
 
@@ -1749,7 +1749,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>May<br>05</h5>
 
@@ -1847,7 +1847,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>June<br>06</h5>
 
@@ -1953,7 +1953,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>July<br>07</h5>
 
@@ -2051,7 +2051,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>August<br>08</h5>
 
@@ -2157,7 +2157,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>September<br>09</h5>
 
@@ -2255,7 +2255,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>October<br>10</h5>
 
@@ -2361,7 +2361,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>November<br>11</h5>
 
@@ -2459,7 +2459,7 @@
 												
 													<div class='row'>
 
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-4 col-xs-12'>
+														<div class='col-xl-2 col-lg-2 col-md-4 col-sm-4 col-xs-12'>
 
 															<h5 class='h5'>December<br>12</h5>
 
