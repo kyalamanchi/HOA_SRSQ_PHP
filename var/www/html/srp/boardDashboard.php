@@ -2762,8 +2762,8 @@
     <script type="text/javascript">
       
       var ctx = document.getElementById('myChart1').getContext('2d');
-      ctx.width = 1;
-      ctx.height = 2;
+      ctx.width = 2;
+      ctx.height = 1;
       var myBarChart = new Chart(ctx, {
         
         type: 'horizontalBar',
@@ -2812,6 +2812,44 @@
 
         }
       
+      });
+
+    </script>
+
+    <!-- My Chart 2 -->
+    <script type="text/javascript">
+      
+      var ctx = document.getElementById('myChart2').getContext('2d');
+      ctx.width = 1;
+      ctx.height = 2;
+      var mixedChart = new Chart(ctx, {
+        
+        type: 'bar',
+        
+        data: {
+          
+          datasets: [{
+            
+            label: 'Bar Dataset',
+            data: [10, 20, 30, 40]
+
+          }, 
+          {
+            
+            label: 'Line Dataset',
+            data: [50, 50, 50, 50],
+
+            // Changes this dataset to become a line
+            type: 'line'
+
+          }],
+
+          labels: ['January', 'February', 'March', 'April']
+
+        },
+
+        options: options
+
       });
 
     </script>
