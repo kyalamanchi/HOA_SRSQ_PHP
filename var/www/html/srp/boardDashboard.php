@@ -2702,6 +2702,7 @@
       var myDoughnutChart = new Chart(ctx, {
     
         type: 'doughnut',
+        innerRadius: "70%",
         data: {
     
           datasets: [{
@@ -2724,7 +2725,7 @@
 
           title: {
             display: true,
-            fontSize: 55,
+            fontSize: 30,
             fontStyle: 'bold',
             text: 'Top spendings (Testing)'
           },
