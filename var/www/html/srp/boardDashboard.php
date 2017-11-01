@@ -2839,6 +2839,7 @@
             
             label: 'Line Dataset',
             steppedLine: true,
+            borderColor: "#c080f9",
             pointBackgroundColor: "rgba(255,99,132,1)",
             pointBorderColor: "#fff",
             data: [ <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?> ],
@@ -2848,7 +2849,7 @@
 
           }],
 
-          labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+          labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
 
         },
 
