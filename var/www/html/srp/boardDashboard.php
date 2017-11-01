@@ -2843,7 +2843,7 @@
             backgroundColor: "#e4caf9",
             pointBackgroundColor: "rgba(255,99,132,1)",
             pointBorderColor: "#fff",
-            data: [ <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?> ],
+            data: [ <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?>, <?php echo $total_homes; ?> ],
 
             // Changes this dataset to become a line
             type: 'line'
