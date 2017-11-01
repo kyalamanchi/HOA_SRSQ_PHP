@@ -112,7 +112,7 @@
 									<?php
 
 										$totalDebitAmount = "NULL";
-										$totalCreditAmount = "NULL"
+										$totalCreditAmount = "NULL";
 
 										if($community_id == 2)
 										{
