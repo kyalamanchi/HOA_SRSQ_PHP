@@ -1302,7 +1302,7 @@
                                 {
 
                                   echo "0";
-                                  
+
                                 }
                                 else if($community_id == 2)
                                 {
@@ -1340,7 +1340,7 @@
 
                                   }
 
-                                  echo "<a href='expenditureByVendor.php'".round($finalAmount, 0)."";
+                                  echo "<a href='expenditureByVendor.php'>".round($finalAmount, 0)."</a>";
 
                                 }
 
