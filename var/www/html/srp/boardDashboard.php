@@ -1428,6 +1428,16 @@
 
                       </div-->
 
+										</div>
+
+                    <div class="special-heading m-b-40">
+                  
+                      <h4><i class="fa fa-area-chart"></i> Yearly Report - <?php echo $year; ?></h4>
+            
+                    </div>
+
+                    <div class='container'>
+
                       <div class='row'>
 
                         <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
@@ -1444,7 +1454,7 @@
 
                       </div>
 
-										</div>
+                    </div>
 
 									</div>
 
