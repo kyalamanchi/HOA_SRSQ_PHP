@@ -128,12 +128,12 @@
 							            		echo "<tr><td>".$row->ColData[0]->value."</td><td>";
                                 				
                                 				if ( $row->ColData[1]->value != "" )
-                                					echo $row->ColData[1]->value;
+                                					echo "$ ".$row->ColData[1]->value;
                                 
                             					echo "</td><td>";
                                 				
                                 				if ( $row->ColData[2]->value != "" )
-                                				echo $row->ColData[2]->value;
+                                					echo "$ ".$row->ColData[2]->value;
                                 
                             					echo "</td></tr>";
 
