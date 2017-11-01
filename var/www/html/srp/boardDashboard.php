@@ -1263,6 +1263,22 @@
 
 											?>
 
+                      <div class='row'>
+
+                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <img src='trail_balance_report.png' alt='Trail Balance Report Icon'>
+
+                            <div class='counter-title'>Trail Balance Report ($)</div>
+
+                          </div>
+
+                        </div>
+
+                      </div>
+
 										</div>
 
 									</div>
