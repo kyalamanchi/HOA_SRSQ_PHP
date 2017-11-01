@@ -1278,7 +1278,7 @@
                               <a href='trailBalanceReport.php'>
 
                                 <!--i class='fa fa-file'></i-->
-                                <img src='trail_balance_report.png' alt='Send Agreements'>
+                                <img src='trail_balance_report.png' alt='Trail Balance'>
 
                               </a>
                                 
@@ -1382,6 +1382,27 @@
                             </div>
 
                             <div class='counter-title'>Expenditure By Vendors ($)</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <a href='trailBalanceReport.php'>
+
+                                <!--i class='fa fa-file'></i-->
+                                <img src='chartOfAccounts.png' alt='Chart of Accounts'>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Chart Of Accounts</div>
 
                           </div>
 
