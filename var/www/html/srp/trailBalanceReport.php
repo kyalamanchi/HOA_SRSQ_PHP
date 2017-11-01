@@ -114,7 +114,47 @@
 										$totalDebitAmount = "NULL";
 										$totalCreditAmount = "NULL";
 
-										if($community_id == 2)
+										if($community_id == 1)
+										{
+
+											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/TrialBalance?minorversion=8');
+								            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+								            curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+								            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+								            $result = curl_exec($ch);
+								            
+								            $result =  json_decode($result);
+
+								            foreach ($result->Rows->Row as $row) 
+								            {
+
+								            	if ( $row->ColData )
+								            	{
+
+								            		echo "<tr><td>".$row->ColData[0]->value."</td><td>";
+	                                				
+	                                				if ( $row->ColData[1]->value != "" )
+	                                					echo "$ ".$row->ColData[1]->value;
+	                                
+	                            					echo "</td><td>";
+	                                				
+	                                				if ( $row->ColData[2]->value != "" )
+	                                					echo "$ ".$row->ColData[2]->value;
+	                                
+	                            					echo "</td></tr>";
+
+								            	}
+								            	else if ( $row->Summary ){
+	                    
+	                    							$totalDebitAmount = $row->Summary->ColData[1]->value;
+	                    							$totalCreditAmount = $row->Summary->ColData[2]->value;
+
+	                							}
+
+								            }
+
+							        	}
+										else if($community_id == 2)
 										{
 
 											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/TrialBalance?minorversion=8');
