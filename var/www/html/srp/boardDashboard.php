@@ -2821,8 +2821,8 @@
     <script type="text/javascript">
       
       var ctx = document.getElementById('myChart2').getContext('2d');
-      ctx.width = 1;
-      ctx.height = 2;
+      ctx.width = 2;
+      ctx.height = 1;
       var mixedChart = new Chart(ctx, {
         
         type: 'bar',
