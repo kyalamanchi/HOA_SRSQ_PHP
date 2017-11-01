@@ -15,6 +15,10 @@
 		$id = $_GET['id'];
 	}
 
+	echo $_SESSION['hoa_community_id']." - - - ".$community_id." - - - ".$id;
+
+	die();
+
 	$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND hoa_id=$id");
 
 	if(pg_num_rows($result) != 0)
