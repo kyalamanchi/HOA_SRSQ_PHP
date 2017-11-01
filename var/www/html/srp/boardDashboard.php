@@ -1269,9 +1269,18 @@
 
                           <div class='counter h6'>
 
-                            <img src='trail_balance_report.png' alt='Trail Balance Report Icon'>
+                            <div class='counter-number'>
+                              
+                              <a href='trailBalanceReport.php'>
 
-                            <div class='counter-title'>Trail Balance Report ($)</div>
+                                <!--i class='fa fa-file'></i-->
+                                <img src='trail_balance_report.png' alt='Send Agreements'>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Trail Balance Report</div>
 
                           </div>
 
