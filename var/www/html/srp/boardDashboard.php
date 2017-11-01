@@ -2769,12 +2769,12 @@
 
           datasets: [{
 
-            data: [ 12, 20, 30 ],
-            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe' ]
+            data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?> ],
+            backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe', '#ff6384', '#36a2eb', '#cc65fe' ]
 
           }],
 
-          labels: [ 'Red', 'Yellow', 'Blue' ]
+          labels: [ 'January', 'February', 'March', 'April', 'May', 'June' ]
 
         },
         options: {
@@ -2791,6 +2791,12 @@
             
             }]
           
+          },
+
+          legend: {
+
+            display: false
+
           },
           
           title: {
