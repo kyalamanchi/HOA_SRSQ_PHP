@@ -111,6 +111,9 @@
 											
 									<?php
 
+										$totalDebitAmount = "NULL";
+										$totalCreditAmount = "NULL"
+
 										if($community_id == 2)
 										{
 
@@ -159,8 +162,8 @@
 								<tfoot>
 									
 									<th>Total</th>
-									<th>$ <?php echo $totalDebitAmount; ?></th>
-									<th>$ <?php echo $totalCreditAmount; ?></th>
+									<th>$ <?php if($totalDebitAmount != 'NULL') echo "$ ".$totalDebitAmount; ?></th>
+									<th>$ <?php if($totalCreditAmount != 'NULL') echo "$ ".$totalCreditAmount; ?></th>
 
 								</tfoot>
 										
