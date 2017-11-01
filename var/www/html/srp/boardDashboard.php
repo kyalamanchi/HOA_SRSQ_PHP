@@ -2769,7 +2769,7 @@
 
           datasets: [{
 
-            data: [ 10, 20, 30 ],
+            data: [ 12, 20, 30 ],
             backgroundColor: [ '#ff6384', '#36a2eb', '#cc65fe' ]
 
           }],
@@ -2780,17 +2780,14 @@
         options: {
 
           title: {
-            display: true,
-            fontSize: 30,
-            fontStyle: 'bold',
-            text: 'Top spendings (Testing)'
-          },
 
-          legend: {
             display: true,
-            position: 'right'
+            fontSize: 15,
+            fontStyle: 'bold',
+            text: 'Members Paid'
+
           }
-          
+
         }
       
       });
