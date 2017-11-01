@@ -125,6 +125,10 @@
 								            
 								            $result =  json_decode($result);
 
+								            print_r($result);
+
+								            die();
+
 								            foreach ($result->Rows->Row as $row) 
 								            {
 
