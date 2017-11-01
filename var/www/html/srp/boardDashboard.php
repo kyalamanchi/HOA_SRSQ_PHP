@@ -2781,7 +2781,7 @@
 
           scales: {
             
-            yAxes: [{
+            xAxes: [{
               
               ticks: {
                 
