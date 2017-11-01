@@ -1185,7 +1185,7 @@
 
 														</div>
 
-                            <br><br><br><br>
+                            <br><br>
 
 													";
 												else if($community_id == 2)
@@ -1261,7 +1261,7 @@
 
 														</div>
 
-                            <br><br><br><br>
+                            <br><br>
 
 													";
 
