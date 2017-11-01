@@ -2701,8 +2701,6 @@
     <script type="text/javascript">
       
       var ctx = document.getElementById('myChart').getContext('2d');
-      ctx.width  = 2;
-      ctx.height = 1;
       var myDoughnutChart = new Chart(ctx, {
     
         type: 'doughnut',
