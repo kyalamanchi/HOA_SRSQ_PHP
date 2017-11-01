@@ -80,7 +80,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Expenditure By Vendor</h1>
+								<h1 class="h5">Vendor Expenditure Summary</h1>
 							
 							</div>
 						
