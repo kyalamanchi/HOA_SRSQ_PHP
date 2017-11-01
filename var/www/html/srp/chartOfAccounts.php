@@ -162,13 +162,6 @@
         							?>
 
 								</tbody>
-
-								<tfoot>
-									
-									<th>Total</th>
-									<th><?php if($finalAmount != 'NULL') echo $finalAmount; ?></th>
-
-								</tfoot>
 										
 							</table>
 
