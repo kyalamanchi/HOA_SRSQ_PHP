@@ -2702,7 +2702,7 @@
       var myDoughnutChart = new Chart(ctx, {
     
         type: 'doughnut',
-        innerRadius: "90%",
+        radius:  "90%",
         data: {
     
           datasets: [{
