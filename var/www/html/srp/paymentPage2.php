@@ -19,7 +19,12 @@
 	$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND hoa_id=$id");
 
 	if(pg_num_rows($result) != 0)
-		header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$id");
+	{	
+		if($community_id == 1)
+			header("Location: https://hoaboardtime.com/paymentPageSRP.php?id=$id");
+		else if($community_id == 2)
+			header("Location: https://hoaboardtime.com/paymentPageSRSQ.php?id=$id");
+	}
 	else
 	{
 		
