@@ -1298,7 +1298,13 @@
                               
                               <?php 
 
-                                if($community_id == 2)
+                                if($community_id == 1)
+                                {
+
+                                  echo "0";
+                                  
+                                }
+                                else if($community_id == 2)
                                 {
 
                                   $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
