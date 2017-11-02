@@ -788,7 +788,7 @@
 
                                                         echo "<option value='$id'";
 
-                                                          if($role_type == $name)
+                                                          if($person_role_type == $name)
                                                             echo " selected ";
 
                                                         echo ">$name</option>";
