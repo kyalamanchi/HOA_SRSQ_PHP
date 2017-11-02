@@ -372,13 +372,10 @@
                       
                       <tr>
                         
-                        <th>Legal Date From</th>
-                        <th>Legal Date Until</th>
                         <th>Actual Date</th>
                         <th>Disclosure Type</th>
                         <th>Description</th>
                         <th>Delivery Type</th>
-                        <th>Civil Code Section</th>
                         <th>Notes</th>
 
                       </tr>
@@ -401,8 +398,6 @@
                                             
                             $id = $row['id'];
                             $type_id = $row['type_id'];
-                            $legal_date_from = $row['legal_date_from'];
-                            $legal_date_until = $row['legal_date_until'];
                             $actual_date = $row['actual_date'];
                             $delivery_type = $row['delivery_type'];
                             $fiscal_year_start = $row['fiscal_year_start'];
@@ -416,11 +411,24 @@
 
                             $name = $row2['name'];
                             $desc = $row2['desc'];
+                            $legal_url = $row1['legal_url'];
                             $civilcode_section = $row2['civilcode_section'];
 
                             if ( $row['document_id'] ){
                               $notes = '<a href="https://hoaboardtime.com/getDocumentPreviewTest.php?path='.$row['document_id'].'&cid='.$community_id.'&desc='.$desc.'" target="_blank">View Document</a>';
                             }
+
+                            if($civilcode_section != '')
+                            {
+
+                              $disclosure_type .= " (";
+                              $disclosure_type .= $civilcode_section;
+                              $disclosure_type .= ")";
+
+                            }
+
+                            if($legal_url != '')
+                              $disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
 
 
                             echo "
@@ -520,7 +528,9 @@
 
                             ";
 
-                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_from))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".date("m-d-Y", strtotime($legal_date_until))."</a></td><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".$actual_date."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td><td>".$notes."</td></tr>";
+                            #<a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>
+
+                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".$actual_date."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td><td>".$notes."</td></tr>";
 
                           }
 
@@ -534,13 +544,10 @@
 
                       <tr>
 
-                        <th>Legal Date From</th>
-                        <th>Legal Date Until</th>
                         <th>Actual Date</th>
                         <th>Disclosure Type</th>
                         <th>Description</th>
                         <th>Delivery Type</th>
-                        <th>Civil Code Section</th>
                         <th>Notes</th>
 
                       </tr>
