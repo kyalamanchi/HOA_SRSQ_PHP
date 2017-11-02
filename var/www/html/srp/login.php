@@ -108,7 +108,7 @@
 					{
 						
 						$_SESSION['hoa_mode'] = 2;
-
+\
 						$result = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
 						header("Location: boardDashboard.php");

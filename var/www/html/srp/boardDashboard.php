@@ -1656,7 +1656,7 @@
             display: true,
             fontSize: 15,
             fontStyle: 'bold',
-            text: 'Amount Received'
+            text: 'Amount Received ($)'
 
           }
 
