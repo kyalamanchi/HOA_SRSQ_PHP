@@ -1465,6 +1465,20 @@
 
                     </div>
 
+                    <div class='container'>
+
+                      <div class='row'>
+
+                        <div class='col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12 offset-xl-2 offset-lg-1'>
+                          
+                          <canvas id="myChart3"></canvas>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
 									</div>
 
 								</div>
@@ -1672,6 +1686,65 @@
 
         }
 
+      });
+
+    </script>
+
+    <!-- My Chart 3 -->
+    <script type="text/javascript">
+      
+      var ctx = document.getElementById('myChart1').getContext('2d');
+      var myBarChart = new Chart(ctx, {
+        
+        type: 'line',
+        data: {
+
+          datasets: [{
+
+            data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?>, <?php echo $jul_members_paid; ?>, <?php echo $aug_members_paid; ?>, <?php echo $sep_members_paid; ?>, <?php echo $oct_members_paid; ?>, <?php echo $nov_members_paid; ?>, <?php echo $dec_members_paid; ?> ],
+            backgroundColor: [ "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)" ],
+            borderColor: [ "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)" ],
+            borderWidth: 1
+
+          }],
+
+          labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
+
+        },
+
+        options: {
+
+          scales: {
+            
+            xAxes: [{
+              
+              ticks: {
+                
+                beginAtZero:true
+
+              }
+            
+            }]
+          
+          },
+
+          legend: {
+
+            display: false
+
+          },
+          
+          title: {
+
+            display: true,
+            fontSize: 15,
+            fontStyle: 'bold',
+            text: 'Late Payments'
+
+          }
+
+        }
+      
       });
 
     </script>
