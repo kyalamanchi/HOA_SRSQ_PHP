@@ -126,19 +126,6 @@ input, label {
                 setlocale(LC_MONETARY, 'en_US');
                 date_default_timezone_set('America/Los_Angeles');
                $purchaseID = $_GET['id'];
-                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509569266",oauth_nonce="8N0tvCVCsWK",oauth_version="1.0",oauth_signature="ZoQHffDGFCgQUgP8R5Owiix6pec%3D"'));
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Attachable where AttachableRef.EntityRef.Type = 'purchase' AND AttachableRef.EntityRef.value = '".$purchaseID."'");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            $result = curl_exec($ch);
-            $result  = json_decode($result);
-            $data = $result->QueryResponse;
-            if ( isset( $data->Attachable ) )
-            {
-                $fileName = $data->Attachable->FileName;
-                $fileTempURL = $data->Attachable->TempDownloadUri;
-            }
             $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509571171",oauth_nonce="XXAaTNNoZOx",oauth_version="1.0",oauth_signature="YqQesEYb0Fo%2FmAlv81W3UpT43bs%3D"'));
@@ -216,6 +203,7 @@ input, label {
         <tbody>
             <?php
                 $value = 1;
+                $IDS = array();
                 foreach ($purchaseResult[0]->Line as $purchase) {
                     echo '<tr>';
                         echo '<td>';
@@ -236,6 +224,27 @@ input, label {
             ?>
         </tbody>
         </table>
+        <br>
+        <label>Attachment(s)</label>
+        <?php
+            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509569266",oauth_nonce="8N0tvCVCsWK",oauth_version="1.0",oauth_signature="ZoQHffDGFCgQUgP8R5Owiix6pec%3D"'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Attachable where AttachableRef.EntityRef.Type = 'purchase' AND AttachableRef.EntityRef.value = '".$purchaseID."'");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $result = curl_exec($ch);
+            $result  = json_decode($result);
+            $data = $result->QueryResponse;
+            if ( isset( $data->Attachable ) )
+            {
+                foreach ($data->Attachable as $attachable) {
+                    echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a>';
+                    echo '<br>';
+                }
+            }
+
+        ?>
+
         </div>
         <br><br>
   </div>
