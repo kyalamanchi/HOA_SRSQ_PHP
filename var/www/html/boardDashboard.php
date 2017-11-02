@@ -1694,9 +1694,9 @@
                         $reserve_allocation = round($reserve_allocation, 0);
 
                         if($cur_bal_vs_ideal_bal >= 70)
-                          echo "<h3 class='text-warning'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-orange'><strong>".$reserve_allocation."</strong></h3>";
                         else
-                          echo "<h3 class='text-danger'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-red'><strong>".$reserve_allocation."</strong></h3>";
 
                       ?>
 
@@ -1749,9 +1749,9 @@
                         $reserve_allocation = round($reserve_allocation, 0);
 
                         if($cur_bal_vs_ideal_bal >= 70)
-                          echo "<h3 class='text-success'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-green'><strong>".$reserve_allocation."</strong></h3>";
                         else
-                          echo "<h3 class='text-warning'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-orange'><strong>".$reserve_allocation."</strong></h3>";
 
                       ?>
 
