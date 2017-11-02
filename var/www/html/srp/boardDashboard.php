@@ -1624,11 +1624,10 @@
             label: 'Amount Needed',
             steppedLine: true,
             borderColor: "#c080f9",
-            pointStyle: "crossRot",
-            pointRadius: 10,
+            pointStyle: "line",
+            pointRadius: 1,
             pointBackgroundColor: "rgba(255,99,132,1)",
             pointBorderColor: "#fff",
-            showLine: false,
             data: [ <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?> ],
 
             // Changes this dataset to become a line
