@@ -1815,7 +1815,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardViewCommunityAssets.php'><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+              <a href='https://hoaboardtime.com/boardReserveRepairs.php'>
 
                 <div class="row container-fluid text-left">
 
@@ -1840,7 +1840,7 @@
                         $repairs = round($repairs, 0);
 
                         if($repairs > 0)
-                          echo "<h3><strong><a href='boardReserveRepairs.php'>".$repairs."</a></strong></h3>";
+                          echo "<h3><strong>".$repairs."</strong></h3>";
                         else
                           echo "<h3><strong>".$repairs."</strong></h3>";
 
@@ -1852,8 +1852,8 @@
 
                   <div class="row container-fluid text-left">
 
-                    <hr>
-                    <h4><strong>Reserve Repairs</strong></h4>
+                    <hr style="color: white;">
+                    <h4><strong>Pending Repairs</strong></h4>
 
                   </div>
 
