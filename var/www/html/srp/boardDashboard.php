@@ -1439,23 +1439,13 @@
 
                       <div class='row'>
 
-                        <div class='col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12 offset-xl-2 offset-lg-1'>
+                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                           
                           <canvas id="myChart1"></canvas>
 
                         </div>
 
-                      </div>
-
-                    </div>
-
-                    <br>
-
-                    <div class='container'>
-
-                      <div class='row'>
-
-                        <div class='col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12 offset-xl-2 offset-lg-1'>
+                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                           
                           <canvas id="myChart2"></canvas>
 
@@ -1469,7 +1459,7 @@
 
                       <div class='row'>
 
-                        <div class='col-xl-8 col-lg-10 col-md-12 col-sm-12 col-xs-12 offset-xl-2 offset-lg-1'>
+                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
                           
                           <canvas id="myChart3"></canvas>
 
