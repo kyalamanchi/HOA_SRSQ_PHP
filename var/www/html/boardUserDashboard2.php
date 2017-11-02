@@ -506,7 +506,7 @@
                                         
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                       <label>Resident Since</label>
-                                      <input type='date' class="form-control" name='edit_valid_from' id='edit_valid_from' value="<?php echo date('d-m-Y', strtotime($valid_from)); ?>" required>
+                                      <input type='date' class="form-control" name='edit_valid_from' id='edit_valid_from' value="<?php echo date('d/m/Y', strtotime($valid_from)); ?>" required>
                                     </div>
                                         
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
