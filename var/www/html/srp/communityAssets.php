@@ -146,7 +146,7 @@
 	                                        				<th>Monthly Contribution</th>
 	                                        				<th>Quantity</th>
 	                                        				<th>Repair Type</th>
-	                                        				<th>UOM</th>
+	                                        				<th>Units Of Measure</th>
 
 														</thead>
 
