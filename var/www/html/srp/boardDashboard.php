@@ -1624,7 +1624,7 @@
           {
             
             label: 'Amount Needed',
-            pointRadius: 10,
+            pointRadius: 5,
             borderColor: "rgba(255,99,132,1)",
             pointBackgroundColor: "rgba(255,99,132,1)",
             pointBorderColor: "rgb(255, 99, 132)",
