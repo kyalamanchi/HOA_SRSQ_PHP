@@ -134,6 +134,8 @@ input, label {
             $result = curl_exec($ch);
             $purchaseResult  = json_decode($result);
             $purchaseResult  = $purchaseResult->QueryResponse->Purchase;
+            $final = $purchaseResult[0];
+            
             ?>
         </div>
         <br>
@@ -225,6 +227,11 @@ input, label {
         </tbody>
         </table>
         <br>
+        <div class="form-group">
+            <label for="comment">Memo</label>
+            <textarea class="form-control" rows="3" id="comment" style="width: 400px;" readonly="readonly"><?php print_r($final->PrivateNote); ?></textarea>
+        </div>
+        <br>
         <label>Attachment(s)</label>
         <?php
             $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
@@ -235,16 +242,12 @@ input, label {
             $result = curl_exec($ch);
             $result  = json_decode($result);
             $data = $result->QueryResponse;
-            $count = 0;
             if ( isset( $data->Attachable ) )
             {
                 foreach ($data->Attachable as $attachable) {
-                    echo '<a href="'.$attachable->TempDownloadUri.'" download>'.$attachable->FileName.'</a>';
+                    echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a>';
                     echo '<br>';
                 }
-            }
-            else {
-                echo 'No attachments found.';
             }
 
         ?>
