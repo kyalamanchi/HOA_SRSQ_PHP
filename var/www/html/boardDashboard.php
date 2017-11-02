@@ -1776,45 +1776,6 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
-
-                <div class="row container-fluid text-left">
-
-                  <br>
-
-                  <div class="row container-fluid">
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Pending Repairs'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-
-
-                    </div>
-
-                  </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr style="color: white;">
-                    <h4><strong>Pending Repairs</strong></h4>
-
-                  </div>
-
-                  <br>
-
-                </div>
-
-              </a>
-
-            </div>
-
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
-
               <a href='https://hoaboardtime.com/boardReserveRepairs.php'>
 
                 <div class="row container-fluid text-left">
@@ -1853,7 +1814,7 @@
                   <div class="row container-fluid text-left">
 
                     <hr style="color: white;">
-                    <h4><strong>Pending Repairs</strong></h4>
+                    <h4><strong>Reserve Repairs</strong></h4>
 
                   </div>
 
