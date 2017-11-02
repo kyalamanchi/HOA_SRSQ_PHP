@@ -136,7 +136,7 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row table-responsive'>
 
 												<table class='table table-bordered' style='color: black;'>
 													
@@ -301,7 +301,7 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row table-responsive'>
 
 												<table class='table table-bordered' style='color: black;'>
 													
@@ -531,7 +531,7 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row table-responsive'>
 
 												<table class='table table-bordered' style='color: black;'>
 													
@@ -597,7 +597,7 @@
 
 										<div class='container'>
 
-											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 												<table class='table table-striped' style='color: black;'>
 
