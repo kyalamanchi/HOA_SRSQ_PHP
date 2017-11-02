@@ -1694,9 +1694,9 @@
                         $reserve_allocation = round($reserve_allocation, 0);
 
                         if($cur_bal_vs_ideal_bal >= 70)
-                          echo "<h3 class='text-orange'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-orange'><strong>$ ".$reserve_allocation."</strong></h3>";
                         else
-                          echo "<h3 class='text-red'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-red'><strong>$ ".$reserve_allocation."</strong></h3>";
 
                       ?>
 
@@ -1707,7 +1707,7 @@
                   <div class="row container-fluid text-left">
 
                     <hr style="color: white;">
-                    <h4><strong>Minimum Reserve Allocation ($)</strong></h4>
+                    <h4><strong>Minimum Reserve Allocation</strong></h4>
 
                   </div>
 
@@ -1749,9 +1749,9 @@
                         $reserve_allocation = round($reserve_allocation, 0);
 
                         if($cur_bal_vs_ideal_bal >= 70)
-                          echo "<h3 class='text-green'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-green'><strong>$ ".$reserve_allocation."</strong></h3>";
                         else
-                          echo "<h3 class='text-orange'><strong>".$reserve_allocation."</strong></h3>";
+                          echo "<h3 class='text-orange'><strong>$ ".$reserve_allocation."</strong></h3>";
 
                       ?>
 
@@ -1762,7 +1762,7 @@
                   <div class="row container-fluid text-left">
 
                     <hr style="color: white;">
-                    <h4><strong>Recommended Reserve Allocation ($)</strong></h4>
+                    <h4><strong>Recommended Reserve Allocation</strong></h4>
 
                   </div>
 
