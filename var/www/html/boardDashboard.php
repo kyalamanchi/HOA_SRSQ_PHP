@@ -1815,6 +1815,58 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
+              <a href='https://hoaboardtime.com/boardViewCommunityAssets.php'><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Reserve Repairs'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
+
+                        $repairs = $row['sum'];
+
+                        $repairs = round($repairs, 0);
+
+                        if($repairs > 0)
+                          echo "<h3><strong><a href='boardReserveRepairs.php'>".$repairs."</a></strong></h3>";
+                        else
+                          echo "<h3><strong>".$repairs."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr>
+                    <h4><strong>Reserve Repairs</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
               <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
                 <div class="row container-fluid text-left">
