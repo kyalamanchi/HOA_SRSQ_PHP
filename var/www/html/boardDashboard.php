@@ -1840,9 +1840,9 @@
                         $repairs = round($repairs, 0);
 
                         if($repairs > 0)
-                          echo "<h3><strong>".$repairs."</strong></h3>";
+                          echo "<h3><strong>$ ".$repairs."</strong></h3>";
                         else
-                          echo "<h3><strong>".$repairs."</strong></h3>";
+                          echo "<h3><strong>$ ".$repairs."</strong></h3>";
 
                       ?>
 
