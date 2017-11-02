@@ -239,7 +239,7 @@ input, label {
             if ( isset( $data->Attachable ) )
             {
                 foreach ($data->Attachable as $attachable) {
-                    echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a>';
+                    echo '<a href="'.$attachable->TempDownloadUri.'" download>'.$attachable->FileName.'</a>';
                     echo '<br>';
                 }
             }
