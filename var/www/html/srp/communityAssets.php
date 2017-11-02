@@ -116,9 +116,9 @@
 
 													<div class='row'>
 
-													<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>$asset_category</strong> - $count</div>
-	                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Ideal Balance</strong> - $$ib</div>
-	                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'><strong>Current Balance</strong> - $$cb</div>
+													<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>$asset_category</strong> - $count</div>
+	                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>Ideal Balance</strong> - $$ib</div>
+	                                        		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong>Current Balance</strong> - $$cb</div>
 
 	                                        		</div>
 
@@ -130,7 +130,7 @@
 														
 												<div class='card-block'>
 															
-													<table class='table' style='color: black;'>
+													<table class='table table-responsive' style='color: black;'>
 
 														<thead>
 
