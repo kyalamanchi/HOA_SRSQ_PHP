@@ -530,7 +530,7 @@
 
                             #<a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>
 
-                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".$actual_date."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$civilcode_section."</td><td>".$notes."</td></tr>";
+                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".$actual_date."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$notes."</td></tr>";
 
                           }
 
