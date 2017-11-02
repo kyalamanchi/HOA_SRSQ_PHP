@@ -137,7 +137,9 @@
 															<th>Sub Category</th>
 	                                        				<th>UL</th>
 	                                        				<th>Reusable L</th>
+	                                        				<th>Minimum Unit Cost</th>
 	                                        				<th>Average Unit Cost</th>
+	                                        				<th>Maximum Unit Cost</th>
 	                                        				<th>Asset Placement Date</th>
 	                                        				<th>Ideal Balance</th>
 	                                        				<th>Current Balance</th>
@@ -167,6 +169,8 @@
 	                                          					$quantity = $row1['quantity'];
 	                                          					$community_repair_type = $row1['community_repair_type_id'];
 	                                          					$community_uom = $row1['community_uom_id'];
+	                                          					$min_unit_cost = $row1['min_unit_cost'];
+	                                          					$max_unit_cost = $row1['max_unit_cost'];
 
 	                                          					if($asset_sub_category != "")
 	                                          					{
@@ -195,7 +199,13 @@
 	                                          					if($asset_placement_date != "")
 	                                            					$asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
-	                                          					echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+	                                            				if($min_unit_cost != "")
+	                                            					$min_unit_cost = "$ ".$min_unit_cost;
+
+	                                            				if($max_unit_cost != "")
+	                                            					$max_unit_cost = "$ ".$max_unit_cost;
+
+	                                          					echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$min_unit_cost</td><td>$ $avg_unit_cost</td><td>$max_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
 
 	                                        				}
 
