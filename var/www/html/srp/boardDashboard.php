@@ -1683,7 +1683,7 @@
     <!-- My Chart 3 -->
     <script type="text/javascript">
       
-      var ctx = document.getElementById('myChart1').getContext('2d');
+      var ctx = document.getElementById('myChart3').getContext('2d');
       var myBarChart = new Chart(ctx, {
         
         type: 'line',
