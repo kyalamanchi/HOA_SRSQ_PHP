@@ -235,12 +235,16 @@ input, label {
             $result = curl_exec($ch);
             $result  = json_decode($result);
             $data = $result->QueryResponse;
+            $count = 0;
             if ( isset( $data->Attachable ) )
             {
                 foreach ($data->Attachable as $attachable) {
                     echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a>';
                     echo '<br>';
                 }
+            }
+            else {
+                echo 'No attachments found.';
             }
 
         ?>
