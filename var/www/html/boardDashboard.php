@@ -1625,7 +1625,7 @@
 
             <br>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
@@ -1664,7 +1664,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
@@ -1719,7 +1719,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
@@ -1774,7 +1774,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardReserveRepairs.php'>
 
@@ -1826,7 +1826,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
@@ -1876,7 +1876,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a href='https://hoaboardtime.com/boardViewCommunityAssets.php'><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
@@ -1924,7 +1924,7 @@
 
             </div>
 
-            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
               <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
 
