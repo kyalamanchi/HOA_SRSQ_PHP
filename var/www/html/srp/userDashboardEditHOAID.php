@@ -60,7 +60,7 @@
 
 		<?php
 
-			$result = pg_query("UPDATE hoaid SET firstname='$firstname', lastname='$lastname', email='$email', cell_no=$cell_no, valid_from='$valid_from', valid_until='$valid_until' WHERE hoa_id=$hoa_id AND home_id=$home_id");
+			$result = pg_query("UPDATE hoaid SET firstname='$firstname', lastname='$lastname', email='$email', cell_no=$cell_no, valid_from='$valid_from', valid_until='$valid_until', updated_on='$today', updated_by=$user_id WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
 			if($result)
 			{
