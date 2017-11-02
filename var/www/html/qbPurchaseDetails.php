@@ -249,6 +249,9 @@ input, label {
                     echo '<br>';
                 }
             }
+            else {
+                echo "No attachments found";
+            }
 
         ?>
 
