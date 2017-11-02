@@ -425,12 +425,6 @@
                                 $role = $row['role_type_id'];
                                 $home_id = $row['home_id'];
 
-                                if($valid_from != "")
-                                  $valid_from = date('m-d-Y',strtotime($valid_from));
-
-                                if($valid_until != "")
-                                  $valid_until = date('m-d-Y',strtotime($valid_until));
-
                                 if($role != "")
                                 {
                                   $row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
@@ -506,12 +500,12 @@
                                         
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                       <label>Resident Since</label>
-                                      <input type='date' class="form-control" name='edit_valid_from' id='edit_valid_from' value="<?php echo $valid_from; ?>" required>
+                                      <input type='date' class='form-control' name='edit_valid_from' id='edit_valid_from' value='<?php echo $valid_from; ?>' required>
                                     </div>
                                         
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                                       <label>Resident Until</label>
-                                      <input type='date' class="form-control" name='edit_valid_until' id='edit_valid_until' value="<?php echo $valid_until; ?>" >
+                                      <input type='date' class='form-control' name='edit_valid_until' id='edit_valid_until' value='<?php echo $valid_until; ?>' >
 
                                       <input type='hidden' name='hoa_id' id='hoa_id' value="<?php echo $hoa_id; ?>">
                                     </div>
@@ -788,7 +782,7 @@
 
                                                         echo "<option value='$id'";
 
-                                                          if($role_type == $name)
+                                                          if($person_role_type == $name)
                                                             echo " selected ";
 
                                                         echo ">$name</option>";

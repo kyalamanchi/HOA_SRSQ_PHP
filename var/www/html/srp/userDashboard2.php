@@ -136,7 +136,7 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row table-responsive'>
 
 												<table class='table table-bordered' style='color: black;'>
 													
@@ -301,7 +301,7 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row table-responsive'>
 
 												<table class='table table-bordered' style='color: black;'>
 													
@@ -399,6 +399,10 @@
 
 																							<input class='form-control' type='number' name='edit_lot' id='edit_lot' required value='$lot'>
 
+																							<input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+																							<input type='hidden' name='home_id' id='home_id' value='$home_id'>
+																							<input type='hidden' name='name' id='name' value='$name'>
+
 																						</div>
 
 																					</div>
@@ -429,7 +433,7 @@
 
 						                                          			<div class='container' style='color: black;'>
 
-																				<form method='POST' action='userDashboardEditLivingStatus.php'>
+																				<!--form method='POST' action='userDashboardEditLivingStatus.php'>
 																				
 																					<div class='row'>
 
@@ -493,7 +497,7 @@
 
 																					</div>
 
-																				</form>
+																				</form-->
 
 						                                          			</div>
 
@@ -527,7 +531,7 @@
 								
 										<div class='container'>
 
-											<div class='row'>
+											<div class='row table-responsive'>
 
 												<table class='table table-bordered' style='color: black;'>
 													
@@ -593,7 +597,7 @@
 
 										<div class='container'>
 
-											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 												<table class='table table-striped' style='color: black;'>
 

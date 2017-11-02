@@ -3,11 +3,13 @@
   ini_set("session.save_path","/var/www/html/session/");
 
   session_start();
-        
+
 ?>
 
 <!DOCTYPE html>
+
 <html>
+
   <head>
     
     <?php
@@ -24,7 +26,7 @@
         $num_row = pg_num_rows($result);
 
         if($num_row == 0)
-          header("Location: https://hoaboardtime.com/residentDashboard.php");
+          header("Location: residentDashboard.php");
 
     ?>
 
@@ -40,7 +42,6 @@
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="plugins/select2/select2.min.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -202,9 +203,9 @@
 
                 </li>
 
-                <li class='active ytreeview'>
+                <li class='treeview'>
 
-                  <a>
+                  <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
 
                     <i class="fa fa-users text-blue"></i> <span>Community Disclosures</span>
 
@@ -338,11 +339,13 @@
           $month = date("m");
           $end_date = date("t");
 
+          $result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
+
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Community Disclosures</strong></h1>
+          <h1><strong>Reserve Repairs</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
 
@@ -354,16 +357,6 @@
 
               <div class="box">
 
-                <div class="box-header">
-
-                  <div class="row text-center container-fluid">
-
-                    <h4>Fisal Year : 01-01-<?php echo $year; ?> to 12-31-<?php echo $year; ?></h4>
-
-                  </div>
-
-                </div>
-
                 <div class="box-body table-responsive">
                   
                   <table id="example1" class="table table-bordered table-striped">
@@ -372,11 +365,12 @@
                       
                       <tr>
                         
-                        <th>Actual Date</th>
-                        <th>Disclosure Type</th>
-                        <th>Description</th>
-                        <th>Delivery Type</th>
-                        <th>Notes</th>
+                        <th>Invoice Date</th>
+                        <th>Vendor Name (Vendor ID)</th>
+                        <th>Work Status</th>
+                        <th>Payment Status</th>
+                        <th>Invoice Amount</th>
+                        <th>Invoice</th>
 
                       </tr>
 
@@ -386,155 +380,28 @@
 
                       <?php 
 
-                        $query = "SELECT * FROM community_disclosures WHERE community_id=".$community_id;
-
-                        $result = pg_query($query);
-                                                            
-                        if($result)
+                        while ($row = pg_fetch_assoc($result)) 
                         {
-                          
-                          while ($row=pg_fetch_assoc($result)) 
-                          {
-                                            
-                            $id = $row['id'];
-                            $type_id = $row['type_id'];
-                            $actual_date = $row['actual_date'];
-                            $delivery_type = $row['delivery_type'];
-                            $fiscal_year_start = $row['fiscal_year_start'];
-                            $fiscal_year_end = $row['fiscal_year_end'];
-                            $notes = $row['notes'];
-                            $result2 = pg_query("SELECT * FROM community_disclosure_type WHERE id=".$type_id);
-                            $row2 = pg_fetch_assoc($result2);
 
-                            if($actual_date != "")
-                              $actual_date = date("m-d-Y", strtotime($actual_date));
+                          $invoice_date = $row['invoice_date'];
+                          $vendor_id = $row['vendor_id'];
+                          $work_status = $row['work_status'];
+                          $invoice_amount = $row['invoice_amount'];
+                          $payment_status = $row['payment_status'];
+                          $invoice_id = $row['invoice_id'];
 
-                            $name = $row2['name'];
-                            $desc = $row2['desc'];
-                            $legal_url = $row1['legal_url'];
-                            $civilcode_section = $row2['civilcode_section'];
+                          if($invoice_date != '')
+                            $invoice_date = date('m-d-Y', strtotime($invoice_date));
 
-                            if ( $row['document_id'] ){
-                              $notes = '<a href="https://hoaboardtime.com/getDocumentPreviewTest.php?path='.$row['document_id'].'&cid='.$community_id.'&desc='.$desc.'" target="_blank">View Document</a>';
-                            }
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
+                          $vendor_name = $row1['vendor_name'];
 
-                            if($civilcode_section != '')
-                            {
+                          if($invoice_amount != '')
+                            $invoice_amount = "$ ".$invoice_amount;
 
-                              $disclosure_type .= " (";
-                              $disclosure_type .= $civilcode_section;
-                              $disclosure_type .= ")";
+                          echo "<tr><td>$invoice_date</td><td>$vendor_name ($vendor_id)</td><td>$work_status</td><td>$payment_status</td><td>$invoice_amount</td><td>$invoice_id</td></tr>";
 
-                            }
-
-                            if($legal_url != '')
-                              $disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
-
-
-                            echo "
-
-                            <div class='modal fade hmodal-success' id='editDisclosure_$id' role='dialog'  aria-hidden='true'>
-                                  
-                              <div class='modal-dialog'>
-                                                        
-                                <div class='modal-content'>
-                                            
-                                  <div class='modal-header'>
-                                                                    
-                                    <h4 class='modal-title'>Edit Disclosure - <strong>".$name."</strong></h4>
-
-                                  </div>
-
-                                  <div class='modal-body'>
-                                                                    
-                                    <div class='container-fluid'>
-
-                                      <form class='row' method='post' action='https://hoaboardtime.com/boardEditDisclosure.php'>
-
-                                        <div class='row container-fluid'>
-
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                            <label>Disclosure Type</label>
-                                            <select class='form-control' name='edit_disclosure_type' id='edit_disclosure_type' required>
-
-                                              <option value='' selected disabled>Select Disclosure Type</option>";
-
-                                              $ree = pg_query("SELECT * FROM community_disclosure_type");
-
-                                              while($roo = pg_fetch_assoc($ree))
-                                              {
-
-                                                $did = $roo['id'];
-                                                $dname = $roo['name'];
-                                                $ddesc = $roo['desc'];
-
-                                                echo "<option ";
-
-                                                if($dname == $name)
-                                                  echo " selected ";
-
-                                                echo "value='$did'>$dname</option>";
-                                              }
-
-                                            echo "</select>
-
-                                          </div>
-
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-                                            <label>Actual Date</label>
-                                            <input type='date' class='form-control' name='edit_actual_date' id='edit_actual_date' value='$actual_date'>
-
-                                            <input type='hidden' name='disclosure_id' id='disclosure_id' value='$id'>
-
-                                          </div>
-
-                                        </div>
-
-                                        <br>
-
-                                        <div class='row container-fluid'>
-
-                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-                                            <label>Notes</label>
-                                            <textarea id='edit_notes' name='edit_notes' class='form-control'>$notes</textarea>
-
-                                          </div>
-
-                                        </div>
-
-                                        <br>
-
-                                        <div class='row container-fluid text-center'>
-                                                
-                                          <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
-                                          <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
-
-                                        </div>
-
-                                      </form>
-                                                                    
-                                    </div>
-
-                                  </div>
-
-                                </div>
-                                      
-                              </div>
-
-                            </div>
-
-                            ";
-
-                            #<a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>
-
-                            echo "<tr><td><a title='Edit Disclosure' data-toggle='modal' data-target='#editDisclosure_$id'>".$actual_date."</a></td><td>".$name."</td><td>".$desc."</td><td>".$delivery_type."</td><td>".$notes."</td></tr>";
-
-                          }
-
-                        } 
+                        }
 
                       ?>
                     
@@ -544,11 +411,12 @@
 
                       <tr>
 
-                        <th>Actual Date</th>
-                        <th>Disclosure Type</th>
-                        <th>Description</th>
-                        <th>Delivery Type</th>
-                        <th>Notes</th>
+                        <th>Invoice Date</th>
+                        <th>Vendor Name (Vendor ID)</th>
+                        <th>Work Status</th>
+                        <th>Payment Status</th>
+                        <th>Invoice Amount</th>
+                        <th>Invoice</th>
 
                       </tr>
 
@@ -588,13 +456,10 @@
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
-    <script src="plugins/select2/select2.full.min.js"></script>
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50, "order": [[ 0, "desc" ]] });
-
-        $(".select2").select2();
+        $("#example1").DataTable({ "pageLength": 50 });
       });
     </script>
 

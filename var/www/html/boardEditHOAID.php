@@ -17,15 +17,18 @@
 	$valid_from = $_POST['edit_valid_from'];
 	$valid_until = $_POST['edit_valid_until'];
 
+	$today = date('Y-m-d');
+	$user_id = $_SESSION['hoa_user_id'];
+
 	$valid_from = date('Y-m-d', strtotime($valid_from));
 
 	if($valid_until == "")		
-		$result = pg_query("UPDATE hoaid SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."', cell_no='".$cell_no."', valid_from='".$valid_from."' WHERE hoa_id=".$hoa_id);
+		$result = pg_query("UPDATE hoaid SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."', cell_no='".$cell_no."', valid_from='".$valid_from."', updated_by=".$user_id.", updated_on='".$today."' WHERE hoa_id=".$hoa_id);
 	else
 	{	
 		$valid_until = date('Y-m-d', strtotime($valid_until));
 
-		$result = pg_query("UPDATE hoaid SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."', cell_no='".$cell_no."', valid_from='".$valid_from."', valid_until='".$valid_until."' WHERE hoa_id=".$hoa_id);
+		$result = pg_query("UPDATE hoaid SET firstname='".$firstname."', lastname='".$lastname."', email='".$email."', cell_no='".$cell_no."', valid_from='".$valid_from."', valid_until='".$valid_until."', updated_by=".$user_id.", updated_on='".$today."' WHERE hoa_id=".$hoa_id);
 	}
 
 	if($result)

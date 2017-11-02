@@ -8,8 +8,10 @@
 
 	$person_id = $_POST['person_id'];
 	$hoa_id = $_POST['hoa_id'];
+	$user_id = $_SESSION['hoa_user_id'];
+	$today = date('Y-m-d');
 
-	$result = pg_query("UPDATE person SET is_active='f' WHERE id=$person_id");
+	$result = pg_query("UPDATE person SET is_active='f', updated_by=$user_id, updated_on='$today' WHERE id=$person_id");
 
 	if($result)
 		echo "<br><br><br><br><center><h3>Person removed.</h3></center>";

@@ -283,14 +283,16 @@
                 <th>Component</th>
                 <th>UL</th>
                 <th>RUL</th>
+                <th>Minimum Unit Cost</th>
                 <th>Average Unit Cost</th>
+                <th>Maximum Unit Cost</th>
                 <th>Asset Placement Date</th>
                 <th>Ideal Balance</th>
                 <th>Current Balance</th>
                 <th>Monthly Contribution</th>
                 <th>Quantity</th>
                 <th>Repair Type</th>
-                <th>UOM</th>
+                <th>Units Of Measure</th>
                 
               </thead>
 
@@ -316,6 +318,14 @@
                     $quantity = $row['quantity'];
                     $community_repair_type = $row['community_repair_type_id'];
                     $community_uom = $row['community_uom_id'];
+                    $min_unit_cost = $row1['min_unit_cost'];
+                    $max_unit_cost = $row1['max_unit_cost'];
+
+                    if($min_unit_cost != "")
+                      $min_unit_cost = "$ ".$min_unit_cost;
+
+                    if($max_unit_cost != "")
+                      $max_unit_cost = "$ ".$max_unit_cost;
 
                     if($asset_category != "")
                     {
@@ -352,7 +362,7 @@
                     if($asset_placement_date != "")
                       $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
-                    echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$ $avg_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+                    echo "<tr><td>$asset_category</td><td>$asset_sub_category</td><td>$asset_component</td><td>$ul</td><td>$rul</td><td>$min_unit_cost</td><td>$ $avg_unit_cost</td><td>$max_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
 
                   }
 
