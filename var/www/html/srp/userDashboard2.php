@@ -429,7 +429,7 @@
 
 						                                          			<div class='container' style='color: black;'>
 
-																				<form method='POST' action='userDashboardEditLivingStatus.php'>
+																				<!--form method='POST' action='userDashboardEditLivingStatus.php'>
 																				
 																					<div class='row'>
 
@@ -493,7 +493,7 @@
 
 																					</div>
 
-																				</form>
+																				</form-->
 
 						                                          			</div>
 
