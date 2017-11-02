@@ -425,12 +425,6 @@
                                 $role = $row['role_type_id'];
                                 $home_id = $row['home_id'];
 
-                                if($valid_from != "")
-                                  $valid_from = date('m-d-Y',strtotime($valid_from));
-
-                                if($valid_until != "")
-                                  $valid_until = date('m-d-Y',strtotime($valid_until));
-
                                 if($role != "")
                                 {
                                   $row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
