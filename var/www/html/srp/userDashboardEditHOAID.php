@@ -27,6 +27,8 @@
 	$valid_from = $_POST['edit_valid_from'];
 	$valid_until = $_POST['edit_valid_until'];
 
+	$user_id = $_SESSION['hoa_user_id'];
+
 ?>
 <!DOCTYPE html>
 
