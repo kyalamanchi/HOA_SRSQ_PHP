@@ -468,6 +468,12 @@
 
           <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
+          <ol class="breadcrumb">
+            
+            <li><a href="#"><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
+          
+          </ol>
+
         </section>
 
         <section class="content">
