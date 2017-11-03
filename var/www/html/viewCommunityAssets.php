@@ -14,19 +14,14 @@
     
     <?php
 
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-        if(@!$_SESSION['hoa_username'])
-          header("Location: logout.php");
+      if(@!$_SESSION['hoa_username'])
+        header("Location: https://hoaboardtime.com/logout.php");
 
-        $community_id = $_SESSION['hoa_community_id'];
-        $user_id=$_SESSION['hoa_user_id'];
-
-        $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
-        $num_row = pg_num_rows($result);
-
-        if($num_row == 0)
-          header("Location: https://hoaboardtime.com/residentDashboard.php");
+      $community_id = $_SESSION['hoa_community_id'];
+      $user_id = $_SESSION['hoa_user_id'];
+      $mode = $_SESSION['hoa_mode'];
 
     ?>
 
