@@ -705,6 +705,8 @@
 
 										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t')");
 
+										echo pg_num_rows($result);
+
 		                        		while($row = pg_fetch_assoc($result))
 		                        		{
 
