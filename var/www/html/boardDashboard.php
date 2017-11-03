@@ -470,7 +470,7 @@
 
           <ol class="breadcrumb">
             
-            <li><a href="#"><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
+            <li><i class="fa fa-dashboard"></i> Board Dashboard</li>
           
           </ol>
 
