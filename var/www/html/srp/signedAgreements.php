@@ -304,7 +304,7 @@
 						                              
 						                            }
 
-			                            			echo "<td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$document_to</a></td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
+			                            			echo "<td>$document_to</td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 			                          			}
 
@@ -335,7 +335,7 @@
 			                          			if($last_updated != "")
 			                            			$last_updated = date('m-d-Y', strtotime($last_updated));
 
-			                            		echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$document_to</a></td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
+			                            		echo "<tr><td>$document_to</td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 											}
 
