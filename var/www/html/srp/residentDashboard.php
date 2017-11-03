@@ -390,6 +390,31 @@
 
 							</div>
 
+							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$signed_agreements = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hid AND home_id=$hoid)");
+
+											if($signed_agreements > 0)
+												echo "<a href='signedAgreements.php'>$signed_agreements</a>";
+											else
+												echo $signed_agreements;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Signed Agreements</div>
+
+								</div>
+
+							</div>
+
 						</div>
 
 						<br><br>
