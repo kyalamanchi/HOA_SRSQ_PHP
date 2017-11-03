@@ -352,7 +352,7 @@
 
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardReserveRepairs.php'>
+              <a href='https://hoaboardtime.com/reserveRepairs.php'>
 
                 <div class="row container-fluid text-left">
 
