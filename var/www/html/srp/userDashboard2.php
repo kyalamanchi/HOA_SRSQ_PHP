@@ -980,39 +980,61 @@
 
 																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
+																							<input type='checkbox' value='March' name='month[]' id='month'> <strong>March</strong>
 
 																						</div>
 
 																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
+																							<input type='checkbox' value='April' name='month[]' id='month'> <strong>April</strong>
 
 																						</div>
 
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
+																							<input type='checkbox' value='May' name='month[]' id='month'> <strong>May</strong>
 
 																						</div>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
-
-																						</div>
-
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
+																							<input type='checkbox' value='June' name='month[]' id='month'> <strong>June</strong>
 
 																						</div>
 
-																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
+																							<input type='checkbox' value='July' name='month[]' id='month'> <strong>July</strong>
+
+																						</div>
+
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+
+																							<input type='checkbox' value='August' name='month[]' id='month'> <strong>August</strong>
+
+																						</div>
+
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+
+																							<input type='checkbox' value='September' name='month[]' id='month'> <strong>September</strong>
+
+																						</div>
+
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+
+																							<input type='checkbox' value='October' name='month[]' id='month'> <strong>October</strong>
+
+																						</div>
+
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+
+																							<input type='checkbox' value='November' name='month[]' id='month'> <strong>November</strong>
+
+																						</div>
+
+																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
+
+																							<input type='checkbox' value='December' name='month[]' id='month'> <strong>December</strong>
 
 																						</div>
 
