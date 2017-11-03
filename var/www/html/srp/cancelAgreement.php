@@ -1,7 +1,10 @@
 <?php
-		ini_set("session.save_path","/var/www/html/session/");
-			session_start();
+	
+  ini_set("session.save_path","/var/www/html/session/");
+	session_start();
+
 ?>
+s
 <!DOCTYPE html>
 
 <html>
@@ -49,7 +52,7 @@
 
     ?>
 
-    <script>setTimeout(function(){window.location.href='https://hoaboardtime.com/srp/pendingAgreements.php'},1000);</script>
+    <script>setTimeout(function(){window.location.href='pendingAgreements.php'},1000);</script>
 
   </body>
 

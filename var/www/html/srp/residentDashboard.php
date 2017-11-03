@@ -348,6 +348,31 @@
 													
 										<?php 
 															
+											$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)"));
+
+											if($signed_agreements == 0)
+												echo $signed_agreements;
+											else
+												echo "<a style='color: orange;' href='signedAgreements.php'>$signed_agreements</a>";
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Pending Agreements</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
 											$reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND due_date>='$today'")); 
 
 											if($reminders > 0)
@@ -385,6 +410,31 @@
 									</div>
 
 									<div class='counter-title'>Resident Directory</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+													
+										<?php 
+															
+											$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)"));
+
+											if($signed_agreements > 0)
+												echo "<a style='color: green;' href='signedAgreements.php'>$signed_agreements</a>";
+											else
+												echo $signed_agreements;
+
+										?>
+														
+									</div>
+
+									<div class='counter-title'>Signed Agreements</div>
 
 								</div>
 

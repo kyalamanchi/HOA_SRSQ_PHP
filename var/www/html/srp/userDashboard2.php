@@ -798,7 +798,7 @@
 		                          								{
 		                          				
 		                          									if($person_emails[$k] == $document_to)
-		                          										echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                          										echo "<tr><td><a title='Click to sign agreement' target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 		                          								}
 

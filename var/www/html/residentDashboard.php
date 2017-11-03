@@ -19,6 +19,9 @@
       	if(@!$_SESSION['hoa_username'])
       		header("Location: logout.php");
 
+        if($_SESSION['hoa_mode'] == 1)
+          $_SESSION['hoa_mode'] = 2;
+
       	$community_id = $_SESSION['hoa_community_id'];
 
         $query = "SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id'];

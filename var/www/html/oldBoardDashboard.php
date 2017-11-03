@@ -185,11 +185,11 @@
         
         <section class="content-header">
 
-          <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Finance Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-dashboard"></i> Board Dashboard</li>
+            <li><i class="fa fa-dollar"></i> Finance Dashboard</li>
           
           </ol>
 
@@ -223,7 +223,7 @@
 	                    
                       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center" style="border-right: 1px solid #f4f4f4">
 	                  
-	                  		<a href="https://hoaboardtime.com/amountReceived.php">
+	                  		<a href="boardCurrentMonthAmountRecieved.php">
 	                  		 
                          <input type="text" class="knob" data-thickness="0.2" value="<?php if($amount_percentage < 100) echo round($amount_percentage, 1); else echo "100"; ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
@@ -235,7 +235,7 @@
 
 	                	  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
 	                  
-	                  		<a href='https://hoaboardtime.com/amountReceived.php'>
+	                  		<a href='boardCurrentMonthPaidMembers.php'>
 	                  		
                           <input type="text" class="knob" data-thickness="0.2" value="<?php echo round($paid_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
@@ -959,6 +959,725 @@
                 </div>
 
               <!--/a-->
+
+            </div>
+
+            <br>
+
+          </div>
+
+        </section>
+
+        <section class="content-header">
+
+          <h1><strong>QuickBooks Reports</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+
+        </section>
+
+        <section class="content">
+
+          <div class="row container-fluid">
+
+            <?php
+        
+              $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
+              
+              curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+              curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="z5lf3IXAgwz5xXVG11yFEYKkvqw%3D"'));
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+              $profitandloss = curl_exec($ch);
+              $jsonprofitandloss = json_decode($profitandloss,TRUE);
+              $data = $jsonprofitandloss['Rows']['Row'];
+
+              foreach ($data as $key ) {
+
+                foreach ($key['Summary'] as $Summary) {
+                  
+                  $count = 0;
+                  
+                  foreach ($Summary as $summary) {
+    
+                    if ($summary['value'] == 'Total Revenue') {
+                      
+                      $count = 1;
+                      continue;
+
+                    }
+                    if ( $count == 1 ) {
+                      
+                      $income = $summary['value'];
+                      continue;
+
+                    } 
+
+                    if ( $summary['value'] == 'Total Expenditures') {
+                      
+                      $count = 2;
+                      continue;
+
+                    }
+
+                    if ( $count == 2) {
+                      
+                      $expenditure = $summary['value'];
+                      continue;
+
+                    }
+
+                    if ( $summary['value'] == 'Net Revenue') {
+                      
+                      $count = 3;
+                      continue;
+
+                    }
+
+                    if ( $count == 3) {
+                      
+                      $revenue = $summary['value'];
+                      continue;
+
+                    }
+
+                    if ( $summary['value'] == 'Total Office Supplies & Software'){
+                      
+                      $count = 4;
+                      continue;
+
+                    }
+                    if( $count == 4) {
+                      
+                      $officetotal = $summary['value'];
+                      continue;
+
+                    }
+
+                  }
+
+                }
+
+                foreach ($key['Rows'] as $allRows) {
+                  
+                  foreach ($allRows as $individualRows) {
+  
+                    foreach ($individualRows as $colData) {
+      
+                      foreach ($colData as $keyColData) {
+                        
+                        $count = 0;
+         
+                        foreach ($keyColData as $keyColData2) {
+           
+                          if ( $keyColData2['value'] == 'Total 6410 Office/General Administrative Expenses') {
+                            
+                            $count = 1;
+                            continue;
+
+                          }
+                          else if ( $keyColData2['value'] == 'Total 5420 Repairs & Maintenance') {
+                            
+                            $count = 2;
+                            continue;
+
+                          }
+
+                          if ( $count == 2 ){
+                            
+                            $repair = $keyColData2['value'];
+                            $count = 0;
+                            continue;
+
+                          }
+
+                          if ( $count == 1) {
+            
+                            $officegeneral = $keyColData2['value'];
+                            $count = 0;
+                            continue;
+                          
+                          }
+                        
+                        }
+                      
+                      }  
+      
+                    }
+                  
+                  }
+
+                }
+              
+              }
+            
+            ?>
+
+            <section style="background-color: white;">
+
+              <br>
+            
+              <div class="row container-fluid">
+                
+                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12' style="border-right: 1px solid #f4f4f4">
+
+                  <div class='row text-center container-fluid'>
+
+                    <h4><strong>Income vs Expenditure</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid'>
+
+                    <canvas id="myChart3"></canvas>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid'>
+                    
+                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6' style="border-right: 1px solid #f4f4f4">
+                    
+                      <a href="https://hoaboardtime.com/boardCommunityDeposits.php" title='Click to view community deposits'><h5>INCOME : <b>$ <?php echo round($income, 0); ?></b></h5></a>
+
+                    </div>
+
+                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                    
+                      <a href='https://hoaboardtime.com/boardCommunityExpenditureSummary.php' title='Click to view expenditure summary'><h5>EXPENDITURE : <b>$ <?php echo round($expenditure, 0); ?></b></h5></a>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                  <div class='row text-center container-fluid'>
+
+                    <h4><strong>Top 3 Spendings</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid' >
+
+                    <canvas id="myChart4"></canvas>
+
+                  </div>
+
+                  <br>
+
+                  <div class='row text-center container-fluid'>
+                    
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12' style="border-right: 1px solid #f4f4f4">
+                    
+                      <h5>5420 Repair &amp; Maintainance : <b style="color: black;">$ <?php echo round($repair, 0); ?></b></h5>
+
+                    </div>
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12' style="border-right: 1px solid #f4f4f4">
+                    
+                      <h5>6410 Office/General Administrative Expenses : <b style="color: black;">$ <?php echo round($officegeneral, 0); ?></b></h5>
+
+                    </div>
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                    
+                      <h5>Others : <b style="color: black;">$ <?php echo round($expenditure - ($officegeneral+$repair), 0); ?></b></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+              
+              </div>
+
+              <br>
+
+              <?php
+
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
+                
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="XuTqhe0Pc3l6ByJNHpbyp1P8W0k%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from CompanyInfo");
+                
+                $companyInfo = curl_exec($ch);
+                
+                curl_close($ch);
+                
+                $companyInfo = json_decode($companyInfo,TRUE);
+                $companyInfo  = $companyInfo['QueryResponse'];
+                $companyInfo = $companyInfo['CompanyInfo'];
+                
+                curl_close($ch);
+              
+                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLossDetail?minorversion=8');
+                
+                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="lvprdiCkEnJlsgkPzDkDsjOm2FUoYTc3zHCb41tu6wjN21AP",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="dF10iisxl3QVmuZhGLd4pIA9GAQ%3D"'));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                
+                $result = curl_exec($ch);
+                $json_Decode = json_decode($result,TRUE);
+                $header = $json_Decode['Header'];
+                $startDate  = $header['StartPeriod'];
+                $endDate = $header['EndPeriod'];
+                $startDate = strtotime($startDate);
+                $endDate = strtotime($endDate);
+                $startDate = date('F jS ',$startDate);
+                $endDate = date('F jS, Y',$endDate);
+                
+                curl_close($ch);
+
+              ?>
+
+              <br>
+
+            </section>
+
+          </div>
+
+          <script>
+            
+            var ctx = document.getElementById("myChart3");
+            ctx.width  = 2;
+            ctx.height = 1;
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                  labels: [
+                      "INCOME ($)",
+                      "EXPENDITURE ($)"
+                  ],
+                  datasets: [
+                      {
+                          data: [<?php echo round($income, 0); ?>, <?php echo round($expenditure, 0); ?>],
+                          backgroundColor: [
+                              "green",
+                              "orange"
+                          ]
+                      }]
+              },
+                options: {
+                        legend:{
+                          position:'right'
+                        },
+                        cutoutPercentage:70,
+                        animation:{
+                            animateScale:true
+                        }
+                    }
+            });
+
+            $(document).ready( 
+                function () {
+                    var ctx = document.getElementById("myChart3").getContext("2d");
+                    var myNewChart = new Chart(ctx).Pie(data);
+
+                    $("#myChart3").click( 
+                        function(evt){
+                            var activePoints = myNewChart.getSegmentsAtEvent(evt);
+                            var url = "http://example.com/?label=" + activePoints[0].label + "&value=" + activePoints[0].value;
+                            alert(url);
+                        }
+                    );                  
+                }
+            );
+
+          </script>
+
+          <script>
+            
+            var ctx = document.getElementById("myChart4");
+            ctx.width  = 2;
+            ctx.height = 1;
+            var myDoughnutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                  labels: [
+                      "5420 Repair & Maintainance ($)",
+                      "6410 Office/General Administrative Expenses ($)",
+                      "Others ($)"
+                  ],
+                  datasets: [
+                      {
+                          data: [<?php echo round($repair, 0); ?>, <?php echo round($officegeneral, 0); ?>, <?php echo round($expenditure - ($officegeneral+$repair), 0); ?>],
+                          backgroundColor: [
+                              "rgba(75, 192, 192, 99)",
+                              "rgba(143, 102, 144, 99)",
+                              "rgba(153, 102, 255, 99)"
+                          ]
+                      }]
+              },
+                options: {
+                        legend:{
+                          position:'right'
+                        },
+                        cutoutPercentage:70,
+                        animation:{
+                            animateScale:true
+                        }
+                    }
+            });
+
+          </script>
+
+        </section>
+
+        <section class="content-header">
+
+          <h1><strong>Reserves Dashboard</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+
+        </section>
+
+        <section class="content">
+
+          <div class="row container-fluid" style="background-color: #ffffff;">
+
+            <br>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Number of Assets'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr>
+                    <h4><strong>Add New Asset</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Recommended Reserve Allocation'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+
+                        $minimum_monthly_allocation_units = $row['min_mthly_alloc_unit'];
+                        $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+
+                        $reserve_allocation = $minimum_monthly_allocation_units * $month;
+
+                        $reserve_allocation = round($reserve_allocation, 0);
+
+                        if($cur_bal_vs_ideal_bal >= 70)
+                          echo "<h3 class='text-orange'><strong>$ ".$reserve_allocation."</strong></h3>";
+                        else
+                          echo "<h3 class='text-red'><strong>$ ".$reserve_allocation."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr style="color: white;">
+                    <h4><strong>Minimum Reserve Allocation</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Minimum Reserve Allocation'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+
+                        $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+                        $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+
+                        $reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+                        $reserve_allocation = round($reserve_allocation, 0);
+
+                        if($cur_bal_vs_ideal_bal >= 70)
+                          echo "<h3 class='text-green'><strong>$ ".$reserve_allocation."</strong></h3>";
+                        else
+                          echo "<h3 class='text-orange'><strong>$ ".$reserve_allocation."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr style="color: white;">
+                    <h4><strong>Recommended Reserve Allocation</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a href='https://hoaboardtime.com/boardReserveRepairs.php'>
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Reserve Repairs'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
+
+                        $repairs = $row['sum'];
+
+                        $repairs = round($repairs, 0);
+
+                        if($repairs > 0)
+                          echo "<h3><strong>$ ".$repairs."</strong></h3>";
+                        else
+                          echo "<h3><strong>$ ".$repairs."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr style="color: white;">
+                    <h4><strong>Reserve Repairs</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="pending_payments.png" height=75 width=75 alt='Reserves Funded'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+
+                        $res_funded = $row['cur_bal_vs_ideal_bal'];
+
+                        if($res_funded > 0)
+                          echo "<h3 class='text-green'><strong>".$res_funded."%</strong></h3>"; 
+                        else
+                          echo "<h3 class='text-info'><strong>".$res_funded."%</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr style="color: white;">
+                    <h4><strong>Reserves Funded</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a href='https://hoaboardtime.com/boardViewCommunityAssets.php'><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="community_assets.png" height=75 width=75 alt='Number of Assets'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      <?php 
+
+                        $no_assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+
+                        if($no_assets > 0)
+                          echo "<h3 class='text-green'><strong>".$no_assets."</strong></h3>"; 
+                        else
+                          echo "<h3 class='text-info'><strong>".$no_assets."</strong></h3>";
+
+                      ?>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr>
+                    <h4><strong>Total # of Assets</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
+
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+
+                      <img src="update_assets.png" height=75 width=75 alt='Update Assets'>
+
+                    </div>
+
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+
+                      
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-left">
+
+                    <hr>
+                    <h4><strong>Update Assets</strong></h4>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              </a>
 
             </div>
 

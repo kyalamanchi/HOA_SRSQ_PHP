@@ -345,7 +345,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Amount Recieved</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Amount Received</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
