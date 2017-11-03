@@ -703,7 +703,7 @@
 
 														<?php 
 
-										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
+										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
 										echo pg_num_rows($result);
 
@@ -727,7 +727,13 @@
 		                          			if($last_updated != "")
 		                            			$last_updated = date('m-d-Y', strtotime($last_updated));
 
-		                          			echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                          			for($k = 0; $k < $i; $k++)
+		                          			{
+
+		                          				if($person_emails[$k] == $document_to)
+		                          					echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                          				
+		                          			}
 
 		                        		}
 
