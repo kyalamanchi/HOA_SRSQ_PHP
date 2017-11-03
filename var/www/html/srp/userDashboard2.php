@@ -32,7 +32,7 @@
 			$name = $_GET['name'];
 
 
-			echo base64_encode($hoa_id)." - - - "base64_decode($hoa_id);
+			echo base64_encode($hoa_id)." - - - ".base64_decode($hoa_id);
 
 		?>
 
