@@ -966,19 +966,19 @@
 																				
 																					<div class='row'>
 
-																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
 																							January
 
 																						</div>
 
-																						<div class='col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4'>
+																						<div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>
 
 																							<input type='checkbox' value='January' name='month[]' id='month'>
 
 																						</div>
 
-																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-2 col-xs-2'>
 
 																							February
 
