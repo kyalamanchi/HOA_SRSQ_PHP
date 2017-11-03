@@ -705,8 +705,6 @@
 
 										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
-										echo pg_num_rows($result);
-
 		                        		while($row = pg_fetch_assoc($result))
 		                        		{
 
@@ -729,10 +727,10 @@
 
 		                          			for($k = 0; $k < $i; $k++)
 		                          			{
-
+		                          				echo $person_emails[$k]." - - - ".$document_to."<br>";
 		                          				if($person_emails[$k] == $document_to)
 		                          					echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
-		                          				
+
 		                          			}
 
 		                        		}
