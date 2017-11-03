@@ -944,64 +944,64 @@
                                       						$m12 = $row1['m12_pmt_processed'];
 
                                       						if($m1 == 't')
-                                        $m1 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                        						$m1 = "<center><i class='fa fa-check-square text-success'></i></center>";
                                       						else
-                                        $m1 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                        						$m1 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
                                       						if($m2 == 't')
-                                        $m2 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                        						$m2 = "<center><i class='fa fa-check-square text-success'></i></center>";
                                       						else
-                                        $m2 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                        						$m2 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m3 == 't')
-                                        $m3 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m3 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m3 == 't')
+                                        						$m3 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m3 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m4 == 't')
-                                        $m4 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m4 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m4 == 't')
+                                        						$m4 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m4 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m5 == 't')
-                                        $m5 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m5 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m5 == 't')
+                                        						$m5 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m5 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m6 == 't')
-                                        $m6 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m6 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m6 == 't')
+                                        						$m6 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                     						 else
+                                        						$m6 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m7 == 't')
-                                        $m7 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m7 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m7 == 't')
+                                        						$m7 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m7 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m8 == 't')
-                                        $m8 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m8 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m8 == 't')
+                                        						$m8 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m8 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m9 == 't')
-                                        $m9 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m9 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m9 == 't')
+                                        						$m9 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m9 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m10 == 't')
-                                        $m10 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m10 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m10 == 't')
+                                        						$m10 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m10 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m11 == 't')
-                                        $m11 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m11 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m11 == 't')
+                                        						$m11 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m11 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                      if($m12 == 't')
-                                        $m12 = "<center><i class='fa fa-check-square text-success'></i></center>";
-                                      else
-                                        $m12 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+                                      						if($m12 == 't')
+                                        						$m12 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m12 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
                                     						echo "<tr><td>$year</td><td>$m1</td><td>$m2</td><td>$m3</td><td>$m4</td><td>$m5</td><td>$m6</td><td>$m7</td><td>$m8</td><td>$m9</td><td>$m10</td><td>$m11</td><td>$m12</td><td><center><a >Edit</a></center></td></tr>";
 
