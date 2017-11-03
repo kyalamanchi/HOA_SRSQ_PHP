@@ -350,10 +350,10 @@
 															
 											$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)"));
 
-											if($signed_agreements > 0)
-												echo "<a style='color: green;' href='signedAgreements.php'>$signed_agreements</a>";
+											if($signed_agreements == 0)
+												echo "<a style='color: green;'>$signed_agreements</a>";
 											else
-												echo $signed_agreements;
+												echo "<a style='color: orange;' href='signedAgreements.php'>$signed_agreements</a>";
 
 										?>
 														
