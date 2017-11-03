@@ -281,7 +281,7 @@
 
 															";
 
-															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_hoaid'>Edit</button></td></tr>";
+															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td><td><button class='btn btn-link btn-xs' type='button' data-toggle='modal' data-target='#modal_edit_hoaid'>Edit</button></td></tr>";
 
 														?>
 														
@@ -511,7 +511,7 @@
 
 															";
 
-															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button></td></tr>";
+															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td><td><button class='btn btn-link btn-xs' type='button' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button></td></tr>";
 
 														?>
 														
