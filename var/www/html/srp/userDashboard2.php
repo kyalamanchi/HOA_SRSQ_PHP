@@ -719,7 +719,29 @@
 
 											<div class='row'>
 
-												
+												<table class='table table-striped' style='color: black;'>
+													
+													<thead>
+
+														<th>Agreement</th>
+														<th>Email</th>
+														<th>Create Date</th>
+														<th>Send Date</th>
+														<th>Last Updated</th>
+														
+													</thead>
+
+													<tbody>
+
+														<?php
+
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE (hoa_id=$hoa_id AND home_id=$home_id) OR ");
+
+														?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
