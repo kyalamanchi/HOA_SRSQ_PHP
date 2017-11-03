@@ -81,7 +81,7 @@
 
             <a href="https://hoaboardtime.com/boardCharges.php">
 
-              <i class="fa fa-users text-blue"></i> <span>Late Fee / Write Off </span>
+              <i class="fa fa-users text-blue"></i> <span>bdLate Fee / Write Off </span>
 
             </a>
 
