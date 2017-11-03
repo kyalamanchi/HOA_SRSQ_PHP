@@ -552,6 +552,9 @@
 
 															$result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
 
+															$person_emails = array();
+															$i = 0;
+
 															while($row = pg_fetch_assoc($result))
 															{
 																
@@ -562,6 +565,8 @@
 																$relationship = $row['relationship_id'];
 																$email = $row['email'];
 																$cell_no = $row['cell_no'];
+
+																$person_emails[$i] = $email;
 
 																$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
 																$role_type = $row['name'];
@@ -695,11 +700,42 @@
 
 													<tbody>
 
-														<?php
+														<?php 
 
-															$result = pg_query("SELECT * FROM community_sign_agreements WHERE (hoa_id=$hoa_id AND home_id=$home_id) OR ");
+										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
-														?>
+		                        		while($row = pg_fetch_assoc($result))
+		                        		{
+
+		                          			$id = $row['id'];
+		                          			$document_to = $row['document_to'];
+		                          			$create_date = $row['create_date'];
+		                          			$send_date = $row['send_date'];
+		                          			$agreement_name = $row['agreement_name'];
+		                          			$last_updated = $row['last_updated'];
+		                          			$agreement_id = $row['agreement_id'];
+		                          			$doc_hoa_id = $row['hoa_id'];
+		                          			$doc_home_id = $row['home_id'];
+
+		                          			if($create_date != "")
+		                            			$create_date = date('m-d-Y', strtotime($create_date));
+
+		                          			if($send_date != "")
+		                            			$send_date = date('m-d-Y', strtotime($send_date));
+
+		                          			if($last_updated != "")
+		                            			$last_updated = date('m-d-Y', strtotime($last_updated));
+
+		                          			if($document_to != "")
+		                          			{  
+		                            			
+		                            			echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+
+		                          			}
+
+		                        		}
+
+		                      		?>
 														
 													</tbody>
 
