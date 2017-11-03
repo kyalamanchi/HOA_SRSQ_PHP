@@ -714,6 +714,7 @@
 		                          								$send_date = $row['send_date'];
 		                          								$agreement_name = $row['agreement_name'];
 		                          								$last_updated = $row['last_updated'];
+                          										$esign_url = $row['esign_url'];
 		                          								$agreement_id = $row['agreement_id'];
 
 		                          								if($create_date != "")
@@ -729,7 +730,7 @@
 		                          								{
 		                          				
 		                          									if($person_emails[$k] == $document_to)
-		                          										echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                          										echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 		                          								}
 
