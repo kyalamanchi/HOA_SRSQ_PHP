@@ -20,11 +20,13 @@
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
 
-      $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
-		  $num_row = pg_num_rows($result);
+      $board = pg_num_rows(pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id"));
 
-		  if($num_row == 0)
+		  if($board == 0)
 			 header("Location: https://hoaboardtime.com/residentDashboard.php");
+      
+      if($_SESSION['hoa_mode'] == 2)
+        $_SESSION['hoa_mode'] = 1;
 
     ?>
 
@@ -74,75 +76,7 @@
     
     <div class="wrapper">
 
-      	<header class="main-header">
-        
-        	<a class="logo">
-          
-          		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
-          
-          		<span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
-
-        	</a>
-        
-        	<nav class="navbar navbar-static-top">
-          
-          		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		
-            		<span class="sr-only">Toggle navigation</span>
-
-          		</a>
-
-	          	<div class="navbar-custom-menu">
-	            
-	            	<ul class="nav navbar-nav">
-
-		          		<li class="dropdown user user-menu">
-	              
-		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
-
-		          		</li>
-
-		          		<li class="dropdown user user-menu">
-
-		            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		              
-		              			<i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
-
-		            		</a>
-
-			            	<ul class="dropdown-menu">
-			              
-			              		<li class="user-header">
-			                
-			                		<i class="fa fa-user fa-5x"></i>
-
-			                		<p>
-			                  
-					                  	<?php echo $_SESSION['hoa_username']; ?>
-
-					                  	<br>
-
-					                  	<small><?php echo $_SESSION['hoa_address']; ?></small>
-
-					                  	<a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
-
-					                	<br>
-
-					                </p>
-
-			              		</li>
-
-			            	</ul>
-
-		          		</li>
-
-	            	</ul>
-
-	          	</div>
-
-        	</nav>
-
-      	</header>
+      	<?php include 'boardHeader.php'; ?>
       
       	<aside class="main-sidebar">
         

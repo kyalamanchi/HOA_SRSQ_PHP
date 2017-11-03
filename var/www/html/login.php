@@ -85,7 +85,7 @@
 					
 					$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
-					$_SESSION['mode'] = 2;
+					$_SESSION['hoa_mode'] = 2;
 
 					header("Location: https://hoaboardtime.com/residentDashboard.php");
 
@@ -95,7 +95,7 @@
 
 					$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
-					$_SESSION['mode'] = 1;
+					$_SESSION['hoa_mode'] = 1;
 
 					header("Location: https://hoaboardtime.com/boardDashboard.php");
 				}
