@@ -18,6 +18,14 @@
 			$community_id = $_SESSION['hoa_community_id'];
 			$mode = $_SESSION['hoa_mode'];
 
+			if($mode == 2)
+			{
+				
+				$home_id = $_SESSION['hoa_home_id'];
+				$hoa_id = $_SESSION['hoa_hoa_id'];
+
+			}
+
 		?>
 
 		<meta charset='UTF-8'>
@@ -302,10 +310,10 @@
 
 			                        		}
 		                        		}
-		                        		else
+		                        		else if($mode == 2)
 		                        		{
 
-		                        			$result = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hid AND home_id=$hoid)");
+		                        			$result = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
 											while($row = pg_fetch_assoc($result))
 											{
