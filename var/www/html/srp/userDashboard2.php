@@ -968,25 +968,51 @@
 
 																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							January
+																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
 
 																						</div>
 
 																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							<input type='checkbox' value='January' name='month[]' id='month'>
+																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
 
 																						</div>
 
 																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							February
+																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
 
 																						</div>
 
 																						<div class='col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3'>
 
-																							<input type='checkbox' value='February' name='month[]' id='month'>
+																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
+
+																						</div>
+
+
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																							<input type='checkbox' value='January' name='month[]' id='month'> <strong>January</strong>
+
+																						</div>
+
+																						<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																							<input type='checkbox' value='February' name='month[]' id='month'> <strong>February</strong>
 
 																						</div>
 
