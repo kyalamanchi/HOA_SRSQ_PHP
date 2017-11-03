@@ -1003,7 +1003,7 @@
                                       						else
                                         						$m12 = "<center><i class='fa fa-square-o text-orange'></i></center>";
 
-                                    						echo "<tr><td>$year</td><td>$m1</td><td>$m2</td><td>$m3</td><td>$m4</td><td>$m5</td><td>$m6</td><td>$m7</td><td>$m8</td><td>$m9</td><td>$m10</td><td>$m11</td><td>$m12</td><td><center><a >Edit</a></center></td></tr>";
+                                    						echo "<tr><td>$year</td><td>$m1</td><td>$m2</td><td>$m3</td><td>$m4</td><td>$m5</td><td>$m6</td><td>$m7</td><td>$m8</td><td>$m9</td><td>$m10</td><td>$m11</td><td>$m12</td><td><center><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_cypp'>Edit</button></center></td></tr>";
 
 														?>
 														
