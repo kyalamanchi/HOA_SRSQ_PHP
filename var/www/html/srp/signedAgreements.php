@@ -98,6 +98,15 @@
 
 								echo "<br><br><br>";
 
+								$result = pg_query("SELECT * FROM community_sign_agreements WHERE document_to IN (SELECT email FROM person WHERE hoa_id=$hid AND home_id=$hoid)");
+
+								while($row = pg_fetch_assoc($result))
+								{
+									echo "<br>".$row['id'];
+								}
+
+								echo "<br><br><br>";
+
 							?>
 
 							<table id='example1' class='table' style="color: black;">
