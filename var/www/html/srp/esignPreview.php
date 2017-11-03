@@ -1,5 +1,6 @@
 <?php
 
+	ini_set("session.save_path","/var/www/html/session/");
 	session_start();
 
     date_default_timezone_set('America/Los_Angeles');
