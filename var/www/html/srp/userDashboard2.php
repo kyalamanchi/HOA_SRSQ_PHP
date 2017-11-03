@@ -27,9 +27,9 @@
 			if($mode == 2)
 				header('Location: residentDashboard.php');
 
-			$hoa_id = $_GET['hoa_id'];
-			$home_id = $_GET['home_id'];
-			$name = $_GET['name'];
+			$hoa_id = base64_decode($_GET['hoa_id']);
+			$home_id = base64_decode($_GET['home_id']);
+			$name = base64_decode($_GET['name']);
 
 		?>
 
@@ -111,7 +111,7 @@
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 								
 								<!-- Tabs-->
-								<ul class='nav nav-tabs'>
+								<ul class='nav nav-tabs' style="color: black;">
 									
 									<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Owner &amp; Home</a></li>
 									<li class='nav-item'><a class='nav-link' href='#tab-2' data-toggle='tab'>Account Statement</a></li>
@@ -281,7 +281,7 @@
 
 															";
 
-															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_hoaid'>Edit</button></td></tr>";
+															echo "<tr><td>$name</td><td>$hoa_id</td><td>$resident_since</td><td>$role</td><td>$email</td><td>$cell_no</td><td><button class='btn btn-link btn-xs' type='button' data-toggle='modal' data-target='#modal_edit_hoaid'>Edit</button></td></tr>";
 
 														?>
 														
@@ -511,7 +511,7 @@
 
 															";
 
-															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td><td><button class='btn btn-link btn-lg' type='button' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button></td></tr>";
+															echo "<tr><td>$living_in</td><td>$home_id</td><td>$living_status</td><td>$lot</td><td>$mailing_address, $mailing_city, $mailing_state $mailing_zip</td><td><button class='btn btn-link btn-xs' type='button' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button></td></tr>";
 
 														?>
 														
@@ -685,7 +685,7 @@
 
 										<div class='container'>
 
-											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 												<table id='pendingAgreements' class='table table-striped' style='color: black;'>
 													
@@ -714,6 +714,7 @@
 		                          								$send_date = $row['send_date'];
 		                          								$agreement_name = $row['agreement_name'];
 		                          								$last_updated = $row['last_updated'];
+                          										$esign_url = $row['esign_url'];
 		                          								$agreement_id = $row['agreement_id'];
 
 		                          								if($create_date != "")
@@ -729,7 +730,7 @@
 		                          								{
 		                          				
 		                          									if($person_emails[$k] == $document_to)
-		                          										echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                          										echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 		                          								}
 
@@ -753,7 +754,7 @@
 
 										<div class='container'>
 
-											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 												<table id='signedAgreements' class='table table-striped' style='color: black;'>
 													
@@ -901,13 +902,308 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-												
+												<table class='table table-bordered' style="color: black;">
+
+													<thead>
+														
+														<th>Year</th>
+														<th>Jan</th>
+														<th>Feb</th>
+														<th>Mar</th>
+														<th>Apr</th>
+														<th>May</th>
+														<th>Jun</th>
+														<th>Jul</th>
+														<th>Aug</th>
+														<th>Sep</th>
+														<th>Oct</th>
+														<th>Nov</th>
+														<th>Dec</th>
+														<th></th>
+
+													</thead>
+
+													<tbody>
+
+														<?php
+
+															$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
+
+                                      						$m1 = $row1['m1_pmt_processed'];
+                                      						$m2 = $row1['m2_pmt_processed'];
+                                      						$m3 = $row1['m3_pmt_processed'];
+                                      						$m4 = $row1['m4_pmt_processed'];
+                                      						$m5 = $row1['m5_pmt_processed'];
+                                      						$m6 = $row1['m6_pmt_processed'];
+                                      						$m7 = $row1['m7_pmt_processed'];
+                                      						$m8 = $row1['m8_pmt_processed'];
+                                      						$m9 = $row1['m9_pmt_processed'];
+                                      						$m10 = $row1['m10_pmt_processed'];
+                                      						$m11 = $row1['m11_pmt_processed'];
+                                      						$m12 = $row1['m12_pmt_processed'];
+
+                                      						echo "
+											
+															<div class='modal fade' id='modal_edit_cypp'>
+
+																<div class='modal-dialog modal-lg'>
+
+																	<div class='modal-content'>
+
+																		<div class='modal-header'>
+
+																			<h4 class='h4'>Current Year Payments Processed - $year</h4>
+																			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+																		</div>
+
+																		<div class='modal-body'>
+
+																			<div class='container' style='color: black;'>
+
+																				<form method='POST' action='userDashboardEditCYPP.php'>
+																				
+																					<div class='row'>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='January' name='month[]' id='month'";
+
+																							if($m1 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>January</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='February' name='month[]' id='month'";
+
+																							if($m2 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>February</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='March' name='month[]' id='month'";
+
+																							if($m3 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>March</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='April' name='month[]' id='month'";
+
+																							if($m4 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>April</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='May' name='month[]' id='month'";
+
+																							if($m5 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>May</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='June' name='month[]' id='month'";
+
+																							if($m6 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>June</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='July' name='month[]' id='month'";
+
+																							if($m7 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>July</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='August' name='month[]' id='month'";
+
+																							if($m8 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>August</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='September' name='month[]' id='month'";
+
+																							if($m9 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>September</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='October' name='month[]' id='month'";
+
+																							if($m10 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>October</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='November' name='month[]' id='month'";
+
+																							if($m11 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>November</strong>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='December' name='month[]' id='month'";
+
+																							if($m12 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>December</strong>
+
+																						</div>
+
+																						<input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+																						<input type='hidden' name='home_id' id='home_id' value='$home_id'>
+																						<input type='hidden' name='name' id='name' value='$name'>
+
+																					</div>
+
+																					<br>
+
+																					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																						<center>
+
+																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+																						</center>
+
+																					</div>
+
+																				</form>
+
+						                                          			</div>
+
+																		</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+															";
+
+                                      						if($m1 == 't')
+                                        						$m1 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m1 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m2 == 't')
+                                        						$m2 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m2 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m3 == 't')
+                                        						$m3 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m3 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m4 == 't')
+                                        						$m4 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m4 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m5 == 't')
+                                        						$m5 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m5 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m6 == 't')
+                                        						$m6 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                     						 else
+                                        						$m6 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m7 == 't')
+                                        						$m7 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m7 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m8 == 't')
+                                        						$m8 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m8 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m9 == 't')
+                                        						$m9 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m9 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m10 == 't')
+                                        						$m10 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m10 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m11 == 't')
+                                        						$m11 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m11 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m12 == 't')
+                                        						$m12 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        						$m12 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                    						echo "<tr><td>$year</td><td>$m1</td><td>$m2</td><td>$m3</td><td>$m4</td><td>$m5</td><td>$m6</td><td>$m7</td><td>$m8</td><td>$m9</td><td>$m10</td><td>$m11</td><td>$m12</td><td><center><button class='btn btn-link btn-xs' type='button' data-toggle='modal' data-target='#modal_edit_cypp'>Edit</button></center></td></tr>";
+
+														?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
 										</div>
+
+										<br>
 
 										<div class='special-heading m-b-40'>
 									
