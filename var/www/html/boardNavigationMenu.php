@@ -25,7 +25,37 @@
               
         <a>
                 
-          <i class="fa fa-dashboard"></i> <span>Board Dashboard</span>
+          <i class="fa fa-dashboard"></i> <span>Board</span>
+
+        </a>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a>
+                
+          <i class="fa fa-dashboard"></i> <span>Finance</span>
+
+        </a>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a>
+                
+          <i class="fa fa-dashboard"></i> <span>Reserves</span>
+
+        </a>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a>
+                
+          <i class="fa fa-dashboard"></i> <span>Comms</span>
 
         </a>
 
