@@ -943,6 +943,81 @@
                                       						$m11 = $row1['m11_pmt_processed'];
                                       						$m12 = $row1['m12_pmt_processed'];
 
+                                      						echo "
+											
+															<div class='modal fade' id='modal_edit_cypp'>
+
+																<div class='modal-dialog modal-lg'>
+
+																	<div class='modal-content'>
+
+																		<div class='modal-header'>
+
+																			<h4 class='h4'>Current Year Payments Processed - $year</h4>
+																			<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+																		</div>
+
+																		<div class='modal-body'>
+
+																			<div class='container' style='color: black;'>
+
+																				<form method='POST' action='userDashboardEditCYPP.php'>
+																				
+																					<div class='row'>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+
+																							January
+
+																						</div>
+
+																						<div class='col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='January' name='month[]' id='month'>
+
+																						</div>
+
+																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-8'>
+
+																							February
+
+																						</div>
+
+																						<div class='col-xl-2 col-lg-2 col-md-2 col-sm-4 col-xs-4'>
+
+																							<input type='checkbox' value='February' name='month[]' id='month'>
+
+																						</div>
+
+																					</div>
+
+																					<br>
+
+																					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+																						<center>
+
+																							<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+																						</center>
+
+																					</div>
+
+																				</form>
+
+						                                          			</div>
+
+																		</div>
+
+																	</div>
+
+																</div>
+
+															</div>
+
+															";
+
                                       						if($m1 == 't')
                                         						$m1 = "<center><i class='fa fa-check-square text-success'></i></center>";
                                       						else
