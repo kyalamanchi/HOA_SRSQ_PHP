@@ -135,7 +135,7 @@
 
                           					foreach ($srp_Deposits['Deposit'] as $Deposit) {
                               
-                            					echo "<tr><td>".date('m-d-Y', strtotime(nl2br($Deposit['TxnDate'])))."</td><td>".nl2br($Deposit['DepositToAccountRef']['name'])."</td><td>$ ".nl2br($Deposit['TotalAmt'])."</td><td>".nl2br($Deposit['PrivateNote'])."</td></tr>";
+                            					echo "<tr><td>".date('m-d-Y', strtotime($Deposit['TxnDate']))."</td><td>".nl2br($Deposit['DepositToAccountRef']['name'])."</td><td>$ ".nl2br($Deposit['TotalAmt'])."</td><td>".nl2br($Deposit['PrivateNote'])."</td></tr>";
 
                           					}
 
@@ -199,7 +199,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50, "order": [[0, "desc"]] });
+	        	$("#example1").DataTable({ "pageLength": 50, "order": [] });
 
 	      	});
 

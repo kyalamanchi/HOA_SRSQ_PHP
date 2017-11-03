@@ -1279,7 +1279,7 @@
                               <a href='trailBalanceReport.php'>
 
                                 <!--i class='fa fa-file'></i-->
-                                <img src='trail_balance_report.png' alt='Trail Balance'>
+                                <img src='trail_balance.png' alt='Trail Balance'>
 
                               </a>
                                 
@@ -1397,7 +1397,7 @@
                               <a href='chartOfAccounts.php'>
 
                                 <!--i class='fa fa-file'></i-->
-                                <img src='chartOfAccounts.png' alt='Chart of Accounts'>
+                                <img src='chart_of_accounts.png' alt='Chart of Accounts'>
 
                               </a>
                                 

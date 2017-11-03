@@ -550,7 +550,10 @@
 
 														<?php 
 
-															$result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id");
+															$result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
+
+															$person_emails = array();
+															$i = 0;
 
 															while($row = pg_fetch_assoc($result))
 															{
@@ -562,6 +565,9 @@
 																$relationship = $row['relationship_id'];
 																$email = $row['email'];
 																$cell_no = $row['cell_no'];
+
+																$person_emails[$i] = $email;
+																$i++;
 
 																$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
 																$role_type = $row['name'];
@@ -679,9 +685,9 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												<table class='table table-striped' style='color: black;'>
+												<table id='pendingAgreements' class='table table-striped' style='color: black;'>
 													
 													<thead>
 
@@ -695,11 +701,41 @@
 
 													<tbody>
 
-														<?php
+														<?php 
 
-															$result = pg_query("SELECT * FROM community_sign_agreements WHERE (hoa_id=$hoa_id AND home_id=$home_id) OR ");
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
-														?>
+		                        							while($row = pg_fetch_assoc($result))
+		                        							{
+
+		                          								$id = $row['id'];
+		                          								$document_to = $row['document_to'];
+		                          								$create_date = $row['create_date'];
+		                          								$send_date = $row['send_date'];
+		                          								$agreement_name = $row['agreement_name'];
+		                          								$last_updated = $row['last_updated'];
+		                          								$agreement_id = $row['agreement_id'];
+
+		                          								if($create_date != "")
+		                            								$create_date = date('m-d-Y', strtotime($create_date));
+
+		                          								if($send_date != "")
+		                            								$send_date = date('m-d-Y', strtotime($send_date));
+
+		                          								if($last_updated != "")
+		                            								$last_updated = date('m-d-Y', strtotime($last_updated));
+
+		                          								for($k = 0; $k < $i; $k++)
+		                          								{
+		                          				
+		                          									if($person_emails[$k] == $document_to)
+		                          										echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+
+		                          								}
+
+		                        							}
+
+		                      							?>
 														
 													</tbody>
 
@@ -717,9 +753,61 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												
+												<table id='signedAgreements' class='table table-striped' style='color: black;'>
+													
+													<thead>
+
+														<th>Agreement</th>
+														<th>Email</th>
+														<th>Create Date</th>
+														<th>Send Date</th>
+														<th>Last Updated</th>
+														
+													</thead>
+
+													<tbody>
+
+														<?php 
+
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'");
+
+		                        							while($row = pg_fetch_assoc($result))
+		                        							{
+
+		                          								$id = $row['id'];
+		                          								$document_to = $row['document_to'];
+		                          								$create_date = $row['create_date'];
+		                          								$send_date = $row['send_date'];
+		                          								$agreement_name = $row['agreement_name'];
+		                          								$last_updated = $row['last_updated'];
+		                          								$agreement_id = $row['agreement_id'];
+
+		                          								if($create_date != "")
+		                            								$create_date = date('m-d-Y', strtotime($create_date));
+
+		                          								if($send_date != "")
+		                            								$send_date = date('m-d-Y', strtotime($send_date));
+
+		                          								if($last_updated != "")
+		                            								$last_updated = date('m-d-Y', strtotime($last_updated));
+
+		                          								for($k = 0; $k < $i; $k++)
+		                          								{
+		                          				
+		                          									if($person_emails[$k] == $document_to)
+		                          										echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+
+		                          								}
+
+		                        							}
+
+		                      							?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
@@ -836,7 +924,7 @@
 													<thead>
 
 														<th>Date</th>
-														<th>Customer ID</th>
+														<th>HOA ID</th>
 														<th>Authorization Code</th>
 														<th>Status</th>
 														<th>Amount</th>
@@ -1014,6 +1102,10 @@
 	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	        	$("#example2").DataTable({ "pageLength": 50 });
+
+	        	$("#pendingAgreements").DataTable({ "pageLength": 50 });
+
+	        	$("#signedAgreements").DataTable({ "pageLength": 50 });
 
 	        	$("#example3").DataTable({ "pageLength": 50, "order": [[0, "desc"]] });
 
