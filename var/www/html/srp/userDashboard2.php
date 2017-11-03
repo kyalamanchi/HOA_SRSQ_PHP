@@ -685,7 +685,7 @@
 
 										<div class='container'>
 
-											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 												<table id='pendingAgreements' class='table table-striped' style='color: black;'>
 													
@@ -753,7 +753,7 @@
 
 										<div class='container'>
 
-											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 												<table id='signedAgreements' class='table table-striped' style='color: black;'>
 													
@@ -901,9 +901,112 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-												
+												<table class='table table-bordered'>
+
+													<thead>
+														
+														<th>Year</th>
+														<th>Jan</th>
+														<th>Feb</th>
+														<th>Mar</th>
+														<th>Apr</th>
+														<th>May</th>
+														<th>Jun</th>
+														<th>Jul</th>
+														<th>Aug</th>
+														<th>Sep</th>
+														<th>Oct</th>
+														<th>Nov</th>
+														<th>Dec</th>
+
+													</thead>
+
+													<tbody>
+
+														<?php
+
+															$row1 = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
+
+                                      						$m1 = $row1['m1_pmt_processed'];
+                                      						$m2 = $row1['m2_pmt_processed'];
+                                      						$m3 = $row1['m3_pmt_processed'];
+                                      						$m4 = $row1['m4_pmt_processed'];
+                                      						$m5 = $row1['m5_pmt_processed'];
+                                      						$m6 = $row1['m6_pmt_processed'];
+                                      						$m7 = $row1['m7_pmt_processed'];
+                                      						$m8 = $row1['m8_pmt_processed'];
+                                      						$m9 = $row1['m9_pmt_processed'];
+                                      						$m10 = $row1['m10_pmt_processed'];
+                                      						$m11 = $row1['m11_pmt_processed'];
+                                      						$m12 = $row1['m12_pmt_processed'];
+
+                                      						if($m1 == 't')
+                                        $m1 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        $m1 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      						if($m2 == 't')
+                                        $m2 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      						else
+                                        $m2 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m3 == 't')
+                                        $m3 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m3 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m4 == 't')
+                                        $m4 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m4 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m5 == 't')
+                                        $m5 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m5 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m6 == 't')
+                                        $m6 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m6 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m7 == 't')
+                                        $m7 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m7 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m8 == 't')
+                                        $m8 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m8 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m9 == 't')
+                                        $m9 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m9 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m10 == 't')
+                                        $m10 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m10 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m11 == 't')
+                                        $m11 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m11 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+                                      if($m12 == 't')
+                                        $m12 = "<center><i class='fa fa-check-square text-success'></i></center>";
+                                      else
+                                        $m12 = "<center><i class='fa fa-square-o text-orange'></i></center>";
+
+														?>
+														
+													</tbody>
+
+												</table>
 
 											</div>
 
