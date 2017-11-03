@@ -194,6 +194,8 @@
 
         <section class="content" style="background-color: white;">
 
+          <br>
+
           <div class="row container-fluid">
 
             <?php
@@ -358,6 +360,8 @@
             ?>
 
           </div>
+
+          <br>
 
           <div class="row container-fluid">
 
