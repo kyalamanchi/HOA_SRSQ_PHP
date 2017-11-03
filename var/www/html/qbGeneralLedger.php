@@ -55,7 +55,19 @@ $(document).ready(function() {
   </script>
 </head>
 <style type="text/css">
-
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transform: translateZ(0);
+  -webkit-transition: height 0.35s ease 1s linear;
+  -moz-transition: height 0.35s ease 1s linear;
+  -o-transition: height 0.35s ease 1s linear;
+  -ms-transition: height 0.35s ease 1s linear;
+  transition: height 0.35s ease 1s linear;
+  -webkit-transition: height 0.35s ease;
+  transition: height 0.35s ease;
+}
 table .collapse.in {
     display:table-row;
     
