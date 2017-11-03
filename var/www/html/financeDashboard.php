@@ -192,26 +192,188 @@
 
         <br>
 
-        <section class="content" style="background-color: white;">
-
-          <br>
+        <section class="content">
 
           <div class="row container-fluid">
 
-            <?php
+            <section style="background-color: white;">
 
-              if($community_id == 1)
-              {
+              <div class="row container-fluid">
 
-                echo "
+                <?php
 
-                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                  if($community_id == 1)
+                  {
 
-                  <div class='row container-fluid text-left'>
+                    echo "
 
-                    <div class='row container-fluid'>
+                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 
-                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                      <div class='row container-fluid text-left'>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                            <a href='https://hoaboardtime.com/communityIncome.php'>
+
+                              $
+
+                            </a>
+
+                          </div>
+
+                        </div>
+
+                        <div class='row container-fluid text-center'>
+
+                          <h5><strong>Savings</strong></h5>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+
+                      <div class='row container-fluid text-left'>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                            <a href='https://hoaboardtime.com/communityIncome.php'>
+
+                              $
+
+                            </a>
+
+                          </div>
+
+                        </div>
+
+                        <div class='row container-fluid text-center'>
+
+                          <h5><strong>Checkings</strong></h5>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    ";
+
+                  }
+                  else if($community_id == 2)
+                  {
+
+                    echo "
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+
+                      <div class='row container-fluid text-left'>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                            <a href='https://hoaboardtime.com/communityIncome.php'>
+
+                              $
+
+                            </a>
+
+                          </div>
+
+                        </div>
+
+                        <div class='row container-fluid text-center'>
+
+                          <h5><strong>Checkings</strong></h5>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+
+                      <div class='row container-fluid text-left'>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                            <a href='https://hoaboardtime.com/communityIncome.php'>
+
+                              $
+
+                            </a>
+
+                          </div>
+
+                        </div>
+
+                        <div class='row container-fluid text-center'>
+
+                          <h5><strong>Savings</strong></h5>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+
+                      <div class='row container-fluid text-left'>
+
+                        <div class='row container-fluid'>
+
+                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                            <a href='https://hoaboardtime.com/communityIncome.php'>
+
+                              $
+
+                            </a>
+
+                          </div>
+
+                        </div>
+
+                        <div class='row container-fluid text-center'>
+
+                          <h5><strong>Investments</strong></h5>
+
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                    ";
+
+                  }
+
+                ?>
+
+              </div>
+
+              <br><br>
+
+              <div class="row container-fluid">
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
                         <a href='https://hoaboardtime.com/communityIncome.php'>
 
@@ -223,9 +385,9 @@
 
                     </div>
 
-                    <div class='row container-fluid text-center'>
+                    <div class="row container-fluid text-center">
 
-                      <h5><strong>Savings</strong></h5>
+                      <h5><strong>Income</strong></h5>
 
                     </div>
 
@@ -233,15 +395,15 @@
 
                 </div>
 
-                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-                  <div class='row container-fluid text-left'>
+                  <div class="row container-fluid text-left">
 
-                    <div class='row container-fluid'>
+                    <div class="row container-fluid">
 
-                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                        <a href='https://hoaboardtime.com/communityIncome.php'>
+                        <a href='https://hoaboardtime.com/communityExpenses.php'>
 
                           $
 
@@ -251,9 +413,9 @@
 
                     </div>
 
-                    <div class='row container-fluid text-center'>
+                    <div class="row container-fluid text-center">
 
-                      <h5><strong>Checkings</strong></h5>
+                      <h5><strong>Expenses</strong></h5>
 
                     </div>
 
@@ -261,23 +423,21 @@
 
                 </div>
 
-                ";
+              </div>
 
-              }
-              else if($community_id == 2)
-              {
+              <br><br>
 
-                echo "
+              <div class="row container-fluid">
 
-                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
-                  <div class='row container-fluid text-left'>
+                  <div class="row container-fluid text-left">
 
-                    <div class='row container-fluid'>
+                    <div class="row container-fluid">
 
-                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                        <a href='https://hoaboardtime.com/communityIncome.php'>
+                        <a href='https://hoaboardtime.com/trailBalanceReport.php'>
 
                           $
 
@@ -287,9 +447,9 @@
 
                     </div>
 
-                    <div class='row container-fluid text-center'>
+                    <div class="row container-fluid text-center">
 
-                      <h5><strong>Checkings</strong></h5>
+                      <h5><strong>Trail Balance Report</strong></h5>
 
                     </div>
 
@@ -297,15 +457,15 @@
 
                 </div>
 
-                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
-                  <div class='row container-fluid text-left'>
+                  <div class="row container-fluid text-left">
 
-                    <div class='row container-fluid'>
+                    <div class="row container-fluid">
 
-                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                        <a href='https://hoaboardtime.com/communityIncome.php'>
+                        <a href='https://hoaboardtime.com/chartOfAccounts.php'>
 
                           $
 
@@ -315,9 +475,9 @@
 
                     </div>
 
-                    <div class='row container-fluid text-center'>
+                    <div class="row container-fluid text-center">
 
-                      <h5><strong>Savings</strong></h5>
+                      <h5><strong>Chart Of Accounts</strong></h5>
 
                     </div>
 
@@ -325,15 +485,15 @@
 
                 </div>
 
-                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
 
-                  <div class='row container-fluid text-left'>
+                  <div class="row container-fluid text-left">
 
-                    <div class='row container-fluid'>
+                    <div class="row container-fluid">
 
-                      <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                        <a href='https://hoaboardtime.com/communityIncome.php'>
+                        <a href='https://hoaboardtime.com/vendorExpenditure.php'>
 
                           $
 
@@ -343,9 +503,9 @@
 
                     </div>
 
-                    <div class='row container-fluid text-center'>
+                    <div class="row container-fluid text-center">
 
-                      <h5><strong>Investments</strong></h5>
+                      <h5><strong>Expenditure By Vendor</strong></h5>
 
                     </div>
 
@@ -353,163 +513,9 @@
 
                 </div>
 
-                ";
-
-              }
-
-            ?>
-
-          </div>
-
-          <br>
-
-          <div class="row container-fluid">
-
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-              <div class="row container-fluid text-left">
-
-                <div class="row container-fluid">
-
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-                    <a href='https://hoaboardtime.com/communityIncome.php'>
-
-                      $
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-                <div class="row container-fluid text-center">
-
-                  <h5><strong>Income</strong></h5>
-
-                </div>
-
               </div>
 
-            </div>
-
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12">
-
-              <div class="row container-fluid text-left">
-
-                <div class="row container-fluid">
-
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-                    <a href='https://hoaboardtime.com/communityExpenses.php'>
-
-                      $
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-                <div class="row container-fluid text-center">
-
-                  <h5><strong>Expenses</strong></h5>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <br>
-
-          <div class="row container-fluid">
-
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
-              <div class="row container-fluid text-left">
-
-                <div class="row container-fluid">
-
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-                    <a href='https://hoaboardtime.com/trailBalanceReport.php'>
-
-                      $
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-                <div class="row container-fluid text-center">
-
-                  <h5><strong>Trail Balance Report</strong></h5>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
-              <div class="row container-fluid text-left">
-
-                <div class="row container-fluid">
-
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-                    <a href='https://hoaboardtime.com/chartOfAccounts.php'>
-
-                      $
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-                <div class="row container-fluid text-center">
-
-                  <h5><strong>Chart Of Accounts</strong></h5>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
-
-              <div class="row container-fluid text-left">
-
-                <div class="row container-fluid">
-
-                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-
-                    <a href='https://hoaboardtime.com/vendorExpenditure.php'>
-
-                      $
-
-                    </a>
-
-                  </div>
-
-                </div>
-
-                <div class="row container-fluid text-center">
-
-                  <h5><strong>Expenditure By Vendor</strong></h5>
-
-                </div>
-
-              </div>
-
-            </div>
+            </section>
 
           </div>
 
