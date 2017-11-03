@@ -111,7 +111,7 @@
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 								
 								<!-- Tabs-->
-								<ul class='nav nav-tabs'>
+								<ul class='nav nav-tabs' style="color: black;">
 									
 									<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Owner &amp; Home</a></li>
 									<li class='nav-item'><a class='nav-link' href='#tab-2' data-toggle='tab'>Account Statement</a></li>
