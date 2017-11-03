@@ -454,7 +454,7 @@
 
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
-              <a href='https://hoaboardtime.com/boardViewCommunityAssets.php'><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+              <a href='https://hoaboardtime.com/viewCommunityAssets.php'>
 
                 <div class="row container-fluid text-left">
 
