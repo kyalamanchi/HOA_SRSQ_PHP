@@ -685,7 +685,7 @@
 
 										<div class='container'>
 
-											<div class='row'>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 												<table id='pendingAgreements' class='table table-striped' style='color: black;'>
 													
@@ -703,39 +703,39 @@
 
 														<?php 
 
-										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
 
-		                        		while($row = pg_fetch_assoc($result))
-		                        		{
+		                        							while($row = pg_fetch_assoc($result))
+		                        							{
 
-		                          			$id = $row['id'];
-		                          			$document_to = $row['document_to'];
-		                          			$create_date = $row['create_date'];
-		                          			$send_date = $row['send_date'];
-		                          			$agreement_name = $row['agreement_name'];
-		                          			$last_updated = $row['last_updated'];
-		                          			$agreement_id = $row['agreement_id'];
+		                          								$id = $row['id'];
+		                          								$document_to = $row['document_to'];
+		                          								$create_date = $row['create_date'];
+		                          								$send_date = $row['send_date'];
+		                          								$agreement_name = $row['agreement_name'];
+		                          								$last_updated = $row['last_updated'];
+		                          								$agreement_id = $row['agreement_id'];
 
-		                          			if($create_date != "")
-		                            			$create_date = date('m-d-Y', strtotime($create_date));
+		                          								if($create_date != "")
+		                            								$create_date = date('m-d-Y', strtotime($create_date));
 
-		                          			if($send_date != "")
-		                            			$send_date = date('m-d-Y', strtotime($send_date));
+		                          								if($send_date != "")
+		                            								$send_date = date('m-d-Y', strtotime($send_date));
 
-		                          			if($last_updated != "")
-		                            			$last_updated = date('m-d-Y', strtotime($last_updated));
+		                          								if($last_updated != "")
+		                            								$last_updated = date('m-d-Y', strtotime($last_updated));
 
-		                          			for($k = 0; $k < $i; $k++)
-		                          			{
+		                          								for($k = 0; $k < $i; $k++)
+		                          								{
 		                          				
-		                          				if($person_emails[$k] == $document_to)
-		                          					echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                          									if($person_emails[$k] == $document_to)
+		                          										echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
-		                          			}
+		                          								}
 
-		                        		}
+		                        							}
 
-		                      		?>
+		                      							?>
 														
 													</tbody>
 
