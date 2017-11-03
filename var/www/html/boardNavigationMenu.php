@@ -21,9 +21,9 @@
             
       <li class="header text-center"> Quick Links </li>
 
-      <li class="active treeview">
+      <li class="treeview">
               
-        <a>
+        <a href='https://hoaboardtime.com/boardDashboard.php'>
                 
           <i class="fa fa-dashboard"></i> <span>Board</span>
 
@@ -33,9 +33,19 @@
 
       <li class="treeview">
               
-        <a>
+        <a href='https://hoaboardtime.com/financeDashboard.php'>
                 
-          <i class="fa fa-dashboard"></i> <span>Finance</span>
+          <i class="fa fa-dollar"></i> <span>Finance</span>
+
+        </a>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a href='https://hoaboardtime.com/reservesDashboard.php'>
+                
+          <i class="fa fa-support"></i> <span>Reserves</span>
 
         </a>
 
@@ -45,17 +55,7 @@
               
         <a>
                 
-          <i class="fa fa-dashboard"></i> <span>Reserves</span>
-
-        </a>
-
-      </li>
-
-      <li class="treeview">
-              
-        <a>
-                
-          <i class="fa fa-dashboard"></i> <span>Comms</span>
+          <i class="fa fa-envelope"></i> <span>Comms</span>
 
         </a>
 
