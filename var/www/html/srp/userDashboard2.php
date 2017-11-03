@@ -1034,37 +1034,67 @@
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																							<input type='checkbox' value='July' name='month[]' id='month'> <strong>July</strong>
+																							<input type='checkbox' value='July' name='month[]' id='month'";
+
+																							if($m7 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>July</strong>
 
 																						</div>
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																							<input type='checkbox' value='August' name='month[]' id='month'> <strong>August</strong>
+																							<input type='checkbox' value='August' name='month[]' id='month'";
+
+																							if($m8 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>August</strong>
 
 																						</div>
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																							<input type='checkbox' value='September' name='month[]' id='month'> <strong>September</strong>
+																							<input type='checkbox' value='September' name='month[]' id='month'";
+
+																							if($m9 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>September</strong>
 
 																						</div>
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																							<input type='checkbox' value='October' name='month[]' id='month'> <strong>October</strong>
+																							<input type='checkbox' value='October' name='month[]' id='month'";
+
+																							if($m10 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>October</strong>
 
 																						</div>
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																							<input type='checkbox' value='November' name='month[]' id='month'> <strong>November</strong>
+																							<input type='checkbox' value='November' name='month[]' id='month'";
+
+																							if($m11 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>November</strong>
 
 																						</div>
 
 																						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																							<input type='checkbox' value='December' name='month[]' id='month'> <strong>December</strong>
+																							<input type='checkbox' value='December' name='month[]' id='month'";
+
+																							if($m12 == 't')
+																								echo " checked ";
+
+																							echo "> <strong>December</strong>
 
 																						</div>
 
