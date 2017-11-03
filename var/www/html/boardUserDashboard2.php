@@ -1673,7 +1673,7 @@
 
                               <?php
 
-                                $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE home_id=$home_id"));
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM current_year_payments_processed WHERE hoa_id=$hoa_id AND home_id=$home_id AND year=$year"));
 
                                 $m[1] = $row['m1_pmt_processed'];
                                 $m[2] = $row['m2_pmt_processed'];
