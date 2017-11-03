@@ -190,6 +190,8 @@
 
         </section>
 
+        <br>
+
         <section class="content" style="background-color: white;">
 
           <div class="row container-fluid">
@@ -204,8 +206,6 @@
                 <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 
                   <div class='row container-fluid text-left'>
-
-                    <br>
 
                     <div class='row container-fluid'>
 
@@ -227,8 +227,6 @@
 
                     </div>
 
-                    <br>
-
                   </div>
 
                 </div>
@@ -236,8 +234,6 @@
                 <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 
                   <div class='row container-fluid text-left'>
-
-                    <br>
 
                     <div class='row container-fluid'>
 
@@ -258,8 +254,6 @@
                       <h5><strong>Checkings</strong></h5>
 
                     </div>
-
-                    <br>
 
                   </div>
 
@@ -277,8 +271,6 @@
 
                   <div class='row container-fluid text-left'>
 
-                    <br>
-
                     <div class='row container-fluid'>
 
                       <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
@@ -299,8 +291,6 @@
 
                     </div>
 
-                    <br>
-
                   </div>
 
                 </div>
@@ -308,8 +298,6 @@
                 <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
 
                   <div class='row container-fluid text-left'>
-
-                    <br>
 
                     <div class='row container-fluid'>
 
@@ -331,8 +319,6 @@
 
                     </div>
 
-                    <br>
-
                   </div>
 
                 </div>
@@ -340,8 +326,6 @@
                 <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-12'>
 
                   <div class='row container-fluid text-left'>
-
-                    <br>
 
                     <div class='row container-fluid'>
 
@@ -362,8 +346,6 @@
                       <h5><strong>Investments</strong></h5>
 
                     </div>
-
-                    <br>
 
                   </div>
 
