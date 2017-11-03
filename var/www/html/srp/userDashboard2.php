@@ -725,7 +725,7 @@
 		                          			if($last_updated != "")
 		                            			$last_updated = date('m-d-Y', strtotime($last_updated));
 
-		                          			for($k = 0; $k <= $i; $k++)
+		                          			for($k = 0; $k < $i; $k++)
 		                          			{
 		                          				echo $person_emails[$k]." - - - ".$document_to."<br>";
 		                          				if($person_emails[$k] == $document_to)
