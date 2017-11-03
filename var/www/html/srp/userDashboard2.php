@@ -687,7 +687,7 @@
 
 											<div class='row'>
 
-												<table class='table table-striped' style='color: black;'>
+												<table id='pendingAgreements' class='table table-striped' style='color: black;'>
 													
 													<thead>
 
@@ -744,7 +744,7 @@
 		                          						echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
 		                          				}
-		                          				
+
 		                          			}
 
 		                        		}
@@ -1086,6 +1086,8 @@
 	        	$("#example1").DataTable({ "pageLength": 50 });
 
 	        	$("#example2").DataTable({ "pageLength": 50 });
+
+	        	$("#pendingAgreements").DataTable({ "pageLength": 50 });
 
 	        	$("#example3").DataTable({ "pageLength": 50, "order": [[0, "desc"]] });
 
