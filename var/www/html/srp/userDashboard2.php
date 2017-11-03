@@ -31,6 +31,9 @@
 			$home_id = $_GET['home_id'];
 			$name = $_GET['name'];
 
+
+			echo base64_encode($hoa_id)." - - - "base64_decode($hoa_id);
+
 		?>
 
 		<meta charset='UTF-8'>
