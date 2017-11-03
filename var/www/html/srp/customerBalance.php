@@ -182,7 +182,9 @@
 									<th>Name</th>
 									<th>Living In</th>
 									<th>Contact Details</th>
-									<th>Total Charges - Total Payments = Total Balance</th>
+									<th>Total Charges</th>
+									<th>Total Payments</th>
+									<th>Total Balance</th>
 									<th></th>
 
 								</thead>
@@ -232,17 +234,17 @@
 												if($mode == 1)
 												{
 													if($total_balance > $value)
-														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
 												}	
 												else if($mode == 2)
 												{
 													if($total_balance < $value)
-														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
 												}
 												else if($mode == 3)
 												{
 													if($total_balance == $value)
-														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges - $ $total_payments = <strong>$ $total_balance</strong></td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
 												}
 
 											}
@@ -285,7 +287,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 50 });
+	        	$("#example1").DataTable({ "pageLength": 50, "order": [[5, "desc"]] });
 
 	      	});
 
