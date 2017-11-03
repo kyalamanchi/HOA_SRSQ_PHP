@@ -86,7 +86,10 @@
 
 							<?php
 
-								$result = pg_query("SELECT email FROM person WHERE hoa_id=$_SESSION['hoa_hoa_id'] AND home_id=['hoa_home_id']");
+								$hid = $_SESSION['hoa_hoa_id'];
+								$hoid = $_SESSION['hoa_home_id'];
+
+								$result = pg_query("SELECT email FROM person WHERE hoa_id=$hid AND home_id=$hoid");
 
 								while($row = pg_fetch_assoc($result))
 								{
