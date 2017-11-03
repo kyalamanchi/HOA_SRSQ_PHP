@@ -56,6 +56,8 @@
       
       <?php include 'boardNavigationMenu.php'; ?>
 
+      <?php include 'zenDeskScript.php'; ?>
+
       <div class="content-wrapper">
 
         <?php
