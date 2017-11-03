@@ -727,7 +727,7 @@
 
 		                          			for($k = 0; $k < $i; $k++)
 		                          			{
-		                          				echo $person_emails[$k]." - - - ".$document_to."<br>";
+		                          				
 		                          				if($person_emails[$k] == $document_to)
 		                          					echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
