@@ -221,7 +221,7 @@
 	                    
                       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center" style="border-right: 1px solid #f4f4f4">
 	                  
-	                  		<a href="boardCurrentMonthAmountRecieved.php">
+	                  		<a href="https://hoaboardtime.com/amountReceived.php">
 	                  		 
                          <input type="text" class="knob" data-thickness="0.2" value="<?php if($amount_percentage < 100) echo round($amount_percentage, 1); else echo "100"; ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
@@ -233,7 +233,7 @@
 
 	                	  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
 	                  
-	                  		<a href='boardCurrentMonthPaidMembers.php'>
+	                  		<a href='https://hoaboardtime.com/amountReceived.php'>
 	                  		
                           <input type="text" class="knob" data-thickness="0.2" value="<?php echo round($paid_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
