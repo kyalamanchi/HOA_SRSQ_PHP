@@ -398,7 +398,7 @@
 													
 										<?php 
 															
-											$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)"));
+											$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)"));
 
 											if($signed_agreements > 0)
 												echo "<a href='signedAgreements.php'>$signed_agreements</a>";
