@@ -703,7 +703,7 @@
 
 														<?php 
 
-										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+										$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t')");
 
 		                        		while($row = pg_fetch_assoc($result))
 		                        		{
@@ -715,8 +715,6 @@
 		                          			$agreement_name = $row['agreement_name'];
 		                          			$last_updated = $row['last_updated'];
 		                          			$agreement_id = $row['agreement_id'];
-		                          			$doc_hoa_id = $row['hoa_id'];
-		                          			$doc_home_id = $row['home_id'];
 
 		                          			if($create_date != "")
 		                            			$create_date = date('m-d-Y', strtotime($create_date));
@@ -727,25 +725,7 @@
 		                          			if($last_updated != "")
 		                            			$last_updated = date('m-d-Y', strtotime($last_updated));
 
-		                          			if($doc_hoa_id != '' && $doc_home_id != '')
-		                          			{  
-		                            			
-		                            			if($doc_home_id == $home_id && $doc_hoa_id == $hoa_id)
-		                            				echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
-
-		                          			}
-		                          			else
-		                          			{
-
-		                          				for($k = 0; $k < $i; $k++)
-		                          				{
-
-		                          					if($document_to == $person_emails[$k])
-		                          						echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
-
-		                          				}
-
-		                          			}
+		                          			echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
 		                        		}
 
