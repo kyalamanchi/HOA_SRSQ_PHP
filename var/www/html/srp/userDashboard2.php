@@ -1014,6 +1014,8 @@
 
 										</div>
 
+										<br>
+
 										<div class='special-heading m-b-40'>
 									
 											<h4>Forte Transactions</h4>
