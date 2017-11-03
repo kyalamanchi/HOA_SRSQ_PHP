@@ -567,6 +567,7 @@
 																$cell_no = $row['cell_no'];
 
 																$person_emails[$i] = $email;
+																$i++;
 
 																$row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role_type"));
 																$role_type = $row['name'];
@@ -726,11 +727,24 @@
 		                          			if($last_updated != "")
 		                            			$last_updated = date('m-d-Y', strtotime($last_updated));
 
-		                          			if($document_to != "")
+		                          			if($doc_hoa_id != '' && $doc_home_id != '')
 		                          			{  
 		                            			
-		                            			echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+		                            			if($doc_home_id == $home_id && $doc_hoa_id == $hoa_id)
+		                            				echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
+		                          			}
+		                          			else
+		                          			{
+
+		                          				for($k = 0; $k < $i; $k++)
+		                          				{
+
+		                          					if($document_to == $person_emails[$k])
+		                          						echo "<tr><td>".$agreement_name."</td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+
+		                          				}
+		                          				
 		                          			}
 
 		                        		}
