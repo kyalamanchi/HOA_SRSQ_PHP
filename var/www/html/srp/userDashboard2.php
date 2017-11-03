@@ -858,7 +858,7 @@
 													<thead>
 
 														<th>Date</th>
-														<th>Customer ID</th>
+														<th>HOA ID</th>
 														<th>Authorization Code</th>
 														<th>Status</th>
 														<th>Amount</th>
