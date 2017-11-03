@@ -295,7 +295,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Resident Dashboard <?php echo $_SESSION['hoa_mode']; ?></strong></h1>
+          <h1><strong>Resident Dashboard</strong></h1>
 
         </section>
 

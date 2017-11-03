@@ -400,7 +400,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year." ".$_SESSION['hoa_mode']; ?></small></h1>
+          <h1><strong>Board Dashboard</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
           <ol class="breadcrumb">
             
