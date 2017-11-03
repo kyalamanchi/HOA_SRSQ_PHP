@@ -84,6 +84,19 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+							<?php
+
+								$result = pg_query("SELECT email FROM person WHERE hoa_id=$_SESSION['hoa_hoa_id'] AND home_id=['hoa_home_id']");
+
+								while($row = pg_fetch_assoc($result))
+								{
+									echo "<br>".$row['email'];
+								}
+
+								echo "<br><br><br>";
+
+							?>
+
 							<table id='example1' class='table' style="color: black;">
 										
 								<thead>
