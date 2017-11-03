@@ -265,6 +265,6 @@
     	}
     }
 
-    echo "<center><a href='userDashboard2.php?hoa_id=$ehoa_id&home_id=$ehome_id&name=$ename'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$ehoa_id&home_id=$ehome_id&name=$ename'},1000);</script>";
+    echo "<br><br><br><br><center><a href='userDashboard2.php?hoa_id=$ehoa_id&home_id=$ehome_id&name=$ename'>Click here</a> if this doesnot redirect automatically in 5 second.</center><script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$ehoa_id&home_id=$ehome_id&name=$ename'},1000);</script>";
 
 ?>
