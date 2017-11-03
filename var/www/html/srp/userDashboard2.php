@@ -27,12 +27,9 @@
 			if($mode == 2)
 				header('Location: residentDashboard.php');
 
-			$hoa_id = $_GET['hoa_id'];
-			$home_id = $_GET['home_id'];
-			$name = $_GET['name'];
-
-
-			echo base64_encode($hoa_id)." - - - ".base64_decode($hoa_id);
+			$hoa_id = base64_decode($_GET['hoa_id']);
+			$home_id = base64_decode($_GET['home_id']);
+			$name = base64_decode($_GET['name']);
 
 		?>
 
