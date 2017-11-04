@@ -554,7 +554,7 @@
                     echo '</td>';
                      echo '<td>';
                      $purchaseid = $purchase->Id;
-                        echo '<a href="https://hoaboardtime.com/qbPurchaseDetails.php?id='.$purchaseid'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
+                        echo '<a href="https://hoaboardtime.com/qbPurchaseDetails.php?id='.$purchaseid.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
                     echo '</td>';
                   echo '</tr>';
                       }
