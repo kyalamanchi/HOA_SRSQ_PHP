@@ -495,107 +495,78 @@
 
                     <thead>
                       
-                      <th>Vendor Name</th>
-                      <th>Active From</th>
-                      <th>Approved</th>
-                      <th>Vendor Type</th>
-                      <th>Payment Method</th>
-                      <th>Tax ID</th>
-                      <th>Email</th>
-                      <th>Phone</th>
-                      <th>Address</th>
-
+                      <th>Date</th>
+                      <th>Payment Type</th>
+                      <th>Reference Number</th>
+                      <th>Payee</th>
+                      <th>Category</th>
+                      <th>Total</th>
                     </thead>
 
                     <tbody>
 
-                      <?php
+                        <?php
+            setlocale(LC_MONETARY, 'en_US');
+            date_default_timezone_set('America/Los_Angeles');
+            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+            $vendorID = $_GET['select_vendor'];
+            if ( $vendorID ){
+            $query = "SELECT quickbooks_id from vendor_master where vendor_id = $vendorID";
+            $res  = pg_query($query);
+            $return  = pg_fetch_assoc($res);
+            $qbID = $return['quickbooks_id'];
+            if ( $qbID ){
+            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $result = curl_exec($ch);
+            $result =  json_decode($result);
+            foreach ($result->QueryResponse->Purchase as $purchase) {
+                if ( $purchase->EntityRef->value == $qbID ){
+                    
+                $name = "";
+                foreach ($purchase->Line as $accountData) {
+                    if ( $name != "" )
+                    $name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
+                    else 
+                    {
+                        $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
+                    }
+                }
 
-                        $vendor_name = $row['vendor_name'];
-                        $active_from = $row['active_from'];
-                        $approved = $row['approved'];
-                        $vendor_type = $row['vendor_type_id'];
-                        $payment_type = $row['payment_type_id'];
-                        $tax_id = $row['tax_id'];
-                        $email = $row['email'];
-                        $phone = $row['phone_no'];
-                        $address = $row['address'];
-
-                        if($active_from != "")
-                          $active_from = date('m-d-Y', strtotime($active_from));
-
-                        if($approved == 't')
-                          $approved = 'TRUE';
-                        else
-                          $approved = 'FALSE';
-
-                        if($vendor_type != "")
-                        {
-                          $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_type WHERE vendor_type_id=$vendor_type"));
-
-                          $vendor_type = $row['vendor_type_name'];
-                        }
-
-                        if($payment_type != "")
-                        {
-                          $row = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$payment_type"));
-
-                          $payment_type = $row['payment_type_name'];
-                        }
-
-                        echo "<tr><td>$vendor_name</td><td>$active_from</td><td>$approved</td><td>$vendor_type</td><td>$payment_type</td><td>$tax_id</td><td>$email</td><td>$phone</td><td>$address</td></tr>";
-
-                      ?>
+                echo '<tr>';
+                     echo '<td>';
+                        echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
+                    echo '</td>';
+                    echo '<td>';
+                        echo $Purchase->PaymentType;
+                    echo '</td>';
+                    echo '<td>';
+                        echo $purchase->DocNumber;
+                    echo '</td>';
+                    echo '<td>';
+                        echo $purchase->EntityRef->name;
+                    echo '</td>';
+                     echo '<td>';
+                        echo $name;
+                    echo '</td>';
+                     echo '<td>';
+                        echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
+                    echo '</td>';
+                  echo '</tr>';
+                      }
+                    }
+                    }
+                    }
+                    ?>
                       
                     </tbody>
                     
                   </table>
 
                 </div>
-
-                <div class="box-body table-responsive">
-                  
-                  <table class="table table-bordered">
-
-                    <thead>
-                      
-                      <th>Service Address</th>
-                      <th>Recurrnig Pay</th>
-                      <th>Account ID</th>
-                      <th>Recurring Pay Day</th>
-                      <th>Bill Recurs every</th>
-                      <th>Quickbooks Vendor Payments</th>
-
-                    </thead>
-
-                    <tbody>
-
-                      <?php
-
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_pay_method WHERE vendor_id=$vendor_id"));
-
-                        $service_address = $row['service_address'];
-                        $recurring_pay = $row['recurring_pay'];
-                        $account_id = $row['account_id'];
-                        $recurring_pay_day = $row['recurring_pay_day_of_month'];
-                        $bill_recurs_every = $row['recurs_every_in_days'];
-
-                        if($recurring_pay == 't')
-                          $recurring_pay = "TRUE";
-                        else
-                          $recurring_pay = "FALSE";
-
-                        echo "<tr><td>".$service_address."</td><td>".$recurring_pay."</td><td>".$account_id."</td><td>".$recurring_pay_day."</td><td>".$bill_recurs_every."</td><td></td></tr>";
-
-                      ?>
-                      
-                    </tbody>
-                    
-                  </table>
-
-                </div>
-
-              </div>
 
             </section>
 
