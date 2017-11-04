@@ -2,6 +2,17 @@
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set("America/Los_Angeles");
 $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+$query = "SELECT email FROM community_info WHERE community_id = 1";
+$queryResult = pg_query($query);
+$res = pg_fetch_assoc($queryResult);
+$fromCommunityEmail1 = $res['email'];
+
+$query = "SELECT email FROM community_info WHERE community_id = 2";
+$queryResult = pg_query($query);
+$res = pg_fetch_assoc($queryResult);
+$fromCommunityEmail2 = $res['email'];
+
+
 $fileContents = "";
 if ($_GET['hoaid']){	
 	$message = "Fetching file...Please wait...";
@@ -37,7 +48,7 @@ if ($_GET['hoaid']){
 	$row = pg_fetch_assoc($queryResult);
 	$legalName = $row['legal_name'];
 	$communityEmail = $row['email'];
-	$mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>If you feel that your are not getting timely responses to your inquiries please escalate to ".$communityEmail."<br><br>","subject" => $subject,"from_email" => "billing@stoneridgesquare.org","from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "account_statement.pdf","content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));	
+	$mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>If you feel that your are not getting timely responses to your inquiries please escalate to ".$communityEmail."<br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "account_statement.pdf","content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));	
 	$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/send.json");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
