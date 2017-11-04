@@ -553,7 +553,8 @@
                         echo $name;
                     echo '</td>';
                      echo '<td>';
-                        echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
+                     $purchaseid = $purchase->Id;
+                        echo '<a href="https://hoaboardtime.com/qbPurchaseDetails.php?id=$purchaseid">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
                     echo '</td>';
                   echo '</tr>';
                       }
