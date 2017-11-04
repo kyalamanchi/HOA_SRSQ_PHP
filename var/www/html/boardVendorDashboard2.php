@@ -14,19 +14,19 @@
     
     <?php
 
-      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-      	if(@!$_SESSION['hoa_username'])
-      		header("Location: https://hoaboardtime.com/logout.php");
+        if(@!$_SESSION['hoa_username'])
+          header("Location: https://hoaboardtime.com/logout.php");
 
-      	$community_id = $_SESSION['hoa_community_id'];
-      	$user_id=$_SESSION['hoa_user_id'];
+        $community_id = $_SESSION['hoa_community_id'];
+        $user_id=$_SESSION['hoa_user_id'];
 
-      	$result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
-    		$num_row = pg_num_rows($result);
+        $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
+        $num_row = pg_num_rows($result);
 
-    		if($num_row == 0)
-    			header("Location: https://hoaboardtime.com/residentDashboard.php");
+        if($num_row == 0)
+          header("Location: https://hoaboardtime.com/residentDashboard.php");
 
     ?>
 
@@ -53,77 +53,77 @@
     
     <div class="wrapper">
 
-      	<header class="main-header">
+        <header class="main-header">
         
-        	<a class="logo">
+          <a class="logo">
           
-          		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
+              <span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
           
-          		<span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
+              <span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
 
-        	</a>
+          </a>
         
-        	<nav class="navbar navbar-static-top">
+          <nav class="navbar navbar-static-top">
           
-          		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		
-            		<span class="sr-only">Toggle navigation</span>
+              <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                
+                <span class="sr-only">Toggle navigation</span>
 
-          		</a>
+              </a>
 
-	          	<div class="navbar-custom-menu">
-	            
-	            	<ul class="nav navbar-nav">
+              <div class="navbar-custom-menu">
+              
+                <ul class="nav navbar-nav">
 
-		          		<li class="dropdown user user-menu">
-	              
-		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
+                  <li class="dropdown user user-menu">
+                
+                    <a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
 
-		          		</li>
+                  </li>
 
-		          		<li class="dropdown user user-menu">
+                  <li class="dropdown user user-menu">
 
-		            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		              
-		              			<i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  
+                        <i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
 
-		            		</a>
+                    </a>
 
-			            	<ul class="dropdown-menu">
-			              
-			              		<li class="user-header">
-			                
-			                		<i class="fa fa-user fa-5x"></i>
+                    <ul class="dropdown-menu">
+                    
+                        <li class="user-header">
+                      
+                          <i class="fa fa-user fa-5x"></i>
 
-			                		<p>
-			                  
-					                  	<?php echo $_SESSION['hoa_username']; ?>
+                          <p>
+                        
+                              <?php echo $_SESSION['hoa_username']; ?>
 
-					                  	<br>
+                              <br>
 
-					                  	<small><?php echo $_SESSION['hoa_address']; ?></small>
+                              <small><?php echo $_SESSION['hoa_address']; ?></small>
 
-					                  	<a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
+                              <a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
 
-					                	<br>
+                            <br>
 
-					                </p>
+                          </p>
 
-			              		</li>
+                        </li>
 
-			            	</ul>
+                    </ul>
 
-		          		</li>
+                  </li>
 
-	            	</ul>
+                </ul>
 
-	          	</div>
+              </div>
 
-        	</nav>
+          </nav>
 
-      	</header>
+        </header>
       
-      	<aside class="main-sidebar">
+        <aside class="main-sidebar">
         
           <section class="sidebar">
           
@@ -335,9 +335,9 @@
 
         <?php
 
-        	$year = date("Y");
-        	$month = date("m");
-        	$end_date = date("t");
+          $year = date("Y");
+          $month = date("m");
+          $end_date = date("t");
 
           $vendor_id = $_REQUEST['select_vendor'];
 
@@ -355,7 +355,7 @@
           
           <div class="row">
 
-          	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
               <div class="box">
 
@@ -472,6 +472,102 @@
                 </div>
 
               </div>
+
+            </section>
+
+          </div>
+          <!-- Vendor Payments -->
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Vendor Payments</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Date</th>
+                      <th>Payment Type</th>
+                      <th>Reference Number</th>
+                      <th>Payee</th>
+                      <th>Category</th>
+                      <th>Total</th>
+                    </thead>
+
+                    <tbody>
+
+                        <?php
+            setlocale(LC_MONETARY, 'en_US');
+            date_default_timezone_set('America/Los_Angeles');
+            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+            $vendorID = $_GET['select_vendor'];
+            if ( $vendorID ){
+            $query = "SELECT quickbooks_id from vendor_master where vendor_id = $vendorID";
+            $res  = pg_query($query);
+            $return  = pg_fetch_assoc($res);
+            $qbID = $return['quickbooks_id'];
+            if ( $qbID ){
+            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $result = curl_exec($ch);
+            $result =  json_decode($result);
+            foreach ($result->QueryResponse->Purchase as $purchase) {
+                if ( $purchase->EntityRef->value == $qbID ){
+                    
+                $name = "";
+                foreach ($purchase->Line as $accountData) {
+                    if ( $name != "" )
+                    $name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
+                    else 
+                    {
+                        $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
+                    }
+                }
+
+                echo '<tr>';
+                     echo '<td>';
+                        echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
+                    echo '</td>';
+                    echo '<td>';
+                        echo $Purchase->PaymentType;
+                    echo '</td>';
+                    echo '<td>';
+                        echo $purchase->DocNumber;
+                    echo '</td>';
+                    echo '<td>';
+                        echo $purchase->EntityRef->name;
+                    echo '</td>';
+                     echo '<td>';
+                        echo $name;
+                    echo '</td>';
+                     echo '<td>';
+                     $purchaseid = $purchase->Id;
+                        echo '<a href="https://hoaboardtime.com/qbPurchaseDetails.php?id='.$purchaseid.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
+                    echo '</td>';
+                  echo '</tr>';
+                      }
+                    }
+                    }
+                    }
+                    ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
 
             </section>
 
