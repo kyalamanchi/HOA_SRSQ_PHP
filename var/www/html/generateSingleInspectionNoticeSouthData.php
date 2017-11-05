@@ -221,6 +221,11 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
     $response = json_decode($response);
+    $url = "https://hoaboardtime.com/sendToSouthData.php?data=".$response->id;."&data1=".$inspectionHOAID;
+    $req = curl_init();
+    curl_setopt($req, CURLOPT_URL,$url);
+    curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+    curl_exec($req);
     echo $response->id;
     }
 }
