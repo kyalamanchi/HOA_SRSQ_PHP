@@ -174,6 +174,10 @@
 														<input type='hidden' name='community_code' id='community_code' value='$community_code[$i]'>
 														<input type='hidden' name='community_name' id='community_name' value='$community_name[$i]'>
 
+														<br><br>
+
+														<button type='submit'>Submit</button>
+
 													</form>
 
 													<br><br><br>
