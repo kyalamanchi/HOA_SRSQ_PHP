@@ -98,8 +98,8 @@
 
 								$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
-								$first_name = $row['first_name'];
-								$last_name = $row['last_name'];
+								$first_name = $row['firstname'];
+								$last_name = $row['lastname'];
 								$cell_no = $row['cell_no'];
 
 								$c = $cell_no % 100;
@@ -130,9 +130,22 @@
 											<br>
 
 											Please enter your mobile number to confirm your identity.
+
 											<br><br>
 
-											<small><?php echo $c; ?></small>
+											<small>
+
+												<?php 
+
+													if($c >= 0 && $c <= 9)
+														sprintf('%02d', $c);
+													else
+														echo $c; 
+
+												?>
+												
+
+											</small>
 
 										</div>
 
