@@ -152,7 +152,7 @@
 
 										</div>
 
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-1'>
+										<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
 
 											<form method="POST">
 
@@ -161,6 +161,8 @@
 												<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
 												<div class='container text-right'>
+
+													<br><br><hr><br>
 
 													<button type='submit' class='btn btn-success btn-sm'>Continue</button>
 
