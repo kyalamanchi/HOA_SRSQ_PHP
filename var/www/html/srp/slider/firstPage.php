@@ -53,12 +53,9 @@
 					<!-- Logos-->
 					<div class='inner-header'>
 
-						<a class='inner-brand' href=''><h3 style='color: green;'>HOA</h3></a>
+						<a class='inner-brand'><h3 style='color: green;'>HOA</h3></a>
 
 					</div>
-					
-					<!-- Mobile menu-->
-					<div class='nav-toggle'><a href='#' data-toggle='collapse' data-target='.inner-navigation'><span class='icon-bar'></span><span class='icon-bar'></span><span class='icon-bar'></span></a></div>
 				
 				</div>
 
