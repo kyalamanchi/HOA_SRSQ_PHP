@@ -28,6 +28,8 @@
 	if (strpos( json_decode($response), 'error_summary') !== false) 
 	{
     	
+    	$result = pg_query("UPDATE document_management SET active='f' WHERE document_id=$doc_id");
+    	
     	echo '<br><br><br><br><br><center><h3>There was an error opening this document. This file cannot be found.</h3></center>';
 
 	}
