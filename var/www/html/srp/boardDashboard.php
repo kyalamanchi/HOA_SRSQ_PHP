@@ -1063,56 +1063,53 @@
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													<div class='counter h6'>
+                          <div class='counter h6'>
 
-														<?php 
+                            <div class='counter-number'>
+                              
+                              <?php 
 
-															$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+                                $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
 
-															$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
-															$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+                                if($assets != '')
+                                  echo "<a style='color: green;' href='communityAssets.php'>$assets</a>";
+                                else
+                                  echo $assets;
 
-															$reserve_allocation = $recommended_monthly_allocation_units * $month;
+                              ?>
+                                
+                            </div>
 
-															$reserve_allocation = round($reserve_allocation, 0);
+                            <div class='counter-title'>Assets</div>
 
-															if($cur_bal_vs_ideal_bal >= 70)
-																echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
-															else
-																echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
+                          </div>
 
-														?>
+                        </div>
 
-														<div class='counter-title'>Reserve Allocation ($)</div>
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													</div>
+                          <div class='counter h6'>
 
-												</div>
+                            <?php 
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+                              $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
 
-													<div class='counter h6'>
+                              $repairs = $row['sum'];
 
-														<?php 
+                              $repairs = round($repairs, 0);
 
-															$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
+                              if($repairs > 0)
+                                echo "<div class='counter-number' style='color: green;'><a href='reserveRepairs.php'>".$repairs."</a></div>";
+                              else
+                                echo "<div class='counter-number'>".$repairs."</div>";
 
-															$repairs = $row['sum'];
+                            ?>
 
-															$repairs = round($repairs, 0);
+                            <div class='counter-title'>Completed Repairs ($)</div>
 
-															if($repairs > 0)
-																echo "<div class='counter-number' style='color: green;'><a href='reserveRepairs.php'>".$repairs."</a></div>";
-															else
-																echo "<div class='counter-number'>".$repairs."</div>";
+                          </div>
 
-														?>
-
-														<div class='counter-title'>Reserve Repairs ($)</div>
-
-													</div>
-
-												</div>
+                        </div>
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
@@ -1138,30 +1135,33 @@
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													<div class='counter h6'>
+                          <div class='counter h6'>
 
-														<div class='counter-number'>
-															
-															<?php 
+                            <?php 
 
-																$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+                              $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
-																if($assets != '')
-																	echo "<a style='color: green;' href='communityAssets.php'>$assets</a>";
-																else
-																	echo $assets;
+                              $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+                              $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
 
-															?>
-																
-														</div>
+                              $reserve_allocation = $recommended_monthly_allocation_units * $month;
 
-														<div class='counter-title'>Total # of Assets</div>
+                              $reserve_allocation = round($reserve_allocation, 0);
 
-													</div>
+                              if($cur_bal_vs_ideal_bal >= 70)
+                                echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
+                              else
+                                echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
 
-												</div>
+                            ?>
+
+                            <div class='counter-title'>YTD Allocation ($)</div>
+
+                          </div>
+
+                        </div>
 
 											</div>
 
