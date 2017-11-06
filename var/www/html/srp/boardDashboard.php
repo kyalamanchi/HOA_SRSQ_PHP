@@ -1506,6 +1506,27 @@
 
                         </div>
 
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <a href='purchaseSummary.php'>
+
+                                <!--i class='fa fa-file'></i-->
+                                <img src='purchase_summary.png' alt='Purchase Summary'>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Purchase Summary</div>
+
+                          </div>
+
+                        </div>
+
                       </div>
 
                       <br><br>
