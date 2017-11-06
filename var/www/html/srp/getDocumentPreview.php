@@ -2,6 +2,8 @@
 	
 	session_start();
 
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	if($_GET['cid'] == 1)
 	{
 		
@@ -17,6 +19,7 @@
 
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
+	$doc_id = $_GET['doc_id'];
 
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
@@ -29,7 +32,7 @@
 	{
     	
     	$result = pg_query("UPDATE document_management SET active='f' WHERE document_id=$doc_id");
-    	
+
     	echo '<br><br><br><br><br><center><h3>There was an error opening this document. This file cannot be found.</h3></center>';
 
 	}

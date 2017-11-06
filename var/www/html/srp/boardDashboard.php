@@ -182,73 +182,73 @@
 		<?php
 
 			if($community_id == 1)
-            { 
+      { 
                       
-                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
                       
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                             
-                $result = curl_exec($ch);
-                $json_decode = json_decode($result,TRUE);
-                $srp_primarySavings = $json_decode['Account'];
-                $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+        $result = curl_exec($ch);
+        $json_decode = json_decode($result,TRUE);
+        $srp_primarySavings = $json_decode['Account'];
+        $srp_current_balance = $srp_primarySavings['CurrentBalance'];
                             
-                curl_close($ch);
+        curl_close($ch);
 
-                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
                             
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539532",oauth_nonce="2nX9kd69aNw",oauth_version="1.0",oauth_signature="5ZScoTRHF28D3YT0kHO27%2Br8Hvo%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539532",oauth_nonce="2nX9kd69aNw",oauth_version="1.0",oauth_signature="5ZScoTRHF28D3YT0kHO27%2Br8Hvo%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                             
-                $result2 = curl_exec($ch);
-                $json_decode2 = json_decode($result2,TRUE);
-                $srp = $json_decode2['Account'];
-                $srp_savings_balance = $srp['CurrentBalance'];
+        $result2 = curl_exec($ch);
+        $json_decode2 = json_decode($result2,TRUE);
+        $srp = $json_decode2['Account'];
+        $srp_savings_balance = $srp['CurrentBalance'];
 
-            }
-            else if($community_id == 2)
-            {
+      }
+      else if($community_id == 2)
+      {
                       
-                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506682054",oauth_nonce="skPZikoZJCt",oauth_version="1.0",oauth_signature="aEBIdXcJdXSWiLp5k9gxlVuvsbs%3D"'));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506682054",oauth_nonce="skPZikoZJCt",oauth_version="1.0",oauth_signature="aEBIdXcJdXSWiLp5k9gxlVuvsbs%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
-                $result = curl_exec($ch);
-                $json_decode = json_decode($result,TRUE);
-                $srp_primarySavings = $json_decode['Account'];
-                $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+        $result = curl_exec($ch);
+        $json_decode = json_decode($result,TRUE);
+        $srp_primarySavings = $json_decode['Account'];
+        $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
 
-                curl_close($ch);
+        curl_close($ch);
 
-                 $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
                       
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="5IDpz%2F%2FItyjMYbh4Ke3JoBx3YGY%3D"'));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="5IDpz%2F%2FItyjMYbh4Ke3JoBx3YGY%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
-                $result2 = curl_exec($ch);
-                $json_decode2 = json_decode($result2,TRUE);
-                $srp = $json_decode2['Account'];
-                $srp_savings = $srp['CurrentBalance'];
+        $result2 = curl_exec($ch);
+        $json_decode2 = json_decode($result2,TRUE);
+        $srp = $json_decode2['Account'];
+        $srp_savings = $srp['CurrentBalance'];
 
-                curl_close($ch);
+        curl_close($ch);
 
-                $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
+        $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
                       
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="HDWt%2BfIz3NrAhJE9fO9G%2FI8Q%2Fcg%3D"'));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="HDWt%2BfIz3NrAhJE9fO9G%2FI8Q%2Fcg%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
-                $result3 = curl_exec($ch);
-                $json_decode3 = json_decode($result3,TRUE);
-                $srsq_third_Account = $json_decode3['Account'];
-                $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+        $result3 = curl_exec($ch);
+        $json_decode3 = json_decode($result3,TRUE);
+        $srsq_third_Account = $json_decode3['Account'];
+        $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
             
-            }
+      }
 
 		?>
 
@@ -500,6 +500,31 @@
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <?php 
+                                
+                                $board_documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='t'")); 
+
+                                if($board_documents > 0)
+                                  echo "<a href='boardDocuments.php'>$board_documents</a>";
+                                else
+                                  echo $board_documents;
+
+                              ?>
+
+                            </div>
+
+                            <div class='counter-title'>Board Documents</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
 													<div class='counter h6'>
 
 														<div class='counter-number'>
@@ -532,7 +557,7 @@
 
 																<?php 
 																
-																	echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); 
+																	echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'")); 
 
 																?>
 
@@ -545,6 +570,55 @@
 													</div>
 
 												</div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <?php 
+
+                                $pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='f'"));;
+
+                                if($pending_agreements == 0)
+                                  echo "$pending_agreements";
+                                else
+                                  echo "<a style='color: orange;' href='communityPendingAgreements.php'>$pending_agreements</a>";
+
+                              ?>
+
+                            </div>
+
+                            <div class='counter-title'>Community Pending Agreements</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <a href='communitySignedAgreements.php'>
+                              
+                                <?php
+
+                                  echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
+
+                                ?>
+
+                              </a>
+
+                            </div>
+
+                            <div class='counter-title'>Community Signed Agreements</div>
+
+                          </div>
+
+                        </div>
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
@@ -643,55 +717,6 @@
 														</div>
 
 														<div class='counter-title'>Parking Tags</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<?php 
-
-																$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'"));;
-
-																if($pending_agreements == 0)
-																	echo "$pending_agreements";
-																else
-																	echo "<a style='color: orange;' href='pendingAgreements.php'>$pending_agreements</a>";
-
-															?>
-
-														</div>
-
-														<div class='counter-title'>Pending Agreements</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<a href='signedAgreements.php'>
-															
-																<?php
-
-																	echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
-
-																?>
-
-															</a>
-
-														</div>
-
-														<div class='counter-title'>Signed Agreements</div>
 
 													</div>
 

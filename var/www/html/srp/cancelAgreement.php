@@ -21,7 +21,7 @@ s
 
       $id = $_GET['id'];
 
-      $res = pg_query("UPDATE community_sign_agreements SET board_cancel_requested='f' WHERE id=$id");
+      $res = pg_query("UPDATE community_sign_agreements SET board_cancel_requested='t' WHERE id=$id");
 
       $data = '{ "value": "CANCEL", "comment": "", "notifySigner": true }';
       $url = 'https://api.na1.echosign.com:443/api/rest/v5/agreements/'.$id.'/status';

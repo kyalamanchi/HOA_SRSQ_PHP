@@ -1,10 +1,7 @@
 <?php
-	
-	ini_set("session.save_path","/var/www/html/session/");
-	session_start();
-
+		ini_set("session.save_path","/var/www/html/session/");
+			session_start();
 ?>
-
 <!DOCTYPE html>
 
 <html lang='en'>
@@ -66,7 +63,7 @@
 
 			<!-- Header-->
 			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
-
+		
 			<div class="wrapper">
 
 				<!-- Page Header -->
@@ -78,7 +75,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Pending Agreements</h1>
+								<h1 class="h5"><?php if($mode == 1) echo "Community "; ?>Signed Agreements</h1>
 							
 							</div>
 						
@@ -94,7 +91,7 @@
 					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-						
+
 							<table id='example1' class='table' style="color: black;">
 										
 								<thead>
@@ -105,7 +102,6 @@
 			                        <th>Create Date</th>
 			                        <th>Send Date</th>
 			                        <th>Last Updated</th>
-			                        <?php if($mode == 1) echo "<th></th>"; ?>
 
 								</thead>
 
@@ -115,7 +111,7 @@
 
 										if($mode == 1)
 										{
-											$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+											$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'");
 
 			                        		while($row = pg_fetch_assoc($result))
 			                        		{
@@ -146,54 +142,46 @@
 			                            			$result1 = pg_query("SELECT * FROM hoaid WHERE email='".$document_to."' OR ");
 
 			                            			if(pg_num_rows($result1))
-			                            			{
+						                            {
 
-			                              				$row1 = pg_fetch_assoc($result1);
-			                                
-			                              				$name = $row1['firstname'];
-			                              				$name .= " ";
-			                              				$name .= $row1['lastname'];
-			                              				$hoa_id = $row1['hoa_id'];
+						                              	$row1 = pg_fetch_assoc($result1);
+						                                
+						                              	$name = $row1['firstname'];
+						                              	$name .= " ";
+						                              	$name .= $row1['lastname'];
+						                              	$hoa_id = $row1['hoa_id'];
 
-			                              				echo "<td>".$name."<br>($hoa_id)</td>";
+						                              	echo "<td>".$name."<br>($hoa_id)</td>";
 
-			                            			}
-			                            			else if($hoa_id != "")
-			                            			{
+						                            }
+						                            else if($hoa_id != "")
+						                            {
 
-			                              				$result1 = pg_query("SELECT * FROM hoaid WHERE hoa_id='".$hoa_id."'");
+						                              	$result1 = pg_query("SELECT * FROM hoaid WHERE hoa_id='".$hoa_id."'");
 
-			                              				$row1 = pg_fetch_assoc($result1);
-			                                
-			                              				$name = $row1['firstname'];
-			                              				$name .= " ";
-			                              				$name .= $row1['lastname'];
+						                              	$row1 = pg_fetch_assoc($result1);
+						                                
+						                              	$name = $row1['firstname'];
+						                              	$name .= " ";
+						                              	$name .= $row1['lastname'];
 
-			                              				//echo "<td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id' title='User Dashboard'>".$name."<br>($hoa_id)</a></td>";
+						                              	echo "<td>".$name."<br>($hoa_id)</td>";
+						                            }
+						                            else
+						                            {
+						                              
+						                              	$result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$document_to."'");
 
-			                              				echo "<td>".$name."<br>($hoa_id)</td>";
-			                            			
-			                            			}
-			                            			else
-			                            			{
-			                              
-			                              				$result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$document_to."'");
+						                              	if(pg_num_rows($result1))
+						                              	{  
 
-			                              				if(pg_num_rows($result1))
-			                              				{  
+						                                	$row1 = pg_fetch_assoc($result1);
 
-			                                				$row1 = pg_fetch_assoc($result1);
-
-			                                				$vname = $row1['vendor_name'];
-			                                				$vid = $row1['vendor_id'];
-
-			                                				//echo "<td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vid' title='Vendor Dashboard'>".$vname."</a></td>";
-
-			                                				echo "<td>".$vname."</td>";
-
-			                              				}
-			                              				else
-			                              				{  
+						                                	echo "<td>".$row1['vendor_name']."</td>";
+				
+						                              	}
+						                              	else
+						                              	{  
 
 							                                echo "
 
@@ -272,7 +260,7 @@
 
 							                                                <center><input type='checkbox' name='board_document' id='board_document' value='Yes'> <label> Is board document?</label></center>
 
-							                                                <input type='hidden' name='flag' id='flag' value='2'>
+							                                                <input type='hidden' name='flag' id='flag' value='1'>
 
 							                                              </div>
 
@@ -280,15 +268,15 @@
 
 							                                            <br>
 
-							                                            <div class='row container-fluid'>
+							                                            <div class='row container-fluid text-center'>
 							                                              
-							                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center'>
+							                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 							                                              	
 							                                              	<button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
 
 							                                              </div>
 
-							                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center'>
+							                                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 							                                              
 							                                              	<button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
 
@@ -310,13 +298,13 @@
 
 							                                ";
 
-			                                				echo "<td><a data-toggle='modal' style='color: blue;' data-target='#addHOAId_".$id."'>N/A</a></td>";
+							                                echo "<td><a data-toggle='modal' style='color: blue;' data-target='#addHOAId_$id'>N/A</a></td>";
 
-			                              				}
-			                              
-			                            			}
+						                              	}
+						                              
+						                            }
 
-			                            			echo "<td>$document_to</td><td>$agreement_name</td><td>$create_date</td><td>$send_date</td><td>$last_updated</td><td><a href='cancelAgreement.php?id=$agreement_id'>Cancel</a></td></tr>";
+			                            			echo "<td>$document_to</td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 			                          			}
 
@@ -325,7 +313,7 @@
 		                        		else if($mode == 2)
 		                        		{
 
-		                        			$result = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
+		                        			$result = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
 											while($row = pg_fetch_assoc($result))
 											{
@@ -335,8 +323,7 @@
 			                          			$create_date = $row['create_date'];
 			                          			$send_date = $row['send_date'];
 			                          			$agreement_name = $row['agreement_name'];
-			                          			$esign_url = $row['esign_url'];
-		                          				$last_updated = $row['last_updated'];
+			                          			$last_updated = $row['last_updated'];
 			                          			$agreement_id = $row['agreement_id'];
 
 			                          			if($create_date != "")
@@ -348,7 +335,7 @@
 			                          			if($last_updated != "")
 			                            			$last_updated = date('m-d-Y', strtotime($last_updated));
 
-			                            		echo "<tr><td>$document_to</td><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
+			                            		echo "<tr><td>$document_to</td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
 											}
 

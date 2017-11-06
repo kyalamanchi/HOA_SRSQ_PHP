@@ -74,7 +74,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Community Documents</h1>
+								<h1 class="h5">Board Documents</h1>
 							
 							</div>
 						
@@ -105,7 +105,7 @@
 											
 									<?php 
 
-										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'");
+										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='t'");
 
 										while($row = pg_fetch_assoc($result))
 										{
