@@ -104,12 +104,17 @@
 
 								$c = $cell_no % 100;
 
-								$cell_size = sizeof($cell_no);
+								$i = 0;
 
-								echo "Cell No : ".$cell_size." <br><br>";
+								while($cell_no > 0)
+								{
 
-								for($i = 0; $i < ($cell_size - 2); $i++)
-									echo $i;
+									$i++;
+									$cell_no = $cell_no / 10;
+									
+								}
+								
+								echo $i;
 
 							?>
 
