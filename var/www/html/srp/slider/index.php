@@ -102,9 +102,43 @@
 								$last_name = $row['last_name'];
 								$cell_no = $row['cell_no'];
 
+								$c = $cell_no % 100;
+
 							?>
 
-							<p>Welcome <strong><?php echo $first_name." ".$last_name; ?></strong>,<br><br></p>
+							<p>Welcome <strong><?php echo $first_name." ".$last_name; ?></strong>,<br><br>Please enter the <strong>VERIFICATION CODE</strong> that you re</p>
+
+							<ul class='nav nav-tabs'>
+
+								<li class='nav-item'><a class='nav-link active' href='#tab-$i' data-toggle='tab'>Confirm Phone Number</a></li>
+								<li class='nav-item'><a class='nav-link disabled' href='#tab-$i' data-toggle='tab'>Verify User</a></li>
+
+							</ul>
+
+							<div class='tab-content'>
+
+								<div class='tab-pane' id='tab-1'>
+
+									<div class='special-heading m-b-40'>
+
+										Welcome <?php echo $first_name." "$last_name; ?>,
+
+										<br>
+
+										Please enter your mobile number to confirm your identity.
+										<br><br>
+
+										<small><?php echo $c; ?>
+
+									</div>
+
+									<div class='container'>
+
+									</div>
+
+								</div>
+
+							</div>
 
 						</div>
 
