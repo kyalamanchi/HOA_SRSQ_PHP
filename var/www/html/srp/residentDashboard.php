@@ -262,14 +262,12 @@
 										<?php
 
 											$documents = 0;
-											$result = pg_query("SELECT * FROM docuemnt_management WHERE community_id=$community_id AND is_board_document='f' AND active='t'");
+											$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND is_board_document='f' AND active='t'");
 
 											while($row = pg_fetch_assoc($result))
 											{
 
 												$document_id = $row['document_id'];
-
-												echo $document_id;
 
 												$result1 = pg_query("SELECT * FROM document_visibility WHERE document_id=$document_id AND (user_id=$user_id OR hoa_id=$hoa_id)");
 
