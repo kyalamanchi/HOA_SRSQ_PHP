@@ -203,38 +203,42 @@
 
             				<div class='row'>
 
-            					<table id='example1' style='color: black;'>
+            					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-            						<thead>
-            							
-            							<th>#</th>
-            							<th>Account</th>
-            							<th>Description</th>
-            							<th>Amount</th>
+	            					<table id='example1' style='color: black;'>
 
-            						</thead>
+	            						<thead>
+	            							
+	            							<th>#</th>
+	            							<th>Account</th>
+	            							<th>Description</th>
+	            							<th>Amount</th>
 
-            						<tbody>
-            							
-            							<?php
-            							
-							                $value = 1;
-							                $IDS = array();
-							                
-							                foreach ($purchaseResult[0]->Line as $purchase) 
-							                {
-							                    
-							                    echo '<tr><td>'.$value.'</td><td>'.$purchase->AccountBasedExpenseLineDetail->AccountRef->name.'</td><td>'.$purchase->Description.'</td><td><style="float:right;">'.money_format('%#10n',$purchase->Amount).'</></td></tr>';
+	            						</thead>
 
-							                    $value = $value + 1;
+	            						<tbody>
+	            							
+	            							<?php
 
-							                }
-            
-            							?>
+								                $value = 1;
+								                $IDS = array();
+								                
+								                foreach ($purchaseResult[0]->Line as $purchase) 
+								                {
+								                    
+								                    echo '<tr><td>'.$value.'</td><td>'.$purchase->AccountBasedExpenseLineDetail->AccountRef->name.'</td><td>'.$purchase->Description.'</td><td><style="float:right;">'.money_format('%#10n',$purchase->Amount).'</></td></tr>';
 
-            						</tbody>
-            						
-            					</table>
+								                    $value = $value + 1;
+
+								                }
+	            
+	            							?>
+
+	            						</tbody>
+	            						
+	            					</table>
+
+            					</div>
 
             				</div>
 
