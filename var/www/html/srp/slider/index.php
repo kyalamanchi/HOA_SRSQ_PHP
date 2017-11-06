@@ -117,6 +117,9 @@
 								
 								$i = $i - 2;
 
+								for($j = 0; $j < $i; $j++)
+									$cell_no = "x".$cell_no;
+
 							?>
 
 							<ul class='nav nav-tabs'>
@@ -140,7 +143,7 @@
 
 										<div class='row container-fluid text-center'>
 
-											Please enter your mobile number to confirm your identity.
+											Please enter your mobile number.
 
 										</div>
 
@@ -150,10 +153,7 @@
 
 												<?php 
 
-													if($c >= 0 && $c <= 9)
-														echo sprintf('%02d', $c);
-													else
-														echo $c; 
+													echo $cell_no; 
 
 												?>
 													
