@@ -91,108 +91,108 @@
 						
 							<ul class='nav nav-tabs'>
 
-									<?php
+								<?php
 
-										$result = pg_query("SELECT * FROM community_info ORDER BY community_id");
-										$i = 0;
-										$community_id = array();
-										$community_name = array();
-										$community_code = array();
+									$result = pg_query("SELECT * FROM community_info ORDER BY community_id");
+									$i = 0;
+									$community_id = array();
+									$community_name = array();
+									$community_code = array();
 
-										while($row = pg_fetch_assoc($result))
-										{
+									while($row = pg_fetch_assoc($result))
+									{
 
-											$community_id[$i] = $row['community_id'];
-											$community_name[$i] = $row['legal_name'];
-											$community_code[$i] = $row['community_code'];
+										$community_id[$i] = $row['community_id'];
+										$community_name[$i] = $row['legal_name'];
+										$community_code[$i] = $row['community_code'];
 
-											if($i == 0)
-												echo "<li class='nav-item'><a class='nav-link active' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
-											else
-												echo "<li class='nav-item'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
+										if($i == 0)
+											echo "<li class='nav-item'><a class='nav-link active' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
+										else
+											echo "<li class='nav-item'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
 
-											$i++;
+										$i++;
 
-										}
+									}
 
-										$total_communities = $i;
+									$total_communities = $i;
 
-									?>
+								?>
 
-								</ul>
+							</ul>
 
-								<div class='tab-content'>
+							<div class='tab-content'>
 
-									<?php
+								<?php
 
-										for($i = 0; $i < $total_communities; $i++) 
-										{
+									for($i = 0; $i < $total_communities; $i++) 
+									{
 
-											echo "
+										echo "
 
-											<div class='tab-pane";
+										<div class='tab-pane";
 
-											if($i == 0)
-												echo " in active";
+										if($i == 0)
+											echo " in active";
 
-											echo "' id='tab-$i'>
+										echo "' id='tab-$i'>
 										
-												<div class='special-heading m-b-40'>
+											<div class='special-heading m-b-40'>
 											
-													<h4>$community_name[$i]</h4>
+												<h4>$community_name[$i]</h4>
 										
-												</div>
+											</div>
 										
-												<div class='container'>
+											<div class='container'>
 
-													<br><br><br>
+												<br><br><br>
 
-													<form method='POST' action=''>
+												<form method='POST' action=''>
 
-														<select class='form-control' name='hoa_id' id='hoa_id' required>
+													<select class='form-control' name='hoa_id' id='hoa_id' required>
 
-															<option value='' selected disabled>Select HOA ID</option>
+														<option value='' selected disabled>Select HOA ID</option>
 
-															";
+														";
 
-															$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id[$i] ORDER BY hoa_id");
+														$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id[$i] ORDER BY hoa_id");
 
-															while($row = pg_fetch_assoc($result))
-															{
+														while($row = pg_fetch_assoc($result))
+														{
 
-																$hoa_id = $row['hoa_id'];
+															$hoa_id = $row['hoa_id'];
 
-																echo "<option value='$hoa_id'>$hoa_id</option>";
+															echo "<option value='$hoa_id'>$hoa_id</option>";
 
-															}
+														}
 
 														echo "
 
-														</select>
+													</select>
 
-														<input type='hidden' name='community_id' id='community_id' value='$community_id[$i]'>
-														<input type='hidden' name='community_code' id='community_code' value='$community_code[$i]'>
-														<input type='hidden' name='community_name' id='community_name' value='$community_name[$i]'>
+													<input type='hidden' name='community_id' id='community_id' value='$community_id[$i]'>
+													<input type='hidden' name='community_code' id='community_code' value='$community_code[$i]'>
+													<input type='hidden' name='community_name' id='community_name' value='$community_name[$i]'>
 
-														<br><br>
+													<br><br>
 
-														<center><button class='btn btn-info btn-sm' type='submit'>Submit</button></center>
+													<center><button class='btn btn-info btn-sm' type='submit'>Submit</button></center>
 
-													</form>
+												</form>
 
-													<br><br><br>
-
-												</div>
+												<br><br><br>
 
 											</div>
 
-											";
+										</div>
 
-										}
+										";
 
-									?>
+									}
 
-								</div>
+								?>
+
+							</div>
 
 						</div>
 
