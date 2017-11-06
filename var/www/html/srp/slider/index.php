@@ -4,6 +4,11 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
+	$hoa_id = $_REQUEST['hoa_id'];
+	$community_id = $_REQUEST['community_id'];
+	$community_code = $_REQUEST['community_code'];
+	$community_name = $_REQUEST['community_name'];
+
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title>First Page</title>
+		<title><?php echo $community_code; ?> - Confirm User Identity</title>
 
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
@@ -53,7 +58,7 @@
 					<!-- Logos-->
 					<div class='inner-header'>
 
-						<a class='inner-brand'><h3 style='color: green;'>HOA</h3></a>
+						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
 
 					</div>
 				
@@ -72,7 +77,7 @@
 							
 							<div class='page-title-captions'>
 								
-								<h1 class='h5'>Select Community &amp; User</h1>
+								<h1 class='h5'>Confirm User Identity</h1>
 							
 							</div>
 						
@@ -89,110 +94,17 @@
 							
 						<div class='col-xl-6 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
 						
-							<ul class='nav nav-tabs'>
+							<?php
 
-								<?php
+								$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
-									$result = pg_query("SELECT * FROM community_info ORDER BY community_id");
-									$i = 0;
-									$community_id = array();
-									$community_name = array();
-									$community_code = array();
+								$first_name = $row['first_name'];
+								$last_name = $row['last_name'];
+								$cell_no = $row['cell_no'];
 
-									while($row = pg_fetch_assoc($result))
-									{
+							?>
 
-										$community_id[$i] = $row['community_id'];
-										$community_name[$i] = $row['legal_name'];
-										$community_code[$i] = $row['community_code'];
-
-										if($i == 0)
-											echo "<li class='nav-item'><a class='nav-link active' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
-										else
-											echo "<li class='nav-item'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
-
-										$i++;
-
-									}
-
-									$total_communities = $i;
-
-								?>
-
-							</ul>
-
-							<div class='tab-content'>
-
-								<?php
-
-									for($i = 0; $i < $total_communities; $i++) 
-									{
-
-										echo "
-
-										<div class='tab-pane";
-
-										if($i == 0)
-											echo " in active";
-
-										echo "' id='tab-$i'>
-										
-											<div class='special-heading m-b-40'>
-											
-												<h4>$community_name[$i]</h4>
-										
-											</div>
-										
-											<div class='container'>
-
-												<br><br><br>
-
-												<form method='POST' action=''>
-
-													<select class='form-control' name='hoa_id' id='hoa_id' required>
-
-														<option value='' selected disabled>Select HOA ID</option>
-
-														";
-
-														$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id[$i] ORDER BY hoa_id");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$hoa_id = $row['hoa_id'];
-
-															echo "<option value='$hoa_id'>$hoa_id</option>";
-
-														}
-
-														echo "
-
-													</select>
-
-													<input type='hidden' name='community_id' id='community_id' value='$community_id[$i]'>
-													<input type='hidden' name='community_code' id='community_code' value='$community_code[$i]'>
-													<input type='hidden' name='community_name' id='community_name' value='$community_name[$i]'>
-
-													<br><br>
-
-													<center><button class='btn btn-info btn-sm' type='submit'>Submit</button></center>
-
-												</form>
-
-												<br><br><br>
-
-											</div>
-
-										</div>
-
-										";
-
-									}
-
-								?>
-
-							</div>
+							<p>Welcome <strong><?php echo $first_name." ".$last_name; ?></strong>,<br><br></p>
 
 						</div>
 

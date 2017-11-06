@@ -147,7 +147,7 @@
 
 												<br><br><br>
 
-												<form method='POST' action=''>
+												<form method='POST' action='index.php'>
 
 													<select class='form-control' name='hoa_id' id='hoa_id' required>
 
