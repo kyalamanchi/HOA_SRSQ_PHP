@@ -93,7 +93,7 @@
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -120,7 +120,7 @@
 
             				<div class='row'>
 
-            					<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
 
             						<label><strong><?php echo $purchaseResult[0]->EntityRef->type; ?></strong></label>
             						
@@ -130,13 +130,23 @@
 
             					</div>
 
-            					<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
 
             						<label><strong>Account</strong></label>
             						
             						<br>
 
         							<?php echo $purchaseResult[0]->AccountRef->name; ?>
+
+            					</div>
+
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+            						<label><strong>Amount</strong></label>
+            						
+            						<br>
+
+        							<h4><?php echo money_format('%#10n',$purchaseResult[0]->TotalAmt); ?></h4>
 
             					</div>
 
