@@ -92,7 +92,7 @@
 						
 					<div class='container'>
 							
-						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 						
 							<?php
 
@@ -146,32 +146,27 @@
 
 									<div class='container' style='color: black;'>
 
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+										<form method="POST">
 
-											Please enter your mobile number.
+											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
 
-										</div>
-
-										<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
-
-											<form method="POST">
+												<center>Please enter your mobile number.</center>
 
 												<input class='form-control' type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>' required>
 
 												<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
-												<div class='container text-right'>
+											</div>
 
-													<br><br><hr><br>
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-													<button type='submit' class='btn btn-success btn-sm'>Continue</button>
+												<br><br><hr><br>
 
-												</div>
-													
+												<button type='submit' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
-											</form>
+											</div>
 
-										</div>
+										</form>
 
 									</div>
 
