@@ -113,7 +113,7 @@
 									$i++;
 									$cell_no = $cell_no / 10;
 									$whole = floor($cell_no);      // 1
-									$fraction = $cell_no - $whole;
+									$cell_no = $cell_no - $whole;
 
 								}
 								
