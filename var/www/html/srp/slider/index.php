@@ -104,6 +104,9 @@
 
 								$c = $cell_no % 100;
 
+								if($c >= 0 && $c <= 9)
+									$c = sprintf('%02d', $c);
+
 								$i = 0;
 
 								while($cell_no > 0)
@@ -114,11 +117,13 @@
 									$cell_no = floor($cell_no);
 
 								}
+
+								$cell_no = $c;
 								
 								$i = $i - 2;
 
 								for($j = 0; $j < $i; $j++)
-									$cell_no = "x".$c;
+									$cell_no = "x".$cell_no;
 
 							?>
 
@@ -153,7 +158,10 @@
 
 												<?php 
 
-													echo $cell_no; 
+													if($c >= 0 && $c <= 9)
+														echo 
+													else
+														echo $cell_no; 
 
 												?>
 													
