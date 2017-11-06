@@ -152,6 +152,47 @@
 
             				</div>
 
+            				<div class='row'>
+
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+            						<label><strong>Payment Date</strong></label>
+            						
+            						<br>
+
+        							<?php echo date('d F Y',strtotime($purchaseResult[0]->MetaData->CreateTime)); ?>
+
+            					</div>
+
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+            						<label><strong>Payment Type</strong></label>
+            						
+            						<br>
+
+        							<?php echo $purchaseResult[0]->PaymentType; ?>
+
+            					</div>
+
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-right'>
+
+            						<label><strong>Reference Number</strong></label>
+            						
+            						<br>
+
+        							<?php
+
+        								if( $purchaseResult[0]->DocNumber )
+                							echo $purchaseResult[0]->DocNumber;
+            							else
+                							echo "<center>-</center>";
+
+        							?>
+
+            					</div>
+
+            				</div>
+
 						</div>
 
 					</div>
