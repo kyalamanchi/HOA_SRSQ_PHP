@@ -87,7 +87,7 @@
 						
 					<div class='container'>
 							
-						<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+						<div class='col-xl-6 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
 						
 							<ul class='nav nav-tabs'>
 
