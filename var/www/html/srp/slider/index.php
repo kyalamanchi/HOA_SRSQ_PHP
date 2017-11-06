@@ -109,9 +109,10 @@
 								while($cell_no > 0)
 								{
 
+									echo $cell_no;
 									$i++;
 									$cell_no = $cell_no / 10;
-									
+
 								}
 								
 								echo $i;
