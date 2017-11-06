@@ -147,6 +147,37 @@
 
 													<br><br><br>
 
+													<form method='POST' action=''>
+
+														<select name='hoa_id' id='hoa_id' required>
+
+															<option value='' selected disabled>Select HOA ID</option>
+
+															";
+
+															$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id[$i] ORDER BY hoa_id");
+
+															while($row = pg_fetch_assoc($result))
+															{
+
+																$hoa_id = $row['hoa_id'];
+
+																echo "<option value='$hoa_id'>$hoa_id</option>";
+																
+															}
+
+														echo "
+
+														</select>
+
+														<input type='hidden' name='community_id' id='community_id' value='$community_id[$i]'>
+														<input type='hidden' name='community_code' id='community_code' value='$community_code[$i]'>
+														<input type='hidden' name='community_name' id='community_name' value='$community_name[$i]'>
+
+													</form>
+
+													<br><br><br>
+
 												</div>
 
 											</div>
