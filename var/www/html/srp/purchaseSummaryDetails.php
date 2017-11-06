@@ -160,7 +160,7 @@
             						
             						<br>
 
-        							<?php echo date('d F Y',strtotime($purchaseResult[0]->MetaData->CreateTime)); ?>
+        							<dummy style='color: black;'><?php echo date('d F Y',strtotime($purchaseResult[0]->MetaData->CreateTime)); ?></dummy>
 
             					</div>
 
