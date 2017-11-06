@@ -74,7 +74,7 @@ function hidePleaseWait() {
         <center><h4><span class="notbold"><?php echo 'SRSQ 2017'?></span></h4></center>
         <br>
         <br>
-<table id="example" class="display" cellspacing="0" width="100%" style="font-size: 14px;">
+<table id="example" class="display" cellspacing="0" width="100%" >
         <thead>
             <tr>
                 <th rowspan="2" ></th>
