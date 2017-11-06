@@ -242,6 +242,55 @@
 
             				</div>
 
+            				<br><br>
+
+            				<div class='row'>
+
+            					<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+            						<label><strong>Memo</strong></label>
+
+            						<br>
+
+            						<textarea class="form-control" rows="3" id="comment" style="width: 400px;" readonly="readonly"><?php print_r($final->PrivateNote); ?></textarea>
+
+            					</div>
+
+            					<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+            						<label><strong>Attachment(s)</strong></label>
+
+            						<br>
+
+            						<?php
+
+            							$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+
+            							curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+            							curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509569266",oauth_nonce="8N0tvCVCsWK",oauth_version="1.0",oauth_signature="ZoQHffDGFCgQUgP8R5Owiix6pec%3D"'));
+            							curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Attachable where AttachableRef.EntityRef.Type = 'purchase' AND AttachableRef.EntityRef.value = '".$purchaseID."'");
+            							curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+            							$result = curl_exec($ch);
+            							$result  = json_decode($result);
+            							$data = $result->QueryResponse;
+            
+            							if ( isset( $data->Attachable ) )
+            							{
+                
+                							foreach ($data->Attachable as $attachable)
+                								echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a><br>';
+
+            							}
+            							else
+            								echo "No attachments found";
+
+        							?>
+
+            					</div>
+
+            				</div>
+
 						</div>
 
 					</div>
