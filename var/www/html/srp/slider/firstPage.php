@@ -111,7 +111,7 @@
 											else
 												echo "<li class='nav-item'>";
 
-											echo "'<a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
+											echo "<a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
 
 											$i++;
 
