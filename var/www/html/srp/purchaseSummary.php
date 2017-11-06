@@ -83,6 +83,16 @@
 								<h1 class="h5">Purchase Summary</h1>
 							
 							</div>
+
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li><a href='boardDashboard.php#tab-4' data-toggle='tab'><i class='fa fa-arrow-left'></i> Finance Dashboard</a></li>
+
+								</ol>
+
+							</div>
 						
 						</div>
 						
