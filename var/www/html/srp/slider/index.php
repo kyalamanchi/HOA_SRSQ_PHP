@@ -146,24 +146,22 @@
 
 									<div class='container' style='color: black;'>
 
-										<div class='row container-fluid text-center'>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
 											Please enter your mobile number.
 
 										</div>
 
-										<div class='row container-fluid text-center'>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-10 col-xs-12'>
 
-											<small>
+											<form method="POST">
 
-												<?php 
+												<input type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>' required>
 
-													echo $cell_no; 
-
-												?>
+												<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 													
 
-											</small>
+											</form>
 
 										</div>
 
