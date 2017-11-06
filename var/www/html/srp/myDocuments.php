@@ -106,18 +106,15 @@
 								</thead>
 
 								<tbody>
-									
-									<?php
 
-										$result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id");
+									<?php 
 
-										while ($row = pg_fetch_assoc($result)) 
+										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'");
+
+										while($row = pg_fetch_assoc($result))
 										{
-											
+
 											$document_id = $row['document_id'];
-
-											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
-
 											$year = $row1['year_of_upload'];
 											$upload_date = $row1['uploaded_date'];
 											$description = $row1['description'];
@@ -126,7 +123,10 @@
 											if($upload_date != "")
 												$upload_date = date('m-d-Y', strtotime($upload_date));
 
-											echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$description</a></td></tr>";
+											$is_visible = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE document_id=$document_id AND (user_id=$user_id OR hoa_id=$hoa_id)"));
+
+											if($is_visible)
+												echo "<tr><td>$year</td><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$upload_date</a></td><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$description</a></td></tr>";
 
 										}
 
