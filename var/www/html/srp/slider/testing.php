@@ -311,7 +311,7 @@
 
 				<!-- Page Header-->
 				<section class="module-slides">
-					<ul class="slides-container">
+					<ul class="slides-container" data-interval="false">
 						<li class="bg-dark bg-dark-30"><img src="assets/images/module-12.jpg" alt="">
 							<div class="container">
 								<div class="row">
