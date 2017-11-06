@@ -1494,7 +1494,7 @@
                               <a href='generalLedger.php'>
 
                                 <!--i class='fa fa-file'></i-->
-                                <img src='chart_of_accounts.png' alt='Chart of Accounts'>
+                                <img src='geenral_ledger.png' alt='General Ledger'>
 
                               </a>
                                 
