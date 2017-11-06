@@ -132,21 +132,19 @@
 
 									<div class='special-heading m-b-40'>
 
-										<h3 class='h3'>Welcome <?php echo $first_name." ".$last_name; ?></h3>
+										<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
 
 									</div>
 
-									<div class='container'>
+									<div class='container' style='color: black;'>
 
-										<div class='row container-fluid'>
+										<div class='row container-fluid text-center'>
 
 											Please enter your mobile number to confirm your identity.
 
 										</div>
 
-										<br><br>
-
-										<div class='row container-fluid'>
+										<div class='row container-fluid text-center'>
 
 											<small>
 
