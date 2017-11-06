@@ -88,7 +88,7 @@
 								
 								<ol class="breadcrumb">
 									
-									<li><a href='purchaseSummary.php'>Purchase Summary</a></li>
+									<li><a href='purchaseSummary.php'><i class='fa fa-arrow-left'></i> Purchase Summary</a></li>
 
 								</ol>
 
