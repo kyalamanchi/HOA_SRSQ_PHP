@@ -126,7 +126,7 @@
             						
             						<br>
 
-        							<dummy style='color: black;'><?php echo $purchaseResult[0]->EntityRef->name; ?></dummy>
+        							<h4><?php echo $purchaseResult[0]->EntityRef->name; ?></h4>
 
             					</div>
 
@@ -136,7 +136,7 @@
             						
             						<br>
 
-        							<dummy style='color: black;'><?php echo $purchaseResult[0]->AccountRef->name; ?></dummy>
+        							<h4><?php echo $purchaseResult[0]->AccountRef->name; ?></h4>
 
             					</div>
 
@@ -162,7 +162,7 @@
             						
             						<br>
 
-        							<dummy style='color: black;'><?php echo date('d F Y',strtotime($purchaseResult[0]->MetaData->CreateTime)); ?></dummy>
+        							<h4><?php echo date('d F Y',strtotime($purchaseResult[0]->MetaData->CreateTime)); ?></h4>
 
             					</div>
 
@@ -172,7 +172,7 @@
             						
             						<br>
 
-        							<dummy style='color: black;'><?php echo $purchaseResult[0]->PaymentType; ?></dummy>
+        							<h4><?php echo $purchaseResult[0]->PaymentType; ?></h4>
 
             					</div>
 
@@ -182,7 +182,7 @@
             						
             						<br>
 
-        							<dummy style='color: black;'>
+        							<h4>
 
 	        							<?php
 
@@ -193,7 +193,7 @@
 
 	        							?>
 
-        							</dummy>
+        							</h4>
 
             					</div>
 
