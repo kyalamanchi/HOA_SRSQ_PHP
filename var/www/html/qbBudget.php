@@ -45,7 +45,10 @@ $(document).ready(function() {
         "scrollY":        "500px",
         "scrollCollapse": true,
         "order": [[ 1, "desc" ]],
-        "paging":         false
+        "paging":         false,
+        fixedColumns:   {
+            leftColumns: 1
+        }
     });
 } 
 
