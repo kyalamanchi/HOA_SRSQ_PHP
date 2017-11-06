@@ -176,7 +176,7 @@
 
 													<br><br>
 
-													<p class='text-right'><button class='btn btn-info btn-sm' type='submit'>Continue</button></p>
+													<p class='text-right'><button class='btn btn-success btn-sm' type='submit'>Continue</button></p>
 
 												</form>
 
