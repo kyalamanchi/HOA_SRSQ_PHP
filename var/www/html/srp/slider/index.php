@@ -92,7 +92,7 @@
 						
 					<div class='container'>
 							
-						<div class='col-xl-6 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
+						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
 						
 							<?php
 
@@ -105,8 +105,6 @@
 								$c = $cell_no % 100;
 
 							?>
-
-							<p>Welcome <strong><?php echo $first_name." ".$last_name; ?></strong>,<br><br>Please enter the <strong>VERIFICATION CODE</strong> that you re</p>
 
 							<ul class='nav nav-tabs'>
 
@@ -122,6 +120,7 @@
 									<div class='special-heading m-b-40'>
 
 										Welcome <?php echo $first_name." ".$last_name; ?>
+										
 									</div>
 
 									<div class='container'>
