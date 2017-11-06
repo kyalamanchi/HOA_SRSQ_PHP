@@ -159,6 +159,12 @@
 												<input type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>' required>
 
 												<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+
+												<div class='container text-right'>
+
+													<button type='submit' class='btn btn-success btn-sm'>Continue</button>
+
+												</div>
 													
 
 											</form>
