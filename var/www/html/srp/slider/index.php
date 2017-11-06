@@ -136,7 +136,7 @@
 
 									<div class='special-heading m-b-40'>
 
-										Welcome <?php echo $first_name." ".$last_name; ?>
+										<h3 class='h3'>Welcome <?php echo $first_name." ".$last_name; ?></h3>
 
 									</div>
 
@@ -144,33 +144,37 @@
 
 										<div class='row'>
 
-											<br>
+											<div class='row'>
 
-											Please enter your mobile number to confirm your identity.
+												Please enter your mobile number to confirm your identity.
 
-											<br><br>
+											</div>
 
-											<small>
+											<div class='row'>
 
-												<?php 
+												<small>
 
-													echo "Number : $cell_no<br>";
+													<?php 
 
-													if($c >= 0 && $c <= 9)
-													{	
-														
-														echo "sprint <br>";
+														echo "Number : $cell_no<br>";
 
-														echo sprintf('%02d', $c);
+														if($c >= 0 && $c <= 9)
+														{	
+															
+															echo "sprint <br>";
 
-													}
-													else
-														echo $c; 
+															echo sprintf('%02d', $c);
 
-												?>
-												
+														}
+														else
+															echo $c; 
 
-											</small>
+													?>
+													
+
+												</small>
+											
+											</div>
 
 										</div>
 
