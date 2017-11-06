@@ -703,7 +703,7 @@
 
 														<?php 
 
-															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND board_cancel_requested='f' AND is_board_document='f' AND agreement_status='OUT_FOR_SIGNATURE'");
 
 		                        							while($row = pg_fetch_assoc($result))
 		                        							{
@@ -772,7 +772,7 @@
 
 														<?php 
 
-															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'");
+															$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND board_cancel_requested='f' AND is_board_document='f' AND agreement_status='SIGNED'");
 
 		                        							while($row = pg_fetch_assoc($result))
 		                        							{
