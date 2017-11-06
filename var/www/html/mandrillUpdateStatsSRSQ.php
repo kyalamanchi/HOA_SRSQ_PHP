@@ -35,7 +35,7 @@ print_r($result);
 foreach ($result as $result1) {	
 	if ( $connection ){
 		if (  $mandrillIDS[$result1->_id] != 1 ){
-		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"api_mail_id\",\"sent_date\",\"status\",\"community_id\",\"update_date\",\"updated_by\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d',$result1->ts)."','".$result1->state."',1,'".date('Y-m-d H:i:s')."',401)";
+		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"api_mail_id\",\"sent_date\",\"status\",\"community_id\",\"update_date\",\"updated_by\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d H:i:s',$result1->ts)."','".$result1->state."',1,'".date('Y-m-d H:i:s')."',401)";
 		pg_query($query);
 		}
 		else {
