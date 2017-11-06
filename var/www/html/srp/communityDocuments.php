@@ -105,7 +105,7 @@
 											
 									<?php 
 
-										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id");
+										$result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t'");
 
 										while($row = pg_fetch_assoc($result))
 										{
