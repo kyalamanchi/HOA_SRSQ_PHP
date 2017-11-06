@@ -74,7 +74,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Community Documents</h1>
+								<h1 class="h5">Board Documents</h1>
 							
 							</div>
 						
