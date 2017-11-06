@@ -106,20 +106,14 @@
 											$community_name[$i] = $row['legal_name'];
 											$community_code[$i] = $row['community_code'];
 
-											$cc = $community_code[$i];
-
 											echo "<li class='nav-item";
 
 											if($i == 0)
-											{
-
-												$i++;
-
 												echo " active";
 
-											}
+											echo "'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
 
-											echo "'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$cc</a></li>";
+											$i++;
 
 										}
 
@@ -143,7 +137,7 @@
 											if($i == 0)
 												echo " in active";
 
-											echo "' id='tab-1'>
+											echo "' id='tab-$i'>
 										
 												<div class='special-heading m-b-40'>
 											
