@@ -83,6 +83,12 @@
 								<h1 class="h5">Purchase Summary Details</h1>
 							
 							</div>
+
+							<div class='breadcrumbs'>
+
+								<li><a href='purchaseSummary.php'>Purchase Summary</a></li>
+
+							</div>
 						
 						</div>
 						
