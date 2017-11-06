@@ -176,7 +176,7 @@
 
 														<br><br>
 
-														<button type='submit'>Submit</button>
+														<button class='btn btn-info btn-sm' type='submit'>Submit</button>
 
 													</form>
 
