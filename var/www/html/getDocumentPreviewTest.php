@@ -2,8 +2,6 @@
 	
 	session_start();
 
-
-
 	if($_GET['cid'] == 1)
 	{
 		
