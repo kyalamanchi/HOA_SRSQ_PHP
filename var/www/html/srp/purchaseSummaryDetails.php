@@ -272,7 +272,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "paging":   false, "pageLength": 500, "info":     false });
+	        	$("#example1").DataTable({ "pageLength": 25 });
 
 	      	});
 
