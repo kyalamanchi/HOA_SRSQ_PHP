@@ -152,11 +152,11 @@
 
 										</div>
 
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-10 col-xs-12'>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-3 offset-sm-1'>
 
 											<form method="POST">
 
-												<input type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>' required>
+												<input class='form-control' type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>' required>
 
 												<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
