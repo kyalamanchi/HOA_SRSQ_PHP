@@ -259,9 +259,21 @@
 
 									<div class='counter-number'>
 													
-										<?php 
+										<?php
+
+											$result = pg_query("SELECT * FROM docuemnt_management WHERE community_id=$community_id AND is_board_document='f' AND active='t'");
+
+											while($row = pg_fetch_assoc($result))
+											{
+
+												$document_id = $row['document_id'];
+
+												$result1 = pg_query("SELECT * FROM document_visibility WHERE document_id=$document_id AND (user_id=$user_id OR hoa_id=$hoa_id)");
+											}
+
+										?><?php 
 															
-											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id")); 
+											$documents = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE (user_id=$user_id OR hoa_id=$hoa_id) AND ")); 
 
 											if($documents > 0)
 												echo "<a href='myDocuments.php'>$documents</a>";
