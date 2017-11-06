@@ -115,10 +115,10 @@
 										{
 
 											$document_id = $row['document_id'];
-											$year = $row1['year_of_upload'];
-											$upload_date = $row1['uploaded_date'];
-											$description = $row1['description'];
-											$document_url = $row1['url'];
+											$year = $row['year_of_upload'];
+											$upload_date = $row['uploaded_date'];
+											$description = $row['description'];
+											$document_url = $row['url'];
 
 											if($upload_date != "")
 												$upload_date = date('m-d-Y', strtotime($upload_date));
@@ -127,6 +127,31 @@
 
 											if($is_visible)
 												echo "<tr><td>$year</td><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$upload_date</a></td><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$description</a></td></tr>";
+
+										}
+
+									?>
+									
+									<?php
+
+										$result = pg_query("SELECT * FROM document_visibility WHERE user_id=$user_id OR hoa_id=$hoa_id");
+
+										while ($row = pg_fetch_assoc($result)) 
+										{
+											
+											$document_id = $row['document_id'];
+
+											$row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document_id"));
+
+											$year = $row1['year_of_upload'];
+											$upload_date = $row1['uploaded_date'];
+											$description = $row1['description'];
+											$document_url = $row1['url'];
+
+											if($upload_date != "")
+												$upload_date = date('m-d-Y', strtotime($upload_date));
+
+											echo "<tr><td>$year</td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'>$description</a></td></tr>";
 
 										}
 
