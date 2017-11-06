@@ -108,8 +108,8 @@
 
 							<ul class='nav nav-tabs'>
 
-								<li class='nav-item'><a class='nav-link active' href='#tab-$i' data-toggle='tab'>Confirm Phone Number</a></li>
-								<li class='nav-item'><a class='nav-link disabled' href='#tab-$i' data-toggle='tab'>Verify User</a></li>
+								<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Confirm Phone Number</a></li>
+								<li class='nav-item'><a class='nav-link disabled' href='#tab-2' data-toggle='tab'>Verify User</a></li>
 
 							</ul>
 
@@ -120,7 +120,7 @@
 									<div class='special-heading m-b-40'>
 
 										Welcome <?php echo $first_name." ".$last_name; ?>
-										
+
 									</div>
 
 									<div class='container'>
