@@ -113,13 +113,6 @@
             
             					$result = curl_exec($ch);
             					$purchaseResult  = json_decode($result);
-
-            					echo "<br><br>";
-            					
-            					print_r($purchaseResult);
-
-            					echo "<br><br>";
-
             					$purchaseResult  = $purchaseResult->QueryResponse->Purchase;
             					$final = $purchaseResult[0];
             
@@ -130,6 +123,9 @@
             					<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
             						<label><strong><?php echo $purchaseResult[0]->EntityRef->type; ?></strong></label>
+            						
+            						<br>
+
         							<?php echo $purchaseResult[0]->EntityRef->name; ?>
 
             					</div>
@@ -137,6 +133,9 @@
             					<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
             						<label><strong>Account</strong></label>
+            						
+            						<br>
+
         							<?php echo $purchaseResult[0]->AccountRef->name; ?>
 
             					</div>
