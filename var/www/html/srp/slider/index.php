@@ -109,7 +109,7 @@
 								while($cell_no > 0)
 								{
 
-									echo $cell_no;
+									echo $cell_no."<br>";
 									$i++;
 									$cell_no = $cell_no / 10;
 
