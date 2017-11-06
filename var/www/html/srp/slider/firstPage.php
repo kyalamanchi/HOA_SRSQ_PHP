@@ -106,6 +106,8 @@
 											$community_name[$i] = $row['legal_name'];
 											$community_code[$i] = $row['community_code'];
 
+											$cc = $community_code[$i];
+
 											echo "<li class='nav-item";
 
 											if($i == 0)
@@ -117,7 +119,7 @@
 
 											}
 
-											echo "'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code</a></li>";
+											echo "'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$cc</a></li>";
 
 										}
 
