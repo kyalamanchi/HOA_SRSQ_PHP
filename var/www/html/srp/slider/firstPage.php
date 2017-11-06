@@ -87,7 +87,7 @@
 						
 					<div class='container'>
 							
-						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+						<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 						
 							<ul class='nav nav-tabs'>
 
@@ -145,6 +145,7 @@
 										
 												<div class='container'>
 
+													<br><br><br>
 
 												</div>
 
