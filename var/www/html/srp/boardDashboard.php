@@ -500,6 +500,31 @@
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <?php 
+                                
+                                $board_documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='t'")); 
+
+                                if($board_documents > 0)
+                                  echo "<a href='boardDocuments.php'>$board_documents</a>";
+                                else
+                                  echo $board_documents;
+
+                              ?>
+
+                            </div>
+
+                            <div class='counter-title'>Board Documents</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
 													<div class='counter h6'>
 
 														<div class='counter-number'>
