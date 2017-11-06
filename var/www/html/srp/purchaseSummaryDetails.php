@@ -113,6 +113,13 @@
             
             					$result = curl_exec($ch);
             					$purchaseResult  = json_decode($result);
+
+            					echo "<br><br>";
+            					
+            					print_r($purchaseResult);
+
+            					echo "<br><br>";
+
             					$purchaseResult  = $purchaseResult->QueryResponse->Purchase;
             					$final = $purchaseResult[0];
             
