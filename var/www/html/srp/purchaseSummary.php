@@ -88,7 +88,7 @@
 								
 								<ol class="breadcrumb">
 									
-									<li><a href='boardDashboard.php#tab-4' data-toggle='tab'><i class='fa fa-arrow-left'></i> Finance Dashboard</a></li>
+									<li><a href='boardDashboard.php#tab-4'><i class='fa fa-arrow-left'></i> Finance Dashboard</a></li>
 
 								</ol>
 
