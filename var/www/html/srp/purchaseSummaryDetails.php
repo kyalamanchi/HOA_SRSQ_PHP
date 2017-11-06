@@ -126,7 +126,7 @@
             						
             						<br>
 
-        							<?php echo $purchaseResult[0]->EntityRef->name; ?>
+        							<dummy style='color: black;'><?php echo $purchaseResult[0]->EntityRef->name; ?></dummy>
 
             					</div>
 
@@ -136,7 +136,7 @@
             						
             						<br>
 
-        							<?php echo $purchaseResult[0]->AccountRef->name; ?>
+        							<dummy style='color: black;'><?php echo $purchaseResult[0]->AccountRef->name; ?></dummy>
 
             					</div>
 
@@ -170,7 +170,7 @@
             						
             						<br>
 
-        							<?php echo $purchaseResult[0]->PaymentType; ?>
+        							<dummy style='color: black;'><?php echo $purchaseResult[0]->PaymentType; ?></dummy>
 
             					</div>
 
@@ -180,14 +180,18 @@
             						
             						<br>
 
-        							<?php
+        							<dummy style='color: black;'>
 
-        								if( $purchaseResult[0]->DocNumber )
-                							echo $purchaseResult[0]->DocNumber;
-            							else
-                							echo "<center>-</center>";
+	        							<?php
 
-        							?>
+	        								if( $purchaseResult[0]->DocNumber )
+	                							echo $purchaseResult[0]->DocNumber;
+	            							else
+	                							echo "<center>-</center>";
+
+	        							?>
+
+        							</dummy>
 
             					</div>
 
