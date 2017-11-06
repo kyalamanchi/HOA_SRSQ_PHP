@@ -92,7 +92,7 @@
 						
 					<div class='container'>
 							
-						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
+						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
 							<?php
 
@@ -125,12 +125,16 @@
 
 									<div class='container'>
 
-										<br>
+										<div class='row'>
 
-										Please enter your mobile number to confirm your identity.
-										<br><br>
+											<br>
 
-										<small><?php echo $c; ?></small>
+											Please enter your mobile number to confirm your identity.
+											<br><br>
+
+											<small><?php echo $c; ?></small>
+
+										</div>
 
 									</div>
 
