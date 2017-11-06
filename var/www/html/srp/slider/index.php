@@ -118,7 +118,7 @@
 								$i = $i - 2;
 
 								for($j = 0; $j < $i; $j++)
-									$cell_no = "x".$cell_no;
+									$cell_no = "x".$c;
 
 							?>
 
