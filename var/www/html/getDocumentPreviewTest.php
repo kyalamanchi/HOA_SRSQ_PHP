@@ -4,6 +4,8 @@
 	
 	session_start();
 
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	if(!$_SESSION['hoa_username'])
 		header("Location: logout.php");
 
@@ -96,6 +98,7 @@
 
 								$path = $_GET['path'];
 								$description = $_GET['desc'];
+								$doc_id = $_GET['doc_id'];
 
 								$url = 'https://content.dropboxapi.com/2/files/download';
 								$ch = curl_init($url);
@@ -157,6 +160,8 @@
 								    readfile($name);
 									
 									unlink($name);
+
+									$result = pg_query("UPDATE document_management SET is_active='f' WHERE document_id=$doc_id");
 									
 									echo "<br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>Sorry!</strong><br /><br />File cannot be opened.<br /><br /></center></div></div></div>";
 
