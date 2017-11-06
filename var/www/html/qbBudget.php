@@ -198,7 +198,7 @@ function hidePleaseWait() {
             $valString .= money_format('%#10n',  $overBudget);
          $valString .= "</td>";
          $valString .= "<td>";
-            $valString .= round((float)$budgetPercentage) . '%';
+            $valString .= round((float)$budgetPercentage,2) . '%';
          $valString .= "</td>";
 
       }
@@ -227,7 +227,7 @@ function hidePleaseWait() {
             $valString .= money_format('%#10n',  $overBudget);
          $valString .= "</td>";
          $valString .= "<td>";
-            $valString .= round((float)$budgetPercentage) . '%';
+            $valString .= round((float)$budgetPercentage,2) . '%';
          $valString .= "</td>";
 
          }
@@ -261,7 +261,7 @@ function hidePleaseWait() {
             $valString .= money_format('%#10n',  $overBudget);
          $valString .= "</td>";
          $valString .= "<td>";
-            $valString .= round((float)$budgetPercentage) . '%';
+            $valString .= round((float)$budgetPercentage,2) . '%';
          $valString .= "</td>";
 
          }
