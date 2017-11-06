@@ -140,13 +140,13 @@
 
             					</div>
 
-            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+            					<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-right'>
 
             						<label><strong>Amount</strong></label>
             						
             						<br>
 
-        							<h4><?php echo money_format('%#10n',$purchaseResult[0]->TotalAmt); ?></h4>
+        							<h2><?php echo money_format('%#10n',$purchaseResult[0]->TotalAmt); ?></h2>
 
             					</div>
 
