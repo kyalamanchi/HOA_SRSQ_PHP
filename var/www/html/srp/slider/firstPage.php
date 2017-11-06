@@ -107,7 +107,7 @@
 											$community_code[$i] = $row['community_code'];
 
 											if($i == 0)
-												echo "<li class='nav-item active>";
+												echo "<li class='nav-item active'>";
 											else
 												echo "<li class='nav-item'>";
 
