@@ -525,6 +525,58 @@
 
                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <?php 
+
+                                $pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='t'"));;
+
+                                if($pending_agreements == 0)
+                                  echo "$pending_agreements";
+                                else
+                                  echo "<a style='color: orange;' href='boardPendingAgreements.php'>$pending_agreements</a>";
+
+                              ?>
+
+                            </div>
+
+                            <div class='counter-title'>Board Pending Agreements</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <a href='boardSignedAgreements.php'>
+                              
+                              <?php
+
+                                $signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
+
+                                if($signed_agreements > 0)
+                                  echo "<a href='boardSignedAgreements.php>$signed_agreements</a>";
+                                else
+                                  echo $signed_agreements;
+
+                              ?>
+
+                            </div>
+
+                            <div class='counter-title'>Board Signed Agreements</div>
+
+                          </div>
+
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
 													<div class='counter h6'>
 
 														<div class='counter-number'>
@@ -602,15 +654,16 @@
 
                             <div class='counter-number'>
 
-                              <a href='communitySignedAgreements.php'>
-                              
-                                <?php
+                              <?php
 
-                                  echo pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
+                                $signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='f'"));
 
-                                ?>
+                                if($signed_agreements > 0)
+                                  echo "<a href='communitySignedAgreements.php>$signed_agreements</a>";
+                                else
+                                  echo $signed_agreements;
 
-                              </a>
+                              ?>
 
                             </div>
 
