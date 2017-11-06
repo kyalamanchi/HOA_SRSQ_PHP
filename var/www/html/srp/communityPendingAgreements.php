@@ -115,7 +115,7 @@
 
 										if($mode == 1)
 										{
-											$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+											$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND board_cancel_requested='f' AND agreement_status='OUT_FOR_SIGNATURE'");
 
 			                        		while($row = pg_fetch_assoc($result))
 			                        		{
@@ -325,7 +325,7 @@
 		                        		else if($mode == 2)
 		                        		{
 
-		                        			$result = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='OUT_FOR_SIGNATURE' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
+		                        			$result = pg_query("SELECT * FROM community_sign_agreements WHERE agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
 											while($row = pg_fetch_assoc($result))
 											{
