@@ -554,8 +554,6 @@
 
                             <div class='counter-number'>
 
-                              <a href='boardSignedAgreements.php'>
-                              
                               <?php
 
                                 $signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
