@@ -121,7 +121,10 @@
 
 									<div class='special-heading m-b-40'>
 
-										Welcome <?php echo $first_name." "$last_name; ?>,
+										Welcome <?php echo $first_name." "$last_name; ?>
+									</div>
+
+									<div class='container'>
 
 										<br>
 
@@ -129,10 +132,6 @@
 										<br><br>
 
 										<small><?php echo $c; ?>
-
-									</div>
-
-									<div class='container'>
 
 									</div>
 
