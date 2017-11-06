@@ -18,7 +18,7 @@ $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
 	$postString = '{
     "key": "'.$api_key.'",
-    "query": "stoneridgesquare.org",
+    "query": "stoneridgeplace.org",
     "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
 }';
 
@@ -35,7 +35,7 @@ print_r($result);
 foreach ($result as $result1) {	
 	if ( $connection ){
 		if (  $mandrillIDS[$result1->_id] != 1 ){
-		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"api_mail_id\",\"sent_date\",\"status\",\"community_id\",\"update_date\",\"updated_by\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d',$result1->ts)."','".$result1->state."',2,'".date('Y-m-d H:i:s')."',401)";
+		$query = "INSERT INTO community_emails_sent(\"from_email\",\"to_email\",\"email_subject\",\"number_of_clicks\",\"number_of_opens\",\"api_mail_id\",\"sent_date\",\"status\",\"community_id\",\"update_date\",\"updated_by\") VALUES('".$result1->sender."','".$result1->email."','".$result1->subject."',".$result1->clicks.",".$result1->opens.",'".$result1->_id."','".date('Y-m-d',$result1->ts)."','".$result1->state."',1,'".date('Y-m-d H:i:s')."',401)";
 		pg_query($query);
 		}
 		else {
@@ -44,6 +44,14 @@ foreach ($result as $result1) {
 		}
 	}
 }
+
+
+
+
+
+
+
+
 $query = "SELECT DISTINCT TO_EMAIL FROM COMMUNITY_EMAILS_SENT WHERE HOA_ID IS NULL OR PERSON_ID IS NULL";
 	$queryResult = pg_query($query);
 	while ($row = pg_fetch_assoc($queryResult)) {
