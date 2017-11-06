@@ -158,10 +158,7 @@
 
 												<?php 
 
-													if($c >= 0 && $c <= 9)
-														echo 
-													else
-														echo $cell_no; 
+													echo $cell_no; 
 
 												?>
 													
