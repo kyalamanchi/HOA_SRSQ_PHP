@@ -104,6 +104,13 @@
 
 								$c = $cell_no % 100;
 
+								$cell_size = sizeof($cell_no);
+
+								echo "Cell No : ".$cell_size." <br><br>";
+
+								for($i = 0; $i < ($cell_size - 2); $i++)
+									echo $i;
+
 							?>
 
 							<ul class='nav nav-tabs'>
@@ -137,12 +144,12 @@
 
 												<?php 
 
-													echo "Number : $cell_no";
+													echo "Number : $cell_no<br>";
 
 													if($c >= 0 && $c <= 9)
 													{	
 														
-														echo "sprint ";
+														echo "sprint <br>";
 
 														echo sprintf('%02d', $c);
 
