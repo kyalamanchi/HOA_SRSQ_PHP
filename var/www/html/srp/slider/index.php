@@ -146,6 +146,13 @@
 
 									<div class='container' style='color: black;'>
 
+										<script type='text/javascript'>
+   function sendOTP(){
+      var model=$('#confirm_cell_no').val();
+      alert(model);
+}
+										</script>
+
 										<form method="POST">
 
 											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
@@ -168,7 +175,7 @@
 
 												<hr><br>
 
-												<button type='submit' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+												<button type='submit' onclick='sendOTP(this)' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 											</div>
 
