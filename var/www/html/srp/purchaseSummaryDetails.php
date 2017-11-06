@@ -152,7 +152,7 @@
 
             				</div>
 							
-							<br>
+							<br><br>
 
             				<div class='row'>
 
@@ -196,6 +196,45 @@
         							</h4>
 
             					</div>
+
+            				</div>
+
+            				<br><br>
+
+            				<div class='row'>
+
+            					<table id='example1' style='color: black;'>
+
+            						<thead>
+            							
+            							<th>#</th>
+            							<th>Account</th>
+            							<th>Description</th>
+            							<th>Amount</th>
+
+            						</thead>
+
+            						<tbody>
+            							
+            							<?php
+            							
+							                $value = 1;
+							                $IDS = array();
+							                
+							                foreach ($purchaseResult[0]->Line as $purchase) 
+							                {
+							                    
+							                    echo '<tr><td>'.$value.'</td><td>'.$purchase->AccountBasedExpenseLineDetail->AccountRef->name.'</td><td>'.$purchase->Description.'</td><td><style="float:right;">'.money_format('%#10n',$purchase->Amount).'</></td></tr>';
+
+							                    $value = $value + 1;
+
+							                }
+            
+            							?>
+
+            						</tbody>
+            						
+            					</table>
 
             				</div>
 
