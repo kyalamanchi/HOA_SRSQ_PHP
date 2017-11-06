@@ -175,7 +175,7 @@
 
 												<hr><br>
 
-												<button type='submit' onclick='sendOTP(this)' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+												<button onclick='sendOTP(this)' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 											</div>
 
