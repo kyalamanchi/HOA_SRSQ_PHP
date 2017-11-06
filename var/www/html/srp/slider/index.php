@@ -112,8 +112,7 @@
 									echo $cell_no."<br>";
 									$i++;
 									$cell_no = $cell_no / 10;
-									$whole = floor($cell_no);      // 1
-									$cell_no = $cell_no - $whole;
+									$cell_no = floor($cell_no);
 
 								}
 								
