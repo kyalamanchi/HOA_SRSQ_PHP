@@ -147,7 +147,7 @@
                 								
                 								}
                 								
-                								echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a href="purchaseSummaryDetails.php?id='.$purchase->Id.'>'.money_format('%#10n',  $purchase->TotalAmt).'</a></td></tr>';
+                								echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a href="purchaseSummaryDetails.php?id='.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a></td></tr>';
 
             								}
 
