@@ -107,7 +107,7 @@
 							?>
 
 							<ul class='nav nav-tabs'>
-
+									
 								<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Confirm Phone Number</a></li>
 								<li class='nav-item'><a class='nav-link disabled' href='#tab-2' data-toggle='tab'>Verify User</a></li>
 
@@ -130,7 +130,7 @@
 										Please enter your mobile number to confirm your identity.
 										<br><br>
 
-										<small><?php echo $c; ?>
+										<small><?php echo $c; ?></small>
 
 									</div>
 
