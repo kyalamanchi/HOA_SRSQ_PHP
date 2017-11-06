@@ -112,7 +112,9 @@
 								if (strpos( json_decode($response), 'error_summary') !== false) 
 								{
 							    	
-							    	echo '<br><br><br><br><br><center><h3>There was an error opening this document. This file cannot be found.</h3></center>';
+							    	$result = pg_query("UPDATE document_management SET is_active='f' WHERE document_id=$doc_id");
+									
+									echo "<br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>There was an error opening this document!</strong><br /><br />File not found.<br /><br /></center></div></div></div>";
 
 								}
 								else if (strpos( ($response), 'pdf') !== false  )
@@ -161,9 +163,7 @@
 									
 									unlink($name);
 
-									$result = pg_query("UPDATE document_management SET is_active='f' WHERE document_id=$doc_id");
-									
-									echo "<br /><br /><br /><br /><div class='row'><div class='col-xl-3 col-lg-3 col-md-2 col-sm-1 col-xs-1'> </div><div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-10'><div class='alert alert-danger'><center><br /><strong style='font-size: 15pt;'>Sorry!</strong><br /><br />File cannot be opened.<br /><br /></center></div></div></div>";
+									echo '<br><br><br><br><br><center><h3>File cannot be opened. Downloading File...</h3></center>';
 
 								}
 
