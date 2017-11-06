@@ -117,10 +117,6 @@
 								
 								$i = $i - 2;
 
-								echo $i;
-
-								
-
 							?>
 
 							<ul class='nav nav-tabs'>
@@ -142,39 +138,29 @@
 
 									<div class='container'>
 
-										<div class='row'>
+										<div class='row container-fluid'>
 
-											<div class='row'>
+											Please enter your mobile number to confirm your identity.
 
-												Please enter your mobile number to confirm your identity.
+										</div>
 
-											</div>
+										<br><br>
 
-											<div class='row'>
+										<div class='row container-fluid'>
 
-												<small>
+											<small>
 
-													<?php 
+												<?php 
 
-														echo "Number : $cell_no<br>";
+													if($c >= 0 && $c <= 9)
+														echo sprintf('%02d', $c);
+													else
+														echo $c; 
 
-														if($c >= 0 && $c <= 9)
-														{	
-															
-															echo "sprint <br>";
-
-															echo sprintf('%02d', $c);
-
-														}
-														else
-															echo $c; 
-
-													?>
+												?>
 													
 
-												</small>
-											
-											</div>
+											</small>
 
 										</div>
 
