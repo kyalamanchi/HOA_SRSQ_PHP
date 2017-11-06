@@ -119,7 +119,7 @@
 											if($upload_date != "")
 												$upload_date = date('m-d-Y', strtotime($upload_date));
 
-											echo "<tr><td>$year</td><td><a href='getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$upload_date</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id&doc_id=$doc_id' target='_blank'>$description</a></td></tr>";
+											echo "<tr><td>$year</td><td><a href='getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$upload_date</a></td><td><a href='getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id&doc_id=$doc_id' target='_blank'>$description</a></td></tr>";
 
 										}
 
