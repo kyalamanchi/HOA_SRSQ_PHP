@@ -269,6 +269,8 @@
 
 												$document_id = $row['document_id'];
 
+												echo $document_id;
+
 												$result1 = pg_query("SELECT * FROM document_visibility WHERE document_id=$document_id AND (user_id=$user_id OR hoa_id=$hoa_id)");
 
 												if($result1)
