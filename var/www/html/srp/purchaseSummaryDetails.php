@@ -84,9 +84,13 @@
 							
 							</div>
 
-							<div class='breadcrumbs'>
+							<div class="page-title-secondary">
+								
+								<ol class="breadcrumb">
+									
+									<li><a href='purchaseSummary.php'>Purchase Summary</a></li>
 
-								<li><a href='purchaseSummary.php'>Purchase Summary</a></li>
+								</ol>
 
 							</div>
 						
