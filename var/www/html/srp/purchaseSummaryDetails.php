@@ -279,7 +279,7 @@
             							{
                 
                 							foreach ($data->Attachable as $attachable)
-                								echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a><br>';
+                								echo '<a target="_blank" href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a><br>';
 
             							}
             							else
