@@ -75,7 +75,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Signed Agreements</h1>
+								<h1 class="h5"><?php if($mode == 1) echo "Community "; ?>Signed Agreements</h1>
 							
 							</div>
 						
