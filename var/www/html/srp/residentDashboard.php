@@ -276,7 +276,10 @@
 
 											}
 
-											echo $documents;
+											if($documents > 0)
+												echo "<a href='myDocuments.php'>$documents</a>";
+											else
+												echo $documents;
 
 										?>
 														
