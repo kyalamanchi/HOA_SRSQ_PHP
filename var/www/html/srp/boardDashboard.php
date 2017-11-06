@@ -559,7 +559,7 @@
                                 $signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'"));
 
                                 if($signed_agreements > 0)
-                                  echo "<a href='boardSignedAgreements.php>$signed_agreements</a>";
+                                  echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
                                 else
                                   echo $signed_agreements;
 
@@ -652,14 +652,14 @@
 
                             <div class='counter-number'>
 
-                              <?php 
+                              <?php
 
-                                $signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='f'"));
+                                $signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='f'"));
 
-                                if($signed_agreements <= 0)
-                                  echo $signed_agreements;
-                                else
+                                if($signed_agreements > 0)
                                   echo "<a href='communitySignedAgreements.php'>$signed_agreements</a>";
+                                else
+                                  echo $signed_agreements;
 
                               ?>
 
