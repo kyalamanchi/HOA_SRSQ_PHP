@@ -147,10 +147,25 @@
 									<div class='container' style='color: black;'>
 
 										<script type='text/javascript'>
+
+
    											
    											function sendOTP(){
       
       											var model=$('#confirm_cell_no').val();
+
+      											$.ajax({
+   												
+   													url: "testing.php",
+   												
+   													success: function(data){
+     												
+     													model = data;
+
+   													}
+
+ 												});
+
       											alert(model);
 	
 											}
