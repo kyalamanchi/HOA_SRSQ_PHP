@@ -106,12 +106,12 @@
 											$community_name[$i] = $row['legal_name'];
 											$community_code[$i] = $row['community_code'];
 
-											echo "<li class='nav-item";
-
 											if($i == 0)
-												echo " active";
+												echo "<li class='nav-item active>";
+											else
+												echo "<li class='nav-item'>";
 
-											echo "'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
+											echo "'<a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
 
 											$i++;
 
