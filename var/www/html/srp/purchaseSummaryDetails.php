@@ -203,9 +203,9 @@
 
             				<div class='row'>
 
-            					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+            					<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-	            					<table id='example1' style='color: black;'>
+	            					<table id='example1' class='table table-striped' style='color: black;'>
 
 	            						<thead>
 	            							
