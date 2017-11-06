@@ -71,7 +71,7 @@ function hidePleaseWait() {
         <center><h4><span class="notbold">Stoneridge Square Association</span></h4></center>
         <br>
         <center><h4>Budget Vs Actuals</h4></center>
-        <center><h4><span class="notbold"><?php echo '2017 Budget'?></span></h4></center>
+        <center><h4><span class="notbold"><?php echo 'SRSQ 2017'?></span></h4></center>
         <br>
         <br>
 <table id="example" class="display" cellspacing="0" width="100%" style="font-size: 14px;">
