@@ -143,7 +143,7 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<table class="table table-responsive table-hover" id="example" style="font-size: 12px;">
+							<table class="table table-responsive table-hover" id="example" style="color: black;">
   <thead>
         <tr><th style="width: 15%;">DATE</th><th>TRANSACTIONTYPE</th><th>NUM</th><th>NAME</th><th>MEMEO/DESCRIPTION</th><th>SPLIT</th><th>AMOUNT</th><th>BALANCE</th></tr>
     </thead>
