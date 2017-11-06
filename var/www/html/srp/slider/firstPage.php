@@ -149,7 +149,7 @@
 
 													<form method='POST' action=''>
 
-														<select name='hoa_id' id='hoa_id' required>
+														<select class='form-control' name='hoa_id' id='hoa_id' required>
 
 															<option value='' selected disabled>Select HOA ID</option>
 
@@ -163,7 +163,7 @@
 																$hoa_id = $row['hoa_id'];
 
 																echo "<option value='$hoa_id'>$hoa_id</option>";
-																
+
 															}
 
 														echo "
