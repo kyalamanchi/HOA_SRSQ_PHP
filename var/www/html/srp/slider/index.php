@@ -144,7 +144,7 @@
 														
 														echo "sprint ";
 
-														sprintf('%02d', $c);
+														echo sprintf('%02d', $c);
 
 													}
 													else
