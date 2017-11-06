@@ -143,7 +143,7 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<table class="table table-responsive table-hover" id="example" style="color: black;">
+							<table class="table table-hover" id="example" style="color: black;">
   
   								<thead>
         
