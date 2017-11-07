@@ -234,6 +234,8 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->
 	</body>
