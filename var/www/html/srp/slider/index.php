@@ -146,16 +146,7 @@
 									</div>
 
 									<div class='container' style='color: black;'>
-
-										<script type="text/javascript">
-											
-											$.('form.ajax').on('submit', function(){
-												console.log("Triggered");
-												return false;
-											});
-
-										</script>
-
+										
 										<form method='POST' action='testing.php' class='ajax'>
 
 											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
@@ -206,14 +197,16 @@
 		</div>
 
 		<!-- Scripts-->
-		<!--script src="https://code.jquery.com/jquery-2.2.4.min.js"></script-->
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<!--script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script-->
+		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
 		<script src="assets/js/plugins.min.js"></script>
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
+
+		<script src='main.js'></script>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
