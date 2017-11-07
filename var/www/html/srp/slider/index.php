@@ -177,7 +177,7 @@
 
 							<div class='special-heading m-b-40'>
 
-								<h2 class='h2'>Hello <?php echo $first_name." ".$last_name; ?></h2>
+								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
 
 							</div>
 
@@ -195,7 +195,9 @@
 
 									<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
 
-										<input class='form-control' type='number' name='otp' id='otp' placeholder='Enter OTP'>
+										<input class='form-control' type='number' name='enter_otp' id='enter_otp' placeholder='Enter OTP'>
+
+										<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
 									</div>
 
