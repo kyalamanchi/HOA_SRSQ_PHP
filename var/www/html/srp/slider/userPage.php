@@ -55,14 +55,35 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<header class='header'>
+			<header class='header header-right undefined'>
 	
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
 					<div class='inner-header text-center'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
+						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_code; ?></h3></a>
+
+					</div>
+
+					<!-- Navigation-->
+					<div class='inner-navigation collapse'>
+
+						<div class='inner-navigation-inline'>
+				
+							<div class='inner-nav'>
+						
+								<ul>
+
+									<li><a><span>Hello <?php echo $username; ?></span></a></li>
+
+									<li><a href='logout.php'><span><i class='fa fa-home'></i> Log Out</span></a></li>
+
+								</ul>
+
+							</div>
+
+						</div>
 
 					</div>
 				
@@ -81,8 +102,9 @@
 							
 							<div class='page-title-captions'>
 								
-								<h1 id='page_title1' class='h5'>Confirm User Identity</h1>
-								<h1 id='page_title2' class='h5'>Verify User</h1>
+								<h1 id='page_title1' class='h5'>User Details</h1>
+								<h1 id='page_title2' class='h5'>Home Details</h1>
+								<h1 id='page_title3' class='h5'>Disclosures</h1>
 							
 							</div>
 						
@@ -97,50 +119,66 @@
 						
 					<div class='container'>
 							
-						<div id='confirm_phone_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-							<div class='special-heading m-b-40'>
-
-								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
-
-							</div>
-
-							<div class='container' style='color: black;'>
+						<div id='user_details_div' class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12' style='color: black;'>
 										
-								<form method='POST' action='sendOTP.php' class='ajax1'>
+							<form method='POST' action='updateHOAID.php' class='ajax1'>
 
-									<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
+								<?php
 
-										<center>Please enter your mobile number.</center>
+									$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
-									</div>
+									$user_firstname = $row['firstname'];
+									$user_lastname = $row['lastname'];
+									$user_email = $row['email'];
+									$user_cell_no = $row['cell_no'];
+
+								?>
+
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+									<label><strong>First Name</strong></label>
 
 									<br>
 
-									<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
+									<input type='text' name='first_name' id='first_name' value='<?php echo $user_firstname; ?>' readonly>
 
-										<input class='form-control' type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>'>
+								</div>
 
-										<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
-										<input type='hidden' name='ocell_no' id='ocell_no' value='<?php echo $ocell_no; ?>'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-									</div>
+									<label><strong>Last Name</strong></label>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+									<br>
 
-										<hr><br>
+									<input type='text' name='last_name' id='last_name' value='<?php echo $user_lastname; ?>' readonly>
 
-										<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+								</div>
 
-									</div>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-								</form>
+									<label><strong>Email</strong></label>
 
-							</div>
+									<br>
+
+									<input type='email' name='email' id='email' value='<?php echo $user_email; ?>' readonly>
+
+								</div>
+
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+									<label><strong>Last Name</strong></label>
+
+									<br>
+
+									<input type='number' name='cell_no' id='cell_no' value='<?php echo $user_cell_no; ?>'>
+
+								</div>
+
+							</form>
 
 						</div>
 
-						<div id='verify_user_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+						<div id='home_details_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
 							<div class='special-heading m-b-40'>
 
@@ -202,7 +240,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/main.js'></script>
+		<script src='assets/js/userPage.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Color Switcher (Remove these lines)-->
