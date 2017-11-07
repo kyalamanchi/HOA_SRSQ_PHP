@@ -154,6 +154,8 @@
       
       											var model=$('#confirm_cell_no').val();
 
+      											if (model == '') {model = "Please enter your phone number."}
+
       											$.ajax({
    												
    													url: "testing.php",
