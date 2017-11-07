@@ -138,41 +138,38 @@
 							<script type="text/javascript">
 								
 								$('form.ajax').on('submit', function(){
-	
-									var obj = $(this),
-									url = obj.attr('action'),
-									method = obj.attr('method'),
-									data = {};
 
-									obj.find('[name]').each(function(index, value){
+									var original_number = <?php echo $ocell_no; ?>
+									var number = ('#confirm_cell_no').val();
 
-										var input = $(this),
-										index = input.attr('name'),
-										value = input.val();
+									if(number == '')
+										alert("Please enter your number.");
+									else if(original_number == number)
+									{
 
-										data[index] = value;
+										$.ajax({
 
-									});
+											url: 'testing.php',
+											type: 'POST',
+											data: {number:number},
+											success: function(response){
 
-									$.ajax({
+												if (response == 'sent') 
+												{
+													alert(response);
+												}
+												else
+												{
+													console.log(response);
+												}
 
-										url: url,
-										type: method,
-										data: data,
-										success: function(response){
-
-											if (response == 'Please enter the OTP texted to your number to verify your identity.') 
-											{
-												alert(response);
-											}
-											else
-											{
-												console.log(response);
 											}
 
-										}
+										});
 
-									});
+									}
+									else
+										alert("Incorrect Phone Number");
 
 									return false;
 									
