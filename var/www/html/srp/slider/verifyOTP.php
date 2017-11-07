@@ -6,9 +6,11 @@
 	if($enter_otp == "")
 		echo "OTP cannot be empty.";
 	else if($enter_otp == "0000")
-	{
+	{	
+
+		$hoa_id = base64_encode($hoa_id);
 		
-		echo "verified";
+		header("Location: transactionPage1.php?hoa_id=$hoa_id");
 
 	}
 	else
