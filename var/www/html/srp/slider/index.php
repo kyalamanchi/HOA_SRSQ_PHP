@@ -146,6 +146,15 @@
 
 									<div class='container' style='color: black;'>
 
+										<?php
+
+											function($cell_number)
+											{
+												echo $cell_number;
+											}
+
+										?>
+
 										<script type='text/javascript'>
 
 
@@ -157,8 +166,6 @@
       											if (model == '') {model = "Please enter your phone number."}
 
       											$.ajax({
-   												
-   													url: "testing.php",
    												
    													success: function(data){
      												
