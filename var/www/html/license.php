@@ -13,7 +13,7 @@
 
 										<div class='form-group'>
 
-											<button class='btn btn-block btn-lg btn-round btn-success' type='submit'><i class='fa fa-sign-in'></i> Log In</button>
+											<button class='btn btn-block btn-lg btn-round btn-success' type='submit'><i class='fa fa-sign-in'></i> Check License</button>
 
 										</div>
 
