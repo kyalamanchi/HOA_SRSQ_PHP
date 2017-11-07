@@ -148,7 +148,7 @@
 
 										<?php
 
-											function($cell_number)
+											function printfunction($cell_number)
 											{
 												echo $cell_number;
 											}
@@ -167,7 +167,7 @@
    												
    													url: "index.php",
    												
-   													success: function(data){
+   													success: printfunction(data){
      												
      													model = data;
 
