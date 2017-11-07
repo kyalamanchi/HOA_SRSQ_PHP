@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$('#page_title1').show();
 	$('#page_title2').hide();
+	$('#verify_user_div').hide();
 
 });
 
