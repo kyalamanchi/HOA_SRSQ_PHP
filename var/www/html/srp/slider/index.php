@@ -147,7 +147,17 @@
 
 									<div class='container' style='color: black;'>
 
-										<form method='POST' action='testing.php'>
+										<script type="text/javascript">
+											
+											$.('form.ajax').on('submit', function(){
+
+												return false;
+
+											});
+
+										</script>
+
+										<form method='POST' action='testing.php' class='ajax'>
 
 											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
 
