@@ -12,7 +12,7 @@ $('#user_information_radio_no').change(function() {
 
 	if (document.getElementById('user_information_radio_no').checked) {
 
-		$('#modal_edit_user_details').show();
+		$('#edit_user_details_div').show();
 
 	}
 
