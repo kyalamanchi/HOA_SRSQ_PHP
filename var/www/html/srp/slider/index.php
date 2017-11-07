@@ -161,19 +161,28 @@
       
       											var model=$('#confirm_cell_no').val();
 
-      											if (model == '') {model = "Please enter your phone number."}
+      											if (model == '') 
+      											{
 
-      											$.ajax({
-   												
-   													url: "index.php",
-   												
-   													success: printfunction(data){
-     												
-     													model = data;
+      												model = "Please enter your phone number.";
 
-   													}
+      											}
+      											else
+      											{
 
- 												});
+	      											$.ajax({
+	   												
+	   													url: "index.php",
+	   												
+	   													success: printfunction(data){
+	     												
+	     													model = data;
+
+	   													}
+
+	 												});
+
+      											}
 
       											alert(model);
 	
