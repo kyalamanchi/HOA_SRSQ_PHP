@@ -87,7 +87,7 @@
 						
 					<div class='container'>
 							
-						<div class='col-xl-6 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
+						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-3 offset-xs-3'>
 
 							<form class='form' method='POST' action='index.php'>
 							
@@ -109,9 +109,6 @@
 					</div>
 
 				</section>
-
-				<!-- Footer-->
-				<?php include 'footer.php'; ?>
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
