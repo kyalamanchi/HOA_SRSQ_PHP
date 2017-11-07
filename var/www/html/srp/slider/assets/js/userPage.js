@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 $('#edit_living_status').change(function(){
 
-	var living_status = %('#edit_living_status').val();
+	var living_status = $('#edit_living_status').val();
 
 	if(living_status == 'f')
 		$('#mailing_address_div').show();
