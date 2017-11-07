@@ -24,6 +24,7 @@ $('#user_information_radio_no').change(function() {
 
 	if (document.getElementById('user_information_radio_no').checked) {
 
+		$('#user_details_continue').hide();
 		$('#user_details_div').hide();
 		$('#edit_user_details_div').show();
 
@@ -62,6 +63,7 @@ $('form.ajax1').on('submit', function(){
 				alert("Updated!");
 
 				$('#user_cell_no').text(response);
+				$('#user_information_radio_no').prop('checked', false);
 				$('#edit_user_details_div').hide();
 				$('#user_details_div').show();
 
