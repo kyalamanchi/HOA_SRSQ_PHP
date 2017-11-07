@@ -45,22 +45,6 @@
 
 		<div class='layout'>
 
-			<!-- Header-->
-			<header class='header header-right undefined'>
-	
-				<div class='container-fluid'>
-								
-					<!-- Logos-->
-					<div class='inner-header'>
-
-						<a class='inner-brand'><h3 style='color: green;'>HOA</h3></a>
-
-					</div>
-				
-				</div>
-
-			</header>
-
 			<div class='wrapper'>
 
 				<!-- Page Header -->
