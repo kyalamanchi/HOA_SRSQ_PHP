@@ -22,13 +22,18 @@ $('form.ajax').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			response = response;
+			if (response = 'Please enter the OTP texted to your number to verify your identity.') 
+			{
+				alert(response);
+			}
+			else
+			{
+				console.log(response);
+			}
 
 		}
 
 	});
-
-	alert(response);
 
 	return false;
 });

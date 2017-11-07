@@ -10,7 +10,7 @@
 		$ocell_no = $_POST['ocell_no'];
 
 		if($ocell_no == $cell_no)
-			echo "Correct";
+			echo "Please enter the OTP texted to your number to verify your identity.";
 		else
 			echo "Incorrect Cell Number.
 		Please check the entered number and try again.";
