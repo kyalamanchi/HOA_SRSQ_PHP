@@ -74,8 +74,6 @@
 		<link href="assets/css/linea-arrows.css" rel="stylesheet">
 		<link href="assets/css/linea-icons.css" rel="stylesheet">
 		<!-- Plugins-->
-		<link href="assets/css/owl.carousel.css" rel="stylesheet">
-		<link href="assets/css/flexslider.css" rel="stylesheet">
 		<link href="assets/css/magnific-popup.css" rel="stylesheet">
 		<link href="assets/css/vertical.min.css" rel="stylesheet">
 		<link href="assets/css/pace-theme-minimal.css" rel="stylesheet">
@@ -90,14 +88,14 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<header class='header'>
+			<header class='header header-right undefined'>
 	
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
 					<div class='inner-header text-center'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
+						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_code; ?></h3></a>
 
 					</div>
 				
@@ -231,10 +229,7 @@
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
 		<script src="assets/js/plugins.min.js"></script>
-		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
 		<script src='assets/js/index.js'></script>
