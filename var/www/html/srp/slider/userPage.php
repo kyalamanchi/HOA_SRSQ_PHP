@@ -191,7 +191,7 @@
 
 									<hr>
 
-									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 
