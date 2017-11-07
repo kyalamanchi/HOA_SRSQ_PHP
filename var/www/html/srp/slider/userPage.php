@@ -123,100 +123,96 @@
 					<div class='container'>
 							
 						<div id='user_details_div' class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-										
-							<form method='POST' action='updateHOAID.php' class='ajax1'>
 
-								<?php
+							<?php
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+								$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
-									$user_firstname = $row['firstname'];
-									$user_lastname = $row['lastname'];
-									$user_email = $row['email'];
-									$user_cell_no = $row['cell_no'];
+								$user_firstname = $row['firstname'];
+								$user_lastname = $row['lastname'];
+								$user_email = $row['email'];
+								$user_cell_no = $row['cell_no'];
 
-								?>
+							?>
 
-								<div class='modal fade' id='modal_edit_user_details'>
+							<div class='modal fade' id='modal_edit_user_details'>
 
-									<div class='modal-dialog modal-lg'>
+								<div class='modal-dialog modal-lg'>
 
-										<div class='modal-content'>
+									<div class='modal-content'>
 
-											<div class='modal-header'>
+										<div class='modal-header'>
 
-												<h4 class='h4'>User Details</h4>
-												<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+											<h4 class='h4'>User Details</h4>
+											<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
-											</div>
+										</div>
 
-											<div class='modal-body'>
+										<div class='modal-body'>
 
-												<div class='container' style='color: black;'>
+											<div class='container' style='color: black;'>
 
-													<form method='POST' action='userDashboardEditHOAID.php'>
+												<form method='POST' action='updateHOAID.php'>
 																				
-														<div class='row'>
+													<div class='row'>
 
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-																<label><strong>First Name</strong></label>
+															<label><strong>First Name</strong></label>
 
-																<br>
+															<br>
 
-																<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
-
-															</div>
-
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																<label><strong>Last Name</strong></label>
-
-																<br>
-
-																<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
-
-															</div>
+															<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
 
 														</div>
 
-														<br>
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-														<div class='row'>
+															<label><strong>Last Name</strong></label>
 
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															<br>
 
-																<label><strong>Email</strong></label><br>
-																<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
-
-															</div>
-
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-																<label><strong>Phone</strong></label><br>
-																<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
-
-															</div>
+															<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
 
 														</div>
 
-														<br>
+													</div>
 
-														<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+													<br>
 
-															<center>
+													<div class='row'>
 
-																<button class='btn btn-info btn-xs' type='submit'>Update</button>
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-															</center>
+															<label><strong>Email</strong></label><br>
+															<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
 
 														</div>
 
-													</form>
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-						                        </div>
+															<label><strong>Phone</strong></label><br>
+															<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
 
-											</div>
+														</div>
+
+													</div>
+
+													<br>
+
+													<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+														<center>
+
+															<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+														</center>
+
+													</div>
+
+												</form>
+
+						                    </div>
 
 										</div>
 
@@ -224,7 +220,9 @@
 
 								</div>
 
-								<div class='row'>
+							</div>
+
+							<div class='row'>
 								
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
@@ -246,47 +244,45 @@
 
 									</div>
 
-								</div>
+							</div>
 
-								<br><br>
+							<br><br>
 
-								<div class='row'>
+							<div class='row'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-										<label><strong>Email</strong></label>
+									<label><strong>Email</strong></label>
 
-										<br>
+									<br>
 
-										<h3 class='h3' style='color: black;'><?php echo $user_email; ?></h3>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-										<label><strong>Cell Number</strong></label>
-
-										<br>
-
-										<h3 class='h3' style='color: black;'><?php echo $user_cell_no; ?></h3>
-
-									</div>
+									<h3 class='h3' style='color: black;'><?php echo $user_email; ?></h3>
 
 								</div>
 
-								<div class='row'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+									<label><strong>Cell Number</strong></label>
 
-										<hr class='small'>
+									<br>
 
-										<button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_user_details'><i class='fa fa-edit'></i> Edit</button> <button class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-									</div>
+									<h3 class='h3' style='color: black;'><?php echo $user_cell_no; ?></h3>
 
 								</div>
 
-							</form>
+							</div>
+
+							<div class='row'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+									<hr class='small'>
+
+									<button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_user_details'><i class='fa fa-edit'></i> Edit</button> <button class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+
+								</div>
+
+							</div>
 
 						</div>
 
