@@ -137,6 +137,93 @@
 
 								?>
 
+								<div class='modal fade' id='modal_edit_hoaid'>
+
+									<div class='modal-dialog modal-lg'>
+
+										<div class='modal-content'>
+
+											<div class='modal-header'>
+
+												<h4 class='h4'>User Details</h4>
+												<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+											</div>
+
+											<div class='modal-body'>
+
+												<div class='container' style='color: black;'>
+
+													<form method='POST' action='userDashboardEditHOAID.php'>
+																				
+														<div class='row'>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																<label><strong>First Name</strong></label>
+
+																<br>
+
+																<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' required>
+
+															</div>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																<label><strong>Last Name</strong></label>
+
+																<br>
+
+																<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' required>
+
+															</div>
+
+														</div>
+
+														<br>
+
+														<div class='row'>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																<label><strong>Email</strong></label><br>
+																<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' required>
+
+															</div>
+
+															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+																<label><strong>Phone</strong></label><br>
+																<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+
+															</div>
+
+														</div>
+
+														<br>
+
+														<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+															<center>
+
+																<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+															</center>
+
+														</div>
+
+													</form>
+
+						                        </div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
 								<div class='row'>
 								
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
@@ -161,7 +248,7 @@
 
 								</div>
 
-								<br>
+								<br><br>
 
 								<div class='row'>
 
