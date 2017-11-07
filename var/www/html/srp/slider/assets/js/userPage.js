@@ -49,6 +49,16 @@ $('form.ajax1').on('submit', function(){
 	
 });
 
+$('#user_details_continue').click(function(){
+
+	$('#page_title1').hide();
+	$('#page_title2').show();
+	$('#page_title3').hide();
+	$('#home_details_div').show();
+	$('#user_details_div').hide();
+
+});
+
 $('form.ajax2').on('submit', function(){
 	
 	var obj = $(this),

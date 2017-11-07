@@ -278,7 +278,7 @@
 
 									<hr class='small'>
 
-									<button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_user_details'><i class='fa fa-edit'></i> Edit</button> <button class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_user_details'><i class='fa fa-edit'></i> Edit</button> <button id='user_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 
