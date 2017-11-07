@@ -22,7 +22,7 @@ $('form.ajax').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			if (response = 'Please enter the OTP texted to your number to verify your identity.') 
+			if (response == 'Please enter the OTP texted to your number to verify your identity.') 
 			{
 				alert(response);
 			}
