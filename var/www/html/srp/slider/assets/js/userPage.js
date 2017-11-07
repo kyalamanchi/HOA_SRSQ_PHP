@@ -7,6 +7,28 @@ $(document).ready(function(){
 
 });
 
+$(document).ready(function(){
+
+	var living_status = %('#edit_living_status').val();
+
+	if(living_status == 'f')
+		$('#mailing_address_div').show();
+	else
+		$('#mailing_address_div').hide();
+
+});
+
+$('#edit_living_status').change(function(){
+
+	var living_status = %('#edit_living_status').val();
+
+	if(living_status == 'f')
+		$('#mailing_address_div').show();
+	else
+		$('#mailing_address_div').hide();
+
+});
+
 $('form.ajax1').on('submit', function(){
 	
 	var obj = $(this),

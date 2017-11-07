@@ -384,6 +384,20 @@
 
 													</div>
 
+													<div id='mailing_address_div' class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+															<label><strong>Maling Address</strong></label>
+
+															<br>
+
+															<input type='text' name='edit_mailing_address' id='edit_mailing_address' value='<?php echo $mailing_address; ?>' required>
+
+														</div>
+
+													</div>
+
 													<br>
 
 													<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
