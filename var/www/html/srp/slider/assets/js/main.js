@@ -26,10 +26,10 @@ $('form.ajax').on('submit', function(){
 			else
 			{
 
-				$('#confirm_phone_head').hide();
+				$('#confirm_phone_head').tabs( "option", "disabled" );
 				$('#tab-1').hide();
 				$('#tab-2').show();
-				$('#verify_user_head').show();
+				$('#confirm_phone_head').tabs( "option", "active" );
 				return false;
 			}
 		}
