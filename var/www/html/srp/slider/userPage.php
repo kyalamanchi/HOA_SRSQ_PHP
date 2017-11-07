@@ -286,13 +286,13 @@
 
 							<div class='row'>
 
-								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
 									<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this information is correct.
 
 								</div>
 
-								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
 									<input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, this information is incorrect.
 
