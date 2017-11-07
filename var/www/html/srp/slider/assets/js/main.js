@@ -35,10 +35,10 @@ $('form.ajax').on('submit', function(){
 
 				$('#page_title1').hide();
 				$('#page_title2').show();
-				$('#confirm_phone_head').hide();
+				$('#confirm_phone_div').hide();
 				$('#tab-1').hide();
 				$('#tab-2').show();
-				$('#verify_user_head').show();
+				$('#verify_user_div').show();
 				return false;
 			}
 		}

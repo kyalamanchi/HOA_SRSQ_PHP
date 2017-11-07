@@ -21,6 +21,31 @@
 	$community_name = $row['legal_name'];
 	$community_code = $row['community_code'];
 
+	$ocell_no = $cell_no;
+
+	$c = $cell_no % 100;
+
+	if($c >= 0 && $c <= 9)
+		$c = sprintf('%02d', $c);
+
+	$i = 0;
+
+	while($cell_no > 0)
+	{
+
+		$i++;
+		$cell_no = $cell_no / 10;
+		$cell_no = floor($cell_no);
+
+	}
+
+	$cell_no = $c;
+								
+	$i = $i - 2;
+
+	for($j = 0; $j < $i; $j++)
+		$cell_no = "x".$cell_no;
+
 ?>
 
 <!DOCTYPE html>
@@ -105,43 +130,7 @@
 						
 					<div class='container'>
 							
-						<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-						
-							<?php
-
-								$ocell_no = $cell_no;
-
-								$c = $cell_no % 100;
-
-								if($c >= 0 && $c <= 9)
-									$c = sprintf('%02d', $c);
-
-								$i = 0;
-
-								while($cell_no > 0)
-								{
-
-									$i++;
-									$cell_no = $cell_no / 10;
-									$cell_no = floor($cell_no);
-
-								}
-
-								$cell_no = $c;
-								
-								$i = $i - 2;
-
-								for($j = 0; $j < $i; $j++)
-									$cell_no = "x".$cell_no;
-
-							?>
-
-							<ul class='nav nav-tabs'>
-									
-								<li class='nav-item'><a id='confirm_phone_head' class='nav-link active' href='#tab-1' data-toggle='tab'>Confirm Phone Number</a></li>
-								<li class='nav-item'><a id='verify_user_head' class='nav-link disabled' href='#tab-2' data-toggle='tab'>Verify User</a></li>
-
-							</ul>
+						<div id='confirm_phone_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
 							<div class='tab-content'>
 
@@ -187,6 +176,54 @@
 									</div>
 
 								</div>
+
+								<div class='tab-pane' id='tab-2'>
+
+									<div class='special-heading m-b-40'>
+
+										<h2 class='h2'>Hello <?php echo $first_name." ".$last_name; ?></h2>
+
+									</div>
+
+									<div class='container' style='color: black;'>
+										
+										<form method='POST' action='testing.php' class='ajax'>
+
+											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
+
+												<center>Please enter the OTP sent to your mobile number (<?php echo $cell_no; ?>).</center>
+
+											</div>
+
+											<br>
+
+											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
+
+												<input class='form-control' type='number' name='otp' id='otp' placeholder='Enter OTP'>
+
+											</div>
+
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+												<hr><br>
+
+												<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+
+											</div>
+
+										</form>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div id='verify_user_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+							<div class='tab-content'>
 
 								<div class='tab-pane' id='tab-2'>
 
