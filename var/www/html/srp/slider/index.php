@@ -147,26 +147,30 @@
 									<div class='container' style='color: black;'>
 
 										<script type='text/javascript'>
-   											
-   											function validateNumber(var id){
-      
-      											var cell_number = ('#confirm_cell_no').val();
 
-      											$.ajax({
+											$(document).ready(function(){
 
-      												url: 'testing.php',
-      												method: "POST",
-      												data: {cell_no:cell_number},
-      												dataType: "number",
-      												
-      												success:function(data)
-      												{
-      													alert(data);
-      												}
+												$('#validate_cell_number').click(function(){
 
-      											});
-	
-											}
+													var cell_number = $(this).val();
+
+													$.ajax({
+
+	      												url: 'testing.php',
+	      												method: "POST",
+	      												data: {cell_no:cell_number},
+	      												dataType: "number",
+	      												
+	      												success:function(data)
+	      												{
+	      													alert(data);
+	      												}
+
+	      											});
+
+												});
+
+											});
 
 										</script>
 
@@ -192,7 +196,7 @@
 
 												<hr><br>
 
-												<button onclick='validateNumber(this)' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+												<button id='validate_cell_number' name='validate_cell_number' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 											</div>
 
