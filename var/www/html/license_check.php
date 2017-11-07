@@ -27,7 +27,7 @@
 		$car_color = $row['car_color'];
 		$car_year = $row['car_year'];
 		
-		$query1 = "SELECT * FROM home_tags WHERE detail='".$car_detail_id."'";
+		$query1 = "SELECT * FROM home_tags WHERE detail='".$car_detail_id."' and status='Active'";
 		
 		$result1 = pg_query($query1);
 		$num_row1 = pg_num_rows($result1);
