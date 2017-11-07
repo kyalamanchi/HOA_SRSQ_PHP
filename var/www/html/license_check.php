@@ -53,10 +53,11 @@
 			$cell = $row2['cell'];		
 			
 			
-		echo '<html><head></head><body>'; 
-		echo 'This car belongs to $first $last. Email at $email'; 
-		echo 'Car Details are $car_make $car_model $car_year $car_color';
-		echo '</body></html>';
+		echo "<html><head></head><body>"; 
+		echo "This car belongs to ".$first." ".$last.", Email at ".$email; 
+		echo "<br>";
+		echo "Car Details are $car_make $car_model $car_year $car_color";
+		echo "</body></html>";
 			
 		}
 		
