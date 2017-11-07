@@ -122,7 +122,7 @@
 						
 					<div class='container'>
 							
-						<div id='user_details_div' class='table-responsive col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-2 offset-lg-2 offset-md-2 offset-sm-1' style='color: black;'>
+						<div id='user_details_div' class='table-responsive col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-2 offset-lg-2 offset-md-2 offset-sm-1'>
 										
 							<form method='POST' action='updateHOAID.php' class='ajax1'>
 
@@ -145,7 +145,7 @@
 
 										<br>
 
-										<h2><?php echo $user_firstname; ?></h2>
+										<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
 
 									</div>
 
@@ -155,7 +155,7 @@
 
 										<br>
 
-										<h2><?php echo $user_lastname; ?></h2>
+										<h3 class='h3' style='color: black;'><?php echo $user_lastname; ?></h3>
 
 									</div>
 
@@ -171,7 +171,7 @@
 
 										<br>
 
-										<h2><?php echo $user_email; ?></h2>
+										<h3 class='h3' style='color: black;'><?php echo $user_email; ?></h3>
 
 									</div>
 
@@ -181,7 +181,7 @@
 
 										<br>
 
-										<h2><?php echo $user_cell_no; ?></h2>
+										<h3 class='h3' style='color: black;'><?php echo $user_cell_no; ?></h3>
 
 									</div>
 
