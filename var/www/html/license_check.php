@@ -16,13 +16,12 @@
 	{
 		echo '<script type="text/javascript">'; 
 		echo 'alert("License Plate doesnot exist.");'; 
-		echo 'window.location.href = "https://hoaboardtime.com/";';
 		echo '</script>';
 	}
 	else
 	{
 		$row =pg_fetch_assoc($result);
-		$car_detail_id = $row['id'];
+		$car_detail_id = $row['car_detail_id'];
 		$car_make = $row['car_make'];
 		$car_model = $row['car_model'];
 		$car_color = $row['car_color'];
@@ -36,7 +35,6 @@
 		if($num_row1 == 0){
 			echo '<script type="text/javascript">'; 
 		echo 'alert("Associated Hoa Id not found");'; 
-		echo 'window.location.href = "https://hoaboardtime.com/";';
 		echo '</script>';
 		}
 		else{
