@@ -122,7 +122,7 @@
 						
 					<div class='container'>
 							
-						<div id='user_details_div' class='table-responsive col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-2 offset-lg-2 offset-md-2 offset-sm-1'>
+						<div id='user_details_div' class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 										
 							<form method='POST' action='updateHOAID.php' class='ajax1'>
 
