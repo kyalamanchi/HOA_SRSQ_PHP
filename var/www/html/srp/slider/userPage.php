@@ -226,13 +226,13 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<h2>Is this information correct?</h2>
+									<h2 class='h2'>Is this information correct?</h2>
 
 								</div>
 
 							</div>
 
-							<br><br>
+							<br>
 
 							<div class='row'>
 								
@@ -257,6 +257,8 @@
 								</div>
 
 							</div>
+
+							<br>
 
 							<div class='row'>
 
