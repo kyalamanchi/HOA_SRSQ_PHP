@@ -137,7 +137,7 @@
 
 							<script type="text/javascript">
 								
-								$('#confirm_phone').on('submit', function(){
+								$('form.ajax').on('submit', function(){
 	
 									var obj = $(this),
 									url = obj.attr('action'),
@@ -199,7 +199,7 @@
 
 									<div class='container' style='color: black;'>
 										
-										<form method='POST' action='testing.php' id='confirm_phone'>
+										<form method='POST' action='testing.php' class='ajax'>
 
 											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
 
