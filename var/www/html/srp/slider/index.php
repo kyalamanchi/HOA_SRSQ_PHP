@@ -135,30 +135,6 @@
 
 							?>
 
-							<script type="text/javascript">
-								
-								$('form.ajax').on('submit', function(){
-
-									var original_number = <?php echo $ocell_no; ?>
-									var number = ('#confirm_cell_no').val();
-
-									if(number == '')
-										alert("Please enter your number.");
-									else if(original_number == number)
-									{
-
-										alert("Correct Number");
-
-									}
-									else
-										alert("Incorrect Phone Number");
-
-									return false;
-									
-								});
-
-							</script>
-
 							<ul class='nav nav-tabs'>
 									
 								<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Confirm Phone Number</a></li>
@@ -235,6 +211,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
+		<script src='assets/js/main.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Color Switcher (Remove these lines)-->
