@@ -481,15 +481,71 @@
 
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-										<label><strong>Email</strong></label><br>
-										<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
+										<label><strong>State</strong></label>
+
+										<br>
+
+										<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+
+											<option value='' selected disabled>Select Zip</option>
+
+											<?php
+
+												$result = pg_query("SELECT * FROM zip");
+
+												while($row = pg_fetch_assoc($result))
+												{
+
+													$zid = $row['zip_id'];
+													$zcode = $row['zip_code'];
+
+													echo "<option value='$zid'";
+
+													if($zcode == $mailing_zip)
+														echo " selected";
+
+													echo ">$zcode</option>";
+
+												}
+
+											?>
+											
+										</select>
 
 									</div>
 
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-										<label><strong>Phone</strong></label><br>
-										<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+										<label><strong>City</strong></label>
+
+										<br>
+
+										<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+
+											<option value='' selected disabled>Select Zip</option>
+
+											<?php
+
+												$result = pg_query("SELECT * FROM zip");
+
+												while($row = pg_fetch_assoc($result))
+												{
+
+													$zid = $row['zip_id'];
+													$zcode = $row['zip_code'];
+
+													echo "<option value='$zid'";
+
+													if($zcode == $mailing_zip)
+														echo " selected";
+
+													echo ">$zcode</option>";
+
+												}
+
+											?>
+											
+										</select>
 
 									</div>
 
