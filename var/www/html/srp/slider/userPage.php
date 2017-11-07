@@ -272,13 +272,13 @@
 
 								<div class='row'>
 
-									<label>Yes, this information is correct. </label> <input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'>
+									Yes, this information is correct. <input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'>
 
 								</div>
 
 								<div class='row'>
 
-									<label>No, this information is incorrect. </label> <input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'>
+									No, this information is incorrect. <input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'>
 
 								</div>
 
