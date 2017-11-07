@@ -47,32 +47,12 @@
 
 			<div class='wrapper'>
 
-				<!-- Page Header -->
-				<section class='module-page-title p-t-0'>
-					
-					<div class='container'>
-							
-						<div class='row-page-title'>
-							
-							<div class='page-title-captions'>
-								
-								<br>
-								<h1 class='h5'>Select Community &amp; User</h1>
-							
-							</div>
-						
-						</div>
-						
-					</div>
-				
-				</section>
-
 				<!-- Content -->
-				<section class='module'>
+				<section class='module '>
 						
 					<div class='container'>
 							
-						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-3 offset-xs-3'>
+						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-3 offset-xs-3 module-gray'>
 
 							<form class='form' method='POST' action='index.php'>
 							
