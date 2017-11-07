@@ -187,11 +187,11 @@
 
 								</div>
 
-								<div class='row'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
 									<hr>
 
-									<button class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 
