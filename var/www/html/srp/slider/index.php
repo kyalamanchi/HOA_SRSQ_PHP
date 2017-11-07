@@ -156,8 +156,6 @@
 										?>
 
 										<script type='text/javascript'>
-
-
    											
    											function sendOTP(){
       
@@ -166,6 +164,8 @@
       											if (model == '') {model = "Please enter your phone number."}
 
       											$.ajax({
+   												
+   													url: "index.php",
    												
    													success: function(data){
      												
