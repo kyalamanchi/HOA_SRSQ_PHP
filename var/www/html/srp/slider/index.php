@@ -132,17 +132,13 @@
 							
 						<div id='confirm_phone_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-							<div class='tab-content'>
+							<div class='special-heading m-b-40'>
 
-								<div class='tab-pane in active' id='tab-1'>
+								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
 
-									<div class='special-heading m-b-40'>
+							</div>
 
-										<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
-
-									</div>
-
-									<div class='container' style='color: black;'>
+							<div class='container' style='color: black;'>
 										
 										<form method='POST' action='testing.php' class='ajax'>
 
@@ -175,25 +171,17 @@
 
 									</div>
 
-								</div>
-
-							</div>
-
 						</div>
 
 						<div id='verify_user_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-							<div class='tab-content'>
+							<div class='special-heading m-b-40'>
 
-								<div class='tab-pane in active' id='tab-2'>
+								<h2 class='h2'>Hello <?php echo $first_name." ".$last_name; ?></h2>
 
-									<div class='special-heading m-b-40'>
+							</div>
 
-										<h2 class='h2'>Hello <?php echo $first_name." ".$last_name; ?></h2>
-
-									</div>
-
-									<div class='container' style='color: black;'>
+							<div class='container' style='color: black;'>
 										
 										<form method='POST' action='testing.php' class='ajax'>
 
@@ -222,10 +210,6 @@
 										</form>
 
 									</div>
-
-								</div>
-
-							</div>
 
 						</div>
 
