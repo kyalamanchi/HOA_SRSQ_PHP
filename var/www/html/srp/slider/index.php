@@ -147,25 +147,7 @@
 									else if(original_number == number)
 									{
 
-										$.ajax({
-
-											url: 'testing.php',
-											type: 'POST',
-											data: {number:number},
-											success: function(response){
-
-												if (response == 'sent') 
-												{
-													alert(response);
-												}
-												else
-												{
-													console.log(response);
-												}
-
-											}
-
-										});
+										alert("Correct Number");
 
 									}
 									else
