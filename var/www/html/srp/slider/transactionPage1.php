@@ -8,6 +8,6 @@
 
 	$_SESSION['hoa_alchemy_username'] = $row['firstname']." ".$row['lastname'];
 
-	echo $_SESSION['hoa_alchemy_username'];
+	echo $_SESSION['hoa_alchemy_hoa_id']." ".$_SESSION['hoa_alchemy_username'];
 
 ?>
