@@ -63,7 +63,6 @@ function hidePleaseWait() {
 }​
 th, td {
         white-space: nowrap;
-        padding-left: 20px !important;
         padding-right: 20px !important;
     }
 </style>
