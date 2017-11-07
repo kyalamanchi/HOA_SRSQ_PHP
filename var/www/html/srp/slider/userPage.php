@@ -222,63 +222,17 @@
 
 							</div>
 
-							<div class='container'>
+							<div class='row'>
 
-								<div class='row'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<h4>Is this information correct?</h4>
-
-								</div>
-
-								<div class='row'>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<label>Firstname <strong style='color: black;'><?php echo $user_firstname; ?></strong></label>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<label>Lastname <strong style='color: black;'><?php echo $user_lastname; ?></strong></label>
-
-									</div>
-
-								</div>
-
-								<div class='row'>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<label>Email <strong style='color: black;'><?php echo $user_email; ?></strong></label>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<label>Cell Number <strong style='color: black;'><?php echo $user_cell_no; ?></strong></label> 
-
-									</div>
-
-								</div>
-
-								<div class='row'>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-										<strong style='color: black;'>Yes</strong>, this information is correct. <input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-										<strong style='color: black;'>No</strong>, this information is incorrect. <input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'>
-
-									</div>
+									<h3>Is this information correct?</h3>
 
 								</div>
 
 							</div>
+
+							<br><br>
 
 							<div class='row'>
 								
@@ -325,6 +279,22 @@
 									<br>
 
 									<h3 class='h3' id='user_cell_no' style='color: black;'><?php echo $user_cell_no; ?></h3>
+
+								</div>
+
+							</div>
+
+							<div class='row'>
+
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+									<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this information is correct.
+
+								</div>
+
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+									<input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, this information is incorrect.
 
 								</div>
 
