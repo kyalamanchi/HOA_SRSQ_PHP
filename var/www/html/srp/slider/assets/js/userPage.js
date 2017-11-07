@@ -4,6 +4,27 @@ $(document).ready(function(){
 	$('#page_title2').hide();
 	$('#page_title3').hide();
 	$('#home_details_div').hide();
+	$('#user_details_continue').hide();
+
+});
+
+$('#user_information_radio_no').change(function() {
+
+	if (document.getElementById('user_information_radio_no').checked) {
+
+		$('#modal_edit_user_details').show();
+
+	}
+
+});
+
+$('#user_information_radio_yes').change(function() {
+
+	if (document.getElementById('user_information_radio_yes').checked) {
+
+		$('#user_details_continue').show();
+
+	}
 
 });
 
