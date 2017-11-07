@@ -41,7 +41,7 @@ function showPleaseWait() {
 }
 $(document).ready(function() {
    var table = $('#example').DataTable( {
-        scrollY:        "800px",
+        scrollY:        "600px",
         scrollX:        true,
         scrollCollapse: true,
         paging:         false,
