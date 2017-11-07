@@ -232,9 +232,15 @@
 
 								<div class='row'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 															
-										<label>Firstname <strong><?php echo $user_firstname; ?></strong></label>
+										<label>Firstname <strong style='color: black;'><?php echo $user_firstname; ?></strong></label>
+
+									</div>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+										<label>Lastname <strong style='color: black;'><?php echo $user_lastname; ?></strong></label>
 
 									</div>
 
@@ -242,9 +248,15 @@
 
 								<div class='row'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 															
-										<label>Lastname <strong><?php echo $user_lastname; ?></strong></label>
+										<label>Email <strong style='color: black;'><?php echo $user_email; ?></strong></label>
+
+									</div>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+										<label>Cell Number <strong style='color: black;'><?php echo $user_cell_no; ?></strong></label> 
 
 									</div>
 
@@ -252,33 +264,17 @@
 
 								<div class='row'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-															
-										<label>Email <strong><?php echo $user_email; ?></strong></label>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+										<strong style='color: black;'>Yes</strong>, this information is correct. <input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'>
 
 									</div>
 
-								</div>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-								<div class='row'>
-
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-															
-										<label>Cell Number <strong><?php echo $user_cell_no; ?></strong></label> 
+										<strong style='color: black;'>No</strong>, this information is incorrect. <input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'>
 
 									</div>
-
-								</div>
-
-								<div class='row'>
-
-									Yes, this information is correct. <input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'>
-
-								</div>
-
-								<div class='row'>
-
-									No, this information is incorrect. <input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'>
 
 								</div>
 
