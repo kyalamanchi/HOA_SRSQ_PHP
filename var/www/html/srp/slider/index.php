@@ -137,8 +137,8 @@
 
 							<ul class='nav nav-tabs'>
 									
-								<li class='nav-item'><a class='nav-link active' href='#tab-1' data-toggle='tab'>Confirm Phone Number</a></li>
-								<li class='nav-item'><a class='nav-link disabled' href='#tab-2' data-toggle='tab'>Verify User</a></li>
+								<li class='nav-item'><a id='confirm_phone_head' class='nav-link active' href='#tab-1' data-toggle='tab'>Confirm Phone Number</a></li>
+								<li class='nav-item'><a id='verify_user_head' class='nav-link disabled' href='#tab-2' data-toggle='tab'>Verify User</a></li>
 
 							</ul>
 

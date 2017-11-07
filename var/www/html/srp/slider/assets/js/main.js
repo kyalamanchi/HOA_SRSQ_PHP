@@ -25,6 +25,11 @@ $('form.ajax').on('submit', function(){
 				alert(response);
 			else
 			{
+
+				$('#confirm_phone_head').hide();
+				$('#tab-1').hide();
+				$('#tab-2').show();
+				$('#verify_user_head').show();
 				return false;
 			}
 		}
