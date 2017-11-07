@@ -187,7 +187,7 @@
 
 								</div>
 
-								<div class='tab-pane in active' id='tab-2'>
+								<div class='tab-pane' id='tab-2'>
 
 									<div class='special-heading m-b-40'>
 
