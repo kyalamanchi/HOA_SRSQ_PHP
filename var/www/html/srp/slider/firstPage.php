@@ -57,6 +57,9 @@
 							<form class='form' method='POST' action='index.php'>
 							
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
+									
+									<br><br><br>
+
 									<input class='form-control' type='number' name='hoa_id' id='hoa_id' placeholder='Enter Your HOA Account Number' required>
 
 								</div>
@@ -66,6 +69,8 @@
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
 									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+
+									<br><br><br>
 
 								</div>
 
