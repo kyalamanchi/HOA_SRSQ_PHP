@@ -446,11 +446,25 @@
 
 							<div class='row'>
 
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+									<label><strong>Mailing Address</strong></label>
+
+									<br>
+
+									<h3 class='h3' style='color: black;'><?php echo $mailing_address.", ".$mailing_city.", ".$mailing_state." ".$mailing_zip; ?></h3>
+
+								</div>
+
+							</div>
+
+							<div class='row'>
+
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
 									<hr class='small'>
 
-									<button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_home_details'><i class='fa fa-edit'></i> Edit</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button id='home_details_back' name='user_details_continue' class='btn btn-success btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_home_details'><i class='fa fa-edit'></i> Edit</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 
