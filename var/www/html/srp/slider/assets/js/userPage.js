@@ -31,8 +31,16 @@ $('form.ajax1').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			alert(response);
-			
+			if(response == "Some error occured. Please try again.")
+				alert(response);
+			else
+			{
+				alert("Updated!");
+
+				$('#user_cell_no').innerHTML = response;
+
+			}
+
 		}
 
 	});

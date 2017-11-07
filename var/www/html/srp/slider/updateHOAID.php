@@ -14,9 +14,8 @@
 	$result = pg_query("UPDATE hoaid SET cell_no=$cell_number WHERE hoa_id=$hoa_id");
 
 	if($result)
-		echo "Updated!";
+		echo $cell_number;
 	else
-		echo "Some error occured.
-Please try again.";
+		echo "Some error occured. Please try again.";
 
 ?>
