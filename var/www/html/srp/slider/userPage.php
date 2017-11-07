@@ -187,11 +187,15 @@
 
 								</div>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+								<div class='row'>
 
-									<hr>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+										<hr class='small'>
+
+										<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+
+									</div>
 
 								</div>
 
