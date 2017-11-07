@@ -146,45 +146,25 @@
 
 									<div class='container' style='color: black;'>
 
-										<?php
-
-											function printfunction($cell_number)
-											{
-												echo $cell_number;
-											}
-
-										?>
-
 										<script type='text/javascript'>
    											
-   											function sendOTP(){
+   											function validateNumber(var id){
       
-      											var model=$('#confirm_cell_no').val();
+      											var cell_number = ('#confirm_cell_no').val();
 
-      											if (model == '') 
-      											{
+      											$.ajax({
 
-      												model = "Please enter your phone number.";
+      												url: 'testing.php',
+      												method: "POST",
+      												data: {cell_no:cell_number},
+      												dataType: "number",
+      												
+      												success:function(data)
+      												{
+      													alert(data);
+      												}
 
-      											}
-      											else
-      											{
-
-	      											$.ajax({
-	   												
-	   													url: "index.php",
-	   												
-	   													success: printfunction(data){
-	     												
-	     													model = data;
-
-	   													}
-
-	 												});
-
-      											}
-
-      											alert(model);
+      											});
 	
 											}
 
@@ -212,7 +192,7 @@
 
 												<hr><br>
 
-												<button onclick='sendOTP(this)' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+												<button onclick='validateNumber(this)' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 											</div>
 
