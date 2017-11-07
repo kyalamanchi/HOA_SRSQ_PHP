@@ -11,7 +11,7 @@ $('form.ajax').on('submit', function(){
 		index = input.attr('name'),
 		value = input.val();
 
-		data[name] = value;
+		data[index] = value;
 
 	});
 
