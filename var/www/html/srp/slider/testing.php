@@ -2,6 +2,6 @@
 
 	$cell_no = $_POST['number'];
 
-	echo 'Number';
+	echo 'sent';
 
 ?>
