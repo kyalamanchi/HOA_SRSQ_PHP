@@ -3,8 +3,10 @@ $(document).ready(function(){
 	$('#page_title1').show();
 	$('#page_title2').hide();
 	$('#page_title3').hide();
+	$('#edit_user_details_div').hide();
 	$('#home_details_div').hide();
 	$('#user_details_continue').hide();
+
 
 });
 
@@ -21,6 +23,8 @@ $('#user_information_radio_yes').change(function() {
 $('#user_information_radio_no').change(function() {
 
 	if (document.getElementById('user_information_radio_no').checked) {
+
+		$('#user_details_div').hide();
 
 		$('#edit_user_details_div').show();
 
