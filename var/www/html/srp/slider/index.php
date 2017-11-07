@@ -134,7 +134,7 @@
 
 							<div class='tab-content'>
 
-								<div class='tab-pane' id='tab-1'>
+								<div class='tab-pane in active' id='tab-1'>
 
 									<div class='special-heading m-b-40'>
 
@@ -185,7 +185,7 @@
 
 							<div class='tab-content'>
 
-								<div class='tab-pane' id='tab-2'>
+								<div class='tab-pane in active' id='tab-2'>
 
 									<div class='special-heading m-b-40'>
 
