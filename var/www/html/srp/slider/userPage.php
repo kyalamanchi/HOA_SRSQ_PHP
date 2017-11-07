@@ -344,7 +344,7 @@
 
 											<div class='container' style='color: black;'>
 
-												<form method='POST' action='updateHOAID.php' class='ajax2'>
+												<form method='POST' action='updateHomeID.php' class='ajax2'>
 																				
 													<div class='row'>
 
