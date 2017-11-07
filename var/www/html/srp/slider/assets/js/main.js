@@ -22,11 +22,13 @@ $('form.ajax').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			alert(response);
+			response = response;
 
 		}
 
 	});
+
+	alert(response);
 
 	return false;
 });

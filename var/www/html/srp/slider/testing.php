@@ -12,7 +12,8 @@
 		if($ocell_no == $cell_no)
 			echo "Correct";
 		else
-			echo "Incorrect Cell Number.<br>Please check the entered number and try again.";
+			echo "Incorrect Cell Number.
+		Please check the entered number and try again.";
 
 	}
 
