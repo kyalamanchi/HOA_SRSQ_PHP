@@ -226,21 +226,15 @@
 
 								<div class='row'>
 
-									<h3>Is this information correct?</h3>
+									<h4>Is this information correct?</h4>
 
 								</div>
 
 								<div class='row'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 															
-										<label><h4>Firstname</h4></label>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<h3><?php echo $user_firstname; ?></h3>
+										<label>Firstname <strong><?php echo $user_firstname; ?></strong></label>
 
 									</div>
 
@@ -248,15 +242,9 @@
 
 								<div class='row'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 															
-										<label><h4>Lastname</h4></label>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<h3><?php echo $user_lastname; ?></h3>
+										<label>Lastname <strong><?php echo $user_lastname; ?></strong></label>
 
 									</div>
 
@@ -264,15 +252,9 @@
 
 								<div class='row'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 															
-										<label><h4>Email</h4></label>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<h3><?php echo $user_email; ?></h3>
+										<label>Email <strong><?php echo $user_email; ?></strong></label>
 
 									</div>
 
@@ -280,15 +262,9 @@
 
 								<div class='row'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 															
-										<label><h4>Cell Number</h4></label> 
-
-									</div>
-														
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-															
-										<h3><?php echo $user_cell_no; ?></h3>
+										<label>Cell Number <strong><?php echo $user_cell_no; ?></strong></label> 
 
 									</div>
 
@@ -296,13 +272,13 @@
 
 								<div class='row'>
 
-									<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <label>Yes, this information is correct</label>
+									<label>Yes, this information is correct. </label> <input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'>
 
 								</div>
 
 								<div class='row'>
 
-									<input type='radio' name='user_information_radio' id='user_information_radio_no' value='yes'> <label>No, this information is incorrect</label>
+									<label>No, this information is incorrect. </label> <input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'>
 
 								</div>
 
