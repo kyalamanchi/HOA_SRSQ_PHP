@@ -291,7 +291,7 @@
 
 									<center>
 
-										<button class='btn btn-info btn-xs' type='submit'>Update</button>
+										<button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
 
 									</center>
 
