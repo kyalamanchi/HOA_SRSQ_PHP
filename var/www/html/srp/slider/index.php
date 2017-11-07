@@ -4,10 +4,22 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
+	if(!isset($_REQUEST['hoa_id']))
+		header('Location: firstPage.php')
+
 	$hoa_id = $_REQUEST['hoa_id'];
-	$community_id = $_REQUEST['community_id'];
-	$community_code = $_REQUEST['community_code'];
-	$community_name = $_REQUEST['community_name'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+
+	$first_name = $row['firstname'];
+	$last_name = $row['lastname'];
+	$cell_no = $row['cell_no'];
+	$community_id = $row['community_id'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
+
+	$community_name = $row['community_name'];
+	$community_code = $row['community_code'];
 
 ?>
 
@@ -95,12 +107,7 @@
 						<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 						
 							<?php
-
-								$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-
-								$first_name = $row['firstname'];
-								$last_name = $row['lastname'];
-								$cell_no = $row['cell_no'];
+							
 								$ocell_no = $cell_no;
 
 								$c = $cell_no % 100;
