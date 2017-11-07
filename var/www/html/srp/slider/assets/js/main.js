@@ -1,4 +1,4 @@
-$(document).load(function(){
+$(document).ready(function(){
 
 	$('#page_title1').show();
 	$('#page_title2').hide();
