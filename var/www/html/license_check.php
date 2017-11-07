@@ -54,7 +54,7 @@
 		echo "<html><head></head><body>"; 
 		echo "This car belongs to $first $last, Email at $email. Hoa Id is $hoa_id"; 
 		echo "<br>";
-		echo "Car Details are $car_color $car_make $car_model $car_year";
+		echo "Car Details are $car_year $car_color $car_make $car_model";
 		echo "</body></html>";
 			
 		}
