@@ -73,7 +73,7 @@ $('form.ajax2').on('submit', function(){
 		type: method,
 		data: data,
 		success: function(response){
-			if(response != 'sent')
+			if(response != 'correct')
 				alert(response);
 			else
 			{
