@@ -15,7 +15,18 @@ $('form.ajax').on('submit', function(){
 
 	});
 
-	console.log(data);
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			alert(response);
+
+		}
+
+	});
 
 	return false;
 });
