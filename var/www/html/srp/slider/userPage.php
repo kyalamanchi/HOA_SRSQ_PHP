@@ -430,21 +430,46 @@
 
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-										<label><strong>First Name</strong></label>
+										<label><strong>Address</strong></label>
 
 										<br>
 
-										<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
+										<input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' value='<?php echo $mailing_address; ?>' required>
 
 									</div>
 
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-										<label><strong>Last Name</strong></label>
+										<label><strong>Zip</strong></label>
 
 										<br>
 
-										<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
+										<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+
+											<option value='' selected disabled>Select Zip</option>
+
+											<?php
+
+												$result = pg_query("SELECT * FROM zip");
+
+												while($row = pg_fetch_assoc($result))
+												{
+
+													$zid = $row['zip_id'];
+													$zcode = $row['zip_code'];
+
+													echo "<option value='$zid'";
+
+													if($zcode == $mailing_zip)
+														echo " selected";
+
+													echo ">$zcode</option>";
+
+												}
+
+											?>
+											
+										</select>
 
 									</div>
 
