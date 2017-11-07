@@ -37,7 +37,7 @@ $('form.ajax1').on('submit', function(){
 			{
 				alert("Updated!");
 
-				$('#user_cell_no').innerHTML = response;
+				$('#user_cell_no').text(response);
 
 			}
 
