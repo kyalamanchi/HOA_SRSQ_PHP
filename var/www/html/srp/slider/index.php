@@ -101,6 +101,7 @@
 								$first_name = $row['firstname'];
 								$last_name = $row['lastname'];
 								$cell_no = $row['cell_no'];
+								$ocell_no = $cell_no;
 
 								$c = $cell_no % 100;
 
@@ -152,13 +153,13 @@
 
 												$('#validate_cell_number').click(function(){
 
-													var cell_number = $(this).val();
+													var cell_number = $('#confirm_cell_no').val();
 
 													$.ajax({
 
 	      												url: 'testing.php',
 	      												method: "POST",
-	      												data: {cell_no:cell_number},
+	      												data: {cell_number:cell_number},
 	      												dataType: "number",
 	      												
 	      												success:function(data)
