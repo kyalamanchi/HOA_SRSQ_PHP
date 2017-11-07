@@ -78,13 +78,8 @@ $('form.ajax2').on('submit', function(){
 			else
 			{
 
-				$('#page_title1').hide();
-				$('#page_title2').show();
-				$('#confirm_phone_div').hide();
-				$('#tab-1').hide();
-				$('#tab-2').show();
-				$('#verify_user_div').show();
-				return false;
+				window.location.href = 'Location: transactionPage1.php';
+
 			}
 		}
 
