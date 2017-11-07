@@ -179,7 +179,7 @@
 
 												<hr><br>
 
-												<button id='validate_cell_number' name='validate_cell_number' class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+												<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 											</div>
 
