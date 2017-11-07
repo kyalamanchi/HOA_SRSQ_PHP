@@ -122,7 +122,7 @@
 						
 					<div class='container'>
 							
-						<div id='user_details_div' class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12' style='color: black;'>
+						<div id='user_details_div' class='table-responsive col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-2 offset-lg-2 offset-md-2 offset-sm-1' style='color: black;'>
 										
 							<form method='POST' action='updateHOAID.php' class='ajax1'>
 
@@ -145,7 +145,7 @@
 
 										<br>
 
-										<input type='text' name='first_name' id='first_name' value='<?php echo $user_firstname; ?>' readonly>
+										<h2><?php echo $user_firstname; ?></h2>
 
 									</div>
 
@@ -155,7 +155,7 @@
 
 										<br>
 
-										<input type='text' name='last_name' id='last_name' value='<?php echo $user_lastname; ?>' readonly>
+										<h2><?php echo $user_lastname; ?></h2>
 
 									</div>
 
@@ -171,17 +171,17 @@
 
 										<br>
 
-										<input type='email' name='email' id='email' value='<?php echo $user_email; ?>' readonly>
+										<h2><?php echo $user_email; ?></h2>
 
 									</div>
 
 									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-										<label><strong>Last Name</strong></label>
+										<label><strong>Cell Number</strong></label>
 
 										<br>
 
-										<input type='number' name='cell_no' id='cell_no' value='<?php echo $user_cell_no; ?>'>
+										<h2><?php echo $user_cell_no; ?></h2>
 
 									</div>
 
@@ -193,7 +193,7 @@
 
 										<hr class='small'>
 
-										<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+										<button class='btn btn-info btn-sm' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button> <button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 									</div>
 
