@@ -153,6 +153,48 @@
 											<div class='container' style='color: black;'>
 
 												<form method='POST' action='updateHOAID.php' class='ajax1'>
+
+													<div class='row'>
+
+														<h3>Is this information correct?</h3>
+
+													</div>
+
+													<div class='row'>
+
+														<label><h4>Firstname</h4></label> <h3><?php echo $user_firstname; ?></h3>
+
+													</div>
+
+													<div class='row'>
+
+														<label><h4>Lastname</h4></label> <h3><?php echo $user_lastname; ?></h3>
+
+													</div>
+
+													<div class='row'>
+
+														<label><h4>Email</h4></label> <h3><?php echo $user_email; ?></h3>
+
+													</div>
+
+													<div class='row'>
+
+														<label><h4>Firstname</h4></label> <h3><?php echo $user_cell_no; ?></h3>
+
+													</div>
+
+													<div class='row'>
+
+														<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> Yes, this information is correct
+
+													</div>
+
+													<div class='row'>
+
+														<input type='radio' name='user_information_radio' id='user_information_radio_no' value='yes'> No, this information is incorrect
+
+													</div>
 																				
 													<div class='row'>
 
