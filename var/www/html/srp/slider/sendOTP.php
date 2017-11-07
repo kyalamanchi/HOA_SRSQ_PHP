@@ -13,6 +13,6 @@
 	}
 	else
 		echo "Incorrect Phone Number.
-	Please verify the number and try again.";
+Please verify the number and try again.";
 
 ?>

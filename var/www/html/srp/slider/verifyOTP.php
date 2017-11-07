@@ -5,10 +5,10 @@
 
 	if($enter_otp == "")
 		echo "OTP cannot be empty.";
-	else if($enter_otp == "0000")
+	else if($enter_otp == "5555")
 		echo"correct";
 	else
 		echo "Incorrect OTP Entered.
-	Please verify the OTP and try again.";
+Please check the OTP and try again.";
 
 ?>
