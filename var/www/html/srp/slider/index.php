@@ -150,9 +150,8 @@
 										<script type="text/javascript">
 											
 											$.('form.ajax').on('submit', function(){
-
+												console.log("Triggered");
 												return false;
-
 											});
 
 										</script>
