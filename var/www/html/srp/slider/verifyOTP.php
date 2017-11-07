@@ -9,6 +9,6 @@
 		echo"correct";
 	else
 		echo "Incorrect OTP Entered.
-	Please verify the OTP and try again.";
+Please check the OTP and try again.";
 
 ?>

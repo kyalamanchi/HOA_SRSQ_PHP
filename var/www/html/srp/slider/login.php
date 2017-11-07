@@ -15,6 +15,7 @@
 	$username .= $row['lastname'];
 	$_SESSION['hoa_alchemy_email'] = $row['email'];
 	$_SESSION['hoa_alchemy_home_id'] = $row['home_id'];
+	$_SESSION['hoa_alchemy_community_id'] = $row['community_id'];
 
 	$_SESSION['hoa_alchemy_username'] = $username;
 
@@ -23,6 +24,10 @@
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE member_id=$member_id"));
 	$_SESSION['hoa_alchemy_user_id'] = $row['id'];
+
+	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
+	$_SESSION['hoa_alchemy_community_name'] = $row['legal_name'];
+	$_SESSION['hoa_alchemy_community_code'] = $row['community_code'];
 
 	header("Location: userPage.php");
 

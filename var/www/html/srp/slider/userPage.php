@@ -12,6 +12,9 @@
 	$home_id = $_SESSION['hoa_alchemy_home_id'];
 	$user_id = $_SESSION['hoa_alchemy_user_id'];
 	$username = $_SESSION['hoa_alchemy_username'];
+	$community_id = $_SESSION['hoa_alchemy_community_id']
+	$community_code = $_SESSION['hoa_alchemy_community_code'];
+	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
 ?>
 
@@ -77,7 +80,7 @@
 
 									<li><a><span>Hello <?php echo $username; ?></span></a></li>
 
-									<li><a href='logout.php'><span><i class='fa fa-home'></i> Log Out</span></a></li>
+									<li><a href='logout.php'><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
 
 								</ul>
 
