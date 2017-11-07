@@ -372,13 +372,13 @@
 
 														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-															<input type='radio' class='edit_living_status' id='edit_living_status' value='t' <?php if($living_status == 't') echo 'checked'; ?> > Living
+															<input type='radio' class='ajaxRadio' name='edit_living_status' id='edit_living_status_t' value='t' <?php if($living_status == 't') echo 'checked'; ?> > Living
 
 														</div>
 
 														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-															<input type='radio' class='edit_living_status' id='edit_living_status' value='f' <?php if($living_status == 'f') echo 'checked'; ?> > Rented
+															<input type='radio' class='ajaxRadio' name='edit_living_status' id='edit_living_status_f' value='f' <?php if($living_status == 'f') echo 'checked'; ?> > Rented
 
 														</div>
 

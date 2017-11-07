@@ -5,23 +5,20 @@ $(document).ready(function(){
 	$('#page_title3').hide();
 	$('#home_details_div').hide();
 
-	var living_status = $('input.edit_living_status').val();
-
-	if(living_status == 'f')
-		$('#mailing_address_div').show();
-	else
-		$('#mailing_address_div').hide();
-
 });
 
-$('input.edit_living_status').on('change', function(){
+$('#home_details_div').ready(function(){
 
-	var living_status = $('input.edit_living_status').val();
+	if (document.getElementById('edit_living_status_f').checked) {
 
-	if(living_status == 'f')
-		$('#mailing_address_div').show();
-	else
+  		$('#mailing_address_div').show();
+
+	}
+	else {
+		
 		$('#mailing_address_div').hide();
+
+	}
 
 });
 
