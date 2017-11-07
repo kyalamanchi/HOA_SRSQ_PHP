@@ -2,7 +2,8 @@ $(document).ready(function(){
 
 	$('#page_title1').show();
 	$('#page_title2').hide();
-	$('#verify_user_div').hide();
+	$('#page_title3').hide();
+	$('#home_details_div').hide();
 
 });
 
@@ -29,19 +30,9 @@ $('form.ajax1').on('submit', function(){
 		type: method,
 		data: data,
 		success: function(response){
-			if(response != 'sent')
-				alert(response);
-			else
-			{
 
-				$('#page_title1').hide();
-				$('#page_title2').show();
-				$('#confirm_phone_div').hide();
-				$('#tab-1').hide();
-				$('#tab-2').show();
-				$('#verify_user_div').show();
-				return false;
-			}
+			alert(response);
+			
 		}
 
 	});

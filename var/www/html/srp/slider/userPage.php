@@ -152,7 +152,7 @@
 
 											<div class='container' style='color: black;'>
 
-												<form method='POST' action='updateHOAID.php'>
+												<form method='POST' action='updateHOAID.php' class='ajax1'>
 																				
 													<div class='row'>
 
