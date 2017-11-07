@@ -1,7 +1,6 @@
 $('form.ajax').on('submit', function(){
 	
-	var result;
-
+	var result = "",
 	var obj = $(this),
 	url = obj.attr('action'),
 	method = obj.attr('method'),
