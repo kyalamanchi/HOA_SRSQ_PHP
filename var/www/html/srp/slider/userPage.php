@@ -286,43 +286,173 @@
 
 						</div>
 
-						<div id='home_details_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+						<div id='home_details_div' class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-							<div class='special-heading m-b-40'>
+							<?php
 
-								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
+								$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+
+								$property_address = $row['address1'];
+								$living_status = $row['living_status'];
+
+								if($living_status == 't')
+								{
+
+									$mailing_address = $property_address;
+									$mailing_city = $row['city_id'];
+									$mailing_state = $row['state_id'];
+									$mailing_zip = $row['zip_id'];
+
+								}
+								else
+								{
+
+									$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+
+									$mailing_address = $row['address1'];
+									$mailing_city = $row['city_id'];
+									$mailing_state = $row['state_id'];
+									$mailing_zip = $row['zip_id'];
+
+								}
+
+								$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
+								$mailing_city = $row['city_name'];
+
+								$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
+								$mailing_state = $row['state_code'];
+
+								$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
+								$mailing_zip = $row['zip_code'];
+
+							?>
+
+							<div class='modal fade' id='modal_edit_home_details'>
+
+								<div class='modal-dialog modal-lg'>
+
+									<div class='modal-content'>
+
+										<div class='modal-header'>
+
+											<h4 class='h4'>Home Details</h4>
+											<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+										</div>
+
+										<div class='modal-body'>
+
+											<div class='container' style='color: black;'>
+
+												<form method='POST' action='updateHOAID.php' class='ajax1'>
+																				
+													<div class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+															<label><strong>Property Address</strong></label>
+
+															<br>
+
+															<input class='form-control' type='text' name='property_address' id='property_address' value='<?php echo $property_address; ?>' readonly>
+
+														</div>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+															<label><strong>Last Name</strong></label>
+
+															<br>
+
+															<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
+
+														</div>
+
+													</div>
+
+													<br>
+
+													<div class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+															<label><strong>Email</strong></label><br>
+															<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
+
+														</div>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+															<label><strong>Phone</strong></label><br>
+															<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+
+														</div>
+
+													</div>
+
+													<br>
+
+													<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+														<center>
+
+															<button class='btn btn-info btn-xs' type='submit'>Update</button>
+
+														</center>
+
+													</div>
+
+												</form>
+
+						                    </div>
+
+										</div>
+
+									</div>
+
+								</div>
 
 							</div>
 
-							<div class='container' style='color: black;'>
-										
-								<form method='POST' action='verifyOTP.php' class='ajax2'>
+							<div class='row'>
+								
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
+										<label><strong>Property Address</strong></label>
 
-										<center>Please enter the OTP sent to your mobile number (<?php echo $cell_no; ?>).</center>
+										<br>
+
+										<h3 class='h3' style='color: black;'><?php echo $property_address; ?></h3>
 
 									</div>
+
+							</div>
+
+							<br><br>
+
+							<div class='row'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+									<label><strong>Living Status</strong></label>
 
 									<br>
 
-									<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
+									<h3 class='h3' style='color: black;'><?php if($living_status == 't') echo "Living"; else echo "Rented"; ?></h3>
 
-										<input class='form-control' type='number' name='enter_otp' id='enter_otp' placeholder='Enter OTP'>
+								</div>
 
-										<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+							</div>
 
-									</div>
+							<div class='row'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-										<hr><br>
+									<hr class='small'>
 
-										<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_home_details'><i class='fa fa-edit'></i> Edit</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
-									</div>
-
-								</form>
+								</div>
 
 							</div>
 
