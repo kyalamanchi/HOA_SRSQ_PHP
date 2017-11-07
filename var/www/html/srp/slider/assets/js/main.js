@@ -1,5 +1,7 @@
 $('form.ajax').on('submit', function(){
 	
+	var result;
+
 	var obj = $(this),
 	url = obj.attr('action'),
 	method = obj.attr('method'),
@@ -22,18 +24,13 @@ $('form.ajax').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			if (response == 'sent') 
-			{
-				console.log(response);
-			}
-			else
-			{
-				alert(response);
-			}
+			result = response;
 
 		}
 
 	});
+
+	alert(result);
 
 	return false;
 	
