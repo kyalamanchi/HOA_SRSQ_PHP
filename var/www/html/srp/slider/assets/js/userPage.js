@@ -90,6 +90,28 @@ $('#home_details_back').click(function(){
 
 });
 
+$('#home_information_radio_yes').change(function() {
+
+	if (document.getElementById('user_information_radio_yes').checked) {
+
+		$('#home_details_continue').show();
+
+	}
+
+});
+
+$('#home_information_radio_no').change(function() {
+
+	if (document.getElementById('home_information_radio_no').checked) {
+
+		$('#home_details_continue').hide();
+		$('#home_details_div').hide();
+		$('#edit_home_details_div').show();
+
+	}
+
+});
+
 
 
 

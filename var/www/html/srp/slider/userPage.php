@@ -414,6 +414,78 @@
 
 						</div>
 
+						<div id='edit_home_details_div' class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+								<h3>Update Home Details</h3>
+
+							</div>
+
+							<br><br>
+
+							<form method='POST' action='updateHOAID.php' class='ajax1'>
+																				
+								<div class='row'>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+										<label><strong>First Name</strong></label>
+
+										<br>
+
+										<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
+
+									</div>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+										<label><strong>Last Name</strong></label>
+
+										<br>
+
+										<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
+
+									</div>
+
+								</div>
+
+								<br>
+
+								<div class='row'>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+										<label><strong>Email</strong></label><br>
+										<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
+
+									</div>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+										<label><strong>Phone</strong></label><br>
+										<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+
+									</div>
+
+								</div>
+
+								<br>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<center>
+
+										<button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
+
+									</center>
+
+								</div>
+
+							</form>
+
+						</div>
+
 					</div>
 
 				</section>
