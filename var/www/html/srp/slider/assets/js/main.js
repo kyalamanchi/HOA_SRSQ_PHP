@@ -1,3 +1,10 @@
+$(document).load(function(){
+
+	$('#page_title1').show();
+	$('#page_title2').hide();
+
+});
+
 $('form.ajax').on('submit', function(){
 	
 	var obj = $(this),
@@ -26,6 +33,8 @@ $('form.ajax').on('submit', function(){
 			else
 			{
 
+				$('#page_title1').hide();
+				$('#page_title2').show();
 				$('#confirm_phone_head').hide();
 				$('#tab-1').hide();
 				$('#tab-2').show();
