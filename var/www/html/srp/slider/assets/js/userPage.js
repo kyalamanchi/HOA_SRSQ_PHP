@@ -60,7 +60,7 @@ $('form.ajax1').on('submit', function(){
 				alert(response);
 			else
 			{
-				alert("Updated!");
+				alert("Saved!");
 
 				$('#user_cell_no').text(response);
 				$('#user_information_radio_no').prop('checked', false);
@@ -76,6 +76,26 @@ $('form.ajax1').on('submit', function(){
 	return false;
 	
 });
+
+$('#home_details_back').click(function(){
+
+	$('#page_title1').show();
+	$('#page_title2').hide();
+	$('#page_title3').hide();
+	$('#home_details_div').hide();
+	$('#edit_user_details_div').hide();
+	$('#user_information_radio_yes').prop('checked', false);
+	$('#user_details_div').show();
+
+});
+
+
+
+
+
+
+
+
 
 
 
@@ -109,16 +129,6 @@ $('#user_details_continue').click(function(){
 	$('#page_title3').hide();
 	$('#home_details_div').show();
 	$('#user_details_div').hide();
-
-});
-
-$('#home_details_back').click(function(){
-
-	$('#page_title1').show();
-	$('#page_title2').hide();
-	$('#page_title3').hide();
-	$('#home_details_div').hide();
-	$('#user_details_div').show();
 
 });
 
