@@ -6,6 +6,7 @@ $(document).ready(function(){
 	$('#edit_user_details_div').hide();
 	$('#home_details_div').hide();
 	$('#user_details_continue').hide();
+	$('#edit_home_details_div').hide();
 
 
 });
