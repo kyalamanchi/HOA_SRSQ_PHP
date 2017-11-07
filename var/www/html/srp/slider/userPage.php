@@ -464,7 +464,7 @@
 
 									<hr class='small'>
 
-									<button id='home_details_back' name='user_details_continue' class='btn btn-success btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_home_details'><i class='fa fa-edit'></i> Edit</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_home_details'><i class='fa fa-edit'></i> Edit</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 
