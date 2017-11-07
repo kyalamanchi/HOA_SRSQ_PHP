@@ -5,11 +5,7 @@ $(document).ready(function(){
 	$('#page_title3').hide();
 	$('#home_details_div').hide();
 
-});
-
-$(document).ready(function(){
-
-	var living_status = %('#edit_living_status').val();
+	var living_status = $('#edit_living_status').val();
 
 	if(living_status == 'f')
 		$('#mailing_address_div').show();
