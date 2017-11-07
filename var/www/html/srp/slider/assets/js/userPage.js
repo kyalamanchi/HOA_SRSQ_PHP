@@ -8,6 +8,16 @@ $(document).ready(function(){
 
 });
 
+$('#user_information_radio_yes').change(function() {
+
+	if (document.getElementById('user_information_radio_yes').checked) {
+
+		$('#user_details_continue').show();
+
+	}
+
+});
+
 $('#user_information_radio_no').change(function() {
 
 	if (document.getElementById('user_information_radio_no').checked) {
@@ -18,15 +28,15 @@ $('#user_information_radio_no').change(function() {
 
 });
 
-$('#user_information_radio_yes').change(function() {
 
-	if (document.getElementById('user_information_radio_yes').checked) {
 
-		$('#user_details_continue').show();
 
-	}
 
-});
+
+
+
+
+
 
 $('#home_details_div').ready(function(){
 

@@ -231,16 +231,13 @@
 
 						<div id='edit_user_details_div' class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-							<?php
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-								$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+								<h3>Update User Details</h3>
 
-								$user_firstname = $row['firstname'];
-								$user_lastname = $row['lastname'];
-								$user_email = $row['email'];
-								$user_cell_no = $row['cell_no'];
+							</div>
 
-							?>
+							<br><br>
 
 							<form method='POST' action='updateHOAID.php' class='ajax1'>
 																				
