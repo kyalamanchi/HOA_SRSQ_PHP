@@ -88,111 +88,21 @@
 					<div class='container'>
 							
 						<div class='col-xl-6 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-3 offset-lg-2 offset-md-1'>
-						
-							<ul class='nav nav-tabs'>
 
-								<?php
+							<form class='form' method='POST' action='index.php'>
+							
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
+									<input class='form-control' type='number' name='hoa_id' id='hoa_id' placeholder='Enter Your HOA Account Number' required>
 
-									$result = pg_query("SELECT * FROM community_info ORDER BY community_id");
-									$i = 0;
-									$community_id = array();
-									$community_name = array();
-									$community_code = array();
+								</div>
 
-									while($row = pg_fetch_assoc($result))
-									{
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-										$community_id[$i] = $row['community_id'];
-										$community_name[$i] = $row['legal_name'];
-										$community_code[$i] = $row['community_code'];
+									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
-										if($i == 0)
-											echo "<li class='nav-item'><a class='nav-link active' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
-										else
-											echo "<li class='nav-item'><a class='nav-link' href='#tab-$i' data-toggle='tab'>$community_code[$i]</a></li>";
+								</div>
 
-										$i++;
-
-									}
-
-									$total_communities = $i;
-
-								?>
-
-							</ul>
-
-							<div class='tab-content'>
-
-								<?php
-
-									for($i = 0; $i < $total_communities; $i++) 
-									{
-
-										echo "
-
-										<div class='tab-pane";
-
-										if($i == 0)
-											echo " in active";
-
-										echo "' id='tab-$i'>
-										
-											<div class='special-heading m-b-40'>
-											
-												<h4>$community_name[$i]</h4>
-										
-											</div>
-										
-											<div class='container'>
-
-												<br><br><br>
-
-												<form method='POST' action='testing2.php'>
-
-													<select class='form-control' name='hoa_id' id='hoa_id' required>
-
-														<option value='' selected disabled>Select HOA ID</option>
-
-														";
-
-														$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id[$i] ORDER BY hoa_id");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$hoa_id = $row['hoa_id'];
-
-															echo "<option value='$hoa_id'>$hoa_id</option>";
-
-														}
-
-														echo "
-
-													</select>
-
-													<input type='hidden' name='community_id' id='community_id' value='$community_id[$i]'>
-													<input type='hidden' name='community_code' id='community_code' value='$community_code[$i]'>
-													<input type='hidden' name='community_name' id='community_name' value='$community_name[$i]'>
-
-													<br><br>
-
-													<p class='text-right'><button class='btn btn-success btn-sm' type='submit'>Continue</button></p>
-
-												</form>
-
-												<br><br><br>
-
-											</div>
-
-										</div>
-
-										";
-
-									}
-
-								?>
-
-							</div>
+							</form>
 
 						</div>
 
