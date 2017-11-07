@@ -151,7 +151,7 @@
 								
 								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-									<label><strong>First Name</strong></label>
+									<label><strong><u>First Name</u></strong></label>
 
 									<br>
 
@@ -161,7 +161,7 @@
 
 								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-									<label><strong>Last Name</strong></label>
+									<label><strong><u>Last Name</u></strong></label>
 
 									<br>
 
@@ -177,7 +177,7 @@
 
 								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-									<label><strong>Email</strong></label>
+									<label><strong><u>Email</u></strong></label>
 
 									<br>
 
@@ -187,7 +187,7 @@
 
 								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-									<label><strong>Cell Number</strong></label>
+									<label><strong><u>Cell Number</u></strong></label>
 
 									<br>
 
@@ -346,7 +346,7 @@
 								
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-										<h2>Are you living in <h1><?php echo $property_address; ?></h1>?</h2>
+									<h2 class='h2'>Are you still living in <u><?php echo $property_address; ?></u>?</h2>
 
 								</div>
 
@@ -355,6 +355,22 @@
 							<br>
 
 							<div class='row'>
+
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+									<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in <?php echo $property_address; ?>.
+
+								</div>
+
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+									<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in <?php echo $property_address; ?>.
+
+								</div>
+
+							</div>
+
+							<!--div class='row'>
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
@@ -382,7 +398,7 @@
 
 								</div>
 
-							</div>
+							</div-->
 
 							<div class='row'>
 
