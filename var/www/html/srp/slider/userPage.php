@@ -137,7 +137,7 @@
 
 								?>
 
-								<div class='modal fade' id='modal_edit_hoaid'>
+								<div class='modal fade' id='modal_edit_user_details'>
 
 									<div class='modal-dialog modal-lg'>
 
@@ -280,7 +280,7 @@
 
 										<hr class='small'>
 
-										<button class='btn btn-info btn-sm' data-toggle='modal' data-target='#modal_edit_mailing_address'>Edit</button> <button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+										<button class='btn btn-info btn-sm' data-toggle='modal' data-target='#modal_edit_user_details'>Edit</button> <button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 									</div>
 
