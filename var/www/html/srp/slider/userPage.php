@@ -139,7 +139,7 @@
 
 								<div class='row'>
 								
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
 										<label><strong>First Name</strong></label>
 
@@ -149,7 +149,7 @@
 
 									</div>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
 										<label><strong>Last Name</strong></label>
 
@@ -165,7 +165,7 @@
 
 								<div class='row'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
 										<label><strong>Email</strong></label>
 
@@ -175,7 +175,7 @@
 
 									</div>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
 										<label><strong>Cell Number</strong></label>
 
