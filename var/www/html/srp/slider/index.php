@@ -18,7 +18,7 @@
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
 
-	$community_name = $row['community_name'];
+	$community_name = $row['legal_name'];
 	$community_code = $row['community_code'];
 
 ?>
@@ -63,12 +63,12 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<header class='header header-right undefined'>
+			<header class='header'>
 	
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
-					<div class='inner-header'>
+					<div class='inner-header text-center'>
 
 						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
 
