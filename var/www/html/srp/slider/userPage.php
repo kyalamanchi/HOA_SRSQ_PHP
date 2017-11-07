@@ -191,7 +191,7 @@
 
 									<hr>
 
-									<a class='btn btn-info btn-sm'>Edit</a>
+									<button class='btn btn-info btn-sm' data-toggle='modal' data-target='#modal_edit_hoaid'><i class='fa fa-edit'></i> Edit</button>
 									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
