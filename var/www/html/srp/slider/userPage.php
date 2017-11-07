@@ -153,48 +153,6 @@
 											<div class='container' style='color: black;'>
 
 												<form method='POST' action='updateHOAID.php' class='ajax1'>
-
-													<div class='row'>
-
-														<h3>Is this information correct?</h3>
-
-													</div>
-
-													<div class='row'>
-
-														<label><h4>Firstname</h4></label> <h3><?php echo $user_firstname; ?></h3>
-
-													</div>
-
-													<div class='row'>
-
-														<label><h4>Lastname</h4></label> <h3><?php echo $user_lastname; ?></h3>
-
-													</div>
-
-													<div class='row'>
-
-														<label><h4>Email</h4></label> <h3><?php echo $user_email; ?></h3>
-
-													</div>
-
-													<div class='row'>
-
-														<label><h4>Firstname</h4></label> <h3><?php echo $user_cell_no; ?></h3>
-
-													</div>
-
-													<div class='row'>
-
-														<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> Yes, this information is correct
-
-													</div>
-
-													<div class='row'>
-
-														<input type='radio' name='user_information_radio' id='user_information_radio_no' value='yes'> No, this information is incorrect
-
-													</div>
 																				
 													<div class='row'>
 
@@ -265,26 +223,108 @@
 							</div>
 
 							<div class='row'>
+
+								<div class='row'>
+
+														<h3>Is this information correct?</h3>
+
+													</div>
+
+													<div class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<label><h4>Firstname</h4></label>
+
+														</div>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<h3><?php echo $user_firstname; ?></h3>
+
+														</div>
+
+													</div>
+
+													<div class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<label><h4>Lastname</h4></label>
+
+														</div>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<h3><?php echo $user_lastname; ?></h3>
+
+														</div>
+
+													</div>
+
+													<div class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<label><h4>Email</h4></label>
+
+														</div>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<h3><?php echo $user_email; ?></h3>
+
+														</div>
+
+													</div>
+
+													<div class='row'>
+
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<label><h4>Cell Number</h4></label> 
+
+														</div>
+														
+														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+															
+															<h3><?php echo $user_cell_no; ?></h3>
+
+														</div>
+
+													</div>
+
+													<div class='row'>
+
+														<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <label>Yes, this information is correct</label>
+
+													</div>
+
+													<div class='row'>
+
+														<input type='radio' name='user_information_radio' id='user_information_radio_no' value='yes'> <label>No, this information is incorrect</label>
+
+													</div>
 								
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-										<label><strong>First Name</strong></label>
+									<label><strong>First Name</strong></label>
 
-										<br>
+									<br>
 
-										<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
+									<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
 
-									</div>
+								</div>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-										<label><strong>Last Name</strong></label>
+									<label><strong>Last Name</strong></label>
 
-										<br>
+									<br>
 
-										<h3 class='h3' style='color: black;'><?php echo $user_lastname; ?></h3>
+									<h3 class='h3' style='color: black;'><?php echo $user_lastname; ?></h3>
 
-									</div>
+								</div>
 
 							</div>
 
