@@ -26,14 +26,14 @@
 		$car_model = $row['car_model'];
 		$car_color = $row['car_color'];
 		$car_year = $row['car_year'];
-		echo "Car detail id $car_detail_id"; 		
+		
 		$query1 = "SELECT * FROM home_tags WHERE detail='".$car_detail_id."'";
-		echo "Home detail $query1"; 		
+		
 		$result1 = pg_query($query1);
 		$num_row1 = pg_num_rows($result1);
 		
 		if($num_row1 == 0){
-			echo '<script type="text/javascript">'; 
+		echo '<script type="text/javascript">'; 
 		echo 'alert("Associated Hoa Id not found");'; 
 		echo '</script>';
 		}
@@ -52,7 +52,7 @@
 			
 			
 		echo "<html><head></head><body>"; 
-		echo "This car belongs to $first $last, Email at $email"; 
+		echo "This car belongs to $first $last, Email at $email. Hoa Id is $hoa_id"; 
 		echo "<br>";
 		echo "Car Details are $car_color $car_make $car_model $car_year";
 		echo "</body></html>";
