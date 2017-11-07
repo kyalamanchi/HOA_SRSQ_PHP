@@ -151,7 +151,7 @@
 
 											$(document).ready(function(){
 
-												$('#validate_cell_number').click(function(){
+												$('validate_cell_number').click(function(){
 
 													var cell_number = $('#confirm_cell_no').val();
 
