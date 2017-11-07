@@ -5,7 +5,7 @@
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	if(!isset($_REQUEST['hoa_id']))
-		header('Location: firstPage.php')
+		header('Location: firstPage.php');
 
 	$hoa_id = $_REQUEST['hoa_id'];
 
@@ -107,7 +107,7 @@
 						<div class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 						
 							<?php
-							
+
 								$ocell_no = $cell_no;
 
 								$c = $cell_no % 100;
@@ -193,9 +193,6 @@
 					</div>
 
 				</section>
-
-				<!-- Footer-->
-				<?php include 'footer.php'; ?>
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
