@@ -8,7 +8,6 @@ $(document).ready(function(){
 	$('#user_details_continue').hide();
 	$('#edit_home_details_div').hide();
 
-
 });
 
 $('#user_information_radio_yes').change(function() {
@@ -78,6 +77,17 @@ $('form.ajax1').on('submit', function(){
 	
 });
 
+$('#user_details_continue').click(function(){
+
+	$('#page_title1').hide();
+	$('#page_title2').show();
+	$('#page_title3').hide();
+	$('#home_details_div').show();
+	$('#user_details_div').hide();
+	$('#home_details_continue').hide();
+
+});
+
 $('#home_details_back').click(function(){
 
 	$('#page_title1').show();
@@ -143,16 +153,6 @@ $('#home_details_div').ready(function(){
 		$('#mailing_address_div').hide();
 
 	}
-
-});
-
-$('#user_details_continue').click(function(){
-
-	$('#page_title1').hide();
-	$('#page_title2').show();
-	$('#page_title3').hide();
-	$('#home_details_div').show();
-	$('#user_details_div').hide();
 
 });
 
