@@ -25,33 +25,7 @@ $('#user_information_radio_no').change(function() {
 	if (document.getElementById('user_information_radio_no').checked) {
 
 		$('#user_details_div').hide();
-
 		$('#edit_user_details_div').show();
-
-	}
-
-});
-
-
-
-
-
-
-
-
-
-
-
-$('#home_details_div').ready(function(){
-
-	if (document.getElementById('edit_living_status_f').checked) {
-
-  		$('#mailing_address_div').show();
-
-	}
-	else {
-		
-		$('#mailing_address_div').hide();
 
 	}
 
@@ -88,6 +62,8 @@ $('form.ajax1').on('submit', function(){
 				alert("Updated!");
 
 				$('#user_cell_no').text(response);
+				$('#edit_user_details_div').hide();
+				$('#user_details_div').show();
 
 			}
 
@@ -97,6 +73,31 @@ $('form.ajax1').on('submit', function(){
 
 	return false;
 	
+});
+
+
+
+
+
+
+
+
+
+
+
+$('#home_details_div').ready(function(){
+
+	if (document.getElementById('edit_living_status_f').checked) {
+
+  		$('#mailing_address_div').show();
+
+	}
+	else {
+		
+		$('#mailing_address_div').hide();
+
+	}
+
 });
 
 $('#user_details_continue').click(function(){
