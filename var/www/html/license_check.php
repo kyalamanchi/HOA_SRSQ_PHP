@@ -54,9 +54,9 @@
 			
 			
 		echo "<html><head></head><body>"; 
-		echo "This car belongs to ".$first." ".$last.", Email at ".$email; 
+		echo "This car belongs to $first $last, Email at $email"; 
 		echo "<br>";
-		echo "Car Details are $car_make $car_model $car_year $car_color";
+		echo "Car Details are $car_color $car_make $car_model $car_year";
 		echo "</body></html>";
 			
 		}
