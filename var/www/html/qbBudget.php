@@ -6,13 +6,13 @@ date_default_timezone_set('America/Los_Angeles');
     <head>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
     <title>Budget Vs Actuals</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,17 +40,14 @@ function showPleaseWait() {
     $("#pleaseWaitDialog").modal("show");
 }
 $(document).ready(function() {
-   var table =  $('#example').DataTable( {
-        select: true,
-        "scrollX": true,
-        "scrollY":        "500px",
-        "scrollCollapse": true,
+   var table = $('#example').DataTable( {
+        scrollY:        "800px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
         "order": [[ 1, "desc" ]],
-        "paging":         false,
-        fixedColumns:   {
-            leftColumns: 1
-        }
-    });
+        fixedColumns:   true
+    } );
 } 
 
 );
@@ -64,6 +61,11 @@ function hidePleaseWait() {
     .notbold{
     font-weight:normal
 }​
+th, td {
+        white-space: nowrap;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
 </style>
     <body>
 <div class="container"> 
@@ -81,7 +83,7 @@ function hidePleaseWait() {
 <table id="example" class="display" cellspacing="0" width="100%" style="font-size: 14px;">
         <thead>
             <tr>
-                <th rowspan="2" ></th>
+                <th rowspan="2"></th>
                 <th colspan="4">January</th>
                 <th colspan="4">February</th>
                 <th colspan="4">March</th>
@@ -94,9 +96,10 @@ function hidePleaseWait() {
                 <th colspan="4">October</th>
                 <th colspan="4">November</th>
                 <th colspan="4">December</th>
+                <th colspan="4">Total</th>
             </tr>
             <tr>
-                <th style="width: 100px;">ACTUAL</th>
+                <th >ACTUAL</th>
                 <th>BUDGET</th>
                 <th>OVER BUDGET</th>
                 <th>% OF BUDGET</th>
@@ -144,6 +147,11 @@ function hidePleaseWait() {
                 <th>BUDGET</th>
                 <th>OVER BUDGET</th>
                 <th>% OF BUDGET</th>
+                <th>ACTUAL</th>
+                <th>BUDGET</th>
+                <th>OVER BUDGET</th>
+                <th>% OF BUDGET</th>
+
             </tr>
         </thead>
         <tbody>
@@ -170,6 +178,9 @@ function hidePleaseWait() {
    $val = 0;
    $prevVal = 0 ;
    $valString = "";
+   $totalBudget = 0;
+   $totalActuals = 0;
+   $fbName = "";
    foreach ($result->BudgetDetail as $budget) {
       if ( $val == 0  ){
         $prevVal =  $budget->AccountRef->value;
@@ -177,9 +188,14 @@ function hidePleaseWait() {
          $month  = ltrim($month, '0');
          $year = date('Y');
          $bName = $budget->AccountRef->name;
+         $fbName = $bName;
          $actual = $dbData[$budget->AccountRef->value.$month.$year];
          $budget = $budget->Amount;
-         $overBudget = $actual-$budget;
+
+         $totalActuals = $actual;
+         $totalBudget = $budget;
+
+        $overBudget = $actual-$budget;
          if($budget != 0 ){
          $budgetPercentage = ($actual/$budget)*100;
          }
@@ -214,6 +230,8 @@ function hidePleaseWait() {
          $bName = $budget->AccountRef->name;
          $actual = $dbData[$budget->AccountRef->value.$month.$year];
          $budget = $budget->Amount;
+         $totalBudget = $totalBudget + $budget;
+         $totalActuals = $totalActuals + $actual;
          $overBudget = $actual-$budget;
          if($budget != 0 ){
          $budgetPercentage = ($actual/$budget)*100;
@@ -233,7 +251,7 @@ function hidePleaseWait() {
          $valString .= "<td>";
             $valString .= round((float)$budgetPercentage,2) . '%';
          $valString .= "</td>";
-
+         $fbName = $bName;
          }
          else {
          $prevVal = $budget->AccountRef->value;
@@ -243,6 +261,7 @@ function hidePleaseWait() {
          $bName = $budget->AccountRef->name;
          $actual = $dbData[$budget->AccountRef->value.$month.$year];
          $budget = $budget->Amount;
+       
          $overBudget = $actual-$budget;
          if($budget != 0 ){
          $budgetPercentage = ($actual/$budget)*100;
@@ -250,7 +269,22 @@ function hidePleaseWait() {
          else {
             $budgetPercentage = "";
          }
+
+         $valString .= "<td>";
+            $valString .= money_format('%#10n',$totalActuals);
+         $valString .= "</td>";
+         $valString .= "<td>";
+            $valString .= money_format('%#10n',$totalBudget);
+         $valString .= "</td>";
+         $valString .= "<td>";
+            $valString .= money_format('%#10n',$totalActuals-$totalBudget);
+         $valString .= "</td>";
+         $valString .= "<td>";
+            $valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
+         $valString .= "</td>";
          $valString .= "</tr>";
+           $totalBudget = $budget;
+         $totalActuals = $actual;
          $valString .= "<tr>";
          $valString .= "<td>";
          $valString .= $bName;
@@ -272,7 +306,18 @@ function hidePleaseWait() {
          }
             $val = $val + 1;
       }
-
+      $valString .= "<td>";
+            $valString .= money_format('%#10n',$totalActuals);
+         $valString .= "</td>";
+         $valString .= "<td>";
+            $valString .= money_format('%#10n',$totalBudget);
+         $valString .= "</td>";
+         $valString .= "<td>";
+            $valString .= money_format('%#10n',$totalActuals-$totalBudget);
+         $valString .= "</td>";
+         $valString .= "<td>";
+            $valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
+         $valString .= "</td>";
       $valString .= "</tr>";
       print_r($valString);
 
