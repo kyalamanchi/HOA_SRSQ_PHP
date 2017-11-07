@@ -78,7 +78,7 @@ $('form.ajax2').on('submit', function(){
 			else
 			{
 
-				window.location.href = 'transactionPage1.php';
+				window.location.href = 'login.php';
 
 			}
 		}

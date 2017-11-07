@@ -4,49 +4,14 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	if(!isset($_REQUEST['hoa_id']))
+	if(!$_SESSION['hoa_alchemy_hoa_id'])
 		header('Location: logout.php');
 
-	$hoa_id = $_REQUEST['hoa_id'];
-
-	$_SESSION['hoa_alchemy_hoa_id'] = $hoa_id;
-
-	$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-
-	$first_name = $row['firstname'];
-	$last_name = $row['lastname'];
-	$cell_no = $row['cell_no'];
-	$community_id = $row['community_id'];
-
-	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
-
-	$community_name = $row['legal_name'];
-	$community_code = $row['community_code'];
-
-	$ocell_no = $cell_no;
-
-	$c = $cell_no % 100;
-
-	if($c >= 0 && $c <= 9)
-		$c = sprintf('%02d', $c);
-
-	$i = 0;
-
-	while($cell_no > 0)
-	{
-
-		$i++;
-		$cell_no = $cell_no / 10;
-		$cell_no = floor($cell_no);
-
-	}
-
-	$cell_no = $c;
-								
-	$i = $i - 2;
-
-	for($j = 0; $j < $i; $j++)
-		$cell_no = "x".$cell_no;
+	$email = $_SESSION['hoa_alchemy_email'];
+	$hoa_id = $_SESSION['hoa_alchemy_hoa_id'];
+	$home_id = $_SESSION['hoa_alchemy_home_id'];
+	$user_id = $_SESSION['hoa_alchemy_user_id'];
+	$username = $_SESSION['hoa_alchemy_username'];
 
 ?>
 
@@ -237,7 +202,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/index.js'></script>
+		<script src='assets/js/main.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Color Switcher (Remove these lines)-->
