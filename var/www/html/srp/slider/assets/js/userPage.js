@@ -97,6 +97,9 @@ $('#home_details_back').click(function(){
 	$('#edit_user_details_div').hide();
 	$('#user_details_continue').hide();
 	$('#user_information_radio_yes').prop('checked', false);
+	$('#user_information_radio_no').prop('checked', false);
+	$('#home_information_radio_yes').prop('checked', false);
+	$('#home_information_radio_no').prop('checked', false);
 	$('#user_details_div').show();
 
 });
