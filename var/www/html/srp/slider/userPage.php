@@ -342,112 +342,13 @@
 
 							?>
 
-							<div class='modal fade' id='modal_edit_home_details'>
-
-								<div class='modal-dialog modal-lg'>
-
-									<div class='modal-content'>
-
-										<div class='modal-header'>
-
-											<h4 class='h4'>Home Details</h4>
-											<button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
-
-										</div>
-
-										<div class='modal-body'>
-
-											<div class='container' style='color: black;'>
-
-												<form method='POST' action='updateHomeID.php' class='ajax2'>
-																				
-													<div class='row'>
-
-														<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-															<label><strong>Property Address</strong></label>
-
-															<br>
-
-															<input class='form-control' type='text' name='property_address' id='property_address' value='<?php echo $property_address; ?>' readonly>
-
-														</div>
-
-													</div>
-
-													<br>
-
-													<div class='row'>
-
-														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
-
-															<label><strong>Living Status</strong></label>
-
-														</div>
-
-														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
-
-															<input type='radio' class='ajaxRadio' name='edit_living_status' id='edit_living_status_t' value='t' <?php if($living_status == 't') echo 'checked'; ?> > Living
-
-														</div>
-
-														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
-
-															<input type='radio' class='ajaxRadio' name='edit_living_status' id='edit_living_status_f' value='f' <?php if($living_status == 'f') echo 'checked'; ?> > Rented
-
-														</div>
-
-													</div>
-
-													<div id='mailing_address_div' class='row'>
-
-														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-															<label><strong>Maling Address</strong></label>
-
-															<br>
-
-															<input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' value='<?php echo $mailing_address; ?>' required>
-
-														</div>
-
-													</div>
-
-													<br>
-
-													<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-														<center>
-
-															<button class='btn btn-info btn-xs' type='submit'>Update</button>
-
-														</center>
-
-													</div>
-
-												</form>
-
-						                    </div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
 							<div class='row'>
 								
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-										<label><strong>Property Address</strong></label>
+										<h2>Are you living in <h1><?php echo $property_address; ?></h1>?</h2>
 
-										<br>
-
-										<h3 class='h3' style='color: black;'><?php echo $property_address; ?></h3>
-
-									</div>
+								</div>
 
 							</div>
 
@@ -489,7 +390,7 @@
 
 									<hr class='small'>
 
-									<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-info btn-xs' data-toggle='modal' data-target='#modal_edit_home_details'><i class='fa fa-edit'></i> Edit</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+									<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 

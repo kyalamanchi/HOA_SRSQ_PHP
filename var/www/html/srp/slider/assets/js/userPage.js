@@ -84,6 +84,7 @@ $('#home_details_back').click(function(){
 	$('#page_title3').hide();
 	$('#home_details_div').hide();
 	$('#edit_user_details_div').hide();
+	$('#user_details_continue').hide();
 	$('#user_information_radio_yes').prop('checked', false);
 	$('#user_details_div').show();
 
