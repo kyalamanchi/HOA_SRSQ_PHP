@@ -344,11 +344,11 @@
 
 											<div class='container' style='color: black;'>
 
-												<form method='POST' action='updateHOAID.php' class='ajax1'>
+												<form method='POST' action='updateHOAID.php' class='ajax2'>
 																				
 													<div class='row'>
 
-														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+														<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 															<label><strong>Property Address</strong></label>
 
@@ -358,33 +358,27 @@
 
 														</div>
 
-														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-															<label><strong>Last Name</strong></label>
-
-															<br>
-
-															<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
-
-														</div>
-
 													</div>
 
 													<br>
 
 													<div class='row'>
 
-														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-															<label><strong>Email</strong></label><br>
-															<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
+															<label><strong>Living Status</strong></label>
 
 														</div>
 
-														<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-															<label><strong>Phone</strong></label><br>
-															<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+															<input type='radio' name='edit_living_status' id='edit_living_status' value='t' <?php if($living_status == 't') echo 'checked'; ?> > Living
+
+														</div>
+
+														<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+															<input type='radio' name='edit_living_status' id='edit_living_status' value='f' <?php. if($living_status == 'f') echo 'checked'; ?> > Rented
 
 														</div>
 
@@ -428,7 +422,7 @@
 
 							</div>
 
-							<br><br>
+							<br>
 
 							<div class='row'>
 
@@ -443,6 +437,8 @@
 								</div>
 
 							</div>
+
+							<br>
 
 							<div class='row'>
 
