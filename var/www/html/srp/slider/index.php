@@ -147,35 +147,7 @@
 
 									<div class='container' style='color: black;'>
 
-										<script type='text/javascript'>
-
-											$(document).ready(function(){
-
-												$('validate_cell_number').click(function(){
-
-													var cell_number = $('#confirm_cell_no').val();
-
-													$.ajax({
-
-	      												url: 'testing.php',
-	      												method: "POST",
-	      												data: {cell_number:cell_number},
-	      												dataType: "number",
-	      												
-	      												success:function(data)
-	      												{
-	      													alert(data);
-	      												}
-
-	      											});
-
-												});
-
-											});
-
-										</script>
-
-										<form>
+										<form method='POST' action='testing.php'>
 
 											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
 
@@ -234,7 +206,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->

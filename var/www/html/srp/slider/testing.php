@@ -1,10 +1,8 @@
 <?php
 
-	$cell_number = $_POST['cell_number'];
-
-	if($cell_number == "")
-		echo "No Number Found";
+	if(isset($_POST['cell_number']))
+		echo $_POST['cell_number'];
 	else
-		echo "Number";
+		echo "Enter a number";
 
 ?>
