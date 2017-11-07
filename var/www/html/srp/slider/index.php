@@ -56,6 +56,52 @@
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
 
+		<script type="text/javascript">
+			
+			$('form.ajax').on('submit', function(){
+	
+				var obj = $(this),
+				url = obj.attr('action'),
+				method = obj.attr('method'),
+				data = {};
+
+				obj.find('[name]').each(function(index, value){
+
+					var input = $(this),
+					index = input.attr('name'),
+					value = input.val();
+
+					data[index] = value;
+
+				});
+
+				$.ajax({
+
+					url: url,
+					type: method,
+					data: data,
+					success: function(response){
+						if(response != 'sent')
+							alert(response);
+						else
+						{
+
+							$('#confirm_phone_head').hide();
+							$('#tab-1').hide();
+							$('#tab-2').show();
+							$('#verify_user_head').show();
+							return false;
+						}
+					}
+
+				});
+
+				return false;
+				
+			});
+
+		</script>
+
 	</head>
 
 	<body>
@@ -89,7 +135,7 @@
 							
 							<div class='page-title-captions'>
 								
-								<h1 class='h5'>Confirm User Identity</h1>
+								<h1 id='page_title' class='h5'>Confirm User Identity</h1>
 							
 							</div>
 						
@@ -251,7 +297,6 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/main.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Color Switcher (Remove these lines)-->
