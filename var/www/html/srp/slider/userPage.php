@@ -137,43 +137,62 @@
 
 								?>
 
-								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+								<div class='row'>
+								
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-									<label><strong>First Name</strong></label>
+										<label><strong>First Name</strong></label>
 
-									<br>
+										<br>
 
-									<input type='text' name='first_name' id='first_name' value='<?php echo $user_firstname; ?>' readonly>
+										<input type='text' name='first_name' id='first_name' value='<?php echo $user_firstname; ?>' readonly>
 
-								</div>
+									</div>
 
-								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-									<label><strong>Last Name</strong></label>
+										<label><strong>Last Name</strong></label>
 
-									<br>
+										<br>
 
-									<input type='text' name='last_name' id='last_name' value='<?php echo $user_lastname; ?>' readonly>
+										<input type='text' name='last_name' id='last_name' value='<?php echo $user_lastname; ?>' readonly>
 
-								</div>
-
-								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-									<label><strong>Email</strong></label>
-
-									<br>
-
-									<input type='email' name='email' id='email' value='<?php echo $user_email; ?>' readonly>
+									</div>
 
 								</div>
 
-								<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+								<br>
 
-									<label><strong>Last Name</strong></label>
+								<div class='row'>
 
-									<br>
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-									<input type='number' name='cell_no' id='cell_no' value='<?php echo $user_cell_no; ?>'>
+										<label><strong>Email</strong></label>
+
+										<br>
+
+										<input type='email' name='email' id='email' value='<?php echo $user_email; ?>' readonly>
+
+									</div>
+
+									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+										<label><strong>Last Name</strong></label>
+
+										<br>
+
+										<input type='number' name='cell_no' id='cell_no' value='<?php echo $user_cell_no; ?>'>
+
+									</div>
+
+								</div>
+
+								<div class='row'>
+
+									<hr>
+
+									<a class='btn btn-info btn-sm'>Edit</a>
+									<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
 
 								</div>
 
