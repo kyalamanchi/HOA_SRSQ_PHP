@@ -187,6 +187,49 @@
 
 								</div>
 
+								<div class='tab-pane in active' id='tab-2'>
+
+									<div class='special-heading m-b-40'>
+
+										<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
+
+									</div>
+
+									<div class='container' style='color: black;'>
+										
+										<form method='POST' action='testing.php' class='ajax'>
+
+											<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
+
+												<center>Please enter your mobile number.</center>
+
+											</div>
+
+											<br>
+
+											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-2 offset-xs-1'>
+
+												<input class='form-control' type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>'>
+
+												<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+												<input type='hidden' name='ocell_no' id='ocell_no' value='<?php echo $ocell_no; ?>'>
+
+											</div>
+
+											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+												<hr><br>
+
+												<button class='btn btn-success btn-sm'>Continue <i class='fa fa-arrow-right'></i></button>
+
+											</div>
+
+										</form>
+
+									</div>
+
+								</div>
+
 							</div>
 
 						</div>

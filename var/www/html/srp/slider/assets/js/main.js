@@ -21,7 +21,12 @@ $('form.ajax').on('submit', function(){
 		type: method,
 		data: data,
 		success: function(response){
-			alert(response);
+			if(response != 'sent')
+				alert(response);
+			else
+			{
+				return false;
+			}
 		}
 
 	});
