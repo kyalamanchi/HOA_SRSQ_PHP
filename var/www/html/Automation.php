@@ -126,7 +126,7 @@
     <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="card-block">
         <?php
-        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+       $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 1 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
@@ -154,7 +154,6 @@
     <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="card-block">
         <?php 
-        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 2 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
@@ -181,7 +180,6 @@
     <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="card-block">
         <?php 
-        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 3 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
@@ -210,7 +208,6 @@
     <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="card-block">
         <?php 
-        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 4 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
@@ -237,7 +234,7 @@
     <div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="card-block">
         <?php 
-        $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+
         $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 6 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
@@ -247,6 +244,31 @@
         <br>
         <br>
         <button type="button" class="btn btn-outline-primary" id="smsButton" onclick="updateSMSSent();">Update Now</button>
+        <div id="smsResult">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header" role="tab" id="headingSix">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          <h4>Quickbooks</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="card-block">
+        <?php 
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 6 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="qtime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" id="smsButton" onclick="updateQuickBooks();">Update Now</button>
         <div id="smsResult">
         </div>
       </div>
