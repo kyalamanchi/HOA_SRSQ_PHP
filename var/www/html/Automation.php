@@ -86,7 +86,7 @@
   }
   function updateSMSSent(){
 
-    document.getElementById("emailResult").innerHTML = "";
+    document.getElementById("smsResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=5";
         var source = new EventSource(url);
         source.onmessage  = function(e){
@@ -101,7 +101,7 @@
 
   function updateQuickBooks(){
 
-    document.getElementById("emailResult").innerHTML = "";
+    document.getElementById("qResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=6";
         var source = new EventSource(url);
         source.onmessage  = function(e){
@@ -110,7 +110,7 @@
               document.getElementById("qtime").innerHTML = "Last ran on : " + event.lastEventId;
               document.getElementById("qResult").innerHTML = event.data + "<br>";
             }
-            document.getElementById("").innerHTML = event.data + "<br>";
+            document.getElementById("qResult").innerHTML = event.data + "<br>";
         }
   }
 </script>
