@@ -92,16 +92,7 @@ $('#user_details_continue').click(function(){
 
 $('#home_details_back').click(function(){
 
-	////$('#page_title1').show();
-	////$('#page_title2').hide();
-	////$('#page_title3').hide();
 	$('#home_details_div').hide();
-	$('#edit_user_details_div').hide();
-	$('#user_details_continue').hide();
-	$('#user_information_radio_yes').prop('checked', false);
-	$('#user_information_radio_no').prop('checked', false);
-	$('#home_information_radio_yes').prop('checked', false);
-	$('#home_information_radio_no').prop('checked', false);
 	$('#user_details_div').show();
 
 });
@@ -130,9 +121,6 @@ $('#home_information_radio_no').change(function() {
 
 $('#home_details_continue').click(function(){
 
-	//$('#page_title1').hide();
-	//$('#page_title2').show();
-	//$('#page_title3').hide();
 	$('#email_div').show();
 	$('#home_details_div').hide();
 	$('#email_continue').hide();
@@ -141,14 +129,8 @@ $('#home_details_continue').click(function(){
 
 $('#email_back').click(function(){
 
-	////$('#page_title1').show();
-	////$('#page_title2').hide();
-	////$('#page_title3').hide();
 	$('#home_details_div').show();
 	$('#email_div').hide();
-	$('#home_details_continue').hide();
-	$('#home_information_radio_yes').prop('checked', false);
-	$('#home_information_radio_no').prop('checked', false);
 
 });
 
