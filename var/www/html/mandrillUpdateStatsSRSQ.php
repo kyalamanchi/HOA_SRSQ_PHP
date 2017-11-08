@@ -18,7 +18,7 @@ $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
 $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
 	$postString = '{
     "key": "'.$api_key.'",
-    "query": "stoneridgeplace.org",
+    "query": "stoneridgesquare.org",
     "date_from": "'.date('Y-m-d', strtotime('-90 days')).'"
 }';
 
@@ -44,12 +44,6 @@ foreach ($result as $result1) {
 		}
 	}
 }
-
-
-
-
-
-
 
 
 $query = "SELECT DISTINCT TO_EMAIL FROM COMMUNITY_EMAILS_SENT WHERE HOA_ID IS NULL OR PERSON_ID IS NULL";
