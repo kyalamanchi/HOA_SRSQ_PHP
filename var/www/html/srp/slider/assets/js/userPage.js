@@ -137,7 +137,7 @@ $('#edit_mailing_state').ready(function(){
 
 });
 
-$('#edit_mailing_state').change(function(){
+$('#edit_mailing_state').on('change', function(){
 
 	var state = $('#edit_mailing_state').val();
 
