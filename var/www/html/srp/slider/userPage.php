@@ -123,122 +123,130 @@
 						
 					<div class='container'>
 
-						<div id='user_details_div' class='row container-fluid'>
+						<div id='user_details_div'>
 
-							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+							<div class='row'>
+							
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-								<ul class='nav nav-wizard'>
-  
-  									<li class='active'><a>User Details</a></li>
+									<ul class='nav nav-wizard'>
+	  
+	  									<li class='active'><a>User Details</a></li>
 
-  									<li><a>Home Details</a></li>
+	  									<li><a>Home Details</a></li>
 
-								</ul>
+									</ul>
+
+								</div>
 
 							</div>
 
 							<br><br>
 
-							<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+							<div class='row'>
 
-								<?php
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+									<?php
 
-									$user_firstname = $row['firstname'];
-									$user_lastname = $row['lastname'];
-									$user_email = $row['email'];
-									$user_cell_no = $row['cell_no'];
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
-								?>
+										$user_firstname = $row['firstname'];
+										$user_lastname = $row['lastname'];
+										$user_email = $row['email'];
+										$user_cell_no = $row['cell_no'];
 
-								<div class='row'>
+									?>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='row'>
 
-										<h2 class='h2'>Is this information correct?</h2>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									</div>
+											<h2 class='h2'>Is this information correct?</h2>
 
-								</div>
-
-								<br>
-
-								<div class='row'>
-									
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-										<label><strong><u>First Name</u></strong></label>
-
-										<br>
-
-										<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
+										</div>
 
 									</div>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+									<br>
 
-										<label><strong><u>Last Name</u></strong></label>
+									<div class='row'>
+										
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-										<br>
+											<label><strong><u>First Name</u></strong></label>
 
-										<h3 class='h3' style='color: black;'><?php echo $user_lastname; ?></h3>
+											<br>
 
-									</div>
+											<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
 
-								</div>
+										</div>
 
-								<br>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-								<div class='row'>
+											<label><strong><u>Last Name</u></strong></label>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+											<br>
 
-										<label><strong><u>Email</u></strong></label>
+											<h3 class='h3' style='color: black;'><?php echo $user_lastname; ?></h3>
 
-										<br>
-
-										<h3 class='h3' style='color: black;'><?php echo $user_email; ?></h3>
-
-									</div>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-										<label><strong><u>Cell Number</u></strong></label>
-
-										<br>
-
-										<h3 class='h3' id='user_cell_no' style='color: black;'><?php echo $user_cell_no; ?></h3>
+										</div>
 
 									</div>
 
-								</div>
+									<br>
 
-								<br><br>
+									<div class='row'>
 
-								<div class='row'>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+											<label><strong><u>Email</u></strong></label>
 
-										<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this information is correct.
+											<br>
+
+											<h3 class='h3' style='color: black;'><?php echo $user_email; ?></h3>
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<label><strong><u>Cell Number</u></strong></label>
+
+											<br>
+
+											<h3 class='h3' id='user_cell_no' style='color: black;'><?php echo $user_cell_no; ?></h3>
+
+										</div>
 
 									</div>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+									<br><br>
 
-										<input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, this information is incorrect.
+									<div class='row'>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this information is correct.
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, this information is incorrect.
+
+										</div>
 
 									</div>
 
-								</div>
+									<div class='row'>
 
-								<div class='row'>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+											<hr class='small'>
 
-										<hr class='small'>
+											<button id='user_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
-										<button id='user_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+										</div>
 
 									</div>
 
@@ -250,89 +258,97 @@
 
 						<div id='edit_user_details_div' class='row container-fluid'>
 
-							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+							<div class='row'>
 
-								<ul class='nav nav-wizard'>
-  
-  									<li class='active'><a>User Details</a></li>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-  									<li><a>Home Details</a></li>
+									<ul class='nav nav-wizard'>
+	  
+	  									<li class='active'><a>User Details</a></li>
 
-								</ul>
+	  									<li><a>Home Details</a></li>
+
+									</ul>
+
+								</div>
 
 							</div>
 
 							<br><br>
 
-							<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-									<h3>Update User Details</h3>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+										<h3>Update User Details</h3>
+
+									</div>
+
+									<br><br>
+
+									<form method='POST' action='updateHOAID.php' class='ajax1'>
+																						
+										<div class='row'>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>First Name</strong></label>
+
+												<br>
+
+												<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
+
+											</div>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>Last Name</strong></label>
+
+												<br>
+
+												<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>Email</strong></label><br>
+												<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
+
+											</div>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>Phone</strong></label><br>
+												<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+											<center>
+
+												<button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
+
+											</center>
+
+										</div>
+
+									</form>
 
 								</div>
-
-								<br><br>
-
-								<form method='POST' action='updateHOAID.php' class='ajax1'>
-																					
-									<div class='row'>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>First Name</strong></label>
-
-											<br>
-
-											<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>Last Name</strong></label>
-
-											<br>
-
-											<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
-
-										</div>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>Email</strong></label><br>
-											<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>Phone</strong></label><br>
-											<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
-
-										</div>
-
-									</div>
-
-									<br>
-
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-										<center>
-
-											<button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
-
-										</center>
-
-									</div>
-
-								</form>
 
 							</div>
 
@@ -340,126 +356,134 @@
 
 						<div id='home_details_div' class='row container-fluid'>
 
-							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+							<div class='row'>
 
-								<ul class='nav nav-wizard'>
-  
-  									<li><a>User Details</a></li>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-  									<li class='active'><a>Home Details</a></li>
+									<ul class='nav nav-wizard'>
+	  
+	  									<li><a>User Details</a></li>
 
-								</ul>
+	  									<li class='active'><a>Home Details</a></li>
+
+									</ul>
+
+								</div>
 
 							</div>
 
 							<br><br>
 
-							<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+							<div class='row'>
 
-								<?php
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+									<?php
 
-									$property_address = $row['address1'];
-									$living_status = $row['living_status'];
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
-									if($living_status == 't')
-									{
+										$property_address = $row['address1'];
+										$living_status = $row['living_status'];
 
-										$mailing_address = $property_address;
-										$mailing_city = $row['city_id'];
-										$mailing_state = $row['state_id'];
-										$mailing_zip = $row['zip_id'];
+										if($living_status == 't')
+										{
 
-									}
-									else
-									{
+											$mailing_address = $property_address;
+											$mailing_city = $row['city_id'];
+											$mailing_state = $row['state_id'];
+											$mailing_zip = $row['zip_id'];
 
-										$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+										}
+										else
+										{
 
-										$mailing_address = $row['address1'];
-										$mailing_city = $row['city_id'];
-										$mailing_state = $row['state_id'];
-										$mailing_zip = $row['zip_id'];
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
 
-									}
+											$mailing_address = $row['address1'];
+											$mailing_city = $row['city_id'];
+											$mailing_state = $row['state_id'];
+											$mailing_zip = $row['zip_id'];
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
-									$mailing_city = $row['city_name'];
+										}
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
-									$mailing_state = $row['state_code'];
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
+										$mailing_city = $row['city_name'];
 
-									$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
-									$mailing_zip = $row['zip_code'];
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
+										$mailing_state = $row['state_code'];
 
-								?>
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
+										$mailing_zip = $row['zip_code'];
 
-								<div class='row'>
-									
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									?>
 
-										<h2 class='h2'>Are you still living in <u><?php echo $property_address; ?></u>?</h2>
+									<div class='row'>
+										
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									</div>
+											<h2 class='h2'>Are you still living in <u><?php echo $property_address; ?></u>?</h2>
 
-								</div>
-
-								<br>
-
-								<div class='row'>
-
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-										<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in <?php echo $property_address; ?>.
+										</div>
 
 									</div>
 
-									<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+									<br>
 
-										<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in <?php echo $property_address; ?>.
+									<div class='row'>
 
-									</div>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-								</div>
+											<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in <?php echo $property_address; ?>.
 
-								<!--div class='row'>
+										</div>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-										<label><strong>Living Status</strong></label>
+											<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in <?php echo $property_address; ?>.
 
-										<br>
-
-										<h3 class='h3' style='color: black;'><?php if($living_status == 't') echo "Living"; else echo "Rented"; ?></h3>
+										</div>
 
 									</div>
 
-								</div>
+									<!--div class='row'>
 
-								<br>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-								<div class='row'>
+											<label><strong>Living Status</strong></label>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+											<br>
 
-										<label><strong>Mailing Address</strong></label>
+											<h3 class='h3' style='color: black;'><?php if($living_status == 't') echo "Living"; else echo "Rented"; ?></h3>
 
-										<br>
-
-										<h3 class='h3' style='color: black;'><?php echo $mailing_address.", ".$mailing_city.", ".$mailing_state." ".$mailing_zip; ?></h3>
+										</div>
 
 									</div>
 
-								</div-->
+									<br>
 
-								<div class='row'>
+									<div class='row'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-										<hr class='small'>
+											<label><strong>Mailing Address</strong></label>
 
-										<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+											<br>
+
+											<h3 class='h3' style='color: black;'><?php echo $mailing_address.", ".$mailing_city.", ".$mailing_state." ".$mailing_zip; ?></h3>
+
+										</div>
+
+									</div-->
+
+									<div class='row'>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+											<hr class='small'>
+
+											<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+
+										</div>
 
 									</div>
 
@@ -471,170 +495,178 @@
 
 						<div id='edit_home_details_div' class='row container-fluid'>
 
-							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+							<div class='row'>
 
-								<ul class='nav nav-wizard'>
-  
-  									<li><a>User Details</a></li>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-  									<li class='active'><a>Home Details</a></li>
+									<ul class='nav nav-wizard'>
+	  
+	  									<li><a>User Details</a></li>
 
-								</ul>
+	  									<li class='active'><a>Home Details</a></li>
+
+									</ul>
+
+								</div>
 
 							</div>
 
 							<br><br>
 
-							<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-									<h3>Update Home Details</h3>
+									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+										<h3>Update Home Details</h3>
+
+									</div>
+
+									<br><br>
+
+									<form method='POST' action='updateHOAID.php' class='ajax1'>
+																						
+										<div class='row'>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>Address</strong></label>
+
+												<br>
+
+												<input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' value='<?php echo $mailing_address; ?>' required>
+
+											</div>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>Zip</strong></label>
+
+												<br>
+
+												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+
+													<option value='' selected disabled>Select Zip</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM zip");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$zid = $row['zip_id'];
+															$zcode = $row['zip_code'];
+
+															echo "<option value='$zid'";
+
+															if($zcode == $mailing_zip)
+																echo " selected";
+
+															echo ">$zcode</option>";
+
+														}
+
+													?>
+													
+												</select>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>State</strong></label>
+
+												<br>
+
+												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+
+													<option value='' selected disabled>Select Zip</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM zip");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$zid = $row['zip_id'];
+															$zcode = $row['zip_code'];
+
+															echo "<option value='$zid'";
+
+															if($zcode == $mailing_zip)
+																echo " selected";
+
+															echo ">$zcode</option>";
+
+														}
+
+													?>
+													
+												</select>
+
+											</div>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<label><strong>City</strong></label>
+
+												<br>
+
+												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+
+													<option value='' selected disabled>Select Zip</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM zip");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$zid = $row['zip_id'];
+															$zcode = $row['zip_code'];
+
+															echo "<option value='$zid'";
+
+															if($zcode == $mailing_zip)
+																echo " selected";
+
+															echo ">$zcode</option>";
+
+														}
+
+													?>
+													
+												</select>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+											<center>
+
+												<button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
+
+											</center>
+
+										</div>
+
+									</form>
 
 								</div>
-
-								<br><br>
-
-								<form method='POST' action='updateHOAID.php' class='ajax1'>
-																					
-									<div class='row'>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>Address</strong></label>
-
-											<br>
-
-											<input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' value='<?php echo $mailing_address; ?>' required>
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>Zip</strong></label>
-
-											<br>
-
-											<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
-
-												<option value='' selected disabled>Select Zip</option>
-
-												<?php
-
-													$result = pg_query("SELECT * FROM zip");
-
-													while($row = pg_fetch_assoc($result))
-													{
-
-														$zid = $row['zip_id'];
-														$zcode = $row['zip_code'];
-
-														echo "<option value='$zid'";
-
-														if($zcode == $mailing_zip)
-															echo " selected";
-
-														echo ">$zcode</option>";
-
-													}
-
-												?>
-												
-											</select>
-
-										</div>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>State</strong></label>
-
-											<br>
-
-											<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
-
-												<option value='' selected disabled>Select Zip</option>
-
-												<?php
-
-													$result = pg_query("SELECT * FROM zip");
-
-													while($row = pg_fetch_assoc($result))
-													{
-
-														$zid = $row['zip_id'];
-														$zcode = $row['zip_code'];
-
-														echo "<option value='$zid'";
-
-														if($zcode == $mailing_zip)
-															echo " selected";
-
-														echo ">$zcode</option>";
-
-													}
-
-												?>
-												
-											</select>
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-											<label><strong>City</strong></label>
-
-											<br>
-
-											<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
-
-												<option value='' selected disabled>Select Zip</option>
-
-												<?php
-
-													$result = pg_query("SELECT * FROM zip");
-
-													while($row = pg_fetch_assoc($result))
-													{
-
-														$zid = $row['zip_id'];
-														$zcode = $row['zip_code'];
-
-														echo "<option value='$zid'";
-
-														if($zcode == $mailing_zip)
-															echo " selected";
-
-														echo ">$zcode</option>";
-
-													}
-
-												?>
-												
-											</select>
-
-										</div>
-
-									</div>
-
-									<br>
-
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-										<center>
-
-											<button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
-
-										</center>
-
-									</div>
-
-								</form>
 
 							</div>
 
