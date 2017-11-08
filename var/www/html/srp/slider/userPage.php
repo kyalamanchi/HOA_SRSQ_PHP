@@ -672,30 +672,9 @@
 
 												<br>
 
-												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+												<select class='form-control' name='edit_mailing_city' id='edit_mailing_city' required>
 
-													<option value='' selected disabled>Select Zip</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM zip");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$zid = $row['zip_id'];
-															$zcode = $row['zip_code'];
-
-															echo "<option value='$zid'";
-
-															if($zcode == $mailing_zip)
-																echo " selected";
-
-															echo ">$zcode</option>";
-
-														}
-
-													?>
+													<option value='' selected disabled>Select City</option>
 													
 												</select>
 
