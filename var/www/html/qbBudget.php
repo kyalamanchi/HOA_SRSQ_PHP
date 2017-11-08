@@ -41,7 +41,7 @@ function showPleaseWait() {
 }
 $(document).ready(function() {
    var table = $('#example').DataTable( {
-        scrollY:        "600px",
+        scrollY:        "800px",
         scrollX:        true,
         scrollCollapse: true,
         paging:         false,
@@ -61,10 +61,6 @@ function hidePleaseWait() {
     .notbold{
     font-weight:normal
 }​
-th, td {
-        white-space: nowrap;
-        padding-right: 20px !important;
-    }
 </style>
     <body>
 <div class="container"> 
@@ -158,6 +154,15 @@ th, td {
    date_default_timezone_set('America/Los_Angeles');
    setlocale(LC_MONETARY, 'en_US');
    pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+   $query = "SELECT * FROM community_accounts WHERE COMMUNITY_ID = 2";
+   $queryResult = pg_query($query);
+
+   $accountTypes = array();
+
+   while ($row = pg_fetch_assoc($queryResult)) {
+       $accountTypes[$row['qb_id']] = $row['category'];
+   }
+
 
    $query  = "select * from qb_monthly_actuals where year = ".date('Y');
    $queryResult = pg_query($query);
@@ -181,6 +186,12 @@ th, td {
    $totalActuals = 0;
    $fbName = "";
    foreach ($result->BudgetDetail as $budget) {
+    if ($accountTypes[$budget->AccountRef->value]  == 2)
+        $color = "red";
+    else if ( $accountTypes[$budget->AccountRef->value] == 3)
+        $color = "green";
+    else 
+        $color = "black";
       if ( $val == 0  ){
         $prevVal =  $budget->AccountRef->value;
          $month = date('m',strtotime($budget->BudgetDate)) ;
@@ -203,7 +214,7 @@ th, td {
          }
          $valString .= "<tr>";
 
-         $valString .= "<td>";
+         $valString .= "<td style=\"color: $color;\">";
          $valString .= $bName;
          $valString .= "</td>";
 
@@ -285,7 +296,7 @@ th, td {
            $totalBudget = $budget;
          $totalActuals = $actual;
          $valString .= "<tr>";
-         $valString .= "<td>";
+         $valString .= "<td  style=\"color: $color;\">";
          $valString .= $bName;
          $valString .= "</td>";
          $valString .= "<td>";
@@ -327,7 +338,6 @@ th, td {
         </div>
         <br><br>
   </div>
-  
 
   <script type="text/javascript">
       function changeOptions3(id){
