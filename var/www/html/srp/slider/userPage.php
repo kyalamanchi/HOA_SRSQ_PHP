@@ -442,6 +442,9 @@
 											if($desc == "")
 												$desc = " - ";
 
+											if($notes == "")
+												$notes = " - ";
+
 											if($changed_this_year == 't') 
 												$changed_this_year = "Yes"; 
 											else if($changed_this_year == 'f') 
@@ -449,7 +452,14 @@
 											else 
 												$changed_this_year = " - ";
 
+											if($document_id == "")
+												$document = " - ";
+											else
+												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
+
 										?>
+
+										<br>
 
 										<div class='row'>
 
@@ -461,6 +471,8 @@
 
 										</div>
 
+										<br>
+
 										<div class='row'>
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
@@ -470,6 +482,8 @@
 											</div>
 
 										</div>
+
+										<br>
 
 										<div class='row'>
 
@@ -481,6 +495,32 @@
 
 										</div>
 
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Notes :</strong> <?php echo $notes; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Document :</strong> <?php echo $document; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
 									</div>
 
 									<br>
@@ -489,7 +529,7 @@
 										
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-											<h2 class='h2'>Are you still living in <u><?php echo $property_address; ?></u>?</h2>
+											<h2 class='h2'>Do you still live in <u><?php echo $property_address; ?></u>?</h2>
 
 										</div>
 
