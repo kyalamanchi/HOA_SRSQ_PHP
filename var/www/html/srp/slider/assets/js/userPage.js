@@ -139,6 +139,41 @@ $('#home_details_continue').click(function(){
 
 });
 
+$('#email_back').click(function(){
+
+	////$('#page_title1').show();
+	////$('#page_title2').hide();
+	////$('#page_title3').hide();
+	$('#home_details_div').show();
+	$('#email_div').hide();
+	$('#home_details_continue').hide();
+	$('#home_information_radio_yes').prop('checked', false);
+	$('#home_information_radio_no').prop('checked', false);
+
+});
+
+$('#email_radio_yes').change(function() {
+
+	if (document.getElementById('user_information_radio_yes').checked) {
+
+		$('#email_continue').show();
+
+	}
+
+});
+
+$('#email_radio_no').change(function() {
+
+	if (document.getElementById('home_information_radio_no').checked) {
+
+		$('#home_details_continue').hide();
+		$('#home_details_div').hide();
+		$('#edit_home_details_div').show();
+
+	}
+
+});
+
 
 
 

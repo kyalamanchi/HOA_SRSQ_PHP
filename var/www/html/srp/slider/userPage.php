@@ -565,7 +565,7 @@
 
 											<hr class='small'>
 
-											<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='home_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+											<button id='home_details_back' name='user_details_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='home_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 										</div>
 
@@ -802,6 +802,8 @@
 
 									</div>
 
+									<br>
+
 									<div class='row'>
 
 										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
@@ -824,7 +826,7 @@
 
 											<hr class='small'>
 
-											<button id='email_back' name='email_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+											<button id='email_back' name='email_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 										</div>
 
