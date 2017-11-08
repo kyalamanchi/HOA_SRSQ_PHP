@@ -139,9 +139,9 @@
 
 									<ul class='nav nav-wizard'>
   
-  										<li class='active'><a>Step 1 - Enter Mobile Number</a></li>
+  										<li class='active'><a>Enter Mobile Number</a></li>
 
-  										<li><a>Step 2 - Enter OTP</a></li>
+  										<li><a>Enter OTP</a></li>
 
 									</ul>
 
@@ -200,9 +200,9 @@
 
 									<ul class='nav nav-wizard'>
   
-  										<li><a>Step 1 - Enter Mobile Number</a></li>
+  										<li><a>Enter Mobile Number</a></li>
 
-  										<li class='active'><a>Step 2 - Enter OTP</a></li>
+  										<li class='active'><a>Enter OTP</a></li>
 
 									</ul>
 

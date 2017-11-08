@@ -52,7 +52,7 @@
 						
 					<div class='container'>
 							
-						<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-3 offset-xs-3 module-gray'>
+						<div class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2 module-gray'>
 
 							<form class='form' method='POST' action='index.php'>
 							
