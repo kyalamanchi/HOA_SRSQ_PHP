@@ -148,6 +148,16 @@
 
 									</div>
 
+									<ul class='nav nav-wizard'>
+  
+  										<li class='active'><a>Step 1 - Completed</a></li>
+
+  										<li><a>Step 2 - Active</a></li>
+
+  										<li><a>Step 3 - Not Yet Reached</a></li>
+
+									</ul>
+
 								</div>
 
 							</div>
