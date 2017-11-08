@@ -417,39 +417,45 @@
 
 									?>
 
-									<div class='container module-gray'>
+									<div class='container module-gray' style="color: black;">
+
+										<?php
+
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=14"));
+
+											$notes = $row['notes'];
+											$document_id = $row['document_id'];
+											$changed_this_year = $row['changed_this_year'];
+
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=14"));
+											$disclosure_name = $row['name'];
+											$desc = $row['desc'];
+											$civilcode_section = $row['civilcode_section'];
+											$legal_url = $row['legal_url'];
+
+											if($civilcode_section != "")
+												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
+
+											if($legal_url != '')
+												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
+
+											if($desc == "")
+												$desc = " - ";
+
+											if($changed_this_year == 't') 
+												$changed_this_year = "Yes"; 
+											else if($changed_this_year == 'f') 
+												$changed_this_year = "No"; 
+											else 
+												$changed_this_year = " - ";
+
+										?>
 
 										<div class='row'>
 
 											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												Disclosure Name : 
-
-												<br>
-
-												<?php
-
-													$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=14"));
-
-													$notes = $row['notes'];
-													$document_id = $row['document_id'];
-													$changed_this_year = $row['changed_this_year'];
-
-													$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=14"));
-													$disclosure_name = $row['name'];
-													$desc = $row['desc'];
-													$civilcode_section = $row['civilcode_section'];
-													$legal_url = $row['legal_url'];
-
-													if($civilcode_section != "")
-														$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-													if($legal_url != '')
-														$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-													echo $disclosure_name;
-
-												?>
+												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
 
 											</div>
 
@@ -459,18 +465,7 @@
 
 											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												Description : 
-
-												<br>
-
-												<?php
-
-													if($desc != "")
-														echo $desc;
-													else
-														echo "<center> - </center>";
-
-												?>
+												<strong>Description :</strong> <?php echo $desc; ?>
 
 											</div>
 
@@ -480,7 +475,7 @@
 
 											<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-												Changed this year : <?php if($changed_this_year == 't') echo "Yes"; else if($changed_this_year == 'f') echo "No"; else echo " - "; ?>
+												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
 
