@@ -137,25 +137,11 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<div class="progress-item">
-										
-										<div class="progress-title">User Authentication</div>
-
-										<br>
-										
-										<div class="progress">
-											<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
-										</div>
-
-									</div>
-
 									<ul class='nav nav-wizard'>
   
-  										<li class='active'><a>Step 1 - Completed</a></li>
+  										<li class='active'><a>Step 1 - Enter Mobile Number</a></li>
 
-  										<li><a>Step 2 - Active</a></li>
-
-  										<li><a>Step 3 - Not Yet Reached</a></li>
+  										<li><a>Step 2 - Enter OTP</a></li>
 
 									</ul>
 
@@ -210,17 +196,13 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<div class="progress-item">
-										
-										<div class="progress-title">User Authentication</div>
+									<ul class='nav nav-wizard'>
+  
+  										<li><a>Step 1 - Enter Mobile Number</a></li>
 
-										<br>
-										
-										<div class="progress">
-											<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="50" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
-										</div>
+  										<li class='active'><a>Step 2 - Enter OTP</a></li>
 
-									</div>
+									</ul>
 
 								</div>
 
