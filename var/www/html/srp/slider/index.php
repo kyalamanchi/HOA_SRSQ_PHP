@@ -78,6 +78,7 @@
 		<link href="assets/css/vertical.min.css" rel="stylesheet">
 		<link href="assets/css/pace-theme-minimal.css" rel="stylesheet">
 		<link href="assets/css/animate.css" rel="stylesheet">
+		<link href='assets/css/wizard.min.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
 
