@@ -256,7 +256,7 @@
 
 						</div>
 
-						<div id='edit_user_details_div' class='row container-fluid'>
+						<div id='edit_user_details_div'>
 
 							<div class='row'>
 
@@ -354,7 +354,7 @@
 
 						</div>
 
-						<div id='home_details_div' class='row container-fluid'>
+						<div id='home_details_div'>
 
 							<div class='row'>
 
@@ -493,7 +493,7 @@
 
 						</div>
 
-						<div id='edit_home_details_div' class='row container-fluid'>
+						<div id='edit_home_details_div'>
 
 							<div class='row'>
 
