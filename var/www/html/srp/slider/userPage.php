@@ -643,7 +643,7 @@
 														{
 
 															$sid = $row['state_id'];
-															$sname = $row['state_name'];
+															$scode = $row['state_code'];
 
 															echo "<option value='$sid'";
 

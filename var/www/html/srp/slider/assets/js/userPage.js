@@ -137,6 +137,28 @@ $('#edit_mailing_state').ready(function(){
 
 });
 
+$('#edit_mailing_state').change(function(){
+
+	var state = $('#edit_mailing_state').val();
+
+	$.ajax({
+
+		url: 'getCity.php',
+		type: 'post',
+		data: 'state='+state,
+		success: function(response){
+
+			if(response == 'empty')
+				alert("Select State");
+			else
+				$('#edit_mailing_city').html(response);
+
+		}
+
+	});
+
+});
+
 $('form.ajax2').on('submit', function(){
 	
 	var obj = $(this),
