@@ -134,12 +134,18 @@
 
 							<div class='row container'>
 
-								<div class="progress-item">
-									
-									<div class="progress-title">User Authentication</div>
-									
-									<div class="progress">
-										<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<div class="progress-item">
+										
+										<div class="progress-title">User Authentication</div>
+
+										<br>
+										
+										<div class="progress">
+											<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+										</div>
+
 									</div>
 
 								</div>
@@ -191,12 +197,18 @@
 
 							<div class='row container'>
 
-								<div class="progress-item">
-									
-									<div class="progress-title">User Authentication</div>
-									
-									<div class="progress">
-										<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="50" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<div class="progress-item">
+										
+										<div class="progress-title">User Authentication</div>
+
+										<br>
+										
+										<div class="progress">
+											<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="50" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+										</div>
+
 									</div>
 
 								</div>
