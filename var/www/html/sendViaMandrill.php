@@ -6,16 +6,10 @@ $query = "SELECT email FROM community_info WHERE community_id = 1";
 $queryResult = pg_query($query);
 $res = pg_fetch_assoc($queryResult);
 $fromCommunityEmail1 = $res['email'];
-
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);
 $res = pg_fetch_assoc($queryResult);
 $fromCommunityEmail2 = $res['email'];
-
-
-
-
-
 $fileContents = "";
 if ($_GET['hoaid']){	
 	$query = "SELECT community_id FROM hoaid WHERE hoa_id=".$_GET['hoaid'];
@@ -24,8 +18,6 @@ if ($_GET['hoaid']){
 	$communityIDD = $row['community_id'];
 
 	if ( $communityIDD  == 2){
-
-
 	$message = "Fetching file...Please wait...";
 	// echo 'data: '.$message."\n\n";  
 	ob_end_flush();
