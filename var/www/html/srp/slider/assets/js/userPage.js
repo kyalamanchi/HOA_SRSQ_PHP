@@ -144,10 +144,10 @@ $('form.ajax2').on('submit', function(){
 			{
 				alert("Saved!");
 
-				$('#user_cell_no').text(response);
-				$('#user_information_radio_no').prop('checked', false);
-				$('#edit_user_details_div').hide();
-				$('#user_details_div').show();
+				$('#user_mailing_address').text(response);
+				$('#home_information_radio_no').prop('checked', false);
+				$('#edit_home_details_div').hide();
+				$('#home_details_div').show();
 
 			}
 

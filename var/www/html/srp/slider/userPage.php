@@ -535,7 +535,7 @@
 										
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-											<h2 class='h2'>Do you still live in <u><?php echo $property_address; ?></u>?</h2>
+											<h2 class='h2'>Do you still live in <u id='user_mailing_address'><?php echo $mailing_address; ?></u>?</h2>
 
 										</div>
 
@@ -547,13 +547,13 @@
 
 										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-											<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in <?php echo $property_address; ?>.
+											<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in <?php echo $mailing_address; ?>.
 
 										</div>
 
 										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-											<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in <?php echo $property_address; ?>.
+											<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in <?php echo $mailing_address; ?>.
 
 										</div>
 
