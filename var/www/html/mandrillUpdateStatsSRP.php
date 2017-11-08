@@ -36,7 +36,7 @@ foreach ($result as $result1) {
 		pg_query($query);
 		}
 		else {
-			$query = "UPDATE community_emails_sent SET \"status\"='".$result1->state."',\"update_date\"='".date('Y-m-d H:i:s')."',\"updated_by\"=401 WHERE api_mail_id='".$result1->_id."'";
+			$query = "UPDATE community_emails_sent SET \"sent_date\"='".date('Y-m-d H:i:s',$result1->ts)."',\"number_of_clicks\"=".$result1->clicks.",\"number_of_opens\"=".$result1->opens.",\"status\"='".$result1->state."',\"update_date\"='".date('Y-m-d H:i:s')."',\"updated_by\"=401 WHERE api_mail_id='".$result1->_id."'";
 			pg_query($query);
 		}
 	}
