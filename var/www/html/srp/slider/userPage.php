@@ -29,7 +29,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $community_code; ?> - Confirm User Identity</title>
+		<title><?php echo $community_code; ?> - User Page</title>
 
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
@@ -98,7 +98,7 @@
 			<div class='wrapper'>
 
 				<!-- Page Header -->
-				<section class='module-page-title'>
+				<!--section class='module-page-title'>
 					
 					<div class='container'>
 							
@@ -116,7 +116,7 @@
 						
 					</div>
 				
-				</section>
+				</section-->
 
 				<!-- Content -->
 				<section class='module'>
@@ -268,6 +268,8 @@
 
 	  									<li><a>Home Details</a></li>
 
+	  									<li><a>Verify Email</a></li>
+
 									</ul>
 
 								</div>
@@ -365,6 +367,8 @@
 	  									<li><a>User Details</a></li>
 
 	  									<li class='active'><a>Home Details</a></li>
+
+	  									<li><a>Verify Email</a></li>
 
 									</ul>
 
@@ -553,43 +557,13 @@
 
 									</div>
 
-									<!--div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
-
-											<label><strong>Living Status</strong></label>
-
-											<br>
-
-											<h3 class='h3' style='color: black;'><?php if($living_status == 't') echo "Living"; else echo "Rented"; ?></h3>
-
-										</div>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
-
-											<label><strong>Mailing Address</strong></label>
-
-											<br>
-
-											<h3 class='h3' style='color: black;'><?php echo $mailing_address.", ".$mailing_city.", ".$mailing_state." ".$mailing_zip; ?></h3>
-
-										</div>
-
-									</div-->
-
 									<div class='row'>
 
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
 											<hr class='small'>
 
-											<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+											<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='home_details_continue' name='home_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 										</div>
 
@@ -612,6 +586,8 @@
 	  									<li><a>User Details</a></li>
 
 	  									<li class='active'><a>Home Details</a></li>
+
+	  									<li><a>Verify Email</a></li>
 
 									</ul>
 
@@ -773,6 +749,84 @@
 										</div>
 
 									</form>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div id='email_div'>
+
+							<div class='row'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<ul class='nav nav-wizard'>
+	  
+	  									<li><a>User Details</a></li>
+
+	  									<li><a>Home Details</a></li>
+
+	  									<li class='active'><a>Verify Email</a></li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+							<br>
+
+							<div class='row'>
+
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+
+									<?php
+
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type=1 AND is_active='t' AND relationship_id=1"));
+
+										$primary_email = $row['email'];
+
+									?>
+
+									<div class='row'>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+											<h2 class='h2'>Is <u><?php echo $primary_email; ?></u> your primary email?</h2>
+
+										</div>
+
+									</div>
+
+									<div class='row'>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='email_radio' id='email_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, <?php echo $primary_email; ?> is my primary email.
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='email_radio' id='email_radio_no' value='no'> <strong style='color: black;'>No</strong>, <?php echo $primary_email; ?> is not my primary email.
+
+										</div>
+
+									</div>
+
+									<div class='row'>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+											<hr class='small'>
+
+											<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+
+										</div>
+
+									</div>
 
 								</div>
 
