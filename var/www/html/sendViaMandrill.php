@@ -54,7 +54,7 @@ if ($_GET['hoaid']){
 
 	}
 	else if ( $comID == 1 ){
-		$mailingData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A", "message" => array("html" => "<br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>If you feel that your are not getting timely responses to your inquiries please escalate to ".$communityEmail."<br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "account_statement.pdf","content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));
+		$mailingData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A", "message" => array("html" => "<br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>If you feel that your are not getting timely responses to your inquiries please escalate to ".$communityEmail."<br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "account_statement.pdf","content" => $fileContents)),"send_at"=>"2000-01-01 00:00:00"));
 	}
 	$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/send.json");
