@@ -786,7 +786,7 @@
 
 									<?php
 
-										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type=1 AND is_active='t' AND relationship_id=1"));
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type_id=1 AND is_active='t' AND relationship_id=1"));
 
 										$primary_email = $row['email'];
 
