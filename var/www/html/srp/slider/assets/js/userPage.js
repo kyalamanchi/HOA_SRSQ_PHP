@@ -122,30 +122,8 @@ $('#edit_mailing_state').ready(function(){
 	$.ajax({
 
 		url: 'getCity.php',
-		type: 'POST',
-		data: [state:state],
-		success: function(response){
-
-			if(response == 'empty')
-				alert("Select State");
-			else
-				$('#edit_mailing_city').html(response);
-
-		}
-
-	});
-
-});
-
-$('#edit_mailing_state').change(function(){
-
-	var state = $('#edit_mailing_state').val();
-
-	$.ajax({
-
-		url: 'getCity.php',
-		type: 'POST',
-		data: [state:state],
+		type: 'post',
+		data: 'state='+state,
 		success: function(response){
 
 			if(response == 'empty')
