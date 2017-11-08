@@ -66,6 +66,7 @@ $('form.ajax1').on('submit', function(){
 
 				$('#user_cell_no').text(response);
 				$('#user_information_radio_no').prop('checked', false);
+				$('#user_details_continue').hide();
 				$('#edit_user_details_div').hide();
 				$('#user_details_div').show();
 
@@ -146,6 +147,7 @@ $('form.ajax2').on('submit', function(){
 
 				$('#user_mailing_address').text(response);
 				$('#home_information_radio_no').prop('checked', false);
+				$('#home_details_continue').hide();
 				$('#edit_home_details_div').hide();
 				$('#home_details_div').show();
 
