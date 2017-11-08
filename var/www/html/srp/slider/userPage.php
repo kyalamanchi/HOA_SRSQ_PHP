@@ -650,7 +650,7 @@
 															if($scode == $mailing_state)
 																echo " selected";
 
-															echo ">$sname</option>";
+															echo ">$scode</option>";
 
 														}
 
