@@ -9,6 +9,7 @@ $(document).ready(function(){
 	$('#edit_home_details_div').hide();
 	$('#home_details_continue').hide();
 	$('#email_div').hide();
+	$('#email_continue').hide();
 
 });
 
@@ -26,7 +27,6 @@ $('#user_information_radio_no').change(function() {
 
 	if (document.getElementById('user_information_radio_no').checked) {
 
-		$('#user_details_continue').hide();
 		$('#user_details_div').hide();
 		$('#edit_user_details_div').show();
 
@@ -81,12 +81,8 @@ $('form.ajax1').on('submit', function(){
 
 $('#user_details_continue').click(function(){
 
-	//$('#page_title1').hide();
-	//$('#page_title2').show();
-	//$('#page_title3').hide();
 	$('#home_details_div').show();
 	$('#user_details_div').hide();
-	$('#home_details_continue').hide();
 
 });
 
@@ -111,7 +107,6 @@ $('#home_information_radio_no').change(function() {
 
 	if (document.getElementById('home_information_radio_no').checked) {
 
-		$('#home_details_continue').hide();
 		$('#home_details_div').hide();
 		$('#edit_home_details_div').show();
 
@@ -119,11 +114,55 @@ $('#home_information_radio_no').change(function() {
 
 });
 
+$('form.ajax2').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	data = {};
+
+	obj.find('[name]').each(function(index, value){
+
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
+
+		data[index] = value;
+
+	});
+
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			if(response == "Some error occured. Please try again.")
+				alert(response);
+			else
+			{
+				alert("Saved!");
+
+				$('#user_cell_no').text(response);
+				$('#user_information_radio_no').prop('checked', false);
+				$('#edit_user_details_div').hide();
+				$('#user_details_div').show();
+
+			}
+
+		}
+
+	});
+
+	return false;
+	
+});
+
 $('#home_details_continue').click(function(){
 
 	$('#email_div').show();
 	$('#home_details_div').hide();
-	$('#email_continue').hide();
 
 });
 
@@ -148,12 +187,56 @@ $('#email_radio_no').change(function() {
 
 	if (document.getElementById('home_information_radio_no').checked) {
 
-		$('#home_details_continue').hide();
-		$('#home_details_div').hide();
-		$('#edit_home_details_div').show();
+		$('#email_div').hide();
+		$('#edit_email_div').show();
 
 	}
 
+});
+
+$('form.ajax3').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	data = {};
+
+	obj.find('[name]').each(function(index, value){
+
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
+
+		data[index] = value;
+
+	});
+
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			if(response == "Some error occured. Please try again.")
+				alert(response);
+			else
+			{
+				alert("Saved!");
+
+				$('#user_cell_no').text(response);
+				$('#user_information_radio_no').prop('checked', false);
+				$('#edit_user_details_div').hide();
+				$('#user_details_div').show();
+
+			}
+
+		}
+
+	});
+
+	return false;
+	
 });
 
 
