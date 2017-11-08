@@ -132,6 +132,20 @@
 							
 						<div id='confirm_phone_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
+							<div class='row container'>
+
+								<div class="progress-item">
+									
+									<div class="progress-title">User Authentication</div>
+									
+									<div class="progress">
+										<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="0" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+									</div>
+
+								</div>
+
+							</div>
+
 							<div class='special-heading m-b-40'>
 
 								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
@@ -174,6 +188,20 @@
 						</div>
 
 						<div id='verify_user_div' class='table-responsive col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+							<div class='row container'>
+
+								<div class="progress-item">
+									
+									<div class="progress-title">User Authentication</div>
+									
+									<div class="progress">
+										<div class="progress-bar progress-bar-brand progress-bar-striped progress-bar-animated" aria-valuenow="50" role="progressbar" aria-valuemin="0" aria-valuemax="100"><span class="pb-number-box"><span class="pb-number"></span>%</span></div>
+									</div>
+
+								</div>
+
+							</div>
 
 							<div class='special-heading m-b-40'>
 
