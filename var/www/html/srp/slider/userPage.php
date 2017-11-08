@@ -435,7 +435,7 @@
 													$document_id = $row['document_id'];
 													$changed_this_year = $row['changed_this_year'];
 
-													$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures_type WHERE id=14"));
+													$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=14"));
 													$disclosure_name = $row['name'];
 													$desc = $row['desc'];
 													$civilcode_section = $row['civilcode_section'];
