@@ -631,9 +631,9 @@
 
 												<br>
 
-												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
+												<select class='form-control' name='edit_mailing_state' id='edit_mailing_state' required>
 
-													<option value='' selected disabled>Select Zip</option>
+													<option value='' selected disabled>Select State</option>
 
 													<?php
 
@@ -643,14 +643,14 @@
 														{
 
 															$sid = $row['state_id'];
-															$scode = $row['state_code'];
+															$sname = $row['state_name'];
 
 															echo "<option value='$sid'";
 
 															if($scode == $mailing_state)
 																echo " selected";
 
-															echo ">$scode</option>";
+															echo ">$sname</option>";
 
 														}
 
