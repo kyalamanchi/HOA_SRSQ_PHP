@@ -627,7 +627,7 @@
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-												<label><strong>Zip</strong></label>
+												<label><strong>State</strong></label>
 
 												<br>
 
@@ -637,20 +637,20 @@
 
 													<?php
 
-														$result = pg_query("SELECT * FROM zip");
+														$result = pg_query("SELECT * FROM state");
 
 														while($row = pg_fetch_assoc($result))
 														{
 
-															$zid = $row['zip_id'];
-															$zcode = $row['zip_code'];
+															$sid = $row['state_id'];
+															$scode = $row['state_code'];
 
-															echo "<option value='$zid'";
+															echo "<option value='$sid'";
 
-															if($zcode == $mailing_zip)
+															if($scode == $mailing_state)
 																echo " selected";
 
-															echo ">$zcode</option>";
+															echo ">$scode</option>";
 
 														}
 
@@ -668,7 +668,7 @@
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-												<label><strong>State</strong></label>
+												<label><strong>City</strong></label>
 
 												<br>
 
@@ -703,7 +703,7 @@
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-												<label><strong>City</strong></label>
+												<label><strong>Zip</strong></label>
 
 												<br>
 
