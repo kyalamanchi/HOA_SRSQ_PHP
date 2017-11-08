@@ -52,6 +52,7 @@
       document.getElementById("emailsButton").disabled = true;
       document.getElementById("runAllJobsButton").disabled = true;
       document.getElementById("smsButton").disabled = true;
+      document.getElementById("quickBooksButton").disabled = true;
       swal("Payments,Agreements,Emails sent, SMS sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
@@ -65,6 +66,7 @@
           document.getElementById("emailsButton").disabled = false;
           document.getElementById("runAllJobsButton").disabled = false;
           document.getElementById("smsButton").disabled = false;
+          document.getElementById("quickBooksButton").disabled = false;
       }
     }
   }
@@ -94,6 +96,21 @@
               document.getElementById("smsResult").innerHTML = event.data + "<br>";
             }
             document.getElementById("smsResult").innerHTML = event.data + "<br>";
+        }
+  }
+
+  function updateQuickBooks(){
+
+    document.getElementById("emailResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=6";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("qtime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("qResult").innerHTML = event.data + "<br>";
+            }
+            document.getElementById("").innerHTML = event.data + "<br>";
         }
   }
 </script>
@@ -261,15 +278,15 @@
     <div id="collapseSix" class="collapse" role="tabpanel" aria-labelledby="headingSix">
       <div class="card-block">
         <?php 
-        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 6 ORDER BY \"START_TIME\" DESC";
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 7 ORDER BY \"START_TIME\" DESC";
         $queryResult = pg_query($query);
         $row = pg_fetch_assoc($queryResult);
         echo '<font size="4" style="float: right;" id="qtime">Last ran on :'.$row['START_TIME'].'</font>';
         ?>
         <br>
         <br>
-        <button type="button" class="btn btn-outline-primary" id="smsButton" onclick="updateQuickBooks();">Update Now</button>
-        <div id="smsResult">
+        <button type="button" class="btn btn-outline-primary" id="quickBooksButton" onclick="updateQuickBooks();">Update Now</button>
+        <div id="qResult">
         </div>
       </div>
     </div>
