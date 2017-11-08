@@ -135,6 +135,8 @@
 
 	  									<li><a>Home Details</a></li>
 
+	  									<li><a>Primary Email</a></li>
+
 									</ul>
 
 								</div>
@@ -268,7 +270,7 @@
 
 	  									<li><a>Home Details</a></li>
 
-	  									<li><a>Verify Email</a></li>
+	  									<li><a>Primary Email</a></li>
 
 									</ul>
 
@@ -368,7 +370,7 @@
 
 	  									<li class='active'><a>Home Details</a></li>
 
-	  									<li><a>Verify Email</a></li>
+	  									<li><a>Primary Email</a></li>
 
 									</ul>
 
@@ -587,7 +589,7 @@
 
 	  									<li class='active'><a>Home Details</a></li>
 
-	  									<li><a>Verify Email</a></li>
+	  									<li><a>Primary Email</a></li>
 
 									</ul>
 
@@ -768,7 +770,7 @@
 
 	  									<li><a>Home Details</a></li>
 
-	  									<li class='active'><a>Verify Email</a></li>
+	  									<li class='active'><a>Primary Email</a></li>
 
 									</ul>
 
@@ -822,7 +824,7 @@
 
 											<hr class='small'>
 
-											<button id='home_details_back' name='user_details_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+											<button id='email_back' name='email_continue' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button> <button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 										</div>
 
