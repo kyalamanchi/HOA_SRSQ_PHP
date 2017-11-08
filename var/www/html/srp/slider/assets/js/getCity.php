@@ -24,7 +24,7 @@
 			$cid = $row['city_id'];
 			$cname = $row['city_name'];
 
-			$cities .= "<option id='$cid'>$cname</option>";
+			$cities .= "<option value='$cid'>$cname</option>";
 
 		}
 
