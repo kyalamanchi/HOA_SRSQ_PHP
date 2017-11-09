@@ -213,7 +213,7 @@ $('#home_edit_back').click(function(){
 		url: 'resetAddress.php',
 		success:function(response) {
 
-			$('#edit_mailing_address').html(response);
+			$('#edit_mailing_address').val(response);
 
 		}
 
