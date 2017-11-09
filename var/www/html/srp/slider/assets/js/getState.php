@@ -14,14 +14,17 @@
 		$result = pg_query("SELECT * FROM state WHERE country_id=$country");
 
 		$states = "";
+		$i=0
 
 		while($row = pg_fetch_assoc($result))
 		{
 
-			$state_id = $row['state_id'];
-			$state_name = $row['state_name'];
+			$i++;
 
-			$states .= "<option value='$state_id'>$state_name</option>";
+			//$state_id = $row['state_id'];
+			//$state_name = $row['state_name'];
+
+			$states .= "<option value='$i'>$i</option>";
 
 		}
 
