@@ -207,6 +207,66 @@ $('#home_edit_back').click(function(){
 	$('#edit_home_details_div').hide();
 	$('#home_information_radio_no').prop('checked', false);
 
+	$.ajax({
+
+		type: 'POST',
+		url: 'resetCountry.php',
+		success:function(response) {
+
+			$('#edit_mailing_country').html(response);
+
+		}
+
+	});
+
+	$.ajax({
+
+		type: 'POST',
+		url: 'resetState.php',
+		success:function(response) {
+
+			$('#edit_mailing_state').html(response);
+
+		}
+
+	});
+
+	$.ajax({
+
+		type: 'POST',
+		url: 'resetDistrict.php',
+		success:function(response) {
+
+			$('#edit_mailing_district').html(response);
+
+		}
+
+	});
+
+	$.ajax({
+
+		type: 'POST',
+		url: 'resetCity.php',
+		success:function(response) {
+
+			$('#edit_mailing_city').html(response);
+
+		}
+
+	});
+
+	$.ajax({
+
+		type: 'POST',
+		url: 'resetZip.php',
+		success:function(response) {
+
+			$('#edit_mailing_zip').html(response);
+
+		}
+
+	});
+
 });
 
 $('#home_information_radio_yes').change(function() {
