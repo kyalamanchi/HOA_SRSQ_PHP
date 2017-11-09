@@ -26,7 +26,11 @@ $(document).ready(function(){
 
 					$('#edit_mailing_state').html(response);
 
-					$('#edit_mailing_district').html("Select District");
+					$('#edit_mailing_district').html("Select State First");
+
+					$('#edit_mailing_city').html("Select District First");
+
+					$('#edit_mailing_zip').html("Select City First");
 
 				}
 
