@@ -142,28 +142,6 @@ $('document').ready(function(){
 
 });
 
-$('#edit_mailing_country').on('change', function(){
-
-	var country = $('#edit_mailing_country').val();
-
-	$.ajax({
-
-		url: 'getState.php',
-		type: 'post',
-		data: 'country='+country,
-		success: function(response){
-
-			if(response == 'empty')
-				alert("Select Country");
-			else
-				$('#edit_mailing_state').html(response);
-
-		}
-
-	});
-
-});
-
 $('form.ajax2').on('submit', function(){
 	
 	var obj = $(this),
