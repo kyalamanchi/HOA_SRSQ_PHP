@@ -24,7 +24,7 @@
 			$sid = $row['state_id'];
 			$state_name = $row['state_name'];
 
-			$state .= "<option value='$sid'>$state_name</option>";
+			$states .= "<option value='$sid'>$state_name</option>";
 
 		}
 
