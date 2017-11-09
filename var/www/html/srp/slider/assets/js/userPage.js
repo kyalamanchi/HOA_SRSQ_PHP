@@ -115,7 +115,7 @@ $('#home_information_radio_no').change(function() {
 
 });
 
-$('#edit_mailing_country').ready(function(){
+$(document).ready(function(){
 
 	var country = $('#edit_mailing_country').val();
 
