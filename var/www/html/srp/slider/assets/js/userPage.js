@@ -34,29 +34,6 @@ $(document).ready(function(){
 
 	});
 
-	$('#edit_mailing_country').on('ready', function(){
-
-		var country = $(this).val();
-
-		if(country) {
-
-			$.ajax({
-
-				type: 'POST',
-				url: 'getState.php',
-				data: 'country_id='+country,
-				success:function(response) {
-
-					$('#edit_mailing_state').html(response);
-
-				}
-
-			});
-
-		}
-
-	});
-
 	$('#edit_mailing_country').on('change', function(){
 
 		var country = $(this).val();
