@@ -21,7 +21,7 @@
 		while($row = pg_fetch_assoc($result))
 		{
 
-			$sid = $row['state_id'];
+			$state_id = $row['state_id'];
 			$state_name = $row['state_name'];
 
 			$states .= "<option value='$state_id'>$state_name</option>";
