@@ -416,6 +416,12 @@
 
 										}
 
+										$mailing_country_id = $mailing_country;
+										$mailing_state_id = $mailing_state;
+										$mailing_district_id = $mailing_district;
+										$mailing_city_id = $mailing_city;
+										$mailing_zip_id = $mailing_zip;
+
 										$row = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$mailing_country"));
 										$mailing_country = $row['country_name'];
 
@@ -663,7 +669,7 @@
 
 															echo "<option value='$country_id'";
 
-															if($country_name == $mailing_country)
+															if($country_id == $mailing_country_id)
 																echo " selected";
 
 															echo ">$country_name</option>";
@@ -685,6 +691,27 @@
 												<select class='form-control' name='edit_mailing_state' id='edit_mailing_state' required>
 
 													<option value='' selected disabled>Select Country First</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM state WHERE country_id=$mailing_country_id");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$state_id = $row['state_id'];
+															$state_name = $row['state_name'];
+
+															echo "<option value='$state_id'";
+
+															if($state_id == $mailing_state_id)
+																echo " selected";
+
+															echo ">$state_name</option>";
+
+														}
+
+													?>
 													
 												</select>
 
@@ -705,6 +732,27 @@
 												<select class='form-control' name='edit_mailing_district' id='edit_mailing_district' required>
 
 													<option value='' selected disabled>Select State First</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM district WHERE state_id=$mailing_state_id");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$district_id = $row['district_id'];
+															$district_name = $row['district_name'];
+
+															echo "<option value='$district_id'";
+
+															if($district_id == $mailing_district_id)
+																echo " selected";
+
+															echo ">$district_name</option>";
+
+														}
+
+													?>
 													
 												</select>
 
@@ -719,6 +767,27 @@
 												<select class='form-control' name='edit_mailing_city' id='edit_mailing_city' required>
 
 													<option value='' selected disabled>Select District First</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM city WHERE district_id=$mailing_district_id");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$city_id = $row['city_id'];
+															$city_name = $row['city_name'];
+
+															echo "<option value='$city_id'";
+
+															if($city_id == $mailing_city_id)
+																echo " selected";
+
+															echo ">$city_name</option>";
+
+														}
+
+													?>
 													
 												</select>
 
@@ -733,6 +802,27 @@
 												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
 
 													<option value='' selected disabled>Select District First</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM zip WHERE city_id=$mailing_city_id");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$zip_id = $row['zip_id'];
+															$zip_code = $row['zip_code'];
+
+															echo "<option value='$zip_id'";
+
+															if($zip_id == $mailing_zip_id)
+																echo " selected";
+
+															echo ">$zip_code</option>";
+
+														}
+
+													?>
 													
 												</select>
 
