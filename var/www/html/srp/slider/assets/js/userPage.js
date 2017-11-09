@@ -36,6 +36,31 @@ $(document).ready(function(){
 
 	});
 
+	$('#edit_mailing_state').on('change', function(){
+
+		var state = $(this).val();
+
+		if(state) {
+
+			$.ajax({
+
+				type: 'POST',
+				url: 'getDistrict.php',
+				data: 'state_id='+state,
+				success:function(response) {
+
+					$('#edit_mailing_district').html(response);
+
+					$('#edit_mailing_city').html('Select City');
+
+				}
+
+			});
+
+		}
+
+	});
+
 });
 
 $('#user_information_radio_yes').change(function() {
@@ -152,29 +177,6 @@ $('#home_information_radio_no').change(function() {
 
 		$('#home_details_div').hide();
 		$('#edit_home_details_div').show();
-
-	}
-
-});
-
-$('#edit_mailing_country').ready(function(){
-
-	var country = $(this).val();
-
-	if(country) {
-
-		$.ajax({
-
-			type: 'POST',
-			url: 'getState.php',
-			data: 'country_id='+country,
-			success:function(response) {
-
-				$('#edit_mailing_state').html(response);
-
-			}
-
-		});
 
 	}
 
