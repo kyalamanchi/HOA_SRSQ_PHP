@@ -11,29 +11,6 @@ $(document).ready(function(){
 	$('#email_div').hide();
 	$('#email_continue').hide();
 
-	$('#edit_mailing_country').on('unload', function(){
-
-		var country = $(this).val();
-
-		if(country) {
-
-			$.ajax({
-
-				type: 'POST',
-				url: 'getState.php',
-				data: 'country_id='+country,
-				success:function(response) {
-
-					$('#edit_mailing_state').html(response);
-
-				}
-
-			});
-
-		}
-
-	});
-
 	$('#edit_mailing_country').on('change', function(){
 
 		var country = $(this).val();
@@ -175,6 +152,29 @@ $('#home_information_radio_no').change(function() {
 
 		$('#home_details_div').hide();
 		$('#edit_home_details_div').show();
+
+	}
+
+});
+
+$('#edit_mailing_country').ready(function(){
+
+	var country = $(this).val();
+
+	if(country) {
+
+		$.ajax({
+
+			type: 'POST',
+			url: 'getState.php',
+			data: 'country_id='+country,
+			success:function(response) {
+
+				$('#edit_mailing_state').html(response);
+
+			}
+
+		});
 
 	}
 
