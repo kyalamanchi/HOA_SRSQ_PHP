@@ -14,7 +14,7 @@
 		$result = pg_query("SELECT * FROM state WHERE country_id=$country");
 
 		$states = "";
-		$i=0
+		$i=0;
 
 		while($row = pg_fetch_assoc($result))
 		{
