@@ -34,8 +34,6 @@ $('#user_information_radio_no').change(function() {
 
 });
 
-
-
 $('form.ajax1').on('submit', function(){
 	
 	var obj = $(this),
@@ -117,63 +115,63 @@ $('#home_information_radio_no').change(function() {
 
 });
 
-$('#edit_mailing_country').on('ready', function(){
-	
-	var obj = $(this),
-	data = {};
+$('#edit_mailing_country').ready(function(){
 
-	obj.find('[name]').each(function(index, value){
-
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
-
-		data[index] = value;
-
-	});
+	var country = $('#edit_mailing_country').val();
 
 	$.ajax({
 
 		url: 'getState.php',
 		type: 'post',
-		data: data,
+		data: 'country='+country,
 		success: function(response){
 
-			if(response == "empty")
-				alert("Select Country First");
+			if(response == 'empty')
+				alert("Select Country");
 			else
 				$('#edit_mailing_state').html(response);
 
 		}
 
 	});
-	
+
 });
 
 $('#edit_mailing_country').on('change', function(){
-	
-	var obj = $(this),
-	data = {};
 
-	obj.find('[name]').each(function(index, value){
-
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
-
-		data[index] = value;
-
-	});
+	var country = $('#edit_mailing_country').val();
 
 	$.ajax({
 
 		url: 'getState.php',
 		type: 'post',
-		data: data,
+		data: 'country='+country,
 		success: function(response){
 
-			if(response == "empty")
-				alert("Select Country First");
+			if(response == 'empty')
+				alert("Select Country");
+			else
+				$('#edit_mailing_state').html(response);
+
+		}
+
+	});
+
+});
+
+$('select.country').on('change', function(){
+	
+	var country = $('#edit_mailing_country').val();
+
+	$.ajax({
+
+		url: 'getState.php',
+		type: 'post',
+		data: 'country='+country,
+		success: function(response){
+
+			if(response == 'empty')
+				alert("Select Country");
 			else
 				$('#edit_mailing_state').html(response);
 
