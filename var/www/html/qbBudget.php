@@ -1,5 +1,11 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbProfitLossMonth.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,7,10,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
 ?>
 <!DOCTYPE html>
 <html>
