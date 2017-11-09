@@ -121,7 +121,7 @@ $('document').ready(function(){
 
 		var country = $(this).val();
 
-		if(country_id) {
+		if(country) {
 
 			$.ajax({
 
