@@ -7,16 +7,16 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$state = $_POST['state'];
+	$district = $_POST['district'];
 
-	if($state == "")
+	if($district == "")
 		echo "empty";
 	else
 	{
 
-		$result = pg_query("SELECT * FROM city WHERE state_id=$state");
+		$result = pg_query("SELECT * FROM city WHERE district_id=$district");
 
-		$cities = "";
+		$cities = "<option disabled selected value=''>Select City</option>";
 
 		while($row = pg_fetch_assoc($result))
 		{

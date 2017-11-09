@@ -16,7 +16,7 @@
 
 		$result = pg_query("SELECT * FROM state WHERE country_id=$country");
 
-		$states = "";
+		$states = "<option disabled selected value=''>Select State</option>";
 
 		while($row = pg_fetch_assoc($result))
 		{

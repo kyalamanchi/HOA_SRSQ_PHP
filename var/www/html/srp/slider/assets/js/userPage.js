@@ -26,8 +26,6 @@ $(document).ready(function(){
 
 					$('#edit_mailing_state').html(response);
 
-					$('#edit_mailing_district').html('Select District');
-
 				}
 
 			});
@@ -51,7 +49,51 @@ $(document).ready(function(){
 
 					$('#edit_mailing_district').html(response);
 
-					$('#edit_mailing_city').html('Select City');
+				}
+
+			});
+
+		}
+
+	});
+
+	$('#edit_mailing_district').on('change', function(){
+
+		var district = $(this).val();
+
+		if(district) {
+
+			$.ajax({
+
+				type: 'POST',
+				url: 'getCity.php',
+				data: 'district_id='+district,
+				success:function(response) {
+
+					$('#edit_mailing_city').html(response);
+
+				}
+
+			});
+
+		}
+
+	});
+
+	$('#edit_mailing_city').on('change', function(){
+
+		var city = $(this).val();
+
+		if(city) {
+
+			$.ajax({
+
+				type: 'POST',
+				url: 'getZip.php',
+				data: 'city_id='+city,
+				success:function(response) {
+
+					$('#edit_mailing_zip').html(response);
 
 				}
 
