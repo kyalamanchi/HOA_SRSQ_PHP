@@ -117,7 +117,7 @@ $('#home_information_radio_no').change(function() {
 
 $('select.country').on('change', function(){
 	
-	var country = $('#edit_mailing_country').val();
+	var country = $('select.country').val();
 
 	$.ajax({
 
@@ -129,7 +129,7 @@ $('select.country').on('change', function(){
 			if(response == 'empty')
 				alert("Select Country");
 			else
-				$('#edit_mailing_state').html(response);
+				$('select.state').html(response);
 
 		}
 

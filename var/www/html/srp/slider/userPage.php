@@ -682,7 +682,7 @@
 
 												<br>
 
-												<select class='form-control' name='edit_mailing_state' id='edit_mailing_state' required>
+												<select class='form-control state' name='edit_mailing_state' id='edit_mailing_state' required>
 
 													<option value='' selected disabled>Select State</option>
 													
