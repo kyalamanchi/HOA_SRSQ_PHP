@@ -7,7 +7,7 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$country = $_POST['country'];
+	$country = $_POST['country_id'];
 
 	if($country == "")
 		echo "empty";

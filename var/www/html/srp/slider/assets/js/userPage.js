@@ -115,9 +115,36 @@ $('#home_information_radio_no').change(function() {
 
 });
 
-$('select.country').on('change', function(){
-	
-	var country = $('select.country').val();
+$('document').ready(function(){
+
+	$('#edit_mailing_country').on('change', function(){
+
+		var country = $(this).val();
+
+		if(country_id) {
+
+			$.ajax({
+
+				type: 'post',
+				url: 'getState.php',
+				data: 'country_id'=country_id,
+				success:function(response) {
+
+					$('#edit_mailing_state').html(response);
+
+				}
+
+			});
+
+		}
+
+	});
+
+});
+
+$('#edit_mailing_country').on('change', function(){
+
+	var country = $('#edit_mailing_country').val();
 
 	$.ajax({
 
@@ -129,12 +156,12 @@ $('select.country').on('change', function(){
 			if(response == 'empty')
 				alert("Select Country");
 			else
-				$('select.state').html(response);
+				$('#edit_mailing_state').html(response);
 
 		}
 
 	});
-	
+
 });
 
 $('form.ajax2').on('submit', function(){
