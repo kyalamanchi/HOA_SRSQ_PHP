@@ -349,23 +349,34 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbAccountsSRP.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
+$message  = "Updating quickbooks monthly actuals ...Please wait.....";
+echo 'data: '.$message."\n\n";  
+ob_end_flush();
+flush();
+
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbProfitLossMonthSRSQ.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,7,9,'".$id."')";
+pg_query($query);
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,7,9,'".$id."')";
+pg_query($query);
+
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,7,10,'".date('Y-m-d H:i:s')."')";
+pg_query($query);
+
+
 $id = date('Y-m-d H:i:s');
 $message  = "Done!!!";
 echo "id: $id\n";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,7,9,'".$id."')";
-pg_query($query);
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,7,9,'".$id."')";
-pg_query($query);
 
-$req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbProfitLossMonthSRSQ.php");
-curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-curl_exec($req);
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,7,10,'".date('Y-m-d H:i:s')."')";
-pg_query($query);
 
 
 }
