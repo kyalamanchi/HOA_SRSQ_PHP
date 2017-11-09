@@ -11,6 +11,29 @@ $(document).ready(function(){
 	$('#email_div').hide();
 	$('#email_continue').hide();
 
+	$('#edit_mailing_country').ready(function(){
+
+		var country = $(this).val();
+
+		if(country) {
+
+			$.ajax({
+
+				type: 'POST',
+				url: 'getState.php',
+				data: 'country_id='+country,
+				success:function(response) {
+
+					$('#edit_mailing_state').html(response);
+
+				}
+
+			});
+
+		}
+
+	});
+
 	$('#edit_mailing_country').on('ready', function(){
 
 		var country = $(this).val();
