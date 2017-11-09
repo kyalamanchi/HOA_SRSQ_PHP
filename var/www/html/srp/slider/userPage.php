@@ -641,7 +641,7 @@
 
 												<br>
 
-												<select class='form-control' name='edit_mailing_country' id='edit_mailing_country' required>
+												<select class='form-control country' name='edit_mailing_country' id='edit_mailing_country' required>
 
 													<option value='' selected disabled>Select Country</option>
 
