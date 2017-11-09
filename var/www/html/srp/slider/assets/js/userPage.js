@@ -142,6 +142,13 @@ $('#home_details_back').click(function(){
 
 });
 
+$('#home_edit_back').click(function(){
+
+	$('#home_details_div').show();
+	$('#edit_home_details_div').hide();
+
+});
+
 $('#home_information_radio_yes').change(function() {
 
 	if (document.getElementById('user_information_radio_yes').checked) {
