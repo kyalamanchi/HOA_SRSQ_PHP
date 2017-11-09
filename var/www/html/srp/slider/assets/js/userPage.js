@@ -205,6 +205,7 @@ $('#home_edit_back').click(function(){
 
 	$('#home_details_div').show();
 	$('#edit_home_details_div').hide();
+	$('#home_details_continue').hide();
 	$('#home_information_radio_no').prop('checked', false);
 
 	$.ajax({
