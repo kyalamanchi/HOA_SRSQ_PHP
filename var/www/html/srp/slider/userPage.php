@@ -416,11 +416,17 @@
 
 										}
 
-										$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
-										$mailing_city = $row['city_name'];
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$mailing_country"));
+										$mailing_country = $row['country_name'];
 
 										$row = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$mailing_state"));
-										$mailing_state = $row['state_code'];
+										$mailing_state = $row['state_name'];
+
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM district WHERE district_id=$mailing_district"));
+										$mailing_district = $row['district_name'];
+
+										$row = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$mailing_city"));
+										$mailing_city = $row['city_name'];
 
 										$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
 										$mailing_zip = $row['zip_code'];
@@ -615,7 +621,7 @@
 
 									<br><br>
 
-									<form method='POST' action='updateHOAID.php' class='ajax1'>
+									<form method='POST' action='updateHomeID.php' class='ajax2'>
 																						
 										<div class='row'>
 
