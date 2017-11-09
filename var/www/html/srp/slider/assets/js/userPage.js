@@ -11,6 +11,54 @@ $(document).ready(function(){
 	$('#email_div').hide();
 	$('#email_continue').hide();
 
+	$('#edit_mailing_country').on('ready', function(){
+
+		var country = $(this).val();
+
+		if(country) {
+
+			$.ajax({
+
+				type: 'POST',
+				url: 'getState.php',
+				data: 'country_id='+country,
+				success:function(response) {
+
+					$('#edit_mailing_state').html(response);
+
+				}
+
+			});
+
+		}
+
+	});
+
+	$('#edit_mailing_country').on('change', function(){
+
+		var country = $(this).val();
+
+		if(country) {
+
+			$.ajax({
+
+				type: 'POST',
+				url: 'getState.php',
+				data: 'country_id='+country,
+				success:function(response) {
+
+					$('#edit_mailing_state').html(response);
+
+					$('#edit_mailing_district').html('Select District');
+
+				}
+
+			});
+
+		}
+
+	});
+
 });
 
 $('#user_information_radio_yes').change(function() {
@@ -112,35 +160,6 @@ $('#home_information_radio_no').change(function() {
 		$('#edit_home_details_div').show();
 
 	}
-
-});
-
-$('document').ready(function(){
-
-	$('#edit_mailing_country').on('change', function(){
-
-		var country = $(this).val();
-
-		if(country) {
-
-			$.ajax({
-
-				type: 'POST',
-				url: 'getState.php',
-				data: 'country_id='+country,
-				success:function(response) {
-
-					$('#edit_mailing_state').html(response);
-
-					$('#edit_mailing_district').html("<option value='' selected disabled>Geeth"+country+"</option>");
-
-				}
-
-			});
-
-		}
-
-	});
 
 });
 
