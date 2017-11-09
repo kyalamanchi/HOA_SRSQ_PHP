@@ -125,9 +125,9 @@ $('document').ready(function(){
 
 			$.ajax({
 
-				type: 'post',
+				type: 'POST',
 				url: 'getState.php',
-				data: 'country_id'=country_id,
+				data: 'country_id'=country,
 				success:function(response) {
 
 					$('#edit_mailing_state').html(response);
