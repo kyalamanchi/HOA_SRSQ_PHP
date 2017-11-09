@@ -9,10 +9,7 @@
 
 	$country = $_POST['country_id'];
 
-	if($country == "")
-		echo "empty";
-	else
-	{
+	if($country != "") {
 
 		$result = pg_query("SELECT * FROM state WHERE country_id=$country");
 
@@ -31,5 +28,7 @@
 		echo $states;
 
 	}
+	else
+		echo "empty";
 
 ?>
