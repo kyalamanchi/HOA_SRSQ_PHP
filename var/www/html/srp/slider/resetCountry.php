@@ -9,6 +9,8 @@
 
 	$mailing_country = $_SESSION['mailing_country'];
 
+	echo "<option selected disabled value=''>Select Country</option>";
+
 	$result = pg_query("SELECT * FROM country");
 	
 	while($row = pg_fetch_assoc($result))

@@ -690,7 +690,7 @@
 
 												<select class='form-control' name='edit_mailing_state' id='edit_mailing_state' required>
 
-													<option value='' selected disabled>Select Country First</option>
+													<option value='' selected disabled>Select State</option>
 
 													<?php
 
@@ -731,7 +731,7 @@
 
 												<select class='form-control' name='edit_mailing_district' id='edit_mailing_district' required>
 
-													<option value='' selected disabled>Select State First</option>
+													<option value='' selected disabled>Select District</option>
 
 													<?php
 
@@ -766,7 +766,7 @@
 
 												<select class='form-control' name='edit_mailing_city' id='edit_mailing_city' required>
 
-													<option value='' selected disabled>Select District First</option>
+													<option value='' selected disabled>Select City</option>
 
 													<?php
 
@@ -801,7 +801,7 @@
 
 												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
 
-													<option value='' selected disabled>Select District First</option>
+													<option value='' selected disabled>Select Zip</option>
 
 													<?php
 

@@ -10,6 +10,8 @@
 	$mailing_zip = $_SESSION['mailing_zip'];
 	$mailing_city = $_SESSION['mailing_city'];
 
+	echo "<option selected disabled value=''>Select Zip</option>";
+
 	$result = pg_query("SELECT * FROM zip WHERE city_id=$mailing_city");
 	
 	while($row = pg_fetch_assoc($result))

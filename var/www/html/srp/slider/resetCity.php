@@ -10,6 +10,8 @@
 	$mailing_district = $_SESSION['mailing_district'];
 	$mailing_city = $_SESSION['mailing_city'];
 
+	echo "<option selected disabled value=''>Select City</option>";
+
 	$result = pg_query("SELECT * FROM city WHERE district_id=$mailing_district");
 	
 	while($row = pg_fetch_assoc($result))
