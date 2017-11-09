@@ -395,6 +395,8 @@
 										{
 
 											$mailing_address = $property_address;
+											$mailing_country = $row['country_id'];
+											$mailing_district = $row['district_id'];
 											$mailing_city = $row['city_id'];
 											$mailing_state = $row['state_id'];
 											$mailing_zip = $row['zip_id'];
@@ -406,6 +408,8 @@
 											$row = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
 
 											$mailing_address = $row['address1'];
+											$mailing_country = $row['country_id'];
+											$mailing_district = $row['district_id'];
 											$mailing_city = $row['city_id'];
 											$mailing_state = $row['state_id'];
 											$mailing_zip = $row['zip_id'];
@@ -627,6 +631,47 @@
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
+												<label><strong>Country</strong></label>
+
+												<br>
+
+												<select class='form-control' name='edit_mailing_country' id='edit_mailing_country' required>
+
+													<option value='' selected disabled>Select Country</option>
+
+													<?php
+
+														$result = pg_query("SELECT * FROM country");
+
+														while($row = pg_fetch_assoc($result))
+														{
+
+															$country_id = $row['country_id'];
+															$country_name = $row['country_name'];
+
+															echo "<option value='$country_id'";
+
+															if($country_name == $mailing_country)
+																echo " selected";
+
+															echo ">$country_name</option>";
+
+														}
+
+													?>
+													
+												</select>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
 												<label><strong>State</strong></label>
 
 												<br>
@@ -634,27 +679,20 @@
 												<select class='form-control' name='edit_mailing_state' id='edit_mailing_state' required>
 
 													<option value='' selected disabled>Select State</option>
+													
+												</select>
 
-													<?php
+											</div>
 
-														$result = pg_query("SELECT * FROM state");
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-														while($row = pg_fetch_assoc($result))
-														{
+												<label><strong>District</strong></label>
 
-															$sid = $row['state_id'];
-															$scode = $row['state_code'];
+												<br>
 
-															echo "<option value='$sid'";
+												<select class='form-control' name='edit_mailing_district' id='edit_mailing_district' required>
 
-															if($scode == $mailing_state)
-																echo " selected";
-
-															echo ">$scode</option>";
-
-														}
-
-													?>
+													<option value='' selected disabled>Select District</option>
 													
 												</select>
 
@@ -689,27 +727,6 @@
 												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
 
 													<option value='' selected disabled>Select Zip</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM zip");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$zid = $row['zip_id'];
-															$zcode = $row['zip_code'];
-
-															echo "<option value='$zid'";
-
-															if($zcode == $mailing_zip)
-																echo " selected";
-
-															echo ">$zcode</option>";
-
-														}
-
-													?>
 													
 												</select>
 

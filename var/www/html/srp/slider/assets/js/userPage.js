@@ -115,21 +115,21 @@ $('#home_information_radio_no').change(function() {
 
 });
 
-$('#edit_mailing_state').ready(function(){
+$('#edit_mailing_country').ready(function(){
 
-	var state = $('#edit_mailing_state').val();
+	var country = $('#edit_mailing_country').val();
 
 	$.ajax({
 
-		url: 'getCity.php',
+		url: 'getState.php',
 		type: 'post',
-		data: 'state='+state,
+		data: 'country='+country,
 		success: function(response){
 
 			if(response == 'empty')
-				alert("Select State");
+				alert("Select Country");
 			else
-				$('#edit_mailing_city').html(response);
+				$('#edit_mailing_state').html(response);
 
 		}
 
@@ -137,21 +137,21 @@ $('#edit_mailing_state').ready(function(){
 
 });
 
-$('#edit_mailing_state').on('change', function(){
+$('#edit_mailing_country').on('change', function(){
 
-	var state = $('#edit_mailing_state').val();
+	var country = $('#edit_mailing_country').val();
 
 	$.ajax({
 
-		url: 'getCity.php',
+		url: 'getState.php',
 		type: 'post',
-		data: 'state='+state,
+		data: 'country='+country,
 		success: function(response){
 
 			if(response == 'empty')
-				alert("Select State");
+				alert("Select Country");
 			else
-				$('#edit_mailing_city').html(response);
+				$('#edit_mailing_state').html(response);
 
 		}
 
