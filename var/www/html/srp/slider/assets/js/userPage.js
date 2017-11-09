@@ -132,7 +132,7 @@ $('document').ready(function(){
 
 					$('#edit_mailing_state').html(response);
 
-					$('#edit_mailing_district').html("<option value='' selected disabled>Geeth</option>");
+					$('#edit_mailing_district').html("<option value='' selected disabled>Geeth"+country+"</option>");
 
 				}
 
