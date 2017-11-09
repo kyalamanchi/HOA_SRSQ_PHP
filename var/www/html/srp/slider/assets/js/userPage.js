@@ -210,6 +210,18 @@ $('#home_edit_back').click(function(){
 	$.ajax({
 
 		type: 'POST',
+		url: 'resetAddress.php',
+		success:function(response) {
+
+			$('#edit_mailing_address').html(response);
+
+		}
+
+	});
+
+	$.ajax({
+
+		type: 'POST',
 		url: 'resetCountry.php',
 		success:function(response) {
 
