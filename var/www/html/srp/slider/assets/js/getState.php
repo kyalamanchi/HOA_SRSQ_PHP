@@ -9,7 +9,7 @@
 
 	$country = $_POST['country'];
 
-	if($state == "")
+	if($country == "")
 		echo "empty";
 	else
 	{
