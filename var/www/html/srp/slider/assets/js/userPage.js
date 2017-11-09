@@ -26,11 +26,11 @@ $(document).ready(function(){
 
 					$('#edit_mailing_state').html(response);
 
-					$('#edit_mailing_district').html("Select State First");
+					$('#edit_mailing_district').html("<option selected disabled value=''>Select State First</option>");
 
-					$('#edit_mailing_city').html("Select District First");
+					$('#edit_mailing_city').html("<option selected disabled value=''>Select District First</option>");
 
-					$('#edit_mailing_zip').html("Select City First");
+					$('#edit_mailing_zip').html("<option selected disabled value=''>Select City First</option>");
 
 				}
 
