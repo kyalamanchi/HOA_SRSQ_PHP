@@ -9,15 +9,13 @@
 
 	$country = $_POST['country_id'];
 
-	if($country != "") {
-
-		$result = pg_query("SELECT * FROM state WHERE country_id=$country");
+	$result = pg_query("SELECT * FROM state WHERE country_id=$country");
 
 		$states = "";
 		$i=0;
 
-		while($row = pg_fetch_assoc($result))
-		{
+	while($row = pg_fetch_assoc($result))
+	{
 
 			$i++;
 
@@ -26,12 +24,8 @@
 
 			$states .= "<option value='$i'>$i</option>";
 
-		}
-
-		echo $states;
-
 	}
-	else
-		echo "empty";
+
+	echo $states;
 
 ?>
