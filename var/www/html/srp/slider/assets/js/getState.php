@@ -6,22 +6,9 @@
 
 	$country = $_POST['country_id'];
 
-	$result = pg_query("SELECT * FROM state WHERE country_id=$country");
+	//$result = pg_query("SELECT * FROM state WHERE country_id=$country");
 
-		$states = "<option value='' selected disabled>Geeth</option>";
-		$i=0;
-
-	while($row = pg_fetch_assoc($result))
-	{
-
-			$i++;
-
-			//$state_id = $row['state_id'];
-			//$state_name = $row['state_name'];
-
-			$states .= "<option value='$i'>$i</option>";
-
-	}
+		$states = "<option value='' selected disabled>Geeth $country</option>";
 
 	echo $states;
 
