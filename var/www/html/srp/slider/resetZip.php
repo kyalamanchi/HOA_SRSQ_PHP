@@ -23,7 +23,7 @@
 		if($zip_id == $mailing_zip)
 			echo " selected";
 
-		echo ">$zip_name</option>";
+		echo ">$zip_code</option>";
 	
 	}
 
