@@ -135,6 +135,14 @@ $('#user_details_continue').click(function(){
 
 });
 
+$('#user_edit_back').click(function(){
+
+	$('#user_details_div').show();
+	$('#edit_user_details_div').hide();
+	$('#user_information_radio_no').prop('checked', false);
+
+});
+
 $('#home_details_back').click(function(){
 
 	$('#home_details_div').hide();
@@ -146,6 +154,7 @@ $('#home_edit_back').click(function(){
 
 	$('#home_details_div').show();
 	$('#edit_home_details_div').hide();
+	$('#home_information_radio_no').prop('checked', false);
 
 });
 
