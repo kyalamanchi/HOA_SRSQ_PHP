@@ -9,27 +9,20 @@
 
 	$state = $_POST['state_id'];
 
-	if($state == "")
-		echo "empty";
-	else
+	$result = pg_query("SELECT * FROM district WHERE state_id=$state");
+
+	$districts = "<option selected disabled value=''>Select District</option>";
+
+	while($row = pg_fetch_assoc($result))
 	{
 
-		$result = pg_query("SELECT * FROM district WHERE state_id=$state");
+		$district_id = $row['district_id'];
+		$district_name = $row['district_name'];
 
-		$districts = "<option selected disabled value=''>Select District</option>";
-
-		while($row = pg_fetch_assoc($result))
-		{
-
-			$district_id = $row['district_id'];
-			$district_name = $row['district_name'];
-
-			$districts .= "<option value='$district_id'>$district_name</option>";
-
-		}
-
-		echo $districts;
+		$districts .= "<option value='$district_id'>$district_name</option>";
 
 	}
+
+	echo $districts;
 
 ?>

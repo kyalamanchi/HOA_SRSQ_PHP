@@ -9,27 +9,20 @@
 
 	$country = $_POST['country_id'];
 
-	if($country == "")
-		echo "empty";
-	else
+	$result = pg_query("SELECT * FROM state WHERE country_id=$country");
+
+	$states = "<option disabled selected value=''>Select State</option>";
+
+	while($row = pg_fetch_assoc($result))
 	{
 
-		$result = pg_query("SELECT * FROM state WHERE country_id=$country");
+		$state_id = $row['state_id'];
+		$state_name = $row['state_name'];
 
-		$states = "<option disabled selected value=''>Select State</option>";
-
-		while($row = pg_fetch_assoc($result))
-		{
-
-			$state_id = $row['state_id'];
-			$state_name = $row['state_name'];
-
-			$states .= "<option value='$state_id'>$state_name</option>";
-
-		}
-
-		echo $states;
+		$states .= "<option value='$state_id'>$state_name</option>";
 
 	}
+
+	echo $states;
 
 ?>

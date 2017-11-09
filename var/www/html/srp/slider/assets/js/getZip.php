@@ -9,27 +9,20 @@
 
 	$city = $_POST['city_id'];
 
-	if($city == "")
-		echo "empty";
-	else
+	$result = pg_query("SELECT * FROM zip WHERE city_id=$city");
+
+	$zips = "<option selected disabled value=''>Select Zip</option>";
+
+	while($row = pg_fetch_assoc($result))
 	{
 
-		$result = pg_query("SELECT * FROM zip WHERE city_id=$city");
+		$zip_id = $row['zip_id'];
+		$zip_code = $row['zip_code'];
 
-		$zips = "<option selected disabled value=''>Select Zip</option>";
-
-		while($row = pg_fetch_assoc($result))
-		{
-
-			$zip_id = $row['zip_id'];
-			$zip_code = $row['zip_code'];
-
-			$zips .= "<option value='$zip_id'>$zip_code</option>";
-
-		}
-
-		echo $zips;
+		$zips .= "<option value='$zip_id'>$zip_code</option>";
 
 	}
+
+	echo $zips;
 
 ?>
