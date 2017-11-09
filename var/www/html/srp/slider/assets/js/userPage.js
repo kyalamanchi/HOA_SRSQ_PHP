@@ -140,6 +140,7 @@ $('#user_edit_back').click(function(){
 	$('#user_details_div').show();
 	$('#edit_user_details_div').hide();
 	$('#user_information_radio_no').prop('checked', false);
+	$('#user_details_continue').hide();
 
 });
 
