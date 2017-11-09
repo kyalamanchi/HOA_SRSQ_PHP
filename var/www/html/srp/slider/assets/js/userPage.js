@@ -115,50 +115,6 @@ $('#home_information_radio_no').change(function() {
 
 });
 
-$('#edit_mailing_country').ready(function(){
-
-	var country = $('#edit_mailing_country').val();
-
-	$.ajax({
-
-		url: 'getState.php',
-		type: 'post',
-		data: 'country='+country,
-		success: function(response){
-
-			if(response == 'empty')
-				alert("Select Country");
-			else
-				$('#edit_mailing_state').html(response);
-
-		}
-
-	});
-
-});
-
-$('#edit_mailing_country').on('change', function(){
-
-	var country = $('#edit_mailing_country').val();
-
-	$.ajax({
-
-		url: 'getState.php',
-		type: 'post',
-		data: 'country='+country,
-		success: function(response){
-
-			if(response == 'empty')
-				alert("Select Country");
-			else
-				$('#edit_mailing_state').html(response);
-
-		}
-
-	});
-
-});
-
 $('select.country').on('change', function(){
 	
 	var country = $('#edit_mailing_country').val();
