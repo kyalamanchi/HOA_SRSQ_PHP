@@ -90,6 +90,8 @@ $(document).ready(function(){
 
 		var city = $(this).val();
 
+		alert(city);
+
 		if(city) {
 
 			$.ajax({
