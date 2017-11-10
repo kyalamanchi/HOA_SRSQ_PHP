@@ -1196,332 +1196,131 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 									
-									<div class='row'>
+									<div class='row module-gray'>
 
-										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>PAYMENT INFORMATION</h3></center></div>
 
-                          					<div class='counter h6'>
+									</div>
 
-                            					<div class='counter-number'>
+									<div class='row module-gray'>
 
-                              						<?php
+										<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
 
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
+											<div class='counter h6'>
 
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
+												<div class='counter-number'>
+															
+													<?php echo round($amount_received, 0); ?>
+																
+												</div>
 
-                              						?>
+												<div class='counter-title'>Amount Received (%)</div>
 
-                            					</div>
+											</div>
 
-                            					<div class='counter-title'>Board Signed Agreements</div>
+										</div>
 
-                          					</div>
+										<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
 
-                        				</div>
+											<div class='counter h6'>
 
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+												<div class='counter-number'>
 
-                          					<div class='counter h6'>
+													<?php echo round($members_paid, 0); ?>
 
-                            					<div class='counter-number'>
+												</div>
 
-                              						<?php
+												<div class='counter-title'>Members Paid (%)</div>
 
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
+											</div>
 
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
+										</div>
 
-                              						?>
+										<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
-                            					</div>
+											<div class='counter h6'>
 
-                            					<div class='counter-title'>Board Signed Agreements</div>
+												<div class='counter-number'>
+															
+													<?php 
+																	
+														$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
 
-                          					</div>
+														echo $ach;
 
-                        				</div>
+													?>
+																
+												</div>
 
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+												<div class='counter-title'>ACH</div>
 
-                          					<div class='counter h6'>
+											</div>
 
-                            					<div class='counter-number'>
+										</div>
 
-                              						<?php
+										<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
+											<div class='counter h6'>
 
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
+												<div class='counter-number'>
 
-                              						?>
+													<?php 
+																	
+														$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
 
-                            					</div>
+														echo $bill_pay;
 
-                            					<div class='counter-title'>Board Signed Agreements</div>
+													?>
 
-                          					</div>
+												</div>
 
-                        				</div>
+												<div class='counter-title'>Bill Pay</div>
 
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+											</div>
 
-                          					<div class='counter h6'>
+										</div>
 
-                            					<div class='counter-number'>
+										<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
-                              						<?php
+											<div class='counter h6'>
 
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
+												<div class='counter-number'>
+															
+													<?php 
+																	
+														$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
 
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
+														echo $check;
 
-                              						?>
+													?>
 
-                            					</div>
+												</div>
 
-                            					<div class='counter-title'>Board Signed Agreements</div>
+												<div class='counter-title'>Check</div>
 
-                          					</div>
+											</div>
 
-                        				</div>
+										</div>
 
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+										<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
-                          					<div class='counter h6'>
+											<div class='counter h6'>
 
-                            					<div class='counter-number'>
+												<div class='counter-number'>
 
-                              						<?php
+													<?php 
+																	
+														echo ($total_homes - ( $ach + $bill_pay + $check ) ); 
 
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
+													?>
 
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
+												</div>
 
-                              						?>
+												<div class='counter-title'>Others</div>
 
-                            					</div>
+											</div>
 
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
-
-                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          					<div class='counter h6'>
-
-                            					<div class='counter-number'>
-
-                              						<?php
-
-                                						$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                						if($signed_agreements > 0)
-                                  							echo "<a href='boardSignedAgreements.php'>$signed_agreements</a>";
-                                						else
-                                  							echo $signed_agreements;
-
-                              						?>
-
-                            					</div>
-
-                            					<div class='counter-title'>Board Signed Agreements</div>
-
-                          					</div>
-
-                        				</div>
+										</div>
 
 									</div>
 
