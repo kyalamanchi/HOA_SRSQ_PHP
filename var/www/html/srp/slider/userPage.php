@@ -1155,7 +1155,7 @@
 
 							<div class='row container'>
 								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1 text-center'>
 
 									<div class='alert alert-warning'>
 
@@ -1165,7 +1165,8 @@
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Primary Email</li>
 											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+											<li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
+											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
 
