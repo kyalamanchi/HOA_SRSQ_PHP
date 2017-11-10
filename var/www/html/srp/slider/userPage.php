@@ -1048,7 +1048,17 @@
       	
 	      	$(function () {
 	        	
-	        	$("#example1").DataTable({ "pageLength": 100, "order": [[0, 'desc']] });
+	        	$("#pendingAgreements").DataTable({ "pageLength": 100, "order": [[0, 'desc']] });
+
+	      	});
+
+    	</script>
+
+    	<script>
+      	
+	      	$(function () {
+	        	
+	        	$("#signedAgreements").DataTable({ "pageLength": 100, "order": [[0, 'desc']] });
 
 	      	});
 
