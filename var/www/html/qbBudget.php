@@ -70,6 +70,11 @@ function hidePleaseWait() {
     .notbold{
     font-weight:normal
 }​
+th, td {
+        white-space: nowrap;
+        padding-left: 5px !important;
+        padding-right: 10px !important;
+}
 </style>
     <body>
 <div class="container"> 
@@ -84,7 +89,7 @@ function hidePleaseWait() {
         <center><h4><span class="notbold"><?php echo 'SRSQ 2017'?></span></h4></center>
         <br>
         <br>
-<table id="example" class="display" cellspacing="0" width="100%" style="font-size: 14px;">
+<table id="example" class="cell-border" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th rowspan="2"></th>
@@ -151,7 +156,7 @@ function hidePleaseWait() {
                 <th>BUDGET</th>
                 <th>OVER BUDGET</th>
                 <th>% OF BUDGET</th>
-                <th>YTD ACTUAL</th>
+                <th >YTD ACTUAL</th>
                 <th>YTD BUDGET</th>
                 <th>YTD OVER BUDGET</th>
                 <th>YTD % OF BUDGET</th>
