@@ -52,7 +52,10 @@ $(document).ready(function() {
         scrollCollapse: true,
         paging:         false,
         "order": [[ 1, "desc" ]],
-        fixedColumns:   true
+        fixedColumns:   {
+            leftColumns: 1,
+            rightColumns: 4
+        }
     } );
 } 
 
