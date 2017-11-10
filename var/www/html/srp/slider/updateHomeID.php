@@ -60,7 +60,7 @@
 			else
 			{
 
-				$result = pg_query("INSERT INTO home_mailing_address (home_id, address1, zip_id, city_id, district_id, state_id, country_id, community_id, updated_by, updated_on, valid_address)VALUES($home_id, '$address1', $zip_id, $city_id, $district_id, $state_id, $country_id, $community_id, $user_id, '$today')");
+				$result = pg_query("INSERT INTO home_mailing_address (home_id, address1, zip_id, city_id, district_id, state_id, country_id, community_id, updated_by, updated_on, valid_address)VALUES($home_id, '$address1', $zip_id, $city_id, $district_id, $state_id, $country_id, $community_id, $user_id, '$today', 't')");
 
 
 			}
