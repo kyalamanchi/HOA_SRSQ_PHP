@@ -460,13 +460,13 @@ $('#agreements_back').click(function(){
 $('#agreements_continue').click(function(){
 
 	$('#agreements_div').hide();
-	$('#disclosures_div').show();
+	$('#hoa_fact_sheet_div').show();
 
 });
 
-$('#disclosures_back').click(function(){
+$('#hoa_fact_sheet_back').click(function(){
 
 	$('#agreements_div').show();
-	$('#disclosures_div').hide();
+	$('#hoa_fact_sheet_div').hide();
 
 });

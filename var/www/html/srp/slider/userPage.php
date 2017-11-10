@@ -132,15 +132,19 @@
 
 									<div class='alert alert-warning'>
 
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">Disclosures</li>
+										<center>
 
-										</ol>
+											<ol class="breadcrumb">
+									
+												<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+												<li class="breadcrumb-item">Home Details</li>
+												<li class="breadcrumb-item">Primary Email</li>
+												<li class="breadcrumb-item">Agreements</li>
+												<li class="breadcrumb-item">Disclosures</li>
+
+											</ol>
+
+										</center>
 
 									</div>
 
@@ -169,7 +173,7 @@
 
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-											<h2 class='h2'>Is this information correct?</h2>
+											<h3 class='h3'>Is this information correct?</h3>
 
 										</div>
 
@@ -299,7 +303,7 @@
 
 									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-										<h3>Update User Details</h3>
+										<h3 class='h3'>Update User Details</h3>
 
 									</div>
 
@@ -579,7 +583,7 @@
 										
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-											<h2 class='h2'>Do you still live in <u id='user_mailing_address'><?php echo $mailing_address; ?></u>?</h2>
+											<h3 class='h3'>Do you still live in <u id='user_mailing_address'><?php echo $mailing_address; ?></u>?</h3>
 
 										</div>
 
@@ -940,7 +944,7 @@
 
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-											<h2 class='h2'>Is <u><?php echo $primary_email; ?></u> your primary email?</h2>
+											<h3 class='h3'>Is <u><?php echo $primary_email; ?></u> your primary email?</h3>
 
 										</div>
 
@@ -1149,13 +1153,13 @@
 
 						</div>
 
-						<div id='disclosures_div'>
+						<div id='hoa_fact_sheet_div'>
 
 							<br>
 
 							<div class='row container'>
 								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1 text-center'>
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
 									<div class='alert alert-warning'>
 
@@ -1300,13 +1304,13 @@
 										
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-													<button id='disclosures_back' name='disclosures_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+													<button id='hoa_fact_sheet_back' name='hoa_fact_sheet_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
 												</div>
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-													<button id='disclosures_continue' name='disclosures_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+													<button id='hoa_fact_sheet_continue' name='hoa_fact_sheet_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 												</div>
 
