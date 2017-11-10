@@ -11,6 +11,7 @@ $(document).ready(function(){
 	$('#email_div').hide();
 	$('#email_continue').hide();
 	$('#agreements_div').hide();
+	$('#disclosures_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 

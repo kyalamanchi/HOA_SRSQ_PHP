@@ -269,19 +269,23 @@
 
 							<br>
 
-							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='alert alert-warning'>
 
-									<ol class="breadcrumb">
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
-										<li class="breadcrumb-item">Home Details</li>
-										<li class="breadcrumb-item">Primary Email</li>
-										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item">Disclosures</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Disclosures</li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -373,19 +377,23 @@
 
 							<br>
 
-							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='alert alert-warning'>
 
-									<ol class="breadcrumb">
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item">User Details</li>
-										<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-										<li class="breadcrumb-item">Primary Email</li>
-										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item">Disclosures</li>
+											<li class="breadcrumb-item">User Details</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Disclosures</li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -605,7 +613,7 @@
 										
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-													<button id='home_details_back' name='user_details_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+													<button id='home_details_back' name='home_details_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
 												</div>
 
@@ -633,19 +641,23 @@
 
 							<br>
 
-							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='alert alert-warning'>
 
-									<ol class="breadcrumb">
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item">User Details</li>
-										<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-										<li class="breadcrumb-item">Primary Email</li>
-										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item">Disclosures</li>
+											<li class="breadcrumb-item">User Details</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Disclosures</li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -888,19 +900,23 @@
 
 							<br>
 
-							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='alert alert-warning'>
 
-									<ol class="breadcrumb">
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item">User Details</li>
-										<li class="breadcrumb-item">Home Details</li>
-										<li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
-										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item">Disclosures</li>
+											<li class="breadcrumb-item">User Details</li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Disclosures</li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -986,19 +1002,23 @@
 
 							<br>
 
-							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='alert alert-warning'>
 
-									<ol class="breadcrumb">
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item">User Details</li>
-										<li class="breadcrumb-item">Home Details</li>
-										<li class="breadcrumb-item">Primary Email</li>
-										<li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
-										<li class="breadcrumb-item">Disclosures</li>
+											<li class="breadcrumb-item">User Details</li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
+											<li class="breadcrumb-item">Disclosures</li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -1129,23 +1149,27 @@
 
 						</div>
 
-						<div id='home_details_div'>
+						<div id='disclosures_div'>
 
 							<br>
 
-							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+									<div class='alert alert-warning'>
 
-									<ol class="breadcrumb">
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item">User Details</li>
-										<li class="breadcrumb-item">Home Details</li>
-										<li class="breadcrumb-item">Primary Email</li>
-										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+											<li class="breadcrumb-item">User Details</li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -1261,17 +1285,23 @@
 
 										<br>
 
-									</div>
+										<div class='row'>
 
-									<br>
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-									<div class='row'>
-										
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+												<center><a><i class='fa fa-arrow-left'></i> Previous</a></center>
+												
+											</div>
 
-											<h2 class='h2'>Do you still live in <u id='user_mailing_address'><?php echo $mailing_address; ?></u>?</h2>
+											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+												<center><a style='color: blue;'>Next <i class='fa fa-arrow-right'></i></a></center>
+												
+											</div>
 
 										</div>
+
+										<br>
 
 									</div>
 
@@ -1303,13 +1333,13 @@
 										
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-													<button id='home_details_back' name='user_details_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+													<button id='disclosures_back' name='disclosures_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
 												</div>
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-													<button id='home_details_continue' name='home_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+													<button id='disclosures_continue' name='disclosures_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 												</div>
 
