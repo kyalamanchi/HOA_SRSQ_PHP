@@ -379,7 +379,7 @@
 
                         <a href='https://hoaboardtime.com/trailBalanceReport.php'>
 
-                          $
+                          <img src='trail_balance.png'>
 
                         </a>
 
