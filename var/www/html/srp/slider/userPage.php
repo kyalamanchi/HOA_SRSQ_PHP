@@ -977,25 +977,21 @@
 
 							<div class='row'>
 
-								<div class='row'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+									<hr class='small'>
 
-										<hr class='small'>
-
-										<div class='row'>
+									<div class='row'>
 										
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-												<button id='email_back' name='email_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+											<button id='email_back' name='email_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
-											</div>
+										</div>
 
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-												<button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-											</div>
+											<button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 										</div>
 
