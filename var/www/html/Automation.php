@@ -118,8 +118,6 @@
 
   function updateMailChimp(){
 
-    alert("Testing... Please Try Again");
-
     document.getElementById("mcResult").innerHTML = "";
         var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=7";
         var source = new EventSource(url);
