@@ -128,7 +128,7 @@
 
 							<div class='row container'>
 								
-								<div class='col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
 									<div class='alert alert-warning'>
 
