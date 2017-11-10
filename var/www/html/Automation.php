@@ -113,6 +113,14 @@
             document.getElementById("qResult").innerHTML = event.data + "<br>";
         }
   }
+
+  function updateMailChimp(){
+
+    alert("Testing... Please Try Again");
+
+  }
+
+
 </script>
 <style type="text/css">
   .pull-right{
@@ -283,6 +291,7 @@
         $row = pg_fetch_assoc($queryResult);
         echo '<font size="4" style="float: right;" id="qtime">Last ran on :'.$row['START_TIME'].'</font>';
         ?>
+        Inserts/ Updates QuickBooks account information and monthly actuals. 
         <br>
         <br>
         <button type="button" class="btn btn-outline-primary" id="quickBooksButton" onclick="updateQuickBooks();">Update Now</button>
@@ -309,6 +318,7 @@
         $row = pg_fetch_assoc($queryResult);
         echo '<font size="4" style="float: right;" id="mctime">Last ran on :'.$row['START_TIME'].'</font>';
         ?>
+        Updates campaign, list, member information. 
         <br>
         <br>
         <button type="button" class="btn btn-outline-primary" id="mailchimpButton" onclick="updateMailChimp();">Update Now</button>
