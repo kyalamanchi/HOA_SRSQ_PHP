@@ -1016,6 +1016,14 @@
 
 								</div>
 
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<hr class='small'>
+
+									<button class='btn btn-warning btn-xs' type='button' id='agreements_back' name='agreements_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-xs btn-success' name='agreements_continue' id='agreements_continue'>Continue <i class='fa fa=arrow-right'></i></button>
+
+								</div>
+
 							</div>
 
 						</div>

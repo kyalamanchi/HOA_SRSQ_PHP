@@ -448,3 +448,10 @@ $('#email_continue').click(function(){
 	$('#agreements_div').show();
 
 });
+
+$('#agreements_back').click(function(){
+
+	$('#agreements_div').hide();
+	$('#email_div').show();
+
+});
