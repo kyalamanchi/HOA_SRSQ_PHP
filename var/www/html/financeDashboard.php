@@ -435,7 +435,7 @@
 
                         <a href='https://hoaboardtime.com/vendorExpenditure.php'>
 
-                          $ 1234567890
+                          <h1 class="text-info"><strong>$ 1234567890</strong></h1>
 
                         </a>
 
