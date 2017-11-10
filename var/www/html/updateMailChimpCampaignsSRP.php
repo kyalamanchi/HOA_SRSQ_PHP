@@ -9,6 +9,16 @@
 	$result = curl_exec($ch);
 	$result = json_decode($result);
 
+	$totalNumberOfCampaigns = $result->total_items;
+	$initialCount = 0;
+
+	while ( $totalNumberOfCampaigns >= $initialCount ) {
+	$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns?offset='.$initialCount);
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+	curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	$result = curl_exec($ch);
+	$result = json_decode($result);
 	foreach ($result->campaigns as $campaigns) {
 
 
@@ -39,6 +49,11 @@
 			print_r($query);
 		}
 	}
+		$initialCount = $initialCount  + 10;
+	}
+
+
+
 ?>
 
 		
