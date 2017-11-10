@@ -989,11 +989,15 @@
 
 												$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
-												$id = $row['id'];
-			                          			$document_to = $row['document_to'];
-			                          			$esign_url = $row['esign_url'];
+												while($row = pg_fetch_assoc($result))
+												{
+													
+													$id = $row['id'];
+			                          				$document_to = $row['document_to'];
+			                          				$esign_url = $row['esign_url'];
 		                          				
-		                          				echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td></tr>";
+		                          					echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td></tr>";
+		                          				}
 
 											?>
 											
@@ -1002,6 +1006,12 @@
 									</table>
 
 								</div>
+
+							</div>
+
+							<br><br>
+
+							<div class='row'>
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
@@ -1026,11 +1036,16 @@
 
 												$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
-												$id = $row['id'];
-			                          			$document_to = $row['document_to'];
-			                          			$esign_url = $row['esign_url'];
+												while($row = pg_fetch_assoc($result))
+												{
+													
+													$id = $row['id'];
+			                          				$document_to = $row['document_to'];
+			                          				$esign_url = $row['esign_url'];
 		                          				
-		                          				echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td></tr>";
+		                          					echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td></tr>";
+
+		                          				}
 
 											?>
 											
