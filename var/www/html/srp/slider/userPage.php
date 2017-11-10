@@ -132,7 +132,7 @@
 
 									<div class='alert alert-warning'>
 
-										<ol class="breadcrumb">
+										<ol class="breadcrumb text-center">
 
 											<center>
 									
