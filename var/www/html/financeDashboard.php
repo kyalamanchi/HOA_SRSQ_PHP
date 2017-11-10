@@ -379,7 +379,7 @@
 
                         <a href='https://hoaboardtime.com/trailBalanceReport.php'>
 
-                          $
+                          <img src='trail_balance.png'>
 
                         </a>
 
@@ -407,7 +407,7 @@
 
                         <a href='https://hoaboardtime.com/chartOfAccounts.php'>
 
-                          $
+                          <img src='chart_of_accounts.png'>
 
                         </a>
 
@@ -435,7 +435,175 @@
 
                         <a href='https://hoaboardtime.com/vendorExpenditure.php'>
 
-                          $
+                          <h1 class="text-info"><strong>$ 1234567890</strong></h1>
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="row container-fluid text-center">
+
+                      <h5><strong>Expenditure By Vendor</strong></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        <a href='https://hoaboardtime.com/trailBalanceReport.php'>
+
+                          <img src='trail_balance.png'>
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="row container-fluid text-center">
+
+                      <h5><strong>Trail Balance Report</strong></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        <a href='https://hoaboardtime.com/chartOfAccounts.php'>
+
+                          <img src='chart_of_accounts.png'>
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="row container-fluid text-center">
+
+                      <h5><strong>Chart Of Accounts</strong></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        <a href='https://hoaboardtime.com/vendorExpenditure.php'>
+
+                          <h1 class="text-info"><strong>$ 1234567890</strong></h1>
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="row container-fluid text-center">
+
+                      <h5><strong>Expenditure By Vendor</strong></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        <a href='https://hoaboardtime.com/trailBalanceReport.php'>
+
+                          <img src='trail_balance.png'>
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="row container-fluid text-center">
+
+                      <h5><strong>Trail Balance Report</strong></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        <a href='https://hoaboardtime.com/chartOfAccounts.php'>
+
+                          <img src='chart_of_accounts.png'>
+
+                        </a>
+
+                      </div>
+
+                    </div>
+
+                    <div class="row container-fluid text-center">
+
+                      <h5><strong>Chart Of Accounts</strong></h5>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+
+                  <div class="row container-fluid text-left">
+
+                    <div class="row container-fluid">
+
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                        <a href='https://hoaboardtime.com/vendorExpenditure.php'>
+
+                          <h1 class="text-info"><strong>$ 1234567890</strong></h1>
 
                         </a>
 

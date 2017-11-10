@@ -16,7 +16,13 @@
 	$result = pg_query("UPDATE hoaid SET cell_no=$cell_number, updated_by=$user_id, updated_on='$today' WHERE hoa_id=$hoa_id");
 
 	if($result)
+	{	
+		
+		$_SESSION['hoa_alchemy_cell_no']
+
 		echo $cell_number;
+		
+	}
 	else
 		echo "Some error occured. Please try again.";
 

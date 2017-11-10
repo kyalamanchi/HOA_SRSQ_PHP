@@ -7,7 +7,7 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$district = $_POST['district'];
+	$district = $_POST['district_id'];
 
 	$result = pg_query("SELECT * FROM city WHERE district_id=$district");
 
@@ -16,10 +16,10 @@
 	while($row = pg_fetch_assoc($result))
 	{
 
-		$cid = $row['city_id'];
-		$cname = $row['city_name'];
+		$city_id = $row['city_id'];
+		$city_name = $row['city_name'];
 
-		$cities .= "<option value='$cid'>$cname</option>";
+		$cities .= "<option value='$city_id'>$city_name</option>";
 
 	}
 

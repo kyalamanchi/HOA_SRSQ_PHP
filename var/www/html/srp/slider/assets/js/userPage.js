@@ -10,6 +10,8 @@ $(document).ready(function(){
 	$('#home_details_continue').hide();
 	$('#email_div').hide();
 	$('#email_continue').hide();
+	$('#agreements_div').hide();
+	$('#hoa_fact_sheet_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 
@@ -191,6 +193,18 @@ $('#user_edit_back').click(function(){
 	$('#edit_user_details_div').hide();
 	$('#user_information_radio_no').prop('checked', false);
 	$('#user_details_continue').hide();
+
+	//$.ajax({
+
+		//type: 'POST',
+		//url: 'resetUserDetails.php',
+		//success:function(response) {
+
+			//$('#edit_cell_no').val(parseInt(response));
+
+		//}
+
+	//});
 
 });
 
@@ -429,74 +443,30 @@ $('form.ajax3').on('submit', function(){
 	
 });
 
+$('#email_continue').click(function(){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-$('#home_details_div').ready(function(){
-
-	if (document.getElementById('edit_living_status_f').checked) {
-
-  		$('#mailing_address_div').show();
-
-	}
-	else {
-		
-		$('#mailing_address_div').hide();
-
-	}
+	$('#email_div').hide();
+	$('#agreements_div').show();
 
 });
 
-$('form.ajax2').on('submit', function(){
-	
-	var obj = $(this),
-	url = obj.attr('action'),
-	method = obj.attr('method'),
-	data = {};
+$('#agreements_back').click(function(){
 
-	obj.find('[name]').each(function(index, value){
+	$('#agreements_div').hide();
+	$('#email_div').show();
 
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
+});
 
-		data[index] = value;
+$('#agreements_continue').click(function(){
 
-	});
+	$('#agreements_div').hide();
+	$('#hoa_fact_sheet_div').show();
 
-	$.ajax({
+});
 
-		url: url,
-		type: method,
-		data: data,
-		success: function(response){
-			if(response != 'correct')
-				alert(response);
-			else
-			{
+$('#hoa_fact_sheet_back').click(function(){
 
-				window.location.href = 'login.php';
+	$('#agreements_div').show();
+	$('#hoa_fact_sheet_div').hide();
 
-			}
-		}
-
-	});
-
-	return false;
-	
 });
