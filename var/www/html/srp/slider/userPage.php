@@ -974,7 +974,7 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-									<table id='pendingAgreements' class='table table-striped'>
+									<table id='pendingAgreements' class='table table-striped' style='color: black;'>
 
 										<thead>
 											
@@ -994,6 +994,7 @@
 													
 													$id = $row['id'];
 			                          				$document_to = $row['document_to'];
+			                          				$agreement_name = $row['agreement_name'];
 			                          				$esign_url = $row['esign_url'];
 		                          				
 		                          					echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td></tr>";
@@ -1021,7 +1022,7 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<table id='signedAgreements' class='table table-striped'>
+									<table id='signedAgreements' class='table table-striped' style='color: black;'>
 
 										<thead>
 											
@@ -1041,6 +1042,7 @@
 													
 													$id = $row['id'];
 			                          				$document_to = $row['document_to'];
+			                          				$agreement_name = $row['agreement_name'];
 			                          				$esign_url = $row['esign_url'];
 		                          				
 		                          					echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td></tr>";
