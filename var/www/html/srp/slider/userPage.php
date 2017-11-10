@@ -332,7 +332,7 @@
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 												<label><strong>Phone</strong></label><br>
-												<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
+												<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required> <?php echo $_SESSION['hoa_alchemy_cell_no']; ?>
 
 											</div>
 
