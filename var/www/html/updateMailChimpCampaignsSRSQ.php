@@ -49,7 +49,7 @@
 			print_r($query);
 		}
 	}
-
+		$initialCount = $initialCount  + 10;
 	}
 
 
