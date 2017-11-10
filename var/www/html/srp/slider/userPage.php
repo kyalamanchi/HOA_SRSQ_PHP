@@ -126,19 +126,25 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+								<div class='col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-1'> </div>
+								
+								<div class='col-xl-8 col-lg-8 col-md-8 col-sm-8 col-xs-8'>
 
-									<ol class="breadcrumb">
+									<div class='alert alert-warning'>
+
+										<ol class="breadcrumb">
 									
-										<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
-										<li class="breadcrumb-item">Home Details</li>
-										<li class="breadcrumb-item">Primary Email</li>
-										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item">Disclosures</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Disclosures</li>
 
-									</ol>
+										</ol>
+
+									</div>
 
 								</div>
 
@@ -265,7 +271,7 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
@@ -369,7 +375,7 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
@@ -629,7 +635,7 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
@@ -884,7 +890,7 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
@@ -982,7 +988,7 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
@@ -1129,7 +1135,7 @@
 
 							<br>
 
-							<div class='row container' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
+							<div class='row' style="border-top:1pt solid black; border-bottom:1pt solid black; border-left:1pt solid black; border-right:1pt solid black;">
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
