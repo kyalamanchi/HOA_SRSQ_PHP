@@ -1285,27 +1285,25 @@
 
 										<br>
 
-										<div class='row'>
-
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-												<center><a style='color: gray;'><i class='fa fa-arrow-left'></i> Previous Disclosure</a></center>
-												
-											</div>
-
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-												<center><a style='color: blue;'>Next Disclosure<i class='fa fa-arrow-right'></i></a></center>
-												
-											</div>
-
-										</div>
-
-										<br>
-
 									</div>
 
 									<br>
+
+									<div class='row'>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<center><button class='btn btn-xs disabled'><i class='fa fa-arrow-left'></i> Previous Disclosure</button></center>
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<center><button class='btn btn-xs btn-info'>Next Disclosure <i class='fa fa-arrow-right'></i></button></center>
+
+										</div>
+
+									</div>
 
 									<div class='row'>
 
@@ -1317,7 +1315,7 @@
 										
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-													<button id='disclosures_back' name='disclosures_back' type='button' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+													<button id='disclosures_back' name='disclosures_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
 												</div>
 
