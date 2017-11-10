@@ -407,7 +407,7 @@
 
                         <a href='https://hoaboardtime.com/chartOfAccounts.php'>
 
-                          <img src='chart_of_accounts'>
+                          <img src='chart_of_accounts.png'>
 
                         </a>
 
