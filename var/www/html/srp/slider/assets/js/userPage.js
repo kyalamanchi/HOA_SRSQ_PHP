@@ -99,8 +99,6 @@ $(document).ready(function(){
 				data: 'city_id='+city,
 				success:function(response) {
 
-					alert(response);
-
 					$('#edit_mailing_zip').html(response);
 
 				}
@@ -194,17 +192,17 @@ $('#user_edit_back').click(function(){
 	$('#user_information_radio_no').prop('checked', false);
 	$('#user_details_continue').hide();
 
-	$.ajax({
+	//$.ajax({
 
-		type: 'POST',
-		url: 'resetUserDetails.php',
-		success:function(response) {
+		//type: 'POST',
+		//url: 'resetUserDetails.php',
+		//success:function(response) {
 
-			$('#edit_cell_no').val(parseInt(response));
+			//$('#edit_cell_no').val(parseInt(response));
 
-		}
+		//}
 
-	});
+	//});
 
 });
 
