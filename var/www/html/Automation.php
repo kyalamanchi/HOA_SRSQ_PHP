@@ -53,6 +53,7 @@
       document.getElementById("runAllJobsButton").disabled = true;
       document.getElementById("smsButton").disabled = true;
       document.getElementById("quickBooksButton").disabled = true;
+      document.getElementById("mailchimpButton").disabled = true;
       swal("Payments,Agreements,Emails sent, SMS sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
@@ -67,6 +68,7 @@
           document.getElementById("runAllJobsButton").disabled = false;
           document.getElementById("smsButton").disabled = false;
           document.getElementById("quickBooksButton").disabled = false;
+          document.getElementById("mailchimpButton").disabled = false;
       }
     }
   }
@@ -117,6 +119,18 @@
   function updateMailChimp(){
 
     alert("Testing... Please Try Again");
+
+    document.getElementById("mcResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=7";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("mctime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("mcResult").innerHTML = event.data + "<br>";
+            }
+            document.getElementById("mcResult").innerHTML = event.data + "<br>";
+        }
 
   }
 
