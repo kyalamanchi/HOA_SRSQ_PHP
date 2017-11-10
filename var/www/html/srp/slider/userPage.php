@@ -980,6 +980,7 @@
 											
 											<th>Agreement</th>
 											<th>Email</th>
+											<th>Sign Agreement</th>
 
 										</thead>
 
@@ -997,7 +998,7 @@
 			                          				$agreement_name = $row['agreement_name'];
 			                          				$esign_url = $row['esign_url'];
 		                          				
-		                          					echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td></tr>";
+		                          					echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>Click Here</a></td></tr>";
 		                          				}
 
 											?>
@@ -1028,6 +1029,7 @@
 											
 											<th>Agreement</th>
 											<th>Email</th>
+											<th>Document Preview</th>
 
 										</thead>
 
@@ -1045,7 +1047,7 @@
 			                          				$agreement_name = $row['agreement_name'];
 			                          				$esign_url = $row['esign_url'];
 		                          				
-		                          					echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td></tr>";
+		                          					echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'><i class='fa fa-file-pdf-o'></i></a></td></tr>";
 
 		                          				}
 
