@@ -1165,7 +1165,7 @@
 
 									<div class='alert alert-warning'>
 
-										<ol class="breadcrumb" style='width: 100%;'>
+										<ol class="breadcrumb">
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
@@ -1187,112 +1187,6 @@
 							<div class='row'>
 
 								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1'>
-
-									<div class='container module-gray' style="color: black;">
-
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=14"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=14"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Notes :</strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
 
 									<br>
 
@@ -1321,6 +1215,8 @@
 										</div>
 
 									</div>
+
+									<br>
 
 								</div>
 
