@@ -335,7 +335,7 @@
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 												<label><strong>Phone</strong></label><br>
-												<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required> <?php echo $_SESSION['hoa_alchemy_cell_no']; ?>
+												<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
 
 											</div>
 
@@ -984,6 +984,18 @@
 										</thead>
 
 										<tbody>
+
+											<?php
+
+												$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
+
+												$id = $row['id'];
+			                          			$document_to = $row['document_to'];
+			                          			$esign_url = $row['esign_url'];
+		                          				
+		                          				echo "<tr><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$document_to</td></tr>";
+
+											?>
 											
 										</tbody>
 
@@ -1009,6 +1021,18 @@
 										</thead>
 
 										<tbody>
+
+											<?php
+
+												$result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
+
+												$id = $row['id'];
+			                          			$document_to = $row['document_to'];
+			                          			$esign_url = $row['esign_url'];
+		                          				
+		                          				echo "<tr><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$document_to</td></tr>";
+
+											?>
 											
 										</tbody>
 
