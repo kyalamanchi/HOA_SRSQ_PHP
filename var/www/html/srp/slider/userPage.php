@@ -1040,7 +1040,7 @@
 												while($row = pg_fetch_assoc($result))
 												{
 													
-													$id = $row['id'];
+			                          				$agreement_id = $row['agreement_id'];
 			                          				$document_to = $row['document_to'];
 			                          				$agreement_name = $row['agreement_name'];
 			                          				$esign_url = $row['esign_url'];
