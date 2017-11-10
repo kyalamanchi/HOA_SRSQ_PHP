@@ -1194,6 +1194,180 @@
 
 							<div class='row'>
 
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+									
+									<div class='row'>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+										<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6 text-center'>
+
+											<div class='row'>
+
+												1234567890
+
+											</div>
+
+											<div class='row'>
+
+												This is a testing tile
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<br>
+
+							<div class='row'>
+
 								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1'>
 
 									<br>
