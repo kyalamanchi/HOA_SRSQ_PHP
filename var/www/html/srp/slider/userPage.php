@@ -1289,13 +1289,13 @@
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-												<center><a><i class='fa fa-arrow-left'></i> Previous</a></center>
+												<center><a style='color: gray;'><i class='fa fa-arrow-left'></i> Previous Disclosure</a></center>
 												
 											</div>
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-												<center><a style='color: blue;'>Next <i class='fa fa-arrow-right'></i></a></center>
+												<center><a style='color: blue;'>Next Disclosure<i class='fa fa-arrow-right'></i></a></center>
 												
 											</div>
 
@@ -1309,22 +1309,6 @@
 
 									<div class='row'>
 
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-											<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in the above address.
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-											<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in the above address.
-
-										</div>
-
-									</div>
-
-									<div class='row'>
-
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
 											<hr class='small'>
@@ -1333,7 +1317,7 @@
 										
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-													<button id='disclosures_back' name='disclosures_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+													<button id='disclosures_back' name='disclosures_back' type='button' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
 												</div>
 

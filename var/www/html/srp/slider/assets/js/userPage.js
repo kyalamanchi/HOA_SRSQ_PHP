@@ -463,3 +463,10 @@ $('#agreements_continue').click(function(){
 	$('#disclosures_div').show();
 
 });
+
+$('#disclosures_back').click(function(){
+
+	$('#agreements_div').show();
+	$('#disclosures_div').hide();
+
+});
