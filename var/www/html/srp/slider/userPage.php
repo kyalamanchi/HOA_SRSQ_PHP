@@ -1165,7 +1165,7 @@
 
 									<div class='alert alert-warning'>
 
-										<ol class="breadcrumb">
+										<ol class="breadcrumb" style='width: 100%;'>
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
