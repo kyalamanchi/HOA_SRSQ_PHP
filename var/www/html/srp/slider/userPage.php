@@ -945,7 +945,7 @@
 
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-											<h3 class='h3'>Is <u><?php echo $primary_email; ?></u> your primary email?</h3>
+											<center><h3 class='h3'>Is <u><?php echo $primary_email; ?></u> your primary email?</h3></center>
 
 										</div>
 
