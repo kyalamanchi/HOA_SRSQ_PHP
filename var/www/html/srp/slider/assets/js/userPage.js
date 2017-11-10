@@ -192,6 +192,18 @@ $('#user_edit_back').click(function(){
 	$('#user_information_radio_no').prop('checked', false);
 	$('#user_details_continue').hide();
 
+	$.ajax({
+
+		type: 'POST',
+		url: 'resetUserDetals.php',
+		success:function(response) {
+
+			$('#edit_cell_no').val(response);
+
+		}
+
+	});
+
 });
 
 $('#home_details_back').click(function(){
