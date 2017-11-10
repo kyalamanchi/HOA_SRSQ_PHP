@@ -151,10 +151,10 @@ function hidePleaseWait() {
                 <th>BUDGET</th>
                 <th>OVER BUDGET</th>
                 <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
+                <th>YTD ACTUAL</th>
+                <th>YTD BUDGET</th>
+                <th>YTD OVER BUDGET</th>
+                <th>YTD % OF BUDGET</th>
 
             </tr>
         </thead>
