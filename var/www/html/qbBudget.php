@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbProfitLossMonth.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
@@ -73,6 +74,9 @@ function hidePleaseWait() {
 th, td {
         white-space: nowrap;
         padding-right: 1px !important;
+}
+.total{
+    border-left:  1px solid black !important;
 }
 </style>
     <body>
@@ -155,10 +159,10 @@ th, td {
                 <th>BUDGET</th>
                 <th>OVER BUDGET</th>
                 <th>% OF BUDGET</th>
-                <th >YTD ACTUAL</th>
-                <th>YTD BUDGET</th>
-                <th>YTD OVER BUDGET</th>
-                <th>YTD % OF BUDGET</th>
+                <th class="total">YTD ACTUAL</th>
+                <th class="total">YTD BUDGET</th>
+                <th class="total">YTD OVER BUDGET</th>
+                <th class="total">YTD % OF BUDGET</th>
 
             </tr>
         </thead>
@@ -166,7 +170,7 @@ th, td {
            <?php
    date_default_timezone_set('America/Los_Angeles');
    setlocale(LC_MONETARY, 'en_US');
-   pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+   
    $query = "SELECT * FROM community_accounts WHERE COMMUNITY_ID = 2";
    $queryResult = pg_query($query);
 
@@ -293,16 +297,16 @@ th, td {
             $budgetPercentage = "";
          }
 
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .= money_format('%#10n',$totalActuals);
          $valString .= "</td>";
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .= money_format('%#10n',$totalBudget);
          $valString .= "</td>";
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .= money_format('%#10n',$totalActuals-$totalBudget);
          $valString .= "</td>";
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
          $valString .= "</td>";
          $valString .= "</tr>";
@@ -329,16 +333,16 @@ th, td {
          }
             $val = $val + 1;
       }
-      $valString .= "<td>";
+      $valString .= "<td class=\"total\">";
             $valString .= money_format('%#10n',$totalActuals);
          $valString .= "</td>";
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .= money_format('%#10n',$totalBudget);
          $valString .= "</td>";
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .= money_format('%#10n',$totalActuals-$totalBudget);
          $valString .= "</td>";
-         $valString .= "<td>";
+         $valString .= "<td class=\"total\">";
             $valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
          $valString .= "</td>";
       $valString .= "</tr>";
@@ -359,3 +363,4 @@ th, td {
   </script>
     </body>
 </html>
+s
