@@ -455,3 +455,10 @@ $('#agreements_back').click(function(){
 	$('#email_div').show();
 
 });
+
+$('#agreements_continue').click(function(){
+
+	$('#agreements_div').hide();
+	$('#disclosures_div').show();
+
+});
