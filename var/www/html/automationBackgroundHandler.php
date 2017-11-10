@@ -795,7 +795,7 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMailChimpCampaigns
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,8,11,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,8,11,'".$id."')";
 pg_query($query);
 
 $req = curl_init();
@@ -803,7 +803,7 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMailChimpCampaigns
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,8,11,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,8,11,'".$id."')";
 pg_query($query);
 
 
@@ -818,7 +818,7 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMailChimpListsSRSQ
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,8,12,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,8,12,'".$id."')";
 pg_query($query);
 
 $req = curl_init();
@@ -826,7 +826,7 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMailChimpListsSRP.
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,8,12,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,8,12,'".$id."')";
 pg_query($query);
 
 
@@ -843,7 +843,7 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMailChimpMembersSR
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,8,13,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(1,8,13,'".$id."')";
 pg_query($query);
 
 $req = curl_init();
@@ -851,7 +851,7 @@ curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMailChimpMembersSR
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
-$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,8,13,'".date('Y-m-d H:i:s')."')";
+$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,8,13,'".$id."')";
 pg_query($query);
 
 
