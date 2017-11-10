@@ -1148,9 +1148,10 @@
 									<ol class="breadcrumb">
 									
 										<li class="breadcrumb-item">User Details</li>
-										<li class="breadcrumb-item active">Home Details</li>
+										<li class="breadcrumb-item">Home Details</li>
 										<li class="breadcrumb-item">Primary Email</li>
 										<li class="breadcrumb-item">Agreements</li>
+										<li class="breadcrumb-item"><strong>Disclosures</strong></li>
 
 									</ol>
 
