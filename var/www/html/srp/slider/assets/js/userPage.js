@@ -10,6 +10,7 @@ $(document).ready(function(){
 	$('#home_details_continue').hide();
 	$('#email_div').hide();
 	$('#email_continue').hide();
+	$('#agreements_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 
@@ -439,4 +440,11 @@ $('form.ajax3').on('submit', function(){
 
 	return false;
 	
+});
+
+$('#email_continue').click(function(){
+
+	$('#email_div').hide();
+	$('#agreements_div').show();
+
 });

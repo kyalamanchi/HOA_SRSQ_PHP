@@ -952,9 +952,9 @@
 
 	  									<li><a>Home Details</a></li>
 
-	  									<li class='active'><a>Primary Email</a></li>
+	  									<li><a>Primary Email</a></li>
 
-	  									<li><a>Agreements</a></li>
+	  									<li class='active'><a>Agreements</a></li>
 
 									</ul>
 
