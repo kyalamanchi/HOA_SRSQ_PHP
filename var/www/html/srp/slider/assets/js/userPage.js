@@ -90,8 +90,6 @@ $(document).ready(function(){
 
 		var city = $(this).val();
 
-		alert(city);
-
 		if(city) {
 
 			$.ajax({
@@ -100,6 +98,8 @@ $(document).ready(function(){
 				url: 'getZip.php',
 				data: 'city_id='+city,
 				success:function(response) {
+
+					alert(response);
 
 					$('#edit_mailing_zip').html(response);
 
