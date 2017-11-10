@@ -132,17 +132,14 @@
 
 									<div class='alert alert-warning'>
 
-										<ol class="breadcrumb text-center">
-
-											<center>
+										<ol class="breadcrumb">
 									
-												<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
-												<li class="breadcrumb-item">Home Details</li>
-												<li class="breadcrumb-item">Primary Email</li>
-												<li class="breadcrumb-item">Agreements</li>
-												<li class="breadcrumb-item">Disclosures</li>
-
-											</center>
+											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
 
@@ -285,6 +282,7 @@
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Primary Email</li>
 											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -393,6 +391,7 @@
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
 											<li class="breadcrumb-item">Primary Email</li>
 											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -657,6 +656,7 @@
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
 											<li class="breadcrumb-item">Primary Email</li>
 											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -916,6 +916,7 @@
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
 											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1018,6 +1019,7 @@
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Primary Email</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
