@@ -124,9 +124,11 @@
 
 						<div id='user_details_div'>
 
+							<br>
+
 							<div class='row'>
 							
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 									<ul class='nav nav-wizard'>
 	  
@@ -257,13 +259,17 @@
 
 							</div>
 
+							<br>
+
 						</div>
 
 						<div id='edit_user_details_div'>
 
+							<br>
+
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 									<ul class='nav nav-wizard'>
 	  
@@ -359,13 +365,17 @@
 
 							</div>
 
+							<br>
+
 						</div>
 
 						<div id='home_details_div'>
 
+							<br>
+
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 									<ul class='nav nav-wizard'>
 	  
@@ -617,13 +627,17 @@
 
 							</div>
 
+							<br>
+
 						</div>
 
 						<div id='edit_home_details_div'>
 
+							<br>
+
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 									<ul class='nav nav-wizard'>
 	  
@@ -870,13 +884,17 @@
 
 							</div>
 
+							<br>
+
 						</div>
 
 						<div id='email_div'>
 
+							<br>
+
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 									<ul class='nav nav-wizard'>
 	  
@@ -898,7 +916,7 @@
 
 							<div class='row'>
 
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
 									<?php
 
@@ -966,13 +984,17 @@
 
 							</div>
 
+							<br>
+
 						</div>
 
 						<div id='agreements_div'>
 
+							<br>
+
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
 									<ul class='nav nav-wizard'>
 	  
@@ -1039,7 +1061,7 @@
 
 							</div>
 
-							<br><br>
+							<br>
 
 							<div class='row'>
 
@@ -1110,6 +1132,208 @@
 								</div>
 
 							</div>
+
+							<br>
+
+						</div>
+
+						<div id='home_details_div'>
+
+							<br>
+
+							<div class='row'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+									<ul class='nav nav-wizard'>
+	  
+	  									<li><a>User Details</a></li>
+
+	  									<li class='active'><a>Home Details</a></li>
+
+	  									<li><a>Primary Email</a></li>
+
+	  									<li><a>Agreements</a></li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+							<br>
+
+							<div class='row'>
+
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1'>
+
+									<div class='container module-gray' style="color: black;">
+
+										<?php
+
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=14"));
+
+											$notes = $row['notes'];
+											$document_id = $row['document_id'];
+											$changed_this_year = $row['changed_this_year'];
+
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=14"));
+											$disclosure_name = $row['name'];
+											$desc = $row['desc'];
+											$civilcode_section = $row['civilcode_section'];
+											$legal_url = $row['legal_url'];
+
+											if($civilcode_section != "")
+												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
+
+											if($legal_url != '')
+												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
+
+											if($desc == "")
+												$desc = " - ";
+
+											if($notes == "")
+												$notes = " - ";
+
+											if($changed_this_year == 't') 
+												$changed_this_year = "Yes"; 
+											else if($changed_this_year == 'f') 
+												$changed_this_year = "No"; 
+											else 
+												$changed_this_year = " - ";
+
+											if($document_id == "")
+												$document = " - ";
+											else
+												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
+
+										?>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Description :</strong> <?php echo $desc; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Notes :</strong> <?php echo $notes; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Document :</strong> <?php echo $document; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+									</div>
+
+									<br>
+
+									<div class='row'>
+										
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+											<h2 class='h2'>Do you still live in <u id='user_mailing_address'><?php echo $mailing_address; ?></u>?</h2>
+
+										</div>
+
+									</div>
+
+									<br>
+
+									<div class='row'>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='home_information_radio' id='home_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, I'm living in the above address.
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='home_information_radio' id='home_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, I'm living in the above address.
+
+										</div>
+
+									</div>
+
+									<div class='row'>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+											<hr class='small'>
+
+											<div class='row'>
+										
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+													<button id='home_details_back' name='user_details_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+													<button id='home_details_continue' name='home_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<br>
 
 						</div>
 
