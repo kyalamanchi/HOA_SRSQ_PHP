@@ -11,15 +11,15 @@
 
 	$result = pg_query("SELECT * FROM city WHERE district_id=$district");
 
-	$cities = "<option disabled selected value=''>Select City</option>";
+	$cities = "<option disabled selected value=''>Select City</option>$district";
 
 	while($row = pg_fetch_assoc($result))
 	{
 
-		$cid = $row['city_id'];
-		$cname = $row['city_name'];
+		$city_id = $row['city_id'];
+		$city_name = $row['city_name'];
 
-		$cities .= "<option value='$cid'>$cname</option>";
+		$cities .= "<option value='$city_id'>$city_name</option>";
 
 	}
 
