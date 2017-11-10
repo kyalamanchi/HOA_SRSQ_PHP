@@ -1145,17 +1145,14 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-									<ul class='nav nav-wizard table-responsive'>
-	  
-	  									<li><a>User Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item">User Details</li>
+										<li class="breadcrumb-item active">Home Details</li>
+										<li class="breadcrumb-item">Primary Email</li>
+										<li class="breadcrumb-item">Agreements</li>
 
-	  									<li class='active'><a>Home Details</a></li>
-
-	  									<li><a>Primary Email</a></li>
-
-	  									<li><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
