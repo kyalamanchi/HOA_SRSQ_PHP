@@ -51,6 +51,8 @@
 		<link href='assets/css/wizard.min.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
+		<!-- Datatable -->
+		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
 	</head>
 
@@ -137,11 +139,13 @@
 
 	  									<li><a>Primary Email</a></li>
 
+	  									<li><a>Agreements</a></li>
+
 									</ul>
 
 								</div>
 
-							</div>
+							</div>s
 
 							<br>
 
@@ -272,6 +276,8 @@
 
 	  									<li><a>Primary Email</a></li>
 
+	  									<li><a>Agreements</a></li>
+
 									</ul>
 
 								</div>
@@ -371,6 +377,8 @@
 	  									<li class='active'><a>Home Details</a></li>
 
 	  									<li><a>Primary Email</a></li>
+
+	  									<li><a>Agreements</a></li>
 
 									</ul>
 
@@ -613,6 +621,8 @@
 	  									<li class='active'><a>Home Details</a></li>
 
 	  									<li><a>Primary Email</a></li>
+
+	  									<li><a>Agreements</a></li>
 
 									</ul>
 
@@ -865,6 +875,8 @@
 
 	  									<li class='active'><a>Primary Email</a></li>
 
+	  									<li><a>Agreements</a></li>
+
 									</ul>
 
 								</div>
@@ -931,6 +943,86 @@
 
 						</div>
 
+						<div id='agreements_div'>
+
+							<div class='row'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<ul class='nav nav-wizard'>
+	  
+	  									<li><a>User Details</a></li>
+
+	  									<li><a>Home Details</a></li>
+
+	  									<li class='active'><a>Primary Email</a></li>
+
+	  									<li><a>Agreements</a></li>
+
+									</ul>
+
+								</div>
+
+							</div>
+
+							<br>
+
+							<div class='row'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<center><h3>Pending Agreements</h3></center>
+
+								</div>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+									<table id='pendingAgreements' class='table table-striped'>
+
+										<thead>
+											
+											<th>Agreement</th>
+											<th>Email</th>
+
+										</thead>
+
+										<tbody>
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<center><h3>Signed Agreements</h3></center>
+
+								</div>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<table id='signedAgreements' class='table table-striped'>
+
+										<thead>
+											
+											<th>Agreement</th>
+											<th>Email</th>
+
+										</thead>
+
+										<tbody>
+											
+										</tbody>
+
+									</table>
+
+								</div>
+
+							</div>
+
+						</div>
+
 					</div>
 
 				</section>
@@ -953,6 +1045,20 @@
 
 		<script src='assets/js/userPage.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		
+		<!-- Datatable -->
+		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+
+		<script>
+      	
+	      	$(function () {
+	        	
+	        	$("#example1").DataTable({ "pageLength": 100, "order": [[0, 'desc']] });
+
+	      	});
+
+    	</script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->
