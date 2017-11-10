@@ -132,9 +132,9 @@
 
 									<div class='alert alert-warning'>
 
-										<center>
+										<ol class="breadcrumb">
 
-											<ol class="breadcrumb">
+											<center>
 									
 												<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 												<li class="breadcrumb-item">Home Details</li>
@@ -142,9 +142,9 @@
 												<li class="breadcrumb-item">Agreements</li>
 												<li class="breadcrumb-item">Disclosures</li>
 
-											</ol>
+											</center>
 
-										</center>
+										</ol>
 
 									</div>
 
