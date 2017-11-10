@@ -26,7 +26,6 @@
 
 			if ( (($campaigns->send_time) == "") ){
 				$sendTime = "NULL";
-				print_r("YES");
 			}
 			else {
 				$sendTime = "'".$campaigns->send_time."'";
