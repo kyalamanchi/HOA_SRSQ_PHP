@@ -200,7 +200,7 @@ $('#user_edit_back').click(function(){
 		url: 'resetUserDetails.php',
 		success:function(response) {
 
-			$('#edit_cell_no').val(response);
+			$('#edit_cell_no').val(parseInt(response));
 
 		}
 
