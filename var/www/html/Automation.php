@@ -293,6 +293,31 @@
   </div>
 
 
+  <div class="card">
+    <div class="card-header" role="tab" id="headingSeven">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          <h4>MailChimp</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseSeven" class="collapse" role="tabpanel" aria-labelledby="headingSeven">
+      <div class="card-block">
+        <?php 
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 8 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="mctime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" id="mailchimpButton" onclick="updateMailChimp();">Update Now</button>
+        <div id="mcResult">
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 </div>  
