@@ -127,20 +127,18 @@
 							<br>
 
 							<div class='row'>
-							
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-									<ul class='nav nav-wizard'>
-	  
-	  									<li class='active'><a>User Details</a></li>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-	  									<li><a>Home Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+										<li class="breadcrumb-item">Home Details</li>
+										<li class="breadcrumb-item">Primary Email</li>
+										<li class="breadcrumb-item">Agreements</li>
+										<li class="breadcrumb-item">Disclosures</li>
 
-	  									<li><a>Primary Email</a></li>
-
-	  									<li><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
@@ -269,19 +267,17 @@
 
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									<ul class='nav nav-wizard'>
-	  
-	  									<li class='active'><a>User Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+										<li class="breadcrumb-item">Home Details</li>
+										<li class="breadcrumb-item">Primary Email</li>
+										<li class="breadcrumb-item">Agreements</li>
+										<li class="breadcrumb-item">Disclosures</li>
 
-	  									<li><a>Home Details</a></li>
-
-	  									<li><a>Primary Email</a></li>
-
-	  									<li><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
@@ -375,19 +371,17 @@
 
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									<ul class='nav nav-wizard'>
-	  
-	  									<li><a>User Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item">User Details</li>
+										<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+										<li class="breadcrumb-item">Primary Email</li>
+										<li class="breadcrumb-item">Agreements</li>
+										<li class="breadcrumb-item">Disclosures</li>
 
-	  									<li class='active'><a>Home Details</a></li>
-
-	  									<li><a>Primary Email</a></li>
-
-	  									<li><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
@@ -637,19 +631,17 @@
 
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									<ul class='nav nav-wizard'>
-	  
-	  									<li><a>User Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item">User Details</li>
+										<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+										<li class="breadcrumb-item">Primary Email</li>
+										<li class="breadcrumb-item">Agreements</li>
+										<li class="breadcrumb-item">Disclosures</li>
 
-	  									<li class='active'><a>Home Details</a></li>
-
-	  									<li><a>Primary Email</a></li>
-
-	  									<li><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
@@ -894,19 +886,17 @@
 
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									<ul class='nav nav-wizard'>
-	  
-	  									<li><a>User Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item">User Details</li>
+										<li class="breadcrumb-item">Home Details</li>
+										<li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
+										<li class="breadcrumb-item">Agreements</li>
+										<li class="breadcrumb-item">Disclosures</li>
 
-	  									<li><a>Home Details</a></li>
-
-	  									<li class='active'><a>Primary Email</a></li>
-
-	  									<li><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
@@ -994,19 +984,17 @@
 
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-									<ul class='nav nav-wizard'>
-	  
-	  									<li><a>User Details</a></li>
+									<ol class="breadcrumb">
+									
+										<li class="breadcrumb-item">User Details</li>
+										<li class="breadcrumb-item">Home Details</li>
+										<li class="breadcrumb-item">Primary Email</li>
+										<li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
+										<li class="breadcrumb-item">Disclosures</li>
 
-	  									<li><a>Home Details</a></li>
-
-	  									<li><a>Primary Email</a></li>
-
-	  									<li class='active'><a>Agreements</a></li>
-
-									</ul>
+									</ol>
 
 								</div>
 
@@ -1143,7 +1131,7 @@
 
 							<div class='row'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
 									<ol class="breadcrumb">
 									
@@ -1151,7 +1139,7 @@
 										<li class="breadcrumb-item">Home Details</li>
 										<li class="breadcrumb-item">Primary Email</li>
 										<li class="breadcrumb-item">Agreements</li>
-										<li class="breadcrumb-item"><strong>Disclosures</strong></li>
+										<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
 
 									</ol>
 
