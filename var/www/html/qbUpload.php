@@ -8,7 +8,6 @@ ini_set('display_errors', 1);
 		$fileContents = $jsonData[0]->file_data;
 		$format23 = explode('.', $fileName);
 		$format = end($format23);
-		echo $purchaseId;
 //Setting content type 
 if ( $format == 'ai' ){
 	$format = 'application/postscript';
@@ -89,20 +88,19 @@ Content-Transfer-Encoding: base64
 '.$fileContents.'
 
 --37a1965f87babd849241a530ad71e169--';
-echo $uploadData;
- 		// $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/upload');
-   //      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-   //      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:multipart/form-data;boundary=37a1965f87babd849241a530ad71e169','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="u%2FhXjOu3eeGH9%2FbTM%2BwTV%2BfXzNc%3D"'));
-   //      curl_setopt($ch, CURLOPT_POSTFIELDS, $uploadData);
-   //          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-   //          $result = curl_exec($ch);
-   //          echo $result;
-   //          $uploadResult = json_decode($result);
-   //          echo $uploadResult;
-   //          if ( isset($uploadResult->AttachableResponse->Attachable->FileName) ){
-   //          	echo "Attachment Added.";
-   //          }
-   //          else {
-   //          	echo "Failed to add attachment";
-   //          }
+ 		$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/upload');
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:multipart/form-data;boundary=37a1965f87babd849241a530ad71e169','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="u%2FhXjOu3eeGH9%2FbTM%2BwTV%2BfXzNc%3D"'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $uploadData);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $result = curl_exec($ch);
+            echo $result;
+            $uploadResult = json_decode($result);
+            echo $uploadResult;
+            if ( isset($uploadResult->AttachableResponse->Attachable->FileName) ){
+            	echo "Attachment Added.";
+            }
+            else {
+            	echo "Failed to add attachment";
+            }
 ?>
