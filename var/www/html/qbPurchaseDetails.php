@@ -4,7 +4,6 @@ date_default_timezone_set('America/Los_Angeles');
 <!DOCTYPE html>
 <html>
     <head>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
@@ -18,7 +17,8 @@ date_default_timezone_set('America/Los_Angeles');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-
+var fileData = "";
+  var fileName = "";
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -95,10 +95,114 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
 
+function getFileData()
+{
+  var file = document.getElementById("fileInput").files[0];
+  if ( file ){
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function (evt) {
+         fileData =evt.target.result.split(',')[1];
+        return fileData;
+    }
+    reader.onerror = function (evt) {
+        fileData = "Error";
+        return fileData;
+    }
+}
+
+}
+
+
+function saveChanges(){
+    jsonObj = [];
+    item = {};
+    item["purchase_id"] =   <?php echo $_GET['id']; ?>;
+    item["file_data"] = fileData;
+    item["file_name"] = fileName;
+    jsonObj.push(item);
+    var stringJSON = JSON.stringify(jsonObj);
+    var request = new XMLHttpRequest();
+    request.open("POST","https://hoaboardtime.com/qbUpload.php",true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(stringJSON);
+    showPleaseWait();
+    request.onreadystatechange = function(){
+      if ( request.readyState == XMLHttpRequest.DONE ){
+      hidePleaseWait();
+      if ( request.responseText == "Failed to add attachment"){
+        swal(request.responseText,"","error");
+      }
+      else if ( request.responseText == "Unsupported format." ) {
+        swal(request.responseText,"","error");
+      }
+      else {
+            swal("Attachment Added","Please refresh page to view attachment.","success"); 
+          }
+    }
+
+}
+}
+
 
   </script>
 </head>
 <style type="text/css">
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {display:none;}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input:checked + .slider {
+  background-color: #2196F3;
+}
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+[hidden] {
+  display: none !important;
+}
+.btn.outline {
+  background: none;
+  padding: 12px 22px;
+}
     .notbold{
     font-weight:normal
 }​
@@ -254,19 +358,25 @@ input, label {
             }
 
         ?>
-
+    <br>
+    <br>
     <div>
-      <h4 id="label"></h4>
+      
       <label class="btn btn-default" >
-      Upload file <input type="file" id="fileInput" hidden>
+      Add Attachment<input type="file" id="fileInput" hidden>
       </label>
-      <button class="btn-default">Upload</button>
+      <h4 id="label"></h4>
       </div>
+      <br>
+      <button type="button" class="btn btn-success" onclick="saveChanges();" id="saveButton" hidden="hidden">Save</button>
+      <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
+           document.getElementById("label").innerHTML = f;
+           document.getElementById("saveButton").hidden = false;
           getFileData();
         };
       </script>
