@@ -260,13 +260,13 @@ input, label {
       <label class="btn btn-default" >
       Upload file <input type="file" id="fileInput" hidden>
       </label>
+      <button class="btn-default">Upload</button>
       </div>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
-          // document.getElementById("label").innerHTML = f;
           getFileData();
         };
       </script>
