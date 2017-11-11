@@ -94,12 +94,9 @@ Content-Transfer-Encoding: base64
         curl_setopt($ch, CURLOPT_POSTFIELDS, $uploadData);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $result = curl_exec($ch);
-            echo $result;
-            $uploadResult = json_decode($result);
-            echo $uploadResult;
-            if ( isset($uploadResult->AttachableResponse->Attachable->FileName) ){
-            	echo "Attachment Added.";
-            }
+            if (strpos($result, 'FileName') !== false) {
+    			echo "Attachment Added.";
+			}
             else {
             	echo "Failed to add attachment";
             }
