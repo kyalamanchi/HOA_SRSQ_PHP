@@ -255,6 +255,24 @@ input, label {
 
         ?>
 
+        <div>
+      <label>Or<br>Upload an attachment</label>
+      <h4 id="label"></h4>
+      <label class="btn btn-default" >
+      Browse <input type="file" id="fileInput" hidden>
+      </label>
+      </div>
+      <script type="text/javascript">
+        document.getElementById('fileInput').onchange = function () {
+          var f =  this.value;
+          f = f.replace(/.*[\/\\]/, '');
+          fileName  = f;
+          document.getElementById("label").innerHTML = f;
+          getFileData();
+        };
+      </script>
+
+
         </div>
         <br><br>
   </div>
