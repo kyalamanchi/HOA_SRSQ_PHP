@@ -136,13 +136,8 @@ function saveChanges(){
       else if ( request.responseText == "Unsupported format." ) {
         swal(request.responseText,"","error");
       }
-      else if ( request.responseText == "Attachment Added." ) {
-            // alert(request.responseText);
-            swal("Attachment Added","Please refresh page to view attachment.","success"); 
-      }
       else {
-            alert(request.responseText);
-            // swal("Failed to add attachment","","error"); 
+            swal("Attachment Added","Please refresh page to view attachment.","success"); 
       }
     }
 
