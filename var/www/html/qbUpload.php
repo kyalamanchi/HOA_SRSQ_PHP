@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 		$jsonData = json_decode(file_get_contents('php://input'));
 		$purchaseId = $jsonData[0]->purchase_id;
 		$fileName = $jsonData[0]->file_name;
-		$$fileContents = $jsonData[0]->file_data;
+		$fileContents = $jsonData[0]->file_data;
 		$format = end(explode('.', $fileName));
 //Setting content type 
 if ( $format == 'ai' ){
