@@ -8,6 +8,7 @@ ini_set('display_errors', 1);
 		$fileContents = $jsonData[0]->file_data;
 		$format23 = explode('.', $fileName);
 		$format = end($format23);
+		echo $purchaseId;
 //Setting content type 
 if ( $format == 'ai' ){
 	$format = 'application/postscript';
