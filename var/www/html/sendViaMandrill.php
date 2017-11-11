@@ -44,6 +44,25 @@ if ($_GET['hoaid']){
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
 	}
+
+
+	//Upload file content to Dropbox Sent Emails Folders
+
+
+	$url = 'https://content.dropboxapi.com/2/files/upload';
+	$random = mt_rand();
+
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$random.'.pdf","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($ch);
+    $uploadID = json_decode($response)->id;
+
+
+
+
 	if ( strpos($response, "Error in call to API function") !== false ) {
 		$message =  "An error occured. Please try again.";
 		echo $message."\n\n";  
@@ -105,7 +124,7 @@ $result = curl_exec($ch);
     $row = pg_fetch_assoc($queryResult);
     $homeID = $row['home_id'];
     $communityID = $row['community_id'];
-  	$query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"statement_type_id\",\"notification_type\",\"updated_on\",\"updated_by\") VALUES(".$homeID.",".$_GET['hoaid'].",'".date('Y-m-d')."',".$communityID.",2,1,'".date('Y-m-d')."',401)";
+  	$query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"statement_type_id\",\"notification_type\",\"updated_on\",\"updated_by\",\"sent_file_tech_id\") VALUES(".$homeID.",".$_GET['hoaid'].",'".date('Y-m-d')."',".$communityID.",2,1,'".date('Y-m-d')."',401,".$uploadID.")";
     pg_query($query);
     
   	}	
