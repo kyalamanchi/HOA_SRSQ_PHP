@@ -256,7 +256,6 @@ input, label {
         ?>
 
     <div>
-      <label><br>Or<br></label>
       <h4 id="label"></h4>
       <label class="btn btn-default" >
       Upload file <input type="file" id="fileInput" hidden>
