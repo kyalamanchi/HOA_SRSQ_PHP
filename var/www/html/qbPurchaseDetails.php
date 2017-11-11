@@ -256,10 +256,10 @@ input, label {
         ?>
 
         <div>
-      <label>Or<br>Upload an attachment</label>
+      <label><br><center>Or</center><br></label>
       <h4 id="label"></h4>
       <label class="btn btn-default" >
-      Browse <input type="file" id="fileInput" hidden>
+      Upload file <input type="file" id="fileInput" hidden>
       </label>
       </div>
       <script type="text/javascript">
@@ -267,7 +267,7 @@ input, label {
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
-          document.getElementById("label").innerHTML = f;
+          // document.getElementById("label").innerHTML = f;
           getFileData();
         };
       </script>
