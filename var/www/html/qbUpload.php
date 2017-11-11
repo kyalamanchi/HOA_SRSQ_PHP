@@ -92,6 +92,7 @@ Content-Transfer-Encoding: base64
 --37a1965f87babd849241a530ad71e169--');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $result = curl_exec($ch);
+            echo $result;
             $uploadResult = json_decode($result);
             echo $uploadResult;
             if ( isset($uploadResult->AttachableResponse->Attachable->FileName) ){
