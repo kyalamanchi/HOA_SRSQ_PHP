@@ -137,7 +137,8 @@ function saveChanges(){
         swal(request.responseText,"","error");
       }
       else {
-            swal("Attachment Added","Please refresh page to view attachment.","success"); 
+            alert(request.responseText);
+            // swal("Attachment Added","Please refresh page to view attachment.","success"); 
           }
     }
 
