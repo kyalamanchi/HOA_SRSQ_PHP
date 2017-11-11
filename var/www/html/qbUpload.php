@@ -68,6 +68,7 @@ $uploadData = '--37a1965f87babd849241a530ad71e169
 Content-Disposition: form-data; name="file_metadata_0"
 Content-Type: application/json; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+
 {
     "AttachableRef": [
     {
