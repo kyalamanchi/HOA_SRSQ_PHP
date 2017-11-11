@@ -141,6 +141,7 @@ function saveChanges(){
             swal("Attachment Added","Please refresh page to view attachment.","success"); 
       }
       else {
+            swal(request.responseText,"","error");
             swal("Failed to add attachment","","error"); 
       }
     }
