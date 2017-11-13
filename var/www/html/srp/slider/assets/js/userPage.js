@@ -538,3 +538,17 @@ $('#disclosure4_continue').click(function(){
 	$('#disclosure4_div').hide();
 
 });
+
+$('#disclosure5_back').click(function(){
+
+	$('#disclosure5_div').hide();
+	$('#disclosure4_div').show();
+
+});
+
+$('#disclosure5_continue').click(function(){
+
+	$('#disclosure6_div').show();
+	$('#disclosure5_div').hide();
+
+});
