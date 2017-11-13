@@ -2507,6 +2507,8 @@
 											$civilcode_section = $row['civilcode_section'];
 											$legal_url = $row['legal_url'];
 
+											$dname = $disclosure_name;
+
 											if($civilcode_section != "")
 												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
 
@@ -2529,7 +2531,7 @@
 											if($document_id == "")
 												$document = " - ";
 											else
-												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
+												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i>Click Here</a>";
 
 										?>
 
