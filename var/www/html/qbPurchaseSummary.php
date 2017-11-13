@@ -74,6 +74,7 @@ function a(text){
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
+}
   </script>
 </head>
 <style type="text/css">
