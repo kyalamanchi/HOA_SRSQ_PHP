@@ -22,9 +22,11 @@
 			  	gtag('js', new Date());
 			  
 			  	gtag('config', 'UA-102881886-3', {
-			  	'custom_map': {'dimension1': dimensionValue}
-			});
+			  	'custom_map': {'dimension1': 'hoaid'}
+				});
 		  
+				// Sends an event that passes 'age' as a parameter.
+				gtag('event', 'hoaid_dimension', {'hoaid': dimensionValue});
 		</script>
 		
 
