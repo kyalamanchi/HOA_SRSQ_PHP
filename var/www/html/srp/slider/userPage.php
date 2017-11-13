@@ -3934,11 +3934,15 @@
 
                                     <form method='POST' >
 
-                                        <div class='row' style='color: black;'>
+                                        <div class='row'>
 
                                             <label><strong>Select notification type</strong></label>
 
-                                            <br>
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row' style='color: black;'>
 
                                             <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
 
@@ -3960,12 +3964,16 @@
 
                                         </div>
 
-                                        <div class='row' style='color: black;'>
+                                        <div class='row'>
 
                                             <label><strong>Select notification to</strong></label>
 
-                                            <br>
+                                        </div>
 
+                                        <br>
+
+                                        <div class='row' style='color: black;'>
+                                            
                                             <?php
 
                                                 $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
