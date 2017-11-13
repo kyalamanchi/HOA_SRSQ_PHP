@@ -67,12 +67,12 @@
         
         <section class="content-header">
 
-          <h1><strong>Chart Of Accounts</strong></h1>
+          <h1><strong>Vendor Expenditure Summary</strong></h1>
 
           <ol class="breadcrumb">
             
             <li><i class="fa fa-support"></i> Reserves Dashboard</li>
-            <li>Chart Of Accounts</li>
+            <li>Expenditure By Vendor</li>
           
           </ol>
 
@@ -94,11 +94,8 @@
                       
                       <tr>
                         
-                        <th>Number</th>
-                        <th>Name</th>
-                        <th>Type</th>
-                        <th>Detail Type</th>
-                        <th>Balance from Quickbooks</th>
+                        <th>Vendor</th>
+                        <th>Total</th>
 
                       </tr>
 
@@ -107,121 +104,123 @@
                     <tbody>
 
                       <?php
-            
-                        if($community_id == 1)
-                        {
-                              
-                          $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query');
-                            
-                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509536409",oauth_nonce="pDUH6TDf43O",oauth_version="1.0",oauth_signature="1x2ytAtexvMe5VKjTgrGAMCMzbA%3D"'));
-                          curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
+
+                    $finalAmount = "NULL";
+
+                    if($community_id == 1)
+                    {
+
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
+                          // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="doJ2s3%2F2B6LEarru2JKFfy9%2B8V0%3D"'));
+                          // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
                           curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                
                           $result = curl_exec($ch);
                           $result  = json_decode($result);
+        
+                          $vendorsArray = array();
 
-                          foreach ($result->QueryResponse->Account as $account) 
-                          {
-                    
-                            if ( $account->AcctNum )
+                            foreach ($result->Rows->Row as $ColumnData) 
                             {
-                        
-                              if($account->CurrentBalanceWithSubAccounts)
+                              
+                              $values = array();
+                              $id = -10;
+                              $vendors = array();
+                              $amounts = array();
+            
+                              foreach ($ColumnData as $row) 
                               {
-
-                                echo "<tr><td>".$account->AcctNum."</td><td>".$account->AcctNum." ".$account->Name."</td><td>".$account->AccountType."</td><td>";
-                                          
-                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                echo implode("  ", $pieces);
-                                        
-                                echo "</td><td>";
-                                setlocale(LC_MONETARY, 'en_US');
-                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-                                echo "</td></tr>";
-
-                              }
-
-                            }
-                            else 
-                            {
-                        
-                              if($account->CurrentBalanceWithSubAccounts)
-                              {
-
-                                echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
-                                 
-                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                echo implode("  ", $pieces);
-                            
-                                echo "</td><td>";
-                                setlocale(LC_MONETARY, 'en_US');
-                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
                                   
-                                echo "</td></tr>";
+                                  $name = "";
+                                  $id = "";
+                                  $amount = "";
+                                  
+                                  if ( $row->ColData )
+                                  {
+                                      
+                                      $finalAmount = $row->ColData[1]->value;
+                                      setlocale(LC_MONETARY, 'en_US');
+                                      $finalAmount = money_format('%#10n', $finalAmount);
+
+                                  }
+                                  else 
+                                  {
+                   
+                                      $vendorsArray[$row[0]->value] = $row[1]->value;
+                                      setlocale(LC_MONETARY, 'en_US');
+                                      $vendorsArray[$row[0]->value] = money_format('%#10n', $row[1]->value);
+
+                                  }
 
                               }
+                          
+                          }
 
-                            }
+                          foreach ($vendorsArray as $key => $value) 
+                            {
+                                
+                              if ( $key && $value )
+                                echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 
                           }
 
                         }
-                        else if($community_id == 2)
-                        {
-                              
-                          $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-                        
-                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509390608",oauth_nonce="16yXTFEfw1H",oauth_version="1.0",oauth_signature="P%2Byoz1KCN%2FzgSMB%2B5KM7Z1PY1cM%3D"'));
-                          curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
+                    else if($community_id == 2)
+                    {
+
+                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+                          // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+                          // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
                           curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                
                           $result = curl_exec($ch);
                           $result  = json_decode($result);
+        
+                          $vendorsArray = array();
 
-                          foreach ($result->QueryResponse->Account as $account) 
-                          {
-                    
-                            if ( $account->AcctNum )
+                            foreach ($result->Rows->Row as $ColumnData) 
                             {
-                        
-                              if($account->CurrentBalanceWithSubAccounts)
+                              
+                              $values = array();
+                              $id = -10;
+                              $vendors = array();
+                              $amounts = array();
+            
+                              foreach ($ColumnData as $row) 
                               {
+                                  
+                                  $name = "";
+                                  $id = "";
+                                  $amount = "";
+                                  
+                                  if ( $row->ColData )
+                                  {
+                                      
+                                      $finalAmount = $row->ColData[1]->value;
+                                      setlocale(LC_MONETARY, 'en_US');
+                                      $finalAmount = money_format('%#10n', $finalAmount);
 
-                                echo "<tr><td>".$account->AcctNum."</td><td>".$account->AcctNum." ".$account->Name."</td><td>".$account->AccountType."</td><td>";
-                                          
-                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                echo implode("  ", $pieces);
-                                        
-                                echo "</td><td>";
-                                setlocale(LC_MONETARY, 'en_US');
-                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-                                echo "</td></tr>";
+                                  }
+                                  else 
+                                  {
+                   
+                                      $vendorsArray[$row[0]->value] = $row[1]->value;
+                                      setlocale(LC_MONETARY, 'en_US');
+                                      $vendorsArray[$row[0]->value] = money_format('%#10n', $row[1]->value);
+
+                                  }
 
                               }
-
-                            }
-                            else 
-                            {
-                      
-                              if($account->CurrentBalanceWithSubAccounts)
-                              {
-
-                                echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
-                               
-                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                echo implode("  ", $pieces);
                           
-                                echo "</td><td>";
-                                setlocale(LC_MONETARY, 'en_US');
-                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+                          }
+
+                          foreach ($vendorsArray as $key => $value) 
+                            {
                                 
-                                echo "</td></tr>";
-
-                              }
-
-                            }
+                              if ( $key && $value )
+                                echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 
                           }
 
@@ -230,6 +229,13 @@
                       ?>
                     
                     </tbody>
+
+                    <tfoot>
+                  
+                      <th>Total</th>
+                      <th><?php if($finalAmount != 'NULL') echo $finalAmount; ?></th>
+
+                    </tfoot>
 
                   </table>
 
