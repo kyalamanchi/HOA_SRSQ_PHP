@@ -1191,342 +1191,340 @@
 
 										<div class="table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								
-										<!-- Tabs-->
-										<ul class="nav nav-tabs">
-									
-											<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
-											<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
-											<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
-											<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
-
-										</ul>
-
-										<div class="tab-content">
-									
-											<div class="tab-pane in active" id="tab-1">
+											<!-- Tabs-->
+											<ul class="nav nav-tabs">
 										
-												<div class="special-heading m-b-40">
+												<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
+												<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
+												<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
+												<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
+
+											</ul>
+
+											<div class="tab-content">
+										
+												<div class="tab-pane in active" id="tab-1">
+											
+													<div class="special-heading m-b-40">
+										
+														<h4><i class="fa fa-dashboard"></i> Board Dashboard</h4>
 									
-													<h4><i class="fa fa-dashboard"></i> Board Dashboard</h4>
-								
-												</div>
-								
-												<div class='container'>
-
-													<div class='row module-gray'>
-
-														<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-															<br><center><h3 class='h3'>PAYMENT INFORMATION</h3></center>
-
-														</div>
-
 													</div>
-		
-													<div class='row module-gray'>
+									
+													<div class='container'>
 
-														<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
+														<div class='row module-gray'>
 
-															<div class='counter h6'>
+															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-																<div class='counter-number'>
-															
-																	<?php echo round($amount_received, 0); ?>
+																<br><center><h3 class='h3'>PAYMENT INFORMATION</h3></center>
+
+															</div>
+
+														</div>
+			
+														<div class='row module-gray'>
+
+															<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
 																
-																</div>
-
-																<div class='counter-title'>Amount Received (%)</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-
-																	<?php echo round($members_paid, 0); ?>
-
-																</div>
-
-																<div class='counter-title'>Members Paid (%)</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-															
-																	<?php 
+																		<?php echo round($amount_received, 0); ?>
 																	
-																		$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
+																	</div>
 
-																		echo $ach;
+																	<div class='counter-title'>Amount Received (%)</div>
 
-																	?>
+																</div>
+
+															</div>
+
+															<div class='col-xl-2 col-lg-2 col-md-6 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<?php echo round($members_paid, 0); ?>
+
+																	</div>
+
+																	<div class='counter-title'>Members Paid (%)</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
 																
-																</div>
-
-																<div class='counter-title'>ACH</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-
-																	<?php 
-																	
-																		$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
-
-																		echo $bill_pay;
-
-																	?>
-
-																</div>
-
-																<div class='counter-title'>Bill Pay</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-															
-																	<?php 
-																	
-																		$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
-
-																		echo $check;
-
-																	?>
-
-																</div>
-
-																<div class='counter-title'>Check</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-
-																	<?php 
+																		<?php 
 																		
-																		echo ($total_homes - ( $ach + $bill_pay + $check ) ); 
+																			$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
 
-																	?>
+																			echo $ach;
 
-																</div>
-
-																<div class='counter-title'>Others</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-													<br /><br />
-
-													<div class='row'>
-
-														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                         									<div class='counter h6'>
-
-                            									<div class='counter-number'>
-
-                              										<?php 
-                                
-                                										$board_documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='t'")); 
-
-                                										echo $board_documents;
-
-                              										?>
-
-                            									</div>
-
-                            									<div class='counter-title'>Board Documents</div>
-
-                          									</div>
-
-                        								</div>
-
-                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          									<div class='counter h6'>
-
-                            									<?php 
-
-                                									$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                									if($pending_agreements == 0)
-                                  										echo "<div class='counter-number' >$pending_agreements</div>";
-                                									else
-                                  										echo "<div class='counter-number' style='color: orange;' >$pending_agreements</div>";
-
-                              									?>
-
-                            
-
-                            									<div class='counter-title'>Board Pending Agreements</div>
-
-                          									</div>
-
-                        								</div>
-
-                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          									<div class='counter h6'>
-
-                            									<div class='counter-number'>
-
-                              										<?php
-
-                                										$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
-
-                                										echo $signed_agreements;
-
-                              										?>
-
-                            									</div>
-
-                            									<div class='counter-title'>Board Signed Agreements</div>
-
-                          									</div>
-
-                        								</div>
-
-                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-															
-																	<?php 
+																		?>
 																	
-																		echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+																	</div>
 
-																	?>
-																
-																</div>
-
-																<div class='counter-title'>Community Deposits</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-
-																	<?php 
-																
-																		echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'")); 
-
-																	?>
+																	<div class='counter-title'>ACH</div>
 
 																</div>
 
-																<div class='counter-title'>Community Documents</div>
-
 															</div>
 
-														</div>
+															<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
 
-                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+																<div class='counter h6'>
 
-	                          								<div class='counter h6'>
+																	<div class='counter-number'>
 
-	                              								<?php 
-
-	                                								$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='f'"));
-
-	                                								if($pending_agreements == 0)
-	                                  									echo "<div class='counter-number'>$pending_agreements</div>";
-	                                								else
-	                                  									echo "<div class='counter-number' style='color: orange;'>$pending_agreements</div>";
-
-	                              								?>
-
-	                            								<div class='counter-title'>Community Pending Agreements</div>
-
-	                          								</div>
-
-                        								</div>
-
-                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          									<div class='counter h6'>
-
-                            									<div class='counter-number'>
-
-                              										<?php
-
-                                										$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='f'"));
-
-                                										echo $signed_agreements;
-
-                              										?>
-
-                            									</div>
-
-                            									<div class='counter-title'>Community Signed Agreements</div>
-
-                          									</div>
-
-                       									</div>
-
-														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-															
-																	<?php
-
-																		echo "$del_acc";
-
-																	?>
-
-																</div>
-
-																<div class='counter-title'>Delinquent Accounts</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-
-																	<?php 
+																		<?php 
 																		
+																			$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
+
+																			echo $bill_pay;
+
+																		?>
+
+																	</div>
+
+																	<div class='counter-title'>Bill Pay</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																
+																		<?php 
+																		
+																			$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
+
+																			echo $check;
+
+																		?>
+
+																	</div>
+
+																	<div class='counter-title'>Check</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-2 col-lg-2 col-md-3 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<?php 
+																			
+																			echo ($total_homes - ( $ach + $bill_pay + $check ) ); 
+
+																		?>
+
+																	</div>
+
+																	<div class='counter-title'>Others</div>
+
+																</div>
+
+															</div>
+
+														</div>
+
+														<br /><br />
+
+														<div class='row'>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                         									<div class='counter h6'>
+
+	                            									<div class='counter-number'>
+
+	                              										<?php 
+	                                
+	                                										$board_documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='t'")); 
+
+	                                										echo $board_documents;
+
+	                              										?>
+
+	                            									</div>
+
+	                            									<div class='counter-title'>Board Documents</div>
+
+	                          									</div>
+
+	                        								</div>
+
+	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          									<div class='counter h6'>
+
+	                            									<?php 
+
+	                                									$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='t'"));
+
+	                                									if($pending_agreements == 0)
+	                                  										echo "<div class='counter-number' >$pending_agreements</div>";
+	                                									else
+	                                  										echo "<div class='counter-number' style='color: orange;' >$pending_agreements</div>";
+
+	                              									?>
+
+	                            
+
+	                            									<div class='counter-title'>Board Pending Agreements</div>
+
+	                          									</div>
+
+	                        								</div>
+
+	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          									<div class='counter h6'>
+
+	                            									<div class='counter-number'>
+
+	                              										<?php
+
+	                                										$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='t'"));
+
+	                                										echo $signed_agreements;
+
+	                              										?>
+
+	                            									</div>
+
+	                            									<div class='counter-title'>Board Signed Agreements</div>
+
+	                          									</div>
+
+	                        								</div>
+
+	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																
+																		<?php 
+																		
+																			echo pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id")); 
+
+																		?>
+																	
+																	</div>
+
+																	<div class='counter-title'>Community Deposits</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+
+																		<?php 
+																	
+																			echo pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'")); 
+
+																		?>
+
+																	</div>
+
+																	<div class='counter-title'>Community Documents</div>
+
+																</div>
+
+															</div>
+
+	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+		                          								<div class='counter h6'>
+
+		                              								<?php 
+
+		                                								$pending_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND is_board_document='f'"));
+
+		                                								if($pending_agreements == 0)
+		                                  									echo "<div class='counter-number'>$pending_agreements</div>";
+		                                								else
+		                                  									echo "<div class='counter-number' style='color: orange;'>$pending_agreements</div>";
+
+		                              								?>
+
+		                            								<div class='counter-title'>Community Pending Agreements</div>
+
+		                          								</div>
+
+	                        								</div>
+
+	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          									<div class='counter h6'>
+
+	                            									<div class='counter-number'>
+
+	                              										<?php
+
+	                                										$signed_agreements = pg_num_rows(pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f' AND is_board_document='f'"));
+
+	                                										echo $signed_agreements;
+
+	                              										?>
+
+	                            									</div>
+
+	                            									<div class='counter-title'>Community Signed Agreements</div>
+
+	                          									</div>
+
+	                       									</div>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																
+																		<?php
+
+																			echo "$del_acc";
+
+																		?>
+
+																	</div>
+
+																	<div class='counter-title'>Delinquent Accounts</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<?php 
+																			
 																		$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
 
 																		$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
@@ -1551,7 +1549,7 @@
 																<div class='counter h6'>
 
 																	<?php 
-																
+																	
 																		$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
 
 																		if ($late_payments == 0) 
@@ -1572,7 +1570,7 @@
 																<div class='counter h6'>
 
 																	<?php 
-																
+																	
 																		$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
 
 																		if ($parking_tags > 0) 
@@ -1597,642 +1595,617 @@
 															if($community_id == 1)
 																echo "
 
-																<div class='row module-gray'>
+																	<div class='row module-gray'>
 
-																	<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+																		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
 
-																</div>
+																	</div>
 
-																<div class='row module-gray'>
+																	<div class='row module-gray'>
 
-																	<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-																		<div class='counter h6'>
+																			<div class='counter h6'>
 
-																			<div class='counter-number'>
-																				
-																				".round($srp_savings_balance, 0)."
+																				<div class='counter-number'>
 																					
+																					".round($srp_savings_balance, 0)."
+																						
+																				</div>
+
+																				<div class='counter-title'>Savings ($)</div>
+
 																			</div>
 
-																			<div class='counter-title'>Savings ($)</div>
+																		</div>
+
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																			<div class='counter h6'>
+
+																				<div class='counter-number'>
+
+																					".round($srp_current_balance, 0)."
+
+																				</div>
+
+																				<div class='counter-title'>Checkings ($)</div>
+
+																			</div>
 
 																		</div>
 
 																	</div>
 
-																	<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																		<div class='counter h6'>
-
-																			<div class='counter-number'>
-
-																				".round($srp_current_balance, 0)."
-
-																			</div>
-
-																			<div class='counter-title'>Checkings ($)</div>
-
-																		</div>
-
-																	</div>
-
-																</div>
-
-																
 																";
 															else if($community_id == 2)
 																echo "
 
-																<div class='row module-gray'>
+																	<div class='row module-gray'>
 
-																	<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+																		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-																		<br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center>
+																			<br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center>
+
+																		</div>
 
 																	</div>
 
-																</div>
+																	<div class='row module-gray'>
 
-																<div class='row module-gray'>
+																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																	<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+																			<div class='counter h6'>
 
-																		<div class='counter h6'>
-
-																			<div class='counter-number'>
-																		
-																				".round($srp_primary_Savings_CurrentBalance, 0)."
+																				<div class='counter-number'>
 																			
+																					".round($srp_primary_Savings_CurrentBalance, 0)."
+																				
+																				</div>
+
+																				<div class='counter-title'>Checkings ($)</div>
+
 																			</div>
 
-																			<div class='counter-title'>Checkings ($)</div>
+																		</div>
+
+																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																			<div class='counter h6'>
+
+																				<div class='counter-number'>
+
+																					".round($srp_savings, 0)."
+
+																				</div>
+
+																				<div class='counter-title'>Savings ($)</div>
+
+																			</div>
+
+																		</div>
+
+																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																			<div class='counter h6'>
+
+																				<div class='counter-number'>
+
+																					".round($srsq_third_Account_Balance, 0)."
+
+																				</div>
+
+																				<div class='counter-title'>Investments ($)</div>
+
+																			</div>
 
 																		</div>
 
 																	</div>
-
-																	<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																		<div class='counter h6'>
-
-																			<div class='counter-number'>
-
-																				".round($srp_savings, 0)."
-
-																			</div>
-
-																			<div class='counter-title'>Savings ($)</div>
-
-																		</div>
-
-																	</div>
-
-																	<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																		<div class='counter h6'>
-
-																			<div class='counter-number'>
-
-																				".round($srsq_third_Account_Balance, 0)."
-
-																			</div>
-
-																			<div class='counter-title'>Investments ($)</div>
-
-																		</div>
-
-																	</div>
-
-																</div>
 
 																";
 
-															?>
+														?>
 
 													</div>
 
 												</div>
 
-											</div>
-
-											<div class="tab-pane" id="tab-2">
+												<div class="tab-pane" id="tab-2">
+												
+													<div class="special-heading m-b-40">
+											
+														<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
 										
-												<div class="special-heading m-b-40">
-									
-													<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
-								
-												</div>
+													</div>
 
-												<div class='container'>
+													<div class='container'>
 
-													<div class='row'>
+														<div class='row'>
 
-														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-															<div class='counter h6'>
+																<div class='counter h6'>
 
-																<?php
-
-																	$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
-
-																	if($email_homes > 0)
-																		echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
-																	else
-																		echo "<div class='counter-number'>".$email_homes."</div>";
-
-																?>
-
-																<div class='counter-title'>Email Signup</div>
-
-															</div>
-
-														</div>
-
-														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-															<div class='counter h6'>
-
-																<div class='counter-number'>
-															
 																	<?php
 
-																		$campaigns = 0;
+																		$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
 
-																		if($community_id == 1)
-																		{
-
-																			$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
-																			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
-
-																		}
-																		else if($community_id == 2)
-																		{
-
-																			$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
-																			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
-
-																		}
-										            				
-										            					curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-										            					curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-										            
-										            					$result = curl_exec($ch);
-										            					$json_decode = json_decode($result,TRUE);
-
-										            					foreach ($json_decode['campaigns'] as $key ) 
-										            						$campaigns++;
-
-										            					echo $campaigns;
+																		if($email_homes > 0)
+																			echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
+																		else
+																			echo "<div class='counter-number'>".$email_homes."</div>";
 
 																	?>
-																
+
+																	<div class='counter-title'>Email Signup</div>
+
 																</div>
 
-																<div class='counter-title'>Community Notifications</div>
+															</div>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<div class='counter-number'>
+																	
+																		<?php
+
+																			$campaigns = 0;
+
+																			if($community_id == 1)
+																			{
+
+																				$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
+																				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+
+																			}
+																			else if($community_id == 2)
+																			{
+
+																				$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
+																				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+
+																			}
+												            				
+												            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+												            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+												            
+												            				$result = curl_exec($ch);
+												            				$json_decode = json_decode($result,TRUE);
+
+												            				foreach ($json_decode['campaigns'] as $key ) 
+												            					$campaigns++;
+
+												            				echo $campaigns;
+
+																		?>
+																		
+																	</div>
+
+																	<div class='counter-title'>Community Notifications</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<?php 
+
+																		$statements_mailed = pg_num_rows(pg_query("SELECT * FROM community_statements_mailed WHERE community_id=$community_id"));
+
+																		if($statements_mailed == 0)
+																			echo "<div class='counter-number'>".$statements_mailed."</div>";
+																		else
+																			echo "<div class='counter-number' style='color: green;'>$statements_mailed</div>";
+
+																	?>
+
+																	<div class='counter-title'>Statements Mailed</div>
+
+																</div>
 
 															</div>
 
 														</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-															
-															<?php 
-
-																$statements_mailed = pg_num_rows(pg_query("SELECT * FROM community_statements_mailed WHERE community_id=$community_id"));
-
-																if($statements_mailed == 0)
-																	echo $statements_mailed;
-																else
-																	echo "<a style='color: green;' href='statementsMailed.php'>$statements_mailed</a>";
-
-															?>
-																
-														</div>
-
-														<div class='counter-title'>Statements Mailed</div>
 
 													</div>
 
 												</div>
 
-											</div>
-
-										</div>
-
-									</div>
-
-									<div class="tab-pane" id="tab-3">
+												<div class="tab-pane" id="tab-3">
+												
+													<div class="special-heading m-b-40">
+											
+														<h4><i class="fa fa-support"></i> Reserves Dashboard</h4>
 										
-										<div class="special-heading m-b-40">
-									
-											<h4><i class="fa fa-support"></i> Reserves Dashboard</h4>
-								
-										</div>
+													</div>
 
-										<div class='container'>
+													<div class='container'>
 
-											<div class='row'>
+														<div class='row'>
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-                          <div class='counter h6'>
+		                          								<div class='counter h6'>
+		                              
+		                              								<?php 
 
-                            <div class='counter-number'>
-                              
-                              <?php 
+		                                								$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
 
-                                $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+		                                								if($assets != '')
+		                                  									echo "<div class='counter-number' style='color: green;'>$assets</div>";
+		                                								else
+		                                  									echo "<div class='counter-number'>$assets</div>";
 
-                                if($assets != '')
-                                  echo "<a style='color: green;' href='communityAssets.php'>$assets</a>";
-                                else
-                                  echo $assets;
+		                              								?>
 
-                              ?>
-                                
-                            </div>
+		                            								<div class='counter-title'>Assets</div>
 
-                            <div class='counter-title'>Assets</div>
+		                          								</div>
 
-                          </div>
+		                        							</div>
 
-                        </div>
+		                        							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+		                          								<div class='counter h6'>
 
-                          <div class='counter h6'>
+		                            								<?php 
 
-                            <?php 
+		                              									$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
 
-                              $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
+		                              									$repairs = $row['sum'];
 
-                              $repairs = $row['sum'];
+		                              									$repairs = round($repairs, 0);
+											
+		                              									if($repairs > 0)
+		                                									echo "<div class='counter-number' style='color: green;'><a href='reserveRepairs.php'>".$repairs."</a></div>";
+		                              									else
+		                                									echo "<div class='counter-number'>".$repairs."</div>";
 
-                              $repairs = round($repairs, 0);
+		                            								?>
 
-                              if($repairs > 0)
-                                echo "<div class='counter-number' style='color: green;'><a href='reserveRepairs.php'>".$repairs."</a></div>";
-                              else
-                                echo "<div class='counter-number'>".$repairs."</div>";
+		                            								<div class='counter-title'>Completed Repairs ($)</div>
 
-                            ?>
+		                          								</div>
 
-                            <div class='counter-title'>Completed Repairs ($)</div>
+		                        							</div>
 
-                          </div>
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-                        </div>
+																<div class='counter h6'>
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+																	<div class='counter-number'>
+																		
+																		<?php 
 
-													<div class='counter h6'>
+																			$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
 
-														<div class='counter-number'>
-															
-															<?php 
+																			$reserves = $row['cur_bal_vs_ideal_bal'];
 
-																$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+																			echo $reserves;
 
-																$reserves = $row['cur_bal_vs_ideal_bal'];
+																		?>
+																			
+																	</div>
 
-																echo $reserves;
+																	<div class='counter-title'>Reserves Funded (%)</div>
 
-															?>
-																
+																</div>
+
+															</div>
+
+		                        							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+		                          								<div class='counter h6'>
+
+		                            								<?php 
+
+		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+
+		                              									$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+		                              									$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+
+		                              									$reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+		                              									$reserve_allocation = round($reserve_allocation, 0);
+
+		                              									if($cur_bal_vs_ideal_bal >= 70)
+		                                									echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
+		                              									else
+		                                									echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
+
+		                            								?>
+
+		                            								<div class='counter-title'>YTD Allocation ($)</div>
+
+		                          								</div>
+
+		                       								</div>
+
 														</div>
-
-														<div class='counter-title'>Reserves Funded (%)</div>
 
 													</div>
 
 												</div>
 
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          <div class='counter h6'>
-
-                            <?php 
-
-                              $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
-
-                              $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
-                              $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
-
-                              $reserve_allocation = $recommended_monthly_allocation_units * $month;
-
-                              $reserve_allocation = round($reserve_allocation, 0);
-
-                              if($cur_bal_vs_ideal_bal >= 70)
-                                echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
-                              else
-                                echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
-
-                            ?>
-
-                            <div class='counter-title'>YTD Allocation ($)</div>
-
-                          </div>
-
-                        </div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-									<div class="tab-pane" id="tab-4">
-										
-										<div class="special-heading m-b-40">
+												<div class="tab-pane" id="tab-4">
+											
+													<div class="special-heading m-b-40">
+												
+														<h4><i class="fa fa-dollar"></i> Finance Dashboard</h4>
 									
-											<h4><i class="fa fa-dollar"></i> Finance Dashboard</h4>
-						
-										</div>
+													</div>
 
-										<div class='container'>
+													<div class='container'>
 
-											<?php
+														<?php
 
-												if($community_id == 1)
-													echo "
+															if($community_id == 1)
+																echo "
 
-														<div class='row module-gray'>
+																	<div class='row module-gray'>
 
-															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
-
-														</div>
-
-														<div class='row module-gray'>
-
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-																		
-																		".round($srp_savings_balance, 0)."
-																			
-																	</div>
-
-																	<div class='counter-title'>Savings ($)</div>
-
-																</div>
-
-															</div>
-
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-
-																		".round($srp_current_balance, 0)."
+																		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
 
 																	</div>
 
-																	<div class='counter-title'>Checkings ($)</div>
+																	<div class='row module-gray'>
 
-																</div>
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-															</div>
+																			<div class='counter h6'>
 
-														</div>
+																				<div class='counter-number'>
+																					
+																					".round($srp_savings_balance, 0)."
+																						
+																				</div>
 
-                            <br><br>
+																				<div class='counter-title'>Savings ($)</div>
 
-													";
-												else if($community_id == 2)
-													echo "
+																			</div>
 
-														<div class='row module-gray'>
+																		</div>
 
-															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
-														</div>
+																			<div class='counter h6'>
 
-														<div class='row module-gray'>
+																				<div class='counter-number'>
 
-															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+																					".round($srp_current_balance, 0)."
 
-																<div class='counter h6'>
+																				</div>
 
-																	<div class='counter-number'>
-																		
-																		".round($srp_primary_Savings_CurrentBalance, 0)."
-																			
-																	</div>
+																				<div class='counter-title'>Checkings ($)</div>
 
-																	<div class='counter-title'>Checkings ($)</div>
+																			</div>
 
-																</div>
-
-															</div>
-
-															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-
-																		".round($srp_savings, 0)."
+																		</div>
 
 																	</div>
 
-																	<div class='counter-title'>Savings ($)</div>
+			                            							<br><br>
 
-																</div>
+																";
+															else if($community_id == 2)
+																echo "
 
-															</div>
+																	<div class='row module-gray'>
 
-															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-
-																		".round($srsq_third_Account_Balance, 0)."
+																		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
 
 																	</div>
 
-																	<div class='counter-title'>Investments ($)</div>
+																	<div class='row module-gray'>
 
-																</div>
+																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-															</div>
+																			<div class='counter h6'>
 
-														</div>
+																				<div class='counter-number'>
+																					
+																					".round($srp_primary_Savings_CurrentBalance, 0)."
+																						
+																				</div>
 
-                            <br><br>
+																				<div class='counter-title'>Checkings ($)</div>
 
-													";
+																			</div>
 
-											?>
+																		</div>
 
-                      <div class='row'>
+																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+																			<div class='counter h6'>
 
-                          <div class='counter h6'>
+																				<div class='counter-number'>
 
-                            <div class='counter-number'>
-                              
-                              <?php 
+																					".round($srp_savings, 0)."
 
-                                if($community_id == 1)
-                                {
+																				</div>
 
-                                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
-                                  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="doJ2s3%2F2B6LEarru2JKFfy9%2B8V0%3D"'));
-                                  // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
-                                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                                  
-                                  $result = curl_exec($ch);
-                                  $result  = json_decode($result);
-                                  $vendorsArray = array();
+																				<div class='counter-title'>Savings ($)</div>
 
-                                  foreach ($result->Rows->Row as $ColumnData) 
-                                  {
-                                      
-                                    $values = array();
-                                    $id = -10;
-                                    $vendors = array();
-                                    $amounts = array();
-                                      
-                                    foreach ($ColumnData as $row) 
-                                    {
-                                        
-                                      $name = "";
-                                      $id = "";
-                                      $amount = "";
-                                          
-                                      if ( $row->ColData )
-                                        $finalAmount = $row->ColData[1]->value;
+																			</div>
 
-                                    }
+																		</div>
 
-                                  }
+																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-                                  echo round($finalAmount, 0);
+																			<div class='counter h6'>
 
-                                }
-                                else if($community_id == 2)
-                                {
+																				<div class='counter-number'>
 
-                                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
-                                  // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
-                                  // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
-                                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                                  
-                                  $result = curl_exec($ch);
-                                  $result  = json_decode($result);
-                                  $vendorsArray = array();
+																					".round($srsq_third_Account_Balance, 0)."
 
-                                  foreach ($result->Rows->Row as $ColumnData) 
-                                  {
-                                      
-                                    $values = array();
-                                    $id = -10;
-                                    $vendors = array();
-                                    $amounts = array();
-                                      
-                                    foreach ($ColumnData as $row) 
-                                    {
-                                        
-                                      $name = "";
-                                      $id = "";
-                                      $amount = "";
-                                          
-                                      if ( $row->ColData )
-                                        $finalAmount = $row->ColData[1]->value;
+																				</div>
 
-                                    }
+																				<div class='counter-title'>Investments ($)</div>
 
-                                  }
+																			</div>
 
-                                  echo round($finalAmount, 0);
+																		</div>
 
-                                }
+																	</div>
 
-                              ?>
-                                
-                            </div>
+			                            							<br><br>
 
-                            <div class='counter-title'>Expenditure By Vendors ($)</div>
+																";
 
-                          </div>
+														?>
 
-                        </div>
+	                      								<div class='row'>
 
-                      </div>
+	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-                      <br><br>
+	                          									<div class='counter h6'>
 
-                      <!--div class='row module-gray'>
+	                            									<div class='counter-number'>
+	                              
+	                              										<?php 
 
-                        <br>
+	                                										if($community_id == 1)
+	                                										{
 
-                        <div class='col-xl-4 col-lg-6 col-md-6 col-sm-8 col-xs-10 offset-xl-4 offset-lg-3 offset-md-3 offset-sm-2 offset-xs-1'>
-                          
-                          <canvas id="myChart"></canvas>
+	                                  											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
+	                                  											// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+	                                  											curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+	                                  											curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="doJ2s3%2F2B6LEarru2JKFfy9%2B8V0%3D"'));
+	                                  											// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+	                                  											curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	                                  
+	                                  											$result = curl_exec($ch);
+	                                  											$result  = json_decode($result);
+	                                  											$vendorsArray = array();
 
-                        </div>
+	                                  											foreach ($result->Rows->Row as $ColumnData) 
+	                                  											{
+	                                      
+	                                    											$values = array();
+	                                    											$id = -10;
+	                                    											$vendors = array();
+	                                    											$amounts = array();
+	                                      
+	                                    											foreach ($ColumnData as $row) 
+	                                    											{
+	                                        
+	                                      												$name = "";
+	                                      												$id = "";
+	                                      												$amount = "";
+	                                          
+	                                      												if ( $row->ColData )
+	                                        												$finalAmount = $row->ColData[1]->value;
 
-                        <br>
+	                                    											}
 
-                      </div-->
+	                                  											}
 
-										</div>
+	                                  											echo round($finalAmount, 0);
 
-                    <div class="special-heading m-b-40">
-                  
-                      <h4><i class="fa fa-area-chart"></i> Yearly Report - <?php echo $year; ?></h4>
-            
-                    </div>
+	                                										}
+	                                										else if($community_id == 2)
+	                                										{
 
-                    <div class='container'>
+	                                  											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+	                                  											// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+	                                  											curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+	                                  											curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+	                                  											// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+	                                  											curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	                                  
+	                                  											$result = curl_exec($ch);
+	                                  											$result  = json_decode($result);
+	                                  											$vendorsArray = array();
 
-                      <div class='row'>
+	                                  											foreach ($result->Rows->Row as $ColumnData) 
+	                                  											{
+	                                      
+	                                    											$values = array();
+	                                   											 	$id = -10;
+	                                    											$vendors = array();
+	                                    											$amounts = array();
+	                                      
+	                                    											foreach ($ColumnData as $row) 
+	                                    											{
+	                                        
+	                                      												$name = "";
+	                                      												$id = "";
+	                                      												$amount = "";
+	                                          
+	                                      												if ( $row->ColData )
+	                                        												$finalAmount = $row->ColData[1]->value;
 
-                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-                          
-                          <canvas id="myChart1"></canvas>
+	                                    											}
 
-                        </div>
+	                                  											}
 
-                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-                          
-                          <canvas id="myChart2"></canvas>
+	                                 											echo round($finalAmount, 0);
 
-                        </div>
+	                                										}
 
-                      </div>
+	                              										?>
+	                                
+	                            									</div>
 
-                    </div>
+	                            									<div class='counter-title'>Expenditure By Vendors ($)</div>
 
-                    <br>
+	                          									</div>
 
-                    <div class='container'>
+	                        								</div>
 
-                      									<div class='row'>
+	                      								</div>
 
-                        									<div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-                          
-                          										<canvas id="myChart3"></canvas>
+	                      								<br><br>
 
-                        									</div>
+													</div>
 
-                     									</div>
+								                    <div class="special-heading m-b-40">
+								                  
+								                      	<h4><i class="fa fa-area-chart"></i> Yearly Report - <?php echo $year; ?></h4>
+								            
+								                    </div>
 
-                    								</div>
+								                    <div class='container'>
+
+								                      	<div class='row'>
+
+									                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
+									                          
+									                          	<canvas id="myChart1"></canvas>
+
+									                        </div>
+
+									                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
+									                          
+									                         	<canvas id="myChart2"></canvas>
+
+									                        </div>
+
+								                      	</div>
+
+								                    </div>
+
+	                    							<br>
+
+	                    							<div class='container'>
+
+	                      								<div class='row'>
+
+	                        								<div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
+	                          
+	                          									<canvas id="myChart3"></canvas>
+
+	                        								</div>
+
+	                     								</div>
+
+	                    							</div>
 
 												</div>
 
