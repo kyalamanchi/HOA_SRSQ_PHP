@@ -56,13 +56,17 @@ else if (x > y) retVal= 1;
 else retVal = -1; // y) retVal= 1;
 return retVal;
 }
-   var table =  $('#example').DataTable( {
-        "pageLength":100,
-        "scrollY":        "600px"
+ var table = $('#example').removeAttr('width').DataTable( {
+        scrollY:        "300px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
+        columnDefs: [
+            { width: 200, targets: 0 }
+        ],
+        fixedColumns: true
     } );
-   table.order([0,'asc']); 
-} 
-);
+
 
 function a(text){
     window.location = "http://localhost/qbPurchaseDetails.php?id="+text.id;
