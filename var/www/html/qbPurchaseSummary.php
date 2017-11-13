@@ -60,7 +60,8 @@ return retVal;
         select: true,
         "pageLength":100,
         "scrollY":        "600px",
-        "scrollCollapse": true
+        "scrollCollapse": true,
+        "sScrollX": "100%"
     } );
    table.order([0,'asc']); 
 } 
@@ -95,10 +96,10 @@ function hidePleaseWait() {
         <table id="example" class="table " cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th width="10%">DATE</th>
-                <th width="13%">PAYMENT TYPE</th>
-                <th width="13%">REFERENCE NO</th>
-                <th width="13%">PAYEE</th>
+                <th width="">DATE</th>
+                <th width="">PAYMENT TYPE</th>
+                <th width="">REFERENCE NO</th>
+                <th width="">PAYEE</th>
                 <th width="">CATEGORY</th>
                 <th width="">TOTAL</th>
                 <th width="">ATTACHMENT</th>
