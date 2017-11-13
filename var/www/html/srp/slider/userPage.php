@@ -98,27 +98,6 @@
 
 			<div class='wrapper'>
 
-				<!-- Page Header -->
-				<!--section class='module-page-title'>
-					
-					<div class='container'>
-							
-						<div class='row-page-title'>
-							
-							<div class='page-title-captions'>
-								
-								<h1 id='page_title1' class='h5'>User Details</h1>
-								<h1 id='page_title2' class='h5'>Home Details</h1>
-								<h1 id='page_title3' class='h5'>Disclosures</h1>
-							
-							</div>
-						
-						</div>
-						
-					</div>
-				
-				</section-->
-
 				<!-- Content -->
 				<section class='module'>
 						
@@ -1660,179 +1639,161 @@
 
 																</div>
 
+																
 																";
-												else if($community_id == 2)
-													echo "
+															else if($community_id == 2)
+																echo "
 
-														<div class='row module-gray'>
+																<div class='row module-gray'>
 
-															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+																	<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-														</div>
+																		<br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center>
 
-														<div class='row module-gray'>
+																	</div>
 
-															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+																</div>
 
-																<div class='counter h6'>
+																<div class='row module-gray'>
 
-																	<div class='counter-number'>
+																	<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																		<div class='counter h6'>
+
+																			<div class='counter-number'>
 																		
-																		".round($srp_primary_Savings_CurrentBalance, 0)."
+																				".round($srp_primary_Savings_CurrentBalance, 0)."
 																			
-																	</div>
+																			</div>
 
-																	<div class='counter-title'>Checkings ($)</div>
+																			<div class='counter-title'>Checkings ($)</div>
 
-																</div>
-
-															</div>
-
-															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-
-																		".round($srp_savings, 0)."
+																		</div>
 
 																	</div>
 
-																	<div class='counter-title'>Savings ($)</div>
+																	<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
 
-																</div>
+																		<div class='counter h6'>
 
-															</div>
+																			<div class='counter-number'>
 
-															<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+																				".round($srp_savings, 0)."
 
-																<div class='counter h6'>
+																			</div>
 
-																	<div class='counter-number'>
+																			<div class='counter-title'>Savings ($)</div>
 
-																		".round($srsq_third_Account_Balance, 0)."
+																		</div>
 
 																	</div>
 
-																	<div class='counter-title'>Investments ($)</div>
+																	<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+
+																		<div class='counter h6'>
+
+																			<div class='counter-number'>
+
+																				".round($srsq_third_Account_Balance, 0)."
+
+																			</div>
+
+																			<div class='counter-title'>Investments ($)</div>
+
+																		</div>
+
+																	</div>
 
 																</div>
 
-															</div>
+																";
 
-														</div>
-
-													";
-
-											?>
-
-										</div>
-
-									</div>
-
-									<div class="tab-pane" id="tab-2">
-										
-										<div class="special-heading m-b-40">
-									
-											<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
-								
-										</div>
-
-										<div class='container'>
-
-											<div class='row'>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<?php
-
-															$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
-
-															if($email_homes > 0)
-																echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
-															else
-																echo "<div class='counter-number'>".$email_homes."</div>";
-
-														?>
-
-														<div class='counter-title'>Email Signup</div>
+															?>
 
 													</div>
 
 												</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+											</div>
 
-													<div class='counter h6'>
+											<div class="tab-pane" id="tab-2">
+										
+												<div class="special-heading m-b-40">
+									
+													<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
+								
+												</div>
 
-														<div class='counter-number'>
-															
-															<a href='campaigns.php'>
+												<div class='container'>
+
+													<div class='row'>
+
+														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+															<div class='counter h6'>
 
 																<?php
 
-																	$campaigns = 0;
+																	$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
 
-																	if($community_id == 1)
-																	{
-
-																		$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
-																		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
-
-																	}
-																	else if($community_id == 2)
-																	{
-
-																		$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
-																		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
-
-																	}
-										            				
-										            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-										            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-										            
-										            				$result = curl_exec($ch);
-										            				$json_decode = json_decode($result,TRUE);
-
-										            				foreach ($json_decode['campaigns'] as $key ) 
-										            					$campaigns++;
-
-										            				echo $campaigns;
+																	if($email_homes > 0)
+																		echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
+																	else
+																		echo "<div class='counter-number'>".$email_homes."</div>";
 
 																?>
 
-															</a>
-																
+																<div class='counter-title'>Email Signup</div>
+
+															</div>
+
 														</div>
 
-														<div class='counter-title'>Community Notifications</div>
+														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													</div>
+															<div class='counter h6'>
 
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
+																<div class='counter-number'>
 															
-															<?php if($community_id == 2) echo "<a href='adobeSendAgreement.php'>"; ?>
+																	<?php
 
-																<!--i class='fa fa-file'></i-->
-																<img src='send_agreements.png' alt='Send Agreements'>
+																		$campaigns = 0;
 
-															<?php if($community_id == 2) echo "</a>"; ?>
+																		if($community_id == 1)
+																		{
+
+																			$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
+																			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
+
+																		}
+																		else if($community_id == 2)
+																		{
+
+																			$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
+																			curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
+
+																		}
+										            				
+										            					curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+										            					curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+										            
+										            					$result = curl_exec($ch);
+										            					$json_decode = json_decode($result,TRUE);
+
+										            					foreach ($json_decode['campaigns'] as $key ) 
+										            						$campaigns++;
+
+										            					echo $campaigns;
+
+																	?>
 																
+																</div>
+
+																<div class='counter-title'>Community Notifications</div>
+
+															</div>
+
 														</div>
-
-														<div class='counter-title'>Send Agreements</div>
-
-													</div>
-
-												</div>
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
