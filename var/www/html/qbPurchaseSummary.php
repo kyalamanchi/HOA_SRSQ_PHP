@@ -66,7 +66,7 @@ return retVal;
 );
 
 function a(text){
-    window.location = "https://hoaboardtime.com/qbPurchaseDetails.php?id="+text.id;
+    window.location = "http://localhost/qbPurchaseDetails.php?id="+text.id;
 }
 
 function hidePleaseWait() {
@@ -100,6 +100,7 @@ function hidePleaseWait() {
                 <th width="13%">PAYEE</th>
                 <th>CATEGORY</th>
                 <th>TOTAL</th>
+                <th>ATTACHMENT</th>
             </tr>
         </thead>
         <tbody>
@@ -142,6 +143,9 @@ function hidePleaseWait() {
                     echo '</td>';
                      echo '<td>';
                         echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
+                    echo '</td>';
+                    echo '<td>';
+                        echo '<imag src ="/tick.jpg"></img>';
                     echo '</td>';
                 echo '</tr>';
             }
