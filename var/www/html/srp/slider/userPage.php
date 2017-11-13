@@ -42,10 +42,12 @@
 		<link href="assets/css/linea-arrows.css" rel="stylesheet">
 		<link href="assets/css/linea-icons.css" rel="stylesheet">
 		<!-- Plugins-->
+		<link href="assets/css/owl.carousel.css" rel="stylesheet">
+		<link href="assets/css/flexslider.css" rel="stylesheet">
+		<link href="assets/css/magnific-popup.css" rel="stylesheet">
 		<link href="assets/css/vertical.min.css" rel="stylesheet">
 		<link href="assets/css/pace-theme-minimal.css" rel="stylesheet">
 		<link href="assets/css/animate.css" rel="stylesheet">
-		<link href='assets/css/wizard.min.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
 		<!-- Datatable -->
