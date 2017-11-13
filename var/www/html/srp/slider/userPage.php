@@ -3940,8 +3940,6 @@
 
                                         </div>
 
-                                        <br>
-
                                         <div class='row' style='color: black;'>
 
                                             <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
@@ -3964,13 +3962,13 @@
 
                                         </div>
 
+                                        <br>
+
                                         <div class='row'>
 
                                             <label><strong>Select notification to</strong></label>
 
                                         </div>
-
-                                        <br>
 
                                         <div class='row' style='color: black;'>
                                             
