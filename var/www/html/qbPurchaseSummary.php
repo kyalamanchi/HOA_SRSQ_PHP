@@ -57,10 +57,13 @@ else retVal = -1; // y) retVal= 1;
 return retVal;
 }
    var table =  $('#example').DataTable( {
-        "pageLength":100,
-        "scrollY":        "600px"
-    } );
-   table.order([0,'asc']); 
+        scrollY:        "300px",
+        scrollX:        true,
+        scrollCollapse: true,
+        paging:         false,
+        columnDefs: [
+            { width: 200, targets: 0 }
+        ] 
 } 
 );
 
