@@ -109,16 +109,16 @@
     while($row = pg_fetch_assoc($result))
     {
 
-        $home_id = $row['home_id'];
+        $temp_home_id = $row['home_id'];
         $assessment_charges = $row['sum'];
 
-        $row2 = pg_fetch_assoc(pg_query("SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id));
-        $hoa_id = $row2['hoa_id'];
+        $row2 = pg_fetch_assoc(pg_query("SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$temp_home_id));
+        $temp_hoa_id = $row2['hoa_id'];
 
-        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id));
+        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=".$temp_hoa_id));
         $charges = $row2['sum'];
 
-        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id));
+        $row2 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$temp_hoa_id));
         $payments = $row2['sum'];
 
         $balance = $charges - $payments;
