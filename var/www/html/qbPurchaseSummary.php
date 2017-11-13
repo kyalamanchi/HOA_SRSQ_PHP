@@ -60,7 +60,6 @@ return retVal;
         select: true,
         "pageLength":100,
         "scrollY":        "600px",
-        "scrollCollapse": true,
         "sScrollX": "100%"
     } );
    table.order([0,'asc']); 
