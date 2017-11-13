@@ -1645,11 +1645,7 @@
 
 																	<div class='counter-number'>
 																		
-																		<a href='communityIncome.php'>
-
-																			".round($srp_savings_balance, 0)."
-
-																		</a>
+																		".round($srp_savings_balance, 0)."
 																			
 																	</div>
 
@@ -1665,11 +1661,7 @@
 
 																	<div class='counter-number'>
 
-																		<a href='communityIncome.php'>
-
-																			".round($srp_current_balance, 0)."
-
-																		</a>
+																		".round($srp_current_balance, 0)."
 
 																	</div>
 
@@ -1699,11 +1691,7 @@
 
 																	<div class='counter-number'>
 																		
-																		<a href='communityIncome.php'>
-
-																			".round($srp_primary_Savings_CurrentBalance, 0)."
-
-																		</a>
+																		".round($srp_primary_Savings_CurrentBalance, 0)."
 																			
 																	</div>
 
@@ -1719,11 +1707,7 @@
 
 																	<div class='counter-number'>
 
-																		<a href='communityIncome.php'>
-
-																			".round($srp_savings, 0)."
-
-																		</a>
+																		".round($srp_savings, 0)."
 
 																	</div>
 
@@ -1739,11 +1723,7 @@
 
 																	<div class='counter-number'>
 
-																		<a href='communityIncome.php'>
-
-																			".round($srsq_third_Account_Balance, 0)."
-
-																		</a>
+																		".round($srsq_third_Account_Balance, 0)."
 
 																	</div>
 
@@ -2047,11 +2027,7 @@
 
 																	<div class='counter-number'>
 																		
-																		<a href='communityIncome.php'>
-
-																			".round($srp_savings_balance, 0)."
-
-																		</a>
+																		".round($srp_savings_balance, 0)."
 																			
 																	</div>
 
@@ -2067,11 +2043,7 @@
 
 																	<div class='counter-number'>
 
-																		<a href='communityIncome.php'>
-
-																			".round($srp_current_balance, 0)."
-
-																		</a>
+																		".round($srp_current_balance, 0)."
 
 																	</div>
 
@@ -2103,11 +2075,7 @@
 
 																	<div class='counter-number'>
 																		
-																		<a href='communityIncome.php'>
-
-																			".round($srp_primary_Savings_CurrentBalance, 0)."
-
-																		</a>
+																		".round($srp_primary_Savings_CurrentBalance, 0)."
 																			
 																	</div>
 
@@ -2123,11 +2091,7 @@
 
 																	<div class='counter-number'>
 
-																		<a href='communityIncome.php'>
-
-																			".round($srp_savings, 0)."
-
-																		</a>
+																		".round($srp_savings, 0)."
 
 																	</div>
 
@@ -2143,11 +2107,7 @@
 
 																	<div class='counter-number'>
 
-																		<a href='communityIncome.php'>
-
-																			".round($srsq_third_Account_Balance, 0)."
-
-																		</a>
+																		".round($srsq_third_Account_Balance, 0)."
 
 																	</div>
 
@@ -2166,27 +2126,6 @@
 											?>
 
                       <div class='row'>
-
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          <div class='counter h6'>
-
-                            <div class='counter-number'>
-                              
-                              <a href='trailBalanceReport.php'>
-
-                                <!--i class='fa fa-file'></i-->
-                                <img src='trail_balance.png' alt='Trail Balance'>
-
-                              </a>
-                                
-                            </div>
-
-                            <div class='counter-title'>Trail Balance Report</div>
-
-                          </div>
-
-                        </div>
 
                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
@@ -2232,7 +2171,7 @@
 
                                   }
 
-                                  echo "<a href='expenditureByVendor.php'>".round($finalAmount, 0)."</a>";
+                                  echo round($finalAmount, 0);
 
                                 }
                                 else if($community_id == 2)
@@ -2271,7 +2210,7 @@
 
                                   }
 
-                                  echo "<a href='expenditureByVendor.php'>".round($finalAmount, 0)."</a>";
+                                  echo round($finalAmount, 0);
 
                                 }
 
@@ -2280,69 +2219,6 @@
                             </div>
 
                             <div class='counter-title'>Expenditure By Vendors ($)</div>
-
-                          </div>
-
-                        </div>
-
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          <div class='counter h6'>
-
-                            <div class='counter-number'>
-                              
-                              <a href='chartOfAccounts.php'>
-
-                                <!--i class='fa fa-file'></i-->
-                                <img src='chart_of_accounts.png' alt='Chart of Accounts'>
-
-                              </a>
-                                
-                            </div>
-
-                            <div class='counter-title'>Chart Of Accounts</div>
-
-                          </div>
-
-                        </div>
-
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          <div class='counter h6'>
-
-                            <div class='counter-number'>
-                              
-                              <a href='generalLedger.php'>
-
-                                <!--i class='fa fa-file'></i-->
-                                <img src='general_ledger.png' alt='General Ledger'>
-
-                              </a>
-                                
-                            </div>
-
-                            <div class='counter-title'>General Ledger</div>
-
-                          </div>
-
-                        </div>
-
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          <div class='counter h6'>
-
-                            <div class='counter-number'>
-                              
-                              <a href='purchaseSummary.php'>
-
-                                <!--i class='fa fa-file'></i-->
-                                <img src='purchase_summary.png' alt='Purchase Summary'>
-
-                              </a>
-                                
-                            </div>
-
-                            <div class='counter-title'>Purchase Summary</div>
 
                           </div>
 
