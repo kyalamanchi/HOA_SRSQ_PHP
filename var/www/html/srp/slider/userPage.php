@@ -4064,7 +4064,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#pendingAgreements").DataTable({ "pageLength": 100, "order": [[0, 'desc']] });
+	        	$("#pendingAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
 
 	      	});
 
@@ -4074,7 +4074,7 @@
       	
 	      	$(function () {
 	        	
-	        	$("#signedAgreements").DataTable({ "pageLength": 100, "order": [[0, 'desc']] });
+	        	$("#signedAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
 
 	      	});
 
