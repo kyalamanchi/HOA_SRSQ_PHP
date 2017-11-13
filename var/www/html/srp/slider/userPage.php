@@ -142,82 +142,82 @@
 
     $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
     $jan_amount_received = $row['sum'];
-          	#$jan_amount_received = ( $jan_amount_received / $monthly_total ) * 100;
+    #$jan_amount_received = ( $jan_amount_received / $monthly_total ) * 100;
     $jan_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
-          	#$jan_members_paid = ( $jan_members_paid / $total_homes ) * 100;
+    #$jan_members_paid = ( $jan_members_paid / $total_homes ) * 100;
 
-      if( (0 == $year % 4) and (0 != $year % 100) or (0 == $year % 400) )
+    if( (0 == $year % 4) and (0 != $year % 100) or (0 == $year % 400) )
         $feb_days = 29;
-      else
+    else
         $feb_days = 28;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
-      $feb_amount_received = $row['sum'];
-          	#$feb_amount_received = ( $feb_amount_received / $monthly_total ) * 100;
-      $feb_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
-          	#$feb_members_paid = ( $feb_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
+    $feb_amount_received = $row['sum'];
+    #$feb_amount_received = ( $feb_amount_received / $monthly_total ) * 100;
+    $feb_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
+    #$feb_members_paid = ( $feb_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
-      $mar_amount_received = $row['sum'];
-          	#$mar_amount_received = ( $mar_amount_received / $monthly_total ) * 100;
-      $mar_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
-          	#$mar_members_paid = ( $mar_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
+    $mar_amount_received = $row['sum'];
+    #$mar_amount_received = ( $mar_amount_received / $monthly_total ) * 100;
+    $mar_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
+    #$mar_members_paid = ( $mar_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
-      $apr_amount_received = $row['sum'];
-          	#$apr_amount_received = ( $apr_amount_received / $monthly_total ) * 100;
-      $apr_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
-          	#$apr_members_paid = ( $apr_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
+    $apr_amount_received = $row['sum'];
+    #$apr_amount_received = ( $apr_amount_received / $monthly_total ) * 100;
+    $apr_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
+    #$apr_members_paid = ( $apr_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
-      $may_amount_received = $row['sum'];
-          	#$may_amount_received = ( $may_amount_received / $monthly_total ) * 100;
-      $may_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
-          	#$may_members_paid = ( $may_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
+    $may_amount_received = $row['sum'];
+    #$may_amount_received = ( $may_amount_received / $monthly_total ) * 100;
+    $may_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
+    #$may_members_paid = ( $may_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
-      $jun_amount_received = $row['sum'];
-          	#$jun_amount_received = ( $jun_amount_received / $monthly_total ) * 100;
-      $jun_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
-          	#$jun_members_paid = ( $jun_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
+    $jun_amount_received = $row['sum'];
+    #$jun_amount_received = ( $jun_amount_received / $monthly_total ) * 100;
+    $jun_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
+    #$jun_members_paid = ( $jun_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
-      $jul_amount_received = $row['sum'];
-          	#$jul_amount_received = ( $jul_amount_received / $monthly_total ) * 100;
-      $jul_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
-          	#$jul_members_paid = ( $jul_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
+    $jul_amount_received = $row['sum'];
+    #$jul_amount_received = ( $jul_amount_received / $monthly_total ) * 100;
+    $jul_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
+    #$jul_members_paid = ( $jul_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
-      $aug_amount_received = $row['sum'];
-          	#$aug_amount_received = ( $aug_amount_received / $monthly_total ) * 100;
-      $aug_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
-          	#$aug_members_paid = ( $aug_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
+    $aug_amount_received = $row['sum'];
+    #$aug_amount_received = ( $aug_amount_received / $monthly_total ) * 100;
+    $aug_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
+    #$aug_members_paid = ( $aug_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
-      $sep_amount_received = $row['sum'];
-          	#$sep_amount_received = ( $sep_amount_received / $monthly_total ) * 100;
-      $sep_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
-          	#$sep_members_paid = ( $sep_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
+    $sep_amount_received = $row['sum'];
+    #$sep_amount_received = ( $sep_amount_received / $monthly_total ) * 100;
+    $sep_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
+    #$sep_members_paid = ( $sep_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
-      $oct_amount_received = $row['sum'];
-          	#$oct_amount_received = ( $oct_amount_received / $monthly_total ) * 100;
-      $oct_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
-          	#$oct_members_paid = ( $oct_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
+    $oct_amount_received = $row['sum'];
+    #$oct_amount_received = ( $oct_amount_received / $monthly_total ) * 100;
+    $oct_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
+    #$oct_members_paid = ( $oct_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
-      $nov_amount_received = $row['sum'];
-          	#$nov_amount_received = ( $nov_amount_received / $monthly_total ) * 100;
-      $nov_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
-          	#$nov_members_paid = ( $nov_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
+    $nov_amount_received = $row['sum'];
+    #$nov_amount_received = ( $nov_amount_received / $monthly_total ) * 100;
+    $nov_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
+    #$nov_members_paid = ( $nov_members_paid / $total_homes ) * 100;
 
-      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
-      $dec_amount_received = $row['sum'];
-          	#$dec_amount_received = ( $dec_amount_received / $monthly_total ) * 100;
-      $dec_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
-          	#$dec_members_paid = ( $dec_members_paid / $total_homes ) * 100;
+    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
+    $dec_amount_received = $row['sum'];
+    #$dec_amount_received = ( $dec_amount_received / $monthly_total ) * 100;
+    $dec_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
+    #$dec_members_paid = ( $dec_members_paid / $total_homes ) * 100;
 
-		?>
+?>
 
 <!DOCTYPE html>
 
