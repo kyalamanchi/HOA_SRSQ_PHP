@@ -55,7 +55,8 @@ else if (y == "" || y == " ") retVal= -1;
 else if (x > y) retVal= 1;
 else retVal = -1; // y) retVal= 1;
 return retVal;
-}var table = $('#example').removeAttr('width').DataTable( {
+}
+   var table = $('#example').removeAttr('width').DataTable( {
         scrollY:        "300px",
         scrollX:        true,
         scrollCollapse: true,
