@@ -714,18 +714,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -738,7 +726,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -2571,18 +2559,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -2595,7 +2571,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -2746,18 +2722,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -2770,7 +2734,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -2921,18 +2885,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -2945,7 +2897,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -3096,18 +3048,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -3120,7 +3060,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -3271,18 +3211,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -3295,7 +3223,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -3446,18 +3374,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -3470,7 +3386,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -3621,18 +3537,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -3645,7 +3549,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
@@ -3808,18 +3712,6 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Description :</strong> <?php echo $desc; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
 												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
 
 											</div>
@@ -3832,7 +3724,7 @@
 
 											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-												<strong>Notes :</strong> <?php echo $notes; ?>
+												<strong>Board Comments </strong> <?php echo $notes; ?>
 
 											</div>
 
