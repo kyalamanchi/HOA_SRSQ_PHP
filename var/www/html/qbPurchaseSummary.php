@@ -98,9 +98,9 @@ function hidePleaseWait() {
                 <th width="13%">PAYMENT TYPE</th>
                 <th width="13%">REFERENCE NO</th>
                 <th width="13%">PAYEE</th>
-                <th>CATEGORY</th>
-                <th>TOTAL</th>
-                <th>ATTACHMENT</th>
+                <th width="10%">CATEGORY</th>
+                <th width="10%">TOTAL</th>
+                <th width="20%">ATTACHMENT</th>
             </tr>
         </thead>
         <tbody>
