@@ -9,24 +9,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-2"></script>
-	<script>
-		
-		var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
-		  	window.dataLayer = window.dataLayer || [];
-		  	function gtag(){dataLayer.push(arguments);}
-		  	gtag('js', new Date());
-		  
-		  	gtag('config', 'UA-102881886-2', {
-		  	'custom_map': {'dimension1': 'hoaid'}
-			
-			// Sends an event that passes 'age' as a parameter.
-			gtag('event', 'hoaid_dimension', {'hoaid': dimensionValue});
-		});
-	  
-	</script>
 	
     <?php
 
@@ -77,7 +59,7 @@
     <script src="dist/js/googleanalytics.js"></script>
 
     <script type="text/javascript">
-      var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
+      var dimensionValue1 = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
       var dimensionValue2 = "${communityInfo.communityCode}";
       if(<?php echo $community_id; ?> == 1)
         ga('create', 'UA-102881886-1', 'auto');
