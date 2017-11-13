@@ -159,6 +159,8 @@ $('form.ajax1').on('submit', function(){
 
 	});
 
+	alert(data);
+
 	$.ajax({
 
 		url: url,

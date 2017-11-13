@@ -57,7 +57,7 @@
       var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
       var dimensionValue2 = "${communityInfo.communityCode}";
       if(<?php echo $community_id; ?> == 1)
-        ga('create', 'UA-102881886-1', 'auto');
+        ga('create', 'UA-102881886-3', 'auto');
       else if(<?php echo $community_id; ?> == 2)
         ga('create', 'UA-102881886-2', 'auto');
       ga('set', 'dimension1', dimensionValue1);

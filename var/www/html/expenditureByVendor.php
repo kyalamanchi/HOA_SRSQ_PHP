@@ -217,10 +217,10 @@
                           }
 
                           foreach ($vendorsArray as $key => $value) 
-                            {
+                          {
                                 
-                              if ( $key && $value )
-                                echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
+                            if ( $key && $value )
+                              echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
 
                           }
 
