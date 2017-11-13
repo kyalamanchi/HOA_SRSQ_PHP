@@ -59,7 +59,14 @@ return retVal;
    var table =  $('#example').DataTable( {
         select: true,
         "pageLength":100,
-        "scrollY":        "600px"
+        "scrollY":        "600px",
+        "columns": [
+    { "width": "20%" },
+    null,
+    null,
+    null,
+    null
+  ]
     } );
    table.order([0,'asc']); 
 } 
@@ -94,13 +101,13 @@ function hidePleaseWait() {
         <table id="example" class="table " cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th style="width: 10%;">DATE</th>
-                <th width="">PAYMENT TYPE</th>
-                <th width="">REFERENCE NO</th>
-                <th width="">PAYEE</th>
-                <th width="">CATEGORY</th>
-                <th width="">TOTAL</th>
-                <th width="">ATTACHMENT</th>
+                <th>DATE</th>
+                <th>PAYMENT TYPE</th>
+                <th>REFERENCE NO</th>
+                <th>PAYEE</th>
+                <th>CATEGORY</th>
+                <th>TOTAL</th>
+                <th>ATTACHMENT</th>
             </tr>
         </thead>
         <tbody>
@@ -126,7 +133,7 @@ function hidePleaseWait() {
                     }
                 }
                 echo '<tr>';
-                     echo '<td style="width: 10%;">';
+                     echo '<td>';
                         echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
                     echo '</td>';
                     echo '<td>';
