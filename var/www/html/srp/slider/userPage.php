@@ -1520,152 +1520,90 @@
 
                        									</div>
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													<div class='counter h6'>
+															<div class='counter h6'>
 
-														<div class='counter-number'>
+																<div class='counter-number'>
 															
-															<?php
+																	<?php
 
-																if($del_acc > 0)
-																	echo "<a href='delinquentAccounts.php' style='color: orange;'>$del_acc</a>";
-																else
-																	echo "$del_acc";
+																		echo "$del_acc";
 
-															?>
+																	?>
 
-														</div>
+																</div>
 
-														<div class='counter-title'>Delinquent Accounts</div>
+																<div class='counter-title'>Delinquent Accounts</div>
 
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<?php 
-																
-																$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
-
-																$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
-
-																$inspection_notices = $inspection_notices - $closed;
-
-																if ($inspection_notices == 0) 
-																	echo $inspection_notices;
-																else
-																	echo "<a href='inspectionNotices.php' style='color: orange;'>$inspection_notices</a>";
-
-															?>
+															</div>
 
 														</div>
 
-														<div class='counter-title'>Inspection Notices</div>
+														<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													</div>
+															<div class='counter h6'>
 
-												</div>
+																<div class='counter-number'>
 
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<?php 
-																
-																$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
-
-																if ($late_payments == 0) 
-																	echo $late_payments;
-																else
-																	echo "<a href='latePayments.php' style='color: orange;'>$late_payments</a>";
-
-															?>
-
-														</div>
-
-														<div class='counter-title'>Late Payments</div>
-
-													</div>
-
-												</div>
-
-												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-													<div class='counter h6'>
-
-														<div class='counter-number'>
-
-															<?php 
-																
-																$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
-
-																if ($parking_tags > 0) 
-																	echo "<a href='parkingTags.php' style='color: green;'>$parking_tags</a>";
-																else
-																	echo $parking_tags;
-
-															?>
-
-														</div>
-
-														<div class='counter-title'>Parking Tags</div>
-
-													</div>
-
-												</div>
-
-											</div>
-
-											<br /><br />
-
-											<?php
-
-												if($community_id == 1)
-													echo "
-
-														<div class='row module-gray'>
-
-															<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
-
-														</div>
-
-														<div class='row module-gray'>
-
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
+																	<?php 
 																		
-																		".round($srp_savings_balance, 0)."
-																			
-																	</div>
+																		$inspection_notices = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id"));
 
-																	<div class='counter-title'>Savings ($)</div>
+																		$closed = pg_num_rows(pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND (inspection_status_id=2 OR inspection_status_id=6 OR inspection_status_id=9 OR inspection_status_id=13 OR inspection_status_id=14)"));
+
+																		$inspection_notices = $inspection_notices - $closed;
+
+																		if ($inspection_notices == 0) 
+																			echo "<div class='counter-number'>".$inspection_notices."</div>";
+																		else
+																			echo "<div class='counter-number' style='color: orange;'>$inspection_notices</div>";
+
+																	?>
+
+																	<div class='counter-title'>Inspection Notices</div>
 
 																</div>
 
 															</div>
 
-															<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 																<div class='counter h6'>
 
-																	<div class='counter-number'>
+																	<?php 
+																
+																		$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
 
-																		".round($srp_current_balance, 0)."
+																		if ($late_payments == 0) 
+																			echo "<div class='counter-number'>".$late_payments."</div>";
+																		else
+																			echo "<div class='counter-number' style='color: orange;'>$late_payments</div>";
 
-																	</div>
+																	?>
 
-																	<div class='counter-title'>Checkings ($)</div>
+																	<div class='counter-title'>Late Payments</div>
+
+																</div>
+
+															</div>
+
+															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+																<div class='counter h6'>
+
+																	<?php 
+																
+																		$parking_tags = pg_num_rows(pg_query("SELECT * FROM home_tags WHERE community_id=$community_id AND type=1"));
+
+																		if ($parking_tags > 0) 
+																			echo "<div class='counter-number' style='color: green;'>$parking_tags</div>";
+																		else
+																			echo "<div class='counter-number'>".$parking_tags."</div>";
+
+																	?>
+
+																	<div class='counter-title'>Parking Tags</div>
 
 																</div>
 
@@ -1673,7 +1611,56 @@
 
 														</div>
 
-													";
+														<br /><br />
+
+														<?php
+
+															if($community_id == 1)
+																echo "
+
+																<div class='row module-gray'>
+
+																	<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
+
+																</div>
+
+																<div class='row module-gray'>
+
+																	<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																		<div class='counter h6'>
+
+																			<div class='counter-number'>
+																				
+																				".round($srp_savings_balance, 0)."
+																					
+																			</div>
+
+																			<div class='counter-title'>Savings ($)</div>
+
+																		</div>
+
+																	</div>
+
+																	<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+																		<div class='counter h6'>
+
+																			<div class='counter-number'>
+
+																				".round($srp_current_balance, 0)."
+
+																			</div>
+
+																			<div class='counter-title'>Checkings ($)</div>
+
+																		</div>
+
+																	</div>
+
+																</div>
+
+																";
 												else if($community_id == 2)
 													echo "
 
