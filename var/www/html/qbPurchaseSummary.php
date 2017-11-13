@@ -57,12 +57,12 @@ else retVal = -1; // y) retVal= 1;
 return retVal;
 }
    var table = $('#example').removeAttr('width').DataTable( {
-        scrollY:        "300px",
-        scrollX:        true,
+        scrollY:        "600px",
+        scrollX:        false,
         scrollCollapse: true,
         paging:         false,
         columnDefs: [
-            { width: 200, targets: 0 }
+            { width: 200, targets: 1 }
         ],
         fixedColumns: true
     } );
