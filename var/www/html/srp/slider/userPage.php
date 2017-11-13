@@ -1198,11 +1198,7 @@
 
 							</div>
 
-							<br>
-
 							<div class='row'>
-
-								<section class="module">
 
 					<div class="container">
 
@@ -2460,8 +2456,6 @@
 						</div>
 
 					</div>
-
-				</section>
 
 							</div>
 
