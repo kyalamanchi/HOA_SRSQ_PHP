@@ -3966,7 +3966,7 @@
 
                                         <div class='row'>
 
-                                            <label><strong>Select notification to</strong></label>
+                                            <label><strong>Send notification to</strong></label>
 
                                         </div>
 
