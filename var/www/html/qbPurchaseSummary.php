@@ -57,7 +57,6 @@ else retVal = -1; // y) retVal= 1;
 return retVal;
 }
    var table =  $('#example').DataTable( {
-        select: true,
         "pageLength":100,
         "scrollY":        "600px",
         "columns": [
