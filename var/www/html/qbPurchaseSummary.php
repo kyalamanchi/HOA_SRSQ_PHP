@@ -101,7 +101,7 @@ function hidePleaseWait() {
                 <th width="13%">PAYEE</th>
                 <th width="10%">CATEGORY</th>
                 <th width="10%">TOTAL</th>
-                <th width="20%">ATTACHMENT</th>
+                <th width="10%">ATTACHMENT</th>
             </tr>
         </thead>
         <tbody>
