@@ -3850,7 +3850,7 @@
 
 								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-									<center>Community Communications</center>
+									<center><h3 class='h3'>Community Communications</h3></center>
 
 								</div>
 
@@ -3862,7 +3862,7 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-									<table class='table table-striped'>
+									<table class='table table-striped' style="color: black;">
 
 										<thead>
 											
