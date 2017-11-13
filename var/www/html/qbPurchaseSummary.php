@@ -145,7 +145,6 @@ function hidePleaseWait() {
                         echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
                     echo '</td>';
                     echo '<td>';
-                         <?php
             $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
             curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509569266",oauth_nonce="8N0tvCVCsWK",oauth_version="1.0",oauth_signature="ZoQHffDGFCgQUgP8R5Owiix6pec%3D"'));
@@ -164,9 +163,7 @@ function hidePleaseWait() {
             else {
                 echo "No attachments found";
             }
-
-        ?>
-                    echo '</td>';
+                echo '</td>';
                 echo '</tr>';
             }
         ?>
