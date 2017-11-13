@@ -1,5 +1,6 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 ?>
 <!DOCTYPE html>
 <html>
@@ -145,24 +146,13 @@ function hidePleaseWait() {
                         echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
                     echo '</td>';
                     echo '<td>';
-            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509569266",oauth_nonce="8N0tvCVCsWK",oauth_version="1.0",oauth_signature="ZoQHffDGFCgQUgP8R5Owiix6pec%3D"'));
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Attachable where AttachableRef.EntityRef.Type = 'purchase' AND AttachableRef.EntityRef.value = '".$purchase->Id."'");
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            $result = curl_exec($ch);
-            $result  = json_decode($result);
-            $data = $result->QueryResponse;
-            if ( isset( $data->Attachable ) )
-            {
-                foreach ($data->Attachable as $attachable) {
-                    echo '<a href="'.$attachable->TempDownloadUri.'">'.$attachable->FileName.'</a>';
-                    echo '<br>';
-                }
-            }
-            else {
-                echo "No attachments found";
-            }
+                        $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND qb_attachable_id=".$purchase->Id;
+                        $queryResult = pg_query($query);
+
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                        echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$row['attachment_name'].'</a>';
+                            echo '<br>';
+                        }
                 echo '</td>';
                 echo '</tr>';
             }
