@@ -161,8 +161,11 @@ function hidePleaseWait() {
                         if ( $name == "" ){
                             echo "No attachment(s) found.";
                         }
-                        else {
+                        else if ( $count > 1) {
                              echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachments found".'</a>';
+                        }
+                        else {
+                            echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachment found".'</a>';
                         }
                 echo '</td>';
                 echo '</tr>';
