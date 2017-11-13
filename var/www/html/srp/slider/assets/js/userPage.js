@@ -12,6 +12,7 @@ $(document).ready(function(){
 	$('#email_continue').hide();
 	$('#agreements_div').hide();
 	$('#hoa_fact_sheet_div').hide();
+	$('#disclosure1_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 
