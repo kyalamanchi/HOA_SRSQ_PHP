@@ -153,13 +153,16 @@ function hidePleaseWait() {
                         $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
                         $queryResult = pg_query($query);
                         $name = "";
+                        $count  =0;
                         while ($row = pg_fetch_assoc($queryResult)) {
+                            $count  = $count + 1;
                             $name =  $row['attachment_name'];
-                        echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$row['attachment_name'].'</a>';
-                            echo '<br>';
                         }
                         if ( $name == "" ){
                             echo "No attachment(s) found.";
+                        }
+                        else {
+                             echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachments found".'</a>';
                         }
                 echo '</td>';
                 echo '</tr>';
