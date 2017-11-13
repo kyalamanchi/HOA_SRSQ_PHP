@@ -13,6 +13,10 @@ $(document).ready(function(){
 	$('#agreements_div').hide();
 	$('#hoa_fact_sheet_div').hide();
 	$('#disclosure1_div').hide();
+	$('#disclosure2_div').hide();
+	$('#disclosure3_div').hide();
+	$('#disclosure4_div').hide();
+	$('#disclosure5_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 
@@ -483,5 +487,54 @@ $('#disclosure1_back').click(function(){
 
 	$('#disclosure1_div').hide();
 	$('#hoa_fact_sheet_div').show();
+
+});
+
+$('#disclosure1_continue').click(function(){
+
+	$('#disclosure2_div').show();
+	$('#disclosure1_div').hide();
+
+});
+
+$('#disclosure2_back').click(function(){
+
+	$('#disclosure2_div').hide();
+	$('#disclosure1_div').show();
+
+});
+
+$('#disclosure2_continue').click(function(){
+
+	$('#disclosure3_div').show();
+	$('#disclosure2_div').hide();
+
+});
+
+$('#disclosure3_back').click(function(){
+
+	$('#disclosure3_div').hide();
+	$('#disclosure2_div').show();
+
+});
+
+$('#disclosure3_continue').click(function(){
+
+	$('#disclosure4_div').show();
+	$('#disclosure3_div').hide();
+
+});
+
+$('#disclosure4_back').click(function(){
+
+	$('#disclosure4_div').hide();
+	$('#disclosure3_div').show();
+
+});
+
+$('#disclosure4_continue').click(function(){
+
+	$('#disclosure5_div').show();
+	$('#disclosure4_div').hide();
 
 });
