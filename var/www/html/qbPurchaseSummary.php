@@ -146,7 +146,7 @@ function hidePleaseWait() {
                         echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
                     echo '</td>';
                     echo '<td>';
-                        $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND qb_attachable_id=".$purchase->Id;
+                        $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
                         $queryResult = pg_query($query);
 
                         while ($row = pg_fetch_assoc($queryResult)) {
