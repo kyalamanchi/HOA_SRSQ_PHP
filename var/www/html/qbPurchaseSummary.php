@@ -59,8 +59,7 @@ return retVal;
    var table =  $('#example').DataTable( {
         select: true,
         "pageLength":100,
-        "scrollY":        "600px",
-        "sScrollX": "100%"
+        "scrollY":        "600px"
     } );
    table.order([0,'asc']); 
 } 
@@ -95,7 +94,7 @@ function hidePleaseWait() {
         <table id="example" class="table " cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th width="">DATE</th>
+                <th style="width: 10%;">DATE</th>
                 <th width="">PAYMENT TYPE</th>
                 <th width="">REFERENCE NO</th>
                 <th width="">PAYEE</th>
