@@ -394,7 +394,7 @@
 
 											<br>
 
-											<h3 class='h3' style='color: black;'><?php echo $user_email; ?></h3>
+											<h3 class='h3' id='user_email' style='color: black;'><?php echo $user_email; ?></h3>
 
 										</div>
 
@@ -522,7 +522,7 @@
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
 												<label><strong>Email</strong></label><br>
-												<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' readonly>
+												<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' required>
 
 											</div>
 

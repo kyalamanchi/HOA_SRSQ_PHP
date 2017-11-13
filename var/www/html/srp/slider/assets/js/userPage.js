@@ -159,8 +159,6 @@ $('form.ajax1').on('submit', function(){
 
 	});
 
-	alert(data);
-
 	$.ajax({
 
 		url: url,
@@ -174,10 +172,36 @@ $('form.ajax1').on('submit', function(){
 			{
 				alert("Saved!");
 
-				$('#user_cell_no').text(response);
 				$('#user_information_radio_no').prop('checked', false);
 				$('#user_details_continue').hide();
 				$('#edit_user_details_div').hide();
+
+				$.ajax({
+					
+					url: 'resetCellNo.php',
+					type: 'post',
+					success: function(response){
+						
+						$('#user_cell_no').text(response);
+						$('#edit_cell_no').val(response);
+				
+					}
+
+				});
+
+				$.ajax({
+					
+					url: 'resetEmail.php',
+					type: 'post',
+					success: function(response){
+						
+						$('#user_email').text(response);
+						$('#edit_email').val(response);
+				
+					}
+
+				});
+
 				$('#user_details_div').show();
 
 			}
