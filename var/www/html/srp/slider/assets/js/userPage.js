@@ -470,3 +470,17 @@ $('#hoa_fact_sheet_back').click(function(){
 	$('#hoa_fact_sheet_div').hide();
 
 });
+
+$('#hoa_fact_sheet_continue').click(function(){
+
+	$('#disclosure1_div').show();
+	$('#hoa_fact_sheet_div').hide();
+
+});
+
+$('#disclosure1_back').click(function(){
+
+	$('#disclosure1_div').hide();
+	$('#hoa_fact_sheet_div').show();
+
+});
