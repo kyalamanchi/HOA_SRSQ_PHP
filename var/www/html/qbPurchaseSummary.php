@@ -58,14 +58,7 @@ return retVal;
 }
    var table =  $('#example').DataTable( {
         "pageLength":100,
-        "scrollY":        "600px",
-        "columns": [
-    { "width": "20%" },
-    null,
-    null,
-    null,
-    null
-  ]
+        "scrollY":        "600px"
     } );
    table.order([0,'asc']); 
 } 
