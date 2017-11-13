@@ -1863,7 +1863,7 @@
 		                              									$repairs = round($repairs, 0);
 											
 		                              									if($repairs > 0)
-		                                									echo "<div class='counter-number' style='color: green;'><a href='reserveRepairs.php'>".$repairs."</a></div>";
+		                                									echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
 		                              									else
 		                                									echo "<div class='counter-number'>".$repairs."</div>";
 
