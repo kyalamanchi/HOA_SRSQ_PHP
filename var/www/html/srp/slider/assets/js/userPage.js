@@ -19,6 +19,7 @@ $(document).ready(function(){
 	$('#disclosure5_div').hide();
 	$('#disclosure6_div').hide();
 	$('#disclosure7_div').hide();
+	$('#disclosure8_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 
@@ -580,5 +581,12 @@ $('#disclosure7_continue').click(function(){
 
 	$('#disclosure8_div').show();
 	$('#disclosure7_div').hide();
+
+});
+
+$('#disclosure8_back').click(function(){
+
+	$('#disclosure8_div').hide();
+	$('#disclosure7_div').show();
 
 });
