@@ -17,6 +17,8 @@ $(document).ready(function(){
 	$('#disclosure3_div').hide();
 	$('#disclosure4_div').hide();
 	$('#disclosure5_div').hide();
+	$('#disclosure6_div').hide();
+	$('#disclosure7_div').hide();
 
 	$('#edit_mailing_country').on('change', function(){
 
@@ -550,5 +552,33 @@ $('#disclosure5_continue').click(function(){
 
 	$('#disclosure6_div').show();
 	$('#disclosure5_div').hide();
+
+});
+
+$('#disclosure6_back').click(function(){
+
+	$('#disclosure6_div').hide();
+	$('#disclosure5_div').show();
+
+});
+
+$('#disclosure6_continue').click(function(){
+
+	$('#disclosure7_div').show();
+	$('#disclosure6_div').hide();
+
+});
+
+$('#disclosure7_back').click(function(){
+
+	$('#disclosure7_div').hide();
+	$('#disclosure6_div').show();
+
+});
+
+$('#disclosure7_continue').click(function(){
+
+	$('#disclosure8_div').show();
+	$('#disclosure7_div').hide();
 
 });
