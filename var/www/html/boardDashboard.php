@@ -10,6 +10,24 @@
 <html>
   <head>
     
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-102881886-3"></script>
+	<script>
+		
+		var dimensionValue = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
+		  	window.dataLayer = window.dataLayer || [];
+		  	function gtag(){dataLayer.push(arguments);}
+		  	gtag('js', new Date());
+		  
+		  	gtag('config', 'UA-102881886-2', {
+		  	'custom_map': {'dimension1': 'hoaid'}
+			
+			// Sends an event that passes 'age' as a parameter.
+			gtag('event', 'hoaid_dimension', {'hoaid': dimensionValue});
+		});
+	  
+	</script>
+	
     <?php
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
