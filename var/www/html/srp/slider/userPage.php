@@ -3926,6 +3926,63 @@
 
 							</div>
 
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <form method='POST' >
+
+                                        <div class='row'>
+
+                                            <label><strong>Select notification type</strong></label>
+
+                                            <br>
+
+                                            <input type='radio' name='notification_type' id='notification_type_email' value='Email'> Email Only
+
+                                            <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> Phone Only
+
+                                            <input type='radio' name='notification_type' id='notification_type_both' value='both' selected> Both Email &amp; Phone
+
+                                        </div>
+
+                                        <div class='row'>
+
+                                            <label><strong>Select notification to</strong></label>
+
+                                            <br>
+
+                                            <?php
+
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+
+                                                while($row = pg_fetch_assoc($result))
+                                                {
+
+                                                    $person_name = $row['fname'];
+                                                    $person_name .= " ";
+                                                    $person_name .= $row['lname'];
+
+                                                    echo "<input type='checkbox' name='notification_person' value='$person_name'> $person_name";
+
+                                                }
+
+                                            ?>
+
+                                            <input type='checkbox' name='notification_type' id='notification_type_phone' value='Phone'> Phone Only
+
+                                            <input type='checkbox' name='notification_type' id='notification_type_both' value='both' selected> Both Email &amp; Phone
+
+                                        </div>
+                                        
+                                    </form>
+
+                                </div>
+
+                            </div>
+
 							<div class='row'>
 
 								<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
