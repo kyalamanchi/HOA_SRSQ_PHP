@@ -21,6 +21,8 @@
 	$description = $_GET['desc'];
 	$doc_id = $_GET['doc_id'];
 
+	echo "<title>$description</title>";
+
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
