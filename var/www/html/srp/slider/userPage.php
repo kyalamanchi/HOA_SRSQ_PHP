@@ -3934,7 +3934,7 @@
 
                                     <form method='POST' >
 
-                                        <div class='row'>
+                                        <div class='row' style='color: black;'>
 
                                             <label><strong>Select notification type</strong></label>
 
@@ -3948,7 +3948,7 @@
 
                                         </div>
 
-                                        <div class='row'>
+                                        <div class='row' style='color: black;'>
 
                                             <label><strong>Select notification to</strong></label>
 
@@ -3965,15 +3965,11 @@
                                                     $person_name .= " ";
                                                     $person_name .= $row['lname'];
 
-                                                    echo "<input type='checkbox' name='notification_person' value='$person_name'> $person_name";
+                                                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'><input type='checkbox' name='notification_person' value='$person_name'> <strong>$person_name</strong></div>";
 
                                                 }
 
                                             ?>
-
-                                            <input type='checkbox' name='notification_type' id='notification_type_phone' value='Phone'> Phone Only
-
-                                            <input type='checkbox' name='notification_type' id='notification_type_both' value='both' selected> Both Email &amp; Phone
 
                                         </div>
                                         
