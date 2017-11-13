@@ -228,17 +228,29 @@ $('#user_edit_back').click(function(){
 	$('#user_information_radio_no').prop('checked', false);
 	$('#user_details_continue').hide();
 
-	//$.ajax({
+	$.ajax({
+					
+		url: 'resetCellNo.php',
+		type: 'post',
+		success: function(response){
+						
+			$('#edit_cell_no').val(response);
+				
+		}
 
-		//type: 'POST',
-		//url: 'resetUserDetails.php',
-		//success:function(response) {
+	});
 
-			//$('#edit_cell_no').val(parseInt(response));
+	$.ajax({
+					
+		url: 'resetEmail.php',
+		type: 'post',
+		success: function(response){
+						
+			$('#edit_email').val(response);
+				
+		}
 
-		//}
-
-	//});
+	});
 
 });
 

@@ -346,6 +346,8 @@
 										$user_email = $row['email'];
 										$user_cell_no = $row['cell_no'];
 
+                                        $_SESSION['hoa_alchemy_cell_no'] = $user_cell_no;
+
 									?>
 
 									<div class='row'>
