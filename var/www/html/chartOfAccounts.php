@@ -108,98 +108,125 @@
 
                       <?php
             
-                          if($community_id == 1)
-                          {
+                        if($community_id == 1)
+                        {
+                              
+                          $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query');
                             
-                            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query');
-                          
-                            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509536409",oauth_nonce="pDUH6TDf43O",oauth_version="1.0",oauth_signature="1x2ytAtexvMe5VKjTgrGAMCMzbA%3D"'));
-                            curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-              
-                            $result = curl_exec($ch);
-                            $result  = json_decode($result);
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509536409",oauth_nonce="pDUH6TDf43O",oauth_version="1.0",oauth_signature="1x2ytAtexvMe5VKjTgrGAMCMzbA%3D"'));
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                
+                          $result = curl_exec($ch);
+                          $result  = json_decode($result);
 
-                            foreach ($result->QueryResponse->Account as $account) 
+                          foreach ($result->QueryResponse->Account as $account) 
+                          {
+                    
+                            if ( $account->AcctNum )
                             {
-                  
-                                if ( $account->AcctNum )
-                                {
-                      
-                                    if($account->CurrentBalanceWithSubAccounts){echo "<tr><td>".$account->AcctNum."</td><td>".$account->AcctNum." ".$account->Name."</td><td>".$account->AccountType."</td><td>";
+                        
+                              if($account->CurrentBalanceWithSubAccounts)
+                              {
+
+                                echo "<tr><td>".$account->AcctNum."</td><td>".$account->AcctNum." ".$account->Name."</td><td>".$account->AccountType."</td><td>";
+                                          
+                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
+                                echo implode("  ", $pieces);
                                         
-                                        $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                        echo implode("  ", $pieces);
-                                      
-                                      echo "</td><td>";
-                                        setlocale(LC_MONETARY, 'en_US');
-                                        echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-                                      echo "</td></tr>";}
-                                }
-                                else 
-                                {
-                      
-                                    if($account->CurrentBalanceWithSubAccounts){echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
-                               
-                                        $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                        echo implode("  ", $pieces);
-                          
-                                      echo "</td><td>";
-                                        setlocale(LC_MONETARY, 'en_US');
-                                          echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-                                
-                                      echo "</td></tr>";}
-                                }
+                                echo "</td><td>";
+                                setlocale(LC_MONETARY, 'en_US');
+                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+                                echo "</td></tr>";
+
+                              }
+
+                            }
+                            else 
+                            {
+                        
+                              if($account->CurrentBalanceWithSubAccounts)
+                              {
+
+                                echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
+                                 
+                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
+                                echo implode("  ", $pieces);
+                            
+                                echo "</td><td>";
+                                setlocale(LC_MONETARY, 'en_US');
+                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+                                  
+                                echo "</td></tr>";
+
+                              }
+
                             }
 
                           }
-                          else if($community_id == 2)
-                          {
-                            
-                            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-                          
-                            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509390608",oauth_nonce="16yXTFEfw1H",oauth_version="1.0",oauth_signature="P%2Byoz1KCN%2FzgSMB%2B5KM7Z1PY1cM%3D"'));
-                            curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-              
-                            $result = curl_exec($ch);
-                            $result  = json_decode($result);
 
-                            foreach ($result->QueryResponse->Account as $account) 
+                        }
+                        else if($community_id == 2)
+                        {
+                              
+                          $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+                        
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509390608",oauth_nonce="16yXTFEfw1H",oauth_version="1.0",oauth_signature="P%2Byoz1KCN%2FzgSMB%2B5KM7Z1PY1cM%3D"'));
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Account");
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                
+                          $result = curl_exec($ch);
+                          $result  = json_decode($result);
+
+                          foreach ($result->QueryResponse->Account as $account) 
+                          {
+                    
+                            if ( $account->AcctNum )
                             {
-                  
-                                if ( $account->AcctNum )
-                                {
-                      
-                                    if($account->CurrentBalanceWithSubAccounts){echo "<tr><td>".$account->AcctNum."</td><td>".$account->AcctNum." ".$account->Name."</td><td>".$account->AccountType."</td><td>";
+                        
+                              if($account->CurrentBalanceWithSubAccounts)
+                              {
+
+                                echo "<tr><td>".$account->AcctNum."</td><td>".$account->AcctNum." ".$account->Name."</td><td>".$account->AccountType."</td><td>";
+                                          
+                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
+                                echo implode("  ", $pieces);
                                         
-                                        $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                        echo implode("  ", $pieces);
-                                      
-                                      echo "</td><td>";
-                                        setlocale(LC_MONETARY, 'en_US');
-                                        echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-                                      echo "</td></tr>";}
-                                }
-                                else 
-                                {
-                      
-                                    if($account->CurrentBalanceWithSubAccounts){echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
-                               
-                                        $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-                                        echo implode("  ", $pieces);
-                          
-                                      echo "</td><td>";
-                                        setlocale(LC_MONETARY, 'en_US');
-                                          echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+                                echo "</td><td>";
+                                setlocale(LC_MONETARY, 'en_US');
+                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+                                echo "</td></tr>";
                                 
-                                      echo "</td></tr>";}
-                                }
+                              }
+
+                            }
+                            else 
+                            {
+                      
+                              if($account->CurrentBalanceWithSubAccounts)
+                              {
+
+                                echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
+                               
+                                $pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
+                                echo implode("  ", $pieces);
+                          
+                                echo "</td><td>";
+                                setlocale(LC_MONETARY, 'en_US');
+                                echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+                                
+                                echo "</td></tr>";
+
+                              }
+
                             }
 
                           }
+
+                        }
+
                       ?>
                     
                     </tbody>

@@ -145,17 +145,24 @@
 	                							else 
 	                							{
 	                    
-	                    							if($account->CurrentBalanceWithSubAccounts){echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
+	                    							if($account->CurrentBalanceWithSubAccounts)
+	                    							{
+
+	                    								echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
 	                             
-	                             					$pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-	                            					echo implode("  ", $pieces);
-	                        
-	                        						echo "</td><td>";
-	                            					setlocale(LC_MONETARY, 'en_US');
-	                                				echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-	                              
-	                        						echo "</td></tr>";}
+		                             					$pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
+		                            					echo implode("  ", $pieces);
+		                        
+		                        						echo "</td><td>";
+		                            					setlocale(LC_MONETARY, 'en_US');
+		                                				echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+		                              
+		                        						echo "</td></tr>";
+
+	                        						}
+
 	                 							}
+
 	            							}
 
             							}
@@ -191,20 +198,27 @@
 	                							else 
 	                							{
 	                    
-	                    							if($account->CurrentBalanceWithSubAccounts){echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
+	                    							if($account->CurrentBalanceWithSubAccounts)
+	                    							{
+	                    								echo "<tr><td></td><td>".$account->Name."</td><td>".$account->AccountType."</td><td>";
 	                             
-	                             					$pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
-	                            					echo implode("  ", $pieces);
-	                        
-	                        						echo "</td><td>";
-	                            					setlocale(LC_MONETARY, 'en_US');
-	                                				echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
-	                              
-	                        						echo "</td></tr>";}
+		                             					$pieces = preg_split('/(?=[A-Z])/',$account->AccountSubType);
+		                            					echo implode("  ", $pieces);
+		                        
+		                        						echo "</td><td>";
+		                            					setlocale(LC_MONETARY, 'en_US');
+		                                				echo money_format('%#10n', $account->CurrentBalanceWithSubAccounts);
+		                              
+		                        						echo "</td></tr>";
+
+	                        						}
+
 	                 							}
+
 	            							}
 
             							}
+            							
         							?>
 
 								</tbody>
