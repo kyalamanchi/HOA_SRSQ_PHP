@@ -1384,6 +1384,8 @@
 
 							</div>
 
+							<br>
+
 							<div class='row'>
 
 								<div class="container">
@@ -2441,6 +2443,179 @@
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
 													<button id='hoa_fact_sheet_continue' name='hoa_fact_sheet_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+
+												</div>
+
+											</div>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<div id='disclosure1_div'>
+
+							<br>
+
+							<div class='row container'>
+								
+								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+
+									<div class='alert alert-warning'>
+
+										<ol class="breadcrumb">
+									
+											<li class="breadcrumb-item">User Details</li>
+											<li class="breadcrumb-item">Home Details</li>
+											<li class="breadcrumb-item">Primary Email</li>
+											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+
+										</ol>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<br>
+
+							<div class='row'>
+
+								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+
+									<div class='container module-gray' style="color: black;">
+
+										<?php
+
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=10"));
+
+											$notes = $row['notes'];
+											$document_id = $row['document_id'];
+											$changed_this_year = $row['changed_this_year'];
+
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=10"));
+											$disclosure_name = $row['name'];
+											$desc = $row['desc'];
+											$civilcode_section = $row['civilcode_section'];
+											$legal_url = $row['legal_url'];
+
+											if($civilcode_section != "")
+												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
+
+											if($legal_url != '')
+												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
+
+											if($desc == "")
+												$desc = " - ";
+
+											if($notes == "")
+												$notes = " - ";
+
+											if($changed_this_year == 't') 
+												$changed_this_year = "Yes"; 
+											else if($changed_this_year == 'f') 
+												$changed_this_year = "No"; 
+											else 
+												$changed_this_year = " - ";
+
+											if($document_id == "")
+												$document = " - ";
+											else
+												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
+
+										?>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Description :</strong> <?php echo $desc; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Notes :</strong> <?php echo $notes; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+										<div class='row'>
+
+											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+												<strong>Document :</strong> <?php echo $document; ?>
+
+											</div>
+
+										</div>
+
+										<br>
+
+									</div>
+
+									<br>
+
+									<div class='row'>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+
+											<hr class='small'>
+
+											<div class='row'>
+										
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+													<button id='disclosure1_back' name='disclosure1_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+
+												</div>
+
+												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+													<button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 												</div>
 
