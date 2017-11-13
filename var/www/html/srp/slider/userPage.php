@@ -3940,11 +3940,23 @@
 
                                             <br>
 
-                                            <input type='radio' name='notification_type' id='notification_type_email' value='Email'> Email Only
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
 
-                                            <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> Phone Only
+                                                <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong>Email Only</strong>
 
-                                            <input type='radio' name='notification_type' id='notification_type_both' value='both' selected> Both Email &amp; Phone
+                                            </div>
+
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong>Phone Only</strong>
+
+                                            </div>
+
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                <input type='radio' name='notification_type' id='notification_type_both' value='both' selected> <strong>Both Email &amp; Phone</strong>
+
+                                            </div>
 
                                         </div>
 
