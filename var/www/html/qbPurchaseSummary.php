@@ -126,7 +126,7 @@ function hidePleaseWait() {
                     }
                 }
                 echo '<tr>';
-                     echo '<td>';
+                     echo '<td style="width: 10%;">';
                         echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
                     echo '</td>';
                     echo '<td>';
