@@ -57,13 +57,10 @@ else retVal = -1; // y) retVal= 1;
 return retVal;
 }
    var table =  $('#example').DataTable( {
-        scrollY:        "300px",
-        scrollX:        true,
-        scrollCollapse: true,
-        paging:         false,
-        columnDefs: [
-            { width: 200, targets: 0 }
-        ] 
+        "pageLength":100,
+        "scrollY":        "600px"
+    } );
+   table.order([0,'asc']); 
 } 
 );
 
@@ -73,7 +70,6 @@ function a(text){
 
 function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
-}
 }
   </script>
 </head>
@@ -141,7 +137,7 @@ function hidePleaseWait() {
                     echo '<td>';
                         echo $purchase->EntityRef->name;
                     echo '</td>';
-                     echo '<td width="20%">';
+                     echo '<td >';
                         echo $name;
                     echo '</td>';
                      echo '<td>';
