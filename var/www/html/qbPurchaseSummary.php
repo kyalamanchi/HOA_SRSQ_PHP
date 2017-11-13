@@ -137,13 +137,13 @@ function hidePleaseWait() {
                     echo '<td>';
                         echo $purchase->EntityRef->name;
                     echo '</td>';
-                     echo '<td>';
+                     echo '<td width="20%">';
                         echo $name;
                     echo '</td>';
                      echo '<td>';
                         echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
                     echo '</td>';
-                    echo '<td>';
+                    echo '<td width="30%">';
                         $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
                         $queryResult = pg_query($query);
                         $name = "";
