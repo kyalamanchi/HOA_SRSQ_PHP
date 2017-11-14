@@ -1383,7 +1383,7 @@
 
                                                                                             <button type='button' name='edit_person_$person_id_close_modal' id='edit_person_$person_id_close_modal' data-dismiss='modal' class='btn btn-warning btn-xs'><i class='fa fa-close'></i> Close</button>
 
-                                                                                            <button type='submit' data-dismiss='modal' class='btn btn-success btn-xs'><i class='fa fa-close'></i> Submit</button>
+                                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Submit</button>
 
                                                                                         </div>
 
