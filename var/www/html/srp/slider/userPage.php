@@ -1161,7 +1161,7 @@
 
 							</div>
 
-							<br>
+							<br><br>
 
                             <div class='row'>
 
@@ -1210,6 +1210,12 @@
                                                     $person_relationship = $row['relationship_id'];
                                                     $person_role = $row['role_type_id'];
 
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE relationship_id=$person_relationship"));
+                                                    $person_relationship = $row1['name'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role"));
+                                                    $person_role = $row1['name'];
+
                                                     echo "<tr><td>$person_firstname</td><td>$person_lastname</td><td>$person_email</td><td>$person_cell_no</td><td>$person_relationship</td><td>$person_role</td><td><a >Edit</a></td><td><a >Remove</a></td></tr>";
 
                                                 }
@@ -1219,6 +1225,22 @@
                                         </tbody>
 
                                     </table>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center>
+
+                                        <a class='btn btn-info btn-xs'><i class='fa fa-plus'></i> Add Person</a>
+
+                                    </center>
 
                                 </div>
 
