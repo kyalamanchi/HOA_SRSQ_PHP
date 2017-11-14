@@ -172,9 +172,6 @@ or die("Failed to connect to database");
 $homequery = "SELECT HOME_ID FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2 ORDER BY HOME_ID";
 $homequeryResult = pg_query($homequery);
 while ( $homerow = pg_fetch_assoc($homequeryResult)) {
-$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
-or die("Failed to connect to database");
-
 $homeDS = $homerow['home_id'];  
 $assesmentRuleTypeQurey = "SELECT * FROM ASSESSMENT_RULE_TYPE";
 $assesmentRuleTypeQureyResult = pg_query($assesmentRuleTypeQurey);
