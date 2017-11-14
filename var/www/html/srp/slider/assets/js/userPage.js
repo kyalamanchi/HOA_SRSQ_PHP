@@ -498,7 +498,7 @@ $('#edit_email_back').click(function(){
 
 });
 
-$('#edit_person_close_modal').on('click', function(){
+$('button.closing').on('click', function(){
 
 	var person_id = (this).val();
 

@@ -1381,7 +1381,7 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                                                                            <button type='button' name='edit_person_close_modal' id='edit_person_close_modal' value='$person_id' data-dismiss='modal' class='btn btn-warning btn-xs'><i class='fa fa-close'></i> Close</button>
+                                                                                            <button type='button' name='edit_person_close_modal' id='edit_person_close_modal' value='$person_id' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
 
                                                                                             <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
 
