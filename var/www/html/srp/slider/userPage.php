@@ -1179,7 +1179,7 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-                                    <table class='table table-striped' style='color: black;'>
+                                    <table id='person_table' class='table table-striped' style='color: black;'>
 
                                         <thead>
 
@@ -4107,14 +4107,24 @@
     	</script>
 
     	<script>
-      	
-	      	$(function () {
-	        	
-	        	$("#signedAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
+        
+            $(function () {
+                
+                $("#signedAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
 
-	      	});
+            });
 
-    	</script>
+        </script>
+
+        <script>
+        
+            $(function () {
+                
+                $("#person_table").DataTable({ "pageLength": 50 });
+
+            });
+
+        </script>
 
     	<!-- My Chart 1 -->
     	<script type="text/javascript">
