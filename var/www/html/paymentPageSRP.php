@@ -383,10 +383,10 @@ color: red;
           $zipCode = $row[0];
           $finalAddress = '<span class=\'notbold\'>'.$legalName.'<br><br>'.$address.','.$cityName.','.$stateName.' '.$zipCode.'</span>';
           if ( $communityID == 1){
-            $finalAddress = $finalAddress.'<br><br>'.'<a href="mailto:$email">$email</a>';
+            $finalAddress = $finalAddress.'<br><br>'.'<a href="mailto:'.$communityEmail.'">'.$communityEmail.'</a>';
           }
           else if  ( $communityID == 2){
-            $finalAddress = $finalAddress.'<br><br>Phone : <a href="tel:9253996642">(925) 399-6642</a>'.'<br>'.'Email : <a href="mailto:$email">$email</a>';
+            $finalAddress = $finalAddress.'<br><br>Phone : <a href="tel:9253996642">(925) 399-6642</a>'.'<br>'.'Email : <a href="mailto:'.$communityEmail.'">'.$communityEmail.'</a>';
           }
           echo '<h4>'.$finalAddress.'</h4>';
           echo '<br>';
