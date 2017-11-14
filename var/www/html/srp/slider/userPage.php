@@ -1218,8 +1218,11 @@
                                                     $person_role = $row1['name'];
 
                                                     $_SESSION['person_$person_id_firstname'] = $person_firstname;
-
-                                                    $temp = $_SESSION['person_$person_id_firstname'];
+                                                    $_SESSION['person_$person_id_lastname'] = $person_lastname;
+                                                    $_SESSION['person_$person_id_email'] = $person_email;
+                                                    $_SESSION['person_$person_id_cell_no'] = $person_cell_no;
+                                                    $_SESSION['person_$person_id_relationship'] = $person_relationship;
+                                                    $_SESSION['person_$person_id_role'] = $person_role;
 
                                                     echo "
                                             
@@ -1262,7 +1265,7 @@
 
                                                                                             <br>
 
-
+                                                                                            <input type='text' name='edit_person_lastname' id='edit_person_lastname' value='$person_lastname' required>
 
                                                                                         </div>
 
@@ -1276,7 +1279,7 @@
 
                                                                                             <br>
 
-                                                                                            
+                                                                                            <input type='text' name='edit_person_email' id='edit_person_email' value='$person_email' required>
 
                                                                                         </div>
 
@@ -1286,7 +1289,7 @@
 
                                                                                             <br>
 
-                                                                                            
+                                                                                            <input type='text' name='edit_person_cell_no' id='edit_person_cell_no' value='$person_cell_no' required>
 
                                                                                         </div>
 
@@ -1336,7 +1339,7 @@
 
                                                     <tr>
 
-                                                        <td>$temp</td>
+                                                        <td>$person_firstname</td>
                                                         <td>$person_lastname</td>
                                                         <td>$person_email</td>
                                                         <td>$person_cell_no</td>
