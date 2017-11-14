@@ -500,7 +500,7 @@ $('#edit_email_back').click(function(){
 
 $('#edit_person_close_modal').on('click', function(){
 
-	var person_id = ('edit_person_close_modal').val();
+	var person_id = ('#edit_person_close_modal').val();
 
 	alert(person_id);
 
