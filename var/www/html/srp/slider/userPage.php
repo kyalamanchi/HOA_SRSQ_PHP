@@ -1364,9 +1364,9 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                                                                            <button type='button' name='edit_person_$person_id_close_modal' id='edit_person_$person_id_close_modal' data-dismiss='modal' aria-label='Close' class='close btn btn-warning'><i class='fa fa-close'></i> Close</button>
+                                                                                            <button type='button' name='edit_person_$person_id_close_modal' id='edit_person_$person_id_close_modal' data-dismiss='modal' class='btn btn-warning btn-xs'><i class='fa fa-close'></i> Close</button>
 
-                                                                                            <button type='submit' data-dismiss='modal' aria-label='Close' class='close btn btn-warning'><i class='fa fa-close'></i> Close</button>
+                                                                                            <button type='submit' data-dismiss='modal' class='btn btn-success btn-xs'><i class='fa fa-close'></i> Submit</button>
 
                                                                                         </div>
 
