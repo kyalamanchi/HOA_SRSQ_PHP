@@ -1219,6 +1219,8 @@
 
                                                     $_SESSION['person_$person_id_firstname'] = $person_firstname;
 
+                                                    $temp = $_SESSION['person_$person_id_firstname'];
+
                                                     echo "
                                             
                                                         <div class='modal fade' id='edit_$person_id'>
@@ -1334,7 +1336,7 @@
 
                                                     <tr>
 
-                                                        <td>$_SESSION['person_$person_id_firstname']</td>
+                                                        <td>$temp</td>
                                                         <td>$person_lastname</td>
                                                         <td>$person_email</td>
                                                         <td>$person_cell_no</td>
