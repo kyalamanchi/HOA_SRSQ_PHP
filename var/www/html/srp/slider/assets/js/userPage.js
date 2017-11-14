@@ -10,6 +10,7 @@ $(document).ready(function(){
 	$('#home_details_continue').hide();
 	$('#email_div').hide();
 	$('#email_continue').hide();
+	$('edit_email_div').hide();
 	$('#agreements_div').hide();
 	$('#hoa_fact_sheet_div').hide();
 	$('#disclosure1_div').hide();
