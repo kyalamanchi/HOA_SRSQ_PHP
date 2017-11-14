@@ -1247,7 +1247,7 @@
 
                                                                                 <form method='post' action='updatePerson.php'>
 
-                                                                                    <div class='row'>
+                                                                                    <div class='row container'>
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
@@ -1255,7 +1255,7 @@
 
                                                                                             <br>
 
-                                                                                            <input type='text' name='edit_person_firstname' id='edit_person_firstname' value='$person_firstname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_firstname' id='edit_person_firstname' value='$person_firstname' required>
 
                                                                                         </div>
 
@@ -1265,13 +1265,13 @@
 
                                                                                             <br>
 
-                                                                                            <input type='text' name='edit_person_lastname' id='edit_person_lastname' value='$person_lastname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_lastname' id='edit_person_lastname' value='$person_lastname' required>
 
                                                                                         </div>
 
                                                                                     </div>
 
-                                                                                    <div class='row'>
+                                                                                    <div class='row container'>
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
@@ -1279,7 +1279,7 @@
 
                                                                                             <br>
 
-                                                                                            <input type='text' name='edit_person_email' id='edit_person_email' value='$person_email' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_email' id='edit_person_email' value='$person_email' required>
 
                                                                                         </div>
 
@@ -1289,13 +1289,13 @@
 
                                                                                             <br>
 
-                                                                                            <input type='text' name='edit_person_cell_no' id='edit_person_cell_no' value='$person_cell_no' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_cell_no' id='edit_person_cell_no' value='$person_cell_no' required>
 
                                                                                         </div>
 
                                                                                     </div>
 
-                                                                                    <div class='row'>
+                                                                                    <div class='row container'>
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
