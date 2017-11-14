@@ -494,6 +494,7 @@ $('#edit_email_back').click(function(){
 
 	$('#email_div').show();
 	$('#edit_email_div').hide();
+	$('#email_radio_no').prop('checked', false);
 
 });
 
