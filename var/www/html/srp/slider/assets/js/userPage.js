@@ -503,7 +503,8 @@ $('#edit_person_close_modal').click(function(){
 	var person_id = document.getElementById('edit_person_close_modal').val();
 
 	alert(person_id);
-	
+	alert("Closed");
+
 })
 
 $('#email_continue').click(function(){
