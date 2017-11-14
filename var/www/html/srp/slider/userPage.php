@@ -1315,7 +1315,7 @@
 
                                                                                                 ";
 
-                                                                                                $res = pg_query("SELECT * FROM role_type")
+                                                                                                $res = pg_query("SELECT * FROM role_type");
 
                                                                                                 while($r = pg_fetch_assoc($res))
                                                                                                 {
