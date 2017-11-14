@@ -12,6 +12,12 @@ $res = pg_fetch_assoc($queryResult);
 $fromCommunityEmail2 = $res['email'];
 $fileContents = "";
 if ($_GET['hoaid']){	
+
+	$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/singleBillingStatementGeneration.php?id=".$_GET['hoaid']);
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+$message  = curl_exec($req);
+
 	$query = "SELECT community_id FROM hoaid WHERE hoa_id=".$_GET['hoaid'];
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);

@@ -3,7 +3,14 @@
 $someJSON = file_get_contents('php://input');
 $parsedJSON = json_decode($someJSON);
 $hoaID = $parsedJSON[0]->hoaid;
+
 if ($hoaID){	
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/singleBillingStatementGeneration.php?id=".$hoaID);
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+$message  = curl_exec($req);
+
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
