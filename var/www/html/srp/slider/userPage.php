@@ -1350,6 +1350,23 @@
 
                                                                                                 ";
 
+                                                                                                $res = pg_query("SELECT * FROM relationship");
+
+                                                                                                while($r = pg_fetch_assoc($res))
+                                                                                                {
+
+                                                                                                    $relationship_id = $r['id'];
+                                                                                                    $relationship_name = $r['name'];
+
+                                                                                                    echo "<option value='$relationship_id'";
+
+                                                                                                    if($person_relationship == $relationship_name)
+                                                                                                        echo " selected";
+
+                                                                                                    echo ">$relationship_name</option>";
+
+                                                                                                }
+
                                                                                                 echo "
 
                                                                                             </select>
