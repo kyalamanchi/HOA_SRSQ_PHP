@@ -1,5 +1,5 @@
 <?php
-// header("Content-Type: text/event-stream\n\n");
+header("Content-Type: text/event-stream\n\n");
 $someJSON = file_get_contents('php://input');
 $parsedJSON = json_decode($someJSON);
 $hoaID = $parsedJSON[0]->hoaid;
