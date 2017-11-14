@@ -169,7 +169,7 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
 or die("Failed to connect to database");
 
-$startQuery = "SELECT HOME_ID FROM HOAID WHERE HOA_ID =".$_GET['id'];
+$startQuery = "SELECT HOME_ID FROM HOAID WHERE HOA_ID =".$_GET['hoa_id'];
 $startQueryResult = pg_query($startQuery);
 $startQueryResultRow = pg_fetch_assoc($startQueryResult);
 $homeDS = $startQueryResultRow['home_id'];
