@@ -1,4 +1,10 @@
 <?php
+ini_set("session.save_path","/var/www/html/session/");
+  
+  session_start();
+
+  $community_id = $_SESSION['hoa_community_id'];
+  
 header("Content-Type: text/event-stream\n\n");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
