@@ -1346,7 +1346,7 @@
                                                         <td name='person_$person_id_role' id='person_$person_id_role'>$person_role</td>
                                                         <td name='person_$person_id_relationship' id='person_$person_id_relationship'>$person_relationship</td>
                                                         <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#edit_$person_id'><i class='fa fa-edit'></i> Edit</button></td>
-                                                        <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td>
+                                                        <td><button class='btn btn-link text-warning' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td>
 
                                                     </tr>
 
