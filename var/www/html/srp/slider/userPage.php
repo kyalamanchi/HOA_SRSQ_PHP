@@ -1255,7 +1255,9 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_firstname' id='edit_person_firstname' value='$person_firstname' required>
+                                                                                            <input type='hidden' name='edit_person_id' id='edit_person_id' value='$person_id'>
+
+                                                                                            <input class='form-control' type='text' name='edit_person_firstname_$person_id' id='edit_person_firstname_$person_id' value='$person_firstname' required>
 
                                                                                         </div>
 
@@ -1265,11 +1267,13 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_lastname' id='edit_person_lastname' value='$person_lastname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_lastname_$person_id' id='edit_person_lastname_$person_id' value='$person_lastname' required>
 
                                                                                         </div>
 
                                                                                     </div>
+
+                                                                                    <br>
 
                                                                                     <div class='row container'>
 
@@ -1279,7 +1283,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_email' id='edit_person_email' value='$person_email' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_email_$person_id' id='edit_person_email_$person_id' value='$person_email' required>
 
                                                                                         </div>
 
@@ -1289,11 +1293,13 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_cell_no' id='edit_person_cell_no' value='$person_cell_no' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_$person_id' id='edit_person_cell_no_$person_id' value='$person_cell_no' required>
 
                                                                                         </div>
 
                                                                                     </div>
+
+                                                                                    <br>
 
                                                                                     <div class='row container'>
 
@@ -1303,7 +1309,32 @@
 
                                                                                             <br>
 
-                                                                                            
+                                                                                            <select name='' id='' required>
+
+                                                                                                <option value='' disabled selected>Select Role</option>
+
+                                                                                                ";
+
+                                                                                                $res = pg_query("SELECT * FROM role_type")
+
+                                                                                                while($r = pg_fetch_assoc($res))
+                                                                                                {
+
+                                                                                                    $role_id = $r['role_type_id'];
+                                                                                                    $role_name = $r['name'];
+
+                                                                                                    echo "<option value='$role_id'";
+
+                                                                                                    if($person_role == $role_name)
+                                                                                                        echo " selected";
+
+                                                                                                    echo ">$role_name</option>";
+
+                                                                                                }
+
+                                                                                                echo "
+
+                                                                                            </select>
 
                                                                                         </div>
 
@@ -1313,7 +1344,29 @@
 
                                                                                             <br>
 
-                                                                                            
+                                                                                            <select name='' id='' required>
+
+                                                                                                <option value='' disabled selected>Select Relationship</option>
+
+                                                                                                ";
+
+                                                                                                echo "
+
+                                                                                            </select>
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                    <br>
+
+                                                                                    <div class='row'>
+
+                                                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                                                                                            <button type='button' name='edit_person_$person_id_close_modal' id='edit_person_$person_id_close_modal' data-dismiss='modal' aria-label='Close' class='close btn btn-warning'><i class='fa fa-close'></i> Close</button>
+
+                                                                                            <button type='submit' data-dismiss='modal' aria-label='Close' class='close btn btn-warning'><i class='fa fa-close'></i> Close</button>
 
                                                                                         </div>
 
