@@ -1339,12 +1339,12 @@
 
                                                     <tr>
 
-                                                        <td>$person_firstname</td>
-                                                        <td>$person_lastname</td>
-                                                        <td>$person_email</td>
-                                                        <td>$person_cell_no</td>
-                                                        <td>$person_role</td>
-                                                        <td>$person_relationship</td>
+                                                        <td name='person_$person_id_firstname' id='person_$person_id_firstname'>$person_firstname</td>
+                                                        <td name='person_$person_id_lastname' id='person_$person_id_lastname'>$person_lastname</td>
+                                                        <td name='person_$person_id_email' id='person_$person_id_email'>$person_email</td>
+                                                        <td name='person_$person_id_cell_no' id='person_$person_id_cell_no'>$person_cell_no</td>
+                                                        <td name='person_$person_id_role' id='person_$person_id_role'>$person_role</td>
+                                                        <td name='person_$person_id_relationship' id='person_$person_id_relationship'>$person_relationship</td>
                                                         <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#edit_$person_id'><i class='fa fa-edit'></i> Edit</button></td>
                                                         <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td>
 
