@@ -1238,7 +1238,7 @@
 
                                     <center>
 
-                                        <a class='btn btn-info btn-xs'><i class='fa fa-plus'></i> Add Person</a>
+                                        <button class='btn btn-info btn-xs'><i class='fa fa-plus'></i> Add Person</button>
 
                                     </center>
 
