@@ -1245,7 +1245,7 @@
 
                                                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                <form method='post' action='updatePerson.php'>
+                                                                                <form method='post' class='ajax4' action='updatePerson.php'>
 
                                                                                     <div class='row container'>
 
@@ -1381,9 +1381,9 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                                                                            <button type='button' name='edit_person_$person_id_close_modal' id='edit_person_$person_id_close_modal' data-dismiss='modal' class='btn btn-warning btn-xs'><i class='fa fa-close'></i> Close</button>
+                                                                                            <button type='button' name='edit_person_close_modal' id='edit_person_close_modal' value='$person_id' data-dismiss='modal' class='btn btn-warning btn-xs'><i class='fa fa-close'></i> Close</button>
 
-                                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Submit</button>
+                                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
 
                                                                                         </div>
 
