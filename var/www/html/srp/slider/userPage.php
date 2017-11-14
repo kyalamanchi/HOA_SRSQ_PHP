@@ -1203,6 +1203,7 @@
                                                 while($row = pg_fetch_assoc($result))
                                                 {
 
+                                                    $person_id = $row['id'];
                                                     $person_firstname = $row['fname'];
                                                     $person_lastname = $row['lname'];
                                                     $person_email = $row['email'];
@@ -1216,7 +1217,154 @@
                                                     $row1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role"));
                                                     $person_role = $row1['name'];
 
-                                                    echo "<tr><td>$person_firstname</td><td>$person_lastname</td><td>$person_email</td><td>$person_cell_no</td><td>$person_role</td><td>$person_relationship</td><td><a >Edit</a></td><td><a >Remove</a></td></tr>";
+                                                    echo "
+                                            
+                                                            <div class='modal fade' id='edit_$person_id'>
+
+                                                                <div class='modal-dialog modal-lg'>
+
+                                                                    <div class='modal-content'>
+
+                                                                        <div class='modal-header'>
+
+                                                                            <h4 class='h4'>Home Details</h4>
+                                                                            <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+                                                                        </div>
+
+                                                                        <div class='modal-body'>
+
+                                                                            <div class='container' style='color: black; background-color: gray;'>
+
+                                                                                <br>
+
+                                                                                <form method='POST' action='userDashboardEditLot.php'>
+                                                                                
+                                                                                    <div class='row text-center'>
+
+                                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+                                                                                            <label><strong>Lot</strong></label><br>
+
+                                                                                        </div>
+
+                                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+                                                                                            <input class='form-control' type='number' name='edit_lot' id='edit_lot' required value='$lot'>
+
+                                                                                            <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                                                                            <input type='hidden' name='home_id' id='home_id' value='$home_id'>
+                                                                                            <input type='hidden' name='name' id='name' value='$name'>
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                    <br>
+
+                                                                                    <div class='row'>
+
+                                                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                                                            <center>
+
+                                                                                                <button class='btn btn-info btn-xs' type='submit'>Update Lot</button>
+
+                                                                                            </center>
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                </form>
+
+                                                                                <br>
+
+                                                                            </div>
+
+                                                                            <br>
+
+                                                                            <div class='container' style='color: black;'>
+
+                                                                                <!--form method='POST' action='userDashboardEditLivingStatus.php'>
+                                                                                
+                                                                                    <div class='row'>
+
+                                                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center'>
+
+                                                                                            <label><strong>Living Status</strong></label><br>
+
+                                                                                        </div>
+
+                                                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                                            <input type='radio'";
+
+                                                                                            if($living_status == 'Living')
+                                                                                                echo " checked";
+
+                                                                                            echo " name='living_status' id='living_status' value='Living'> Living
+
+                                                                                        </div>
+
+                                                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                                            <input type='radio'";
+
+                                                                                            if($living_status == 'Rented')
+                                                                                                echo " checked";
+
+                                                                                            echo " name='living_status' id='living_status' value='Rented'> Rented
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                    <div class='row' id='mailing_address_csz'>
+
+                                                                                        <div class='row'>
+
+                                                                                            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+                                                                                                <label><strong>Address</strong></label>
+
+                                                                                            </div>
+
+                                                                                            <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                                                <input class='form-control' type='text' name='edit_mailing_address' id='edit_mailing_address' placeholder='Ex : 1111 Example St'>
+
+                                                                                            </div>
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                    <div class='row text-center'>
+
+                                                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                                                            <!--button class='btn btn-info btn-xs' type='submit'>Update Living Status</button-->
+
+                                                                                        </div>
+
+                                                                                    </div>
+
+                                                                                </form-->
+
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            ";
+
+                                                    echo "<tr><td>$person_firstname</td><td>$person_lastname</td><td>$person_email</td><td>$person_cell_no</td><td>$person_role</td><td>$person_relationship</td><td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#edit_$person_id'><i class='fa fa-edit'></i> Edit</button></td><td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td></tr>";
 
                                                 }
 
