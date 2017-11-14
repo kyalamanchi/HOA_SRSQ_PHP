@@ -1309,7 +1309,7 @@
 
                                                                                             <br>
 
-                                                                                            <select name='' id='' required>
+                                                                                            <select class='form-control' name='' id='' required>
 
                                                                                                 <option value='' disabled selected>Select Role</option>
 
@@ -1344,7 +1344,7 @@
 
                                                                                             <br>
 
-                                                                                            <select name='' id='' required>
+                                                                                            <select class='form-control' name='' id='' required>
 
                                                                                                 <option value='' disabled selected>Select Relationship</option>
 
