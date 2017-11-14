@@ -1251,7 +1251,7 @@
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                                                            <label>Firstname</label>
+                                                                                            <label><strong>Firstname</strong></label>
 
                                                                                             <br>
 
@@ -1263,7 +1263,7 @@
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                                                            <label>Lastname</label>
+                                                                                            <label><strong>Lastname</strong></label>
 
                                                                                             <br>
 
@@ -1279,7 +1279,7 @@
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                                                            <label>Email</label>
+                                                                                            <label><strong>Email</strong></label>
 
                                                                                             <br>
 
@@ -1289,7 +1289,7 @@
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                                                            <label>Phone</label>
+                                                                                            <label><strong>Phone</strong></label>
 
                                                                                             <br>
 
@@ -1305,7 +1305,7 @@
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                                                            <label>Role</label>
+                                                                                            <label><strong>Role</strong></label>
 
                                                                                             <br>
 
@@ -1340,7 +1340,7 @@
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                                                            <label>Relationship</label>
+                                                                                            <label><strong>Relationship</strong></label>
 
                                                                                             <br>
 
