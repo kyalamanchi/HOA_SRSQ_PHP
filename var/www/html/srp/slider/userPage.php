@@ -1163,6 +1163,69 @@
 
 							<br>
 
+                            <div class='row'>
+
+                                <div class='col=xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3 class='h3'>Persons</h3></center>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    <table class='table table-striped' style='color: black;'>
+
+                                        <thead>
+
+                                            <th>Firstname</th>
+                                            <th>Lastname</th>
+                                            <th>Email</th>
+                                            <th>Phone</th>
+                                            <th>Relationship</th>
+                                            <th>Role</th>
+                                            <th></th>
+                                            <th></th>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php
+
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+
+                                                while($row = pg_fetch_assoc($result))
+                                                {
+
+                                                    $person_firstname = $row['fname'];
+                                                    $person_lastname = $row['lname'];
+                                                    $person_email = $row['email'];
+                                                    $person_cell_no = $row['cell_no'];
+                                                    $person_relationship = $row['relationship_id'];
+                                                    $person_role = $row['role_type_id'];
+
+                                                    echo "<tr><td>$person_firstname</td><td>$person_lastname</td><td>$person_email</td><td>$person_cell_no</td><td>$person_relationship</td><td>$person_role</td><td><a >Edit</a></td><td><a >Remove</a></td></tr>";
+
+                                                }
+
+                                            ?>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
 							<div class='row'>
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
@@ -1238,7 +1301,7 @@
                                                                                         
                                         <div class='row'>
 
-                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+                                            <div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
 
                                                 <label><strong>Email</strong></label>
 
