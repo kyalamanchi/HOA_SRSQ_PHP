@@ -489,6 +489,13 @@ $('form.ajax3').on('submit', function(){
 	
 });
 
+$('#edit_email_back').click(function(){
+
+	$('#email_div').show();
+	$('#edit_email_div').hide();
+
+});
+
 $('#email_continue').click(function(){
 
 	$('#email_div').hide();

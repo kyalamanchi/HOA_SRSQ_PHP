@@ -238,6 +238,7 @@ color: red;
           $queryResult = pg_query($query);
           $row2 = pg_fetch_assoc($queryResult);
           $legalName = $row2['legal_name'];
+          $communityEmal = $row2['email'];
           echo '<h1>'.$legalName.'</h1>';
     ?>
     <hr>
@@ -382,10 +383,10 @@ color: red;
           $zipCode = $row[0];
           $finalAddress = '<span class=\'notbold\'>'.$legalName.'<br><br>'.$address.','.$cityName.','.$stateName.' '.$zipCode.'</span>';
           if ( $communityID == 1){
-            $finalAddress = $finalAddress.'<br><br>'.'<a href="mailto:board@stoneridgeplace.org">board@stoneridgesquare.org</a>';
+            $finalAddress = $finalAddress.'<br><br>'.'<a href="mailto:'.$communityEmal.'">'.$communityEmal.'</a>';
           }
           else if  ( $communityID == 2){
-            $finalAddress = $finalAddress.'<br><br>Phone : <a href="tel:9253996642">(925) 399-6642</a>'.'<br>'.'Email : <a href="mailto:board@stoneridgesquare.org">board@stoneridgesquare.org</a>';
+            $finalAddress = $finalAddress.'<br><br>Phone : <a href="tel:9253996642">(925) 399-6642</a>'.'<br>'.'Email : <a href="mailto:'.$communityEmal.'">'.$communityEmal.'</a>';
           }
           echo '<h4>'.$finalAddress.'</h4>';
           echo '<br>';

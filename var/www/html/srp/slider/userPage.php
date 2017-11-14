@@ -1193,6 +1193,85 @@
 
 						</div>
 
+                        <div id='edit_email_div'>
+
+                            <br>
+
+                            <div class='row container'>
+                                
+                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+
+                                    <div class='alert alert-warning'>
+
+                                        <ol class="breadcrumb">
+                                    
+                                            <li class="breadcrumb-item">User Details</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+                                            <li class="breadcrumb-item">Primary Email</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                            <li class="breadcrumb-item">Disclosures</li>
+
+                                        </ol>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+
+                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                                        <h3>Edit Primary Email</h3>
+
+                                    </div>
+
+                                    <br><br>
+
+                                    <form method='POST' action='updatePrimaryEmail.php' class='ajax3'>
+                                                                                        
+                                        <div class='row'>
+
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
+
+                                                <label><strong>Email</strong></label>
+
+                                                <br>
+
+                                                <input class='form-control' type='email' name='edit_primary_email' id='edit_primary_email' value='<?php echo $primary_email; ?>' required>
+
+                                            </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                            <center>
+
+                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
+
+                                            </center>
+
+                                        </div>
+
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+
 						<div id='agreements_div'>
 
 							<br>
