@@ -436,7 +436,7 @@ $('#email_radio_yes').change(function() {
 
 $('#email_radio_no').change(function() {
 
-	if (document.getElementById('home_information_radio_no').checked) {
+	if (document.getElementById('email_radio_no').checked) {
 
 		$('#email_div').hide();
 		$('#edit_email_div').show();
