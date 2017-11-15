@@ -527,8 +527,8 @@ $('#person_edit_save').click(function(){
 				//$('#edit_user_details_div').hide();
 				//$('#user_details_div').show();
 
-				$('#person_'+person_id+'_firstname').text(person_firstname);
-				$('#edit_person_firstname_'+person_id).val(person_firstname);
+				//$('#person_'+person_id+'_firstname').text(person_firstname);
+				//$('#edit_person_firstname_'+person_id).val(person_firstname);
 
 				alert("Updated!");
 
