@@ -1310,7 +1310,7 @@
 
                                                                                             <br>
 
-                                                                                            <select class='form-control' name='' id='' required>
+                                                                                            <select class='form-control' name='edit_person_role_$person_id' id='edit_person_role_$person_id' required>
 
                                                                                                 <option value='' disabled selected>Select Role</option>
 
@@ -1345,7 +1345,7 @@
 
                                                                                             <br>
 
-                                                                                            <select class='form-control' name='' id='' required>
+                                                                                            <select class='form-control' name='edit_person_relationship_$person_id' id='edit_person_relationship_$person_id' required>
 
                                                                                                 <option value='' disabled selected>Select Relationship</option>
 

@@ -503,7 +503,7 @@ $('form.ajax4').on('submit', function(){
 	var obj = $(this),
 	url = obj.attr('action'),
 	method = obj.attr('method'),
-	id = obj.attr('id'),
+	//id = obj.attr('id'),
 	data = {};
 
 	obj.find('[name]').each(function(index, value){
@@ -518,7 +518,7 @@ $('form.ajax4').on('submit', function(){
 
 	});
 
-	alert(id);
+	//alert(id);
 	alert(data);
 
 	$.ajax({
