@@ -1412,7 +1412,7 @@
 
                                                     <tr>
 
-                                                        <td name='person_$person_id_firstname' id='person_$person_id_firstname'>$person_firstname</td>
+                                                        <td name='person_".$person_id."_firstname' id='person_".$person_id."_firstname'>$person_firstname</td>
                                                         <td name='person_$person_id_lastname' id='person_$person_id_lastname'>$person_lastname</td>
                                                         <td name='person_$person_id_email' id='person_$person_id_email'>$person_email</td>
                                                         <td name='person_$person_id_cell_no' id='person_$person_id_cell_no'>$person_cell_no</td>
