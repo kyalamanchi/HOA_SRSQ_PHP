@@ -559,7 +559,7 @@ $('form.ajax4').on('submit', function(){
 			$('#edit_person_firstname_'+person_id).val(person_firstname);
 			$('#person_'+person_id+'_firstname').text(person_firstname);
 
-			alert(response);
+			alert(response+" "+person_id+" "+person_firstname);
 
 		}
 
