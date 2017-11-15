@@ -19,7 +19,14 @@
 	if($result)
 	{	
 
-		echo "Success";
+		$_SESSION['person_$person_id_firstname'] = $firstname;
+        $_SESSION['person_$person_id_lastname'] = $lastname;
+        $_SESSION['person_$person_id_email'] = $email;
+        $_SESSION['person_$person_id_cell_no'] = $cell_no;
+        $_SESSION['person_$person_id_relationship'] = $relationship;
+        $_SESSION['person_$person_id_role'] = $role;
+
+		echo $person_id;
 
 	}
 	else
