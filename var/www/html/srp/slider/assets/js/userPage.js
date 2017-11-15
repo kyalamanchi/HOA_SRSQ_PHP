@@ -528,7 +528,7 @@ $('#person_edit_save').click(function(){
 				//$('#user_details_div').show();
 
 				$('#person_'+person_id+'_firstname').text(person_firstname);
-				$('#edit_person_firstname_'+person_id').val(person_firstname);
+				$('#edit_person_firstname_'+person_id).val(person_firstname);
 
 				alert("Updated!");
 
