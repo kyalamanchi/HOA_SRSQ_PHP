@@ -498,7 +498,7 @@ $('#edit_email_back').click(function(){
 
 });
 
-$('#person_edit_save').click(function(){
+$('#person_edit_save').on('click', function(){
 
 	var person_id = $(this).val(),
 	person_firstname = $('#edit_person_firstname_'+person_id).val(),
