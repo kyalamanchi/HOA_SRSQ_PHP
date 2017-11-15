@@ -508,33 +508,39 @@ $('#person_edit_save').click(function(){
 	person_role = $('#edit_person_role_'+person_id).val(),
 	person_relationship = $('#edit_person_relationship_'+person_id).val();
 
-	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
+	if(person_firstname != '' && person_lastname != '' $person_email != '' && person_cell_no != '' && person_role != '' && person_relationship != '')
+	{
+		data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
-	console.log(data);
+		console.log(data);
 
-	$.ajax({
+		$.ajax({
 
-		url: 'updatePerson.php',
-		type: 'POST',
-		data: data,
-		success: function(response){
+			url: 'updatePerson.php',
+			type: 'POST',
+			data: data,
+			success: function(response){
 
-			//if(response == "Some error occured. Please try again.")
-				alert(response);
-			//else
-			//{
-				//alert("Saved!");
+				if(response == "Some error occured. Please try again.")
+					alert(response);
+				else
+				{
+					alert("Updated!");
 
-				//$('#user_cell_no').text(response);
-				//$('#user_information_radio_no').prop('checked', false);
-				//$('#edit_user_details_div').hide();
-				//$('#user_details_div').show();
+					//$('#user_cell_no').text(response);
+					//$('#user_information_radio_no').prop('checked', false);
+					//$('#edit_user_details_div').hide();
+					//$('#user_details_div').show();
 
-			//}
+				//}
 
-		}
+			}
 
-	});
+		});
+
+	}
+	else
+		alert("One or more number of fields are empty.");
 
 });
 

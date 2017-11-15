@@ -1180,7 +1180,7 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-                                    <table id='person_table' class='table table-striped' style='color: black;'>
+                                    <table id='person_table' class='table table-striped table-responsive' style='color: black;'>
 
                                         <thead>
 
