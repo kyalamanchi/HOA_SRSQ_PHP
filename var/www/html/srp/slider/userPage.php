@@ -1212,18 +1212,18 @@
                                                     $person_relationship = $row['relationship_id'];
                                                     $person_role = $row['role_type_id'];
 
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$person_relationship"));
-                                                    $person_relationship = $row1['name'];
-
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role"));
-                                                    $person_role = $row1['name'];
-
                                                     $_SESSION['person_$person_id_firstname'] = $person_firstname;
                                                     $_SESSION['person_$person_id_lastname'] = $person_lastname;
                                                     $_SESSION['person_$person_id_email'] = $person_email;
                                                     $_SESSION['person_$person_id_cell_no'] = $person_cell_no;
                                                     $_SESSION['person_$person_id_relationship'] = $person_relationship;
                                                     $_SESSION['person_$person_id_role'] = $person_role;
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$person_relationship"));
+                                                    $person_relationship = $row1['name'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role"));
+                                                    $person_role = $row1['name'];
 
                                                     echo "
                                             
