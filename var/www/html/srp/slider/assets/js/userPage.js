@@ -556,8 +556,23 @@ $('form.ajax4').on('submit', function(){
 		data: data,
 		success:function(response){
 
+			$('#edit_person_lastname_'+person_id).val(person_lastname);
+			$('#person_'+person_id+'_lastname').html(person_lastname);
+
 			$('#edit_person_firstname_'+person_id).val(person_firstname);
 			$('#person_'+person_id+'_firstname').html(person_firstname);
+
+			$('#edit_person_email_'+person_id).val(person_email);
+			$('#person_'+person_id+'_email').html(person_email);
+
+			$('#edit_person_cell_no_'+person_id).val(person_cell_no);
+			$('#person_'+person_id+'_cell_no').html(person_cell_no);
+
+			$('#edit_person_role_'+person_id).val(person_role);
+			$('#person_'+person_id+'_role').html(person_role);
+
+			$('#edit_person_relationship_'+person_id).val(person_relationship);
+			$('#person_'+person_id+'_relationship').html(person_relationship);
 
 			alert(response);
 
