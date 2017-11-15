@@ -549,7 +549,18 @@ $('form.ajax4').on('submit', function(){
 
 	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
-	alert(person_firstname+" "+person_lastname+" "+person_email+" "+person_cell_no+" "+person_role+" "+person_relationship);
+	$.ajax({
+
+		url: 'updatePeson.php',
+		method: "POST",
+		data: data,
+		success:function(response){
+
+			alert(response);
+
+		}
+
+	});
 
 	return false;
 	
