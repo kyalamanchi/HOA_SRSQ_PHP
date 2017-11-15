@@ -510,7 +510,9 @@ $('#person_edit_save').click(function(){
 
 	alert(person_firstname);
 
-	if( !(person_firstname === "") && !(person_lastname === "") && !($person_email  === "") && !(person_cell_no === "") && !(person_role === "") && !(person_relationship === "") )
+	if( person_firstname === "" && person_lastname === "" && $person_email  === "" && person_cell_no === "" && person_role === "" && person_relationship === "" )
+		alert("One or more fields are empty.");
+	else
 	{
 
 		alert("Notied1");
@@ -544,8 +546,6 @@ $('#person_edit_save').click(function(){
 		});
 
 	}
-	else
-		alert("One or more fields are empty.");
 
 	alert(person_lastname);
 
