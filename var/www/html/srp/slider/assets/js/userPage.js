@@ -512,8 +512,12 @@ $('#person_edit_save').click(function(){
 
 	if( person_firstname && person_lastname && $person_email && person_cell_no && person_role && person_relationship )
 	{
+
+		alert("Notied1");
 		
 		data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
+
+		alert("Notied2");
 
 		$.ajax({
 
