@@ -1256,9 +1256,9 @@
 
                                                                                             <br>
 
-                                                                                            <input type='hidden' name='edit_person_id' id='edit_person_id' value='$person_id'>
+                                                                                            <input type='hidden' name='edit_person_id' id='edit_person_id' value='".$person_id."'>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_firstname_$person_id' id='edit_person_firstname_$person_id' value='$person_firstname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_firstname_".$person_id."' id='edit_person_firstname_".$person_id."' value='".$person_firstname."' required>
 
                                                                                         </div>
 
@@ -1268,7 +1268,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_lastname_$person_id' id='edit_person_lastname_$person_id' value='$person_lastname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_lastname_".$person_id."' id='edit_person_lastname_".$person_id."' value='".$person_lastname."' required>
 
                                                                                         </div>
 
@@ -1284,7 +1284,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_email_$person_id' id='edit_person_email_$person_id' value='$person_email' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_email_".$person_id."' id='edit_person_email_".$person_id."' value='".$person_email."' required>
 
                                                                                         </div>
 
@@ -1294,7 +1294,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_$person_id' id='edit_person_cell_no_$person_id' value='$person_cell_no' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_".$person_id."' id='edit_person_cell_no_".$person_id."' value='".$person_cell_no."' required>
 
                                                                                         </div>
 
@@ -1310,7 +1310,7 @@
 
                                                                                             <br>
 
-                                                                                            <select class='form-control' name='edit_person_role_$person_id' id='edit_person_role_$person_id' required>
+                                                                                            <select class='form-control' name='edit_person_role_".$person_id."' id='edit_person_role_".$person_id."' required>
 
                                                                                                 <option value='' disabled selected>Select Role</option>
 
@@ -1345,7 +1345,7 @@
 
                                                                                             <br>
 
-                                                                                            <select class='form-control' name='edit_person_relationship_$person_id' id='edit_person_relationship_$person_id' required>
+                                                                                            <select class='form-control' name='edit_person_relationship_".$person_id."' id='edit_person_relationship_".$person_id."' required>
 
                                                                                                 <option value='' disabled selected>Select Relationship</option>
 
@@ -1413,11 +1413,11 @@
                                                     <tr>
 
                                                         <td name='person_".$person_id."_firstname' id='person_".$person_id."_firstname'>$person_firstname</td>
-                                                        <td name='person_$person_id_lastname' id='person_$person_id_lastname'>$person_lastname</td>
-                                                        <td name='person_$person_id_email' id='person_$person_id_email'>$person_email</td>
-                                                        <td name='person_$person_id_cell_no' id='person_$person_id_cell_no'>$person_cell_no</td>
-                                                        <td name='person_$person_id_role' id='person_$person_id_role'>$person_role</td>
-                                                        <td name='person_$person_id_relationship' id='person_$person_id_relationship'>$person_relationship</td>
+                                                        <td name='person_".$person_id."_lastname' id='person_".$person_id."_lastname'>$person_lastname</td>
+                                                        <td name='person_".$person_id."_email' id='person_".$person_id."_email'>$person_email</td>
+                                                        <td name='person_".$person_id"._cell_no' id='person_".$person_id"._cell_no'>$person_cell_no</td>
+                                                        <td name='person_".$person_id"._role' id='person_".$person_id"._role'>$person_role</td>
+                                                        <td name='person_".$person_id"._relationship' id='person_".$person_id"._relationship'>$person_relationship</td>
                                                         <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#edit_$person_id'><i class='fa fa-edit'></i> Edit</button></td>
                                                         <td><button class='btn btn-link text-warning' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td>
 
