@@ -551,7 +551,7 @@ $('form.ajax4').on('submit', function(){
 
 	$.ajax({
 
-		url: 'updatePeson.php',
+		url: 'updatePerson.php',
 		method: "POST",
 		data: data,
 		success:function(response){
