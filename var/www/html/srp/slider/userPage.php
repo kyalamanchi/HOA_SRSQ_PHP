@@ -1415,9 +1415,9 @@
                                                         <td name='person_".$person_id."_firstname' id='person_".$person_id."_firstname'>$person_firstname</td>
                                                         <td name='person_".$person_id."_lastname' id='person_".$person_id."_lastname'>$person_lastname</td>
                                                         <td name='person_".$person_id."_email' id='person_".$person_id."_email'>$person_email</td>
-                                                        <td name='person_".$person_id"._cell_no' id='person_".$person_id"._cell_no'>$person_cell_no</td>
-                                                        <td name='person_".$person_id"._role' id='person_".$person_id"._role'>$person_role</td>
-                                                        <td name='person_".$person_id"._relationship' id='person_".$person_id"._relationship'>$person_relationship</td>
+                                                        <td name='person_".$person_id."_cell_no' id='person_".$person_id."_cell_no'>$person_cell_no</td>
+                                                        <td name='person_".$person_id."_role' id='person_".$person_id."_role'>$person_role</td>
+                                                        <td name='person_".$person_id."_relationship' id='person_".$person_id."_relationship'>$person_relationship</td>
                                                         <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#edit_$person_id'><i class='fa fa-edit'></i> Edit</button></td>
                                                         <td><button class='btn btn-link text-warning' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td>
 
