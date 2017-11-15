@@ -538,52 +538,8 @@ $('#person_edit_save').click(function(){
 
 $('form.ajax4').on('submit', function(){
 	
-	var obj = $(this),
-	url = obj.attr('action'),
-	method = obj.attr('method'),
-	//id = obj.attr('id'),
-	data = {};
-
-	obj.find('[name]').each(function(index, value){
-
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
-
-		alert(input);
-
-		data[index] = value;
-
-	});
-
-	var person_id = ('#edit_person_id').val();
-
-	//alert(id);
-	alert(person_id);
-
-	$.ajax({
-
-		url: url,
-		type: method,
-		data: data,
-		success: function(response){
-
-			//if(response == "Some error occured. Please try again.")
-				alert(response);
-			//else
-			//{
-				//alert("Saved!");
-
-				//$('#user_cell_no').text(response);
-				//$('#user_information_radio_no').prop('checked', false);
-				//$('#edit_user_details_div').hide();
-				//$('#user_details_div').show();
-
-			//}
-
-		}
-
-	});
+	
+	alert("Clicked");
 
 	return false;
 	
