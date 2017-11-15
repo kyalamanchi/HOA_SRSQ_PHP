@@ -556,10 +556,10 @@ $('form.ajax4').on('submit', function(){
 		data: data,
 		success:function(response){
 
-			$('#edit_person_firstname_'+person_id).val(person_firstname);
-			$('#person_'+person_id+'_firstname').html(person_firstname);
+			$('#edit_person_firstname_'+person_id).val(person_firstname+" changed");
+			$('#person_'+person_id+'_firstname').html(person_firstname+" changed");
 
-			alert(response+" "+person_id+" "+person_firstname);
+			alert(response);
 
 		}
 
