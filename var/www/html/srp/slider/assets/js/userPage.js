@@ -498,12 +498,49 @@ $('#edit_email_back').click(function(){
 
 });
 
-$('button.closing').click(function(){
+$('form.ajax4').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	data = {};
 
-	var person_id = (this).val();
+	obj.find('[name]').each(function(index, value){
 
-	alert(person_id);
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
 
+		data[index] = value;
+
+	});
+
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			//if(response == "Some error occured. Please try again.")
+				alert(response);
+			//else
+			//{
+				//alert("Saved!");
+
+				//$('#user_cell_no').text(response);
+				//$('#user_information_radio_no').prop('checked', false);
+				//$('#edit_user_details_div').hide();
+				//$('#user_details_div').show();
+
+			//}
+
+		}
+
+	});
+
+	return false;
+	
 });
 
 $('#email_continue').click(function(){
