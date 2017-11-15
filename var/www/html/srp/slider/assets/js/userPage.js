@@ -508,7 +508,7 @@ $('#person_edit_save').click(function(){
 	person_role = $('#edit_person_role_'+person_id).val(),
 	person_relationship = $('#edit_person_relationship_'+person_id).val();
 
-	alert(person_firstname);
+	alert(person_id);
 
 	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
