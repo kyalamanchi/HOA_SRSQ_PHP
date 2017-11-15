@@ -2,7 +2,7 @@
 
 	session_start();
 
-	$person_id = $_POST['edit_person_id'];
+	$person_id = $_POST['personId'];
 
 	//$fname = $_POST['edit_person_firstname_$person_id'];
 

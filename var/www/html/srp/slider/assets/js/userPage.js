@@ -511,11 +511,11 @@ $('#person_edit_save').click(function(){
 	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
 	console.log(data);
-	
+
 	$.ajax({
 
-		url: url,
-		type: method,
+		url: 'updatePerson.php',
+		type: 'POST',
 		data: data,
 		success: function(response){
 
