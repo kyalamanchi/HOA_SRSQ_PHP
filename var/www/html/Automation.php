@@ -132,6 +132,22 @@
 
   }
 
+  function updateSouthData(){
+
+    document.getElementById("sdResult").innerHTML = "";
+        var url = "https://hoaboardtime.com/automationBackgroundHandler.php?id=8";
+        var source = new EventSource(url);
+        source.onmessage  = function(e){
+            if ( e.data == "Done!!!"){
+              source.close();
+              document.getElementById("sdtime").innerHTML = "Last ran on : " + event.lastEventId;
+              document.getElementById("sdResult").innerHTML = event.data + "<br>";
+            }
+            document.getElementById("sdResult").innerHTML = event.data + "<br>";
+        }
+
+  }
+
 
 </script>
 <style type="text/css">
@@ -330,7 +346,7 @@
         $row = pg_fetch_assoc($queryResult);
         echo '<font size="4" style="float: right;" id="mctime">Last ran on :'.$row['START_TIME'].'</font>';
         ?>
-        Updates campaign, list, member information. 
+        Updates campaigns, list, member information. 
         <br>
         <br>
         <button type="button" class="btn btn-outline-primary" id="mailchimpButton" onclick="updateMailChimp();">Update Now</button>
@@ -339,6 +355,34 @@
       </div>
     </div>
   </div>
+
+
+    <div class="card">
+    <div class="card-header" role="tab" id="headingEight">
+      <h5 class="mb-0">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          <h4>SouthData</h4>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseEight" class="collapse" role="tabpanel" aria-labelledby="headingEight">
+      <div class="card-block">
+        <?php 
+        $query = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 9 ORDER BY \"START_TIME\" DESC";
+        $queryResult = pg_query($query);
+        $row = pg_fetch_assoc($queryResult);
+        echo '<font size="4" style="float: right;" id="sdtime">Last ran on :'.$row['START_TIME'].'</font>';
+        ?>
+        Updates order status and billed order(s) invoice details. 
+        <br>
+        <br>
+        <button type="button" class="btn btn-outline-primary" id="southDataButton" onclick="updateSouthData();">Update Now</button>
+        <div id="sdResult">
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 
 
