@@ -500,39 +500,7 @@ $('#edit_email_back').click(function(){
 
 $('#person_edit_save').on('click', function(){
 
-	var person_id = $(this).val(),
-	person_firstname = $('#edit_person_firstname_'+person_id).val(),
-	person_lastname = $('#edit_person_lastname_'+person_id).val(),
-	person_email = $('#edit_person_email_'+person_id).val(),
-	person_cell_no = $('#edit_person_cell_no_'+person_id).val(),
-	person_role = $('#edit_person_role_'+person_id).val(),
-	person_relationship = $('#edit_person_relationship_'+person_id).val();
-
-	alert(person_id);
-
-	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
-
-	$.ajax({
-
-		url: 'updatePerson.php',
-		type: 'POST',
-		data: data,
-		success: function(response){
-
-			alert(person_lastname);
-
-			if(response != person_id)
-				alert(response);
-			else
-			{
-
-				alert("Updated!");
-
-			}
-
-		}
-
-	});
+	alert("Clicked");
 
 });
 
