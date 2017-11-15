@@ -14,22 +14,28 @@
 	$role = $_POST['personRole'];
 	$relationship = $_POST['personRelationship'];
 
-	//$result = pg_query("UPDATE person SET fname='$firstname', lname='$lastname', cell_no=$cell_no, email='$email', role_type_id=$role, relationship_id=$relationship, updated_by=$user_id, updated_on='$today' WHERE id=$person_id");
+	if($person_id != '' && $firstname != '' && $lastname != '' && $email != '' && $cell_no != '' && $role != '' && $relationship != '')
+	{
 
-	if($result)
-	{	
+		//$result = pg_query("UPDATE person SET fname='$firstname', lname='$lastname', cell_no=$cell_no, email='$email', role_type_id=$role, relationship_id=$relationship, updated_by=$user_id, updated_on='$today' WHERE id=$person_id");
 
-		$_SESSION['person_$person_id_firstname'] = $firstname;
-        $_SESSION['person_$person_id_lastname'] = $lastname;
-        $_SESSION['person_$person_id_email'] = $email;
-        $_SESSION['person_$person_id_cell_no'] = $cell_no;
-        $_SESSION['person_$person_id_relationship'] = $relationship;
-        $_SESSION['person_$person_id_role'] = $role;
+		if($result)
+		{	
 
-		echo $person_id;
+			$_SESSION['person_$person_id_firstname'] = $firstname;
+	        $_SESSION['person_$person_id_lastname'] = $lastname;
+	        $_SESSION['person_$person_id_email'] = $email;
+	        $_SESSION['person_$person_id_cell_no'] = $cell_no;
+	        $_SESSION['person_$person_id_relationship'] = $relationship;
+	        $_SESSION['person_$person_id_role'] = $role;
 
+			echo $person_id;
+
+		}
+		else
+			echo "Some error occured. Please try again.";
 	}
 	else
-		echo "Some error occured. Please try again.";
+		echo "One or more fields are empty.";
 
 ?>
