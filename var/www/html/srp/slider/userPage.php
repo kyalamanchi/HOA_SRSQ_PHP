@@ -1126,6 +1126,7 @@
 										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type_id=1 AND is_active='t' AND relationship_id=1"));
 
 										$primary_email = $row['email'];
+                                        $pid = $row['id'];
 
 									?>
 
@@ -1381,9 +1382,9 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                                                                            <button type='button' name='edit_person_close_modal' id='edit_person_close_modal' value='$person_id' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
-
                                                                                             <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
+
+                                                                                            <button type='button' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
 
                                                                                         </div>
 
@@ -1535,6 +1536,8 @@
 
                                                 <input class='form-control' type='email' name='edit_primary_email' id='edit_primary_email' value='<?php echo $primary_email; ?>' required>
 
+                                                <input type='hidden' name='pid' id='pid' value='<?php echo $pid; ?>'>
+
                                             </div>
 
                                         </div>
@@ -1545,7 +1548,7 @@
 
                                             <center>
 
-                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
+                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-save'></i> Save</button>
 
                                             </center>
 
