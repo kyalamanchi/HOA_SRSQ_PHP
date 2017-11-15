@@ -498,10 +498,9 @@ $('#edit_email_back').click(function(){
 
 });
 
-$('#person_edit_save').on('click', function(){
+$('#person_edit_save').click(function(){
 
 	alert("Clicked");
-
 });
 
 $('#email_continue').click(function(){
