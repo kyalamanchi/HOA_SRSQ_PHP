@@ -556,7 +556,8 @@ $('form.ajax4').on('submit', function(){
 		data: data,
 		success:function(response){
 
-			$('#edit_person_lastname_'+person_id).val(person_lastname);
+			alert("Updated");$('#edit_person_lastname_'+person_id).val(person_lastname);
+			
 			$('#person_'+person_id+'_lastname').html(person_lastname);
 
 			$('#edit_person_firstname_'+person_id).val(person_firstname);
@@ -597,8 +598,6 @@ $('form.ajax4').on('submit', function(){
 				}
 
 			});
-
-			alert("Updated");
 
 		}
 
