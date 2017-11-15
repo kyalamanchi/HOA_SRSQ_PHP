@@ -501,9 +501,14 @@ $('#edit_email_back').click(function(){
 $('#person_edit_save').click(function(){
 
 	var person_id = $(this).val(),
-	person_firstname = $('#edit_person_firstname_'+person_id).val();
+	person_firstname = $('#edit_person_firstname_'+person_id).val(),
+	person_lastname = $('#edit_person_lastname_'+person_id).val(),
+	person_email = $('#edit_person_email_'+person_id).val(),
+	person_cell_no = $('#edit_person_cell_no_'+person_id).val(),
+	person_role = $('#edit_person_role_'+person_id).val(),
+	person_relationship = $('#edit_person_relationship_'+person_id).val();
 
-	alert(person_firstname);
+	alert(person_relationship);
 
 });
 
