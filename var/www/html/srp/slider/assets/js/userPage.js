@@ -510,7 +510,31 @@ $('#person_edit_save').click(function(){
 
 	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
-	alert(data);
+	console.log(data);
+	
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			//if(response == "Some error occured. Please try again.")
+				alert(response);
+			//else
+			//{
+				//alert("Saved!");
+
+				//$('#user_cell_no').text(response);
+				//$('#user_information_radio_no').prop('checked', false);
+				//$('#edit_user_details_div').hide();
+				//$('#user_details_div').show();
+
+			//}
+
+		}
+
+	});
 
 });
 
