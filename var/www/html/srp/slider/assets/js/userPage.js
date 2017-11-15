@@ -539,7 +539,9 @@ $('#person_edit_save').click(function(){
 $('form.ajax4').on('submit', function(){
 	
 	
-	alert("Clicked");
+	var person_firstname = $('#edit_person_firstname_'+person_id).val();
+
+	alert(person_firstname);
 
 	return false;
 	
