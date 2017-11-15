@@ -521,12 +521,15 @@ $('#person_edit_save').click(function(){
 				alert(response);
 			else
 			{
-					alert("Updated!");
+			
+				//$('#user_cell_no').text(response);
+				//$('#user_information_radio_no').prop('checked', false);
+				//$('#edit_user_details_div').hide();
+				//$('#user_details_div').show();
 
-					//$('#user_cell_no').text(response);
-					//$('#user_information_radio_no').prop('checked', false);
-					//$('#edit_user_details_div').hide();
-					//$('#user_details_div').show();
+				$('#person_'+person_id+'_firstname').text(person_firstname);
+
+				alert("Updated!");
 
 			}
 

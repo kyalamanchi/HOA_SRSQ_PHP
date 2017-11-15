@@ -17,7 +17,7 @@
 	if($person_id != '' && $firstname != '' && $lastname != '' && $email != '' && $cell_no != '' && $role != '' && $relationship != '')
 	{
 
-		//$result = pg_query("UPDATE person SET fname='$firstname', lname='$lastname', cell_no=$cell_no, email='$email', role_type_id=$role, relationship_id=$relationship, updated_by=$user_id, updated_on='$today' WHERE id=$person_id");
+		$result = pg_query("UPDATE person SET fname='$firstname', lname='$lastname', cell_no=$cell_no, email='$email', role_type_id=$role, relationship_id=$relationship, updated_by=$user_id, updated_on='$today' WHERE id=$person_id");
 
 		if($result)
 		{	
