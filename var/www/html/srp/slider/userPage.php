@@ -1246,7 +1246,7 @@
 
                                                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                <form method='post' class='ajax4' action='updatePerson.php'>
+                                                                                <form method='POST' class='ajax4' action='updatePerson.php'>
 
                                                                                     <div class='row container'>
 

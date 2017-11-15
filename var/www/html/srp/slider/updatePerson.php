@@ -4,7 +4,7 @@
 
 	$person_id = $_POST['edit_person_id'];
 
-	$fname = $_POST['edit_person_firstname_$person_id'];
+	//$fname = $_POST['edit_person_firstname_$person_id'];
 
 	echo "Hello ".$person_id;
 

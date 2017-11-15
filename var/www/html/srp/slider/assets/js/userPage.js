@@ -500,22 +500,24 @@ $('#edit_email_back').click(function(){
 
 $('form.ajax4').on('submit', function(){
 	
-	var obj = $(this),
-	url = obj.attr('action'),
-	method = obj.attr('method'),
-	data = {};
+	//var obj = $(this),
+	//url = obj.attr('action'),
+	//method = obj.attr('method'),
+	//data = {};
 
-	obj.find('[name]').each(function(index, value){
+	//obj.find('[name]').each(function(index, value){
 
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
+		//var input = $(this),
+		//index = input.attr('name'),
+		//value = input.val();
 
-		data[index] = value;
+		//data[index] = value;
 
-	});
+	//});
 
-	alert(data);
+	var person_id = $(this).attr('edit_person_id');
+
+	alert(person_id);
 
 	$.ajax({
 
