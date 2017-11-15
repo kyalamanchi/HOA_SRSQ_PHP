@@ -569,12 +569,36 @@ $('form.ajax4').on('submit', function(){
 			$('#person_'+person_id+'_cell_no').html(person_cell_no);
 
 			$('#edit_person_role_'+person_id).val(person_role);
-			$('#person_'+person_id+'_role').html(person_role);
+			
+			$.ajax({
 
-			$('#edit_person_relationship_'+person_id).val(person_relationship);
-			$('#person_'+person_id+'_relationship').html(person_relationship);
+				url: 'resetRole.php',
+				method: 'POST',
+				data: {roleId: person_role},
+				success: function(response1){
 
-			alert(response);
+					$('#person_'+person_id+'_role').html(response1);
+
+				}
+
+			});
+
+			$('#edit_person_relationship_'+person_id).val(response1);
+
+			$.ajax({
+
+				url: 'resetRelationship.php',
+				method: 'POST',
+				data: {relationshipId: person_relationship},
+				success: function(response1){
+
+					$('#person_'+person_id+'_relationship').html(response1);
+
+				}
+
+			});
+
+			alert("Updated");
 
 		}
 
