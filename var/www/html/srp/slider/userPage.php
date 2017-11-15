@@ -1126,6 +1126,7 @@
 										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type_id=1 AND is_active='t' AND relationship_id=1"));
 
 										$primary_email = $row['email'];
+                                        $pid = $row['id'];
 
 									?>
 
@@ -1211,18 +1212,18 @@
                                                     $person_relationship = $row['relationship_id'];
                                                     $person_role = $row['role_type_id'];
 
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$person_relationship"));
-                                                    $person_relationship = $row1['name'];
-
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role"));
-                                                    $person_role = $row1['name'];
-
                                                     $_SESSION['person_$person_id_firstname'] = $person_firstname;
                                                     $_SESSION['person_$person_id_lastname'] = $person_lastname;
                                                     $_SESSION['person_$person_id_email'] = $person_email;
                                                     $_SESSION['person_$person_id_cell_no'] = $person_cell_no;
                                                     $_SESSION['person_$person_id_relationship'] = $person_relationship;
                                                     $_SESSION['person_$person_id_role'] = $person_role;
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM relationship WHERE id=$person_relationship"));
+                                                    $person_relationship = $row1['name'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$person_role"));
+                                                    $person_role = $row1['name'];
 
                                                     echo "
                                             
@@ -1245,7 +1246,7 @@
 
                                                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                <form method='post' class='ajax4' action='updatePerson.php'>
+                                                                                <form id='$person_id' method='POST' class='ajax4' action='updatePerson.php'>
 
                                                                                     <div class='row container'>
 
@@ -1255,9 +1256,9 @@
 
                                                                                             <br>
 
-                                                                                            <input type='hidden' name='edit_person_id' id='edit_person_id' value='$person_id'>
+                                                                                            <input type='hidden' name='edit_person_id' id='edit_person_id' value='".$person_id."'>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_firstname_$person_id' id='edit_person_firstname_$person_id' value='$person_firstname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_firstname_".$person_id."' id='edit_person_firstname_".$person_id."' value='".$person_firstname."' required>
 
                                                                                         </div>
 
@@ -1267,7 +1268,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_lastname_$person_id' id='edit_person_lastname_$person_id' value='$person_lastname' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_lastname_".$person_id."' id='edit_person_lastname_".$person_id."' value='".$person_lastname."' required>
 
                                                                                         </div>
 
@@ -1283,7 +1284,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_email_$person_id' id='edit_person_email_$person_id' value='$person_email' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_email_".$person_id."' id='edit_person_email_".$person_id."' value='".$person_email."' required>
 
                                                                                         </div>
 
@@ -1293,7 +1294,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_$person_id' id='edit_person_cell_no_$person_id' value='$person_cell_no' required>
+                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_".$person_id."' id='edit_person_cell_no_".$person_id."' value='".$person_cell_no."' required>
 
                                                                                         </div>
 
@@ -1309,7 +1310,7 @@
 
                                                                                             <br>
 
-                                                                                            <select class='form-control' name='' id='' required>
+                                                                                            <select class='form-control' name='edit_person_role_".$person_id."' id='edit_person_role_".$person_id."' required>
 
                                                                                                 <option value='' disabled selected>Select Role</option>
 
@@ -1344,7 +1345,7 @@
 
                                                                                             <br>
 
-                                                                                            <select class='form-control' name='' id='' required>
+                                                                                            <select class='form-control' name='edit_person_relationship_".$person_id."' id='edit_person_relationship_".$person_id."' required>
 
                                                                                                 <option value='' disabled selected>Select Relationship</option>
 
@@ -1381,9 +1382,11 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                                                                            <button type='button' name='edit_person_close_modal' id='edit_person_close_modal' value='$person_id' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
-
                                                                                             <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
+
+                                                                                            <!--button type='button' name='person_edit_save' id='person_edit_save' value='$person_id' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button-->
+
+                                                                                            <button type='button' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
 
                                                                                         </div>
 
@@ -1409,12 +1412,12 @@
 
                                                     <tr>
 
-                                                        <td name='person_$person_id_firstname' id='person_$person_id_firstname'>$person_firstname</td>
-                                                        <td name='person_$person_id_lastname' id='person_$person_id_lastname'>$person_lastname</td>
-                                                        <td name='person_$person_id_email' id='person_$person_id_email'>$person_email</td>
-                                                        <td name='person_$person_id_cell_no' id='person_$person_id_cell_no'>$person_cell_no</td>
-                                                        <td name='person_$person_id_role' id='person_$person_id_role'>$person_role</td>
-                                                        <td name='person_$person_id_relationship' id='person_$person_id_relationship'>$person_relationship</td>
+                                                        <td name='person_".$person_id."_firstname' id='person_".$person_id."_firstname'>$person_firstname</td>
+                                                        <td name='person_".$person_id."_lastname' id='person_".$person_id."_lastname'>$person_lastname</td>
+                                                        <td name='person_".$person_id."_email' id='person_".$person_id."_email'>$person_email</td>
+                                                        <td name='person_".$person_id."_cell_no' id='person_".$person_id."_cell_no'>$person_cell_no</td>
+                                                        <td name='person_".$person_id."_role' id='person_".$person_id."_role'>$person_role</td>
+                                                        <td name='person_".$person_id."_relationship' id='person_".$person_id."_relationship'>$person_relationship</td>
                                                         <td><button class='btn btn-link' type='button' data-toggle='modal' data-target='#edit_$person_id'><i class='fa fa-edit'></i> Edit</button></td>
                                                         <td><button class='btn btn-link text-warning' type='button' data-toggle='modal' data-target='#remove_$person_id'><i class='fa fa-close'></i> Remove</button></td>
 
@@ -1535,6 +1538,8 @@
 
                                                 <input class='form-control' type='email' name='edit_primary_email' id='edit_primary_email' value='<?php echo $primary_email; ?>' required>
 
+                                                <input type='hidden' name='pid' id='pid' value='<?php echo $pid; ?>'>
+
                                             </div>
 
                                         </div>
@@ -1545,7 +1550,7 @@
 
                                             <center>
 
-                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-check'></i> Save</button>
+                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-save'></i> Save</button>
 
                                             </center>
 

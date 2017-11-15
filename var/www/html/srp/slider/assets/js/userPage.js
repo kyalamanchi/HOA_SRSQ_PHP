@@ -498,12 +498,113 @@ $('#edit_email_back').click(function(){
 
 });
 
-$('button.closing').click(function(){
+$('#person_edit_save').click(function(){
 
-	var person_id = (this).val();
+	var person_id = $(this).val(),
+	person_firstname = $('#edit_person_firstname_'+person_id).val(),
+	person_lastname = $('#edit_person_lastname_'+person_id).val(),
+	person_email = $('#edit_person_email_'+person_id).val(),
+	person_cell_no = $('#edit_person_cell_no_'+person_id).val(),
+	person_role = $('#edit_person_role_'+person_id).val(),
+	person_relationship = $('#edit_person_relationship_'+person_id).val();
 
-	alert(person_id);
+	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
+	$.ajax({
+
+		url: 'updatePerson.php',
+		type: 'POST',
+		data: data,
+		success: function(response){
+
+				if(response != person_id)
+					alert(response);
+				else
+				{
+					alert("Updated!");
+
+					//$('#user_cell_no').text(response);
+					//$('#user_information_radio_no').prop('checked', false);
+					//$('#edit_user_details_div').hide();
+					//$('#user_details_div').show();
+
+				}
+
+		}
+
+	});
+
+});
+
+$('form.ajax4').on('submit', function(){
+
+	var obj = $(this),
+	person_id = obj.attr('id'),
+	person_firstname = $('#edit_person_firstname_'+person_id).val(),
+	person_lastname = $('#edit_person_lastname_'+person_id).val(),
+	person_email = $('#edit_person_email_'+person_id).val(),
+	person_cell_no = $('#edit_person_cell_no_'+person_id).val(),
+	person_role = $('#edit_person_role_'+person_id).val(),
+	person_relationship = $('#edit_person_relationship_'+person_id).val();
+
+	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
+
+	$.ajax({
+
+		url: 'updatePerson.php',
+		method: "POST",
+		data: data,
+		success:function(response){
+
+			alert("Updated");$('#edit_person_lastname_'+person_id).val(person_lastname);
+			
+			$('#person_'+person_id+'_lastname').html(person_lastname);
+
+			$('#edit_person_firstname_'+person_id).val(person_firstname);
+			$('#person_'+person_id+'_firstname').html(person_firstname);
+
+			$('#edit_person_email_'+person_id).val(person_email);
+			$('#person_'+person_id+'_email').html(person_email);
+
+			$('#edit_person_cell_no_'+person_id).val(person_cell_no);
+			$('#person_'+person_id+'_cell_no').html(person_cell_no);
+
+			$('#edit_person_role_'+person_id).val(person_role);
+			
+			$.ajax({
+
+				url: 'resetRole.php',
+				method: 'POST',
+				data: {roleId: person_role},
+				success: function(response1){
+
+					$('#person_'+person_id+'_role').html(response1);
+
+				}
+
+			});
+
+			$('#edit_person_relationship_'+person_id).val(response1);
+
+			$.ajax({
+
+				url: 'resetRelationship.php',
+				method: 'POST',
+				data: {relationshipId: person_relationship},
+				success: function(response1){
+
+					$('#person_'+person_id+'_relationship').html(response1);
+
+				}
+
+			});
+
+		}
+
+	});
+
+	return false;
+	
 });
 
 $('#email_continue').click(function(){
