@@ -518,6 +518,8 @@ $('form.ajax4').on('submit', function(){
 
 	});
 
+	var person_id = ('#edit_person_id').val();
+
 	//alert(id);
 	alert(url);
 
