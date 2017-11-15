@@ -54,6 +54,7 @@
       document.getElementById("smsButton").disabled = true;
       document.getElementById("quickBooksButton").disabled = true;
       document.getElementById("mailchimpButton").disabled = true;
+      document.getElementById("southDataButton").disabled = true;
       swal("Payments,Agreements,Emails sent, SMS sent and Billing Statements will be updated.","","success");
       var request = new XMLHttpRequest();
       request.open("POST","https://hoaboardtime.com/automationBackgroundHandler.php",true);
@@ -69,6 +70,7 @@
           document.getElementById("smsButton").disabled = false;
           document.getElementById("quickBooksButton").disabled = false;
           document.getElementById("mailchimpButton").disabled = false;
+          document.getElementById("southDataButton").disabled = false;
       }
     }
   }
