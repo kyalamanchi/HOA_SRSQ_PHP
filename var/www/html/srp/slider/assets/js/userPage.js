@@ -519,6 +519,7 @@ $('form.ajax4').on('submit', function(){
 	});
 
 	alert(id);
+	alert(url);
 
 	$.ajax({
 
