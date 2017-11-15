@@ -1246,7 +1246,7 @@
 
                                                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                <form method='POST' class='ajax4' action='updatePerson.php'>
+                                                                                <form id='$persone_id' method='POST' class='ajax4' action='updatePerson.php'>
 
                                                                                     <div class='row container'>
 
@@ -1261,8 +1261,6 @@
                                                                                             <input class='form-control' type='text' name='edit_person_firstname_$person_id' id='edit_person_firstname_$person_id' value='$person_firstname' required>
 
                                                                                         </div>
-
-                                                                                        edit_person_firstname_$person_id
 
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 

@@ -503,6 +503,7 @@ $('form.ajax4').on('submit', function(){
 	var obj = $(this),
 	url = obj.attr('action'),
 	method = obj.attr('method'),
+	id = obj.attr('id'),
 	data = {};
 
 	obj.find('[name]').each(function(index, value){
