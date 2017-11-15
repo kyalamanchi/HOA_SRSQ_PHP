@@ -508,6 +508,8 @@ $('#person_edit_save').click(function(){
 	person_role = $('#edit_person_role_'+person_id).val(),
 	person_relationship = $('#edit_person_relationship_'+person_id).val();
 
+	alert(person_firstname);
+
 	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
 
 	$.ajax({
@@ -517,15 +519,12 @@ $('#person_edit_save').click(function(){
 		data: data,
 		success: function(response){
 
+			alert(person_lastname);
+
 			if(response != person_id)
 				alert(response);
 			else
 			{
-			
-				//$('#user_cell_no').text(response);
-				//$('#user_information_radio_no').prop('checked', false);
-				//$('#edit_user_details_div').hide();
-				//$('#user_details_div').show();
 
 				alert("Updated!");
 
