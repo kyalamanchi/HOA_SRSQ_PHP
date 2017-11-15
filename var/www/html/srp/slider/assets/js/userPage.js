@@ -517,19 +517,18 @@ $('#person_edit_save').click(function(){
 		data: data,
 		success: function(response){
 
-			if(response != person_id)
-				alert(response);
-			else
-			{
-			
-				//$('#user_cell_no').text(response);
-				//$('#user_information_radio_no').prop('checked', false);
-				//$('#edit_user_details_div').hide();
-				//$('#user_details_div').show();
+				if(response != person_id)
+					alert(response);
+				else
+				{
+					alert("Updated!");
 
-				alert("Updated!");
+					//$('#user_cell_no').text(response);
+					//$('#user_information_radio_no').prop('checked', false);
+					//$('#edit_user_details_div').hide();
+					//$('#user_details_div').show();
 
-			}
+				}
 
 		}
 

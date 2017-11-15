@@ -1382,6 +1382,8 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
+                                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
+
                                                                                             <button type='button' name='person_edit_save' id='person_edit_save' value='$person_id' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
 
                                                                                             <button type='button' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
