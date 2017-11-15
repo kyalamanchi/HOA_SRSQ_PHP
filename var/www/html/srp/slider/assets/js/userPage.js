@@ -498,6 +498,14 @@ $('#edit_email_back').click(function(){
 
 });
 
+$('#person_edit_save').click(function(){
+
+	var person_id = $(this).val();
+
+	alert(person_id);
+
+});
+
 $('form.ajax4').on('submit', function(){
 	
 	var obj = $(this),
@@ -521,7 +529,7 @@ $('form.ajax4').on('submit', function(){
 	var person_id = ('#edit_person_id').val();
 
 	//alert(id);
-	alert(url);
+	alert(person_id);
 
 	$.ajax({
 
