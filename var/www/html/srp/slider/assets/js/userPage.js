@@ -500,7 +500,94 @@ $('#edit_email_back').click(function(){
 
 $('#person_edit_save').click(function(){
 
-	alert("Clicked");
+	var person_id = $(this).val(),
+	person_firstname = $('#edit_person_firstname_'+person_id).val(),
+	person_lastname = $('#edit_person_lastname_'+person_id).val(),
+	person_email = $('#edit_person_email_'+person_id).val(),
+	person_cell_no = $('#edit_person_cell_no_'+person_id).val(),
+	person_role = $('#edit_person_role_'+person_id).val(),
+	person_relationship = $('#edit_person_relationship_'+person_id).val();
+
+	data = {personId:person_id, personFirstname:person_firstname, personLastname:person_lastname, personEmail:person_email, personCellNo:person_cell_no, personRole: person_role, personRelationship: person_relationship};
+
+	$.ajax({
+
+		url: 'updatePerson.php',
+		type: 'POST',
+		data: data,
+		success: function(response){
+
+			if(response != person_id)
+				alert(response);
+			else
+			{
+			
+				//$('#user_cell_no').text(response);
+				//$('#user_information_radio_no').prop('checked', false);
+				//$('#edit_user_details_div').hide();
+				//$('#user_details_div').show();
+
+				alert("Updated!");
+
+			}
+
+		}
+
+	});
+
+});
+
+$('form.ajax4').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	//id = obj.attr('id'),
+	data = {};
+
+	obj.find('[name]').each(function(index, value){
+
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
+
+		alert(input);
+
+		data[index] = value;
+
+	});
+
+	var person_id = ('#edit_person_id').val();
+
+	//alert(id);
+	alert(person_id);
+
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			//if(response == "Some error occured. Please try again.")
+				alert(response);
+			//else
+			//{
+				//alert("Saved!");
+
+				//$('#user_cell_no').text(response);
+				//$('#user_information_radio_no').prop('checked', false);
+				//$('#edit_user_details_div').hide();
+				//$('#user_details_div').show();
+
+			//}
+
+		}
+
+	});
+
+	return false;
+	
 });
 
 $('#email_continue').click(function(){
