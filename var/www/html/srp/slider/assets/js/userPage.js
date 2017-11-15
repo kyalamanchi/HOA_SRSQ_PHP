@@ -508,11 +508,10 @@ $('form.ajax4').on('submit', function(){
 	obj.find('[name]').each(function(index, value){
 
 		var input = $(this),
-
-		alert(input);
-		
 		index = input.attr('name'),
 		value = input.val();
+
+		alert(input);
 
 		data[index] = value;
 
