@@ -1256,7 +1256,7 @@
 
                                                                                             <br>
 
-                                                                                            <input type='text' name='edit_person_id' id='edit_person_id' value='$person_id'>
+                                                                                            <input type='hidden' name='edit_person_id' id='edit_person_id' value='$person_id'>
 
                                                                                             <input class='form-control' type='text' name='edit_person_firstname_$person_id' id='edit_person_firstname_$person_id' value='$person_firstname' required>
 
