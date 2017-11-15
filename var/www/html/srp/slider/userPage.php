@@ -1262,6 +1262,8 @@
 
                                                                                         </div>
 
+                                                                                        edit_person_firstname_$person_id
+
                                                                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
                                                                                             <label><strong>Lastname</strong></label>
