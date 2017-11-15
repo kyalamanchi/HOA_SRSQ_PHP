@@ -526,9 +526,10 @@ $('#person_edit_save').click(function(){
 				//$('#user_information_radio_no').prop('checked', false);
 				//$('#edit_user_details_div').hide();
 				//$('#user_details_div').show();
+				//$('#user_mailing_address').text(response);
 
 				$('#person_'+person_id+'_firstname').text(person_firstname);
-				$('#edit_person_firstname_'+$person_id).val(person_firstname);
+				$('#edit_person_firstname_'+person_id).val(person_firstname);
 
 				alert("Updated!");
 
