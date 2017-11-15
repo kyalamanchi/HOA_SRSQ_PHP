@@ -528,8 +528,8 @@ $('#person_edit_save').click(function(){
 				//$('#user_details_div').show();
 				//$('#user_mailing_address').text(response);
 
-				$('#person_'+person_id+'_firstname').text(person_firstname);
-				$('#edit_person_firstname_'+person_id).val(person_firstname);
+				//$('#person_'+person_id+'_firstname').text(person_firstname);
+				//$('#edit_person_firstname_'+person_id).val(person_firstname);
 
 				alert("Updated!");
 
