@@ -319,7 +319,7 @@
 											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -467,7 +467,7 @@
 											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -578,7 +578,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -849,7 +849,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -1111,7 +1111,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -1679,7 +1679,7 @@
                                             <li class="breadcrumb-item">User Details</li>
                                             <li class="breadcrumb-item">Home Details</li>
                                             <li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
                                             <li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -1762,7 +1762,7 @@
                                             <li class="breadcrumb-item">User Details</li>
                                             <li class="breadcrumb-item">Home Details</li>
                                             <li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'><strong style='color: black;'>Notifications</strong></li>
+                                            <li class='breadcrumb-item'><strong style='color: black;'>SMS Notifications</strong></li>
                                             <li class="breadcrumb-item">Agreements</li>
                                             <li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -1782,7 +1782,7 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                    <center><h3>Notifications</h3></center>
+                                    <center><h3>SMS Notifications</h3></center>
 
                                 </div>
 
@@ -1841,7 +1841,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
 											<li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -2001,7 +2001,7 @@
                                             <li class="breadcrumb-item">User Details</li>
                                             <li class="breadcrumb-item">Home Details</li>
                                             <li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
                                             <li class="breadcrumb-item"><strong style='color: black;'>Documents</strong></li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -2119,7 +2119,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
@@ -3234,7 +3234,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
 											<li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -3399,7 +3399,7 @@
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
 											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
                                             <li class='breadcrumb-item'>Documents</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
@@ -4728,6 +4728,16 @@
             $(function () {
                 
                 $("#signedAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
+
+            });
+
+        </script>
+
+        <script>
+        
+            $(function () {
+                
+                $("#myDocuments").DataTable({ "pageLength": 50, "info": false, "order": [[0, 'desc']] });
 
             });
 
