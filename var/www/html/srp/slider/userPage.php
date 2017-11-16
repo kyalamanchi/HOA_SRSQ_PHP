@@ -1850,7 +1850,299 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                                    <form method='POST'>
+
+                                        <?php
+
+                                            $i = 0;
+                                            $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+
+                                            $total_persons = pg_num_rows($result);
+
+                                            echo "<input type='hidden' name='total_persons' id='total_persons' value='$total_persons'>";
+
+                                            while($row = pg_fetch_assoc($result))
+                                            {
+
+                                                $i++;
+
+                                                $cc_person_id = $row['person_id'];
+                                                $cc_person_firstname = $row['fname'];
+                                                $cc_person_lastname = $row['lname'];
+
+                                                echo "<input type='hidden' name='$i_person_id' id='$i_person_id' value='$cc_person_id'>";
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Person Name : $cc_person_firstname $cc_person_lastname
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : Board Meeting
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=1");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : Payment Received
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=4");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                            }
+
+                                        ?>
+
+                                    </form>
+
                                     <?php
+
+                                        $i = 0;
 
                                         $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY fname");
 
@@ -1875,13 +2167,11 @@
 
                                                     </div>
 
-                                                    <br>
-
                                                     <div class='row'>
 
                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                            Notification Type : 
+                                                            Event : <strong style='color: black;'>Board Meeting</board>
 
                                                         </div>
 
@@ -1889,21 +2179,27 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong style='color: black;'>Email Only</strong>
 
                                                         </div>
 
-                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong style='color: black;'>Phone Only</strong>
 
                                                         </div>
 
-                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='notification_type' id='notification_type_both' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_none' value='None'> <strong style='color: black;'>None</strong>
 
                                                         </div>
 
