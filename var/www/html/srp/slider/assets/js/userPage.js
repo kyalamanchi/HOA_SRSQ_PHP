@@ -635,10 +635,6 @@ $('form.ajax5').on('submit', function(){
 		data: {roleId: data['add_person_role']},
 		success: function(response1){
 
-			alert(response1);
-
-			alert("Ro "+response1);
-
 			ro = response1;
 
 		}
@@ -651,10 +647,6 @@ $('form.ajax5').on('submit', function(){
 		method: 'POST',
 		data: {relationshipId: data['add_person_relationship']},
 		success: function(response1){
-
-			alert(response1);
-
-			alert("Re "+response1);
 
 			re = response1;
 
