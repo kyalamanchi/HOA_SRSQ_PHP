@@ -11,7 +11,9 @@ $(document).ready(function(){
 	$('#email_div').hide();
 	$('#email_continue').hide();
 	$('#edit_email_div').hide();
+	$('#notifications_div').hide();
 	$('#agreements_div').hide();
+	$('#documents_div').hide();
 	$('#hoa_fact_sheet_div').hide();
 	$('#disclosure1_div').hide();
 	$('#disclosure2_div').hide();
@@ -683,6 +685,20 @@ $('form.ajax5').on('submit', function(){
 $('#email_continue').click(function(){
 
 	$('#email_div').hide();
+	$('#notifications_div').show();
+
+});
+
+$('#notifications_back').click(function(){
+
+	$('#notifications_div').hide();
+	$('#email_div').show();
+
+});
+
+$('#notifications_continue').click(function(){
+
+	$('#notifications_div').hide();
 	$('#agreements_div').show();
 
 });
@@ -697,13 +713,27 @@ $('#agreements_back').click(function(){
 $('#agreements_continue').click(function(){
 
 	$('#agreements_div').hide();
+	$('#documents_div').show();
+
+});
+
+$('#documents_back').click(function(){
+
+	$('#documents_div').hide();
+	$('#agreements_div').show();
+
+});
+
+$('#documents_continue').click(function(){
+
+	$('#documents_div').hide();
 	$('#hoa_fact_sheet_div').show();
 
 });
 
 $('#hoa_fact_sheet_back').click(function(){
 
-	$('#agreements_div').show();
+	$('#documents_div').show();
 	$('#hoa_fact_sheet_div').hide();
 
 });

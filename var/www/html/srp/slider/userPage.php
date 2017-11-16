@@ -318,9 +318,11 @@
 									
 											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -464,8 +466,10 @@
 									
 											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">Agreements</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
@@ -573,8 +577,10 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">Agreements</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
@@ -842,9 +848,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1102,9 +1110,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1199,7 +1209,7 @@
 
                                             <?php
 
-                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY fname");
 
                                                 while($row = pg_fetch_assoc($result))
                                                 {
@@ -1667,9 +1677,11 @@
                                         <ol class="breadcrumb">
                                     
                                             <li class="breadcrumb-item">User Details</li>
-                                            <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-                                            <li class="breadcrumb-item">Primary Email</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
+                                            <li class='breadcrumb-item'>Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
+                                            <li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
                                             <li class="breadcrumb-item">Disclosures</li>
 
@@ -1735,6 +1747,85 @@
 
                         </div>
 
+                        <div id='notifications_div'>
+
+                            <br>
+
+                            <div class='row container'>
+                                
+                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+
+                                    <div class='alert alert-warning'>
+
+                                        <ol class="breadcrumb">
+                                    
+                                            <li class="breadcrumb-item">User Details</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'><strong style='color: black;'>Notifications</strong></li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                            <li class="breadcrumb-item">Disclosures</li>
+
+                                        </ol>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3>Notifications</h3></center>
+
+                                </div>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <hr class='small'>
+
+                                    <div class='row'>
+                                        
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+                                            <button class='btn btn-warning btn-xs' type='button' id='agreements_back' name='agreements_back'><i class='fa fa-arrow-left'></i> Back</button>
+
+                                        </div>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+                                            <button class='btn btn-xs btn-success' name='agreements_continue' id='agreements_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+
 						<div id='agreements_div'>
 
 							<br>
@@ -1749,9 +1840,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1893,6 +1986,101 @@
 
 						</div>
 
+                        <div id='documents_div'>
+
+                            <br>
+
+                            <div class='row container'>
+                                
+                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+
+                                    <div class='alert alert-warning'>
+
+                                        <ol class="breadcrumb">
+                                    
+                                            <li class="breadcrumb-item">User Details</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Documents</strong></li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                            <li class="breadcrumb-item">Disclosures</li>
+
+                                        </ol>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3>Documents</h3></center>
+
+                                </div>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    <table id='myDocuments' class='table table-striped' style='color: black;'>
+
+                                        <thead>
+                                            
+                                            <th>Name</th>
+                                            <th>Date of Upload</th>
+                                            <th>Year</th>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            
+                                            
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <hr class='small'>
+
+                                    <div class='row'>
+                                        
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+                                            <button class='btn btn-warning btn-xs' type='button' id='agreements_back' name='agreements_back'><i class='fa fa-arrow-left'></i> Back</button>
+
+                                        </div>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+                                            <button class='btn btn-xs btn-success' name='agreements_continue' id='agreements_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+
 						<div id='hoa_fact_sheet_div'>
 
 							<br>
@@ -1907,9 +2095,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -3020,9 +3210,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
 
 										</ol>
@@ -3183,8 +3375,10 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class='breadcrumb-item'>Documents</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
 
