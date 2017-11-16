@@ -443,7 +443,7 @@
 
                                                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                <form id='$person_id' method='POST' class='ajax6' action='removePerson.php'>
+                                                                                <form id='".$person_id."' method='POST' class='ajax6' action='removePerson.php'>
 
                                                                                     <div class='row container'>
 
