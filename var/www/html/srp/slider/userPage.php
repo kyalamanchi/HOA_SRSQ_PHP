@@ -2516,11 +2516,11 @@
 
                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                <cetner>
+                                                <center>
 
                                                     <button class='btn btn-xs btn-info' type='submit'><i class='fa fa-save'></i> Save</button>
 
-                                                </cetner>
+                                                </center>
 
                                             </div>
 
