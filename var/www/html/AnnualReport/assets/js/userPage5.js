@@ -29,7 +29,7 @@ $('#documents_continue').click(function(){
 	$('#documents_div').hide();
 	$('#hoa_fact_sheet_div').show();
 	$('#hoa_fact_sheet_div').show();
-	$('#agreements_header').hide();
+	$('#documents_header').hide();
 
 });
 
