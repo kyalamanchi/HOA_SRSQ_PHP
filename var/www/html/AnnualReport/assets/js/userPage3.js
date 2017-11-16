@@ -13,7 +13,7 @@ $('#email_back').click(function(){
 
 $('#email_radio_yes').change(function() {
 
-	if (document.getElementById('user_information_radio_yes').checked) {
+	if (document.getElementById('email_radio_yes').checked) {
 
 		$('#email_continue').show();
 
