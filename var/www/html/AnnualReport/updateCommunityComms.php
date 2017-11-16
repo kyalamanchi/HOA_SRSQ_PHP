@@ -33,7 +33,7 @@
 		$lpp_phone = 'NULL';
 		$lpp_email = 'NULL';
 
-		echo "<br>".$community_id." - - - ".$hoa_id." - - - ".$user_id." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$bm_phone." - - - ".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lr_phone." - - - ".$lr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email;
+		echo "<br>".$community_id." - - - ".$hoa_id." - - - ".$user_id." - - - ".$today." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$bm_phone." - - - ".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lr_phone." - - - ".$lr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email;
 
 		if($board_meeting == 'Phone')
 		{
@@ -180,7 +180,7 @@
 
 		}
 
-		echo "<br>".$community_id." - - - ".$hoa_id." - - - ".$user_id." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$bm_phone." - - - ".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lr_phone." - - - ".$lr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email."<br><br>";
+		echo "<br>".$community_id." - - - ".$hoa_id." - - - ".$user_id." - - - ".$today." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$bm_phone." - - - ".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lr_phone." - - - ".$lr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email."<br><br>";
 
 		/*
 
