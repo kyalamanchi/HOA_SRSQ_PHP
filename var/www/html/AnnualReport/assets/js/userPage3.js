@@ -138,48 +138,9 @@ $('form.ajax4').on('submit', function(){
 		data: data,
 		success:function(response){
 
-			alert("Updated");$('#edit_person_lastname_'+person_id).val(person_lastname);
+			alert("Updated");
 
-			$('#person_'+person_id+'_lastname').html(person_lastname);
-
-			$('#edit_person_firstname_'+person_id).val(person_firstname);
-			$('#person_'+person_id+'_firstname').html(person_firstname);
-
-			$('#edit_person_email_'+person_id).val(person_email);
-			$('#person_'+person_id+'_email').html(person_email);
-
-			$('#edit_person_cell_no_'+person_id).val(person_cell_no);
-			$('#person_'+person_id+'_cell_no').html(person_cell_no);
-
-			$('#edit_person_role_'+person_id).val(person_role);
-			
-			$.ajax({
-
-				url: 'resetRole.php',
-				method: 'POST',
-				data: {roleId: person_role},
-				success: function(response1){
-
-					$('#person_'+person_id+'_role').html(response1);
-
-				}
-
-			});
-
-			$('#edit_person_relationship_'+person_id).val(response1);
-
-			$.ajax({
-
-				url: 'resetRelationship.php',
-				method: 'POST',
-				data: {relationshipId: person_relationship},
-				success: function(response1){
-
-					$('#person_'+person_id+'_relationship').html(response1);
-
-				}
-
-			});
+			window.location = 'userPage3.php';
 
 		}
 
