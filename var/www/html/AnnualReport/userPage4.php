@@ -178,11 +178,11 @@
                                                     $phone = $row['phone'];
                                                     $email = $row['email'];
 
-
                                                     $row1 = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$person_id"));
                                                     $pname = $row1['fname'];
                                                     $pname .= " ";
                                                     $pname .= $row1['lname'];
+                                                    $is_active = $row1['is_active'];
 
                                                     $row1 = pg_fetch_assoc(pg_query("SELECT * FROM event_type WHERE event_type_id=$event_type_id"));
                                                     $event_type_name = $row1['event_type_name'];
@@ -201,7 +201,8 @@
                                                     if($create_date != '')
                                                         $create_date = date('m-d-Y', strtotime($create_date));
 
-                                                    echo "<tr><td>$pname</td><td>$event_header - $event_type_name</td><td>$phone</td><td>$email</td><td>$create_date</td></tr>";
+                                                    if($is_active == 't')
+                                                        echo "<tr><td>$pname</td><td>$event_header - $event_type_name</td><td>$phone</td><td>$email</td><td>$create_date</td></tr>";
 
                                                 }
 
