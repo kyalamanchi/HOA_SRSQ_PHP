@@ -1904,8 +1904,6 @@
 
                                                 $bm = pg_num_rows($res1);
 
-                                                echo "<h1>$bm</h1>";
-
                                                 if($bm != 0)
                                                 {
 
@@ -1923,7 +1921,7 @@
                                                             <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
 
@@ -1936,7 +1934,7 @@
                                                             <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'";
 
                                                             if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
                                                             
@@ -1949,7 +1947,7 @@
                                                             <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Both'";
 
                                                             if($cc_email == 't' && $cc_phone == 't')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
                                                             
@@ -1962,7 +1960,7 @@
                                                             <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None'";
 
                                                             if($cc_email == 'f' && $cc_phone == 'f')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
                                                             
@@ -2047,7 +2045,7 @@
                                                             <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
 
@@ -2060,7 +2058,7 @@
                                                             <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'";
 
                                                             if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
                                                             
@@ -2073,7 +2071,7 @@
                                                             <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'";
 
                                                             if($cc_email == 't' && $cc_phone == 't')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
                                                             
@@ -2086,7 +2084,7 @@
                                                             <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None'";
 
                                                             if($cc_email == 'f' && $cc_phone == 'f')
-                                                                echo " selected";
+                                                                echo " checked";
 
                                                             echo "
                                                             
