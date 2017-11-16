@@ -3254,101 +3254,121 @@
 
 								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-									<div class='container module-gray' style="color: black;">
+									<?php
 
-										<?php
+                                        $result = pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id");
 
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=13"));
+                                        while($row = pg_fetch_assoc($result))
+                                        {
 
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
+                                            $notes = $row['notes'];
+                                            $document_id = $row['document_id'];
+                                            $changed_this_year = $row['changed_this_year'];
+                                            $type_id = $row['type_id'];
 
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=13"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
+                                            $row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$type_id"));
+                                            $disclosure_name = $row['name'];
+                                            $desc = $row['desc'];
+                                            $civilcode_section = $row['civilcode_section'];
+                                            $legal_url = $row['legal_url'];
 
-											$dname = $disclosure_name;
+                                            $dname = $disclosure_name;
 
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
+                                            if($civilcode_section != "")
+                                                $disclosure_name = $disclosure_name." (".$civilcode_section.")";
 
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
+                                            if($legal_url != '')
+                                                $disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
 
-											if($desc == "")
-												$desc = " - ";
+                                            if($desc == "")
+                                                $desc = " - ";
 
-											if($notes == "")
-												$notes = " - ";
+                                            if($notes == "")
+                                                $notes = " - ";
 
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
+                                            if($changed_this_year == 't') 
+                                                $changed_this_year = "Yes"; 
+                                            else if($changed_this_year == 'f') 
+                                                $changed_this_year = "No"; 
+                                            else 
+                                                $changed_this_year = " - ";
 
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
+                                            if($document_id == "")
+                                                $document = " - ";
+                                            else
+                                                $document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
 
-										?>
+                                            echo "
 
-										<br>
+                                            <div class='row'>
 
-										<div class='row'>
+                                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                    <div class='container module-gray' style='color: black;'>
 
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
+                                                        <br>
 
-											</div>
+                                                        <div class='row'>
 
-										</div>
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-										<br>
+                                                                <strong>Disclosure Name :</strong> $disclosure_name
 
-										<div class='row'>
+                                                            </div>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                        </div>
 
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
+                                                        <br>
 
-											</div>
+                                                        <div class='row'>
 
-										</div>
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-										<br>
+                                                                <strong>Changed this year :</strong> $changed_this_year
 
-										<div class='row'>
+                                                            </div>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                        </div>
 
-												<strong>Board Comments </strong> <?php echo $notes; ?>
+                                                        <br>
 
-											</div>
+                                                        <div class='row'>
 
-										</div>
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-										<br>
+                                                                <strong>Board Comments </strong> $notes
 
-										<div class='row'>
+                                                            </div>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                        </div>
 
-												<strong>Document :</strong> <?php echo $document; ?>
+                                                        <br>
 
-											</div>
+                                                        <div class='row'>
 
-										</div>
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-										<br>
+                                                                <strong>Document :</strong> $document
 
-									</div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <br>
+
+                                                    </div>
+
+                                                    <br><br>
+
+                                                </div>
+
+                                            </div>
+
+                                            ";
+
+                                        }
+
+                                    ?>
 
 									<br>
 
@@ -3368,7 +3388,7 @@
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-													<button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+													<!--button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button-->
 
 												</div>
 

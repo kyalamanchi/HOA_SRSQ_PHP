@@ -103,7 +103,7 @@
 						
 					<div class='container'>
 
-						<div id='disclosure1_div'>
+						<div id='disclosures_div'>
 
 							<br>
 
@@ -272,7 +272,7 @@
 
 												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-													<button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+													<!--button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button-->
 
 												</div>
 
@@ -308,7 +308,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		
+		<script src='assets/js/userPage.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 		<!-- Datatable -->
