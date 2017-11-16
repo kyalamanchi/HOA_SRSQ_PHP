@@ -1,3 +1,10 @@
+$(document).ready(function(){
+
+	$('#edit_email_div').hide();
+	$('#email_continue').hide();
+
+});
+
 $('#email_back').click(function(){
 
 	window.location = "userPage2.php";
