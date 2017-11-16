@@ -1918,7 +1918,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting_1' value='Phone'";
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting_1' value='Phone'";
 
                                                             if($cc_email == 'f' && $cc_phone == 't')
                                                                 echo " checked";
@@ -1931,7 +1931,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting_2' value='Email'";
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting_2' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
                                                                 echo " checked";
@@ -1944,7 +1944,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting_3' value='Both'";
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting_3' value='Both'";
 
                                                             if($cc_email == 't' && $cc_phone == 't')
                                                                 echo " checked";
@@ -1957,7 +1957,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None'";
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting' value='None'";
 
                                                             if($cc_email == 'f' && $cc_phone == 'f')
                                                                 echo " checked";
@@ -1982,25 +1982,25 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'> SMS Only
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting' value='Email'> Email Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Both'> Both
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting' value='Both'> Both
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None' checked> None
+                                                            <input type='radio' name='".$i."_board_meeting' id='$i_board_meeting' value='None' checked> None
 
                                                         </div>
 
