@@ -176,8 +176,6 @@ $('form.ajax5').on('submit', function(){
 
 	});
 
-	alert('Adding Person. Please Wait.');
-
 	$.ajax({
 
 		url: url,

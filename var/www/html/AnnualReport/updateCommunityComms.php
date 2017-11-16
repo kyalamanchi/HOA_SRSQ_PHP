@@ -19,7 +19,7 @@
 		$landscape_maintenance = $_POST[$i.'_landscape_maintenance'];
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 
-		echo $person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted;
+		echo $person_id."G - - - ".$board_meeting."E - - - ".$payment_received."E - - - ".$landscape_repair."T - - - ".$landscape_maintenance."H - - - ".$late_payment_posted;
 
 	}
 
