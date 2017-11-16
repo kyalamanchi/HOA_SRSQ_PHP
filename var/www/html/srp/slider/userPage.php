@@ -1857,8 +1857,8 @@
                                         while($row = pg_fetch_assoc($result))
                                         {
 
-                                            $cc_person_firstname = $row['fname'];
-                                            $cc_person_lastname = $row['lname'];
+                                            $cc_firstname = $row['fname'];
+                                            $cc_lastname = $row['lname'];
                                             $cc_person_id = $row['id'];
 
                                             echo "
@@ -1869,7 +1869,7 @@
 
                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                            Person : <strong style='color: black;'>$cc_person_fname $cc_person_lname</strong>
+                                                            Person : <strong style='color: black;'>$cc_firstname $cc_lastname</strong>
 
                                                         </div>
 
@@ -1963,7 +1963,7 @@
 
                                                             <center>
 
-                                                                <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-right'></i> Update</button>
+                                                                <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-tick'></i> Update</button>
 
                                                             </center>
 
