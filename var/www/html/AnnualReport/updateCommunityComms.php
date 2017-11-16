@@ -198,9 +198,13 @@
 
 		print_r($result);
 
-		/*
-
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 4, '$today', $user_id, '$pr_phone', '$pr_email', '$today', $user_id)");
+
+		echo "<br>";
+
+		print_r($result);
+
+		/*
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 8, '$today', $user_id, '$lr_phone', '$lr_email', '$today', $user_id)");
 
