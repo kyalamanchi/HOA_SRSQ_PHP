@@ -1852,11 +1852,9 @@
 
                                     <?php
 
-                                        $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
-
                                         $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
-                                        while($row = pg_fetch_assoc())
+                                        while($row = pg_fetch_assoc($result))
                                         {
 
                                             $cc_firstname = $row['fname'];
