@@ -666,7 +666,7 @@ $('form.ajax5').on('submit', function(){
 
 				});
 
-				$('#person_table').append('<tr><td name="person_'+response+'_firstname" id="person_'+response+'_firstname">'+data['add_person_firstname']+'</td><td name="person_'+response+'_lastname" id="person_'+response+'_lastname">'+data['add_person_lastname']+'</td><td name="person_'+response+'_email" id="person_'+response+'_email">'+data['add_person_email']+'</td><td name="person_'+response+'_cell_no" id="person_'+response+'_cell_no">'+data['add_person_cell_no']+'</td><td name="person_'+response+'_role" id="person_'+response+'_role">'+ro+'</td><td name="person_'+response+'_relationship" id="person_'+response+'_relationship">'+re+'</td></tr>');
+				$('#person_table').append('<tr><td name="person_'+response+'_firstname" id="person_'+response+'_firstname">'+data['add_person_firstname']+'</td><td name="person_'+response+'_lastname" id="person_'+response+'_lastname">'+data['add_person_lastname']+'</td><td name="person_'+response+'_email" id="person_'+response+'_email">'+data['add_person_email']+'</td><td name="person_'+response+'_cell_no" id="person_'+response+'_cell_no">'+data['add_person_cell_no']+'</td><td name="person_'+response+'_role" id="person_'+response+'_role">'+ro+'</td><td name="person_'+response+'_relationship" id="person_'+response+'_relationship">'+re+'</td><td></td><td></td></tr>');
 
 				alert("Person added.");
 
