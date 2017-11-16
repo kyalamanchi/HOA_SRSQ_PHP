@@ -1904,7 +1904,9 @@
 
                                                 $bm = pg_num_rows($res1);
 
-                                                if($bm)
+                                                echo "<h1>$bm</h1>";
+
+                                                if($bm != 0)
                                                 {
 
                                                     $row1 = pg_fetch_assoc($res1);
