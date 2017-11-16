@@ -1176,7 +1176,7 @@
 
                             <br>
 
-                            <div class='row'>
+                            <div class='row container'>
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
@@ -1778,6 +1778,76 @@
 
                             <div class='row'>
 
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    <table class='table table-striped' style="color: black;">
+
+                                        <thead>
+                                            
+                                            <th>Person Name</th>
+                                            <th>Event</th>
+                                            <th>Phone Notification</th>
+                                            <th>Email Notification</th>
+                                            <th>Create Date</th>
+
+                                        </thead>
+
+                                        <tbody>
+                                            
+                                            <?php
+
+                                                $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
+
+                                                while ($row = pg_fetch_assoc($result)) 
+                                                {
+
+                                                    $person_id = $row['person_id'];
+                                                    $event_type_id = $row['event_type_id'];
+                                                    $create_date = $row['create_date'];
+                                                    $phone = $row['phone'];
+                                                    $email = $row['email'];
+
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$person_id"));
+                                                    $pname = $row1['fname'];
+                                                    $pname .= " ";
+                                                    $pname .= $row1['lname'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM event_type WHERE event_type_id=$event_type_id"));
+                                                    $event_type_name = $row1['event_type_name'];
+                                                    $event_header = $row1['header'];
+
+                                                    if($phone == 't')
+                                                        $phone = 'Sent';
+                                                    else
+                                                        $phone = 'Not Sent';
+
+                                                    if($email == 't')
+                                                        $email = 'Sent';
+                                                    else
+                                                        $email = 'Not Sent';
+
+                                                    if($create_date != '')
+                                                        $create_date = date('m-d-Y', strtotime($create_date));
+
+                                                    echo "<tr><td>$pname</td><td>$event_header - $event_type_name</td><td>$phone</td><td>$email</td><td>$create_date</td></tr>";
+
+                                                }
+
+                                            ?>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row container'>
+
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
                                     <form method='POST' class='ajax6'>
@@ -1787,6 +1857,12 @@
                                             <label><strong>Select notification type</strong></label>
 
                                         </div>
+
+                                        <?php
+
+                                            $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
+
+                                        ?>
 
                                         <div class='row' style='color: black;'>
 
