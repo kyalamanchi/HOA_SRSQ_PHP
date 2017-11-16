@@ -18,77 +18,77 @@ $('#home_edit_back').click(function(){
 	$('#home_details_continue').hide();
 	$('#home_information_radio_no').prop('checked', false);
 
-	//$.ajax({
+	$.ajax({
 
-	//	type: 'POST',
-	//	url: 'resetAddress.php',
-	//	success:function(response) {
+		type: 'POST',
+		url: 'resetAddress.php',
+		success:function(response) {
 
-	//		$('#edit_mailing_address').val(response);
+			$('#edit_mailing_address').val(response);
 
-	//	}
+		}
 
-	//});
+	});
 
-	//$.ajax({
+	$.ajax({
 
-	//	type: 'POST',
-	//	url: 'resetCountry.php',
-	//	success:function(response) {
+		type: 'POST',
+		url: 'resetCountry.php',
+		success:function(response) {
 
-	//		$('#edit_mailing_country').html(response);
+			$('#edit_mailing_country').html(response);
 
-	//	}
+		}
 
-	//});
+	});
 
-	//$.ajax({
+	$.ajax({
 
-	//	type: 'POST',
-	//	url: 'resetState.php',
-	//	success:function(response) {
+		type: 'POST',
+		url: 'resetState.php',
+		success:function(response) {
 
-	//		$('#edit_mailing_state').html(response);
+			$('#edit_mailing_state').html(response);
 
-	//	}
+		}
 
-	//});
+	});
 
-	//$.ajax({
+	$.ajax({
 
-	//	type: 'POST',
-	//	url: 'resetDistrict.php',
-	//	success:function(response) {
+		type: 'POST',
+		url: 'resetDistrict.php',
+		success:function(response) {
 
-	//		$('#edit_mailing_district').html(response);
+			$('#edit_mailing_district').html(response);
 
-	//	}
+		}
 
-	//});
+	});
 
-	//$.ajax({
+	$.ajax({
 
-	//	type: 'POST',
-	//	url: 'resetCity.php',
-	//	success:function(response) {
+		type: 'POST',
+		url: 'resetCity.php',
+		success:function(response) {
 
-	//		$('#edit_mailing_city').html(response);
+			$('#edit_mailing_city').html(response);
 
-	//	}
+		}
 
-	//});
+	});
 
-	//$.ajax({
+	$.ajax({
 
-	//	type: 'POST',
-	//	url: 'resetZip.php',
-	//	success:function(response) {
+		type: 'POST',
+		url: 'resetZip.php',
+		success:function(response) {
 
-	//		$('#edit_mailing_zip').html(response);
+			$('#edit_mailing_zip').html(response);
 
-	//	}
+		}
 
-	//});
+	});
 
 });
 
@@ -145,7 +145,8 @@ $('form.ajax2').on('submit', function(){
 
 				$('#user_mailing_address').text(response);
 				$('#home_information_radio_no').prop('checked', false);
-				$('#home_details_continue').hide();
+				$('#home_information_radio_yes').prop('checked', true);
+				$('#home_details_continue').show();
 				$('#edit_home_details_div').hide();
 				$('#home_details_div').show();
 
