@@ -706,7 +706,7 @@ $('#notifications_continue').click(function(){
 $('#agreements_back').click(function(){
 
 	$('#agreements_div').hide();
-	$('#email_div').show();
+	$('#notifications_div').show();
 
 });
 
