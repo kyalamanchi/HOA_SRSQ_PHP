@@ -1966,7 +1966,7 @@
 
                                                             <center>
 
-                                                                <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-save'></i> Save</button>
+                                                                <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-right'></i> Update</button>
 
                                                             </center>
 
