@@ -1892,7 +1892,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        <strong>Event Name</strong> : Board Meeting
+                                                        <strong>Board Meeting</strong> : 
 
                                                     </div>
 
@@ -2016,7 +2016,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        <strong>Event Name</strong> : Payment Received
+                                                        <strong>Payment Received</strong> : 
 
                                                     </div>
 
@@ -2042,7 +2042,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'";
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'";
 
                                                             if($cc_email == 'f' && $cc_phone == 't')
                                                                 echo " checked";
@@ -2055,7 +2055,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'";
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
                                                                 echo " checked";
@@ -2068,7 +2068,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'";
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Both'";
 
                                                             if($cc_email == 't' && $cc_phone == 't')
                                                                 echo " checked";
@@ -2081,7 +2081,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None'";
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='None'";
 
                                                             if($cc_email == 'f' && $cc_phone == 'f')
                                                                 echo " checked";
@@ -2106,25 +2106,25 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'> SMS Only
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'> Email Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'> Both
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Both'> Both
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None' checked> None
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='None' checked> None
 
                                                         </div>
 
