@@ -4516,16 +4516,6 @@
 
         </script>
 
-        <script>
-        
-            $(function () {
-                
-                $("#person_table").DataTable({ "pageLength": 50 });
-
-            });
-
-        </script>
-
     	<!-- My Chart 1 -->
     	<script type="text/javascript">
       
