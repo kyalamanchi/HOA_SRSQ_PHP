@@ -1846,9 +1846,160 @@
 
                             <br>
 
-                            <div class='row container'>
+                            <div class='row container-fluid'>
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <?php
+
+                                        $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
+
+                                        if(pg_num_rows($result))
+                                        {
+
+                                            while ($row = pg_fetch_assoc($result)) 
+                                            {
+
+                                                $cc_person_id = $row['person_id'];
+                                                $phone_notification = $row['phone'];
+                                                $email_notification = $row['email'];
+
+                                                echo "
+
+                                                <form id='$cc_person_id' class='row'>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            Person : $cc_person_fname $cc_person_lname
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <br>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            Notification Type : 
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_both' value='Both'> <strong>Both</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <br>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            For Events : 
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='1'> <strong>Board Meeting</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='4'> <strong>Payment Received</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='8'> <strong>Landscape Repair</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='9'> <strong>Landscape Maintenance</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='14'> <strong>Late Payment Posted</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <br>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            <center>
+
+                                                                <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-save'></i> Save</button>
+
+                                                            </center>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </form>
+
+                                                ";
+
+
+                                            }
+
+                                        }
+                                        else
+                                        {
+
+                                            $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+
+                                            while($row = pg_fetch_assoc())
+                                            {
+
+                                                $cc_firstname = $row['fname'];
+                                                $cc_lastname = $row['lname'];
+                                                $cc_person_id = $row['id'];
+
+
+                                            }
+
+                                        }
+
+                                    ?>
 
                                     <form method='POST' class='ajax6'>
 
@@ -1857,12 +2008,6 @@
                                             <label><strong>Select notification type</strong></label>
 
                                         </div>
-
-                                        <?php
-
-                                            $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
-
-                                        ?>
 
                                         <div class='row' style='color: black;'>
 
