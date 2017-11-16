@@ -1878,7 +1878,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        Person Name : $cc_person_firstname $cc_person_lastname
+                                                        Person Name : <strong style='color: black'>$cc_person_firstname $cc_person_lastname</strong>
 
                                                     </div>
 
