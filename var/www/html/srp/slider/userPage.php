@@ -1772,9 +1772,74 @@
 
                                 </div>
 
-                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+                            </div>
 
-                                    
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <form method='POST' class='ajax6'>
+
+                                        <div class='row'>
+
+                                            <label><strong>Select notification type</strong></label>
+
+                                        </div>
+
+                                        <div class='row' style='color: black;'>
+
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong>Email Only</strong>
+
+                                            </div>
+
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong>Phone Only</strong>
+
+                                            </div>
+
+                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
+
+                                                <input type='radio' name='notification_type' id='notification_type_both' value='both' selected> <strong>Both Email &amp; Phone</strong>
+
+                                            </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row'>
+
+                                            <label><strong>Send notification to</strong></label>
+
+                                        </div>
+
+                                        <div class='row' style='color: black;'>
+                                            
+                                            <?php
+
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
+
+                                                while($row = pg_fetch_assoc($result))
+                                                {
+
+                                                    $person_name = $row['fname'];
+                                                    $person_name .= " ";
+                                                    $person_name .= $row['lname'];
+
+                                                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'><input type='checkbox' name='notification_person' value='$person_name'> <strong>$person_name</strong></div>";
+
+                                                }
+
+                                            ?>
+
+                                        </div>
+                                        
+                                    </form>
 
                                 </div>
 
