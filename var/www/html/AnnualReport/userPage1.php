@@ -214,7 +214,7 @@
 
 									</div>
 
-									<br><br>
+									<br>
 
 									<div class='row'>
 
@@ -232,23 +232,21 @@
 
 									</div>
 
-									<div class='row'>
+                                    <hr class='small'>
 
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+                                    <div class='row'>
 
-											<hr class='small'>
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>\
 
-											<button id='user_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+                                            <button id='user_details_continue' name='user_details_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
-										</div>
+                                        </div>
 
-									</div>
+                                    </div>
 
 								</div>
 
 							</div>
-
-							<br>
 
 						</div>
 
@@ -264,7 +262,7 @@
 
 									</div>
 
-									<br><br>
+									<br>
 
 									<form method='POST' action='updateHOAID.php' class='ajax1'>
 																						
