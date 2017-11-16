@@ -24,7 +24,6 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$path.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
-
 	if (strpos( json_decode($response), 'error_summary') !== false) 
 	{
     	
@@ -33,7 +32,7 @@
     	echo '<br><br><br><br><br><center><h3>There was an error opening this document. This file cannot be found.</h3></center>';
 
 	}
-	else if (strpos( ($response), 'pdf') !== false  ){
+	else if ( (strpos( ($response), 'pdf') !== false) || (strpos( ($response), 'PDF') !== false )  ){
 		header('Content-type: application/pdf'); 
 		header('Content-Disposition: inline; filename="'.$description.'.pdf"'); 
 		echo $response;

@@ -11,7 +11,7 @@ $message = curl_exec($req);
 
 $message = explode('@', $message);
 if ( $message[0] != "Failed." ){
-$updateQuery = "UPDATE COMMUNITY_STATEMENTS_MAILED SET INVOICE_ID=".$message[1].",invoice_total=".($message[5]+0.20+0.05+0.05+0.49-0.49)*$message[3].",invoice_date='".date('Y-m-d',strtotime($message[2]))."',invoice_unit_price=".$message[4].",quantity=".$message[3].",updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE statement_id=".$row['statement_id'];
+$updateQuery = "UPDATE COMMUNITY_STATEMENTS_MAILED SET INVOICE_ID=".$message[1].",invoice_total=".(($message[5]+0.20+0.05+0.05+0.49-0.49)*$message[3]).",invoice_date='".date('Y-m-d',strtotime($message[2]))."',invoice_unit_price=".$message[4].",quantity=".$message[3].",updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE statement_id=".$row['statement_id'];
 pg_query($updateQuery);
 }
 else {
