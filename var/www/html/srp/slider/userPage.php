@@ -1855,7 +1855,7 @@
                                         <?php
 
                                             $i = 0;
-                                            $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+                                            $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY fname");
 
                                             $total_persons = pg_num_rows($result);
 
@@ -1866,7 +1866,7 @@
 
                                                 $i++;
 
-                                                $cc_person_id = $row['person_id'];
+                                                $cc_person_id = $row['id'];
                                                 $cc_person_firstname = $row['fname'];
                                                 $cc_person_lastname = $row['lname'];
 
@@ -1892,7 +1892,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        Event Name : Board Meeting
+                                                        Event Name : <strong style='color: black;'>Board Meeting</strong>
 
                                                     </div>
 
@@ -2016,7 +2016,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        Event Name : Payment Received
+                                                        Event Name : <strong style='color: black;'>Payment Received</strong>
 
                                                     </div>
 
