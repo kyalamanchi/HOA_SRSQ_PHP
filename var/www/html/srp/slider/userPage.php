@@ -1806,13 +1806,13 @@
                                         
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-                                            <button class='btn btn-warning btn-xs' type='button' id='agreements_back' name='agreements_back'><i class='fa fa-arrow-left'></i> Back</button>
+                                            <button class='btn btn-warning btn-xs' type='button' id='notifications_back' name='notifications_back'><i class='fa fa-arrow-left'></i> Back</button>
 
                                         </div>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-                                            <button class='btn btn-xs btn-success' name='agreements_continue' id='agreements_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+                                            <button class='btn btn-xs btn-success' name='notifications_continue' id='notifications_continue'>Continue <i class='fa fa-arrow-right'></i></button>
 
                                         </div>
 
@@ -2084,13 +2084,13 @@
                                         
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-                                            <button class='btn btn-warning btn-xs' type='button' id='agreements_back' name='agreements_back'><i class='fa fa-arrow-left'></i> Back</button>
+                                            <button class='btn btn-warning btn-xs' type='button' id='documents_back' name='documents_back'><i class='fa fa-arrow-left'></i> Back</button>
 
                                         </div>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-                                            <button class='btn btn-xs btn-success' name='agreements_continue' id='agreements_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+                                            <button class='btn btn-xs btn-success' name='documents_continue' id='documents_continue'>Continue <i class='fa fa-arrow-right'></i></button>
 
                                         </div>
 
