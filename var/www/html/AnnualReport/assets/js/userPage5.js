@@ -28,7 +28,7 @@ $('#documents_continue').click(function(){
 
 	$('#documents_div').hide();
 	$('#hoa_fact_sheet_div').show();
-	$('#hoa_fact_sheet_div').show();
+	$('#hoa_fact_sheet_header').show();
 	$('#documents_header').hide();
 
 });
