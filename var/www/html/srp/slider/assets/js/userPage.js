@@ -644,7 +644,7 @@ $('form.ajax5').on('submit', function(){
 
 					url: 'resetRole.php',
 					method: 'POST',
-					data: {roleId: person_role},
+					data: {roleId: data['add_person_role']},
 					success: function(response1){
 
 						ro = response1;
@@ -657,7 +657,7 @@ $('form.ajax5').on('submit', function(){
 
 					url: 'resetRelationship.php',
 					method: 'POST',
-					data: {relationshipId: person_relationship},
+					data: {relationshipId: data['add_person_relationship']},
 					success: function(response1){
 
 						re = response1;
