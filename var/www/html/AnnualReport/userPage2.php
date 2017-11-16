@@ -96,6 +96,36 @@
 
 			</header>
 
+            <!-- Page Header -->
+            <section class='module-page-title'>
+                                
+                <div class='container'>
+                                        
+                    <div class='row-page-title'>
+                                        
+                        <div class='page-title-captions'>
+                                            
+                            <ol class="breadcrumb">
+                                    
+                                <li class="breadcrumb-item">User Details</li>
+                                <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+                                <li class="breadcrumb-item">Email &amp; Persons</li>
+                                <li class='breadcrumb-item'>SMS Notifications</li>
+                                <li class="breadcrumb-item">Agreements</li>
+                                <li class='breadcrumb-item'>Documents</li>
+                                <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                <li class="breadcrumb-item">Disclosures</li>
+
+                            </ol>
+                                        
+                        </div>
+                                    
+                    </div>
+                                    
+                </div>
+                            
+            </section>
+
 			<div class='wrapper'>
 
 				<!-- Content -->
@@ -104,38 +134,6 @@
 					<div class='container'>
 
 						<div id='home_details_div'>
-
-							<!-- Page Header -->
-                            <section class='module-page-title'>
-                                
-                                <div class='container'>
-                                        
-                                    <div class='row-page-title'>
-                                        
-                                        <div class='page-title-captions'>
-                                            
-                                            <ol class="breadcrumb">
-                                    
-                                                <li class="breadcrumb-item">User Details</li>
-                                                <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-                                                <li class="breadcrumb-item">Email &amp; Persons</li>
-                                                <li class='breadcrumb-item'>SMS Notifications</li>
-                                                <li class="breadcrumb-item">Agreements</li>
-                                                <li class='breadcrumb-item'>Documents</li>
-                                                <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                                <li class="breadcrumb-item">Disclosures</li>
-
-                                            </ol>
-                                        
-                                        </div>
-                                    
-                                    </div>
-                                    
-                                </div>
-                            
-                            </section>
-
-							<br>
 
 							<div class='row'>
 
@@ -379,38 +377,6 @@
 
 						<div id='edit_home_details_div'>
 
-							<!-- Page Header -->
-                            <section class='module-page-title'>
-                                
-                                <div class='container'>
-                                        
-                                    <div class='row-page-title'>
-                                        
-                                        <div class='page-title-captions'>
-                                            
-                                            <ol class="breadcrumb">
-                                    
-                                                <li class="breadcrumb-item">User Details</li>
-                                                <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-                                                <li class="breadcrumb-item">Email &amp; Persons</li>
-                                                <li class='breadcrumb-item'>SMS Notifications</li>
-                                                <li class="breadcrumb-item">Agreements</li>
-                                                <li class='breadcrumb-item'>Documents</li>
-                                                <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                                <li class="breadcrumb-item">Disclosures</li>
-
-                                            </ol>
-                                        
-                                        </div>
-                                    
-                                    </div>
-                                    
-                                </div>
-                            
-                            </section>
-
-							<br>
-
 							<div class='row'>
 
 								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
@@ -421,7 +387,7 @@
 
 									</div>
 
-									<br><br>
+									<br>
 
 									<form method='POST' action='updateHomeID.php' class='ajax2'>
 																						
