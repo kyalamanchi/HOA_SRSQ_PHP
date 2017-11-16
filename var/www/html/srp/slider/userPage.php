@@ -1854,17 +1854,16 @@
 
                                         $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
 
-                                        if(pg_num_rows($result))
+                                        $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+
+                                        while($row = pg_fetch_assoc())
                                         {
 
-                                            while ($row = pg_fetch_assoc($result)) 
-                                            {
+                                            $cc_firstname = $row['fname'];
+                                            $cc_lastname = $row['lname'];
+                                            $cc_person_id = $row['id'];
 
-                                                $cc_person_id = $row['person_id'];
-                                                $phone_notification = $row['phone'];
-                                                $email_notification = $row['email'];
-
-                                                echo "
+                                            echo "
 
                                                 <form id='$cc_person_id' method='POST'>
 
@@ -1872,7 +1871,7 @@
 
                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                            Person : $cc_person_fname $cc_person_lname
+                                                            Person : <strong style='color: black;'>$cc_person_fname $cc_person_lname</strong>
 
                                                         </div>
 
@@ -1894,19 +1893,19 @@
 
                                                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong>Email Only</strong>
+                                                            <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong style='color: black;'>Email Only</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong>Phone Only</strong>
+                                                            <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong style='color: black;'>Phone Only</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='notification_type' id='notification_type_both' value='Both'> <strong>Both</strong>
+                                                            <input type='radio' name='notification_type' id='notification_type_both' value='Both'> <strong style='color: black;'>Both</strong>
 
                                                         </div>
 
@@ -1928,31 +1927,31 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='1'> <strong>Board Meeting</strong>
+                                                            <input type='checkbox' name='notification_event' value='1'> <strong style='color: black;'>Board Meeting</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='4'> <strong>Payment Received</strong>
+                                                            <input type='checkbox' name='notification_event' value='4'> <strong style='color: black;'>Payment Received</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='8'> <strong>Landscape Repair</strong>
+                                                            <input type='checkbox' name='notification_event' value='8'> <strong style='color: black;'>Landscape Repair</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='9'> <strong>Landscape Maintenance</strong>
+                                                            <input type='checkbox' name='notification_event' value='9'> <strong style='color: black;'>Landscape Maintenance</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='14'> <strong>Late Payment Posted</strong>
+                                                            <input type='checkbox' name='notification_event' value='14'> <strong style='color: black;'>Late Payment Posted</strong>
 
                                                         </div>
 
@@ -1976,26 +1975,7 @@
 
                                                 </form>
 
-                                                ";
-
-
-                                            }
-
-                                        }
-                                        else
-                                        {
-
-                                            $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
-
-                                            while($row = pg_fetch_assoc())
-                                            {
-
-                                                $cc_firstname = $row['fname'];
-                                                $cc_lastname = $row['lname'];
-                                                $cc_person_id = $row['id'];
-
-
-                                            }
+                                            ";
 
                                         }
 
