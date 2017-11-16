@@ -737,33 +737,6 @@
 
                         <div id='edit_email_div'>
 
-                            <div class='row container'>
-                                
-                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
-
-                                    <div class='alert alert-warning'>
-
-                                        <ol class="breadcrumb">
-                                    
-                                            <li class="breadcrumb-item">User Details</li>
-                                            <li class="breadcrumb-item">Home Details</li>
-                                            <li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
-                                            <li class='breadcrumb-item'>SMS Notifications</li>
-                                            <li class="breadcrumb-item">Agreements</li>
-                                            <li class='breadcrumb-item'>Documents</li>
-                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                            <li class="breadcrumb-item">Disclosures</li>
-
-                                        </ol>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                            <br>
-
                             <div class='row'>
 
                                 <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
