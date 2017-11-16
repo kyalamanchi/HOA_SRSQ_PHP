@@ -5,6 +5,6 @@
 	session_destroy();
 	session_regenerate_id(true);
 
-	header('Location: firstPage.php');
+	header('Location: https://hoaboardtime.com/AnnualReport');
 
 ?>

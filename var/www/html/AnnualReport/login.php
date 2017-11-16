@@ -23,6 +23,7 @@
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE member_id=$member_id"));
 	$_SESSION['hoa_alchemy_user_id'] = $row['id'];
+	$annual_disclosure_enabled = $row['annual_discl_enabled'];
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
 	$_SESSION['hoa_alchemy_community_name'] = $row['legal_name'];
@@ -31,6 +32,9 @@
 	$_SESSION['hoa_alchemy_community_id'] = $community_id;
 	$_SESSION['hoa_alchemy_username'] = $username;
 
-	header("Location: userPage1.php");
+	if($annual_disclosure_enabled == 't')
+		header("Location: userPage1.php");
+	else
+		alert("You do not have access for annual disclosure");
 
 ?>
