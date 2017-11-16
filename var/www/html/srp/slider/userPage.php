@@ -1857,8 +1857,8 @@
                                         while($row = pg_fetch_assoc($result))
                                         {
 
-                                            $cc_firstname = $row['fname'];
-                                            $cc_lastname = $row['lname'];
+                                            $cc_person_firstname = $row['fname'];
+                                            $cc_person_lastname = $row['lname'];
                                             $cc_person_id = $row['id'];
 
                                             echo "
