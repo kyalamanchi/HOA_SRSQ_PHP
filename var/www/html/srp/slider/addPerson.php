@@ -19,6 +19,8 @@
 	$year = date('Y');
 	$until = $year."-12-31";
 
+	$query = "INSERT INTO person(role_type_id, relationship_id, hoa_id, valid_from, valid_until, is_active, email, cell_no, fname, lname, community_id, home_id, updated_by, updated_on) VALUES($role, $relationship, $hoa_id, '$today', '$until', 't', '$email', $cell_no, '$firstname', '$lastname', $community_id, $home_id, $user_id, '$today')";
+
 	$result = pg_query("INSERT INTO person(role_type_id, relationship_id, hoa_id, valid_from, valid_until, is_active, email, cell_no, fname, lname, community_id, home_id, updated_by, updated_on) VALUES($role, $relationship, $hoa_id, '$today', '$until', 't', '$email', $cell_no, '$firstname', '$lastname', $community_id, $home_id, $user_id, '$today')");
 
 	if($result)
@@ -30,6 +32,6 @@
 
 	}
 	else
-		echo "Some error occured. Please try again.";
+		echo $query;#"Some error occured. Please try again.";
 
 ?>
