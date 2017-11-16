@@ -1878,7 +1878,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        Person Name : <strong style='color: black'>$cc_person_firstname $cc_person_lastname</strong>
+                                                        <strong>Person Name</strong> : $cc_person_firstname $cc_person_lastname
 
                                                     </div>
 
@@ -1892,7 +1892,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        <strong style='color: black;'>Event Name</strong> : Board Meeting
+                                                        <strong>Event Name</strong> : Board Meeting
 
                                                     </div>
 
@@ -2000,7 +2000,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None' selected> None
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None' checked> None
 
                                                         </div>
 
@@ -2016,7 +2016,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        <strong style='color: black;'>Event Name</strong> : Payment Received
+                                                        <strong>Event Name</strong> : Payment Received
 
                                                     </div>
 
@@ -2124,7 +2124,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None' selected> None
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None' checked> None
 
                                                         </div>
 
@@ -2140,7 +2140,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        <strong style='color: black;'>Event Name</strong> : Landscape Repair
+                                                        <strong>Event Name</strong> : Landscape Repair
 
                                                     </div>
 
@@ -2248,7 +2248,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='None' selected> None
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='None' checked> None
 
                                                         </div>
 
@@ -2372,7 +2372,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='None' selected> None
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='None' checked> None
 
                                                         </div>
 
@@ -2496,7 +2496,7 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='None' selected> None
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='None' checked> None
 
                                                         </div>
 
