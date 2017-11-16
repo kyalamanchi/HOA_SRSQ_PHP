@@ -624,6 +624,8 @@ $('form.ajax5').on('submit', function(){
 
 	});
 
+	alert('triggered');
+
 	$.ajax({
 
 		url: url,
