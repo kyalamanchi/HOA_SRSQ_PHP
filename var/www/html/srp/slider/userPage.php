@@ -1624,9 +1624,9 @@
 
                             <br>
 
-							<div class='row container'>
+							<div class='row container-fluid'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 									<hr class='small'>
 
@@ -1846,7 +1846,7 @@
 
                             <br>
 
-                            <div class='row container-fluid'>
+                            <div class='row container'>
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
@@ -1866,7 +1866,7 @@
 
                                                 echo "
 
-                                                <form id='$cc_person_id' class='row'>
+                                                <form id='$cc_person_id' method='POST'>
 
                                                     <div class='row'>
 
