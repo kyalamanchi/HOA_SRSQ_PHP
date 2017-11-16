@@ -631,7 +631,7 @@ $('form.ajax5').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			alert(data);
+			alert(data['add_person_firstname']);
 
 		}
 
