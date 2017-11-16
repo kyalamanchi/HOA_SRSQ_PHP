@@ -1474,6 +1474,8 @@
 
                                                                         <input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
+                                                                        <input type='hidden' name='home_id' id='home_id' value='<?php echo $home_id; ?>'>
+
                                                                         <input class='form-control' type='text' name='add_person_firstname' id='add_person_firstname' required>
 
                                                                     </div>
