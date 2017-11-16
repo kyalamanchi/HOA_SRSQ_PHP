@@ -3318,19 +3318,26 @@
 
                                                         </div>
 
-                                                        <br>
+                                                        <br>";
 
-                                                        <div class='row'>
+                                                        if($changed_this_year != ' - ')
+                                                            echo "
 
-                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                            <div class='row'>
 
-                                                                <strong>Changed this year :</strong> $changed_this_year
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Changed this year :</strong> $changed_this_year
+
+                                                                </div>
 
                                                             </div>
 
-                                                        </div>
+                                                            <br>
 
-                                                        <br>
+                                                            ";
+
+                                                        echo "
 
                                                         <div class='row'>
 
@@ -3342,19 +3349,26 @@
 
                                                         </div>
 
-                                                        <br>
+                                                        <br>";
 
-                                                        <div class='row'>
+                                                        if($document != ' - ')
+                                                            echo "
+                                                        
+                                                            <div class='row'>
 
-                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-                                                                <strong>Document :</strong> $document
+                                                                    <strong>Document :</strong> $document
+
+                                                                </div>
 
                                                             </div>
 
-                                                        </div>
+                                                            <br>
 
-                                                        <br>
+                                                            ";
+
+                                                    echo "
 
                                                     </div>
 
