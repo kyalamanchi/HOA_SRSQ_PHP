@@ -1462,7 +1462,7 @@
 
                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                            <form id='$person_id' method='POST' class='ajax5' action='addPerson.php'>
+                                                            <form method='POST' class='ajax5' action='addPerson.php'>
 
                                                                 <div class='row container'>
 

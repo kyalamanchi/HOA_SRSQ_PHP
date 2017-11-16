@@ -557,7 +557,7 @@ $('form.ajax4').on('submit', function(){
 		success:function(response){
 
 			alert("Updated");$('#edit_person_lastname_'+person_id).val(person_lastname);
-			
+
 			$('#person_'+person_id+'_lastname').html(person_lastname);
 
 			$('#edit_person_firstname_'+person_id).val(person_firstname);
@@ -598,6 +598,40 @@ $('form.ajax4').on('submit', function(){
 				}
 
 			});
+
+		}
+
+	});
+
+	return false;
+	
+});
+
+$('form.ajax5').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	data = {};
+
+	obj.find('[name]').each(function(index, value){
+
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
+
+		data[index] = value;
+
+	});
+
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			alert(data);
 
 		}
 
