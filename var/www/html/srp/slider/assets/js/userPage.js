@@ -614,6 +614,8 @@ $('form.ajax5').on('submit', function(){
 	method = obj.attr('method'),
 	data = {};
 
+	var ro, re;
+
 	obj.find('[name]').each(function(index, value){
 
 		var input = $(this),
@@ -624,7 +626,7 @@ $('form.ajax5').on('submit', function(){
 
 	});
 
-	alert('triggered');
+	alert('Adding Person. Please Wait.');
 
 	$.ajax({
 
@@ -638,7 +640,33 @@ $('form.ajax5').on('submit', function(){
 			else
 			{
 
-				$('#person_table').append('<tr><td name="person_'+response+'_firstname" id="person_'+response+'_firstname">'+data['add_person_firstname']+'</td><td name="person_'+response+'_lastname" id="person_'+response+'_lastname">'+data['add_person_lastname']+'</td><td name="person_'+response+'_email" id="person_'+response+'_email">'+data['add_person_email']+'</td><td name="person_'+response+'_cell_no" id="person_'+response+'_cell_no">'+data['add_person_cell_no']+'</td><td name="person_'+response+'_role" id="person_'+response+'_role">'+data['add_person_role']+'</td><td name="person_'+response+'_relationship" id="person_'+response+'_relationship">'+data['add_person_relationship']+'</td></tr>');
+				$.ajax({
+
+					url: 'resetRole.php',
+					method: 'POST',
+					data: {roleId: person_role},
+					success: function(response1){
+
+						ro = response1;
+
+					}
+
+				});
+
+				$.ajax({
+
+					url: 'resetRelationship.php',
+					method: 'POST',
+					data: {relationshipId: person_relationship},
+					success: function(response1){
+
+						re = response1;
+
+					}
+
+				});
+
+				$('#person_table').append('<tr><td name="person_'+response+'_firstname" id="person_'+response+'_firstname">'+data['add_person_firstname']+'</td><td name="person_'+response+'_lastname" id="person_'+response+'_lastname">'+data['add_person_lastname']+'</td><td name="person_'+response+'_email" id="person_'+response+'_email">'+data['add_person_email']+'</td><td name="person_'+response+'_cell_no" id="person_'+response+'_cell_no">'+data['add_person_cell_no']+'</td><td name="person_'+response+'_role" id="person_'+response+'_role">'+ro+'</td><td name="person_'+response+'_relationship" id="person_'+response+'_relationship">'+re+'</td></tr>');
 
 				alert("Person added.");
 

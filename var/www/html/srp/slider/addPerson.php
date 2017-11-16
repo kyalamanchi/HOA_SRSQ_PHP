@@ -26,9 +26,9 @@
 	if($result)
 	{
 
-			$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND email='$email' AND cell_no=$cell_no AND fname='$firstname' AND lname='$lastname'"));
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND email='$email' AND cell_no=$cell_no AND fname='$firstname' AND lname='$lastname'"));
 
-			echo $row['id'];
+		echo $row['id'];
 
 	}
 	else
