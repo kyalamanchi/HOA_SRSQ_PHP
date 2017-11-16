@@ -202,4 +202,6 @@
 
 	}
 
+	header("Location: userPage4.php");
+
 ?>
