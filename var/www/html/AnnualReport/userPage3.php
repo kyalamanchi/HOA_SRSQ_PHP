@@ -306,30 +306,35 @@
 
 						<div id='user_details_div'>
 
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+                            <!-- Page Header -->
+                            <section class='module-page-title'>
+                                
+                                <div class='container'>
+                                        
+                                    <div class='row-page-title'>
+                                        
+                                        <div class='page-title-captions'>
+                                            
+                                            <ol class="breadcrumb">
+                                    
+                                                <li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
+                                                <li class="breadcrumb-item">Home Details</li>
+                                                <li class="breadcrumb-item">Email &amp; Persons</li>
+                                                <li class='breadcrumb-item'>SMS Notifications</li>
+                                                <li class="breadcrumb-item">Agreements</li>
+                                                <li class='breadcrumb-item'>Documents</li>
+                                                <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                                <li class="breadcrumb-item">Disclosures</li>
 
-									<div class='alert alert-warning'>
-
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Email &amp; Persons</li>
-                                            <li class='breadcrumb-item'>SMS Notifications</li>
-                                            <li class="breadcrumb-item">Agreements</li>
-											<li class='breadcrumb-item'>Documents</li>
-                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item">Disclosures</li>
-
-										</ol>
-
-									</div>
-
-								</div>
-
-							</div>
+                                            </ol>
+                                        
+                                        </div>
+                                    
+                                    </div>
+                                    
+                                </div>
+                            
+                            </section>
 
 							<br>
 
@@ -4489,238 +4494,9 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/userPage.js'></script>
+		<script src='assets/js/userPage1.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-		<!-- Datatable -->
-		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
-		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
-
-		<script>
-      	
-	      	$(function () {
-	        	
-	        	$("#pendingAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
-
-	      	});
-
-    	</script>
-
-    	<script>
-        
-            $(function () {
-                
-                $("#signedAgreements").DataTable({ "paging":   false, "pageLength": 500, "info": false, "order": [[0, 'desc']] });
-
-            });
-
-        </script>
-
-        <script>
-        
-            $(function () {
-                
-                $("#myDocuments").DataTable({ "pageLength": 50, "info": false, "order": [[0, 'desc']] });
-
-            });
-
-        </script>
-
-    	<!-- My Chart 1 -->
-    	<script type="text/javascript">
-      
-      		var ctx = document.getElementById('myChart1').getContext('2d');
-      		var myBarChart = new Chart(ctx, {
-        
-	        	type: 'horizontalBar',
-	        	data: {
-
-	          		datasets: [{
-
-	            		data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?>, <?php echo $jul_members_paid; ?>, <?php echo $aug_members_paid; ?>, <?php echo $sep_members_paid; ?>, <?php echo $oct_members_paid; ?>, <?php echo $nov_members_paid; ?>, <?php echo $dec_members_paid; ?> ],
-	            		backgroundColor: [ "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)" ],
-	            		borderColor: [ "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)" ],
-	            		borderWidth: 1
-
-	          		}],
-
-	          		labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-
-	        	},
-
-	        	options: {
-
-	          		scales: {
-	            
-	            		xAxes: [{
-	              
-	              			ticks: {
-	                
-	                			beginAtZero:true
-
-	              			}
-	            
-	            		}]
-	          
-	          		},
-
-		          	legend: {
-
-		            	display: false
-
-		          	},
-	          
-	          		title: {
-
-	            		display: true,
-	            		fontSize: 15,
-	            		fontStyle: 'bold',
-	            		text: 'Members Paid'
-
-	          		}
-
-	        	}
-	      
-	      	});
-
-    	</script>
-
-    	<!-- My Chart 2 -->
-    	<script type="text/javascript">
-      
-      		var ctx = document.getElementById('myChart2').getContext('2d');
-      		var mixedChart = new Chart(ctx, {
-        
-        		type: 'bar',
-        
-        		data: {
-          
-          			datasets: [{
-            
-            			label: 'Amount Received',
-            			backgroundColor: [ "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)" ],
-            			borderColor: [ "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)" ],
-            			borderWidth: 1,
-            			data: [ <?php echo $jan_amount_received; ?>, <?php echo $feb_amount_received; ?>, <?php echo $mar_amount_received; ?>, <?php echo $apr_amount_received; ?>, <?php echo $may_amount_received; ?>, <?php echo $jun_amount_received; ?>, <?php echo $jul_amount_received; ?>, <?php echo $aug_amount_received; ?>, <?php echo $sep_amount_received; ?>, <?php echo $oct_amount_received; ?>, <?php echo $nov_amount_received; ?>, <?php echo $dec_amount_received; ?> ]
-
-          			}, 
-          			{
-            
-            			label: 'Amount Needed',
-            			pointRadius: 3,
-            			borderColor: "rgba(255,99,132,1)",
-            			pointBackgroundColor: "rgba(255,99,132,1)",
-            			pointBorderColor: "rgb(255, 99, 132)",
-            			data: [ <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?> ],
-
-            			type: 'line'
-
-          			}],
-
-          			labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-
-        		},
-
-        		options: {
-
-          			scales: {
-            
-            			yAxes: [{
-              
-              				ticks: {
-                
-                				beginAtZero:true
-
-              				}
-            
-            			}]
-          
-          			},
-
-          			legend: {
-
-            			display: false
-
-          			},
-          
-          			title: {
-
-            			display: true,
-            			fontSize: 15,
-            			fontStyle: 'bold',
-            			text: 'Amount Received ($)'
-
-          			}
-
-        		}
-
-      		});
-
-    	</script>
-
-    	<!-- My Chart 3 -->
-    	<script type="text/javascript">
-      
-      		var ctx = document.getElementById('myChart3').getContext('2d');
-      		var myBarChart = new Chart(ctx, {
-        
-        		type: 'line',
-        		data: {
-
-          			datasets: [{
-
-            			data: [ <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-16' AND process_date<='$year-01-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-16' AND process_date<='$year-02-$feb_days'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-16' AND process_date<='$year-03-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-16' AND process_date<='$year-04-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-16' AND process_date<='$year-05-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-16' AND process_date<='$year-06-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-16' AND process_date<='$year-07-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-16' AND process_date<='$year-08-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-16' AND process_date<='$year-09-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-16' AND process_date<='$year-10-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-16' AND process_date<='$year-11-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-16' AND process_date<='$year-12-31'")); ?> ],
-            			pointBackgroundColor: "rgba(255,99,132,1)",
-            			pointBorderColor: "rgb(255, 99, 132)",
-            			borderWidth: 6,
-            			pointStyle: "rectRot",
-            			showLine: false
-
-          			}],
-
-          			labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-
-        		},
-
-        		options: {
-
-          			scales: {
-            
-            			xAxes: [{
-              
-              				ticks: {
-                
-               					beginAtZero:true
-
-              				}
-            
-            			}]
-          
-          			},
-
-          			legend: {
-
-            			display: false
-
-          			},
-          
-          			title: {
-
-            			display: true,
-            			fontSize: 15,
-            			fontStyle: 'bold',
-            			text: 'Late Payments'
-
-          			}
-
-        		}
-      
-      		});
-
-    	</script>
-
-		<!-- Color Switcher (Remove these lines)-->
-		<!--script src='assets/js/style-switcher.min.js'></script-->
 	</body>
 
 </html>
