@@ -221,7 +221,7 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                    <form method='POST' action='updateCommunityComms.php' class='ajax7' style='color: black;'>
+                                    <form method='POST' action='updateCommunityComms.php' style='color: black;'>
 
                                         <?php
 
