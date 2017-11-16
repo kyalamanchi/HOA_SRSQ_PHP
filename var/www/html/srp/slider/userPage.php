@@ -302,7 +302,7 @@
 				<!-- Content -->
 				<section class='module'>
 						
-					<div class='container'>
+					<div class='container-fluid'>
 
 						<div id='user_details_div'>
 
