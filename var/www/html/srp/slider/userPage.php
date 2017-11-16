@@ -1918,6 +1918,19 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
                                                             <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
@@ -1926,19 +1939,6 @@
                                                             echo "
 
                                                             > Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > Phone Only
 
                                                         </div>
 
@@ -1982,13 +1982,13 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'> Email Only
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'> Phone Only
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'> Email Only
 
                                                         </div>
 
@@ -2042,6 +2042,19 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
                                                             <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
@@ -2050,19 +2063,6 @@
                                                             echo "
 
                                                             > Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > Phone Only
 
                                                         </div>
 
@@ -2106,13 +2106,13 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'> Email Only
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'> Phone Only
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'> Email Only
 
                                                         </div>
 
@@ -2166,6 +2166,19 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
                                                             <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
@@ -2174,19 +2187,6 @@
                                                             echo "
 
                                                             > Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Phone'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > Phone Only
 
                                                         </div>
 
@@ -2230,13 +2230,13 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Email'> Email Only
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Phone'> Phone Only
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Email'> Email Only
 
                                                         </div>
 
@@ -2290,6 +2290,19 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
                                                             <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
@@ -2298,19 +2311,6 @@
                                                             echo "
 
                                                             > Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Phone'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > Phone Only
 
                                                         </div>
 
@@ -2354,13 +2354,13 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Email'> Email Only
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Phone'> Phone Only
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Email'> Email Only
 
                                                         </div>
 
@@ -2414,6 +2414,19 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
                                                             <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Email'";
 
                                                             if($cc_email == 't' && $cc_phone == 'f')
@@ -2422,19 +2435,6 @@
                                                             echo "
 
                                                             > Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Phone'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > Phone Only
 
                                                         </div>
 
@@ -2478,13 +2478,13 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Email'> Email Only
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Phone'> Phone Only
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Email'> Email Only
 
                                                         </div>
 
