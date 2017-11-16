@@ -94,7 +94,7 @@ $('#home_edit_back').click(function(){
 
 $('#home_information_radio_yes').change(function() {
 
-	if (document.getElementById('user_information_radio_yes').checked) {
+	if (document.getElementById('home_information_radio_yes').checked) {
 
 		$('#home_details_continue').show();
 
