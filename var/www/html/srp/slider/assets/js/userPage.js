@@ -11,7 +11,9 @@ $(document).ready(function(){
 	$('#email_div').hide();
 	$('#email_continue').hide();
 	$('#edit_email_div').hide();
+	$('#notifications_div').hide();
 	$('#agreements_div').hide();
+	$('#documents_div').hide();
 	$('#hoa_fact_sheet_div').hide();
 	$('#disclosure1_div').hide();
 	$('#disclosure2_div').hide();
@@ -557,7 +559,7 @@ $('form.ajax4').on('submit', function(){
 		success:function(response){
 
 			alert("Updated");$('#edit_person_lastname_'+person_id).val(person_lastname);
-			
+
 			$('#person_'+person_id+'_lastname').html(person_lastname);
 
 			$('#edit_person_firstname_'+person_id).val(person_firstname);
@@ -607,9 +609,96 @@ $('form.ajax4').on('submit', function(){
 	
 });
 
+$('form.ajax5').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	data = {};
+
+	var ro = '', re = '';
+
+	obj.find('[name]').each(function(index, value){
+
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
+
+		data[index] = value;
+
+	});
+
+	alert('Adding Person. Please Wait.');
+
+	$.ajax({
+
+		url: 'resetRole.php',
+		method: 'POST',
+		data: {roleId: data['add_person_role']},
+		success: function(response1){
+
+			ro = response1;
+
+		}
+
+	});
+
+	$.ajax({
+
+		url: 'resetRelationship.php',
+		method: 'POST',
+		data: {relationshipId: data['add_person_relationship']},
+		success: function(response1){
+
+			re = response1;
+
+		}
+
+	});
+
+	$.ajax({
+
+		url: url,
+		type: method,
+		data: data,
+		success: function(response){
+
+			if(response == 'Some error occured. Please try again.')
+				alert(response);
+			else
+			{
+
+				alert("Person added.");
+
+				$('#person_table').append('<tr><td name="person_'+response+'_firstname" id="person_'+response+'_firstname">'+data['add_person_firstname']+'</td><td name="person_'+response+'_lastname" id="person_'+response+'_lastname">'+data['add_person_lastname']+'</td><td name="person_'+response+'_email" id="person_'+response+'_email">'+data['add_person_email']+'</td><td name="person_'+response+'_cell_no" id="person_'+response+'_cell_no">'+data['add_person_cell_no']+'</td><td name="person_'+response+'_role" id="person_'+response+'_role">'+ro+'</td><td name="person_'+response+'_relationship" id="person_'+response+'_relationship">'+re+'</td><td></td><td></td></tr>');
+
+			}
+
+		}
+
+	});
+
+	return false;
+	
+});
+
 $('#email_continue').click(function(){
 
 	$('#email_div').hide();
+	$('#notifications_div').show();
+
+});
+
+$('#notifications_back').click(function(){
+
+	$('#notifications_div').hide();
+	$('#email_div').show();
+
+});
+
+$('#notifications_continue').click(function(){
+
+	$('#notifications_div').hide();
 	$('#agreements_div').show();
 
 });
@@ -617,20 +706,34 @@ $('#email_continue').click(function(){
 $('#agreements_back').click(function(){
 
 	$('#agreements_div').hide();
-	$('#email_div').show();
+	$('#notifications_div').show();
 
 });
 
 $('#agreements_continue').click(function(){
 
 	$('#agreements_div').hide();
+	$('#documents_div').show();
+
+});
+
+$('#documents_back').click(function(){
+
+	$('#documents_div').hide();
+	$('#agreements_div').show();
+
+});
+
+$('#documents_continue').click(function(){
+
+	$('#documents_div').hide();
 	$('#hoa_fact_sheet_div').show();
 
 });
 
 $('#hoa_fact_sheet_back').click(function(){
 
-	$('#agreements_div').show();
+	$('#documents_div').show();
 	$('#hoa_fact_sheet_div').hide();
 
 });

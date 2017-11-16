@@ -306,8 +306,6 @@
 
 						<div id='user_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -318,9 +316,11 @@
 									
 											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -333,7 +333,7 @@
 
 							<br>
 
-							<div class='row'>
+							<div class='row container-fluid'>
 
 								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
@@ -452,8 +452,6 @@
 
 						<div id='edit_user_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -464,8 +462,10 @@
 									
 											<li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">Agreements</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
@@ -561,8 +561,6 @@
 
 						<div id='home_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -573,8 +571,10 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">Agreements</li>
 											<li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
@@ -830,8 +830,6 @@
 
 						<div id='edit_home_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -842,9 +840,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1090,8 +1090,6 @@
 
 						<div id='email_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -1102,9 +1100,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1176,7 +1176,7 @@
 
                             <br>
 
-                            <div class='row'>
+                            <div class='row container-fluid'>
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
@@ -1199,7 +1199,7 @@
 
                                             <?php
 
-                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY fname");
 
                                                 while($row = pg_fetch_assoc($result))
                                                 {
@@ -1284,7 +1284,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_email_".$person_id."' id='edit_person_email_".$person_id."' value='".$person_email."' required>
+                                                                                            <input class='form-control' type='email' name='edit_person_email_".$person_id."' id='edit_person_email_".$person_id."' value='".$person_email."' required>
 
                                                                                         </div>
 
@@ -1294,7 +1294,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_".$person_id."' id='edit_person_cell_no_".$person_id."' value='".$person_cell_no."' required>
+                                                                                            <input class='form-control' type='number' name='edit_person_cell_no_".$person_id."' id='edit_person_cell_no_".$person_id."' value='".$person_cell_no."' required>
 
                                                                                         </div>
 
@@ -1443,9 +1443,178 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                                    <div class='modal fade' id='add_person'>
+
+                                        <div class='modal-dialog modal-lg'>
+
+                                            <div class='modal-content'>
+
+                                                <div class='modal-header'>
+
+                                                    <h4 class='h4'>Add Person</h4>
+                                                    <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+                                                </div>
+
+                                                <div class='modal-body'>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            <form method='POST' class='ajax5' action='addPerson.php'>
+
+                                                                <div class='row container'>
+
+                                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                        <label><strong>Firstname</strong></label>
+
+                                                                        <br>
+
+                                                                        <input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+
+                                                                        <input type='hidden' name='home_id' id='home_id' value='<?php echo $home_id; ?>'>
+
+                                                                        <input class='form-control' type='text' name='add_person_firstname' id='add_person_firstname' required>
+
+                                                                    </div>
+
+                                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                        <label><strong>Lastname</strong></label>
+
+                                                                        <br>
+
+                                                                        <input class='form-control' type='text' name='add_person_lastname' id='add_person_lastname' required>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <br>
+
+                                                                <div class='row container'>
+
+                                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                        <label><strong>Email</strong></label>
+
+                                                                        <br>
+
+                                                                        <input class='form-control' type='email' name='add_person_email' id='add_person_email' required>
+
+                                                                    </div>
+
+                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                            <label><strong>Phone</strong></label>
+
+                                                                            <br>
+
+                                                                            <input class='form-control' type='number' name='add_person_cell_no' id='add_person_cell_no' required>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <br>
+
+                                                                    <div class='row container'>
+
+                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                            <label><strong>Role</strong></label>
+
+                                                                            <br>
+
+                                                                            <select class='form-control' name='add_person_role' id='add_person_role' required>
+
+                                                                                <option value='' disabled selected>Select Role</option>
+
+                                                                                <?php
+
+                                                                                    $res = pg_query("SELECT * FROM role_type");
+
+                                                                                    while($r = pg_fetch_assoc($res))
+                                                                                    {
+
+                                                                                        $role_id = $r['role_type_id'];
+                                                                                        $role_name = $r['name'];
+
+                                                                                        echo "<option value='$role_id'>$role_name</option>";
+
+                                                                                    }
+
+                                                                                ?>
+
+                                                                            </select>
+
+                                                                        </div>
+
+                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                            <label><strong>Relationship</strong></label>
+
+                                                                            <br>
+
+                                                                            <select class='form-control' name='add_person_relationship' id='add_person_relationship' required>
+
+                                                                                <option value='' disabled selected>Select Relationship</option>
+
+                                                                                <?php
+
+                                                                                    $res = pg_query("SELECT * FROM relationship");
+
+                                                                                    while($r = pg_fetch_assoc($res))
+                                                                                    {
+
+                                                                                        $relationship_id = $r['id'];
+                                                                                        $relationship_name = $r['name'];
+
+                                                                                        echo "<option value='$relationship_id'>$relationship_name</option>";
+
+                                                                                    }
+
+                                                                                ?>
+
+                                                                            </select>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <br>
+
+                                                                    <div class='row'>
+
+                                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
+
+                                                                            <button type='button' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
+
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </form>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
                                     <center>
 
-                                        <button class='btn btn-info btn-xs'><i class='fa fa-plus'></i> Add Person</button>
+                                        <button class='btn btn-info btn-xs' type='button' data-toggle='modal' data-target='#add_person'><i class='fa fa-plus'></i> Add Person</button>
 
                                     </center>
 
@@ -1455,9 +1624,9 @@
 
                             <br>
 
-							<div class='row'>
+							<div class='row container-fluid'>
 
-								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 									<hr class='small'>
 
@@ -1487,8 +1656,6 @@
 
                         <div id='edit_email_div'>
 
-                            <br>
-
                             <div class='row container'>
                                 
                                 <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -1498,9 +1665,11 @@
                                         <ol class="breadcrumb">
                                     
                                             <li class="breadcrumb-item">User Details</li>
-                                            <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-                                            <li class="breadcrumb-item">Primary Email</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
                                             <li class="breadcrumb-item">Agreements</li>
+                                            <li class='breadcrumb-item'>Documents</li>
                                             <li class="breadcrumb-item">HOA Fact Sheet</li>
                                             <li class="breadcrumb-item">Disclosures</li>
 
@@ -1566,9 +1735,630 @@
 
                         </div>
 
-						<div id='agreements_div'>
+                        <div id='notifications_div'>
 
-							<br>
+                            <div class='row container'>
+                                
+                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+
+                                    <div class='alert alert-warning'>
+
+                                        <ol class="breadcrumb">
+                                    
+                                            <li class="breadcrumb-item">User Details</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'><strong style='color: black;'>SMS Notifications</strong></li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                            <li class="breadcrumb-item">Disclosures</li>
+
+                                        </ol>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3>SMS Notifications</h3></center>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row container-fluid'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    <table class='table table-striped' style="color: black;">
+
+                                        <thead>
+                                            
+                                            <th>Person Name</th>
+                                            <th>Event</th>
+                                            <th>Phone Notification</th>
+                                            <th>Email Notification</th>
+                                            <th>Create Date</th>
+
+                                        </thead>
+
+                                        <tbody>
+                                            
+                                            <?php
+
+                                                $result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id");
+
+                                                while ($row = pg_fetch_assoc($result)) 
+                                                {
+
+                                                    $person_id = $row['person_id'];
+                                                    $event_type_id = $row['event_type_id'];
+                                                    $create_date = $row['create_date'];
+                                                    $phone = $row['phone'];
+                                                    $email = $row['email'];
+
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$person_id"));
+                                                    $pname = $row1['fname'];
+                                                    $pname .= " ";
+                                                    $pname .= $row1['lname'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM event_type WHERE event_type_id=$event_type_id"));
+                                                    $event_type_name = $row1['event_type_name'];
+                                                    $event_header = $row1['header'];
+
+                                                    if($phone == 't')
+                                                        $phone = 'Enabled';
+                                                    else
+                                                        $phone = 'Disabled';
+
+                                                    if($email == 't')
+                                                        $email = 'Enabled';
+                                                    else
+                                                        $email = 'Disabled';
+
+                                                    if($create_date != '')
+                                                        $create_date = date('m-d-Y', strtotime($create_date));
+
+                                                    echo "<tr><td>$pname</td><td>$event_header - $event_type_name</td><td>$phone</td><td>$email</td><td>$create_date</td></tr>";
+
+                                                }
+
+                                            ?>
+
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row container'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <form method='POST'>
+
+                                        <?php
+
+                                            $i = 0;
+                                            $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+
+                                            $total_persons = pg_num_rows($result);
+
+                                            echo "<input type='hidden' name='total_persons' id='total_persons' value='$total_persons'>";
+
+                                            while($row = pg_fetch_assoc($result))
+                                            {
+
+                                                $i++;
+
+                                                $cc_person_id = $row['person_id'];
+                                                $cc_person_firstname = $row['fname'];
+                                                $cc_person_lastname = $row['lname'];
+
+                                                echo "<input type='hidden' name='$i_person_id' id='$i_person_id' value='$cc_person_id'>";
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Person Name : $cc_person_firstname $cc_person_lastname
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : Board Meeting
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=1");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_board_meeting' id='$i_board_meeting' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : Payment Received
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=4");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " selected";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_payment_received' id='$i_payment_received' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                            }
+
+                                        ?>
+
+                                    </form>
+
+                                    <?php
+
+                                        $i = 0;
+
+                                        $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY fname");
+
+                                        while($row = pg_fetch_assoc($result))
+                                        {
+
+                                            $cc_firstname = $row['fname'];
+                                            $cc_lastname = $row['lname'];
+                                            $cc_person_id = $row['id'];
+
+                                            echo "
+
+                                                <form id='$cc_person_id' method='POST'>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            Person : <strong style='color: black;'>$cc_firstname $cc_lastname</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            Event : <strong style='color: black;'>Board Meeting</board>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_both' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='notification_type' id='notification_type_none' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <br>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            For Events : 
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='1'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='1' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Board Meeting</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='4'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='4' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Payment Received</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='8'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='8' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Landscape Repair</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='9'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='9' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Landscape Maintenance</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
+
+                                                            <input type='checkbox' name='notification_event' value='14'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='14' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Late Payment Posted</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <br>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            <center>
+
+                                                                <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-tick'></i> Update</button>
+
+                                                            </center>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <br><br>
+
+                                                </form>
+
+                                            ";
+
+                                        }
+
+                                    ?>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <hr class='small'>
+
+                                    <div class='row'>
+                                        
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+                                            <button class='btn btn-warning btn-xs' type='button' id='notifications_back' name='notifications_back'><i class='fa fa-arrow-left'></i> Back</button>
+
+                                        </div>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+                                            <button class='btn btn-xs btn-success' name='notifications_continue' id='notifications_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+
+						<div id='agreements_div'>
 
 							<div class='row container'>
 								
@@ -1580,9 +2370,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Agreements</strong></li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -1724,9 +2516,123 @@
 
 						</div>
 
-						<div id='hoa_fact_sheet_div'>
+                        <div id='documents_div'>
 
-							<br>
+                            <div class='row container'>
+                                
+                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+
+                                    <div class='alert alert-warning'>
+
+                                        <ol class="breadcrumb">
+                                    
+                                            <li class="breadcrumb-item">User Details</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Documents</strong></li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                            <li class="breadcrumb-item">Disclosures</li>
+
+                                        </ol>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3>Documents</h3></center>
+
+                                </div>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    <table id='myDocuments' class='table table-striped' style='color: black;'>
+
+                                        <thead>
+                                            
+                                            <th>Name</th>
+                                            <th>Date of Upload</th>
+                                            <th>Year</th>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php 
+
+                                                $result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'");
+
+                                                while($row = pg_fetch_assoc($result))
+                                                {
+
+                                                    $document_id = $row['document_id'];
+                                                    $year = $row['year_of_upload'];
+                                                    $upload_date = $row['uploaded_date'];
+                                                    $description = $row['description'];
+                                                    $document_url = $row['url'];
+
+                                                    if($upload_date != "")
+                                                        $upload_date = date('m-d-Y', strtotime($upload_date));
+
+                                                    $is_visible = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE document_id=$document_id AND (user_id=$user_id OR hoa_id=$hoa_id)"));
+
+                                                    if($is_visible)
+                                                        echo "<tr><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$description</a></td><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$upload_date</a></td><td>$year</td></tr>";
+
+                                                }
+
+                                            ?>
+                                            
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <hr class='small'>
+
+                                    <div class='row'>
+                                        
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+                                            <button class='btn btn-warning btn-xs' type='button' id='documents_back' name='documents_back'><i class='fa fa-arrow-left'></i> Back</button>
+
+                                        </div>
+
+                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+                                            <button class='btn btn-xs btn-success' name='documents_continue' id='documents_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <br>
+
+                        </div>
+
+						<div id='hoa_fact_sheet_div'>
 
 							<div class='row container'>
 								
@@ -1738,9 +2644,11 @@
 									
 											<li class="breadcrumb-item">User Details</li>
 											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
+											<li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+											<li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
 											<li class="breadcrumb-item">Disclosures</li>
 
 										</ol>
@@ -2839,1148 +3747,203 @@
 
 						<div id='disclosure1_div'>
 
-							<br>
+                            <div class='row container'>
+                                
+                                <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
 
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+                                    <div class='alert alert-warning'>
 
-									<div class='alert alert-warning'>
+                                        <ol class="breadcrumb">
+                                    
+                                            <li class="breadcrumb-item">User Details</li>
+                                            <li class="breadcrumb-item">Home Details</li>
+                                            <li class="breadcrumb-item">Email &amp; Persons</li>
+                                            <li class='breadcrumb-item'>SMS Notifications</li>
+                                            <li class="breadcrumb-item">Agreements</li>
+                                            <li class='breadcrumb-item'>Documents</li>
+                                            <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                            <li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
 
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+                                        </ol>
 
-										</ol>
+                                    </div>
 
-									</div>
+                                </div>
 
-								</div>
+                            </div>
 
-							</div>
+                            <br>
 
-							<br>
+                            <div class='row'>
 
-							<div class='row'>
+                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+                                    <?php
 
-									<div class='container module-gray' style="color: black;">
+                                        $result = pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id");
 
-										<?php
+                                        while($row = pg_fetch_assoc($result))
+                                        {
 
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=13"));
+                                            $notes = $row['notes'];
+                                            $document_id = $row['document_id'];
+                                            $changed_this_year = $row['changed_this_year'];
+                                            $type_id = $row['type_id'];
 
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
+                                            $row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$type_id"));
+                                            $disclosure_name = $row['name'];
+                                            $desc = $row['desc'];
+                                            $civilcode_section = $row['civilcode_section'];
+                                            $legal_url = $row['legal_url'];
 
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=13"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
+                                            $dname = $disclosure_name;
 
-											$dname = $disclosure_name;
+                                            if($civilcode_section != "")
+                                                $disclosure_name = $disclosure_name." (".$civilcode_section.")";
 
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
+                                            if($legal_url != '')
+                                                $disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
 
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
+                                            if($desc == "")
+                                                $desc = " - ";
 
-											if($desc == "")
-												$desc = " - ";
+                                            if($notes == "")
+                                                $notes = " - ";
 
-											if($notes == "")
-												$notes = " - ";
+                                            if($changed_this_year == 't') 
+                                                $changed_this_year = "Yes"; 
+                                            else if($changed_this_year == 'f') 
+                                                $changed_this_year = "No"; 
+                                            else 
+                                                $changed_this_year = " - ";
 
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
+                                            if($document_id == "")
+                                                $document = " - ";
+                                            else
+                                                $document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
 
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
+                                            echo "
 
-										?>
+                                            <div class='row'>
 
-										<br>
+                                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-										<div class='row'>
+                                                    <div class='container module-gray' style='color: black;'>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                        <br>
 
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
+                                                        <div class='row'>
 
-											</div>
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-										</div>
+                                                                <strong>Disclosure Name :</strong> $disclosure_name
 
-										<br>
+                                                            </div>
 
-										<div class='row'>
+                                                        </div>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                        <br>";
 
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
+                                                        if($changed_this_year != ' - ')
+                                                            echo "
 
-											</div>
+                                                            <div class='row'>
 
-										</div>
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-										<br>
+                                                                    <strong>Changed this year :</strong> $changed_this_year
 
-										<div class='row'>
+                                                                </div>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                            </div>
 
-												<strong>Board Comments </strong> <?php echo $notes; ?>
+                                                            <br>
 
-											</div>
+                                                            ";
 
-										</div>
+                                                        if($notes != ' - ')
+                                                            echo "
 
-										<br>
+                                                            <div class='row'>
 
-										<div class='row'>
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                                    <strong>Board Comments </strong> $notes
 
-												<strong>Document :</strong> <?php echo $document; ?>
+                                                                </div>
 
-											</div>
+                                                            </div>
 
-										</div>
+                                                            <br>";
 
-										<br>
+                                                        if($document != ' - ')
+                                                            echo "
 
-									</div>
+                                                            <div class='row'>
 
-									<br>
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-									<div class='row'>
+                                                                    <strong>Document :</strong> $document
 
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
+                                                                </div>
 
-											<hr class='small'>
+                                                            </div>
 
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+                                                            <br>
 
-													<button id='disclosure1_back' name='disclosure1_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+                                                            ";
 
-												</div>
+                                                    echo "
 
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+                                                    </div>
 
-													<button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+                                                    <br><br>
 
-												</div>
+                                                </div>
 
-											</div>
+                                            </div>
 
-										</div>
+                                            ";
 
-									</div>
+                                        }
 
-								</div>
+                                    ?>
 
-							</div>
+                                    <br>
 
-						</div>
+                                    <div class='row'>
 
-						<div id='disclosure2_div'>
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
 
-							<br>
+                                            <hr class='small'>
 
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
+                                            <div class='row'>
+                                        
+                                                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-									<div class='alert alert-warning'>
+                                                    <button id='disclosure1_back' name='disclosure1_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+                                                </div>
 
-										</ol>
+                                                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-									</div>
+                                                    <!--button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button-->
 
-								</div>
+                                                </div>
 
-							</div>
+                                            </div>
 
-							<br>
+                                        </div>
 
-							<div class='row'>
+                                    </div>
 
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+                                </div>
 
-									<div class='container module-gray' style="color: black;">
+                            </div>
 
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=10"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=10"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											$dname = $disclosure_name;
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-											<hr class='small'>
-
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-													<button id='disclosure2_back' name='disclosure2_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-													<button id='disclosure2_continue' name='disclosure2_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id='disclosure3_div'>
-
-							<br>
-
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
-
-									<div class='alert alert-warning'>
-
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
-
-										</ol>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<br>
-
-							<div class='row'>
-
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-
-									<div class='container module-gray' style="color: black;">
-
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=6"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=6"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											$dname = $disclosure_name;
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-											<hr class='small'>
-
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-													<button id='disclosure3_back' name='disclosure3_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-													<button id='disclosure3_continue' name='disclosure3_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id='disclosure4_div'>
-
-							<br>
-
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
-
-									<div class='alert alert-warning'>
-
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
-
-										</ol>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<br>
-
-							<div class='row'>
-
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-
-									<div class='container module-gray' style="color: black;">
-
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=9"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=9"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											$dname = $disclosure_name;
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-											<hr class='small'>
-
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-													<button id='disclosure4_back' name='disclosure4_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-													<button id='disclosure4_continue' name='disclosure4_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id='disclosure5_div'>
-
-							<br>
-
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
-
-									<div class='alert alert-warning'>
-
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
-
-										</ol>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<br>
-
-							<div class='row'>
-
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-
-									<div class='container module-gray' style="color: black;">
-
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=8"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=8"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											$dname = $disclosure_name;
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-											<hr class='small'>
-
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-													<button id='disclosure5_back' name='disclosure5_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-													<button id='disclosure5_continue' name='disclosure5_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id='disclosure6_div'>
-
-							<br>
-
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
-
-									<div class='alert alert-warning'>
-
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
-
-										</ol>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<br>
-
-							<div class='row'>
-
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-
-									<div class='container module-gray' style="color: black;">
-
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=7"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=7"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											$dname = $disclosure_name;
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-											<hr class='small'>
-
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-													<button id='disclosure6_back' name='disclosure6_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-													<button id='disclosure6_continue' name='disclosure6_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id='disclosure7_div'>
-
-							<br>
-
-							<div class='row container'>
-								
-								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
-
-									<div class='alert alert-warning'>
-
-										<ol class="breadcrumb">
-									
-											<li class="breadcrumb-item">User Details</li>
-											<li class="breadcrumb-item">Home Details</li>
-											<li class="breadcrumb-item">Primary Email</li>
-											<li class="breadcrumb-item">Agreements</li>
-											<li class="breadcrumb-item">HOA Fact Sheet</li>
-											<li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
-
-										</ol>
-
-									</div>
-
-								</div>
-
-							</div>
-
-							<br>
-
-							<div class='row'>
-
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-
-									<div class='container module-gray' style="color: black;">
-
-										<?php
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id AND type_id=16"));
-
-											$notes = $row['notes'];
-											$document_id = $row['document_id'];
-											$changed_this_year = $row['changed_this_year'];
-
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=16"));
-											$disclosure_name = $row['name'];
-											$desc = $row['desc'];
-											$civilcode_section = $row['civilcode_section'];
-											$legal_url = $row['legal_url'];
-
-											$dname = $disclosure_name;
-
-											if($civilcode_section != "")
-												$disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-											if($legal_url != '')
-												$disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-											if($desc == "")
-												$desc = " - ";
-
-											if($notes == "")
-												$notes = " - ";
-
-											if($changed_this_year == 't') 
-												$changed_this_year = "Yes"; 
-											else if($changed_this_year == 'f') 
-												$changed_this_year = "No"; 
-											else 
-												$changed_this_year = " - ";
-
-											if($document_id == "")
-												$document = " - ";
-											else
-												$document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
-
-										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-											<hr class='small'>
-
-											<div class='row'>
-										
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-													<button id='disclosure7_back' name='disclosure7_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-												</div>
-
-												<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-													<button id='disclosure7_continue' name='disclosure7_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-												</div>
-
-											</div>
-
-										</div>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
+                        </div>
 
 						<div id='disclosure8_div'>
-
-							<br>
 
 							<div class='row container'>
 								
@@ -4351,7 +4314,7 @@
         
             $(function () {
                 
-                $("#person_table").DataTable({ "pageLength": 50 });
+                $("#myDocuments").DataTable({ "pageLength": 50, "info": false, "order": [[0, 'desc']] });
 
             });
 
