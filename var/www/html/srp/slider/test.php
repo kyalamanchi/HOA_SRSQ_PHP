@@ -196,7 +196,7 @@
 
                                                             <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-                                                                <strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
+                                                                <strong>Disclosure Name :</strong> disclosure_name
 
                                                             </div>
 
@@ -208,7 +208,7 @@
 
                                                             <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-                                                                <strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
+                                                                <strong>Changed this year :</strong> $changed_this_year
 
                                                             </div>
 
@@ -220,7 +220,7 @@
 
                                                             <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-                                                                <strong>Board Comments </strong> <?php echo $notes; ?>
+                                                                <strong>Board Comments </strong> $notes
 
                                                             </div>
 
@@ -232,41 +232,13 @@
 
                                                             <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
 
-                                                                <strong>Document :</strong> <?php echo $document; ?>
+                                                                <strong>Document :</strong> $document
 
                                                             </div>
 
                                                         </div>
 
                                                         <br>
-
-                                                    </div>
-
-                                                    <br>
-
-                                                    <div class='row'>
-
-                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
-
-                                                            <hr class='small'>
-
-                                                            <div class='row'>
-                                                        
-                                                                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
-
-                                                                    <button id='disclosure1_back' name='disclosure1_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
-
-                                                                </div>
-
-                                                                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
-
-                                                                    <button id='disclosure1_continue' name='disclosure1_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
 
                                                     </div>
 
