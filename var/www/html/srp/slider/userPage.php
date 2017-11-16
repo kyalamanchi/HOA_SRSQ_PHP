@@ -1284,7 +1284,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_email_".$person_id."' id='edit_person_email_".$person_id."' value='".$person_email."' required>
+                                                                                            <input class='form-control' type='email' name='edit_person_email_".$person_id."' id='edit_person_email_".$person_id."' value='".$person_email."' required>
 
                                                                                         </div>
 
@@ -1294,7 +1294,7 @@
 
                                                                                             <br>
 
-                                                                                            <input class='form-control' type='text' name='edit_person_cell_no_".$person_id."' id='edit_person_cell_no_".$person_id."' value='".$person_cell_no."' required>
+                                                                                            <input class='form-control' type='number' name='edit_person_cell_no_".$person_id."' id='edit_person_cell_no_".$person_id."' value='".$person_cell_no."' required>
 
                                                                                         </div>
 
@@ -1443,9 +1443,176 @@
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                                    <div class='modal fade' id='add_person'>
+
+                                        <div class='modal-dialog modal-lg'>
+
+                                            <div class='modal-content'>
+
+                                                <div class='modal-header'>
+
+                                                    <h4 class='h4'>Add Person</h4>
+                                                    <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
+
+                                                </div>
+
+                                                <div class='modal-body'>
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                            <form id='$person_id' method='POST' class='ajax4' action='updatePerson.php'>
+
+                                                                <div class='row container'>
+
+                                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                        <label><strong>Firstname</strong></label>
+
+                                                                        <br>
+
+                                                                        <input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+
+                                                                        <input class='form-control' type='text' name='add_person_firstname' id='add_person_firstname' required>
+
+                                                                    </div>
+
+                                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                        <label><strong>Lastname</strong></label>
+
+                                                                        <br>
+
+                                                                        <input class='form-control' type='text' name='add_person_lastname' id='add_person_lastname' required>
+
+                                                                    </div>
+
+                                                                </div>
+
+                                                                <br>
+
+                                                                <div class='row container'>
+
+                                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                        <label><strong>Email</strong></label>
+
+                                                                        <br>
+
+                                                                        <input class='form-control' type='email' name='add_person_email' id='add_person_email' required>
+
+                                                                    </div>
+
+                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                            <label><strong>Phone</strong></label>
+
+                                                                            <br>
+
+                                                                            <input class='form-control' type='number' name='add_person_cell_no' id='add_person_cell_no' required>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <br>
+
+                                                                    <div class='row container'>
+
+                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                            <label><strong>Role</strong></label>
+
+                                                                            <br>
+
+                                                                            <select class='form-control' name='add_person_role' id='add_person_role' required>
+
+                                                                                <option value='' disabled selected>Select Role</option>
+
+                                                                                <?php
+
+                                                                                    $res = pg_query("SELECT * FROM role_type");
+
+                                                                                    while($r = pg_fetch_assoc($res))
+                                                                                    {
+
+                                                                                        $role_id = $r['role_type_id'];
+                                                                                        $role_name = $r['name'];
+
+                                                                                        echo "<option value='$role_id'>$role_name</option>";
+
+                                                                                    }
+
+                                                                                ?>
+
+                                                                            </select>
+
+                                                                        </div>
+
+                                                                        <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                                            <label><strong>Relationship</strong></label>
+
+                                                                            <br>
+
+                                                                            <select class='form-control' name='add_person_relationship' id='add_person_relationship' required>
+
+                                                                                <option value='' disabled selected>Select Relationship</option>
+
+                                                                                <?php
+
+                                                                                    $res = pg_query("SELECT * FROM relationship");
+
+                                                                                    while($r = pg_fetch_assoc($res))
+                                                                                    {
+
+                                                                                        $relationship_id = $r['id'];
+                                                                                        $relationship_name = $r['name'];
+
+                                                                                        echo "<option value='$relationship_id'>$relationship_name</option>";
+
+                                                                                    }
+
+                                                                                ?>
+
+                                                                            </select>
+
+                                                                        </div>
+
+                                                                    </div>
+
+                                                                    <br>
+
+                                                                    <div class='row'>
+
+                                                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
+
+                                                                            <button type='button' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
+
+                                                                        </div>
+
+                                                                </div>
+
+                                                            </form>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
                                     <center>
 
-                                        <button class='btn btn-info btn-xs'><i class='fa fa-plus'></i> Add Person</button>
+                                        <button class='btn btn-info btn-xs' type='button' data-toggle='modal' data-target='#add_person'><i class='fa fa-plus'></i> Add Person</button>
 
                                     </center>
 
