@@ -465,7 +465,7 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Save</button>
+                                                                                            <button type='submit' class='btn btn-success btn-xs'><i class='fa fa-save'></i> Remove</button>
 
                                                                                             <button type='button' data-dismiss='modal' class='btn btn-warning btn-xs closing'><i class='fa fa-close'></i> Close</button>
 

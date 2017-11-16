@@ -202,7 +202,7 @@ $('form.ajax6').on('submit', function(){
 	var obj = $(this),
 	url = obj.attr('action'),
 	method = obj.attr('method'),
-	data = {};
+	id = obj.attr('id');
 
 	obj.find('[name]').each(function(index, value){
 
@@ -218,7 +218,7 @@ $('form.ajax6').on('submit', function(){
 
 		url: url,
 		type: method,
-		data: data,
+		data: {person_id:id},
 		success: function(response){
 
 			if(response == 'Some error occured. Please try again.')
