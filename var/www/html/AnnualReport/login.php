@@ -35,6 +35,11 @@
 	if($annual_disclosure_enabled == 't')
 		header("Location: userPage1.php");
 	else
-		alert("You do not have access for annual disclosure");
+	{	
+		echo "alert('You do not have access for annual disclosure')";
+
+		header("Location: logout.php");
+
+	}
 
 ?>
