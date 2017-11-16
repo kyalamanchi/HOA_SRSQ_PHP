@@ -36,7 +36,7 @@
 		header("Location: userPage1.php");
 	else
 	{	
-		echo "alert('You do not have access for annual disclosure')";
+		echo "<script type='text/javascript'>alert('You do not have access for annual disclosure');</script>";
 
 		header("Location: logout.php");
 
