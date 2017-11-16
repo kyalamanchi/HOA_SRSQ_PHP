@@ -32,6 +32,6 @@
 
 	}
 	else
-		echo $query;#"Some error occured. Please try again.";
+		echo "Some error occured. Please try again.";
 
 ?>
