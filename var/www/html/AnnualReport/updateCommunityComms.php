@@ -22,11 +22,18 @@
 		$landscape_maintenance = $_POST[$i.'_landscape_maintenance'];
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 
-		echo $person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted;
+		$bm_phone = 'NULL';
+		$bm_email = 'NULL';
+		$pr_phone = 'NULL';
+		$pr_email = 'NULL';
+		$lr_phone = 'NULL';
+		$lr_email = 'NULL';
+		$lm_phone = 'NULL';
+		$lm_email = 'NULL';
+		$lpp_phone = 'NULL';
+		$lpp_email = 'NULL';
 
-		/*
-
-		die();
+		echo "<br>".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$bm_phone." - - - ".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lr_phone." - - - ".$lr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email;
 
 		if($board_meeting == 'Phone')
 		{
@@ -172,6 +179,12 @@
 			$lpp_email = 'f';
 
 		}
+
+		echo "<br>".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$bm_phone." - - - ".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lr_phone." - - - ".$lr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email."<br><br>";
+
+		/*
+
+		die();
 
 		$result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id AND person_id=$person_id");
 
