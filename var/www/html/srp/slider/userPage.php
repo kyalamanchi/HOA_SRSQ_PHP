@@ -306,8 +306,6 @@
 
 						<div id='user_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -454,8 +452,6 @@
 
 						<div id='edit_user_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -564,8 +560,6 @@
 						</div>
 
 						<div id='home_details_div'>
-
-							<br>
 
 							<div class='row container'>
 								
@@ -836,8 +830,6 @@
 
 						<div id='edit_home_details_div'>
 
-							<br>
-
 							<div class='row container'>
 								
 								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -1097,8 +1089,6 @@
 						</div>
 
 						<div id='email_div'>
-
-							<br>
 
 							<div class='row container'>
 								
@@ -1666,8 +1656,6 @@
 
                         <div id='edit_email_div'>
 
-                            <br>
-
                             <div class='row container'>
                                 
                                 <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -1749,8 +1737,6 @@
 
                         <div id='notifications_div'>
 
-                            <br>
-
                             <div class='row container'>
                                 
                                 <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -1827,8 +1813,6 @@
                         </div>
 
 						<div id='agreements_div'>
-
-							<br>
 
 							<div class='row container'>
 								
@@ -1988,8 +1972,6 @@
 
                         <div id='documents_div'>
 
-                            <br>
-
                             <div class='row container'>
                                 
                                 <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -2105,8 +2087,6 @@
                         </div>
 
 						<div id='hoa_fact_sheet_div'>
-
-							<br>
 
 							<div class='row container'>
 								
@@ -3221,8 +3201,6 @@
 
 						<div id='disclosure1_div'>
 
-                            <br>
-
                             <div class='row container'>
                                 
                                 <div class='col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xs-10 offset-xl-1 offset-lg-1 offset-md-1 offset-sm-1 offset-xs-1'>
@@ -3420,8 +3398,6 @@
                         </div>
 
 						<div id='disclosure8_div'>
-
-							<br>
 
 							<div class='row container'>
 								
