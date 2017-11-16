@@ -1776,7 +1776,7 @@
 
                             <br>
 
-                            <div class='row'>
+                            <div class='row container'>
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
@@ -1818,14 +1818,14 @@
                                                     $event_header = $row1['header'];
 
                                                     if($phone == 't')
-                                                        $phone = 'Sent';
+                                                        $phone = 'Enabled';
                                                     else
-                                                        $phone = 'Not Sent';
+                                                        $phone = 'Disabled';
 
                                                     if($email == 't')
-                                                        $email = 'Sent';
+                                                        $email = 'Enabled';
                                                     else
-                                                        $email = 'Not Sent';
+                                                        $email = 'Disabled';
 
                                                     if($create_date != '')
                                                         $create_date = date('m-d-Y', strtotime($create_date));
