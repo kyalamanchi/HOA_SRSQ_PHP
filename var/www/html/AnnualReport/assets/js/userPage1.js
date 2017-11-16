@@ -60,7 +60,8 @@ $('form.ajax1').on('submit', function(){
 				alert("Saved!");
 
 				$('#user_information_radio_no').prop('checked', false);
-				$('#user_details_continue').hide();
+				$('#user_information_radio_yes').prop('checked', true);
+				$('#user_details_continue').show();
 				$('#edit_user_details_div').hide();
 
 				$.ajax({
@@ -115,28 +116,28 @@ $('#user_edit_back').click(function(){
 	$('#user_information_radio_yes').prop('checked', true);
 	$('#user_details_continue').show();
 
-	//$.ajax({
+	$.ajax({
 					
-	//	url: 'resetCellNo.php',
-	//	type: 'post',
-	//	success: function(response){
+		url: 'resetCellNo.php',
+		type: 'post',
+		success: function(response){
 						
-	//		$('#edit_cell_no').val(response);
+			$('#edit_cell_no').val(response);
 				
-	//	}
+		}
 
-	//});
+	});
 
-	//$.ajax({
+	$.ajax({
 					
-	//	url: 'resetEmail.php',
-	//	type: 'post',
-	//	success: function(response){
+		url: 'resetEmail.php',
+		type: 'post',
+		success: function(response){
 						
-	//		$('#edit_email').val(response);
-	//			
-	//	}
+			$('#edit_email').val(response);
+				
+		}
 
-	//});
+	});
 
 });
