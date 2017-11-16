@@ -1852,7 +1852,7 @@
 
                                     <?php
 
-                                        $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+                                        $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY fname");
 
                                         while($row = pg_fetch_assoc($result))
                                         {
@@ -1925,31 +1925,76 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='1'> <strong style='color: black;'>Board Meeting</strong>
+                                                            <input type='checkbox' name='notification_event' value='1'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='1' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Board Meeting</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='4'> <strong style='color: black;'>Payment Received</strong>
+                                                            <input type='checkbox' name='notification_event' value='4'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='4' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Payment Received</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='8'> <strong style='color: black;'>Landscape Repair</strong>
+                                                            <input type='checkbox' name='notification_event' value='8'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='8' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Landscape Repair</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='9'> <strong style='color: black;'>Landscape Maintenance</strong>
+                                                            <input type='checkbox' name='notification_event' value='9'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='9' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Landscape Maintenance</strong>
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12'>
 
-                                                            <input type='checkbox' name='notification_event' value='14'> <strong style='color: black;'>Late Payment Posted</strong>
+                                                            <input type='checkbox' name='notification_event' value='14'";
+
+                                                            $r = pg_num_rows(pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id='14' AND (phone='t' OR email='t')"));
+
+                                                            if($r)
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Late Payment Posted</strong>
 
                                                         </div>
 
@@ -1980,67 +2025,6 @@
                                         }
 
                                     ?>
-
-                                    <form method='POST' class='ajax6'>
-
-                                        <div class='row'>
-
-                                            <label><strong>Select notification type</strong></label>
-
-                                        </div>
-
-                                        <div class='row' style='color: black;'>
-
-                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
-
-                                                <input type='radio' name='notification_type' id='notification_type_email' value='Email'> <strong>Email Only</strong>
-
-                                            </div>
-
-                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
-
-                                                <input type='radio' name='notification_type' id='notification_type_phone' value='Phone'> <strong>Phone Only</strong>
-
-                                            </div>
-
-                                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'>
-
-                                                <input type='radio' name='notification_type' id='notification_type_both' value='both' selected> <strong>Both Email &amp; Phone</strong>
-
-                                            </div>
-
-                                        </div>
-
-                                        <br>
-
-                                        <div class='row'>
-
-                                            <label><strong>Send notification to</strong></label>
-
-                                        </div>
-
-                                        <div class='row' style='color: black;'>
-                                            
-                                            <?php
-
-                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
-
-                                                while($row = pg_fetch_assoc($result))
-                                                {
-
-                                                    $person_name = $row['fname'];
-                                                    $person_name .= " ";
-                                                    $person_name .= $row['lname'];
-
-                                                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12'><input type='checkbox' name='notification_person' value='$person_name'> <strong>$person_name</strong></div>";
-
-                                                }
-
-                                            ?>
-
-                                        </div>
-                                        
-                                    </form>
 
                                 </div>
 
