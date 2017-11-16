@@ -2134,6 +2134,378 @@
 
                                                 }
 
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : <strong style='color: black;'>Landscape Repair</strong>
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=8");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_repair' id='$i_landscape_repair' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : <strong style='color: black;'>Landscape Maintenance</strong>
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=9");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_landscape_maintenance' id='$i_landscape_maintenance' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        Event Name : <strong style='color: black;'>Late Payment Posted</strong>
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=14");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Email'> <strong style='color: black;'>Email Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Phone'> <strong style='color: black;'>Phone Only</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='Both'> <strong style='color: black;'>Both</strong>
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='$i_late_payment_posted' id='$i_late_payment_posted' value='None'> <strong style='color: black;'>None</strong>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
                                                 echo "<br><br>";
 
                                             }
