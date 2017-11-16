@@ -22,6 +22,12 @@
 		$landscape_maintenance = $_POST[$i.'_landscape_maintenance'];
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 
+		echo $person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_repair." - - - ".$landscape_maintenance." - - - ".$late_payment_posted;
+
+		/*
+
+		die();
+
 		if($board_meeting == 'Phone')
 		{
 
@@ -169,18 +175,29 @@
 
 		$result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id AND person_id=$person_id");
 
+		if(!$result)
+		{	
+
+			echo "Some error occured. Please try again";
+
+			die();
+
+		}
+
 		if(pg_num_rows($result))
 			$result = pg_query("DELETE FROM community_comms WHERE hoa_id=$hoa_id AND person_id=$person_id");
 
-		pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 1, '$today', $user_id, '$bm_phone', '$bm_email', '$today', $user_id)");
+		$result = pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 1, '$today', $user_id, '$bm_phone', '$bm_email', '$today', $user_id)");
 
-		pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 4, '$today', $user_id, '$pr_phone', '$pr_email', '$today', $user_id)");
+		$result = pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 4, '$today', $user_id, '$pr_phone', '$pr_email', '$today', $user_id)");
 
-		pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 8, '$today', $user_id, '$lr_phone', '$lr_email', '$today', $user_id)");
+		$result = pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 8, '$today', $user_id, '$lr_phone', '$lr_email', '$today', $user_id)");
 
-		pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 9, '$today', $user_id, '$lm_phone', '$lm_email', '$today', $user_id)");
+		$result = pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 9, '$today', $user_id, '$lm_phone', '$lm_email', '$today', $user_id)");
 
-		pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 14, '$today', $user_id, '$lpp_phone', '$lpp_email', '$today', $user_id)");
+		$result = pg_query("INSERT INTO community_comms(community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES($community_id, $hoa_id, $person_id, 14, '$today', $user_id, '$lpp_phone', '$lpp_email', '$today', $user_id)");
+
+		*/
 
 	}
 
