@@ -32,57 +32,6 @@ $('#email_radio_no').change(function() {
 
 });
 
-$('form.ajax3').on('submit', function(){
-	
-	var obj = $(this),
-	url = obj.attr('action'),
-	method = obj.attr('method'),
-	data = {};
-
-	obj.find('[name]').each(function(index, value){
-
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
-
-		data[index] = value;
-
-	});
-
-	$.ajax({
-
-		url: url,
-		type: method,
-		data: data,
-		success: function(response){
-
-			alert(response);
-
-			if(response == "null")
-				alert("Please select a value.");
-			else if(response == "Some error occured. Please try again.")
-				alert(response);
-			else
-			{
-				alert("Updated!");
-
-				$('#user_primary_email').text(response);
-				$('#email_radio_yes').prop('checked', true);
-				$('#email_radio_no').prop('checked', false);
-				$('#email_div').show();
-				$('#edit_email_div').hide();
-				$('#email_continue').show();
-
-			}
-
-		}
-
-	});
-
-	return false;
-	
-});
-
 $('#edit_email_back').click(function(){
 
 	$('#email_div').show();
