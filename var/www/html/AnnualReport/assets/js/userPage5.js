@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
 	$('#documents_div').hide();
+	$('#payments_div').hide();
 	$('#hoa_fact_sheet_div').hide();
 	$('#disclosures_div').hide();
 	$('#documents_header').hide();
