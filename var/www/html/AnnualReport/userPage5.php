@@ -2249,7 +2249,7 @@
 
                                                 <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-                                                    <button id='disclosures_finish' name='disclosures_finish' class='btn btn-success btn-xs'>Next <i class='fa fa-arrow-right'></i></button>
+                                                    <button id='disclosures_continue' name='disclosures_continue' class='btn btn-success btn-xs'>Next <i class='fa fa-arrow-right'></i></button>
 
                                                 </div>
 
