@@ -2,8 +2,10 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$pid = $_POST['primary_email'];
+	$pid = $_POST['change_primary_email'];
 	$hoa_id = $_POST['hoa_id'];
+
+	echo $pid;
 
 	if($pid == '')
 		echo "null";

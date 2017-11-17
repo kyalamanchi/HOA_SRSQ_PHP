@@ -783,7 +783,7 @@
 
                                                     <div class='col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
-                                                        <input type='radio' name='primary_email' value='".$pid."'";
+                                                        <input type='radio' name='change_primary_email' value='".$pid."'";
 
                                                         if($pemail == $primary_email)
                                                             echo " checked";
