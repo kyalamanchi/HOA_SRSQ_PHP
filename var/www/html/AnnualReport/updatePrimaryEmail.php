@@ -29,4 +29,6 @@
 	
 	}
 
+	echo "<a href='userPage3.php'>Click</a>";
+
 ?>

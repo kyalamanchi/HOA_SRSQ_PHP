@@ -763,7 +763,7 @@
 
                                     <br><br>
 
-                                    <form method='POST' action='updatePrimaryEmail.php' class='ajax3'>
+                                    <form method='POST' action='updatePrimaryEmail.php'>
 
                                         <div class='row'>
 
