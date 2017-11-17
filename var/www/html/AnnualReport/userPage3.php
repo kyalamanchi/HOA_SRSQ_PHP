@@ -783,7 +783,7 @@
 
                                                     <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-                                                        <input type='radio' name='primary_email' value='".$pid."'> <label><strong>$email</strong></label>
+                                                        <input type='radio' name='primary_email' value='".$pid."'> <label><strong>".$pemail." - ".$pid."</strong></label>
 
                                                     </div>
 
