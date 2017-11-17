@@ -12,6 +12,8 @@
 	else
 	{
 
+		$result = pg_query("UPDATE person SET is_primary_email='f' WHERE hoa_id=$hoa_id");
+
 		$result = pg_query("UPDATE person SET is_primary_email='t' WHERE id=$pid");
 
 		if($result)
