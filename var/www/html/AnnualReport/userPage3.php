@@ -137,55 +137,62 @@
 
 							<?php
 
-                                echo "
+                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
-                                <div class='row'>
+                                if(pg_num_rows($result))
+                                {
+                                    
+                                    echo "
 
-    								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>";
+                                    <div class='row'>
 
-    										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type_id=1 AND is_active='t' AND relationship_id=1"));
+        								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>";
 
-    										$primary_email = $row['email'];
-                                            $pid = $row['id'];
+        										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type_id=1 AND is_active='t' AND relationship_id=1"));
+
+        										$primary_email = $row['email'];
+                                                $pid = $row['id'];
 
 
-    									echo "
+        									echo "
 
-                                        <div class='row'>
+                                            <div class='row'>
 
-    										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+        										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-    											<center><h3 class='h3'>Is <u>$primary_email</u> your primary email?</h3></center>
+        											<center><h3 class='h3'>Is <u>$primary_email</u> your primary email?</h3></center>
 
-    										</div>
+        										</div>
 
-    									</div>
+        									</div>
 
-    									<br>
+        									<br>
 
-    									<div class='row'>
+        									<div class='row'>
 
-    										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+        										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-    											<input type='radio' name='email_radio' id='email_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this is my primary email.
+        											<input type='radio' name='email_radio' id='email_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this is my primary email.
 
-    										</div>
+        										</div>
 
-    										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+        										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
 
-    											<input type='radio' name='email_radio' id='email_radio_no' value='no'> <strong style='color: black;'>No</strong>, this is not my primary email.
+        											<input type='radio' name='email_radio' id='email_radio_no' value='no'> <strong style='color: black;'>No</strong>, this is not my primary email.
 
-    										</div>
+        										</div>
 
-    									</div>
+        									</div>
 
-    								</div>
+        								</div>
 
-    							</div>
+        							</div>
 
-    							<br>
+        							<br>
 
-                                ";
+                                    ";
+
+                                }
 
                             ?>
 
