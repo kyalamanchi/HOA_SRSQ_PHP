@@ -56,6 +56,8 @@ $('form.ajax3').on('submit', function(){
 		data: data,
 		success: function(response){
 
+			alert(response);
+
 			if(response == "null")
 				alert("Please select a value.");
 			else if(response == "Some error occured. Please try again.")

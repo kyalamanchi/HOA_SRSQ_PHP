@@ -5,6 +5,8 @@
 	$pid = $_POST['primary_email'];
 	$hoa_id = $_POST['hoa_id'];
 
+	echo $pid;
+
 	if($pid == '')
 		echo "null";
 	else
