@@ -139,9 +139,9 @@
 
                                 $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
-                                if(pg_num_rows($result))
+                                if(pg_num_rows($result) > 1)
                                 {
-                                    
+
                                     echo "
 
                                     <div class='row'>
