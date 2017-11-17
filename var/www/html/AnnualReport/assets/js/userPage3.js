@@ -70,6 +70,7 @@ $('form.ajax3').on('submit', function(){
 				$('#email_radio_yes').prop('checked', true);
 				$('#email_radio_no').prop('checked', false);
 				$('#email_div').show();
+				$('#edit_email_div').hide();
 				$('#email_continue').show();
 
 			}
