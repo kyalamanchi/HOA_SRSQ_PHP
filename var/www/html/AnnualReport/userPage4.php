@@ -805,7 +805,6 @@
                                             <th>Location</th>
                                             <th>Description</th>
                                             <th>Category</th>
-                                            <th>Document</th>
 
                                         </thead>
 
@@ -857,7 +856,7 @@
                                                     $date = date('m-d-Y');
 
                                                     if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
-                                                        echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
+                                                        echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td></tr>";
                           
                                                 }
 
