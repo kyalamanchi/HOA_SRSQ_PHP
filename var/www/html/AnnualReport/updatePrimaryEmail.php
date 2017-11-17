@@ -5,8 +5,6 @@
 	$pid = $_POST['change_primary_email'];
 	$hoa_id = $_POST['hoa_id'];
 
-	echo $pid;
-
 	if($pid == '')
 		echo "null";
 	else

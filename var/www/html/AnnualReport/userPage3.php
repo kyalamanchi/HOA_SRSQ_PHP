@@ -763,7 +763,7 @@
 
                                     <br><br>
 
-                                    <form method='POST' action='updatePrimaryEmail.php'>
+                                    <form method='POST' action='updatePrimaryEmail.php' class='ajax3'>
 
                                         <div class='row'>
 
@@ -783,7 +783,12 @@
 
                                                     <div class='col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
-                                                        <input type='radio' name='change_primary_email' value='".$pid."'> <label style='color: black;'><strong>".$pemail." - ".$pid."</strong></label>
+                                                        <input type='radio' name='change_primary_email' value='".$pid."'";
+
+                                                        if($pemail == $primary_email)
+                                                            echo " checked";
+
+                                                        echo "> <label style='color: black;'><strong>".$pemail."</strong></label>
 
                                                     </div>
 
