@@ -13,6 +13,8 @@
 
 		$num_rows = pg_num_rows($res);
 
+		echo $hoa_id." - - - ".$num_rows."<br>";
+
 		if($num_rows == 1)
 			$r = pg_fetch_assoc($res);
 		else if($num_rows > 1)
