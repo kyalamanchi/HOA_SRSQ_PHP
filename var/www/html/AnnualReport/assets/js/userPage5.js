@@ -55,7 +55,7 @@ $('#payments_continue').click(function(){
 
 $('#payments_back').click(function(){
 
-	$('#payments_div').show();
+	$('#payments_div').hide();
 	$('#documents_div').show();
 	$('#documents_header').show();
 	$('#payments_header').hide();
