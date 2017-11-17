@@ -113,8 +113,10 @@
                                 <li class='breadcrumb-item'><strong style='color: black;'>SMS Notifications</strong></li>
                                 <li class="breadcrumb-item">Agreements</li>
                                 <li class='breadcrumb-item'>Documents</li>
+                                <li class="breadcrumb-item">Payments</li>
                                 <li class="breadcrumb-item">HOA Fact Sheet</li>
                                 <li class="breadcrumb-item">Disclosures</li>
+                                <li class="breadcrumb-item">HOA Account</li>
 
                             </ol>
                                         

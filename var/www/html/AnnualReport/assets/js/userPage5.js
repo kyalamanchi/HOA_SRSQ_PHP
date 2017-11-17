@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$('#hoa_fact_sheet_div').hide();
 	$('#disclosures_div').hide();
 	$('#documents_header').hide();
+	$('#payments_header').hide();
 	$('#hoa_fact_sheet_header').hide();
 	$('#disclosures_header').hide();
 
@@ -27,8 +28,8 @@ $('#agreements_back').click(function(){
 $('#documents_continue').click(function(){
 
 	$('#documents_div').hide();
-	$('#hoa_fact_sheet_div').show();
-	$('#hoa_fact_sheet_header').show();
+	$('#payments_div').show();
+	$('#payments_header').show();
 	$('#documents_header').hide();
 
 });
@@ -39,6 +40,24 @@ $('#documents_back').click(function(){
 	$('#documents_div').hide();
 	$('#documents_header').hide();
 	$('#agreements_header').show();
+
+});
+
+$('#payments_continue').click(function(){
+
+	$('#payments_div').hide();
+	$('#hoa_fact_sheet_div').show();
+	$('#hoa_fact_sheet_header').show();
+	$('#payments_header').hide();
+
+});
+
+$('#payments_back').click(function(){
+
+	$('#payments_div').show();
+	$('#documents_div').show();
+	$('#documents_header').show();
+	$('#payments_header').hide();
 
 });
 
@@ -60,9 +79,9 @@ $('#hoa_fact_sheet_back').click(function(){
 
 });
 
-$('#disclosures_finish').click(function(){
+$('#disclosures_continue').click(function(){
 
-	window.location = 'logout.php';
+	window.location = 'hoaAccountInfo.php';
 
 });
 
