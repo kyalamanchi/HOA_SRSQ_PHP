@@ -813,6 +813,8 @@
 
                                             <?php 
 
+                                                $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
+
                                                 while($row = pg_fetch_assoc($result))
                                                 {
 
