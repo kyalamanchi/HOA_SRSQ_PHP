@@ -780,7 +780,7 @@
 
                             </div>
 
-                            <br>
+                            <br><br>
 
                             <div class='row container'>
 
@@ -791,6 +791,8 @@
                                 </div>
 
                             </div>
+
+                            <br>
 
                             <div class='row container'>
 
@@ -922,6 +924,20 @@
 
 		<script src='assets/js/userPage4.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <!-- Datatable -->
+        <script src='//code.jquery.com/jquery-1.12.4.js'></script>
+        <script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
+
+        <script>
+        
+            $(function () {
+                
+                $("#inspectionNoticesTable").DataTable({ "pageLength": 500, "order": [[0, 'desc']] });
+
+            });
+
+        </script>
 
 	</body>
 
