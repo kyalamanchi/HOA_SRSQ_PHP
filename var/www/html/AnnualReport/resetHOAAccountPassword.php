@@ -22,17 +22,7 @@
 
 		$result = pg_query("UPDATE usr SET password='".$pass."', modified_date='".date('Y-m-d')."' WHERE id='".$user_id."'");
 
-		echo "<script type='text/javascript'> alert('Password successfully changed.'); </script>";
-
-		session_start();
-		session_unset();
-		session_destroy();
-		session_regenerate_id(true);
-
-		if($community_id == 1)
-			header("Location: https://stoneridgeplace.com");
-		else if($community_id == 2)
-			header("Location: https://hoaboardtime.com");
+		echo "<script type='text/javascript'> alert('Password successfully changed.'); </script><script>setTimeout(function(){window.location.href='navigatePage.php'},2000);</script>";
 
 	}
 	else
