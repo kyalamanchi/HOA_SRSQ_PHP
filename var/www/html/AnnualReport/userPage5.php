@@ -887,6 +887,97 @@
 
                             </div>
 
+                            <br>
+
+                            <div class='row'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3>Forte Transactions</h3></center>
+
+                                </div>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <table id='example3' class='table table-striped' style='color: black;'>
+                                                    
+                                        <thead>
+
+                                            <th>Date</th>
+                                            <th>HOA ID</th>
+                                            <th>Authorization Code</th>
+                                            <th>Status</th>
+                                            <th>Amount</th>
+                                            <th>Entered By</th>
+                                            <th>Action</th>
+                                                        
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php
+
+                                                $ch = curl_init();
+                                                $header = array();
+                                                $header[] = 'Content-Type: application/json';
+                                  
+                                                if($community_id == 1)
+                                                {
+
+                                                    $header[] = "X-Forte-Auth-Organization-Id:org_335357";
+                                                    $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
+                                                                              
+                                                    curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
+
+                                                }
+                                                else if($community_id == 2)
+                                                {
+                                      
+                                                    $header[] = "X-Forte-Auth-Organization-Id:org_332536";
+                                                    $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";
+                                                                              
+                                                    curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/transactions?filter=customer_id+eq+'".$hoa_id."'");
+                                                                              
+                                                }
+
+                                                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                                                curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+
+                                                $result = curl_exec($ch);
+                                                $obj = json_decode($result);
+
+                                                foreach ($obj->results as $key) 
+                                                {  
+
+                                                    if($key->customer_id == $hoa_id)
+                                                    {   
+
+                                                        $forte_status = $key->status;
+
+                                                        if($forte_status == 'funded')
+                                                            echo "<tr style='color: green;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                                        else if($forte_status == 'settling')
+                                                            echo "<tr style='color: orange;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+                                                        else
+                                                            echo "<tr style='color: red;'><td>".date('m-d-Y', strtotime($key->received_date))."</td><td>".$key->customer_id."</td><td>".$key->authorization_code."</td><td>".$forte_status."</td><td>$ ".$key->authorization_amount."</td><td>".$key->entered_by."</td><td>".$key->action."</td></tr>";
+
+                                                    }
+                                    
+                                                }
+                                                                              
+                                                curl_close($ch);
+
+                                            ?>
+                                                        
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
+
                             <div class='row'>
 
                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>

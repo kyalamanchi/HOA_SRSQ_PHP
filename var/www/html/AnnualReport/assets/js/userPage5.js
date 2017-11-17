@@ -74,9 +74,9 @@ $('#hoa_fact_sheet_continue').click(function(){
 $('#hoa_fact_sheet_back').click(function(){
 
 	$('#hoa_fact_sheet_div').hide();
-	$('#documents_div').show();
+	$('#payments_div').show();
 	$('#hoa_fact_sheet_header').hide();
-	$('#documents_header').show();
+	$('#payments_header').show();
 
 });
 
