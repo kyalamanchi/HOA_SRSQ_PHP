@@ -56,16 +56,19 @@ $('form.ajax3').on('submit', function(){
 		data: data,
 		success: function(response){
 
-			if(response == "Some error occured. Please try again.")
+			if(response == "null")
+				alert("Please select a value.");
+			else if(response == "Some error occured. Please try again.")
 				alert(response);
 			else
 			{
-				alert("Saved!");
+				alert("Updated!");
 
-				$('#user_cell_no').text(response);
-				$('#user_information_radio_no').prop('checked', false);
-				$('#edit_user_details_div').hide();
-				$('#user_details_div').show();
+				$('#user_primary_email').text(response);
+				$('#email_radio_yes').prop('checked', true);
+				$('#email_radio_no').prop('checked', false);
+				$('#email_div').show();
+				$('#email_continue').show();
 
 			}
 

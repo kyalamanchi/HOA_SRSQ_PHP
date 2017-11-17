@@ -2,30 +2,29 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$result = pg_query("SELECT * FROM hoaid");
+	$pid = $_POST['primary_email'];
+	$hoa_id = $_POST['hoa_id'];
 
-	while($row = pg_fetch_assoc($result))
+	if($pid == '')
+		echo "null";
+	else
 	{
 
-		$hoa_id = $row['hoa_id'];
+		$result = pg_query("UPDATE person SET is_primary_email='t' WHERE id=$pid");
 
-		$res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+		if($result)
+		{
 
-		$num_rows = pg_num_rows($res);
+			$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$pid"));
 
-		echo $hoa_id." - - - ".$num_rows."<br>";
+			$email = $row['email'];
 
-		if($num_rows == 1)
-			$r = pg_fetch_assoc($res);
-		else if($num_rows > 1)
-			$r = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' AND role_type_id=1 AND relationship_id=1"));
+			echo $email;
 
-		$pid = $r['id'];
-		$is_primary_email = $r['is_primary_email'];
-
-		if($is_primary_email != 't')
-			pg_query("UPDATE person SET is_primary_email='t' WHERE id=$pid");
-
+		}
+		else
+			echo "Some error occured. Please try again.";
+	
 	}
 
 ?>

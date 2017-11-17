@@ -148,7 +148,7 @@
 
         								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>";
 
-        										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND role_type_id=1 AND is_active='t' AND is_primary_email='t'"));
+        										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_primary_email='t'"));
 
         										$primary_email = $row['email'];
                                                 $pid = $row['id'];
@@ -160,7 +160,7 @@
 
         										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-        											<center><h3 class='h3'>Is <u>$primary_email</u> your primary email?</h3></center>
+        											<center><h3 class='h3'>Is <u id='user_primary_email'>$primary_email</u> your primary email?</h3></center>
 
         										</div>
 
@@ -764,21 +764,35 @@
                                     <br><br>
 
                                     <form method='POST' action='updatePrimaryEmail.php' class='ajax3'>
-                                                                                        
+
                                         <div class='row'>
 
-                                            <div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
+                                            <input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
-                                                <label><strong>Email</strong></label>
+                                            <?php
 
-                                                <br>
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
-                                                <input class='form-control' type='email' name='edit_primary_email' id='edit_primary_email' value='<?php echo $primary_email; ?>' required>
+                                                while($row = pg_fetch_assoc($result))
+                                                {
 
-                                                <input type='hidden' name='pid' id='pid' value='<?php echo $pid; ?>'>
+                                                    $pid = $row['id'];
+                                                    $pemail = $row['email'];
 
-                                            </div>
+                                                    echo "
 
+                                                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+
+                                                        <input type='radio' name='primary_email' value='".$pid."'> <label><strong>$email</strong></label>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
+                                            ?>
+                                                                                        
                                         </div>
 
                                         <br>
