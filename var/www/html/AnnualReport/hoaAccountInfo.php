@@ -364,33 +364,51 @@
 
                             <div class='row'>
 
-                                <div class='col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-12 offset-xl-2 offset-lg-2 offset-md-2 offset-sm-1 module-gray'>
+                                <div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1 module-gray'>
+
+                                    <br>
 
                                     <form method='POST' action='resetHOAAccountPassword.php'>
 
-                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                        <div class='row'>
 
-                                            <input type="password" name="set_password" id='set_password' placeholder='Enter Password' required>
+                                            <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                        </div>
+                                                <input class='form-control' type="password" name="set_password" id='set_password' placeholder='Enter Password' required>
 
-                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-                                            <input type="password" name="confirm_password" id='confirm_password' placeholder='Confirm Password' required>
+                                            </div>
 
                                         </div>
 
-                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                        <div class='row'>
 
-                                            <center>
-                                                
-                                                <button type='submit' class='btn btn-xs btn-success'> Set Password </button>
+                                            <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                            </center>
+                                                <input class='form-control' type="password" name="confirm_password" id='confirm_password' placeholder='Confirm Password' required>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class='row'>
+
+                                            <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                <center>
+                                                    
+                                                    <button type='submit' class='btn btn-xs btn-success'> Set Password </button>
+
+                                                </center>
+
+                                            </div>
 
                                         </div>
 
                                     </form>
+
+                                    <br>
+
+                                    <strong>Note : </strong> Your email id will be the username for your HOA Account.
 
                                 </div>
 
