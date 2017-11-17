@@ -4,17 +4,6 @@ $(document).ready(function(){
 	$('#page_title2').hide();
 	$('#verify_user_div').hide();
 
-	$.ajax({
-
-		url: 'updatePrimaryEmail.php',
-		success: function(response){
-
-			console.log(response);
-
-		}
-
-	});
-
 });
 
 $('form.ajax1').on('submit', function(){

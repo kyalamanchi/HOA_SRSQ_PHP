@@ -21,8 +21,10 @@
 			$r = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' AND role_type_id=1 AND relationship_id=1"));
 
 		$pid = $r['id'];
+		$is_primary_email = $r['is_primary_email'];
 
-		pg_query("UPDATE person SET is_primary_email='t' WHERE id=$pid");
+		if($is_primary_email != 't')
+			pg_query("UPDATE person SET is_primary_email='t' WHERE id=$pid");
 
 	}
 
