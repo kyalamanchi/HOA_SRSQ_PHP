@@ -18,7 +18,6 @@
 		$person_id = $_POST[$i.'_person_id'];
 		$board_meeting = $_POST[$i.'_board_meeting'];
 		$payment_received = $_POST[$i.'_payment_received'];
-		$landscape_repair = $_POST[$i.'_landscape_repair'];
 		$landscape_maintenance = $_POST[$i.'_landscape_maintenance'];
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 
@@ -26,8 +25,6 @@
 		$bm_email = 'NULL';
 		$pr_phone = 'NULL';
 		$pr_email = 'NULL';
-		$lr_phone = 'NULL';
-		$lr_email = 'NULL';
 		$lm_phone = 'NULL';
 		$lm_email = 'NULL';
 		$lpp_phone = 'NULL';
@@ -88,35 +85,6 @@
 
 			$pr_phone = 'f';
 			$pr_email = 'f';
-
-		}
-
-		if($landscape_repair == 'Phone')
-		{
-
-			$lr_phone = 't';
-			$lr_email = 'f';
-
-		}
-		else if($landscape_repair == 'Email')
-		{
-
-			$lr_phone = 'f';
-			$lr_email = 't';
-
-		}
-		else if($landscape_repair == 'Both')
-		{
-
-			$lr_phone = 't';
-			$lr_email = 't';
-
-		}
-		else if($landscape_repair == 'None')
-		{
-
-			$lr_phone = 'f';
-			$lr_email = 'f';
 
 		}
 
@@ -193,8 +161,6 @@
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 1, '$today', $user_id, '$bm_phone', '$bm_email', '$today', $user_id)");
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 4, '$today', $user_id, '$pr_phone', '$pr_email', '$today', $user_id)");
-
-		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 8, '$today', $user_id, '$lr_phone', '$lr_email', '$today', $user_id)");
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 9, '$today', $user_id, '$lm_phone', '$lm_email', '$today', $user_id)");
 

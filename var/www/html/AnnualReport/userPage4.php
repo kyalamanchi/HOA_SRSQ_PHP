@@ -512,131 +512,7 @@
 
                                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                        <strong>Landscape Repair</strong> : 
-
-                                                    </div>
-
-                                                </div>
-
-                                                ";
-
-                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=8");
-
-                                                $bm = pg_num_rows($res1);
-
-                                                if($bm)
-                                                {
-
-                                                    $row1 = pg_fetch_assoc($res1);
-
-                                                    $cc_phone = $row1['phone'];
-                                                    $cc_email = $row1['email'];
-
-                                                    echo "
-
-                                                    <div class='row'>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='Phone'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='Email'";
-
-                                                            if($cc_email == 't' && $cc_phone == 'f')
-                                                                echo " checked";
-
-                                                            echo "
-
-                                                            > Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='Both'";
-
-                                                            if($cc_email == 't' && $cc_phone == 't')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > Both
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='None'";
-
-                                                            if($cc_email == 'f' && $cc_phone == 'f')
-                                                                echo " checked";
-
-                                                            echo "
-                                                            
-                                                            > None
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    ";
-
-                                                }
-                                                else
-                                                {
-
-                                                    echo "
-
-                                                    <div class='row'>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='Email'> Email Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='Both'> Both
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_repair' id='".$i."_landscape_repair' value='None' checked> None
-
-                                                        </div>
-
-                                                    </div>
-
-                                                    ";
-
-                                                }
-
-                                                echo "
-
-                                                <div class='row'>
-
-                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-                                                        <strong>Landscape Maintenance</strong> : 
+                                                        <strong>Landscape Maintenance / Repair</strong> : 
 
                                                     </div>
 
@@ -905,6 +781,93 @@
                             </div>
 
                             <br>
+
+                            <div class='row container'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                    <center><h3>CCR Inspection Notices</h3></center>
+
+                                </div>
+
+                            </div>
+
+                            <div class='row container'>
+
+                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+
+                                    <table class='table table-striped' id='inspectionNoticesTable' style="color:black;">
+
+                                        <thead>
+
+                                            <th>Inspection Date</th>
+                                            <th>Status</th>
+                                            <th>Location</th>
+                                            <th>Description</th>
+                                            <th>Category</th>
+                                            <th>Document</th>
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php 
+
+                                                while($row = pg_fetch_assoc($result))
+                                                {
+
+                                                    $id = $row['id'];
+                                                    $home_id = $row['home_id'];
+                                                    $hoa_id = $row['hoa_id'];
+                                                    $item = $row['item'];
+                                                    $description = $row['description'];
+                                                    $document = $row['document_id'];
+                                                    $inspection_date = $row['inspection_date'];
+                                                    $location = $row['location_id'];
+                                                    $violation_category = $row['inspection_category_id'];
+                                                    $violation_sub_category = $row['inspection_sub_category_id'];
+                                                    $notice_type = $row['inspection_notice_type_id'];
+                                                    $date_of_upload = $row['date_of_upload'];
+                                                    $status = $row['inspection_status_id'];
+                                                    $compliance_date = $row['compliance_date'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
+
+                                                    $violation_category = $row1['name'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
+
+                                                    $status = $row1['inspection_status'];
+
+                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+
+                                                    $location = $row1['location'];
+
+                                                    if($date_of_upload != "")
+                                                        $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+                                                    if($compliance_date != "")
+                                                        $compliance_date = date('m-d-Y', strtotime($compliance_date));
+
+                                                    if($inspection_date != "")
+                                                        $inspection_date = date('m-d-Y', strtotime($inspection_date));
+
+                                                    $date = date('m-d-Y');
+
+                                                    if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
+                                                        echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td><td>".$document."</td></tr>";
+                          
+                                                }
+
+                                            ?>
+                                            
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+
+                            </div>
 
                             <div class='row'>
 
