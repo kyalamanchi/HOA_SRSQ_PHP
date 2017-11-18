@@ -146,33 +146,6 @@
                     <label>ADDRESS</label>
                     <br>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberAddress" onchange="changeOptions();">
-                      <option></option>
-                      <?php
-
-                        $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
-                        $queryResult = pg_query($query);
-                        $homeIDS = array();
-
-                        while ($row = pg_fetch_assoc($queryResult)) {
-                          $homeIDS[$row['home_id']] = $row['address1'];
-                        }
-
-                        $query = "SELECT * FROM HOAID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
-                        $queryResult = pg_query($query);
-
-                        $hoaIDS = array();
-                        $hoaHomeIDS = array();
-                        while ($row = pg_fetch_assoc($queryResult)) {
-                          $hoaIDS[$row['hoa_id']] = $row['firstname'].' '.$row['lastname'];
-                          $hoaHomeIDS[$row['hoa_id']] = $row['home_id'];
-                        }
-
-                        foreach ($hoaIDS as $key => $value) {
-                          echo '<option data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$hoaHomeIDS[$key]].'</option>';
-                        }
-
-
-                      ?>
                     </select>
                 </div>
 
