@@ -144,7 +144,7 @@
                         }
 
                         foreach ($hoaIDS as $key => $value) {
-                          echo '<option data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$hoaHomeIDS[$key]].'</option>';
+                          echo '<option value="'.$key.'" data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$hoaHomeIDS[$key]].'</option>';
                         }
 
 
