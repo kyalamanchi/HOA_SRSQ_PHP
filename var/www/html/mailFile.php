@@ -38,7 +38,6 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
@@ -85,11 +84,21 @@
 
                   <div class="row-fluid" style="float: left;">
                       <h5>Select Member</h5>
-                      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
-                      <option></option>
-                      <option data-subtext="Can be prefilled"></option>
-                      <option data-subtext="Can not be prefilled"></option>
-                    </select>
+                      <li class="dropdown">
+                        <!-- the search button -->
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i></a>
+                    <ul class="dropdown-menu">
+                          <li class="pad">
+                             <!-- the search text input -->
+                                <input type="text" class="form-control" name="search" id="search-input" />
+                            </li>
+                            <li>
+                            <div id='results'>
+                              <!-- results should be displayed here -->
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
                   </div>
 
                 </div>
