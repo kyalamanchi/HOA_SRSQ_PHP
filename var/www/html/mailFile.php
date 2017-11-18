@@ -89,10 +89,10 @@
 
         </section>
 
-        <section class="content" id="content" style="height: 100%;">
+        <section class="content" id="content">
                  
 
-                <div class="row-fluid">
+                <div class="row-fluid" style="float: right;">
                     <label>Select Member</label>
                     <br>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
@@ -126,6 +126,42 @@
                     </select>
                 </div>
 
+
+                <div class="row-fluid" style="float: right; padding-left: 10px;">
+                    <label>ADDRESS</label>
+                    <br>
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
+                      <option></option>
+                      <?php
+
+                        $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $homeIDS = array();
+
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                          $homeIDS[$row['home_id']] = $row['address1'];
+                        }
+
+                        $query = "SELECT * FROM HOAID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+
+                        $hoaIDS = array();
+                        $hoaHomeIDS = array();
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                          $hoaIDS[$row['hoa_id']] = $row['firstname'].' '.$row['lastname'];
+                          $hoaHomeIDS[$row['hoa_id']] = $row['home_id'];
+                        }
+
+                        foreach ($hoaIDS as $key => $value) {
+                          echo '<option data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$hoaHomeIDS[$key]].'</option>';
+                        }
+
+
+                      ?>
+                    </select>
+                </div>
+                <br>
+                <br>
                 <div>
                     <label>Select File</label>
                 </div>
