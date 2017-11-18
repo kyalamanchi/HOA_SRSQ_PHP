@@ -76,10 +76,6 @@
 
         </section>
 
-          
-          <div class="row">
-
-
 
               <div class="box">
 
@@ -128,13 +124,9 @@
 
                 </div>
 
-              </div>
-
-
-
           </div>
 
-
+</div>
       </div>
 
       <?php include 'footer.php'; ?>
