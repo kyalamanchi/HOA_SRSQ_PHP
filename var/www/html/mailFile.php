@@ -91,8 +91,6 @@
 
                   <div class="row-fluid" style="float: left;">
                       <h5>Select Member</h5>
-      <div class="box box-default">
-        <div class="box-header with-border">
                 <div class="row-fluid" style="float: left;">
                     <h5>Type of document</h5>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
@@ -102,7 +100,7 @@
                     </select>
                 </div>
 
-        </div>
+
 
                   </div>
 
