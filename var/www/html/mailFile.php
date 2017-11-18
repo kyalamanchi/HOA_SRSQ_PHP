@@ -76,7 +76,7 @@
 
         </section>
 
-
+        <section class="content" style="height: 100%;">
               <div class="box">
 
                 <div class="box-body table-responsive">
@@ -125,6 +125,8 @@
                 </div>
 
           </div>
+
+          </section>
 
 </div>
       </div>
