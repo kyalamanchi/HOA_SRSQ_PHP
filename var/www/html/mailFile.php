@@ -84,15 +84,14 @@
         item["member_id"] = memberId;
         json.push(item);
         data = JSON.stringify(json);
-        var request = new XMLHttpRequest();
-        request.open("POST","https://hoaboardtime.com/getLibraryDocuments.php");
-        request.setRequestHeader("Content-type","application/json");
+        var request= new XMLHttpRequest();
+        request.open("POST", "https://www.hoaboardtime.com/getAddress.php", true);
+        request.setRequestHeader("Content-type", "application/json");
         request.send(data);
-        request.onreadystatechange = function() {
-          if( request.readState == XMLHttpRequest.DONE ){
-              hidePleaseWait();
-              swal(request.responseText,"","success");
-          }
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              alert("Done");
+        }
         }
       } 
       else {
