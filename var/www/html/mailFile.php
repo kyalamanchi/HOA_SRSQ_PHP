@@ -56,6 +56,8 @@
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
 
+
+
     <style type="text/css">
       body{
   min-height: 100vh;
@@ -68,32 +70,7 @@
 }
     </style>
 <script type="text/javascript">
-
-
-function showPleaseWait() {
-    var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
-        <div class="modal-dialog">\
-            <div class="modal-content">\
-                <div class="modal-header">\
-                    <h4 class="modal-title">Please wait...</h4>\
-                </div>\
-                <div class="modal-body">\
-                    <div class="progress">\
-                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 100%">\
-                      </div>\
-                    </div>\
-                </div>\
-            </div>\
-        </div>\
-    </div>';
-    $(document.body).append(modalLoading);
-    $("#pleaseWaitDialog").modal("show");
-}
-function hidePleaseWait() {
-    $("#pleaseWaitDialog").modal("hide");
-}
-
+  
 
   function getAddress(){
       $("#memberAddress").find('option').remove();
@@ -111,11 +88,9 @@ function hidePleaseWait() {
         request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
         request.setRequestHeader("Content-type", "application/json");
         request.send(data);
-        showPleaseWait();
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               alert(request.responseText);
-              hidePleaseWait();
         }
         }
       } 
