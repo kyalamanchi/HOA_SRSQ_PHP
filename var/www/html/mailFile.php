@@ -90,7 +90,7 @@
         request.send(data);
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-              alert("Done");
+              alert(request.responseText);
         }
         }
       } 
