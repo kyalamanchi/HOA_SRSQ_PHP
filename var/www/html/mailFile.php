@@ -77,7 +77,22 @@
       $("#memberAddress").selectpicker('refresh');
       var selectedMember = $('#memberID').find("option:selected").text();
       if ( selectedMember ){
-        swal("",$('#memberID').val(),"success");
+        var memberId = $('#memberID').val();
+        json = [];
+
+        item = {};
+        item["member_id"] = memberId;
+        json.push(item);
+        data = JSON.stringify(json);
+        var request = new XMLHttpRequest();
+        request.open("POST","https://hoaboardtime.com/getAddress.php");
+        request.setRequestHeader("Content-type","application/json");
+        request.send(data);
+        request.onreadystatechange = function() {
+          if( request.readState == XMLHttpRequest.DONE ){
+              swal(request.responseText,"","success");
+          }
+        }
       } 
       else {
         swal("Please select a member","","error");
