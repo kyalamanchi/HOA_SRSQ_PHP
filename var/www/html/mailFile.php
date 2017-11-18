@@ -107,13 +107,14 @@
                         $queryResult = pg_query($query);
 
                         $hoaIDS = array();
-
+                        $hoaHomeIDS = array();
                         while ($row = pg_fetch_assoc($queryResult)) {
                           $hoaIDS[$row['hoa_id']] = $row['firstname'].' '.$row['lastname'];
+                          $hoaHomeIDS[$row['hoa_id']] = $row['home_id'];
                         }
 
                         foreach ($hoaIDS as $key => $value) {
-                          echo '<option data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$key].'</option>';
+                          echo '<option data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$hoaHomeIDS[$key]].'</option>';
                         }
 
 
