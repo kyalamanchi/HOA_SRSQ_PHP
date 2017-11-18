@@ -92,8 +92,31 @@
                     <label>Select Member</label>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
                       <option></option>
-                      <option data-subtext="Can be prefilled">Transient Document</option>
-                      <option data-subtext="Can not be prefilled">Library Document</option>
+                      <?php
+
+                        $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $homeIDS = array();
+
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                          $homeIDS[$row['home_id']] = $row['address1'];
+                        }
+
+                        $query = "SELECT * FROM HOAID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+
+                        $hoaIDS = array();
+
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                          $hoaIDS[$row['hoa_id']] = $row['first_name'].' '.$row['lastname'];
+                        }
+
+                        foreach ($hoaIDS as $key => $value) {
+                          echo '<option data-subtext="'.$value.'('.$key.')'.'">'.$homeIDS[$key].'</option>';
+                        }
+
+
+                      ?>
                     </select>
                 </div>
                 <br>
