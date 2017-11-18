@@ -127,7 +127,7 @@
                 </div>
 
 
-                <div class="row-fluid" style="float: right; padding-left: 10px;">
+                <div class="row-fluid">
                     <label>ADDRESS</label>
                     <br>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
