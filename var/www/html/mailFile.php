@@ -11,7 +11,11 @@
 <html>
 
   <head>
-    
+    <script type="text/javascript">
+        $(document).ready(function() {
+  $(".js-example-basic-single").select2();
+});
+    </script>
     <?php
 
       pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
@@ -37,10 +41,11 @@
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="dist/css/alt/select2.min.css">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.css" />
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.js"></script>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -97,18 +102,10 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
-              <div class="form-group">
-                <label>Minimal</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option selected="selected">Alabama</option>
-                  <option>Alaska</option>
-                  <option>California</option>
-                  <option>Delaware</option>
-                  <option>Tennessee</option>
-                  <option>Texas</option>
-                  <option>Washington</option>
-                </select>
-              </div>
+              <select class="js-example-basic-single">
+  <option value="AL">Alabama</option>
+    ...
+  <option value="WY">Wyoming</option>
             </div>
           </div>
         </div>
