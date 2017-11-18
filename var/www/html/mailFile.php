@@ -85,10 +85,9 @@
         json.push(item);
         data = JSON.stringify(json);
         var request = new XMLHttpRequest();
-        request.open("POST","https://hoaboardtime.com/getAddress.php");
+        request.open("POST","https://hoaboardtime.com/getLibraryDocuments.php");
         request.setRequestHeader("Content-type","application/json");
         request.send(data);
-        showPleaseWait();
         request.onreadystatechange = function() {
           if( request.readState == XMLHttpRequest.DONE ){
               hidePleaseWait();
