@@ -55,7 +55,7 @@
     <link rel="stylesheet" href="dist/css/alt/AdminLTE-select2.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 
     <style type="text/css">
