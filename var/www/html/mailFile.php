@@ -89,9 +89,6 @@
         </section>
 
         <section class="content" id="content" style="height: 100%;">
-              <div class="box">
-
-                <div class="box-body table-responsive">
                  
 
                 <div class="row-fluid">
@@ -133,10 +130,6 @@
                 </div>
                 <br>
                 <br>
-
-                </div>
-
-          </div>
 
           </section>
 
