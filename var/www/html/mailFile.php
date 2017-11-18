@@ -77,8 +77,8 @@
       $("#memberAddress").selectpicker('refresh');
       var selectedMember = $('#memberID').find("option:selected").text();
       if ( selectedMember ){
-
-      }
+        swal("",$('#memberID').val(),"success");
+      } 
       else {
         swal("Please select a member","","error");
       }
