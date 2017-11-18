@@ -80,14 +80,13 @@
           
           <div class="row">
 
-            <section class="">
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
 
                 <div class="box-body table-responsive">
                  
 
-                  <div class="row-fluid" >
                 <div class="row-fluid">
                     <label>Select Member</label>
                     <br>
@@ -121,11 +120,12 @@
                       ?>
                     </select>
                 </div>
+
+                <div>
+                    <label>Select File</label>
+                </div>
                 <br>
                 <br>
-
-
-                  </div>
 
                 </div>
 
