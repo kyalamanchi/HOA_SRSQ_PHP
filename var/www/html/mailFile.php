@@ -67,14 +67,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Trail Balance Report</strong><small> - Till <?php echo date('F d,Y'); ?></small></h1>
-
-          <ol class="breadcrumb">
-            
-            <li><i class="fa fa-support"></i> Reserves Dashboard</li>
-            <li>Trail Balance Report</li>
-          
-          </ol>
+          <h1><strong>Send To Member</strong></h1>
 
         </section>
 
@@ -87,6 +80,7 @@
               <div class="box">
 
                 <div class="box-body table-responsive">
+                  <h1>Test</h1>
 
                 </div>
 
