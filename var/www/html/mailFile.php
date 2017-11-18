@@ -85,7 +85,7 @@
         json.push(item);
         data = JSON.stringify(json);
         var request= new XMLHttpRequest();
-        request.open("POST", "https://www.hoaboardtime.com/getAddress.php", true);
+        request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
         request.setRequestHeader("Content-type", "application/json");
         request.send(data);
         request.onreadystatechange = function () {
