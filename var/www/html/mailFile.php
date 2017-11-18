@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
@@ -86,8 +87,8 @@
                       <h5>Select Member</h5>
                       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
                       <option></option>
-                      <option data-subtext="Can be prefilled">Transient Document</option>
-                      <option data-subtext="Can not be prefilled">Library Document</option>
+                      <option data-subtext="Can be prefilled"></option>
+                      <option data-subtext="Can not be prefilled"></option>
                     </select>
                   </div>
 
