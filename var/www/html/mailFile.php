@@ -196,14 +196,6 @@
 
     </div>
 
-
-
-    <script>
-      $(function () {
-        $("#example1").DataTable({ "paging": false, "pageLength": 500, "info": false });
-      });
-    </script>
-
   </body>
 
 </html>
