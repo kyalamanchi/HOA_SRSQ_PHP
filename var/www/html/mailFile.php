@@ -92,7 +92,7 @@
         <section class="content" id="content">
                  
 
-                <div class="row-fluid" style="float: right;">
+                <div class="row-fluid">
                     <label>Select Member</label>
                     <br>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
@@ -160,6 +160,8 @@
                       ?>
                     </select>
                 </div>
+
+                <div style="clear: both;"></div>
                 <br>
                 <br>
                 <div>
