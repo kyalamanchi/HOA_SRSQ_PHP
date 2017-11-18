@@ -76,7 +76,6 @@
 
         </section>
 
-        <section class="content">
           
           <div class="row">
 
@@ -135,7 +134,6 @@
 
           </div>
 
-        </section>
 
       </div>
 
