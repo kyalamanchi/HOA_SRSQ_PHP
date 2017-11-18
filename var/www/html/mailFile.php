@@ -61,6 +61,7 @@
 <script type="text/javascript">
   
   function getAddress(){
+      alert($("memberID").find("option:selected").text());
       $("memberAddress").find('option').remove();
       $("memberAddress").selectpicker('refresh');
       var selectedMember = $("memberID").find("option:selected").text();
