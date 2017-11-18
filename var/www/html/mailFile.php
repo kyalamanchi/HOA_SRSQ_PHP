@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/alt/AdminLTE-select2.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.css" />
 
@@ -102,10 +103,18 @@
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
-              <select class="js-example-basic-single">
-  <option value="AL">Alabama</option>
-    ...
-  <option value="WY">Wyoming</option>
+              <div class="form-group">
+                <label>Minimal</label>
+                <select class="form-control select2" style="width: 100%;">
+                  <option selected="selected">Alabama</option>
+                  <option>Alaska</option>
+                  <option>California</option>
+                  <option>Delaware</option>
+                  <option>Tennessee</option>
+                  <option>Texas</option>
+                  <option>Washington</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
