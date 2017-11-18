@@ -81,7 +81,7 @@
 
       }
       else {
-        alert("Please select member");
+        swal("Please select a member","","error");
       }
   }
 
