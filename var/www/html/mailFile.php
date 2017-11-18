@@ -58,7 +58,21 @@
   background-color: white;
 }
     </style>
+<script type="text/javascript">
+  
+  function getAddress(){
+      $("memberAddress").find('option').remove();
+      $("memberAddress").selectpicker('refresh');
+      var selectedMember = $("memberID").find("option:selected").text();
+      if ( selectedMember ){
 
+      }
+      else {
+        alert("Please select member");
+      }
+  }
+
+</script>
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
@@ -95,7 +109,7 @@
                 <div class="row-fluid">
                     <label>Select Member</label>
                     <br>
-                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberID" onchange="getAddress();">
                       <option></option>
                       <?php
 
@@ -131,7 +145,7 @@
                 <div class="row-fluid">
                     <label>ADDRESS</label>
                     <br>
-                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberAddress" onchange="changeOptions();">
                       <option></option>
                       <?php
 
