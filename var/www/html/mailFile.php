@@ -24,14 +24,15 @@
 
     ?>
 
-   <!--  <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <title><?php ?></title>
+    <title><?php echo $_SESSION['hoa_community_name']; ?></title>
     
     <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
@@ -52,39 +53,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/alt/AdminLTE-select2.min.css">
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css"> -->
-
-
-        <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title><?php echo $_SESSION['hoa_community_name']; ?></title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
 
 
-   
 
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/demo.js"></script>
-
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-     <script src="bootstrap/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" type="text/css" href="http://code.google.com/apis/libraries/devguide.html#jquery">
     <style type="text/css">
       body{
   min-height: 100vh;
@@ -115,20 +88,9 @@
         request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
         request.setRequestHeader("Content-type", "application/json");
         request.send(data);
-
-              var pleaseWaitData = '<div class="progress">\
-                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
-                      </div>\
-                    </div>';
-      $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
-      $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-      $("#pleaseWaitDialog2").modal("show");
-
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               alert(request.responseText);
-              $("#pleaseWaitDialog2").modal("hide");
         }
         }
       } 
@@ -224,18 +186,6 @@
                 <br>
 
           </section>
-
-
-        <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content" >
-                <div class="modal-header">
-                </div>
-                <div class="modal-body">
-                </div>
-            </div>
-        </div>
-    </div>
 
 </div>
       </div>
