@@ -80,7 +80,7 @@
               <div class="box">
 
                 <div class="box-body table-responsive">
-                  <h1>Test</h1>
+                 
 
                 </div>
 
