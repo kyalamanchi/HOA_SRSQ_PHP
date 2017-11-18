@@ -434,7 +434,7 @@ updateName();
         <option data-subtext="">WRITTEN</option>
       </select>
     </div>
-      <div class="row-fluid" style="float: left;padding-left: 10">
+    <div class="row-fluid" style="float: left;padding-left: 10">
       <h4>Role</h4>
       <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="signerRole">
         <option data-subtext="">SIGNER</option>

@@ -82,6 +82,15 @@
                 <div class="box-body table-responsive">
                  
 
+                  <div class="row-fluid" style="float: left;">
+                      <h5>Select Member</h5>
+                      <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
+                      <option></option>
+                      <option data-subtext="Can be prefilled">Transient Document</option>
+                      <option data-subtext="Can not be prefilled">Library Document</option>
+                    </select>
+                  </div>
+
                 </div>
 
               </div>
