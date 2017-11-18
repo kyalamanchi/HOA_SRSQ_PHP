@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.css" />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.js"></script>
