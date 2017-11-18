@@ -89,9 +89,8 @@
                 <div class="box-body table-responsive">
                  
 
-                  <div class="row-fluid" style="float: left;">
-                      <h5>Select Member</h5>
-                <div class="row-fluid" style="float: left;">
+                  <div class="row-fluid" >
+                <div class="row-fluid">
                     <h5>Type of document</h5>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="documentCategory" onchange="changeOptions();">
                       <option></option>
