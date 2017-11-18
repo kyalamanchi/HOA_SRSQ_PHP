@@ -109,7 +109,7 @@
                         $hoaIDS = array();
 
                         while ($row = pg_fetch_assoc($queryResult)) {
-                          $hoaIDS[$row['hoa_id']] = $row['first_name'].' '.$row['lastname'];
+                          $hoaIDS[$row['hoa_id']] = $row['firstname'].' '.$row['lastname'];
                         }
 
                         foreach ($hoaIDS as $key => $value) {
