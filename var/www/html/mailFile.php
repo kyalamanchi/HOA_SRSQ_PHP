@@ -167,15 +167,7 @@ function sendFile(){
   request.onreadystatechange = function () {
     if (request.readyState == XMLHttpRequest.DONE) {
         $("#pleaseWaitDialog2").modal("hide");
-        $("#memberAddress").append('<option selected="true" data-hidden="true"></option>');
-        document.getElementById("memberAddress").options[0].disabled = false;
-        var count = 1;
-        for(var addresses in JSON.parse(request.responseText)){
-          var address = JSON.parse(request.responseText)[addresses];
-          $("#memberAddress").append('<option value="'+count+'">'+address+'</option>');
-          count = count + 1;
-        }
-        $("#memberAddress").selectpicker('refresh');
+        alert(request.responseText);
   }
   }
 
