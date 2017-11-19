@@ -7,7 +7,13 @@ $query = "SELECT HOME_ID FROM HOAID WHERE HOA_ID = ".$hoaID;
 $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 $homeID = $row['home_id'];
-echo $homeID;
+
+$query = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
+$queryResult = pg_query($query);
+$row  = pg_fetch_assoc($queryResult);
+
+echo $row['living_status'];
+
 
 // try{
 // if ($connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database")){
