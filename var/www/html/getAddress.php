@@ -19,14 +19,14 @@ if ( $row['living_status'] == 'f') {
 
 	$returnArray = array();
 
-	array_push($returnArray, $row['home_id'].'#'.$row['address1']);
-	array_push($returnArray, $row2['home_id'].'#'.$row2['address1']);
+	array_push($returnArray, 'home'.'#'.$row['address1']);
+	array_push($returnArray, 'mailing'.'#'.$row2['address1']);
 	echo json_encode($returnArray);
 }
 
 else {
 	$returnArray = array();
-	array_push($returnArray, $row['home_id'].'#'.$row['address1']);
+	array_push($returnArray, 'home'.'#'.$row['address1']);
 	echo json_encode($returnArray);
 }
 
