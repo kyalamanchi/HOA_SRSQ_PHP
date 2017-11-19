@@ -151,11 +151,10 @@ function sendFile(){
   item['address'] =  address;
   json.push(item);
   sendData = JSON.stringify(json);
-  alert(sendData);
   var request= new XMLHttpRequest();
   request.open("POST", "https://hoaboardtime.com/sendFileToSouthData.php", true);
   request.setRequestHeader("Content-type", "application/json");
-  request.send(data);
+  request.send(sendData);
   var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
