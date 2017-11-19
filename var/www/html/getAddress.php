@@ -17,11 +17,17 @@ if ( $row['living_status'] == 'f') {
 	$queryResult = pg_query($query);
 	$row2 = pg_fetch_assoc($queryResult);
 
-	echo $row['address1'].' '.$row2['address1'];
+	$returnArray = array();
+
+	array_push($returnArray, $row['address1']);
+	array_push($returnArray, $row2['address1']);
+	echo json_encode($returnArray);
 }
 
 else {
-	echo $row['address1'];
+	$returnArray = array();
+	array_push($returnArray, $row['address1']);
+	echo json_encode($returnArray);
 }
 
 ?>
