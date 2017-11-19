@@ -161,6 +161,10 @@ $(document).ready(function() {
 } 
 );
 
+function sendFile(){
+  alert("Test");
+}
+
   function getAddress(){
 
 
@@ -294,7 +298,7 @@ $(document).ready(function() {
       <h4 id="label"></h4>
       </div>
       <br>
-      <button type="button" class="btn btn-success" onclick="saveChanges();" id="saveButton" disabled="disabled">Send</button>
+      <button type="button" class="btn btn-success" onclick="sendFile();" id="saveButton" disabled="disabled">Send</button>
       <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
