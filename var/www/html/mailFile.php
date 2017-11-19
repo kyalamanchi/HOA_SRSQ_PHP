@@ -136,8 +136,8 @@ input, label {
 
     </style>
 <script type="text/javascript">
-  var fileData = "";
-  var fileName = "";
+var fileData = "";
+var fileName = "";
 $(document).ready(function() {
 
   function getFileData()
