@@ -93,7 +93,8 @@
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              swal(request.responseText,"","success");
+              // swal(request.responseText,"","success");
+              swal(JSON.parse(request.responseText),"","success");
         }
         }
       } 
