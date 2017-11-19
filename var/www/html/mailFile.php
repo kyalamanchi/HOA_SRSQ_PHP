@@ -94,7 +94,14 @@
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
               // swal(request.responseText,"","success");
-              swal(JSON.parse(request.responseText),"","success");
+
+              var s  = "";
+              for(var addresses in JSON.parse(request.responseText)){
+                s = s+addresses;
+              }
+
+
+              swal(s,"","success");
         }
         }
       } 
