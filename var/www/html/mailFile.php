@@ -84,32 +84,40 @@
   
 
   function getAddress(){
-      $("modal-warning").modal("show");
-      $("#memberAddress").find('option').remove();
-      $("#memberAddress").selectpicker('refresh');
-      var selectedMember = $('#memberID').find("option:selected").text();
-      if ( selectedMember ){
-        var memberId = $('#memberID').val();
-        json = [];
+ var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+      $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+      $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+      $("#pleaseWaitDialog2").modal("show");
+      // $("modal-warning").modal("show");
+      // $("#memberAddress").find('option').remove();
+      // $("#memberAddress").selectpicker('refresh');
+      // var selectedMember = $('#memberID').find("option:selected").text();
+      // if ( selectedMember ){
+      //   var memberId = $('#memberID').val();
+      //   json = [];
 
-        item = {};
-        item["member_id"] = memberId;
-        json.push(item);
-        data = JSON.stringify(json);
-        var request= new XMLHttpRequest();
-        request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.send(data);
-        request.onreadystatechange = function () {
-          if (request.readyState == XMLHttpRequest.DONE) {
-              alert(request.responseText);
+      //   item = {};
+      //   item["member_id"] = memberId;
+      //   json.push(item);
+      //   data = JSON.stringify(json);
+      //   var request= new XMLHttpRequest();
+      //   request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
+      //   request.setRequestHeader("Content-type", "application/json");
+      //   request.send(data);
+      //   request.onreadystatechange = function () {
+      //     if (request.readyState == XMLHttpRequest.DONE) {
+      //         alert(request.responseText);
 
-        }
-        }
-      } 
-      else {
-        swal("Please select a member","","error");
-      }
+      //   }
+      //   }
+      // } 
+      // else {
+      //   swal("Please select a member","","error");
+      // }
   }
 
 </script>
