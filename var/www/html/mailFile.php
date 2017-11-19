@@ -93,11 +93,11 @@
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              $("#memberAddress").append('<option selected="true" disabled="disabled"></option>');
+              $("#memberAddress").append('<option selected="true" disabled></option>');
               document.getElementById("memberAddress").options[0].disabled = false;
               for(var addresses in JSON.parse(request.responseText)){
                 var address = JSON.parse(request.responseText)[addresses];
-                $("#memberAddress").append('<option >'+address+'</option>');
+                $("#memberAddress").append('<option>'+address+'</option>');
               }
               $("#memberAddress").selectpicker('refresh');
         }
