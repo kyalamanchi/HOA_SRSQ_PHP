@@ -138,13 +138,13 @@ input, label {
 <script type="text/javascript">
 var fileData = "";
 var fileName = "";
-
+var ghoaID = -1;
 
 function sendFile(){
 
-  alert($('#memberID').find("option:selected").index());
-  alert($('#memberID').val());
-  alert($('#memberAddress').val());
+  var address = $('#memberAddress').val();
+  alert( address );
+  alert(ghoaID);
 }
 
   function getAddress(){
@@ -165,6 +165,7 @@ function sendFile(){
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
         var memberId = $('#memberID').val();
+        ghoaID = memberId;
         json = [];
         item = {};
         item["member_id"] = memberId;
