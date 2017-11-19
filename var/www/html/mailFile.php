@@ -142,6 +142,7 @@ var fileName = "";
 
 function sendFile(){
 
+  alert($('#memberID').find("option:selected").index());
   alert($('#memberID').val());
   alert($('#memberAddress').val());
 }
