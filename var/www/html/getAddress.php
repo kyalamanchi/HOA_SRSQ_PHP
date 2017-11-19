@@ -15,9 +15,9 @@ $row  = pg_fetch_assoc($queryResult);
 if ( $row['living_status'] == 'f') {
 	$query = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$row['home_id'];
 	$queryResult = pg_query($query);
-	$row = pg_fetch_assoc($queryResult);
+	$row2 = pg_fetch_assoc($queryResult);
 
-	echo $row['address1'];
+	echo $row['address1'].' '.$row2['address1'];
 }
 
 else {
