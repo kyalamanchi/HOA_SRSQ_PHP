@@ -152,6 +152,32 @@ function sendFile(){
   json.push(item);
   sendData = JSON.stringify(json);
   alert(sendData);
+  var request= new XMLHttpRequest();
+  request.open("POST", "https://hoaboardtime.com/sendFileToSouthData.php", true);
+  request.setRequestHeader("Content-type", "application/json");
+  request.send(data);
+  var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+  $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+  $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+  $("#pleaseWaitDialog2").modal("show");
+  request.onreadystatechange = function () {
+    if (request.readyState == XMLHttpRequest.DONE) {
+        $("#pleaseWaitDialog2").modal("hide");
+        $("#memberAddress").append('<option selected="true" data-hidden="true"></option>');
+        document.getElementById("memberAddress").options[0].disabled = false;
+        var count = 1;
+        for(var addresses in JSON.parse(request.responseText)){
+          var address = JSON.parse(request.responseText)[addresses];
+          $("#memberAddress").append('<option value="'+count+'">'+address+'</option>');
+          count = count + 1;
+        }
+        $("#memberAddress").selectpicker('refresh');
+  }
+  }
 
 }
 
