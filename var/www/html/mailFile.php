@@ -283,7 +283,7 @@ function sendFile(){
                 <div class="row-fluid">
                     <label>ADDRESS</label>
                     <br>
-                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberAddress" onchange="changeOptions();">
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberAddress" onchange="">
                     </select>
                 </div>
 
