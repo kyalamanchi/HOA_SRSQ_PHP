@@ -138,28 +138,7 @@ input, label {
 <script type="text/javascript">
 var fileData = "";
 var fileName = "";
-$(document).ready(function() {
 
-  function getFileData()
-{
-  var file = document.getElementById("fileInput").files[0];
-  if ( file ){
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = function (evt) {
-         fileData =evt.target.result.split(',')[1];
-        return fileData;
-    }
-    reader.onerror = function (evt) {
-        fileData = "Error";
-        return fileData;
-    }
-}
-
-}
-
-} 
-);
 
 function sendFile(){
   alert(fileData);
@@ -210,6 +189,31 @@ function sendFile(){
         swal("Please select a member","","error");
       }
   }
+
+$(document).ready(function() {
+
+  function getFileData()
+{
+  var file = document.getElementById("fileInput").files[0];
+  if ( file ){
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function (evt) {
+         fileData =evt.target.result.split(',')[1];
+        return fileData;
+    }
+    reader.onerror = function (evt) {
+        fileData = "Error";
+        return fileData;
+    }
+}
+
+}
+
+} 
+);
+
+
 
 </script>
   </head>
