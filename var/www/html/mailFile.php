@@ -143,8 +143,16 @@ var ghoaID = -1;
 function sendFile(){
 
   var address = $('#memberAddress').val();
-  alert( address );
-  alert(ghoaID);
+  json = [];
+  item = {};
+  item['file_data'] = fileData;
+  item['file_name'] = fileName;
+  item['hoa_id'] =  ghoaID;
+  item['address'] =  address;
+  json.push(item);
+  sendData = JSON.stringify(json);
+  alert(sendData);
+
 }
 
   function getAddress(){
