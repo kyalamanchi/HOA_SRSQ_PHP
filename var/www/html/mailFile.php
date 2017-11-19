@@ -293,8 +293,7 @@ function sendFile(){
                 <br>
                     <div>
       
-      <label class="btn btn-default" >
-      Add Attachment<input type="file" id="fileInput" hidden>
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       <h4 id="label"></h4>
       </div>
