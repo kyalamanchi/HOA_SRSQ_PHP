@@ -12,7 +12,17 @@ $query = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
 $queryResult = pg_query($query);
 $row  = pg_fetch_assoc($queryResult);
 
-echo $row['living_status'];
+if ( $row['living_status'] == 'f') {
+	$query = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$row['home_id'];
+	$queryResult = pg_query($query);
+	$row = pg_fetch_assoc($queryResult);
+
+	echo $row['address1'];
+}
+
+else {
+	echo $row['address1'];
+}
 
 
 // try{

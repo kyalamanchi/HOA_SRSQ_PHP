@@ -82,7 +82,6 @@
         $("#pleaseWaitDialog2").modal("show");
         var memberId = $('#memberID').val();
         json = [];
-
         item = {};
         item["member_id"] = memberId;
         json.push(item);
