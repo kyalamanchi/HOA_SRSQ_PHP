@@ -97,7 +97,7 @@
               document.getElementById("memberAddress").options[0].disabled = false;
               for(var addresses in JSON.parse(request.responseText)){
                 var address = JSON.parse(request.responseText)[addresses];
-                $("#memberAddress").append('<option >'+addresses+'</option>');
+                $("#memberAddress").append('<option >'+address+'</option>');
               }
               $("#memberAddress").selectpicker('refresh');
         }
