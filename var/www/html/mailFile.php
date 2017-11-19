@@ -38,7 +38,12 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-
+        <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/demo.js"></script>
 
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
@@ -207,12 +212,7 @@
         </div>
     </div>
 
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/demo.js"></script>
+
 
 
   </body>
