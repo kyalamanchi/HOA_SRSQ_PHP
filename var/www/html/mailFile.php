@@ -136,6 +136,8 @@ input, label {
 
     </style>
 <script type="text/javascript">
+  var fileData = "";
+  var fileName = "";
 $(document).ready(function() {
 
   function getFileData()
@@ -292,7 +294,7 @@ $(document).ready(function() {
       <h4 id="label"></h4>
       </div>
       <br>
-      <button type="button" class="btn btn-success" onclick="saveChanges();" id="saveButton" hidden="hidden">Save</button>
+      <button type="button" class="btn btn-success" onclick="saveChanges();" id="saveButton" disabled="disabled">Send</button>
       <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
@@ -300,7 +302,7 @@ $(document).ready(function() {
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
            document.getElementById("label").innerHTML = f;
-           document.getElementById("saveButton").hidden = false;
+           document.getElementById("saveButton").disabled = false;
           getFileData();
         };
       </script>
