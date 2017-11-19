@@ -16,7 +16,7 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
 
-
+echo json_decode($response);
 
 unlink($parseJSON[0]->file_name);
 
