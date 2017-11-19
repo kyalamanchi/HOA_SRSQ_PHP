@@ -93,15 +93,13 @@
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              // swal(request.responseText,"","success");
-
-              var s  = "";
               for(var addresses in JSON.parse(request.responseText)){
-                s = s+JSON.parse(request.responseText)[addresses];
+                var address = JSON.parse(request.responseText)[addresses];
+                $("#memberAddress").append('<option selected="true" disabled="disabled"></option>');
+                document.getElementById("memberAddress").options[0].disabled = false;
+                $("#memberAddress").append('<option >'+addresses+'</option>');
               }
-
-
-              swal(s,"","success");
+              $("#memberAddress").selectpicker('refresh');
         }
         }
       } 
