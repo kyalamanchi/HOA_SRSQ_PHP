@@ -97,7 +97,7 @@
 
               var s  = "";
               for(var addresses in JSON.parse(request.responseText)){
-                s = s+addresses;
+                s = s+JSON.parse(request.responseText)[addresses];
               }
 
 
