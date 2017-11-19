@@ -142,8 +142,8 @@ var fileName = "";
 
 function sendFile(){
 
-  $('#memberID').val();
-  $('#memberAddress').val();
+  alert($('#memberID').val());
+  alert($('#memberAddress').val());
 }
 
   function getAddress(){
