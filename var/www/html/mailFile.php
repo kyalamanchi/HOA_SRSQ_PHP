@@ -61,7 +61,28 @@
 }
     </style>
 <script type="text/javascript">
-  
+$(document).ready(function() {
+
+  function getFileData()
+{
+  var file = document.getElementById("fileInput").files[0];
+  if ( file ){
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function (evt) {
+         fileData =evt.target.result.split(',')[1];
+        return fileData;
+    }
+    reader.onerror = function (evt) {
+        fileData = "Error";
+        return fileData;
+    }
+}
+
+}
+
+} 
+);
 
   function getAddress(){
 
@@ -188,9 +209,26 @@
                 <div style="clear: both;"></div>
                 <br>
                 <br>
-                <div>
-                    <label>Select File</label>
-                </div>
+                    <div>
+      
+      <label class="btn btn-default" >
+      Add Attachment<input type="file" id="fileInput" hidden>
+      </label>
+      <h4 id="label"></h4>
+      </div>
+      <br>
+      <button type="button" class="btn btn-success" onclick="saveChanges();" id="saveButton" hidden="hidden">Save</button>
+      <br>
+      <script type="text/javascript">
+        document.getElementById('fileInput').onchange = function () {
+          var f =  this.value;
+          f = f.replace(/.*[\/\\]/, '');
+          fileName  = f;
+           document.getElementById("label").innerHTML = f;
+           document.getElementById("saveButton").hidden = false;
+          getFileData();
+        };
+      </script>
                 <br>
                 <br>
 
