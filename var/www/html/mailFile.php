@@ -43,38 +43,6 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-   <!--  <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    
-    <title><?php ?></title>
-    
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/demo.js"></script>
-
-
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-    
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="dist/css/alt/AdminLTE-select2.min.css">
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
- -->
 
     <style type="text/css">
       body{
@@ -99,32 +67,32 @@
       $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
       $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
       $("#pleaseWaitDialog2").modal("show");
-      // $("modal-warning").modal("show");
-      // $("#memberAddress").find('option').remove();
-      // $("#memberAddress").selectpicker('refresh');
-      // var selectedMember = $('#memberID').find("option:selected").text();
-      // if ( selectedMember ){
-      //   var memberId = $('#memberID').val();
-      //   json = [];
 
-      //   item = {};
-      //   item["member_id"] = memberId;
-      //   json.push(item);
-      //   data = JSON.stringify(json);
-      //   var request= new XMLHttpRequest();
-      //   request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
-      //   request.setRequestHeader("Content-type", "application/json");
-      //   request.send(data);
-      //   request.onreadystatechange = function () {
-      //     if (request.readyState == XMLHttpRequest.DONE) {
-      //         alert(request.responseText);
+      $("#memberAddress").find('option').remove();
+      $("#memberAddress").selectpicker('refresh');
+      var selectedMember = $('#memberID').find("option:selected").text();
+      if ( selectedMember ){
+        var memberId = $('#memberID').val();
+        json = [];
 
-      //   }
-      //   }
-      // } 
-      // else {
-      //   swal("Please select a member","","error");
-      // }
+        item = {};
+        item["member_id"] = memberId;
+        json.push(item);
+        data = JSON.stringify(json);
+        var request= new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(data);
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              $("#pleaseWaitDialog2").modal("hide");
+
+        }
+        }
+      } 
+      else {
+        swal("Please select a member","","error");
+      }
   }
 
 </script>
