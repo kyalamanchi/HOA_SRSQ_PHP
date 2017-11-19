@@ -162,7 +162,8 @@ $(document).ready(function() {
 );
 
 function sendFile(){
-  alert("Test");
+  alert(fileData);
+  alert(fileName);
 }
 
   function getAddress(){
