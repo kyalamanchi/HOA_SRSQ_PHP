@@ -93,7 +93,7 @@
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              $("#memberAddress").append('<option selected="true" disabled></option>');
+              $("#memberAddress").append('<option selected="true" data-hidden="true"></option>');
               document.getElementById("memberAddress").options[0].disabled = false;
               for(var addresses in JSON.parse(request.responseText)){
                 var address = JSON.parse(request.responseText)[addresses];
@@ -146,7 +146,7 @@
                     <label>Select Member</label>
                     <br>
                     <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberID" onchange="getAddress();">
-                      <option></option>
+                      <option data-hidden="true"></option>
                       <?php
 
                         $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID =".$_SESSION['hoa_community_id'];
