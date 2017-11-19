@@ -190,8 +190,6 @@ function sendFile(){
       }
   }
 
-$(document).ready(function() {
-
   function getFileData()
 {
   var file = document.getElementById("fileInput").files[0];
@@ -209,9 +207,6 @@ $(document).ready(function() {
 }
 
 }
-
-} 
-);
 
 
 
