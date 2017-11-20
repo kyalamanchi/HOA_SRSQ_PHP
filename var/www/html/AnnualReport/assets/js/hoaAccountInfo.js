@@ -1,4 +1,4 @@
-$('#set_password').change(function(){
+$('#set_password').on('change', function(){
 
 	data = $('$set_password').val();
 
