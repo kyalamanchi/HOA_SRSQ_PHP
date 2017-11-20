@@ -59,13 +59,13 @@
 
 							<form class='form' method='POST' action='index2.php'>
 							
+								<br><br>
+
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 
-									<center><label style='color: black;'>Enter HOA Account Number</label></center>
+									<center><h3 class='h3' style='color: black;'>Enter HOA Account Number</h3></center>
 
 								</div>
-
-								<br><br>
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 									
