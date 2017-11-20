@@ -125,10 +125,10 @@ function hidePleaseWait() {
             if ( $key && $value ){
                  echo "<tr>";
                 echo "<td>";
-                    echo $key;
+                    echo '<a href="https://hoaboardtime.com/qbVendorPurchaseSummary.php">'.$key.'</a>';
                 echo "</td>";
                 echo "<td>";
-                    echo "&nbsp&nbsp".$value;
+                    echo "&nbsp&nbsp".'<a href="https://hoaboardtime.com/qbVendorPurchaseSummary.php">'.$value.'</a>';
                 echo "</td>";
             echo "</tr>";
         }
