@@ -166,6 +166,7 @@ function sendFile(){
   request.onreadystatechange = function () {
     if (request.readyState == XMLHttpRequest.DONE) {
         $("#pleaseWaitDialog2").modal("hide");
+        alert(request.responseText);
         if (request.responseText == "Address incomplete. Please update address first"){
           alert("Address incomplete. Please update address.");
         }
