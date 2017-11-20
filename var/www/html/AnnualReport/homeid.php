@@ -109,39 +109,39 @@
 
 			</header>
 
-            <!-- Page Header -->
-            <section class='module-page-title'>
-                                
-                <div class='container'>
-                                        
-                    <div class='row-page-title'>
-                                        
-                        <div class='page-title-captions'>
-                                            
-                            <ol class="breadcrumb">
-                                    
-                                <li class="breadcrumb-item">User Details</li>
-                                <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
-                                <li class="breadcrumb-item">Persons</li>
-                                <li class='breadcrumb-item'>Primary Email</li>
-                                <li class='breadcrumb-item'>SMS Notifications</li>
-                                <li class="breadcrumb-item">Agreements</li>
-                                <li class='breadcrumb-item'>Documents</li>
-                                <li class="breadcrumb-item">Payments</li>
-                                <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                <li class="breadcrumb-item">Disclosures</li>
-
-                            </ol>
-                                        
-                        </div>
-                                    
-                    </div>
-                                    
-                </div>
-                            
-            </section>
-
 			<div class='wrapper'>
+
+				<!-- Page Header -->
+	            <section class='module-page-title'>
+	                                
+	                <div class='container'>
+	                                        
+	                    <div class='row-page-title'>
+	                                        
+	                        <div class='page-title-captions'>
+	                                            
+	                            <ol class="breadcrumb">
+	                                    
+	                                <li class="breadcrumb-item">User Details</li>
+	                                <li class="breadcrumb-item"><strong style='color: black;'>Home Details</strong></li>
+	                                <li class="breadcrumb-item">Persons</li>
+	                                <li class='breadcrumb-item'>Primary Email</li>
+	                                <li class='breadcrumb-item'>SMS Notifications</li>
+	                                <li class="breadcrumb-item">Agreements</li>
+	                                <li class='breadcrumb-item'>Documents</li>
+	                                <li class="breadcrumb-item">Payments</li>
+	                                <li class="breadcrumb-item">HOA Fact Sheet</li>
+	                                <li class="breadcrumb-item">Disclosures</li>
+
+	                            </ol>
+	                                        
+	                        </div>
+	                                    
+	                    </div>
+	                                    
+	                </div>
+	                            
+	            </section>
 
 				<!-- Content -->
 				<section class='module'>
