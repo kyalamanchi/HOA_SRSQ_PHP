@@ -119,9 +119,7 @@
 
 							</div>
 
-							<div id='bcrypt'>
-
-							</div>
+							<div id='bcrypt' class='row'></div>
 
                             <div class='row'>
 
