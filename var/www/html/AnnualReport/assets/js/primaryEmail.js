@@ -19,6 +19,8 @@ $('form.ajax1').on('submit', function(){
 
 		data[index] = value;
 
+		alert(data[index]);
+
 	});
 
 	$.ajax({
