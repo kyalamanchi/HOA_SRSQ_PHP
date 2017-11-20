@@ -96,38 +96,6 @@
 
 			</header>
 
-            <!-- Page Header -->
-            <section class='module-page-title'>
-                                
-                <div class='container'>
-                                        
-                    <div class='row-page-title'>
-                                        
-                        <div class='page-title-captions'>
-                                            
-                            <ol class="breadcrumb">
-                                    
-                                <li class="breadcrumb-item">User Details</li>
-                                <li class="breadcrumb-item">Home Details</li>
-                                <li class="breadcrumb-item">Email &amp; Persons</li>
-                                <li class='breadcrumb-item'>SMS Notifications</li>
-                                <li class="breadcrumb-item">Agreements</li>
-                                <li class='breadcrumb-item'>Documents</li>
-                                <li class="breadcrumb-item">Payments</li>
-                                <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                <li class="breadcrumb-item">Disclosures</li>
-                                <li class="breadcrumb-item"><strong style='color: black;'>HOA Account</strong></li>
-
-                            </ol>
-                                        
-                        </div>
-                                    
-                    </div>
-                                    
-                </div>
-                            
-            </section>
-
 			<div class='wrapper'>
 
 				<!-- Content -->
@@ -199,7 +167,7 @@
 
                                                 <center>
                                                     
-                                                    <button type='submit' class='btn btn-xs btn-success'> Set Password </button>
+                                                    <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-lock'></i> Set Password </button>
 
                                                 </center>
 
