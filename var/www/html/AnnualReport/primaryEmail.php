@@ -157,13 +157,13 @@
 
                                     <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                        <h3>Select Primary Email</h3>
+                                        <h3>Choose your <u>primary email</u> to get HOA communication.</h3>
 
                                     </div>
 
                                     <br><br>
 
-                                    <form method='POST' action='updatePrimaryEmail.php'>
+                                    <form method='POST' action='updatePrimaryEmail.php' class='ajax1'>
 
                                         <div class='row'>
 
@@ -181,7 +181,7 @@
 
                                                     echo "
 
-                                                    <div class='col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
+                                                    <div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
                                                         <input type='radio' name='change_primary_email' value='".$pid."'";
 
@@ -206,7 +206,7 @@
 
                                             <center>
 
-                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-save'></i> Save</button>
+                                                <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-save'></i> Save</button>
 
                                             </center>
 
@@ -219,6 +219,32 @@
                             </div>
 
                             <br>
+
+                            <div class='row container-fluid'>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+									<hr class='small'>
+
+									<div class='row'>
+										
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
+
+											<button id='email_back' name='email_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
+
+											<button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+
+										</div>
+
+									</div>
+
+								</div>
+
+							</div>
 
                         </div>
 
