@@ -54,14 +54,34 @@
 				<section class='module '>
 						
 					<div class='container'>
+
+						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+							<center>
+								
+								<h2 class='h2'>ANNUAL REPORT</h2>
+
+							</center>
+
+						</div>
+
+						<br>
 							
 						<div class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2 module-gray'>
 
 							<form class='form' method='POST' action='index2.php'>
 							
+								<br><br>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
+
+									<center><h4 class='h4' style='color: black;'>Enter HOA Account Number</h4></center>
+
+								</div>
+
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 									
-									<br><br><br>
+									<br><br>
 
 									<input class='form-control' type='number' name='hoa_id' id='hoa_id' placeholder='Enter Your HOA Account Number' required>
 

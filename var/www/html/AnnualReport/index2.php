@@ -9,12 +9,18 @@
 
 	$hoa_id = $_REQUEST['hoa_id'];
 
-	$_SESSION['hoa_alchemy_hoa_id'] = $hoa_id;
-
 	$result = pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id");
 
-	if(!$result)
-		echo "<script type='text/javascript'>alert('Invalid HOA Account Number');</script>";
+	if(!pg_num_rows($result))
+	{	
+		
+		echo "<script type='text/javascript'> alert('Invalid HOA Account Number.'); </script><script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
+
+		die();
+
+	}
+
+	$_SESSION['hoa_alchemy_hoa_id'] = $hoa_id;
 
 	$row = pg_fetch_assoc($result);
 
@@ -193,7 +199,7 @@
 
 									<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
 
-										<center>Please enter the OTP sent to your mobile number (<?php echo $cell_no; ?>).</center>
+										<center>Enter the OTP sent to your phone via SMS<br>( <i class='fa fa-mobile'></i> : <?php echo $cell_no; ?> ).</center>
 
 									</div>
 

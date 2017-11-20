@@ -22,7 +22,7 @@ $('#agreements_continue').click(function(){
 
 $('#agreements_back').click(function(){
 
-	window.location = 'userPage4.php';
+	window.location = ' notifications.php';
 
 });
 

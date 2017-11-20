@@ -29,7 +29,7 @@
 		<meta name='description' content='HOA Alchemy User Features'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $community_code; ?> - User Page</title>
+		<title><?php echo $community_code; ?> - Annual Report</title>
 
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
@@ -91,6 +91,19 @@
 						</div>
 
 					</div>
+
+					<!-- Mobile menu-->
+					<div class='nav-toggle'>
+						
+						<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
+							
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+
+						</a>
+
+					</div>
 				
 				</div>
 
@@ -116,7 +129,6 @@
                                 <li class="breadcrumb-item">Payments</li>
                                 <li class="breadcrumb-item">HOA Fact Sheet</li>
                                 <li class="breadcrumb-item">Disclosures</li>
-                                <li class="breadcrumb-item">HOA Account</li>
 
                             </ol>
                                         
@@ -159,6 +171,24 @@
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
 											<h3 class='h3'>Is this information correct?</h3>
+
+										</div>
+
+									</div>
+
+									<br>
+
+									<div class='row'>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this information is correct.
+
+										</div>
+
+										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+
+											<input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, this information is incorrect.
 
 										</div>
 
@@ -211,24 +241,6 @@
 											<br>
 
 											<h3 class='h3' id='user_cell_no' style='color: black;'><?php echo $user_cell_no; ?></h3>
-
-										</div>
-
-									</div>
-
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-											<input type='radio' name='user_information_radio' id='user_information_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this information is correct.
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-											<input type='radio' name='user_information_radio' id='user_information_radio_no' value='no'> <strong style='color: black;'>No</strong>, this information is incorrect.
 
 										</div>
 
@@ -354,7 +366,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/userPage1.js'></script>
+		<script src='assets/js/hoaid.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 	</body>

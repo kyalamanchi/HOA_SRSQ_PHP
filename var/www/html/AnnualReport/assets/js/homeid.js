@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 $('#home_details_back').click(function(){
 
-	window.location = 'userPage1.php';
+	window.location = 'hoaid.php';
 
 });
 
@@ -163,6 +163,6 @@ $('form.ajax2').on('submit', function(){
 
 $('#home_details_continue').click(function(){
 
-	window.location = 'userPage3.php';
+	window.location = 'emailPersons.php';
 
 });

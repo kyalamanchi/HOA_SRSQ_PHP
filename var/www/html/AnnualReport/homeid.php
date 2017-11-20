@@ -29,7 +29,7 @@
 		<meta name='description' content='HOA Alchemy User Features'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $community_code; ?> - User Page</title>
+		<title><?php echo $community_code; ?> - Annual Report</title>
 
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
@@ -91,6 +91,19 @@
 						</div>
 
 					</div>
+
+					<!-- Mobile menu-->
+					<div class='nav-toggle'>
+						
+						<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
+							
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+
+						</a>
+
+					</div>
 				
 				</div>
 
@@ -116,7 +129,6 @@
                                 <li class="breadcrumb-item">Payments</li>
                                 <li class="breadcrumb-item">HOA Fact Sheet</li>
                                 <li class="breadcrumb-item">Disclosures</li>
-                                <li class="breadcrumb-item">HOA Account</li>
 
                             </ol>
                                         
@@ -385,7 +397,7 @@
 
 									<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-										<h3>Update Home Details</h3>
+										<h3>Update Mailing Address</h3>
 
 									</div>
 
@@ -397,7 +409,7 @@
 
 											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>
 
-												<label><strong>Address</strong></label>
+												<label><strong>Mailing Address</strong></label>
 
 												<br>
 
@@ -405,184 +417,13 @@
 
 											</div>
 
-											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+											<div class='col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12'>
 
-												<label><strong>Country</strong></label>
-
-												<br>
-
-												<select class='form-control' name='edit_mailing_country' id='edit_mailing_country' required>
-
-													<option value='' selected disabled>Select Country</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM country");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$country_id = $row['country_id'];
-															$country_name = $row['country_name'];
-
-															echo "<option value='$country_id'";
-
-															if($country_id == $mailing_country_id)
-																echo " selected";
-
-															echo ">$country_name</option>";
-
-														}
-
-													?>
-													
-												</select>
-
-											</div>
-
-											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-
-												<label><strong>State</strong></label>
+												<label><strong>Mailing CSZ</strong></label>
 
 												<br>
 
-												<select class='form-control' name='edit_mailing_state' id='edit_mailing_state' required>
-
-													<option value='' selected disabled>Select State</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM state WHERE country_id=$mailing_country_id");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$state_id = $row['state_id'];
-															$state_name = $row['state_name'];
-
-															echo "<option value='$state_id'";
-
-															if($state_id == $mailing_state_id)
-																echo " selected";
-
-															echo ">$state_name</option>";
-
-														}
-
-													?>
-													
-												</select>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-
-												<label><strong>District</strong></label>
-
-												<br>
-
-												<select class='form-control' name='edit_mailing_district' id='edit_mailing_district' required>
-
-													<option value='' selected disabled>Select District</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM district WHERE state_id=$mailing_state_id");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$district_id = $row['district_id'];
-															$district_name = $row['district_name'];
-
-															echo "<option value='$district_id'";
-
-															if($district_id == $mailing_district_id)
-																echo " selected";
-
-															echo ">$district_name</option>";
-
-														}
-
-													?>
-													
-												</select>
-
-											</div>
-
-											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-
-												<label><strong>City</strong></label>
-
-												<br>
-
-												<select class='form-control' name='edit_mailing_city' id='edit_mailing_city' required>
-
-													<option value='' selected disabled>Select City</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM city WHERE district_id=$mailing_district_id");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$city_id = $row['city_id'];
-															$city_name = $row['city_name'];
-
-															echo "<option value='$city_id'";
-
-															if($city_id == $mailing_city_id)
-																echo " selected";
-
-															echo ">$city_name</option>";
-
-														}
-
-													?>
-													
-												</select>
-
-											</div>
-
-											<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-
-												<label><strong>Zip</strong></label>
-
-												<br>
-
-												<select class='form-control' name='edit_mailing_zip' id='edit_mailing_zip' required>
-
-													<option value='' selected disabled>Select Zip</option>
-
-													<?php
-
-														$result = pg_query("SELECT * FROM zip WHERE city_id=$mailing_city_id");
-
-														while($row = pg_fetch_assoc($result))
-														{
-
-															$zip_id = $row['zip_id'];
-															$zip_code = $row['zip_code'];
-
-															echo "<option value='$zip_id'";
-
-															if($zip_id == $mailing_zip_id)
-																echo " selected";
-
-															echo ">$zip_code</option>";
-
-														}
-
-													?>
-													
-												</select>
+												<input class='form-control' type='text' name='edit_mailing_csz' id='edit_mailing_csz' value='<?php echo $mailing_city." , ".$mailing_state." ".$mailing_zip; ?>'>
 
 											</div>
 
@@ -630,7 +471,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/userPage2.js'></script>
+		<script src='assets/js/homeid.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 	</body>

@@ -1,11 +1,11 @@
 $('#notifications_back').click(function(){
 
-	window.location = 'userPage3.php';
+	window.location = 'emailPersons.php';
 
 });
 
 $('#notifications_continue').click(function(){
 
-	window.location = 'userPage5.php';
+	window.location = 'agreements.php';
 
 });
