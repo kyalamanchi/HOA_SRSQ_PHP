@@ -137,67 +137,6 @@
 
 						<div id='email_div'>
 
-							<?php
-
-                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
-
-                                if(pg_num_rows($result) > 1)
-                                {
-
-                                    echo "
-
-                                    <div class='row'>
-
-        								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>";
-
-        										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_primary_email='t'"));
-
-        										$primary_email = $row['email'];
-                                                $pid = $row['id'];
-
-
-        									echo "
-
-                                            <div class='row'>
-
-        										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-        											<center><h3 class='h3'>Is <u id='user_primary_email'>$primary_email</u> your primary email?</h3></center>
-
-        										</div>
-
-        									</div>
-
-        									<br>
-
-        									<div class='row'>
-
-        										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-        											<input type='radio' name='email_radio' id='email_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this is my primary email.
-
-        										</div>
-
-        										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-        											<input type='radio' name='email_radio' id='email_radio_no' value='no'> <strong style='color: black;'>No</strong>, this is not my primary email.
-
-        										</div>
-
-        									</div>
-
-        								</div>
-
-        							</div>
-
-        							<br>
-
-                                    ";
-
-                                }
-
-                            ?>
-
                             <div class='row'>
 
                                 <div class='col=xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
@@ -731,13 +670,13 @@
 										
 										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-											<button id='email_back' name='email_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+											<button id='person_back' name='email_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
 										</div>
 
 										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-											<button id='email_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+											<button id='person_continue' name='email_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
 										</div>
 
@@ -844,7 +783,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/emailPersons.js'></script>
+		<script src='assets/js/persons.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 	</body>
