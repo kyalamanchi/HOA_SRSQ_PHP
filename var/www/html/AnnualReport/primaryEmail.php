@@ -173,6 +173,8 @@
 
                                             	$result = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' AND is_primary_email='t'"));
 
+                                            	$primary_email = $result['id'];
+
                                                 $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
                                                 while($row = pg_fetch_assoc($result))
