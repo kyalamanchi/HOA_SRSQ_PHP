@@ -91,6 +91,19 @@
 						</div>
 
 					</div>
+
+					<!-- Mobile menu-->
+					<div class='nav-toggle'>
+						
+						<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
+							
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+
+						</a>
+
+					</div>
 				
 				</div>
 
@@ -109,7 +122,8 @@
                                     
                                 <li class="breadcrumb-item">User Details</li>
                                 <li class="breadcrumb-item">Home Details</li>
-                                <li class="breadcrumb-item"><strong style='color: black;'>Email &amp; Persons</strong></li>
+                                <li class="breadcrumb-item">Persons</li>
+                                <li class="breadcrumb-item"><strong style='color: black;'>Primary Email</strong></li>
                                 <li class='breadcrumb-item'>SMS Notifications</li>
                                 <li class="breadcrumb-item">Agreements</li>
                                 <li class='breadcrumb-item'>Documents</li>
