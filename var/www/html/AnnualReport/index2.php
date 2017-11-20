@@ -14,7 +14,7 @@
 	$result = pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id");
 
 	if(!$result)
-		echo "<script type='text/javascript'>alert('Invalid HOA Account Number');</script>";
+		echo "<script type='text/javascript'> alert('Invalid HOA Account Number.'); </script><script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
 
 	$row = pg_fetch_assoc($result);
 
