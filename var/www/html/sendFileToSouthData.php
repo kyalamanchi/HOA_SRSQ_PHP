@@ -144,9 +144,6 @@ fclose($handler);
 
 
     }
-
-
-    }
     else if ( $parseJSON[0]->address == 2 ){
 
 
@@ -201,6 +198,10 @@ fclose($handler);
 
 
     }
+
+
+    }
+    
 
 
 
