@@ -29,7 +29,7 @@
 		<meta name='description' content='HOA Alchemy User Features'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $community_code; ?> - User Page</title>
+		<title><?php echo $community_code; ?> - Annual Report</title>
 
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
@@ -91,6 +91,19 @@
 						</div>
 
 					</div>
+
+                    <!-- Mobile menu-->
+                    <div class='nav-toggle'>
+                        
+                        <a href='#' data-toggle='collapse' data-target='.inner-navigation'>
+                            
+                            <span class='icon-bar'></span>
+                            <span class='icon-bar'></span>
+                            <span class='icon-bar'></span>
+
+                        </a>
+
+                    </div>
 				
 				</div>
 
@@ -109,14 +122,14 @@
                                     
                                 <li class="breadcrumb-item">User Details</li>
                                 <li class="breadcrumb-item">Home Details</li>
-                                <li class="breadcrumb-item">Email &amp; Persons</li>
+                                <li class="breadcrumb-item">Persons</li>
+                                <li class='breadcrumb-item'>Primary Email</li>
                                 <li class='breadcrumb-item'><strong style='color: black;'>SMS Notifications</strong></li>
                                 <li class="breadcrumb-item">Agreements</li>
                                 <li class='breadcrumb-item'>Documents</li>
                                 <li class="breadcrumb-item">Payments</li>
                                 <li class="breadcrumb-item">HOA Fact Sheet</li>
                                 <li class="breadcrumb-item">Disclosures</li>
-                                <li class="breadcrumb-item">HOA Account</li>
 
                             </ol>
                                         
