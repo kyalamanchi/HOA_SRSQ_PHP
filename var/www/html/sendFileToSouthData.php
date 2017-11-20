@@ -96,6 +96,7 @@ fclose($handler);
         $cityName = $cityQueryResult['city_name'];
 
         $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
+        echo $stateQuery;
         $stateQueryResult = pg_query($stateQuery);
         $stateQueryResult = pg_fetch_assoc($stateQueryResult);
         $stateName = $stateQueryResult['STATE_CODE'];
