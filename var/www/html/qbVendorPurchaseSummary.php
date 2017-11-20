@@ -136,7 +136,7 @@ function hidePleaseWait() {
                     }
                 }
 
-                if ( $purchase->EntityRef->value == $_GET['id'] ){
+                if ( $purchase->EntityRef->name == $_GET['id'] ){
                 echo '<tr>';
                      echo '<td>';
                         echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
