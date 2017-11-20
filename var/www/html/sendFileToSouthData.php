@@ -69,8 +69,6 @@ fclose($handler);
 
 
     if ( $parseJSON[0]->address == 1){
-        
-        echo $name;
 
         $addressQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$row['home_id'];
         $addressQueryResult = pg_query($addressQuery);
@@ -147,7 +145,6 @@ fclose($handler);
 
 
         $addressQuery = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$row['home_id'];
-        echo $addressQuery;
         $addressQueryResult = pg_query($addressQuery);
         $addressQueryResult = pg_fetch_assoc($addressQueryResult);
         $address1 = $addressQueryResult['address1'];
