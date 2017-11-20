@@ -59,11 +59,13 @@
 
 							<center>
 								
-								<h2 class='h2'>ANNUAL REPORT/h2>
+								<h2 class='h2'>ANNUAL REPORT</h2>
 
 							</center>
 
 						</div>
+
+						<br>
 							
 						<div class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-8 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-2 module-gray'>
 
