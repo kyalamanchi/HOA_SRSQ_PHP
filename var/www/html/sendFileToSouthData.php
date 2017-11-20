@@ -133,7 +133,7 @@ fclose($handler);
 
         $communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
         $communityZipQueryResult = pg_query($communityZipQuery);
-        $communityZipCode = pg_fetch_assoc($communityZipQueryResult);
+        $communityZipCode = pg_fetch_assoc($communityZipQueryResult)['zip_code'];
 
 
         $handler = fopen('data.tab', 'w');
