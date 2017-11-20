@@ -45,14 +45,7 @@ fwrite($handler, base64_decode($parseJSON[0]->file_data));
 fclose($handler);
 
 
-    $url = 'https://content.dropboxapi.com/2/files/upload';
-    $pdfFileContent = file_get_contents($parseJSON[0]->file_name);
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/'.$parseJSON[0]->file_name.'","mode": "overwrite","autorename": false,"mute": false}'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $response = curl_exec($ch);
+
     $number = getFileCount($parseJSON[0]->file_name);
 
     if ( isset($response->error_summary) ){
@@ -129,14 +122,33 @@ fclose($handler);
         fclose($handler);
 
 
-        $url = 'https://content.dropboxapi.com/2/files/upload';
-        $pdfFileContent = file_get_contents("data.tab");
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.tab","mode": "overwrite","autorename": false,"mute": false}'));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        $response = curl_exec($ch);
+        $zipFileNameFinal = mt_rand().'.zip';
+        $zip = new ZipArchive;
+        if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
+            $zip->addFile($parseJSON[0]->file_name, $parseJSON[0]->file_name);
+            $zip->addFile("data.tab", "data.tab");
+            $zip->close();
+
+            $url = 'https://content.dropboxapi.com/2/files/upload';
+            $pdfFileContent = file_get_contents($zipFileNameFinal);
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $response = curl_exec($ch);
+            $response = json_decode($response);
+            if ( isset($response->error_summary) ){
+                echo "An error occured. Please try again.";
+                exit(0);
+            }
+            $query = "INSERT INTO "
+
+
+            unlink($zipFileNameFinal);
+            echo $zipFileNameFinal;
+        }
+
 
 
 
@@ -215,14 +227,7 @@ fclose($handler);
         fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
         fclose($handler);
 
-        $url = 'https://content.dropboxapi.com/2/files/upload';
-        $pdfFileContent = file_get_contents("data.tab");
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.tab","mode": "overwrite","autorename": false,"mute": false}'));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        $response = curl_exec($ch);
+
 
         $zipFileNameFinal = mt_rand().'.zip';
         $zip = new ZipArchive;
@@ -235,11 +240,18 @@ fclose($handler);
             $pdfFileContent = file_get_contents($zipFileNameFinal);
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
             curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
-            echo $response;
+            $response = json_decode($response);
+            if ( isset($response->error_summary) ){
+                echo "An error occured. Please try again.";
+                exit(0);
+            }
+            $query = "INSERT INTO "
+
+
             unlink($zipFileNameFinal);
             echo $zipFileNameFinal;
         }
