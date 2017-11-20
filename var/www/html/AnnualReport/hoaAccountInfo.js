@@ -1,9 +1,12 @@
 $('#set_password').change(function(){
 
+	data = $('$set_password').val();
+
 	$.ajax({
 					
 		url: 'getBcrypt.php',
-		type: 'post',
+		method: 'post',
+		data: {set_password:data},
 		success: function(response){
 
 			alert(response);
