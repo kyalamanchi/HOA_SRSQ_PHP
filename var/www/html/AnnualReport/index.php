@@ -73,10 +73,7 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 
-									<center><h4
-									 class='h4
-									 ' style='color: black;'>Enter HOA Account Number</h4
-									></center>
+									<center><h4 class='h4' style='color: black;'>Enter HOA Account Number</h4></center>
 
 								</div>
 
