@@ -2,7 +2,6 @@
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 function getFileCount($file){
         if(file_exists($file)) {
-                        //open the file for reading
             if($handle = @fopen($file, "rb")) {
                 $count = 0;
                 $i=0;
@@ -12,19 +11,13 @@ function getFileCount($file){
                     }
                     else {
                           $contents = fread($handle, 1000);
-                        //In some pdf files, there is an N tag containing the number of
-                        //of pages. This doesn't seem to be a result of the PDF version.
-                        //Saves reading the whole file.
                         if(preg_match("/\/N\s+([0-9]+)/", $contents, $found)) {
                             return $found[1];
                         }
                     }
                     $i++;
                 }
-                fclose($handle);
- 
-                //get all the trees with 'pages' and 'count'. the biggest number
-                //is the total number of pages, if we couldn't find the /N switch above.                
+                fclose($handle);             
                 if(preg_match_all("/\/Type\s*\/Pages\s*.*\s*\/Count\s+([0-9]+)/", $contents, $capture, PREG_SET_ORDER)) {
                     foreach($capture as $c) {
                         if($c[1] > $count)
