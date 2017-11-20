@@ -171,6 +171,8 @@
 
                                             <?php
 
+                                            	$result = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' AND is_primary_email='t'"));
+
                                                 $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
                                                 while($row = pg_fetch_assoc($result))
@@ -185,7 +187,7 @@
 
                                                         <input type='radio' name='change_primary_email' value='".$pid."'";
 
-                                                        if($pemail == $primary_email)
+                                                        if($pid == $primary_email)
                                                             echo " checked";
 
                                                         echo "> <label style='color: black;'><strong>".$pemail."</strong></label>

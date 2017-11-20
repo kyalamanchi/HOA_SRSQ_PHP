@@ -28,6 +28,8 @@ $('form.ajax1').on('submit', function(){
 		data: {person_id:id},
 		success: function(response){
 
+			if(response == 'null')
+				alert("Select an email.");
 			if(response == 'Some error occured. Please try again.')
 				alert(response);
 			else
