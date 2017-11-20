@@ -240,6 +240,8 @@ fclose($handler);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
         }
+
+        unlink($zipFileNameFinal);
         echo $zipFileNameFinal;
 
 
