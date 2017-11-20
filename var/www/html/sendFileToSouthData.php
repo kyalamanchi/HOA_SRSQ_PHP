@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 function getFileCount($file){
         if(file_exists($file)) {
@@ -182,10 +179,20 @@ fclose($handler);
         $stateQueryResult = pg_fetch_assoc($stateQueryResult);
         $stateName = $stateQueryResult['state_code'];
 
+        if ( !($stateName) ){
+            echo "Address incomplete. Please update address first";
+            exit(0);
+        }
+
         $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
         $zipQueryResult = pg_query($zipQuery);
         $zipQueryResult = pg_fetch_assoc($zipQueryResult);
         $zipCode = $zipQueryResult['zip_code'];
+
+        if ( !($zipCode) ){
+            echo "Address incomplete. Please update address first";
+            exit(0);
+        }
 
         $communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$addressQueryResult['community_id'];
         $communityQueryResult = pg_query($communityQuery);
