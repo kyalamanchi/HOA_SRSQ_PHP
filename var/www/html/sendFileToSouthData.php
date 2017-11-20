@@ -123,7 +123,7 @@ fclose($handler);
         $communityCityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$communityMailingCity;
         $communityCityQuery = pg_query($communityCityQuery);
         $communityCityQuery = pg_fetch_assoc($communityCityQuery);
-        $communityCityName = $communityCityQuery['CITY_NAME'];
+        $communityCityName = $communityCityQuery['city_name'];
 
         $communityStateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$communityMailingState;
         $communityStateQueryResult = pg_query($communityStateQuery);
