@@ -169,6 +169,7 @@ function sendFile(){
         if (request.responseText == "Address incomplete. Please update address first"){
           swal("Error","Address incomplete. Please update address.","error");
         }
+        alert(request.responseText);
   }
   }
 
