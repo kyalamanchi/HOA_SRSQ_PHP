@@ -215,6 +215,15 @@ fclose($handler);
         fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
         fclose($handler);
 
+        $url = 'https://content.dropboxapi.com/2/files/upload';
+        $pdfFileContent = file_get_contents("data.tab");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.tab","mode": "overwrite","autorename": false,"mute": false}'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($ch);
+
     }
 
 
