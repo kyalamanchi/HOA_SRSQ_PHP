@@ -177,7 +177,7 @@
                                                     
                                                     <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-lock'></i> Set Password</button>
 
-                                                    <button type='button' class='btn btn-xs btn-warning'><i class='fa fa-sign-out'></i> Exit</button>
+                                                    <a type='button' href='logout.php' class='btn btn-xs btn-warning'><i class='fa fa-sign-out'></i> Exit</a>
 
                                                 </center>
 
