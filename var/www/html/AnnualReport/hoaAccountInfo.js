@@ -1,4 +1,4 @@
-$('#set_password').on('change', function(){
+$('#set_password').change(function(){
 
 	$.ajax({
 					
