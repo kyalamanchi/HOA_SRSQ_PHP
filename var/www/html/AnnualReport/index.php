@@ -63,13 +63,13 @@
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 
-									<center><h3 class='h3' style='color: black;'>Enter HOA Account Number</h3></center>
+									<center><h4 class='h4' style='color: black;'>Enter HOA Account Number</h4></center>
 
 								</div>
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 									
-									<br><br><br>
+									<br><br>
 
 									<input class='form-control' type='number' name='hoa_id' id='hoa_id' placeholder='Enter Your HOA Account Number' required>
 
