@@ -99,6 +99,7 @@ function hidePleaseWait() {
         <br>
         <center><h4>Purchase Summary</h4></center>
         <br>
+        <center><h4><span class="notbold"><?php echo  $_GET['id']; ?></span></h4></center>
         <br>
         <table id="example" class="table " cellspacing="0" width="100%">
         <thead>
