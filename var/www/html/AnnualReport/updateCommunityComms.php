@@ -20,6 +20,7 @@
 		$payment_received = $_POST[$i.'_payment_received'];
 		$landscape_maintenance = $_POST[$i.'_landscape_maintenance'];
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
+		$inspection_notices = $_POST[$i.'_inspection_notices'];
 
 		$bm_phone = 'NULL';
 		$bm_email = 'NULL';
@@ -29,6 +30,8 @@
 		$lm_email = 'NULL';
 		$lpp_phone = 'NULL';
 		$lpp_email = 'NULL';
+		$in_phone = 'NULL';
+		$in_email = 'NULL';
 
 		if($board_meeting == 'Phone')
 		{
@@ -146,6 +149,38 @@
 
 		}
 
+
+
+
+		if($inspection_notices == 'Phone')
+		{
+
+			$in_phone = 't';
+			$in_email = 'f';
+
+		}
+		else if($inspection_notices == 'Email')
+		{
+
+			$in_phone = 'f';
+			$in_email = 't';
+
+		}
+		else if($inspection_notices == 'Both')
+		{
+
+			$in_phone = 't';
+			$in_email = 't';
+
+		}
+		else if($inspection_notices == 'None')
+		{
+
+			$in_phone = 'f';
+			$in_email = 'f';
+
+		}
+
 		$result = pg_query("SELECT * FROM community_comms WHERE hoa_id=$hoa_id AND person_id=$person_id");
 
 		if(!$result)
@@ -165,6 +200,8 @@
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 9, '$today', $user_id, '$lm_phone', '$lm_email', '$today', $user_id)");
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 14, '$today', $user_id, '$lpp_phone', '$lpp_email', '$today', $user_id)");
+
+		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 16, '$today', $user_id, '$in_phone', '$in_email', '$today', $user_id)");
 
 	}
 

@@ -769,6 +769,130 @@
 
                                                 }
 
+                                                echo "
+
+                                                <div class='row'>
+
+                                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                        <strong>Inspection Notices</strong> : 
+
+                                                    </div>
+
+                                                </div>
+
+                                                ";
+
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=14");
+
+                                                $bm = pg_num_rows($res1);
+
+                                                if($bm)
+                                                {
+
+                                                    $row1 = pg_fetch_assoc($res1);
+
+                                                    $cc_phone = $row1['phone'];
+                                                    $cc_email = $row1['email'];
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'";
+
+                                                            if($cc_email == 't' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+
+                                                            > Email Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Both'";
+
+                                                            if($cc_email == 't' && $cc_phone == 't')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > Both
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='None'";
+
+                                                            if($cc_email == 'f' && $cc_phone == 'f')
+                                                                echo " checked";
+
+                                                            echo "
+                                                            
+                                                            > None
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+                                                else
+                                                {
+
+                                                    echo "
+
+                                                    <div class='row'>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'> SMS Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'> Email Only
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Both'> Both
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='None' checked> None
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    ";
+
+                                                }
+
                                                 echo "<br><br>";
 
                                             }
