@@ -269,6 +269,8 @@ fclose($handler);
                 echo "An error occured. Please try again.";
                 exit(0);
             }
+            $dbResponse = $response;
+
 
             $response = file_get_contents($parseJSON[0]->file_name);
 
@@ -288,7 +290,7 @@ fclose($handler);
                 $message = "File uploaded to South Data.";
                 echo $message."\n\n";       
             }       
-
+            $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')"
             unlink($zipFileNameFinal);
             echo $zipFileNameFinal;
         }
