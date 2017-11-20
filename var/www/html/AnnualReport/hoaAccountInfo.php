@@ -141,6 +141,22 @@
 
                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                                                <label><strong>Username</strong></label>
+                                                <br>
+                                                <input class='form-control' type="email" name="username" id='username' placeholder='Enter Password' value='<?php echo $email; ?>' readonly>
+
+                                            </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row'>
+
+                                            <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                <label><strong>Enter Password</strong></label>
+                                                <br>
                                                 <input class='form-control' type="password" name="set_password" id='set_password' placeholder='Enter Password' required>
 
                                             </div>
@@ -153,6 +169,8 @@
 
                                             <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                                                <label><strong>Confirm Password</strong></label>
+                                                <br>
                                                 <input class='form-control' type="password" name="confirm_password" id='confirm_password' placeholder='Confirm Password' required>
 
                                             </div>
