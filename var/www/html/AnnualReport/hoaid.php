@@ -122,7 +122,8 @@
                                     
                                 <li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
                                 <li class="breadcrumb-item">Home Details</li>
-                                <li class="breadcrumb-item">Email &amp; Persons</li>
+                                <li class="breadcrumb-item">Persons</li>
+                                <li class='breadcrumb-item'>Primary Email</li>
                                 <li class='breadcrumb-item'>SMS Notifications</li>
                                 <li class="breadcrumb-item">Agreements</li>
                                 <li class='breadcrumb-item'>Documents</li>
