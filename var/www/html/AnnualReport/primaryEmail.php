@@ -149,72 +149,80 @@
 						
 					<div class='container'>
 
-						<div id='email_div'>
+                        <div id='edit_email_div'>
 
-							<?php
+                            <div class='row'>
 
-                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-                                if(pg_num_rows($result) > 1)
-                                {
+                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                                    echo "
+                                        <h3>Choose your <u>primary email</u> to get HOA communication.</h3>
 
-                                    <div class='row'>
+                                    </div>
 
-        								<div class='col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>";
+                                    <br><br>
 
-        										$row = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_primary_email='t'"));
+                                    <form method='POST' action='updatePrimaryEmail.php' class='ajax1'>
 
-        										$primary_email = $row['email'];
-                                                $pid = $row['id'];
+                                        <div class='row'>
 
+                                            <input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 
-        									echo "
+                                            <?php
 
-                                            <div class='row'>
+                                            	$result = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' AND is_primary_email='t'"));
 
-        										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
 
-        											<center><h3 class='h3'>Is <u id='user_primary_email'>$primary_email</u> your primary email?</h3></center>
+                                                while($row = pg_fetch_assoc($result))
+                                                {
 
-        										</div>
+                                                    $pid = $row['id'];
+                                                    $pemail = $row['email'];
 
-        									</div>
+                                                    echo "
 
-        									<br>
+                                                    <div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
-        									<div class='row'>
+                                                        <input type='radio' name='change_primary_email' value='".$pid."'";
 
-        										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+                                                        if($pid == $primary_email)
+                                                            echo " checked";
 
-        											<input type='radio' name='email_radio' id='email_radio_yes' value='yes'> <strong style='color: black;'>Yes</strong>, this is my primary email.
+                                                        echo "> <label style='color: black;'><strong>".$pemail."</strong></label>
 
-        										</div>
+                                                    </div>
 
-        										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+                                                    ";
 
-        											<input type='radio' name='email_radio' id='email_radio_no' value='no'> <strong style='color: black;'>No</strong>, this is not my primary email.
+                                                }
 
-        										</div>
+                                            ?>
+                                                                                        
+                                        </div>
 
-        									</div>
+                                        <br>
 
-        								</div>
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-        							</div>
+                                            <center>
 
-        							<br>
+                                                <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-save'></i> Save</button>
 
-                                    ";
+                                            </center>
 
-                                }
+                                        </div>
 
-                            ?>
+                                    </form>
+
+                                </div>
+
+                            </div>
 
                             <br>
 
-							<div class='row container-fluid'>
+                            <div class='row container-fluid'>
 
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
@@ -239,81 +247,6 @@
 								</div>
 
 							</div>
-
-							<br>
-
-						</div>
-
-                        <div id='edit_email_div'>
-
-                            <div class='row'>
-
-                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
-
-                                    <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
-
-                                        <h3>Select Primary Email</h3>
-
-                                    </div>
-
-                                    <br><br>
-
-                                    <form method='POST' action='updatePrimaryEmail.php'>
-
-                                        <div class='row'>
-
-                                            <input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
-
-                                            <?php
-
-                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
-
-                                                while($row = pg_fetch_assoc($result))
-                                                {
-
-                                                    $pid = $row['id'];
-                                                    $pemail = $row['email'];
-
-                                                    echo "
-
-                                                    <div class='col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
-
-                                                        <input type='radio' name='change_primary_email' value='".$pid."'";
-
-                                                        if($pemail == $primary_email)
-                                                            echo " checked";
-
-                                                        echo "> <label style='color: black;'><strong>".$pemail."</strong></label>
-
-                                                    </div>
-
-                                                    ";
-
-                                                }
-
-                                            ?>
-                                                                                        
-                                        </div>
-
-                                        <br>
-
-                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-                                            <center>
-
-                                                <button class='btn btn-warning btn-xs' type='button' name='edit_email_back' id='edit_email_back'><i class='fa fa-arrow-left'></i> Back</button> <button class='btn btn-success btn-xs' type='submit'><i class='fa fa-save'></i> Save</button>
-
-                                            </center>
-
-                                        </div>
-
-                                    </form>
-
-                                </div>
-
-                            </div>
-
-                            <br>
 
                         </div>
 

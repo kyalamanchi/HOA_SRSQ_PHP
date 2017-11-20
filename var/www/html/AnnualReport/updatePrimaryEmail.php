@@ -21,11 +21,11 @@
 
 			$email = $row['email'];
 
-			echo "<script type='text/javascript'> alert('Updated!'); window.location = 'userPage3.php';</script>";
+			echo "Updated.";
 
 		}
 		else
-			echo "<script type='text/javascript'> alert('Some error occured. Please try again.'); window.location = 'userPage3.php';</script>";
+			echo "Some error occured. Please try again.";
 	
 	}
 

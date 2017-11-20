@@ -1,45 +1,46 @@
-$(document).ready(function(){
-
-	$('#edit_email_div').hide();
-	$('#email_continue').show();
-
-});
-
 $('#email_back').click(function(){
 
 	window.location = "persons.php";
 
 });
 
-$('#email_radio_yes').change(function() {
+$('form.ajax1').on('submit', function(){
+	
+	var obj = $(this),
+	url = obj.attr('action'),
+	method = obj.attr('method'),
+	id = obj.attr('id');
 
-	if (document.getElementById('email_radio_yes').checked) {
+	obj.find('[name]').each(function(index, value){
 
-		$('#email_continue').show();
+		var input = $(this),
+		index = input.attr('name'),
+		value = input.val();
 
-	}
+		data[index] = value;
 
-});
+	});
 
-$('#email_radio_no').change(function() {
+	$.ajax({
 
-	if (document.getElementById('email_radio_no').checked) {
+		url: url,
+		type: method,
+		data: {person_id:id},
+		success: function(response){
 
-		$('#email_div').hide();
-		$('#edit_email_div').show();
+			if(response == 'null')
+				alert("Select an email.");
+			if(response == 'Some error occured. Please try again.')
+				alert(response);
+			else
+				alert("Changed.");
 
-	}
+		}
 
-});
+	});
 
-$('#edit_email_back').click(function(){
-
-	$('#email_div').show();
-	$('#edit_email_div').hide();
-	$('#email_continue').show();
-	$('#email_radio_no').prop('checked', false);
-	$('#email_radio_yes').prop('checked', true);
-
+	return false;
+	
 });
 
 $('#email_continue').click(function(){
