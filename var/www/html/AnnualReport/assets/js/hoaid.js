@@ -104,7 +104,7 @@ $('form.ajax1').on('submit', function(){
 
 $('#user_details_continue').click(function(){
 
-	window.location = 'userPage2.php';
+	window.location = 'homeid.php';
 
 });
 

@@ -7,7 +7,7 @@ $(document).ready(function(){
 
 $('#email_back').click(function(){
 
-	window.location = "userPage2.php";
+	window.location = "homeid.php";
 
 });
 
@@ -102,7 +102,7 @@ $('form.ajax4').on('submit', function(){
 
 			alert("Updated");
 
-			window.location = 'userPage3.php';
+			window.location = 'emailPersons.php';
 
 		}
 
@@ -145,7 +145,7 @@ $('form.ajax5').on('submit', function(){
 
 				alert("Person added.");
 
-				window.location = 'userPage3.php';
+				window.location = 'emailPersons.php';
 
 			}
 
@@ -188,7 +188,7 @@ $('form.ajax6').on('submit', function(){
 
 				alert("Person Removed.");
 
-				window.location = 'userPage3.php';
+				window.location = 'emailPersons.php';
 
 			}
 
@@ -202,6 +202,6 @@ $('form.ajax6').on('submit', function(){
 
 $('#email_continue').click(function(){
 
-	window.location = "userPage4.php";
+	window.location = "notifications.php";
 
 });
