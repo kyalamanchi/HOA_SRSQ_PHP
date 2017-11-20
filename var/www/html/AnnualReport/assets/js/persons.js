@@ -162,7 +162,7 @@ $('form.ajax6').on('submit', function(){
 	
 });
 
-$('#email_continue').click(function(){
+$('#person_continue').click(function(){
 
 	window.location = "primaryEmail.php";
 
