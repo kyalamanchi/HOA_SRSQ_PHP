@@ -6,7 +6,7 @@
 	$hoa_id = $_POST['hoa_id'];
 
 	if($pid == '')
-		echo "null";
+		echo "<script type='text/javascript'> alert('Please select an email.');  window.location = 'primaryEmail.php'; </script>";
 	else
 	{
 
@@ -21,11 +21,11 @@
 
 			$email = $row['email'];
 
-			echo "Updated.";
+			echo "<script type='text/javascript'> alert('Updated.');  window.location = 'primaryEmail.php'; </script>";
 
 		}
 		else
-			echo "Some error occured. Please try again.";
+			echo "<script type='text/javascript'> alert('Some error occured. Please try again.');  window.location = 'primaryEmail.php'; </script>";
 	
 	}
 
