@@ -140,6 +140,7 @@ fclose($handler);
         $handler = fopen('data.tab', 'w');
         fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$personStateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
         fclose($handler);
+        
 
         $url = 'https://content.dropboxapi.com/2/files/upload';
         $pdfFileContent = file_get_contents("data.tab");
