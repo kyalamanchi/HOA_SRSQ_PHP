@@ -100,7 +100,7 @@ fclose($handler);
         $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
         $stateQueryResult = pg_query($stateQuery);
         $stateQueryResult2 = pg_fetch_assoc($stateQueryResult);
-        $personStateName = $stateQueryResult2['STATE_CODE'];
+        $personStateName = $stateQueryResult2['state_code'];
 
         $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
         $zipQueryResult = pg_query($zipQuery);
@@ -130,7 +130,7 @@ fclose($handler);
         $communityStateQueryResult = pg_query($communityStateQuery);
         $communityStateName = pg_fetch_assoc($communityStateQueryResult);
 
-        $communityStateName = $communityStateName['STATE_CODE'];
+        $communityStateName = $communityStateName['state_code'];
 
         $communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
         $communityZipQueryResult = pg_query($communityZipQuery);
