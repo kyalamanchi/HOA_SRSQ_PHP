@@ -1,9 +1,9 @@
 $('#set_password').keypress(function(){
 
-	data = $('$set_password').val();
+	data = $('#set_password').val();
 
 	alert(data);
-	
+
 	//$.ajax({
 					
 	//	url: 'getBcrypt.php',
