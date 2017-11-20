@@ -91,6 +91,6 @@ $('form.ajax2').on('submit', function(){
 
 $('#home_details_continue').click(function(){
 
-	window.location = 'emailPersons.php';
+	window.location = 'persons.php';
 
 });
