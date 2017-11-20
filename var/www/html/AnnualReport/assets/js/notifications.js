@@ -1,6 +1,6 @@
 $('#notifications_back').click(function(){
 
-	window.location = 'emailPersons.php';
+	window.location = 'primaryEmail.php';
 
 });
 
