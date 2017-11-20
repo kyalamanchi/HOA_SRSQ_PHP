@@ -5,8 +5,10 @@ $('#set_password').change(function(){
 		url: 'getBcrypt.php',
 		type: 'post',
 		success: function(response){
+
+			alert(response);
 						
-			$('#bcrypt').text("This is your encrypted password : "+response);
+			$('#bcrypt_div').text("This is your encrypted password : "+response);
 				
 		}
 
