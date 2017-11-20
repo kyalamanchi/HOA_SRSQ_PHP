@@ -169,7 +169,13 @@ fclose($handler);
         $cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
         $cityQueryResult = pg_query($cityQuery);
         $cityQueryResult = pg_fetch_assoc($cityQueryResult);
-        $cityName = $cityQueryResult['city_name'];
+        $cityName = $cityQueryResult['city_name'];  
+
+        if ( !($cityName) ){
+            echo "Address incomplete. Please update address first";
+            exit(0);
+        }
+
 
         $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
         $stateQueryResult = pg_query($stateQuery);
