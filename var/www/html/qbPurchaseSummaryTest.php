@@ -135,8 +135,10 @@ function hidePleaseWait() {
                         $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
                     }
                 }
-                print_r($purchase);
-                print_r(nl2br("\n\n\n"));
+                if ( $purchase->AccountRef->value == $_GET['id'] ){
+
+
+
                 echo '<tr>';
                      echo '<td>';
                         echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
@@ -176,6 +178,7 @@ function hidePleaseWait() {
                         }
                 echo '</td>';
                 echo '</tr>';
+                }
             }
         }
         ?>
