@@ -423,7 +423,7 @@
 
 												<br>
 
-												<input type='text' name='edit_mailing_csz' id='edit_mailing_csz' value='<?php echo $mailing_city." , ".$mailing_state." ".$mailing_zip; ?>'>
+												<input class='form-control' type='text' name='edit_mailing_csz' id='edit_mailing_csz' value='<?php echo $mailing_city." , ".$mailing_state." ".$mailing_zip; ?>'>
 
 											</div>
 
