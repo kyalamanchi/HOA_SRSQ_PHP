@@ -68,6 +68,7 @@ fclose($handler);
     $hoaID = $parseJSON[0]->hoa_id;
 
     $query = "SELECT * FROM HOAID WHERE HOA_ID=".$hoaID;
+    echo $query;
     $queryResult = pg_query($query);
 
     $row = pg_fetch_assoc($queryResult);
