@@ -206,13 +206,6 @@
 										$row = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$mailing_zip"));
 										$mailing_zip = $row['zip_code'];
 
-										$_SESSION['mailing_address'] = $mailing_address;
-										$_SESSION['mailing_country'] = $mailing_country_id;
-										$_SESSION['mailing_state'] = $mailing_state_id;
-										$_SESSION['mailing_district'] = $mailing_district_id;
-										$_SESSION['mailing_city'] = $mailing_city_id;
-										$_SESSION['mailing_zip'] = $mailing_zip_id;
-
 									?>
 
 									<div class='container module-gray' style="color: black;">
