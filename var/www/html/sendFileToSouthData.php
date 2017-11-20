@@ -75,6 +75,7 @@ fclose($handler);
 
     $name = $row['firstname'].' '.$row['lastname'];
 
+    echo $name;
 
     if ( $parseJSON[0]->address == 1){
         
