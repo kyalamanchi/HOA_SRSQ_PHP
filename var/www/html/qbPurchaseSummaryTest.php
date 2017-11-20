@@ -135,7 +135,7 @@ function hidePleaseWait() {
                         $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
                     }
                 }
-                if ( $purchase->AccountRef->value == $_GET['id'] ){
+                if ( $purchase->AccountRef->value == "33" ){
 
 
 
