@@ -865,25 +865,25 @@
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'> SMS Only
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'> SMS Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'> Email Only
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Both'> Both
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Both'> Both
 
                                                         </div>
 
                                                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='None' checked> None
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='None' checked> None
 
                                                         </div>
 
