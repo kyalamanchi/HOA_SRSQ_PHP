@@ -1,4 +1,4 @@
-$('#set_password').change(function(){
+$('#set_password').keypress(function(){
 
 	//data = $('$set_password').val();
 
