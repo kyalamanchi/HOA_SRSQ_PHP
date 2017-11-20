@@ -239,10 +239,12 @@ fclose($handler);
             curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
+            echo $response;
+            unlink($zipFileNameFinal);
+            echo $zipFileNameFinal;
         }
 
-        unlink($zipFileNameFinal);
-        echo $zipFileNameFinal;
+
 
 
         
