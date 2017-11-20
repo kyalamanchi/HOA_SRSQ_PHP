@@ -96,10 +96,11 @@ fclose($handler);
         $cityName = $cityQueryResult['city_name'];
 
         $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
-        echo $stateQuery;
         $stateQueryResult = pg_query($stateQuery);
-        $stateQueryResult = pg_fetch_assoc($stateQueryResult);
-        $stateName = $stateQueryResult['STATE_CODE'];
+        $stateQueryResult2 = pg_fetch_assoc($stateQueryResult);
+        $personStateName = $stateQueryResult2['STATE_CODE'];
+
+        echo $personStateName;
 
         $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
         $zipQueryResult = pg_query($zipQuery);
@@ -137,7 +138,7 @@ fclose($handler);
 
 
         $handler = fopen('data.tab', 'w');
-        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
+        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$personStateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
         fclose($handler);
 
         $url = 'https://content.dropboxapi.com/2/files/upload';
