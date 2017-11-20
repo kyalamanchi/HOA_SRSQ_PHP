@@ -136,48 +136,47 @@ function hidePleaseWait() {
                     }
                 }
                 if ( $purchase->AccountRef->value == "33" ){
-
-
-
-                echo '<tr>';
-                     echo '<td>';
-                        echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
-                    echo '</td>';
-                    echo '<td>';
-                        echo $Purchase->PaymentType;
-                    echo '</td>';
-                    echo '<td>';
-                        echo $purchase->DocNumber;
-                    echo '</td>';
-                    echo '<td>';
-                        echo $purchase->EntityRef->name;
-                    echo '</td>';
-                     echo '<td >';
-                        echo $name;
-                    echo '</td>';
-                     echo '<td>';
-                        echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
-                    echo '</td>';
-                    echo '<td width="30%">';
-                        $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
-                        $queryResult = pg_query($query);
-                        $name = "";
-                        $count  =0;
-                        while ($row = pg_fetch_assoc($queryResult)) {
-                            $count  = $count + 1;
-                            $name =  $row['attachment_name'];
-                        }
-                        if ( $name == "" ){
-                            echo "No attachment(s) found.";
-                        }
-                        else if ( $count > 1) {
-                             echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachments found".'</a>';
-                        }
-                        else {
-                            echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachment found".'</a>';
-                        }
-                echo '</td>';
-                echo '</tr>';
+                print_r($purchase);
+                print_r(nl2br("\n\n"));
+                // echo '<tr>';
+                //      echo '<td>';
+                //         echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
+                //     echo '</td>';
+                //     echo '<td>';
+                //         echo $Purchase->PaymentType;
+                //     echo '</td>';
+                //     echo '<td>';
+                //         echo $purchase->DocNumber;
+                //     echo '</td>';
+                //     echo '<td>';
+                //         echo $purchase->EntityRef->name;
+                //     echo '</td>';
+                //      echo '<td >';
+                //         echo $name;
+                //     echo '</td>';
+                //      echo '<td>';
+                //         echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
+                //     echo '</td>';
+                //     echo '<td width="30%">';
+                //         $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
+                //         $queryResult = pg_query($query);
+                //         $name = "";
+                //         $count  =0;
+                //         while ($row = pg_fetch_assoc($queryResult)) {
+                //             $count  = $count + 1;
+                //             $name =  $row['attachment_name'];
+                //         }
+                //         if ( $name == "" ){
+                //             echo "No attachment(s) found.";
+                //         }
+                //         else if ( $count > 1) {
+                //              echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachments found".'</a>';
+                //         }
+                //         else {
+                //             echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachment found".'</a>';
+                //         }
+                // echo '</td>';
+                // echo '</tr>';
                 }
             }
         }
