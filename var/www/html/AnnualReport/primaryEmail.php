@@ -163,7 +163,7 @@
 
                                     <br><br>
 
-                                    <form method='POST' action='updatePrimaryEmail.php' class='ajax1'>
+                                    <form method='POST' action='updatePrimaryEmail.php'>
 
                                         <div class='row'>
 
@@ -175,7 +175,7 @@
 
                                             	$primary_email = $result['id'];
 
-                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+                                                $result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t' ORDER BY email");
 
                                                 while($row = pg_fetch_assoc($result))
                                                 {
