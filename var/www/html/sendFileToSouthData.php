@@ -160,6 +160,7 @@ fclose($handler);
 
 
         $addressQuery = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$row['home_id'];
+        echo $addressQuery;
         $addressQueryResult = pg_query($addressQuery);
         $addressQueryResult = pg_fetch_assoc($addressQueryResult);
         $address1 = $addressQueryResult['address1'];
@@ -210,9 +211,6 @@ fclose($handler);
         $handler = fopen('data.tab', 'w');
         fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
         fclose($handler);
-
-
-
 
     }
 
