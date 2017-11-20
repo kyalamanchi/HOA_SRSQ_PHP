@@ -153,6 +153,8 @@ fclose($handler);
 
 
 
+
+
     }
     else if ( $parseJSON[0]->address == 2 ){
 
@@ -171,7 +173,7 @@ fclose($handler);
         $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
         $stateQueryResult = pg_query($stateQuery);
         $stateQueryResult = pg_fetch_assoc($stateQueryResult);
-        $stateName = $stateQueryResult['STATE_CODE'];
+        $stateName = $stateQueryResult['state_code'];
 
         $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
         $zipQueryResult = pg_query($zipQuery);
@@ -194,17 +196,22 @@ fclose($handler);
         $communityCityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$communityMailingCity;
         $communityCityQuery = pg_query($communityCityQuery);
         $communityCityQuery = pg_fetch_assoc($communityCityQuery);
-        $communityCityName = $communityCityQuery['CITY_NAME'];
+        $communityCityName = $communityCityQuery['city_name'];
 
         $communityStateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$communityMailingState;
         $communityStateQueryResult = pg_query($communityStateQuery);
-        $communityStateName = pg_fetch_assoc($communityStateQueryResult);
-
-        $communityStateName = $communityStateName['STATE_CODE'];
+        $communityStateName = pg_fetch_assoc($communityStateQueryResult)['state_code'];
 
         $communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
         $communityZipQueryResult = pg_query($communityZipQuery);
-        $communityZipCode = pg_fetch_assoc($communityZipQueryResult);
+        $communityZipCode = pg_fetch_assoc($communityZipQueryResult)['zip_code'];
+
+
+        $handler = fopen('data.tab', 'w');
+        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
+        fclose($handler);
+
+
 
 
     }
