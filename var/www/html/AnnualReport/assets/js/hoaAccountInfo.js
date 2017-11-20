@@ -1,22 +1,22 @@
-$('#set_password').on('change', function(){
+$('#set_password').change(function(){
 
-	data = $('$set_password').val();
+	//data = $('$set_password').val();
 
-	alert(data);
+	alert("Triggered");
 
-	$.ajax({
+	//$.ajax({
 					
-		url: 'getBcrypt.php',
-		method: 'post',
-		data: {set_password:data},
-		success: function(response){
+	//	url: 'getBcrypt.php',
+	//	method: 'post',
+	//	data: {set_password:data},
+	//	success: function(response){
 
-			alert(response);
+	//		alert(response);
 						
-			$('#bcrypt_div').text("This is your encrypted password : "+response);
+	//		$('#bcrypt_div').text("This is your encrypted password : "+response);
 				
-		}
+	//	}
 
-	});
+	//});
 
 });
