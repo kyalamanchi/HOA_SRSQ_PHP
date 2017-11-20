@@ -91,6 +91,19 @@
 						</div>
 
 					</div>
+
+                    <!-- Mobile menu-->
+                    <div class='nav-toggle'>
+                        
+                        <a href='#' data-toggle='collapse' data-target='.inner-navigation'>
+                            
+                            <span class='icon-bar'></span>
+                            <span class='icon-bar'></span>
+                            <span class='icon-bar'></span>
+
+                        </a>
+
+                    </div>
 				
 				</div>
 
