@@ -75,7 +75,7 @@ return retVal;
 );
 
 function a(text){
-    window.location = "http://localhost/qbPurchaseDetails.php?id="+text.id;
+    window.location = "https://hoaboardtime.com/qbPurchaseDetails.php?id="+text.id;
 }
 
 function hidePleaseWait() {
