@@ -175,9 +175,9 @@
 
                                                 <center>
                                                     
-                                                    <button type='button' class='btn btn-xs btn-warning'><i class='fa fa-sign-out'></i> Exit</button>
-
                                                     <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-lock'></i> Set Password</button>
+
+                                                    <button type='button' class='btn btn-xs btn-warning'><i class='fa fa-sign-out'></i> Exit</button>
 
                                                 </center>
 
