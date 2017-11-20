@@ -18,7 +18,7 @@ curl_exec($req);
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Purchase Summary</title>
+    <title><?php echo $_GET['id']; ?> Purchase Summary</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
