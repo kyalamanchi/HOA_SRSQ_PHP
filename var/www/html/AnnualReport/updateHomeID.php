@@ -12,6 +12,7 @@
 	$community_id = $_SESSION['hoa_alchemy_community_id'];
 	$today = date('Y-m-d');
 	$home_id = $_SESSION['hoa_alchemy_home_id'];
+	$user_id = $_SESSION['hoa_alchemy_user_id'];
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
@@ -23,7 +24,7 @@
 		if($result)
 			echo $address1;
 		else
-			echo "Some error occured. Plese try again.";
+			echo "Some error occured. Please try again.";
 
 	}
 	else
