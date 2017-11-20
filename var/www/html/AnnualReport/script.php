@@ -13,7 +13,7 @@
 		$res = pg_query("INSERT INTO community_annual_report_visited (hoa_id, home_id) VALUES ($hoa_id, $home_id)");
 
 		if($res)
-			echo "$hoa_id - - - $home_id inserted.<br><br>"
+			echo "$hoa_id - - - $home_id inserted.<br><br>";
 
 	}
 
