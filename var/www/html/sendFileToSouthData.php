@@ -1,5 +1,8 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
+pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 function getFileCount($file){
         if(file_exists($file)) {
                         //open the file for reading
@@ -74,13 +77,20 @@ fclose($handler);
 
     $name = $row['firstname'].' '.$row['lastname'];
 
+
     if ( $parseJSON[0]->address == 1){
         
+        echo $name;        
+        echo "Address 1";
+
         $addressQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$row['home_id'];
         $addressQueryResult = pg_query($addressQuery);
         $addressQueryResult = pg_fetch_assoc($addressQueryResult);
         $address1 = $addressQueryResult['address1'];
         $address2 = $addressQueryResult['address2'];
+
+        echo $addressQuery;
+
 
         $cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
         $cityQueryResult = pg_query($cityQuery);
@@ -89,8 +99,8 @@ fclose($handler);
 
         $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
         $stateQueryResult = pg_query($stateQuery);
-        $stateQueryResult = pg_fetch_assoc($stateQueryResult);
-        $stateName = $stateQueryResult['STATE_CODE'];
+        $stateQueryResult2 = pg_fetch_assoc($stateQueryResult);
+        $personStateName = $stateQueryResult2['state_code'];
 
         $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
         $zipQueryResult = pg_query($zipQuery);
@@ -120,7 +130,7 @@ fclose($handler);
         $communityStateQueryResult = pg_query($communityStateQuery);
         $communityStateName = pg_fetch_assoc($communityStateQueryResult);
 
-        $communityStateName = $communityStateName['STATE_CODE'];
+        $communityStateName = $communityStateName['state_code'];
 
         $communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
         $communityZipQueryResult = pg_query($communityZipQuery);
@@ -128,7 +138,7 @@ fclose($handler);
 
 
         $handler = fopen('data.tab', 'w');
-        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
+        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$personStateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
         fclose($handler);
 
         $url = 'https://content.dropboxapi.com/2/files/upload';
@@ -141,9 +151,6 @@ fclose($handler);
         $response = curl_exec($ch);
 
 
-
-
-    }
 
 
     }
@@ -201,6 +208,10 @@ fclose($handler);
 
 
     }
+
+
+    }
+    
 
 
 
