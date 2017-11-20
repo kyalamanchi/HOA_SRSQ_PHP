@@ -60,6 +60,14 @@
 							<form class='form' method='POST' action='index2.php'>
 							
 								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
+
+									<center><label style='color: black;'>Enter HOA Account Number</label></center>
+
+								</div>
+
+								<br><br>
+
+								<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 '>
 									
 									<br><br><br>
 
