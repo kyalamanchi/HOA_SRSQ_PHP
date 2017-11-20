@@ -133,7 +133,7 @@ fclose($handler);
             $pdfFileContent = file_get_contents($zipFileNameFinal);
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
             curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
@@ -142,6 +142,29 @@ fclose($handler);
                 echo "An error occured. Please try again.";
                 exit(0);
             }
+
+            $response = file_get_contents($parseJSON[0]->file_name);
+
+            $fileContent  = base64_encode($response);
+
+            $req = curl_init();
+            curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
+            curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+            if(curl_exec($req) === false)
+            {
+                $message =  "An error occured. Please try again.";
+                echo $message;
+                exit(0);
+            }
+            else 
+            {   
+                $message = "File uploaded to South Data.";
+                echo $message;       
+            }
+
+
+
+
             unlink($zipFileNameFinal);
             echo $zipFileNameFinal;
         }
@@ -237,7 +260,7 @@ fclose($handler);
             $pdfFileContent = file_get_contents($zipFileNameFinal);
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
             curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
@@ -246,6 +269,25 @@ fclose($handler);
                 echo "An error occured. Please try again.";
                 exit(0);
             }
+
+            $response = file_get_contents($parseJSON[0]->file_name);
+
+            $fileContent  = base64_encode($response);
+
+            $req = curl_init();
+            curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
+            curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+            if(curl_exec($req) === false)
+            {
+                $message =  "An error occured. Please try again.";
+                echo $message."\n\n";
+                exit(0);
+            }
+            else 
+            {   
+                $message = "File uploaded to South Data.";
+                echo $message."\n\n";       
+            }       
 
             unlink($zipFileNameFinal);
             echo $zipFileNameFinal;

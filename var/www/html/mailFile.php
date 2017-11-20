@@ -169,7 +169,12 @@ function sendFile(){
         if (request.responseText == "Address incomplete. Please update address first"){
           swal("Error","Address incomplete. Please update address.","error");
         }
-        alert(request.responseText);
+        else if ( request.responseText == "An error occured. Please try again." ){
+          swal("Error","An error occured. Please try again","error");
+        }
+        else {
+          swal("Successful","File Sent To Southdata.","success");
+        }
   }
   }
 
