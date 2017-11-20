@@ -1,10 +1,3 @@
-$(document).ready(function(){
-
-	$('#edit_email_div').hide();
-	$('#email_continue').show();
-
-});
-
 $('#email_back').click(function(){
 
 	window.location = "persons.php";
