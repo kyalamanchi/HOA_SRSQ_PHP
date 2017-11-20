@@ -205,6 +205,6 @@
 
 	}
 
-	header("Location: userPage4.php");
+	header("Location: notifications.php");
 
 ?>
