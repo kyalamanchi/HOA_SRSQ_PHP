@@ -3,6 +3,15 @@
 	$connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 	$communityID = $_GET['cid'];
 	$eventID = $_GET['eid'];
+	$telnoquery = "SELECT TELNO FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
+	$telnoqueryResult = pg_query($telnoquery);
+
+	$telnoassoc = pg_fetch_assoc($telnoqueryResult);
+
+	$telno = $telnoassoc['telno'];
+
+
+
 	$query=  "SELECT * FROM COMMUNITY_COMMS WHERE EVENT_TYPE_ID=$eventID AND PERSON_ID IN (SELECT ID FROM PERSON WHERE COMMUNITY_ID  = $communityID) ORDER BY PERSON_ID";
 	$queryResult = pg_query($query);
 	$phoneAlerts = array();
@@ -107,7 +116,7 @@
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B15103610463");
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
 		curl_setopt($ch, CURLOPT_POST, 1);
 		curl_setopt($ch, CURLOPT_USERPWD, "AC06019424f034503e8a7c67a8ddfcd490" . ":" . "a73768c36829436835653b51dd3c693c");
 		$headers = array();
