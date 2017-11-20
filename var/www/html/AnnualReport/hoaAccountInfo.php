@@ -82,8 +82,6 @@
 
 									<li><a style="color: green;"><span>Hello <?php echo $username; ?></span></a></li>
 
-									<li><a style="color: orange;" href='logout.php'><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
-
 								</ul>
 
 							</div>
@@ -185,7 +183,9 @@
 
                                                 <center>
                                                     
-                                                    <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-lock'></i> Set Password </button>
+                                                    <button type='button' class='btn btn-xs btn-warning'><i class='fa fa-sign-out'></i> Exit</button>
+
+                                                    <button type='submit' class='btn btn-xs btn-success'><i class='fa fa-lock'></i> Set Password</button>
 
                                                 </center>
 
