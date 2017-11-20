@@ -3,7 +3,7 @@ $data = file_get_contents('php://input');
 $parseJSON = json_decode($data);
 
 $handler = fopen($parseJSON[0]->file_name, "w");
-fwrite($handler, $parseJSON[0]->file_data);
+fwrite($handler, base64_decode($parseJSON[0]->file_data));
 fclose($handler);
 
 
