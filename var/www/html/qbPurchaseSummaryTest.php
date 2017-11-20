@@ -135,8 +135,8 @@ function hidePleaseWait() {
                         $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
                     }
                 }
-                print_r($purchase->AccountRef->name);
-                if ( $purchase->AccountRef->name == "Brightview" ){
+
+                if ( $purchase->EntityRef->value == $_GET['id'] ){
                 print_r($purchase);
                 print_r(nl2br("\n\n"));
                 // echo '<tr>';
