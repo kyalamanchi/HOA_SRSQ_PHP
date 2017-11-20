@@ -74,8 +74,12 @@ fclose($handler);
 
     $name = $row['firstname'].' '.$row['lastname'];
 
+
     if ( $parseJSON[0]->address == 1){
         
+        echo $name;        
+        echo "Address 1";
+
         $addressQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$row['home_id'];
         $addressQueryResult = pg_query($addressQuery);
         $addressQueryResult = pg_fetch_assoc($addressQueryResult);
@@ -84,7 +88,7 @@ fclose($handler);
 
         echo $addressQuery;
 
-        
+
         $cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
         $cityQueryResult = pg_query($cityQuery);
         $cityQueryResult = pg_fetch_assoc($cityQueryResult);
