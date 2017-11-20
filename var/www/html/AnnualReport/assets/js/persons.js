@@ -64,7 +64,7 @@ $('form.ajax4').on('submit', function(){
 
 			alert("Updated");
 
-			window.location = 'emailPersons.php';
+			window.location = 'persons.php';
 
 		}
 
@@ -107,7 +107,7 @@ $('form.ajax5').on('submit', function(){
 
 				alert("Person added.");
 
-				window.location = 'emailPersons.php';
+				window.location = 'persons.php';
 
 			}
 
@@ -150,7 +150,7 @@ $('form.ajax6').on('submit', function(){
 
 				alert("Person Removed.");
 
-				window.location = 'emailPersons.php';
+				window.location = 'persons.php';
 
 			}
 
