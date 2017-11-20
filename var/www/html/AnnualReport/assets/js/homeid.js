@@ -66,6 +66,8 @@ $('form.ajax2').on('submit', function(){
 		data: data,
 		success: function(response){
 
+			alert(response);
+
 			if(response == "Some error occured. Please try again.")
 				alert(response);
 			else
