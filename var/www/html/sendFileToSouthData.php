@@ -78,9 +78,6 @@ fclose($handler);
         $address1 = $addressQueryResult['address1'];
         $address2 = $addressQueryResult['address2'];
 
-        echo $addressQuery;
-
-
         $cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
         $cityQueryResult = pg_query($cityQuery);
         $cityQueryResult = pg_fetch_assoc($cityQueryResult);
