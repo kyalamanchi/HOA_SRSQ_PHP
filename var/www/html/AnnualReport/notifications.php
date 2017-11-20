@@ -783,7 +783,7 @@
 
                                                 ";
 
-                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=14");
+                                                $res1 = pg_query("SELECT * FROM community_comms WHERE person_id=$cc_person_id AND event_type_id=16");
 
                                                 $bm = pg_num_rows($res1);
 
