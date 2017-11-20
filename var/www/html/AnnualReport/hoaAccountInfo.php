@@ -119,8 +119,6 @@
 
 							</div>
 
-							<br>
-
                             <div class='row'>
 
                                 <div class='col-xl-4 col-lg-4 col-md-6 col-sm-8 col-xs-10 offset-xl-4 offset-lg-4 offset-md-3 offset-sm-2 offset-xs-1 module-gray'>
@@ -191,7 +189,7 @@
 
                                     <br>
 
-                                    <center><strong>Note : </strong> Your email id will be the username for your HOA Account.</center>
+                                    <center><strong>Note : </strong> Above email id will be the username for your HOA Account.</center>
 
                                 </div>
 
