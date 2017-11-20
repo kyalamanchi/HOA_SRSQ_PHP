@@ -58,25 +58,11 @@ fclose($handler);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
     $number = getFileCount($parseJSON[0]->file_name);
-    $myfile = fopen("webdictionary.txt", "w") or die("Unable to open file!");
-    fwrite($myfile, "Number of pages".$number);
-    fclose($myfile);
-    $url = 'https://content.dropboxapi.com/2/files/upload';
-    $pdfFileContent = file_get_contents("webdictionary.txt");
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/webdictionary.txt","mode": "overwrite","autorename": false,"mute": false}'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-    $response = curl_exec($ch);
-
 
     if ( isset($response->error_summary) ){
         echo "An error occured. Failed to upload file.";
     }
     else {
-
-    }
 
     //Creating tab file
     $hoaID = $parseJSON[0]->hoa_id;
@@ -111,8 +97,53 @@ fclose($handler);
         $zipQueryResult = pg_fetch_assoc($zipQueryResult);
         $zipCode = $zipQueryResult['zip_code'];
 
+
+        $communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$addressQueryResult['community_id'];
+        $communityQueryResult = pg_query($communityQuery);
+        $communityQueryResult = pg_fetch_assoc($communityQueryResult);
+
+        $communityLegalName = $communityQueryResult['legal_name'];
+
+        $communityMailingAddress = $communityQueryResult['mailing_address'];
+
+        $communityMailingCity = $communityQueryResult['mailing_addr_city'];
+        $communityMailingState = $communityQueryResult['mailing_addr_state'];
+        $communityMailingZip = $communityQueryResult['mailing_addr_zip'];
+
+
+        $communityCityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$communityMailingCity;
+        $communityCityQuery = pg_query($communityCityQuery);
+        $communityCityQuery = pg_fetch_assoc($communityCityQuery);
+        $communityCityName = $communityCityQuery['CITY_NAME'];
+
+        $communityStateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$communityMailingState;
+        $communityStateQueryResult = pg_query($communityStateQuery);
+        $communityStateName = pg_fetch_assoc($communityStateQueryResult);
+
+        $communityStateName = $communityStateName['STATE_CODE'];
+
+        $communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
+        $communityZipQueryResult = pg_query($communityZipQuery);
+        $communityZipCode = pg_fetch_assoc($communityZipQueryResult);
+
+
         $handler = fopen('data.tab', 'w');
-        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t");
+        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".$number."\t".$parseJSON[0]->file_name."\t".$communityMailingAddress."\t".$communityCityName." ".$communityStateName." ".$communityZipCode."\t\t\t".$communityLegalName);
+        fclose($handler);
+
+        $url = 'https://content.dropboxapi.com/2/files/upload';
+        $pdfFileContent = file_get_contents("data.tab");
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/data.tab","mode": "overwrite","autorename": false,"mute": false}'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($ch);
+
+
+
+
+    }
 
 
     }
