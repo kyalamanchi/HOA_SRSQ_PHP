@@ -124,11 +124,7 @@ function hidePleaseWait() {
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $result = curl_exec($ch);
             $result =  json_decode($result);
-            if ( isset($_GET['id']) ){
             foreach ($result->QueryResponse->Purchase as $purchase) {
-
-                if ( $purchase->AccountRef->value == $_GET['id'] ){
-
                 $name = "";
                 foreach ($purchase->Line as $accountData) {
                     if ( $name != "" )
@@ -138,60 +134,6 @@ function hidePleaseWait() {
                         $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
                     }
                 }
-
-                echo '<tr>';
-                     echo '<td>';
-                        echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
-                    echo '</td>';
-                    echo '<td>';
-                        echo $Purchase->PaymentType;
-                    echo '</td>';
-                    echo '<td>';
-                        echo $purchase->DocNumber;
-                    echo '</td>';
-                    echo '<td>';
-                        echo $purchase->EntityRef->name;
-                    echo '</td>';
-                     echo '<td >';
-                        echo $name;
-                    echo '</td>';
-                     echo '<td>';
-                        echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a>';
-                    echo '</td>';
-                    echo '<td width="30%">';
-                        $query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
-                        $queryResult = pg_query($query);
-                        $name = "";
-                        $count  =0;
-                        while ($row = pg_fetch_assoc($queryResult)) {
-                            $count  = $count + 1;
-                            $name =  $row['attachment_name'];
-                        }
-                        if ( $name == "" ){
-                            echo "No attachment(s) found.";
-                        }
-                        else if ( $count > 1) {
-                             echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachments found".'</a>';
-                        }
-                        else {
-                            echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachment found".'</a>';
-                        }
-                echo '</td>';
-                echo '</tr>';
-                }
-            }
-            else {
-                foreach ($result->QueryResponse->Purchase as $purchase) {
-                $name = "";
-                foreach ($purchase->Line as $accountData) {
-                    if ( $name != "" )
-                    $name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                    else 
-                    {
-                        $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                    }
-                }
-
                 echo '<tr>';
                      echo '<td>';
                         echo date('Y-m-d',strtotime($purchase->MetaData->CreateTime));
@@ -232,7 +174,6 @@ function hidePleaseWait() {
                 echo '</td>';
                 echo '</tr>';
             }
-           } 
         ?>
         </tbody>
     </table>  
