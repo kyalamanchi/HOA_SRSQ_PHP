@@ -1,7 +1,7 @@
 <?php
 
 function getFileCount($file){
-		if(file_exists($file)) {
+        if(file_exists($file)) {
                         //open the file for reading
             if($handle = @fopen($file, "rb")) {
                 $count = 0;
@@ -49,7 +49,7 @@ fwrite($handler, base64_decode($parseJSON[0]->file_data));
 fclose($handler);
 
 
-	$url = 'https://content.dropboxapi.com/2/files/upload';
+    $url = 'https://content.dropboxapi.com/2/files/upload';
     $pdfFileContent = file_get_contents($parseJSON[0]->file_name);
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
@@ -71,12 +71,12 @@ fclose($handler);
     $response = curl_exec($ch);
 
 
-    // if ( isset($response->error_summary) ){
-    // 	echo "An error occured. Failed to upload file.";
-    // }
-    // else {
+    if ( isset($response->error_summary) ){
+        echo "An error occured. Failed to upload file.";
+    }
+    else {
 
-    // }
+    }
 
     //Creating tab file
     $hoaID = $parseJSON[0]->hoa_id;
@@ -89,84 +89,84 @@ fclose($handler);
     $name = $row['firstname'].' '.$row['lastname'];
 
     if ( $parseJSON[0]->address == 1){
-    	
-    	$addressQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$row['home_id'];
-    	$addressQueryResult = pg_query($addressQuery);
-    	$addressQueryResult = pg_fetch_assoc($addressQueryResult);
-    	$address1 = $addressQueryResult['address1'];
-    	$address2 = $addressQueryResult['address2'];
+        
+        $addressQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$row['home_id'];
+        $addressQueryResult = pg_query($addressQuery);
+        $addressQueryResult = pg_fetch_assoc($addressQueryResult);
+        $address1 = $addressQueryResult['address1'];
+        $address2 = $addressQueryResult['address2'];
 
-    	$cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
-    	$cityQueryResult = pg_query($cityQuery);
-    	$cityQueryResult = pg_fetch_assoc($cityQueryResult);
-    	$cityName = $cityQueryResult['city_name'];
+        $cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
+        $cityQueryResult = pg_query($cityQuery);
+        $cityQueryResult = pg_fetch_assoc($cityQueryResult);
+        $cityName = $cityQueryResult['city_name'];
 
-    	$stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
-    	$stateQueryResult = pg_query($stateQuery);
-    	$stateQueryResult = pg_fetch_assoc($stateQueryResult);
-    	$stateName = $stateQueryResult['STATE_CODE'];
+        $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
+        $stateQueryResult = pg_query($stateQuery);
+        $stateQueryResult = pg_fetch_assoc($stateQueryResult);
+        $stateName = $stateQueryResult['STATE_CODE'];
 
-    	$zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
-    	$zipQueryResult = pg_query($zipQuery);
-    	$zipQueryResult = pg_fetch_assoc($zipQueryResult);
-    	$zipCode = $zipQueryResult['zip_code'];
+        $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
+        $zipQueryResult = pg_query($zipQuery);
+        $zipQueryResult = pg_fetch_assoc($zipQueryResult);
+        $zipCode = $zipQueryResult['zip_code'];
 
-    	$handler = fopen('data.tab', 'w');
-    	fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t".);
+        $handler = fopen('data.tab', 'w');
+        fwrite($handler, "1"."\t".$name."\t".$address1." ".$address2."\t".$cityName." ".$stateName." ".$zipCode."\t\t\t1\t");
 
 
     }
     else if ( $parseJSON[0]->address == 2 ){
 
 
-    	$addressQuery = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$row['home_id'];
-    	$addressQueryResult = pg_query($addressQuery);
-    	$addressQueryResult = pg_fetch_assoc($addressQueryResult);
-    	$address1 = $addressQueryResult['address1'];
-    	$address2 = $addressQueryResult['address2'];
+        $addressQuery = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$row['home_id'];
+        $addressQueryResult = pg_query($addressQuery);
+        $addressQueryResult = pg_fetch_assoc($addressQueryResult);
+        $address1 = $addressQueryResult['address1'];
+        $address2 = $addressQueryResult['address2'];
 
-    	$cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
-    	$cityQueryResult = pg_query($cityQuery);
-    	$cityQueryResult = pg_fetch_assoc($cityQueryResult);
-    	$cityName = $cityQueryResult['city_name'];
+        $cityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$addressQueryResult['city_id'];
+        $cityQueryResult = pg_query($cityQuery);
+        $cityQueryResult = pg_fetch_assoc($cityQueryResult);
+        $cityName = $cityQueryResult['city_name'];
 
-    	$stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
-    	$stateQueryResult = pg_query($stateQuery);
-    	$stateQueryResult = pg_fetch_assoc($stateQueryResult);
-    	$stateName = $stateQueryResult['STATE_CODE'];
+        $stateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$addressQueryResult['state_id'];
+        $stateQueryResult = pg_query($stateQuery);
+        $stateQueryResult = pg_fetch_assoc($stateQueryResult);
+        $stateName = $stateQueryResult['STATE_CODE'];
 
-    	$zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
-    	$zipQueryResult = pg_query($zipQuery);
-    	$zipQueryResult = pg_fetch_assoc($zipQueryResult);
-    	$zipCode = $zipQueryResult['zip_code'];
+        $zipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$addressQueryResult['zip_id'];
+        $zipQueryResult = pg_query($zipQuery);
+        $zipQueryResult = pg_fetch_assoc($zipQueryResult);
+        $zipCode = $zipQueryResult['zip_code'];
 
-    	$communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$addressQueryResult['community_id'];
-    	$communityQueryResult = pg_query($communityQuery);
-    	$communityQueryResult = pg_fetch_assoc($communityQueryResult);
+        $communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$addressQueryResult['community_id'];
+        $communityQueryResult = pg_query($communityQuery);
+        $communityQueryResult = pg_fetch_assoc($communityQueryResult);
 
-    	$communityLegalName = $communityQueryResult['legal_name'];
+        $communityLegalName = $communityQueryResult['legal_name'];
 
-    	$communityMailingAddress = $communityQueryResult['mailing_address'];
+        $communityMailingAddress = $communityQueryResult['mailing_address'];
 
-    	$communityMailingCity = $communityQueryResult['mailing_addr_city'];
-    	$communityMailingState = $communityQueryResult['mailing_addr_state'];
-    	$communityMailingZip = $communityQueryResult['mailing_addr_zip'];
+        $communityMailingCity = $communityQueryResult['mailing_addr_city'];
+        $communityMailingState = $communityQueryResult['mailing_addr_state'];
+        $communityMailingZip = $communityQueryResult['mailing_addr_zip'];
 
 
-    	$communityCityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$communityMailingCity;
-    	$communityCityQuery = pg_query($communityCityQuery);
-    	$communityCityQuery = pg_fetch_assoc($communityCityQuery);
-    	$communityCityName = $communityCityQuery['CITY_NAME'];
+        $communityCityQuery = "SELECT CITY_NAME FROM CITY WHERE CITY_ID=".$communityMailingCity;
+        $communityCityQuery = pg_query($communityCityQuery);
+        $communityCityQuery = pg_fetch_assoc($communityCityQuery);
+        $communityCityName = $communityCityQuery['CITY_NAME'];
 
-    	$communityStateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$communityMailingState;
-    	$communityStateQueryResult = pg_query($communityStateQuery);
-    	$communityStateName = pg_fetch_assoc($communityStateQueryResult);
+        $communityStateQuery = "SELECT STATE_CODE FROM STATE WHERE STATE_ID=".$communityMailingState;
+        $communityStateQueryResult = pg_query($communityStateQuery);
+        $communityStateName = pg_fetch_assoc($communityStateQueryResult);
 
-    	$communityStateName = $communityStateName['STATE_CODE'];
+        $communityStateName = $communityStateName['STATE_CODE'];
 
-    	$communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
-    	$communityZipQueryResult = pg_query($communityZipQuery);
-    	$communityZipCode = pg_fetch_assoc($communityZipQueryResult);
+        $communityZipQuery = "SELECT ZIP_CODE FROM ZIP WHERE ZIP_ID=".$communityMailingZip;
+        $communityZipQueryResult = pg_query($communityZipQuery);
+        $communityZipCode = pg_fetch_assoc($communityZipQueryResult);
 
 
     }
