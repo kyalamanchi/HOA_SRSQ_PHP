@@ -224,8 +224,25 @@ fclose($handler);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $response = curl_exec($ch);
 
+        $zipFileNameFinal = mt_rand().'.zip';
+        $zip = new ZipArchive;
+        if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
+            $zip->addFile($parseJSON[0]->file_name, $parseJSON[0]->file_name);
+            $zip->addFile("data.tab", "data.tab");
+            $zip->close();
+        }
+
+        $url = 'https://content.dropboxapi.com/2/files/upload';
+        $pdfFileContent = file_get_contents($zipFileNameFinal);
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABUHpqfAcHsr24243JwXKp_A6jK_cKpN-9IFdm8QxGBjx9','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$zipFileNameFinal.'","mode": "overwrite","autorename": false,"mute": false}'));
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $pdfFileContent); 
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        $response = curl_exec($ch);
 
         
+
 
 
 
