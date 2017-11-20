@@ -142,9 +142,6 @@ fclose($handler);
                 echo "An error occured. Please try again.";
                 exit(0);
             }
-            $query = "INSERT INTO "
-
-
             unlink($zipFileNameFinal);
             echo $zipFileNameFinal;
         }
