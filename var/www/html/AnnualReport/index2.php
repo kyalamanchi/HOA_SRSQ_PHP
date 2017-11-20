@@ -12,7 +12,13 @@
 	$result = pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id");
 
 	if(!pg_num_rows($result))
+	{	
+		
 		echo "<script type='text/javascript'> alert('Invalid HOA Account Number.'); </script><script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
+
+		die();
+
+	}
 
 	$_SESSION['hoa_alchemy_hoa_id'] = $hoa_id;
 
