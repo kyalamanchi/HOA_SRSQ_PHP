@@ -492,7 +492,7 @@
         
             $(function () {
                 
-                $("#example3").DataTable({ "pageLength": 50, "paging": false, "info": false, "order": [[0, 'desc']] });
+                $("#example3").DataTable({ "pageLength": 5000, "paging": false, "info": false, "order": [[0, 'desc']] });
 
             });
 
