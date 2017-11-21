@@ -6,6 +6,6 @@ $('#payments_back').click(function(){
 
 $('#payments_continue').click(function(){
 
-	window.location = 'HOAFactSheet.php';
+	window.location = 'factSheet.php';
 
 });
