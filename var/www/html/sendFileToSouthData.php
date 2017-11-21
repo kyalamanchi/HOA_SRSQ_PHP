@@ -151,6 +151,9 @@ fclose($handler);
 
             $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID;
             echo $url;
+            
+            $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'test','".date('Y-m-d H:i:s')."','".$url."')";
+            pg_query($query);
             // $req = curl_init();
             // curl_setopt($req, CURLOPT_URL,$url);
             // curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
@@ -171,7 +174,7 @@ fclose($handler);
 
 
 
-            // unlink($zipFileNameFinal);
+            unlink($zipFileNameFinal);
         }
 
 
@@ -283,7 +286,7 @@ fclose($handler);
 
             echo $url;
 
-             $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'test','".date('Y-m-d H:i:s')."','".$url."')";
+            $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'test','".date('Y-m-d H:i:s')."','".$url."')";
             pg_query($query);
             // $req = curl_init();
             // curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID."&type=0");
