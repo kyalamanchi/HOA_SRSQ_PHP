@@ -6,6 +6,6 @@ $('#reset_hoa_account_password').click(function(){
 
 $('#skip').click(function(){
 
-	window.location = 'logout.php';
-	
+	window.location = 'navigatePage.php';
+
 });
