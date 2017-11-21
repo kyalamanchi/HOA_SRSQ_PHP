@@ -7,10 +7,6 @@
 	if(!$_SESSION['hoa_alchemy_hoa_id'])
 		header('Location: logout.php');
 
-	$email = $_SESSION['hoa_alchemy_email'];
-	$hoa_id = $_SESSION['hoa_alchemy_hoa_id'];
-	$home_id = $_SESSION['hoa_alchemy_home_id'];
-	$user_id = $_SESSION['hoa_alchemy_user_id'];
 	$username = $_SESSION['hoa_alchemy_username'];
 	$community_id = $_SESSION['hoa_alchemy_community_id'];
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
