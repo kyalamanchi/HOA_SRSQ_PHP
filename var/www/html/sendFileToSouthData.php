@@ -276,29 +276,26 @@ fclose($handler);
             $dbResponse = $response;
 
 
-            $response = file_get_contents($parseJSON[0]->file_name);
-
-            $fileContent  = base64_encode($response);
+            $fileContent  = base64_encode($pdfFileContent);
 
             $req = curl_init();
-            curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
+            curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID."&type=0");
             curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
             if(curl_exec($req) === false)
             {
                 $message =  "An error occured. Please try again.";
-                echo $message."\n\n";
+                echo $message;
                 exit(0);
             }
             else 
             {   
                 $message = "File uploaded to South Data.";
-                echo $message."\n\n";       
+                echo $message;       
             }       
             $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')";
             pg_query($query);
 
             unlink($zipFileNameFinal);
-            echo $zipFileNameFinal;
         }
 
 
