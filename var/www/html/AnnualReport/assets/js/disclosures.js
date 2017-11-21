@@ -4,14 +4,8 @@ $('#disclosures_back').click(function(){
 
 });
 
-$('#notifications_continue').click(function(){
+$('#disclosures_continue').click(function(){
 
-	window.location = 'agreements.php';
-
-});
-
-$('#reset_hoa_account_password').click(function(){
-
-	window.location = 'hoaAccountInfo.php';
+	window.location = 'exit.php';
 
 });

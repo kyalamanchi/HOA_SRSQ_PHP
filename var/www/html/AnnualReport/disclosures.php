@@ -282,19 +282,13 @@
 
                                             <div class='row'>
                                         
-                                                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-left'>
+                                                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left'>
 
                                                     <button id='disclosures_back' name='disclosures_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
                                                 </div>
 
-                                                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-center'>
-
-                                                    <button id='reset_hoa_account_password' name='reset_hoa_account_password' class='btn btn-success btn-xs'>Reset HOA Account Password</button>
-
-                                                </div>
-
-                                                <div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12 text-right'>
+                                                <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right'>
 
                                                     <button id='disclosures_continue' name='disclosures_continue' class='btn btn-danger btn-xs'><i class='fa fa-sign-out'></i> Exit</button>
 
