@@ -226,7 +226,7 @@
 		<meta name='description' content='HOA Alchemy User Features'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $community_code; ?> - User Page</title>
+		<title><?php echo $community_code; ?> - Annual Report</title>
 
 		<!-- Web Fonts-->
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500,600,700" rel="stylesheet">
