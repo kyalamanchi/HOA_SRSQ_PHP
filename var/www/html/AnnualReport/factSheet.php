@@ -315,7 +315,6 @@
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
                                     <li class="breadcrumb-item">Disclosures</li>
-                                    <li class="breadcrumb-item">HOA Account</li>
 
                                 </ol>
                                             
