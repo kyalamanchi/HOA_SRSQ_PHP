@@ -196,7 +196,7 @@
 													
 										<?php 
 
-											echo "<a target='_blank' href='accountStatement.php?home_id=$home_id&hoa_id=$hoa_id'><img src='account_statement.png' alt='Account Statement Icon'></a>";
+											echo "<a target='_blank' href='viewAccountStatement.php?hoa_id=$hoa_id'><img src='account_statement.png' alt='Account Statement Icon'></a>";
 
 										?>
 														
