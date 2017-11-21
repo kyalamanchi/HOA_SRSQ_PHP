@@ -82,8 +82,6 @@
 
 									<li><a style="color: green;"><span>Hello <?php echo $username; ?></span></a></li>
 
-									<li><a style="color: orange;" href='logout.php'><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
-
 								</ul>
 
 							</div>
