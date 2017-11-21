@@ -193,7 +193,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $ ".round($srp_savings_balance, 0)."
+                              <h1 class='text-info'><strong>$ ".round($srp_savings_balance, 0)."</strong></h1>
 
                             </a>
 
@@ -221,7 +221,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $ ".round($srp_current_balance, 0)."
+                              <h1 class='text-info'><strong>$ ".round($srp_current_balance, 0)."</strong></h1>
 
                             </a>
 
@@ -257,7 +257,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $ ".round($srp_primary_Savings_CurrentBalance, 0)."
+                              <h1 class='text-info'><strong>$ ".round($srp_primary_Savings_CurrentBalance, 0)."</strong></h1>
 
                             </a>
 
@@ -285,7 +285,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $ ".round($srp_savings, 0)."
+                              <h1 class='text-info'><strong>$ ".round($srp_savings, 0)."</strong></h1>
 
                             </a>
 
@@ -313,7 +313,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $ ".round($srsq_third_Account_Balance, 0)."
+                              <h1 class='text-info'><strong>$ ".round($srsq_third_Account_Balance, 0)."</strong></h1>
 
                             </a>
 
