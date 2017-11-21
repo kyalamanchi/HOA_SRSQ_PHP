@@ -296,7 +296,7 @@
 			<div class='wrapper'>
 
                 <!-- Page Header -->
-                <section id='hoa_fact_sheet_header' class='module-page-title'>
+                <section class='module-page-title'>
                                     
                     <div class='container'>
                                             
@@ -1438,7 +1438,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/userPage5.js'></script>
+		<script src='assets/js/factSheet.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
         <!-- My Chart 1 -->
