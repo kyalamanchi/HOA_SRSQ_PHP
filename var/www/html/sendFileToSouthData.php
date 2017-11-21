@@ -145,9 +145,9 @@ fclose($handler);
 
             $dbResponse = $response;
 
-            $response = file_get_contents($pdfFileContent);
+            $response = file_get_contents($parseJSON[0]->file_name);
 
-            $fileContent  = base64_encode($response);
+            $fileContent  = base64_encode($pdfFileContent);
 
             $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID;
             echo $url;
