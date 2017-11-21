@@ -12,6 +12,8 @@
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
 	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
+    header("Location: payments.php");
+
 	if($community_id == 1)
     { 
                       
