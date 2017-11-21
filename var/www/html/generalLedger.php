@@ -41,6 +41,52 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
+    <style type="text/css">
+      
+      .collapsing {
+  
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          -webkit-transform: translateZ(0);
+          -webkit-transition: height 0.35s ease 1s linear;
+          -moz-transition: height 0.35s ease 1s linear;
+          -o-transition: height 0.35s ease 1s linear;
+          -ms-transition: height 0.35s ease 1s linear;
+          transition: height 0.35s ease 1s linear;
+          -webkit-transition: height 0.35s ease;
+          transition: height 0.35s ease;
+      }
+
+      table .collapse.in {
+    
+          display:table-row;
+    
+      }
+
+        .notbold{
+    
+          font-weight:normal
+      }​
+
+    </style>
+
+    <script type="text/javascript">
+
+      $(document).ready(function() {
+
+          var table = $('#example').DataTable( {
+        
+              "ordering": false,
+              "paging": false,
+              "scrollY":        "600px",
+              "scrollCollapse": true
+
+          } );
+      } );
+
+      </script>
+
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
