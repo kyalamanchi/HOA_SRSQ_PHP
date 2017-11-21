@@ -2,8 +2,6 @@
 	
 	session_start();
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
 	if($_GET['cid'] == 1)
 	{
 		
@@ -19,7 +17,6 @@
 
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
-	$doc_id = $_GET['doc_id'];
 
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
@@ -27,16 +24,15 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$path.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
-
 	if (strpos( json_decode($response), 'error_summary') !== false) 
 	{
     	
     	$result = pg_query("UPDATE document_management SET active='f' WHERE document_id=$doc_id");
-
+    	
     	echo '<br><br><br><br><br><center><h3>There was an error opening this document. This file cannot be found.</h3></center>';
 
 	}
-	else if (strpos( ($response), 'pdf') !== false  ){
+	else if ( (strpos( ($response), 'pdf') !== false) || (strpos( ($response), 'PDF') !== false )  ){
 		header('Content-type: application/pdf'); 
 		header('Content-Disposition: inline; filename="'.$description.'.pdf"'); 
 		echo $response;
