@@ -119,7 +119,7 @@
 
 							</div>
 
-							<div id='bcrypt_div' class='row'></div>
+							<div class='row'><div id='bcrypt_div' class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'></div></div>
 
                             <div class='row'>
 
