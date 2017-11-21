@@ -67,12 +67,12 @@
         
         <section class="content-header">
 
-          <h1><strong>General Ledger</strong></h1>
+          <h1><strong>Purchase Summary</strong></h1>
 
           <ol class="breadcrumb">
             
             <li><i class="fa fa-support"></i> Reserves Dashboard</li>
-            <li>General Ledger</li>
+            <li>Purchase Summary</li>
           
           </ol>
 
