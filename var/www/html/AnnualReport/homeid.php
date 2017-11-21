@@ -16,8 +16,6 @@
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
 	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
-    header("Location: hoaid.php");
-
 ?>
 
 <!DOCTYPE html>

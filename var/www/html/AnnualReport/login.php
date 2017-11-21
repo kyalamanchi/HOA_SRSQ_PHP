@@ -33,7 +33,7 @@
 	$_SESSION['hoa_alchemy_username'] = $username;
 
 	if($annual_disclosure_enabled == 't')
-		header("Location: disclosures.php");
+		header("Location: hoaid.php");
 	else
 	{	
 		echo "<script type='text/javascript'> alert('You do not have access for annual disclosure'); window.location = 'logout.php'; </script>";
