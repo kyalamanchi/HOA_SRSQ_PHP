@@ -68,6 +68,79 @@
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
+
+    <?php
+
+      if($community_id == 1)
+      { 
+                      
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
+                      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+        $result = curl_exec($ch);
+        $json_decode = json_decode($result,TRUE);
+        $srp_primarySavings = $json_decode['Account'];
+        $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+                            
+        curl_close($ch);
+
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
+                            
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539532",oauth_nonce="2nX9kd69aNw",oauth_version="1.0",oauth_signature="5ZScoTRHF28D3YT0kHO27%2Br8Hvo%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                            
+        $result2 = curl_exec($ch);
+        $json_decode2 = json_decode($result2,TRUE);
+        $srp = $json_decode2['Account'];
+        $srp_savings_balance = $srp['CurrentBalance'];
+
+      }
+      else if($community_id == 2)
+      {
+                      
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506682054",oauth_nonce="skPZikoZJCt",oauth_version="1.0",oauth_signature="aEBIdXcJdXSWiLp5k9gxlVuvsbs%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+        $result = curl_exec($ch);
+        $json_decode = json_decode($result,TRUE);
+        $srp_primarySavings = $json_decode['Account'];
+        $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+
+        curl_close($ch);
+
+        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/32?minorversion=8');      
+                      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="5IDpz%2F%2FItyjMYbh4Ke3JoBx3YGY%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+        $result2 = curl_exec($ch);
+        $json_decode2 = json_decode($result2,TRUE);
+        $srp = $json_decode2['Account'];
+        $srp_savings = $srp['CurrentBalance'];
+
+        curl_close($ch);
+
+        $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
+                      
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="HDWt%2BfIz3NrAhJE9fO9G%2FI8Q%2Fcg%3D"'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+        $result3 = curl_exec($ch);
+        $json_decode3 = json_decode($result3,TRUE);
+        $srsq_third_Account = $json_decode3['Account'];
+        $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+            
+      }
+
+    ?>
     
     <div class="wrapper">
 
@@ -78,105 +151,6 @@
       <?php include 'zenDeskScript.php'; ?>
 
       <div class="content-wrapper">
-
-        <?php
-
-        	$year = date("Y");
-        	$month = date("m");
-        	$end_date = date("t");
-
-        	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
-
-        	$amount_recieved = $row['sum'];
-
-          if($amount_recieved == "")
-            $amount_recieved = 0.0;
-
-        	$row = pg_fetch_assoc(pg_query("SELECT count(hoa_id) FROM hoaid WHERE community_id=$community_id"));
-
-        	$total_customers = $row['count'];
-
-        	$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
-
-        	$assessment_amount = $row['amount'];
-
-        	$total_amount = ( $total_customers * $assessment_amount );
-        	$amount_percentage = (( $amount_recieved / $total_amount ) * 100 );
-
-        	$paid_customers = pg_num_rows(pg_query("SELECT DISTINCT hoa_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
-
-        	$paid_percentage = (( $paid_customers / $total_customers) * 100 );
-
-        	$del_acc = 0;
-          $del = 3;
-
-          $del_amount = $assessment_amount * $del;
-
-          $result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
-
-          while($row = pg_fetch_assoc($result))
-          {
-
-            $home_id = $row['home_id'];
-            $assessment_charges = $row['sum'];
-
-            $query2 = "SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-
-            $firstname = $row2['firstname'];
-            $lastname = $row2['lastname'];
-            $hoa_id = $row2['hoa_id'];
-            $cell_no = $row2['cell_no'];
-            $email = $row2['email'];
-
-            $query2 = "SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $charges = $row2['sum'];
-
-            $query2 = "SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $payments = $row2['sum'];
-
-            $balance = $charges - $payments;
-
-            $query2 = "SELECT address1 FROM homeid WHERE home_id=".$home_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $address1 = $row2['address1'];
-
-            if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
-              $del_acc++;
-
-          }
-
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='SIGNED'");
-          $signed_agreements = pg_num_rows($result);
-
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='OUT_FOR_SIGNATURE'");
-          $pending_agreements = pg_num_rows($result);
-
-          $inspections = 0;
-
-          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id");
-
-          while($row = pg_fetch_assoc($result))
-          {
-            $status = $row['inspection_status_id'];
-
-            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
-              $inspections++;
-          }
-
-          $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
-
-          $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date' AND payment_status_id=8"));
-
-          $ress = pg_query("UPDATE reminders SET reminder_status_id=2 WHERE reminder_status_id=1 AND due_date<='".date('Y-m-d')."'");
-
-        ?>
         
         <section class="content-header">
 
@@ -219,7 +193,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $
+                              $ ".round($srp_savings_balance, 0)."
 
                             </a>
 
@@ -247,7 +221,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $
+                              $ ".round($srp_current_balance, 0)."
 
                             </a>
 
@@ -283,7 +257,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $
+                              $ ".round($srp_primary_Savings_CurrentBalance, 0)."
 
                             </a>
 
@@ -311,7 +285,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $
+                              $ ".round($srp_savings, 0)."
 
                             </a>
 
@@ -339,7 +313,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              $
+                              $ ".round($srsq_third_Account_Balance, 0)."
 
                             </a>
 
