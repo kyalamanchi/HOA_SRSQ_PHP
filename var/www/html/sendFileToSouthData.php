@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+date_default_timezone_set('America/Los_Angeles');
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 function getFileCount($file){
         if(file_exists($file)) {
@@ -150,29 +150,28 @@ fclose($handler);
             $fileContent  = base64_encode($response);
 
             $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID;
+            echo $url;
+            // $req = curl_init();
+            // curl_setopt($req, CURLOPT_URL,$url);
+            // curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+            // if(curl_exec($req) === false)
+            // {
+            //     $message =  "An error occured. Please try again.";
+            //     echo $message;
+            //     exit(0);
+            // }
+            // else 
+            // {   
+            //     $message = "File uploaded to South Data.";
+            //     echo $message;       
+            // }
 
-            $req = curl_init();
-            curl_setopt($req, CURLOPT_URL,$url);
-            curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-            if(curl_exec($req) === false)
-            {
-                $message =  "An error occured. Please try again.";
-                echo $message;
-                exit(0);
-            }
-            else 
-            {   
-                $message = "File uploaded to South Data.";
-                echo $message;       
-            }
-
-            $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')";
-            pg_query($query);
+            // $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')";
+            // pg_query($query);
 
 
 
-            unlink($zipFileNameFinal);
-            echo $zipFileNameFinal;
+            // unlink($zipFileNameFinal);
         }
 
 
