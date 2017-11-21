@@ -145,7 +145,7 @@ fclose($handler);
 
             $dbResponse = $response;
 
-            $response = file_get_contents($parseJSON[0]->file_name);
+            $response = file_get_contents($pdfFileContent);
 
             $fileContent  = base64_encode($response);
 
