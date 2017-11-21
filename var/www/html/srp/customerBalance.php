@@ -227,24 +227,24 @@
 											if(!isset($_POST['mode']))
 											{
 												if($total_balance > 0.0)
-													echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+													echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><a target='_blank' href='viewAccountStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 											}
 											else
 											{
 												if($mode == 1)
 												{
 													if($total_balance > $value)
-														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><a target='_blank' href='viewAccountStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 												}	
 												else if($mode == 2)
 												{
 													if($total_balance < $value)
-														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><a target='_blank' href='viewAccountStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 												}
 												else if($mode == 3)
 												{
 													if($total_balance == $value)
-														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><i class='fa fa-print'></i> Invoice</td></tr>";
+														echo "<tr><td>$name<br>($hoa_id)</td><td>$living_in<br>($home_id)</td><td><i class='fa fa-envelope'></i> $email<br><i class='fa fa-phone'></i> $cell_no</td><td>$ $total_charges</td><td>$ $total_payments</td><td>$ $total_balance</td><td><a target='_blank' href='viewAccountStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td></tr>";
 												}
 
 											}
