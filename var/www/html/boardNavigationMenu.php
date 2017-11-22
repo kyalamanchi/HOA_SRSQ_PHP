@@ -255,11 +255,11 @@
 
       <li class="treeview">
                   
-        <!--a href="https://hoaboardtime.com/boardSurveyDetails.php"-->
+        <a ><!-- href="https://hoaboardtime.com/boardSurveyDetails.php" -->
 
           <i class="fa fa-users text-blue"></i> <span>Survey Details</span>
 
-        <!--/a-->
+        </a>
 
       </li>
 
