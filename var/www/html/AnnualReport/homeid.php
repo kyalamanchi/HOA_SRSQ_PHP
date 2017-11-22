@@ -406,22 +406,6 @@
 
 									</div>
 
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-											<center>
-
-												<script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd_2BfaWOjaemomJA_2FAfa23Vy49wNbXrrSPU8mJda5XW6x7.js"].join(""),a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script><a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=https://www.surveymonkey.com> Create your own user feedback survey </a>
-
-											</center>
-
-										</div>
-
-									</div>
-
 									<div class='row'>
 
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
