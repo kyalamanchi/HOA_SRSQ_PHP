@@ -167,26 +167,6 @@
 
       </li>
 
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardCommunityExpenditureSummary.php">
-
-          <i class="fa fa-users text-blue"></i> <span>YTD Expenses</span>
-
-        </a>
-
-      </li>
-
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardCommunityDeposits.php">
-
-          <i class="fa fa-users text-blue"></i> <span>YTD Income</span>
-
-        </a>
-
-      </li>
-
       <!-- Member -->
       <li class='treeview'>
 
