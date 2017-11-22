@@ -169,6 +169,16 @@
 
           </li>
 
+          <li class="treeview">
+                  
+            <a ><!-- href="https://hoaboardtime.com/boardSurveyDetails.php" -->
+
+              <span>Survey Details</span>
+
+            </a>
+
+          </li>
+
         </ul>
 
       </li>
@@ -250,16 +260,6 @@
           </li>
 
         </ul>
-
-      </li>
-
-      <li class="treeview">
-                  
-        <a ><!-- href="https://hoaboardtime.com/boardSurveyDetails.php" -->
-
-          <i class="fa fa-users text-blue"></i> <span>Survey Details</span>
-
-        </a>
 
       </li>
 
