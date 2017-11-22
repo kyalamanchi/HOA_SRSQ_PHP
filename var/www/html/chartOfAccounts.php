@@ -71,7 +71,7 @@
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-support"></i> Reserves Dashboard</li>
+            <li><i class="fa fa-dollar"></i> Finance Dashboard</li>
             <li>Chart Of Accounts</li>
           
           </ol>
