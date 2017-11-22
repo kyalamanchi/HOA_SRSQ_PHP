@@ -163,7 +163,7 @@
                   
             <a href="https://hoaboardtime.com/boardPreviousMonthsPayments.php">
 
-              <i class="fa fa-users text-blue"></i> <span>Previous Months Payments</span>
+              <span>Previous Months Payments</span>
 
             </a>
 
