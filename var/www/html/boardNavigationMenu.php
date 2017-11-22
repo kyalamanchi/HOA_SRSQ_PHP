@@ -60,28 +60,48 @@
         </a>
 
       </li>
-             
-      <li class="treeview">
-
-        <a href='https://hoaboardtime.com/boardProcessPayment.php'>
-
-          <i class='fa fa-dollar'></i> <span>Process Payments</span>
-              
-        </a>
-
-      </li>
-            
-      <li class="treeview">
-              
-        <a href='https://hoaboardtime.com/boardSetReminder.php'>
-
-          <i class='fa fa-bell'></i> <span>Create Reminder</span>
-
-        </a>
-
-      </li>
 
       <li class="header text-center"> Other Links </li>
+
+      <li class="treeview">
+              
+        <a href="#">
+
+          <i class="fa fa-users"></i> <span>Board</span>
+
+          <span class="pull-right-container">
+                        
+            <i class="fa fa-angle-left pull-right"></i>
+
+          </span>
+
+        </a>
+
+        <ul class="treeview-menu">
+                
+          <li>
+
+            <a href='https://hoaboardtime.com/boardSetReminder.php'>
+
+              <i class='fa fa-bell'></i> <span>Create Reminder</span>
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href='https://hoaboardtime.com/boardProcessPayment.php'>
+
+              <i class='fa fa-dollar'></i> <span>Process Payments</span>
+                  
+            </a>
+
+          </li>
+
+        </ul>
+
+      </li>
 
       <!-- Board -->
       <li class='treeview'>
@@ -111,16 +131,6 @@
               <i class="fa fa-users text-blue"></i> <span>Previous Months Payments</span>
 
             </a>
-
-      </li>
-
-      <li class='treeview'>
-                  
-        <a href="https://hoaboardtime.com/boardStatementOfActivity.php">
-
-          <i class="fa fa-users text-blue"></i> <span>Statement Of Activity</span>
-
-        </a>
 
       </li>
 
