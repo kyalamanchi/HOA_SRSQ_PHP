@@ -42,6 +42,10 @@
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
 
+	</head>
+
+	<body>
+
 		<style type="text/css">
 			
 			body {
@@ -104,10 +108,6 @@
 			}
 
 		</style>
-
-	</head>
-
-	<body>
 
 		<div class="loader">
   			
