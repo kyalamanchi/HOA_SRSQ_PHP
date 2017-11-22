@@ -730,13 +730,13 @@
                     
                     <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6' style="border-right: 1px solid #f4f4f4">
                     
-                      <a href="https://hoaboardtime.com/boardCommunityDeposits.php" title='Click to view community deposits'><h5>INCOME : <b>$ <?php echo round($income, 0); ?></b></h5></a>
+                      <a href="https://hoaboardtime.com/communityIncome.php" title='Click to view community deposits'><h5>INCOME : <b>$ <?php echo round($income, 0); ?></b></h5></a>
 
                     </div>
 
                     <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
                     
-                      <a href='https://hoaboardtime.com/boardCommunityExpenditureSummary.php' title='Click to view expenditure summary'><h5>EXPENDITURE : <b>$ <?php echo round($expenditure, 0); ?></b></h5></a>
+                      <a href='https://hoaboardtime.com/communityExpenditure.php' title='Click to view expenditure summary'><h5>EXPENDITURE : <b>$ <?php echo round($expenditure, 0); ?></b></h5></a>
 
                     </div>
 
