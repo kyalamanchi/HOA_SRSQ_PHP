@@ -99,6 +99,56 @@
 
           </li>
 
+          <li>
+
+            <a href="https://hoaboardtime.com/boardViewReminders.php">
+
+              <i class="fa fa-street-view"></i> <span>View Reminders</span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a href="#">
+
+          <i class="fa fa-institution"></i> <span>Community</span>
+
+          <span class="pull-right-container">
+                        
+            <i class="fa fa-angle-left pull-right"></i>
+
+          </span>
+
+        </a>
+
+        <ul class="treeview-menu">
+                
+          <li>
+
+            <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
+
+              <i class="fa fa-users text-blue"></i> <span>Disclosures</span>
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="https://hoaboardtime.com/boardMailingList.php">
+
+              <i class="fa fa-street-view text-green"></i> <span>Mailing List</span>
+
+            </a>
+
+          </li>
+
         </ul>
 
       </li>
@@ -143,17 +193,6 @@
         </a>
 
       </li>
-
-      <!-- Member -->
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardMailingList.php">
-
-          <i class="fa fa-street-view text-green"></i> <span>Community Mailing List</span>
-
-        </a>
-
-      </li>
                       
       <li class='treeview'>
 
@@ -180,16 +219,6 @@
         <a href="https://hoaboardtime.com/boardUserDashboard.php">
 
           <i class="fa fa-street-view text-green"></i> <span>User Dashbord</span>
-
-        </a>
-
-      </li>
-                
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardViewReminders.php">
-
-          <i class="fa fa-street-view text-green"></i> <span>View Reminders</span>
 
         </a>
 
