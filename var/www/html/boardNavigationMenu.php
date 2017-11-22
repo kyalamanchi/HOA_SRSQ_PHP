@@ -60,29 +60,6 @@
         </a>
 
       </li>
-            
-      <li class="treeview">
-              
-        <a href="#">
-
-          <i class="glyphicon glyphicon-hdd"></i> <span>Document Management</span>
-
-          <span class="pull-right-container">
-			                  
-            <i class="fa fa-angle-left pull-right"></i>
-
-          </span>
-
-        </a>
-
-        <ul class="treeview-menu">
-                
-          <li><a><i class="fa fa-male text-green"></i> Member Documents</a></li>
-          <li><a><i class="fa fa-wrench text-red"></i> Vendor Documents</a></li>
-
-        </ul>
-
-      </li>
              
       <li class="treeview">
 
@@ -122,16 +99,6 @@
         <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
 
           <i class="fa fa-users text-blue"></i> <span>Community Disclosures</span>
-
-        </a>
-
-      </li>
-
-      <li class='treeview'>
-
-        <a>
-
-          <i class="fa fa-users text-blue"></i> <span>Digital Board Room</span>
 
         </a>
 
