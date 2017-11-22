@@ -487,7 +487,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="invoice.png" height=75 width=75 alt='Invoice'>
+                      <img src="account_statement.png" height=75 width=75 alt='Account Statement'>
 
                     </div>
 
