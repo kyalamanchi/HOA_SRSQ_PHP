@@ -332,7 +332,7 @@
 
                       echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Savings</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Checkings</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_savings_balance."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_current_balance."</a></strong></div>";
+                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_savings_balance."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_current_balance."</a></strong></div>";
                     }
                     else if($community_id == 2)
                     {
@@ -375,7 +375,7 @@
 
                       echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Checkings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Savings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Investments</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srsq_third_Account_Balance."</a></strong></div>";
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srsq_third_Account_Balance."</a></strong></div>";
                     }
 
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
