@@ -42,62 +42,6 @@
 		<!-- Template core CSS-->
 		<link href="assets/css/template.min.css" rel="stylesheet">
 
-		<script type="text/javascript">
-			
-			$(window).load(function() {
-	
-  var timeout = 1000;
-  
-  setTimeout(function(){
-    $(".loader").fadeOut("slow");
-  }, timeout);
-  
-});
-
-		</script>
-
-		<style type="text/css">
-			
-			.loader{
-  display: block;
-  width: 100%;
-  height: 100vh;
-  background: #2c3e50;
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  left: 0
-}
-.spinner {
-  width: 40px;
-  height: 40px;
-  background-color: #fff;
-  margin: 100px auto;
-  -webkit-animation: rotateplane 1.2s infinite ease-in-out;
-  animation: rotateplane 1.2s infinite ease-in-out;
-}
-
-@-webkit-keyframes rotateplane {
-  0% { -webkit-transform: perspective(120px) }
-  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
-  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
-}
-
-@keyframes rotateplane {
-  0% { 
-    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg) 
-  } 50% { 
-    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
-    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) 
-  } 100% { 
-    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
-  }
-}
-
-		</style>
-
 		<style type="text/css">
 			
 			body {
@@ -166,8 +110,14 @@
 	<body>
 
 		<div class="loader">
-  <div class="spinner"></div>
-</div>
+  			
+  			<div class="line one"></div>
+  			<div class="line two"></div>
+  			<div class="line three"></div>
+  			<div class="line four"></div>
+  			<div class="line five"></div>
+		
+		</div>
 
 		<div class='layout'>
 
