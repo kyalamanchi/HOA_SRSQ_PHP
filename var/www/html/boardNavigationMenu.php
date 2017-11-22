@@ -83,7 +83,7 @@
 
             <a href='https://hoaboardtime.com/boardSetReminder.php'>
 
-              <i class='fa fa-bell'></i> <span>Create Reminder</span>
+              <span>Create Reminder</span>
 
             </a>
 
@@ -93,7 +93,7 @@
 
             <a href='https://hoaboardtime.com/boardProcessPayment.php'>
 
-              <i class='fa fa-dollar'></i> <span>Process Payments</span>
+              <span>Process Payments</span>
                   
             </a>
 
@@ -103,7 +103,7 @@
 
             <a href="https://hoaboardtime.com/boardViewReminders.php">
 
-              <i class="fa fa-street-view"></i> <span>View Reminders</span>
+              <span>View Reminders</span>
 
             </a>
 
@@ -133,7 +133,7 @@
 
             <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
 
-              <i class="fa fa-users text-blue"></i> <span>Disclosures</span>
+              <span>Disclosures</span>
 
             </a>
 
@@ -143,7 +143,7 @@
 
             <a href="https://hoaboardtime.com/boardMailingList.php">
 
-              <i class="fa fa-street-view text-green"></i> <span>Mailing List</span>
+              <span>Mailing List</span>
 
             </a>
 
