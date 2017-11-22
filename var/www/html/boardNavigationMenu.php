@@ -78,6 +78,16 @@
         </a>
 
         <ul class="treeview-menu">
+
+          <li>
+
+            <a href="https://hoaboardtime.com/boardCharges.php">
+
+              <span>Charges</span>
+
+            </a>
+
+          </li>
                 
           <li>
 
@@ -149,32 +159,7 @@
 
           </li>
 
-        </ul>
-
-      </li>
-
-      <!-- Board -->
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardCharges.php">
-
-          <i class="fa fa-users text-blue"></i> <span>Late Fee / Write Off </span>
-
-        </a>
-
-      </li>
-
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
-
-          <i class="fa fa-users text-blue"></i> <span>Community Disclosures</span>
-
-        </a>
-
-      </li>
-
-      <li class='treeview'>
+          <li>
                   
             <a href="https://hoaboardtime.com/boardPreviousMonthsPayments.php">
 
@@ -182,56 +167,99 @@
 
             </a>
 
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a href="#">
+
+          <i class="fa fa-street-view"></i> <span>Users</span>
+
+          <span class="pull-right-container">
+                        
+            <i class="fa fa-angle-left pull-right"></i>
+
+          </span>
+
+        </a>
+
+        <ul class="treeview-menu">
+                
+          <li>
+
+            <a href="https://hoaboardtime.com/boardCustomerBalance.php">
+
+              <span>Balance</span>
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="https://hoaboardtime.com/boardHOAHomeInfo.php">
+
+              <span>HOA &amp; Home Info</span>
+
+            </a>
+
+          </li>
+
+          <li>
+
+            <a href="https://hoaboardtime.com/boardUserDashboard.php">
+
+              <span>User Dashbord</span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a href="#">
+
+          <i class="fa fa-wrench"></i> <span>Vendors</span>
+
+          <span class="pull-right-container">
+                        
+            <i class="fa fa-angle-left pull-right"></i>
+
+          </span>
+
+        </a>
+
+        <ul class="treeview-menu">
+                
+          <li>
+
+            <a href="https://hoaboardtime.com/boardVendorDashboard.php">
+
+              <span>Vendor Dashboard</span>
+
+            </a>
+
+          </li>
+
+        </ul>
+
       </li>
 
       <li class="treeview">
                   
-        <a href="https://hoaboardtime.com/boardSurveyDetails.php">
+        <!--a href="https://hoaboardtime.com/boardSurveyDetails.php"-->
 
           <i class="fa fa-users text-blue"></i> <span>Survey Details</span>
 
-        </a>
-
-      </li>
-                      
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardCustomerBalance.php">
-
-          <i class="fa fa-street-view text-green"></i> <span>Customer Balance</span>
-
-        </a>
-
-      </li>
-                
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardHOAHomeInfo.php">
-
-          <i class="fa fa-street-view text-green"></i> <span>HOA &amp; Home Info</span>
-
-        </a>
-
-      </li>
-
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardUserDashboard.php">
-
-          <i class="fa fa-street-view text-green"></i> <span>User Dashbord</span>
-
-        </a>
-
-      </li>
-
-      <!-- Vendor -->
-      <li class='treeview'>
-
-        <a href="https://hoaboardtime.com/boardVendorDashboard.php">
-
-          <i class="fa fa-wrench text-red"></i> <span>Vendor Dashboard</span>
-
-        </a>
+        <!--/a-->
 
       </li>
 
