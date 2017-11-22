@@ -409,7 +409,7 @@
 
                         <a href='https://hoaboardtime.com/expenditureByVendor.php'>
 
-                          <img scr='expenditures_by_vendors.png' alt='Vendor Expenditure'>
+                          <img src='expenditures_by_vendors.png'>
 
                         </a>
 
