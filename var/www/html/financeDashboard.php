@@ -365,6 +365,8 @@
 
                       <h5><strong>Trail Balance Report</strong></h5>
 
+                      <br>
+
                     </div>
 
                   </div>
@@ -392,6 +394,8 @@
                     <div class="row container-fluid text-center">
 
                       <h5><strong>Chart Of Accounts</strong></h5>
+
+                      <br>
 
                     </div>
 
@@ -421,6 +425,8 @@
 
                       <h5><strong>Expenditure By Vendor</strong></h5>
 
+                      <br>
+
                     </div>
 
                   </div>
@@ -448,6 +454,8 @@
                     <div class="row container-fluid text-center">
 
                       <h5><strong>General Ledger</strong></h5>
+
+                      <br>
 
                     </div>
 
@@ -477,6 +485,8 @@
 
                       <h5><strong>Purchase Summary</strong></h5>
 
+                      <br>
+
                     </div>
 
                   </div>
@@ -505,6 +515,8 @@
 
                       <h5><strong>Community Income</strong></h5>
 
+                      <br>
+
                     </div>
 
                   </div>
@@ -532,6 +544,8 @@
                     <div class="row container-fluid text-center">
 
                       <h5><strong>Community Expenditure</strong></h5>
+
+                      <br>
 
                     </div>
 
