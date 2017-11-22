@@ -19,7 +19,7 @@
 
       ?>
             
-      <li class="header text-center"> Quick Links </li>
+      <li class="header text-center"> Dashboards </li>
 
       <li class="treeview">
               
