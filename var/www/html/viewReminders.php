@@ -133,7 +133,7 @@
                           while($row = pg_fetch_assoc($result))
                           {
 
-                            $ridf = $row['id'];
+                            $rid = $row['id'];
                             $hoa_id = $row['hoa_id'];
                             $home_id = $row['home_id'];
                             $open_date = $row['open_date'];
