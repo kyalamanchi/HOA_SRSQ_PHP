@@ -130,7 +130,7 @@
                         if($mode == 1)
                         {
 
-                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND reminder_status_id=1");
+                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id");
 
                           while($row = pg_fetch_assoc($result))
                           {
@@ -144,6 +144,7 @@
                             $comments = $row['comments'];
                             $vendor_assigned = $row['vendor_assigned'];
                             $reminder_type = $row['reminder_type_id'];
+                            $reminder_status = $row['reminder_status_id'];
 
                             $row1 = pg_fetch_assoc(pg_query("SELECT * FROM reminder_type WHERE id=$reminder_type"));
                             $reminder_type = $row1['reminder_type'];
@@ -178,7 +179,7 @@
                             //if($update_date != '')
                               //$update_date = date('m-d-Y', strtotime($update_date));
 
-                            if($ddtm == 't') 
+                            if($ddtm == 't' || $reminder_type == 2) 
                               echo "<tr class='text-muted'><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
                             else
                             { 
@@ -379,7 +380,7 @@
                         else
                         {
 
-                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND reminder_status_id=1");
+                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
 
                           while($row = pg_fetch_assoc($result))
                           {
