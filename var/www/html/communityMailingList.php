@@ -23,7 +23,7 @@
       $user_id = $_SESSION['hoa_user_id'];
       $mode = $_SESSION['hoa_mode'];
 
-      if($mode == 1)
+      if($mode == 2)
         header("Location: residentDashboard.php");
 
     ?>
