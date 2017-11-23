@@ -130,7 +130,7 @@
                         if($mode == 1)
                         {
 
-                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id");
+                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND reminder_status_id=1");
 
                           while($row = pg_fetch_assoc($result))
                           {
@@ -379,7 +379,7 @@
                         else
                         {
 
-                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
+                          $result = pg_query("SELECT * FROM reminders WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id AND reminder_status_id=1");
 
                           while($row = pg_fetch_assoc($result))
                           {
