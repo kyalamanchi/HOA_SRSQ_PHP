@@ -380,7 +380,7 @@
                       
                       echo "<center>Some error occured. Please try again</center><br><br>";
 
-                      echo "<br><br><center><a href='https://hoaboardtime.com/boardSetReminder.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardViewReminders.php'},1000);</script>";
+                      echo "<br><br><center><a href='https://hoaboardtime.com/viewReminders.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/viewReminders.php'},1000);</script>";
 
                     }
                     else 
@@ -388,7 +388,7 @@
                       
                       echo "<center>Reminder edited successfully. Page will auto redirect to reminders page.</center>";
 
-                      echo "<br><br><center><a href='https://hoaboardtime.com/boardViewReminders.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardViewReminders.php'},1000);</script>";
+                      echo "<br><br><center><a href='https://hoaboardtime.com/viewReminders.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/viewReminders.php'},1000);</script>";
 
                     }
 
