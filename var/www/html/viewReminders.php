@@ -168,18 +168,13 @@
                             //if($open_date != '')
                               //$open_date = date('m-d-Y', strtotime($open_date));
 
-                            if($due_date < $today) 
-                              $ddtm = 't';
-                            else
-                              $ddtm = 'f';
-
                             //if($due_date != '')
                               //$due_date = date('m-d-Y', strtotime($due_date));
 
                             //if($update_date != '')
                               //$update_date = date('m-d-Y', strtotime($update_date));
 
-                            if($ddtm == 't' || $reminder_status == 2) 
+                            if($reminder_status != 1) 
                               echo "<tr class='text-muted'><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
                             else
                             { 
