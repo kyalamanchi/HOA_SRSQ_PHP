@@ -14,19 +14,17 @@
     
     <?php
 
-      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-      	if(@!$_SESSION['hoa_username'])
-      		header("Location: logout.php");
+      if(@!$_SESSION['hoa_username'])
+        header("Location: https://hoaboardtime.com/logout.php");
 
-      	$community_id = $_SESSION['hoa_community_id'];
-      	$user_id=$_SESSION['hoa_user_id'];
+      $community_id = $_SESSION['hoa_community_id'];
+      $user_id = $_SESSION['hoa_user_id'];
+      $mode = $_SESSION['hoa_mode'];
 
-      	$result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
-    		$num_row = pg_num_rows($result);
-
-    		if($num_row == 0)
-    			header("Location: https://hoaboardtime.com/residentDashboard.php");
+      if($mode == 1)
+        header("Location: residentDashboard.php");
 
     ?>
 
@@ -52,300 +50,37 @@
     
     <div class="wrapper">
 
-      	<header class="main-header">
-        
-        	<a class="logo">
-          
-          		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
-          
-          		<span class="logo-lg"><?php echo $_SESSION['hoa_community_name']; ?></span>
-
-        	</a>
-        
-        	<nav class="navbar navbar-static-top">
-          
-          		<a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-            		
-            		<span class="sr-only">Toggle navigation</span>
-
-          		</a>
-
-	          	<div class="navbar-custom-menu">
-	            
-	            	<ul class="nav navbar-nav">
-
-		          		<li class="dropdown user user-menu">
-	              
-		            		<a href="https://hoaboardtime.com/residentDashboard.php">Resident Dashboard</a>
-
-		          		</li>
-
-		          		<li class="dropdown user user-menu">
-
-		            		<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-		              
-		              			<i class="fa fa-user"></i> <span class="hidden-xs"><?php echo $_SESSION['hoa_username']; ?></span>
-
-		            		</a>
-
-			            	<ul class="dropdown-menu">
-			              
-			              		<li class="user-header">
-			                
-			                		<i class="fa fa-user fa-5x"></i>
-
-			                		<p>
-			                  
-					                  	<?php echo $_SESSION['hoa_username']; ?>
-
-					                  	<br>
-
-					                  	<small><?php echo $_SESSION['hoa_address']; ?></small>
-
-					                  	<a href="https://hoaboardtime.com/logout.php" class="btn btn-warning">Log Out</a>
-
-					                	<br>
-
-					                </p>
-
-			              		</li>
-
-			            	</ul>
-
-		          		</li>
-
-	            	</ul>
-
-	          	</div>
-
-        	</nav>
-
-      	</header>
+      <?php if($mode == 1) include "boardHeader.php"; ?>
       
-      	<aside class="main-sidebar">
-        
-          <section class="sidebar">
-          
-              <ul class="sidebar-menu">
-            
-                <?php if($community_id == 2)
-                echo "<li class='header text-center'>
+      <?php if($mode == 1) include 'boardNavigationMenu.php'; ?>
 
-                  <img src='srsq_logo.JPG'>
-
-                </li>"; ?>
-            
-                <li class="header text-center"> Quick Links </li>
-
-                <li class="treeview">
-              
-                  <a href='https://hoaboardtime.com/boardDashboard.php'>
-                
-                    <i class="fa fa-dashboard"></i> <span>Board Dashboard</span>
-
-                  </a>
-
-                </li>
-            
-                <li class="treeview">
-              
-                  <a href="#">
-
-                    <i class="glyphicon glyphicon-hdd"></i> <span>Document Management</span>
-
-                    <span class="pull-right-container">
-                        
-                      <i class="fa fa-angle-left pull-right"></i>
-
-                    </span>
-
-                  </a>
-
-                  <ul class="treeview-menu">
-                
-                    <li><a><i class="fa fa-male text-green"></i> Member Documents</a></li>
-                    <li><a><i class="fa fa-wrench text-red"></i> Vendor Documents</a></li>
-
-                  </ul>
-
-                </li>
-             
-                <li class="treeview">
-
-                  <a href='https://hoaboardtime.com/boardProcessPayment.php'>
-
-                    <i class='fa fa-dollar'></i> <span>Process Payments</span>
-              
-                  </a>
-
-                </li>
-            
-                <li class="treeview">
-              
-                  <a href='https://hoaboardtime.com/boardSetReminder.php'>
-
-                    <i class='fa fa-bell'></i> <span>Create Reminder</span>
-
-                  </a>
-
-                </li>
-
-                <li class="header text-center"> Other Links </li>
-
-                <!-- Board -->
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardCharges.php">
-
-                    <i class="fa fa-users text-blue"></i> <span>Late Fee / Write Off </span>
-
-                  </a>
-
-                </li>
-
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
-
-                    <i class="fa fa-users text-blue"></i> <span>Community Disclosures</span>
-
-                  </a>
-
-                </li>
-
-                <li class='treeview'>
-
-                  <a>
-
-                    <i class="fa fa-users text-blue"></i> <span>Digital Board Room</span>
-
-                  </a>
-
-                </li>
-
-                <li class='treeview'>
-                  
-                  <a href="https://hoaboardtime.com/boardPreviousMonthsPayments.php">
-
-                    <i class="fa fa-users text-blue"></i> <span>Previous Months Payments</span>
-
-                  </a>
-
-                </li>
-
-                <li class="treeview">
-                  
-                  <a href="https://hoaboardtime.com/boardSurveyDetails.php">
-
-                    <i class="fa fa-users text-blue"></i> <span>Survey Details</span>
-
-                  </a>
-
-                </li>
-
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardCommunityExpenditureSummary.php">
-
-                    <i class="fa fa-users text-blue"></i> <span>YTD Expenses</span>
-
-                  </a>
-
-                </li>
-
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardCommunityDeposits.php">
-
-                    <i class="fa fa-users text-blue"></i> <span>YTD Income</span>
-
-                  </a>
-
-                </li>
-
-                <!-- Member -->
-                <li class='active treeview'>
-
-                  <a>
-
-                    <i class="fa fa-street-view text-green"></i> <span>Community Mailing List</span>
-
-                  </a>
-
-                </li>
-                      
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardCustomerBalance.php">
-
-                    <i class="fa fa-street-view text-green"></i> <span>Customer Balance</span>
-
-                  </a>
-
-                </li>
-                
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardHOAHomeInfo.php">
-
-                    <i class="fa fa-street-view text-green"></i> <span>HOA &amp; Home Info</span>
-
-                  </a>
-
-                </li>
-
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardUserDashboard.php">
-
-                    <i class="fa fa-street-view text-green"></i> <span>User Dashbord</span>
-
-                  </a>
-
-                </li>
-                
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardViewReminders.php">
-
-                    <i class="fa fa-street-view text-green"></i> <span>View Reminders</span>
-
-                  </a>
-
-                </li>
-
-                <!-- Vendor -->
-                <li class='treeview'>
-
-                  <a href="https://hoaboardtime.com/boardVendorDashboard.php">
-
-                    <i class="fa fa-wrench text-red"></i> <span>Vendor Dashboard</span>
-
-                  </a>
-
-                </li>
-
-              </ul>
-
-          </section>
-
-        </aside>
+      <?php include 'zenDeskScript.php'; ?>
 
       <div class="content-wrapper">
 
         <?php
 
-        	$year = date("Y");
-        	$month = date("m");
-        	$end_date = date("t");
+          $year = date("Y");
+          $month = date("m");
+          $end_date = date("t");
 
-          $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+          $result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
+
+          $today = date('Y-m-d');
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Mailing List</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Disclosures</strong></h1>
+
+          <ol class="breadcrumb">
+            
+            <?php if($mode == 1) echo "<li><i class='fa fa-institution'></i> Community</li>"; ?>
+
+            <li>Disclosures</li>
+          
+          </ol>
 
         </section>
 
@@ -353,7 +88,7 @@
           
           <div class="row">
 
-          	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
                 
@@ -469,13 +204,7 @@
 
       </div>
 
-      <footer class="main-footer">
-
-        <div class="pull-right hidden-xs"></div>
-        
-        <strong>Copyright &copy; <?php echo date('Y'); ?> <a target='_blank' href="<?php echo $_SESSION['hoa_community_website_url']; ?>"><?php echo $_SESSION['hoa_community_name']; ?></a>.</strong> All rights reserved.
-
-      </footer>
+      <?php include 'footer.php'; ?>
 
       <div class="control-sidebar-bg"></div>
 
@@ -492,7 +221,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0,"desc"]] });
       });
     </script>
 
