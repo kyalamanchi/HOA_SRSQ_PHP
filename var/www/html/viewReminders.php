@@ -162,8 +162,8 @@
 
                             }
 
-                            if($open_date != '')
-                              $open_date = date('m-d-Y', strtotime($open_date));
+                            //if($open_date != '')
+                              //$open_date = date('m-d-Y', strtotime($open_date));
 
                             if($due_date < $today) 
                               $ddtm = 't';
