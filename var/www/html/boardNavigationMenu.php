@@ -111,7 +111,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/boardViewReminders.php">
+            <a href="https://hoaboardtime.com/viewReminders.php">
 
               <span>View Reminders</span>
 
