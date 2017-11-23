@@ -266,7 +266,7 @@
 
           $violations = $row['count'];
 
-          $row = pg_fetch_assoc(pg_query("SELECT count(*) FROM reminders WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+          $row = pg_fetch_assoc(pg_query("SELECT count(*) FROM reminders WHERE hoa_id=$hoa_id AND home_id=$home_id AND reminder_status_id=1"));
 
           $reminders = $row['count'];
 
