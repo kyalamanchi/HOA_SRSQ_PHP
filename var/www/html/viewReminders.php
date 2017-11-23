@@ -179,7 +179,7 @@
                             //if($update_date != '')
                               //$update_date = date('m-d-Y', strtotime($update_date));
 
-                            if($ddtm == 't' || $reminder_type == 2) 
+                            if($ddtm == 't' || $reminder_status == 2) 
                               echo "<tr class='text-muted'><td>$open_date</td><td>$due_date</td><td>$update_date</td><td>$assigned_to ($hoa_id)</td><td>$living_in ($home_id)</td><td>$reminder_type</td><td>$comments</td><td>$vendor_assigned</td><td></td><td></td></tr>";
                             else
                             { 
