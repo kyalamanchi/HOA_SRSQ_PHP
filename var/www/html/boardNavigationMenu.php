@@ -141,7 +141,7 @@
                 
           <li>
 
-            <a href="https://hoaboardtime.com/boardCommunityDisclosures.php">
+            <a href="https://hoaboardtime.com/communityDisclosures.php">
 
               <span>Disclosures</span>
 
