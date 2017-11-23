@@ -126,6 +126,8 @@
 
                       <?php 
 
+                        $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
                         while($row = pg_fetch_assoc($result))
                         {
 
