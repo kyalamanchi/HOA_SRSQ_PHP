@@ -151,7 +151,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/boardMailingList.php">
+            <a href="https://hoaboardtime.com/communityMailingList.php">
 
               <span>Mailing List</span>
 
