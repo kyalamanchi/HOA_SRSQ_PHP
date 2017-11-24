@@ -364,13 +364,13 @@
                                         
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-                                            <button class='btn btn-warning btn-xs' type='button' id='community_contracts_back' name='community_contracts_back'><i class='fa fa-arrow-left'></i> Back</button>
+                                            <button class='btn btn-warning btn-xs' type='button' id='financial_summary_back' name='financial_summary_back'><i class='fa fa-arrow-left'></i> Back</button>
 
                                         </div>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-                                            <button class='btn btn-xs btn-success' name='community_contracts_continue' id='community_contracts_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+                                            <button class='btn btn-xs btn-success' name='financial_summary_continue' id='financial_summary_continue'>Continue <i class='fa fa-arrow-right'></i></button>
 
                                         </div>
 
@@ -403,7 +403,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/inspectionNotices.js'></script>
+		<script src='assets/js/financialSummary.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
         <!-- Datatable -->
