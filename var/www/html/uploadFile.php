@@ -140,6 +140,8 @@ var fileData = "";
 var fileName = "";
 
 
+
+
 // function sendFile(){
 
 //   var address = $('#memberAddress').val();
@@ -285,7 +287,7 @@ var fileName = "";
                 <div class="row-fluid">
                     <label>File Category</label>
                     <br>
-                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberID" onchange="getAddress();">
+                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType">
                       <option data-hidden="true"></option>
                       <option>Insurance</option>
                       <option>Disclosure</option>
