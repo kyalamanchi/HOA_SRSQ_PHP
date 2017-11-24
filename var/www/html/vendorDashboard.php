@@ -120,12 +120,13 @@
                             {
                               $vendor_id = $row['vendor_id'];
                               $vendor_name = $row['vendor_name'];
+                              $evendor_id = base64_encode($vendor_id);
 
                               $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_pay_method WHERE vendor_id=$vendor_id"));
 
                               $vendor_description = $row1['desc'];
 
-                              echo "<tr><td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vendor_id' title='Vendor Dashboard'>".$vendor_name."</a></td><td>".$vendor_description."</td></tr>";
+                              echo "<tr><td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$evendor_id' title='Vendor Dashboard'>".$vendor_name."</a></td><td>".$vendor_description."</td></tr>";
                             }
 
                           ?>
