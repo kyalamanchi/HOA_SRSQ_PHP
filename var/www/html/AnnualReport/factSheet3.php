@@ -329,6 +329,8 @@
 		                          								<div class='counter h6'>
 
 		                            								<?php 
+                                                                        
+                                                                        $month = date('m');
 
 		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
