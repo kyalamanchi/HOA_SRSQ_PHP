@@ -25,6 +25,9 @@
       $vendor_id = $_GET['select_vendor'];
       $vendor_id = base64_decode($vendor_id);
 
+      $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
+      $vendor_name = $row['vendor_name'];
+
     ?>
 
     <meta charset="utf-8">
@@ -56,18 +59,6 @@
       <?php include 'zenDeskScript.php'; ?>
 
       <div class="content-wrapper">
-
-        <?php
-
-          $year = date("Y");
-          $month = date("m");
-          $end_date = date("t");
-
-          $result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
-
-          $today = date('Y-m-d');
-
-        ?>
         
         <section class="content-header">
 
@@ -75,7 +66,8 @@
 
           <ol class="breadcrumb">
             
-            <li><i class='fa fa-wrench'></i> Vendor Dashboard</li>
+            <li><a href='vendorDashboard.php'><i class='fa fa-wrench'></i> Vendor Dashboard</a></li>
+            <li><?php echo $vendor_name; ?></li>
           
           </ol>
 
@@ -119,7 +111,6 @@
 
                         $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
 
-                        $vendor_name = $row['vendor_name'];
                         $active_from = $row['active_from'];
                         $approved = $row['approved'];
                         $vendor_type = $row['vendor_type_id'];
