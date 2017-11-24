@@ -166,10 +166,10 @@ function sendFile(){
   request.onreadystatechange = function () {
     if (request.readyState == XMLHttpRequest.DONE) {
         $("#pleaseWaitDialog2").modal("hide");
-        if (request.responseText == "Address incomplete. Please update address first"){
+        if (request.responseText.includes("Address incomplete. Please update address first")){
           swal("Error","Address incomplete. Please update address.","error");
         }
-        else if ( request.responseText == "An error occured. Please try again." ){
+        else if ( request.responseText.includes("An error occured. Please try again.") ){
           swal("Error","An error occured. Please try again","error");
         }
         else {
