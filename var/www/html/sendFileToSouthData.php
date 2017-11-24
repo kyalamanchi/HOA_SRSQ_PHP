@@ -148,8 +148,18 @@ fclose($handler);
             $req = curl_init();
             curl_setopt($req, CURLOPT_URL,$url);
             curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-            $message = curl_exec($req);
-            echo 'Message'.$message;
+            if(curl_exec($req) === false)
+            {
+                $message =  "An error occured. Please try again.";
+                echo $message;
+                exit(0);
+            }
+            else 
+            {   
+                $message = "File uploaded to South Data.";
+                echo $message;       
+            }  
+            
             $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')";
             pg_query($query);
             unlink($zipFileNameFinal);
@@ -265,19 +275,17 @@ fclose($handler);
             $req = curl_init();
             curl_setopt($req, CURLOPT_URL,$url);
             curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-            $message  = curl_exec($req);
-            echo $message;
-            // if(curl_exec($req) === false)
-            // {
-            //     $message =  "An error occured. Please try again.";
-            //     echo $message;
-            //     exit(0);
-            // }
-            // else 
-            // {   
-            //     $message = "File uploaded to South Data.";
-            //     echo $message;       
-            // }       
+            if(curl_exec($req) === false)
+            {
+                $message =  "An error occured. Please try again.";
+                echo $message;
+                exit(0);
+            }
+            else 
+            {   
+                $message = "File uploaded to South Data.";
+                echo $message;       
+            }       
             $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')";
             pg_query($query);
 
