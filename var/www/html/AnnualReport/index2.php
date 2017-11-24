@@ -178,7 +178,7 @@
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
-					<div class='inner-header text-center'>
+					<div class='inner-header text-left'>
 
 						<a><h5 style='color: green;'><?php echo $community_name; ?></h3></5>
 
