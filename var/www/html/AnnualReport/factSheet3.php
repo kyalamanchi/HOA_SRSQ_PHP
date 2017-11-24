@@ -330,15 +330,12 @@
 
 		                            								<?php 
                                                                         
+                                                                        $year = date('Y');
                                                                         $month = date('m');
-
-                                                                        echo $month."<br>";
 
 		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
 		                              									$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
-
-                                                                        echo $recommended_monthly_allocation_units."<br>";
 
 		                              									$reserve_allocation = $recommended_monthly_allocation_units * $month;
 
