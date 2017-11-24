@@ -205,8 +205,8 @@
                                     <li class='breadcrumb-item'>CCR Inspection Notices</li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                    <li class='breadcrumb-item'><strong style='color: black;'>Contracts</strong></li>
-                                    <li class='breadcrumb-item'>Financial Summary</li>
+                                    <li class='breadcrumb-item'>Contracts</li>
+                                    <li class='breadcrumb-item'><strong style='color: black;'>Financial Summary</strong></li>
                                     <li class="breadcrumb-item">Disclosures</li>
 	                                <li class='breadcrumb-item'>Volunteers</li>
 
