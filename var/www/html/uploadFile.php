@@ -278,7 +278,7 @@ var fileName = "";
         <section class="content-header">
 
           <h1><strong>Send To Member</strong></h1>
-
+          <button type="button" class="btn btn-success" onclick="sendFile();" id="saveButton" >Send</button>
         </section>
         <br>
         <section class="content" id="content">
@@ -303,7 +303,7 @@ var fileName = "";
       <h4 id="label"></h4>
       </div>
       <br>
-      <button type="button" class="btn btn-success" onclick="sendFile();" id="saveButton" >Send</button>
+      
       <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
