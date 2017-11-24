@@ -33,7 +33,6 @@
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
-    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
@@ -48,7 +47,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+
 
 
 
