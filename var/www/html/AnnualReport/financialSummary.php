@@ -245,7 +245,106 @@
 
 	                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-	                                    
+	                                    <div class='row'>
+
+	                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          					<div class='counter h6'>
+
+	                            					<div class='counter-number'>
+	                              
+	                              						<?php 
+
+	                                						if($community_id == 1)
+	                                						{
+
+	                                  							$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
+	                                  							// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+	                                  							curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+	                                  							curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="doJ2s3%2F2B6LEarru2JKFfy9%2B8V0%3D"'));
+	                                  							// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+	                                  							curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	                                  
+	                                  							$result = curl_exec($ch);
+	                                  							$result  = json_decode($result);
+	                                  							$vendorsArray = array();
+
+	                                  							foreach ($result->Rows->Row as $ColumnData) 
+	                                  							{
+	                                      
+	                                    							$values = array();
+	                                    							$id = -10;
+	                                    							$vendors = array();
+	                                    							$amounts = array();
+	                                      
+	                                    							foreach ($ColumnData as $row) 
+	                                    							{
+	                                        
+	                                      								$name = "";
+	                                      								$id = "";
+	                                      								$amount = "";
+	                                          
+	                                      								if ( $row->ColData )
+	                                        								$finalAmount = $row->ColData[1]->value;
+
+	                                    							}
+
+	                                  							}
+
+	                                  							echo round($finalAmount, 0);
+
+	                                						}
+	                                						else if($community_id == 2)
+	                                						{
+
+	                                  							$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
+	                                  							// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+	                                  							curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
+	                                  							curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
+	                                  							// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
+	                                  							curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	                                  
+	                                  							$result = curl_exec($ch);
+	                                  							$result  = json_decode($result);
+	                                  							$vendorsArray = array();
+
+	                                  							foreach ($result->Rows->Row as $ColumnData) 
+	                                  							{
+	                                      
+	                                    							$values = array();
+	                                   									$id = -10;
+	                                    							$vendors = array();
+	                                    							$amounts = array();
+	                                      
+	                                    							foreach ($ColumnData as $row) 
+	                                    							{
+	                                        
+	                                      								$name = "";
+	                                      								$id = "";
+	                                      								$amount = "";
+	                                          
+	                                      								if ( $row->ColData )
+	                                        								$finalAmount = $row->ColData[1]->value;
+
+	                                    							}
+
+	                                  							}
+
+	                                 							echo round($finalAmount, 0);
+
+	                                						}
+
+	                              						?>
+	                                
+	                            					</div>
+
+	                            					<div class='counter-title'>Expenditure By Vendors ($)</div>
+
+	                          					</div>
+
+	                        				</div>
+
+	                      				</div>
 
 	                                </div>
 
