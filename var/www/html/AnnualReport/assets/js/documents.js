@@ -1,6 +1,6 @@
 $('#documents_continue').click(function(){
 
-	window.location = 'payments.php';
+	window.location = 'inspectionNotices.php';
 
 });
 
