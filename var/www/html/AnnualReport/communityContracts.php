@@ -283,15 +283,6 @@
 	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_type WHERE vendor_type_id=$vendor_type"));
 	                                                    $vendor_type = $row1['vendor_type_name'];
 
-	                                                    if($active_from != "")
-	                                                        $active_from = date('m-d-Y', strtotime($active_from));
-
-	                                                    if($active_until != "")
-	                                                        $active_until = date('m-d-Y', strtotime($active_until));
-
-	                                                    if($expiry_date != "")
-	                                                        $expiry_date = date('m-d-Y', strtotime($expiry_date));
-
 	                                                    if($yearly_amount != "")
 	                                                        $yearly_amount = "$ ".$yearly_amount;
 
