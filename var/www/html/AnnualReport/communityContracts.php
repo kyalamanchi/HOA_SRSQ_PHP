@@ -323,13 +323,13 @@
                                         
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-                                            <button class='btn btn-warning btn-xs' type='button' id='inspection_notices_back' name='inspection_notices_back'><i class='fa fa-arrow-left'></i> Back</button>
+                                            <button class='btn btn-warning btn-xs' type='button' id='community_contracts_back' name='community_contracts_back'><i class='fa fa-arrow-left'></i> Back</button>
 
                                         </div>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-                                            <button class='btn btn-xs btn-success' name='inspection_notices_continue' id='inspection_notices_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+                                            <button class='btn btn-xs btn-success' name='community_contracts_continue' id='community_contracts_continue'>Continue <i class='fa fa-arrow-right'></i></button>
 
                                         </div>
 
