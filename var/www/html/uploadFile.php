@@ -319,7 +319,13 @@ function getFileData()
       <br>
       
       <div id="categoryContent">
-        
+          <label>Date</label>
+        <div class="date">
+            <div class="input-group input-append date" id="datePicker">
+                <input type="text" class="form-control" name="date" />
+                <span class="input-group-addon add-on"><span></span></span>
+            </div>
+        </div>
       </div>    
       
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
