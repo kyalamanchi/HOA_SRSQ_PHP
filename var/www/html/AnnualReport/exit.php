@@ -107,11 +107,15 @@
 
                         </div>
 
+                        <br>
+
                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12='>
 
                             <center><button id='reset_hoa_account_password' name='reset_hoa_account_password' class='btn btn-success btn-xs'>Reset HOA Account Password</button></center>
 
                         </div>
+
+                        <br><br>
 
                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
