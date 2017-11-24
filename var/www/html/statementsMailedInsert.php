@@ -11,9 +11,12 @@ if ( $connection){
     $communityID = $row['community_id'];
 
     if (  isset($_GET['type'])  ){
-    $query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"notification_type\",\"order_id\",\"invoice_id\",\"updated_on\",\"updated_by\") VALUES(".$homeID.",".$_GET['id'].",'".date('Y-m-d')."',".$communityID.",".$_GET['type'].",4,".$orderNumber.",".$orderNumber.",'".date('Y-m-d')."',401)";
-    pg_query($query);
-    exit(0);
+
+        if ( $_GET['type'] == 0 ){
+            $query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"notification_type\",\"order_id\",\"invoice_id\",\"updated_on\",\"updated_by\") VALUES(".$homeID.",".$_GET['id'].",'".date('Y-m-d')."',".$communityID.",4,".$orderNumber.",".$orderNumber.",'".date('Y-m-d')."',401)";
+            pg_query($query);
+            exit(0);
+        }
     }
     else {
     $query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"statement_type_id\",\"notification_type\",\"order_id\",\"invoice_id\",\"updated_on\",\"updated_by\") VALUES(".$homeID.",".$_GET['id'].",'".date('Y-m-d')."',".$communityID.",2,4,".$orderNumber.",".$orderNumber.",'".date('Y-m-d')."',401)";
