@@ -1,11 +1,11 @@
 $('#hoa_fact_sheet_back').click(function(){
 
-	window.location = 'payments.php';
+	window.location = 'factSheet.php';
 
 });
 
 $('#hoa_fact_sheet_continue').click(function(){
 
-	window.location = 'factSheet2.php';
+	window.location = 'factSheet3.php';
 
 });
