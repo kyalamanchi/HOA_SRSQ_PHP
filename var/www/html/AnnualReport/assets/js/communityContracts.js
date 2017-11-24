@@ -6,6 +6,6 @@ $('#community_contracts_back').click(function(){
 
 $('#community_contracts_continue').click(function(){
 
-	window.location = 'qbReports.php';
+	window.location = 'financialSummary.php';
 
 });
