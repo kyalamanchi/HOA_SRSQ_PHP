@@ -1,6 +1,6 @@
 $('#payments_back').click(function(){
 
-	window.location = 'documents.php';
+	window.location = 'inspectionNotices.php';
 
 });
 

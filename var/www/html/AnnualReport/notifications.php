@@ -57,6 +57,79 @@
 
 	<body>
 
+        <style type="text/css">
+            
+            body {
+                background: #ecf0f1;
+            }
+
+            .loader {
+                width: 50px;
+                height: 30px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .loader:after {
+                position: absolute;
+                content: "Loading";
+                bottom: -40px;
+                left: -2px;
+                text-transform: uppercase;
+                font-family: "Arial";
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+            .loader > .line {
+                background-color: #333;
+                width: 6px;
+                height: 100%;
+                text-align: center;
+                display: inline-block;
+  
+                animation: stretch 1.2s infinite ease-in-out;
+            }
+
+            .line.one {
+                background-color: #2ecc71; 
+            }
+
+            .line.two {
+                animation-delay:  -1.1s;
+                background-color:#3498db;
+            }
+            .line.three {
+                animation-delay:  -1.0s;
+                background-color:#9b59b6;
+            }
+            .line.four {
+                animation-delay:  -0.9s;
+                background-color: #e67e22;
+            }
+            .line.five {
+                animation-delay:  -0.8s;
+                background-color: #e74c3c;
+            }
+
+            @keyframes stretch {
+                0%, 40%, 100% { transform: scaleY(0.4); }
+                20% {transform: scaleY(1.0);}
+            }
+
+        </style>
+
+        <div class="loader">
+            
+            <div class="line one"></div>
+            <div class="line two"></div>
+            <div class="line three"></div>
+            <div class="line four"></div>
+            <div class="line five"></div>
+        
+        </div>
+
 		<div class='layout'>
 
 			<!-- Header-->
@@ -65,9 +138,9 @@
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
-					<div class='inner-header text-center'>
+					<div class='inner-header text-left'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_code; ?></h3></a>
+						<a><h5 style='color: green;'><?php echo $community_name; ?></h5></a>
 
 					</div>
 
@@ -129,6 +202,7 @@
                                     <li class='breadcrumb-item'><strong style='color: black;'>SMS Notifications</strong></li>
                                     <li class="breadcrumb-item">Agreements</li>
                                     <li class='breadcrumb-item'>Documents</li>
+                                    <li class='breadcrumb-item'>CCR Inspection Notices</li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item">HOA Fact Sheet</li>
                                     <li class="breadcrumb-item">Disclosures</li>
@@ -303,7 +377,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting_1' value='Phone'";
 
@@ -312,11 +386,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting_2' value='Email'";
 
@@ -325,11 +399,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting_3' value='Both'";
 
@@ -342,7 +416,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='None'";
 
@@ -367,25 +441,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='None' checked> None
 
@@ -427,7 +501,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'";
 
@@ -436,11 +510,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'";
 
@@ -449,11 +523,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Both'";
 
@@ -466,7 +540,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='None'";
 
@@ -491,25 +565,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='None' checked> None
 
@@ -551,7 +625,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Phone'";
 
@@ -560,11 +634,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Email'";
 
@@ -573,11 +647,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Both'";
 
@@ -590,7 +664,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='None'";
 
@@ -615,25 +689,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='None' checked> None
 
@@ -675,7 +749,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'";
 
@@ -684,11 +758,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'";
 
@@ -697,11 +771,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Both'";
 
@@ -714,7 +788,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='None'";
 
@@ -739,25 +813,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='None' checked> None
 
@@ -799,7 +873,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'";
 
@@ -808,11 +882,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'";
 
@@ -821,11 +895,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Both'";
 
@@ -838,7 +912,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='None'";
 
@@ -863,25 +937,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='None' checked> None
 
@@ -914,98 +988,6 @@
                                         </div>
 
                                     </form>
-
-                                </div>
-
-                            </div>
-
-                            <br><br>
-
-                            <div class='row container'>
-
-                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-                                    <center><h3>CCR Inspection Notices</h3></center>
-
-                                </div>
-
-                            </div>
-
-                            <br>
-
-                            <div class='row container'>
-
-                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
-
-                                    <table class='table table-striped' id='inspectionNoticesTable' style="color:black;">
-
-                                        <thead>
-
-                                            <th>Inspection Date</th>
-                                            <th>Status</th>
-                                            <th>Location</th>
-                                            <th>Description</th>
-                                            <th>Category</th>
-
-                                        </thead>
-
-                                        <tbody>
-
-                                            <?php 
-
-                                                $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
-
-                                                while($row = pg_fetch_assoc($result))
-                                                {
-
-                                                    $id = $row['id'];
-                                                    $home_id = $row['home_id'];
-                                                    $hoa_id = $row['hoa_id'];
-                                                    $item = $row['item'];
-                                                    $description = $row['description'];
-                                                    $document = $row['document_id'];
-                                                    $inspection_date = $row['inspection_date'];
-                                                    $location = $row['location_id'];
-                                                    $violation_category = $row['inspection_category_id'];
-                                                    $violation_sub_category = $row['inspection_sub_category_id'];
-                                                    $notice_type = $row['inspection_notice_type_id'];
-                                                    $date_of_upload = $row['date_of_upload'];
-                                                    $status = $row['inspection_status_id'];
-                                                    $compliance_date = $row['compliance_date'];
-
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
-
-                                                    $violation_category = $row1['name'];
-
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
-
-                                                    $status = $row1['inspection_status'];
-
-                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
-
-                                                    $location = $row1['location'];
-
-                                                    if($date_of_upload != "")
-                                                        $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
-
-                                                    if($compliance_date != "")
-                                                        $compliance_date = date('m-d-Y', strtotime($compliance_date));
-
-                                                    if($inspection_date != "")
-                                                        $inspection_date = date('m-d-Y', strtotime($inspection_date));
-
-                                                    $date = date('m-d-Y');
-
-                                                    if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
-                                                        echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td></tr>";
-                          
-                                                }
-
-                                            ?>
-                                            
-                                        </tbody>
-
-                                    </table>
 
                                 </div>
 
@@ -1056,7 +1038,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
 		<script src="assets/js/plugins.min.js"></script>
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>

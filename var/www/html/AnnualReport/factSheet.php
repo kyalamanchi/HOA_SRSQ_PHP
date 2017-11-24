@@ -136,83 +136,6 @@
 
     $members_paid = ($members_paid / $total_homes) * 100;
 
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
-    $jan_amount_received = $row['sum'];
-    #$jan_amount_received = ( $jan_amount_received / $monthly_total ) * 100;
-    $jan_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-01' AND process_date<='$year-01-31'"));
-    #$jan_members_paid = ( $jan_members_paid / $total_homes ) * 100;
-
-    if( (0 == $year % 4) and (0 != $year % 100) or (0 == $year % 400) )
-        $feb_days = 29;
-    else
-        $feb_days = 28;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
-    $feb_amount_received = $row['sum'];
-    #$feb_amount_received = ( $feb_amount_received / $monthly_total ) * 100;
-    $feb_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-01' AND process_date<='$year-02-$feb_days'"));
-    #$feb_members_paid = ( $feb_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
-    $mar_amount_received = $row['sum'];
-    #$mar_amount_received = ( $mar_amount_received / $monthly_total ) * 100;
-    $mar_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-01' AND process_date<='$year-03-31'"));
-    #$mar_members_paid = ( $mar_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
-    $apr_amount_received = $row['sum'];
-    #$apr_amount_received = ( $apr_amount_received / $monthly_total ) * 100;
-    $apr_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-01' AND process_date<='$year-04-30'"));
-    #$apr_members_paid = ( $apr_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
-    $may_amount_received = $row['sum'];
-    #$may_amount_received = ( $may_amount_received / $monthly_total ) * 100;
-    $may_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-01' AND process_date<='$year-05-31'"));
-    #$may_members_paid = ( $may_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
-    $jun_amount_received = $row['sum'];
-    #$jun_amount_received = ( $jun_amount_received / $monthly_total ) * 100;
-    $jun_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-01' AND process_date<='$year-06-30'"));
-    #$jun_members_paid = ( $jun_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
-    $jul_amount_received = $row['sum'];
-    #$jul_amount_received = ( $jul_amount_received / $monthly_total ) * 100;
-    $jul_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-01' AND process_date<='$year-07-31'"));
-    #$jul_members_paid = ( $jul_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
-    $aug_amount_received = $row['sum'];
-    #$aug_amount_received = ( $aug_amount_received / $monthly_total ) * 100;
-    $aug_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-01' AND process_date<='$year-08-31'"));
-    #$aug_members_paid = ( $aug_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
-    $sep_amount_received = $row['sum'];
-    #$sep_amount_received = ( $sep_amount_received / $monthly_total ) * 100;
-    $sep_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-01' AND process_date<='$year-09-30'"));
-    #$sep_members_paid = ( $sep_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
-    $oct_amount_received = $row['sum'];
-    #$oct_amount_received = ( $oct_amount_received / $monthly_total ) * 100;
-    $oct_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-01' AND process_date<='$year-10-31'"));
-    #$oct_members_paid = ( $oct_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
-    $nov_amount_received = $row['sum'];
-    #$nov_amount_received = ( $nov_amount_received / $monthly_total ) * 100;
-    $nov_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-01' AND process_date<='$year-11-30'"));
-    #$nov_members_paid = ( $nov_members_paid / $total_homes ) * 100;
-
-    $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
-    $dec_amount_received = $row['sum'];
-    #$dec_amount_received = ( $dec_amount_received / $monthly_total ) * 100;
-    $dec_members_paid = pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-01' AND process_date<='$year-12-31'"));
-    #$dec_members_paid = ( $dec_members_paid / $total_homes ) * 100;
-
 ?>
 
 <!DOCTYPE html>
@@ -254,6 +177,79 @@
 
 	<body>
 
+        <style type="text/css">
+            
+            body {
+                background: #ecf0f1;
+            }
+
+            .loader {
+                width: 50px;
+                height: 30px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+            }
+            .loader:after {
+                position: absolute;
+                content: "Loading";
+                bottom: -40px;
+                left: -2px;
+                text-transform: uppercase;
+                font-family: "Arial";
+                font-weight: bold;
+                font-size: 12px;
+            }
+
+            .loader > .line {
+                background-color: #333;
+                width: 6px;
+                height: 100%;
+                text-align: center;
+                display: inline-block;
+  
+                animation: stretch 1.2s infinite ease-in-out;
+            }
+
+            .line.one {
+                background-color: #2ecc71; 
+            }
+
+            .line.two {
+                animation-delay:  -1.1s;
+                background-color:#3498db;
+            }
+            .line.three {
+                animation-delay:  -1.0s;
+                background-color:#9b59b6;
+            }
+            .line.four {
+                animation-delay:  -0.9s;
+                background-color: #e67e22;
+            }
+            .line.five {
+                animation-delay:  -0.8s;
+                background-color: #e74c3c;
+            }
+
+            @keyframes stretch {
+                0%, 40%, 100% { transform: scaleY(0.4); }
+                20% {transform: scaleY(1.0);}
+            }
+
+        </style>
+
+        <div class="loader">
+            
+            <div class="line one"></div>
+            <div class="line two"></div>
+            <div class="line three"></div>
+            <div class="line four"></div>
+            <div class="line five"></div>
+        
+        </div>
+
 		<div class='layout'>
 
 			<!-- Header-->
@@ -262,9 +258,9 @@
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
-					<div class='inner-header text-center'>
+					<div class='inner-header text-left'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_code; ?></h3></a>
+						<a><h5 style='color: green;'><?php echo $community_name; ?></h5></a>
 
 					</div>
 
@@ -313,6 +309,7 @@
                                     <li class='breadcrumb-item'>SMS Notifications</li>
                                     <li class="breadcrumb-item">Agreements</li>
                                     <li class='breadcrumb-item'>Documents</li>
+                                    <li class='breadcrumb-item'>CCR Inspection Notices</li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
                                     <li class="breadcrumb-item">Disclosures</li>
@@ -355,12 +352,12 @@
 										<div class="table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								
 											<!-- Tabs-->
-											<ul class="nav nav-tabs">
+											<ul class="nav nav-tabs" id='tab'>
 										
 												<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
-												<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
-												<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
-												<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
+												<li class="nav-item"><a class="nav-link disabled" href="#tab-2" data-toggle="tab">Comms</a></li>
+												<li class="nav-item"><a class="nav-link disabled" href="#tab-3" data-toggle="tab">Reserves</a></li>
+												<li class="nav-item"><a class="nav-link disabled" href="#tab-4" data-toggle="tab">Finance</a></li>
 
 											</ul>
 
@@ -874,504 +871,6 @@
 
 												</div>
 
-												<div class="tab-pane" id="tab-2">
-												
-													<div class="special-heading m-b-40">
-											
-														<h4><i class="fa fa-envelope"></i> Communications Dashboard</h4>
-										
-													</div>
-
-													<div class='container'>
-
-														<div class='row'>
-
-															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<?php
-
-																		$email_homes = pg_num_rows(pg_query("SELECT * FROM hoaid WHERE email!='' AND community_id=$community_id"));
-
-																		if($email_homes > 0)
-																			echo "<div class='counter-number' style='color: green;'>".$email_homes."</div>";
-																		else
-																			echo "<div class='counter-number'>".$email_homes."</div>";
-
-																	?>
-
-																	<div class='counter-title'>Email Signup</div>
-
-																</div>
-
-															</div>
-
-															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-																	
-																		<?php
-
-																			$campaigns = 0;
-
-																			if($community_id == 1)
-																			{
-
-																				$ch = curl_init('https://us14.api.mailchimp.com/3.0/campaigns/');
-																				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey eecf4b5c299f0cc2124463fb10a6da2d-us14'));
-
-																			}
-																			else if($community_id == 2)
-																			{
-
-																				$ch = curl_init('https://us12.api.mailchimp.com/3.0/campaigns/');
-																				curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: apikey af5b50b9f714f9c2cb81b91281b84218-us12'));
-
-																			}
-												            				
-												            				curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-												            				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-												            
-												            				$result = curl_exec($ch);
-												            				$json_decode = json_decode($result,TRUE);
-
-												            				foreach ($json_decode['campaigns'] as $key ) 
-												            					$campaigns++;
-
-												            				echo $campaigns;
-
-																		?>
-																		
-																	</div>
-
-																	<div class='counter-title'>Community Notifications</div>
-
-																</div>
-
-															</div>
-
-															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<?php 
-
-																		$statements_mailed = pg_num_rows(pg_query("SELECT * FROM community_statements_mailed WHERE community_id=$community_id"));
-
-																		if($statements_mailed == 0)
-																			echo "<div class='counter-number'>".$statements_mailed."</div>";
-																		else
-																			echo "<div class='counter-number' style='color: green;'>$statements_mailed</div>";
-
-																	?>
-
-																	<div class='counter-title'>Statements Mailed</div>
-
-																</div>
-
-															</div>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class="tab-pane" id="tab-3">
-												
-													<div class="special-heading m-b-40">
-											
-														<h4><i class="fa fa-support"></i> Reserves Dashboard</h4>
-										
-													</div>
-
-													<div class='container'>
-
-														<div class='row'>
-
-															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-		                          								<div class='counter h6'>
-		                              
-		                              								<?php 
-
-		                                								$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
-
-		                                								if($assets != '')
-		                                  									echo "<div class='counter-number' style='color: green;'>$assets</div>";
-		                                								else
-		                                  									echo "<div class='counter-number'>$assets</div>";
-
-		                              								?>
-
-		                            								<div class='counter-title'>Assets</div>
-
-		                          								</div>
-
-		                        							</div>
-
-		                        							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-		                          								<div class='counter h6'>
-
-		                            								<?php 
-
-		                              									$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
-
-		                              									$repairs = $row['sum'];
-
-		                              									$repairs = round($repairs, 0);
-											
-		                              									if($repairs > 0)
-		                                									echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
-		                              									else
-		                                									echo "<div class='counter-number'>".$repairs."</div>";
-
-		                            								?>
-
-		                            								<div class='counter-title'>Completed Repairs ($)</div>
-
-		                          								</div>
-
-		                        							</div>
-
-															<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-																<div class='counter h6'>
-
-																	<div class='counter-number'>
-																		
-																		<?php 
-
-																			$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
-
-																			$reserves = $row['cur_bal_vs_ideal_bal'];
-
-																			echo $reserves;
-
-																		?>
-																			
-																	</div>
-
-																	<div class='counter-title'>Reserves Funded (%)</div>
-
-																</div>
-
-															</div>
-
-		                        							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-		                          								<div class='counter h6'>
-
-		                            								<?php 
-
-		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
-
-		                              									$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
-		                              									$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
-
-		                              									$reserve_allocation = $recommended_monthly_allocation_units * $month;
-
-		                              									$reserve_allocation = round($reserve_allocation, 0);
-
-		                              									if($cur_bal_vs_ideal_bal >= 70)
-		                                									echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
-		                              									else
-		                                									echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
-
-		                            								?>
-
-		                            								<div class='counter-title'>YTD Allocation ($)</div>
-
-		                          								</div>
-
-		                       								</div>
-
-														</div>
-
-													</div>
-
-												</div>
-
-												<div class="tab-pane" id="tab-4">
-											
-													<div class="special-heading m-b-40">
-												
-														<h4><i class="fa fa-dollar"></i> Finance Dashboard</h4>
-									
-													</div>
-
-													<div class='container'>
-
-														<?php
-
-															if($community_id == 1)
-																echo "
-
-																	<div class='row module-gray'>
-
-																		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
-
-																	</div>
-
-																	<div class='row module-gray'>
-
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																			<div class='counter h6'>
-
-																				<div class='counter-number'>
-																					
-																					".round($srp_savings_balance, 0)."
-																						
-																				</div>
-
-																				<div class='counter-title'>Savings ($)</div>
-
-																			</div>
-
-																		</div>
-
-																		<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
-
-																			<div class='counter h6'>
-
-																				<div class='counter-number'>
-
-																					".round($srp_current_balance, 0)."
-
-																				</div>
-
-																				<div class='counter-title'>Checkings ($)</div>
-
-																			</div>
-
-																		</div>
-
-																	</div>
-
-			                            							<br><br>
-
-																";
-															else if($community_id == 2)
-																echo "
-
-																	<div class='row module-gray'>
-
-																		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'><br><center><h3 class='h3'>BANK ACCOUNT BALANCE</h3></center></div>
-
-																	</div>
-
-																	<div class='row module-gray'>
-
-																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																			<div class='counter h6'>
-
-																				<div class='counter-number'>
-																					
-																					".round($srp_primary_Savings_CurrentBalance, 0)."
-																						
-																				</div>
-
-																				<div class='counter-title'>Checkings ($)</div>
-
-																			</div>
-
-																		</div>
-
-																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																			<div class='counter h6'>
-
-																				<div class='counter-number'>
-
-																					".round($srp_savings, 0)."
-
-																				</div>
-
-																				<div class='counter-title'>Savings ($)</div>
-
-																			</div>
-
-																		</div>
-
-																		<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-
-																			<div class='counter h6'>
-
-																				<div class='counter-number'>
-
-																					".round($srsq_third_Account_Balance, 0)."
-
-																				</div>
-
-																				<div class='counter-title'>Investments ($)</div>
-
-																			</div>
-
-																		</div>
-
-																	</div>
-
-			                            							<br><br>
-
-																";
-
-														?>
-
-	                      								<div class='row'>
-
-	                        								<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-	                          									<div class='counter h6'>
-
-	                            									<div class='counter-number'>
-	                              
-	                              										<?php 
-
-	                                										if($community_id == 1)
-	                                										{
-
-	                                  											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
-	                                  											// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-	                                  											curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-	                                  											curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="doJ2s3%2F2B6LEarru2JKFfy9%2B8V0%3D"'));
-	                                  											// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
-	                                  											curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	                                  
-	                                  											$result = curl_exec($ch);
-	                                  											$result  = json_decode($result);
-	                                  											$vendorsArray = array();
-
-	                                  											foreach ($result->Rows->Row as $ColumnData) 
-	                                  											{
-	                                      
-	                                    											$values = array();
-	                                    											$id = -10;
-	                                    											$vendors = array();
-	                                    											$amounts = array();
-	                                      
-	                                    											foreach ($ColumnData as $row) 
-	                                    											{
-	                                        
-	                                      												$name = "";
-	                                      												$id = "";
-	                                      												$amount = "";
-	                                          
-	                                      												if ( $row->ColData )
-	                                        												$finalAmount = $row->ColData[1]->value;
-
-	                                    											}
-
-	                                  											}
-
-	                                  											echo round($finalAmount, 0);
-
-	                                										}
-	                                										else if($community_id == 2)
-	                                										{
-
-	                                  											$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');
-	                                  											// curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-	                                  											curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-	                                  											curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="0pBXJJqrgWzGbU51XadGu%2FuKtyc%3D"'));
-	                                  											// curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
-	                                  											curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	                                  
-	                                  											$result = curl_exec($ch);
-	                                  											$result  = json_decode($result);
-	                                  											$vendorsArray = array();
-
-	                                  											foreach ($result->Rows->Row as $ColumnData) 
-	                                  											{
-	                                      
-	                                    											$values = array();
-	                                   											 	$id = -10;
-	                                    											$vendors = array();
-	                                    											$amounts = array();
-	                                      
-	                                    											foreach ($ColumnData as $row) 
-	                                    											{
-	                                        
-	                                      												$name = "";
-	                                      												$id = "";
-	                                      												$amount = "";
-	                                          
-	                                      												if ( $row->ColData )
-	                                        												$finalAmount = $row->ColData[1]->value;
-
-	                                    											}
-
-	                                  											}
-
-	                                 											echo round($finalAmount, 0);
-
-	                                										}
-
-	                              										?>
-	                                
-	                            									</div>
-
-	                            									<div class='counter-title'>Expenditure By Vendors ($)</div>
-
-	                          									</div>
-
-	                        								</div>
-
-	                      								</div>
-
-	                      								<br><br>
-
-													</div>
-
-								                    <div class="special-heading m-b-40">
-								                  
-								                      	<h4><i class="fa fa-area-chart"></i> Yearly Report - <?php echo $year; ?></h4>
-								            
-								                    </div>
-
-								                    <div class='container'>
-
-								                      	<div class='row'>
-
-									                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-									                          
-									                          	<canvas id="myChart1"></canvas>
-
-									                        </div>
-
-									                        <div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-									                          
-									                         	<canvas id="myChart2"></canvas>
-
-									                        </div>
-
-								                      	</div>
-
-								                    </div>
-
-	                    							<br>
-
-	                    							<div class='container'>
-
-	                      								<div class='row'>
-
-	                        								<div class='col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12'>
-	                          
-	                          									<canvas id="myChart3"></canvas>
-
-	                        								</div>
-
-	                     								</div>
-
-	                    							</div>
-
-												</div>
-
 											</div>
 
 										</div>
@@ -1433,206 +932,12 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
 		<script src="assets/js/plugins.min.js"></script>
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
 		<script src='assets/js/factSheet.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-        <!-- My Chart 1 -->
-        <script type="text/javascript">
-      
-            var ctx = document.getElementById('myChart1').getContext('2d');
-            var myBarChart = new Chart(ctx, {
-        
-                type: 'horizontalBar',
-                data: {
-
-                    datasets: [{
-
-                        data: [ <?php echo $jan_members_paid; ?>, <?php echo $feb_members_paid; ?>, <?php echo $mar_members_paid; ?>, <?php echo $apr_members_paid; ?>, <?php echo $may_members_paid; ?>, <?php echo $jun_members_paid; ?>, <?php echo $jul_members_paid; ?>, <?php echo $aug_members_paid; ?>, <?php echo $sep_members_paid; ?>, <?php echo $oct_members_paid; ?>, <?php echo $nov_members_paid; ?>, <?php echo $dec_members_paid; ?> ],
-                        backgroundColor: [ "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)" ],
-                        borderColor: [ "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)" ],
-                        borderWidth: 1
-
-                    }],
-
-                    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-
-                },
-
-                options: {
-
-                    scales: {
-                
-                        xAxes: [{
-                  
-                            ticks: {
-                    
-                                beginAtZero:true
-
-                            }
-                
-                        }]
-              
-                    },
-
-                    legend: {
-
-                        display: false
-
-                    },
-              
-                    title: {
-
-                        display: true,
-                        fontSize: 15,
-                        fontStyle: 'bold',
-                        text: 'Members Paid'
-
-                    }
-
-                }
-          
-            });
-
-        </script>
-
-        <!-- My Chart 2 -->
-        <script type="text/javascript">
-      
-            var ctx = document.getElementById('myChart2').getContext('2d');
-            var mixedChart = new Chart(ctx, {
-        
-                type: 'bar',
-        
-                data: {
-          
-                    datasets: [{
-            
-                        label: 'Amount Received',
-                        backgroundColor: [ "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)" ],
-                        borderColor: [ "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)", "rgb(153, 102, 255)", "rgb(54, 162, 235)", "rgb(255, 205, 86)", "rgb(75, 192, 192)" ],
-                        borderWidth: 1,
-                        data: [ <?php echo $jan_amount_received; ?>, <?php echo $feb_amount_received; ?>, <?php echo $mar_amount_received; ?>, <?php echo $apr_amount_received; ?>, <?php echo $may_amount_received; ?>, <?php echo $jun_amount_received; ?>, <?php echo $jul_amount_received; ?>, <?php echo $aug_amount_received; ?>, <?php echo $sep_amount_received; ?>, <?php echo $oct_amount_received; ?>, <?php echo $nov_amount_received; ?>, <?php echo $dec_amount_received; ?> ]
-
-                    }, 
-                    {
-            
-                        label: 'Amount Needed',
-                        pointRadius: 3,
-                        borderColor: "rgba(255,99,132,1)",
-                        pointBackgroundColor: "rgba(255,99,132,1)",
-                        pointBorderColor: "rgb(255, 99, 132)",
-                        data: [ <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?>, <?php echo $total_homes * $assessment_amount; ?> ],
-
-                        type: 'line'
-
-                    }],
-
-                    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-
-                },
-
-                options: {
-
-                    scales: {
-            
-                        yAxes: [{
-              
-                            ticks: {
-                
-                                beginAtZero:true
-
-                            }
-            
-                        }]
-          
-                    },
-
-                    legend: {
-
-                        display: false
-
-                    },
-          
-                    title: {
-
-                        display: true,
-                        fontSize: 15,
-                        fontStyle: 'bold',
-                        text: 'Amount Received ($)'
-
-                    }
-
-                }
-
-            });
-
-        </script>
-
-        <!-- My Chart 3 -->
-        <script type="text/javascript">
-      
-            var ctx = document.getElementById('myChart3').getContext('2d');
-            var myBarChart = new Chart(ctx, {
-        
-                type: 'line',
-                data: {
-
-                    datasets: [{
-
-                        data: [ <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-01-16' AND process_date<='$year-01-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-02-16' AND process_date<='$year-02-$feb_days'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-03-16' AND process_date<='$year-03-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-04-16' AND process_date<='$year-04-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-05-16' AND process_date<='$year-05-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-06-16' AND process_date<='$year-06-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-07-16' AND process_date<='$year-07-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-08-16' AND process_date<='$year-08-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-09-16' AND process_date<='$year-09-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-10-16' AND process_date<='$year-10-31'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-11-16' AND process_date<='$year-11-30'")); ?>, <?php echo pg_num_rows(pg_query("SELECT DISTINCT home_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-12-16' AND process_date<='$year-12-31'")); ?> ],
-                        pointBackgroundColor: "rgba(255,99,132,1)",
-                        pointBorderColor: "rgb(255, 99, 132)",
-                        borderWidth: 6,
-                        pointStyle: "rectRot",
-                        showLine: false
-
-                    }],
-
-                    labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ]
-
-                },
-
-                options: {
-
-                    scales: {
-            
-                        xAxes: [{
-              
-                            ticks: {
-                
-                                beginAtZero:true
-
-                            }
-            
-                        }]
-          
-                    },
-
-                    legend: {
-
-                        display: false
-
-                    },
-          
-                    title: {
-
-                        display: true,
-                        fontSize: 15,
-                        fontStyle: 'bold',
-                        text: 'Late Payments'
-
-                    }
-
-                }
-      
-            });
-
-        </script>
 
 	</body>
 

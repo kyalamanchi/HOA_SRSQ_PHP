@@ -201,8 +201,8 @@
                                     <li class='breadcrumb-item'>Primary Email</li>
                                     <li class='breadcrumb-item'>SMS Notifications</li>
                                     <li class="breadcrumb-item">Agreements</li>
-                                    <li class='breadcrumb-item'><strong style='color: black;'>Documents</strong></li>
-                                    <li class='breadcrumb-item'>CCR Inspection Notices</li>
+                                    <li class='breadcrumb-item'>Documents</li>
+                                    <li class='breadcrumb-item'><strong style='color: black;'>CCR Inspection Notices</strong></li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item">HOA Fact Sheet</li>
                                     <li class="breadcrumb-item">Disclosures</li>
@@ -226,56 +226,95 @@
 
                             <div class='row'>
 
-                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                <div class='row container'>
 
-                                    <center><h3>Documents</h3></center>
+	                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                </div>
+	                                    <center><h3>CCR Inspection Notices</h3></center>
 
-                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
+	                                </div>
 
-                                    <table id='myDocuments' class='table table-striped' style='color: black;'>
+	                            </div>
 
-                                        <thead>
-                                            
-                                            <th>Name</th>
-                                            <th>Date of Upload</th>
-                                            <th>Year</th>
+	                            <br>
 
-                                        </thead>
+	                            <div class='row container'>
 
-                                        <tbody>
+	                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-                                            <?php 
+	                                    <table class='table table-striped' id='inspectionNoticesTable' style="color:black;">
 
-                                                $result = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND active='t' AND is_board_document='f'");
+	                                        <thead>
 
-                                                while($row = pg_fetch_assoc($result))
-                                                {
+	                                            <th>Inspection Date</th>
+	                                            <th>Status</th>
+	                                            <th>Location</th>
+	                                            <th>Description</th>
+	                                            <th>Category</th>
 
-                                                    $document_id = $row['document_id'];
-                                                    $year = $row['year_of_upload'];
-                                                    $upload_date = $row['uploaded_date'];
-                                                    $description = $row['description'];
-                                                    $document_url = $row['url'];
+	                                        </thead>
 
-                                                    if($upload_date != "")
-                                                        $upload_date = date('m-d-Y', strtotime($upload_date));
+	                                        <tbody>
 
-                                                    $is_visible = pg_num_rows(pg_query("SELECT * FROM document_visibility WHERE document_id=$document_id AND (user_id=$user_id OR hoa_id=$hoa_id)"));
+	                                            <?php 
 
-                                                    if($is_visible)
-                                                        echo "<tr><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$description</a></td><td><a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id&doc_id=$document_id' target='_blank'>$upload_date</a></td><td>$year</td></tr>";
+	                                                $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id AND hoa_id=$hoa_id AND home_id=$home_id");
 
-                                                }
+	                                                while($row = pg_fetch_assoc($result))
+	                                                {
 
-                                            ?>
-                                            
-                                        </tbody>
+	                                                    $id = $row['id'];
+	                                                    $home_id = $row['home_id'];
+	                                                    $hoa_id = $row['hoa_id'];
+	                                                    $item = $row['item'];
+	                                                    $description = $row['description'];
+	                                                    $document = $row['document_id'];
+	                                                    $inspection_date = $row['inspection_date'];
+	                                                    $location = $row['location_id'];
+	                                                    $violation_category = $row['inspection_category_id'];
+	                                                    $violation_sub_category = $row['inspection_sub_category_id'];
+	                                                    $notice_type = $row['inspection_notice_type_id'];
+	                                                    $date_of_upload = $row['date_of_upload'];
+	                                                    $status = $row['inspection_status_id'];
+	                                                    $compliance_date = $row['compliance_date'];
 
-                                    </table>
+	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_category WHERE id=$violation_category"));
 
-                                </div>
+	                                                    $violation_category = $row1['name'];
+
+	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM inspection_status WHERE id=$status"));
+
+	                                                    $status = $row1['inspection_status'];
+
+	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM locations_in_community WHERE location_id=$location"));
+
+	                                                    $location = $row1['location'];
+
+	                                                    if($date_of_upload != "")
+	                                                        $date_of_upload = date('m-d-Y', strtotime($date_of_upload));
+
+	                                                    if($compliance_date != "")
+	                                                        $compliance_date = date('m-d-Y', strtotime($compliance_date));
+
+	                                                    if($inspection_date != "")
+	                                                        $inspection_date = date('m-d-Y', strtotime($inspection_date));
+
+	                                                    $date = date('m-d-Y');
+
+	                                                    if($status != 'Closed By Vendor' && $status != 'Request Closed By Member' && $status != 'Closed' && $status != 'Closed by CIS' && $status != 'Resolved')
+	                                                        echo "<tr><td>".$inspection_date."</td><td>".$status."</td><td>".$location."</td><td>".$description."</td><td>".$violation_category."</td></tr>";
+	                          
+	                                                }
+
+	                                            ?>
+	                                            
+	                                        </tbody>
+
+	                                    </table>
+
+	                                </div>
+
+	                            </div>
 
                             </div>
 
@@ -291,13 +330,13 @@
                                         
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left'>
 
-                                            <button class='btn btn-warning btn-xs' type='button' id='documents_back' name='documents_back'><i class='fa fa-arrow-left'></i> Back</button>
+                                            <button class='btn btn-warning btn-xs' type='button' id='inspection_notices_back' name='inspection_notices_back'><i class='fa fa-arrow-left'></i> Back</button>
 
                                         </div>
 
                                         <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-right'>
 
-                                            <button class='btn btn-xs btn-success' name='documents_continue' id='documents_continue'>Continue <i class='fa fa-arrow-right'></i></button>
+                                            <button class='btn btn-xs btn-success' name='inspection_notices_continue' id='inspection_notices_continue'>Continue <i class='fa fa-arrow-right'></i></button>
 
                                         </div>
 
@@ -330,7 +369,7 @@
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
 
-		<script src='assets/js/documents.js'></script>
+		<script src='assets/js/inspectionNotices.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
         <!-- Datatable -->
