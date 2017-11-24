@@ -381,7 +381,7 @@
 
                                 </div>
 
-                                <form class='row' method='post' action='https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php'>
+                                <form class='row' method='post' action='https://hoaboardtime.com/editCurrentYearVendorsPaymentsProcessed.php'>
                                                         
                                   <div class='modal-body'>
                                                             
@@ -392,6 +392,8 @@
                                         <strong><center>$current_year</center></strong>
 
                                         <input type='hidden' name='cypp_year' id='cypp_year' value='$current_year' >
+                                        <input type='hidden' name='vendor_id' id='vendor_id' value='$vendor_id' >
+                                        <input type='hidden' name='vendor_name' id='vendor_name' value='$vendor_name'>
 
                                       </div>
                                           
@@ -455,9 +457,6 @@
                                         <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
                                           <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' "; if($m1[12] == 't') echo "checked"; echo "></div>
-
-                                          <input type='hidden' name='home_id' id='home_id' value='$home_id'>
-                                          <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
                                         </div>
 
                                       </div>
