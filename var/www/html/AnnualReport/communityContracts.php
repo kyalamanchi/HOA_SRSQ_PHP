@@ -245,7 +245,7 @@
 
 	                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-	                                    <table class='table table-striped' id='inspectionNoticesTable' style="color:black;">
+	                                    <table class='table table-striped' id='contracts' style="color:black;">
 
 	                                        <thead>
 
@@ -373,7 +373,7 @@
         
             $(function () {
                 
-                $("#myDocuments").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+                $("#contracts").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
 
             });
 
