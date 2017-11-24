@@ -417,9 +417,9 @@
                                                 
                         <div class='container-fluid'>
 
-                          <div class='row container'>
+                          <div class='row container-fluid'>
 
-                            <center>$current_year</center>
+                            <strong><center>$current_year</center></strong>
 
                             <input type='hidden' name='cypp_year' id='cypp_year' value='$current_year' >
 
