@@ -192,7 +192,10 @@
                                     <li class='breadcrumb-item'>CCR Inspection Notices</li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                    <li class='breadcrumb-item'>Contracts</li>
+                                    <li class='breadcrumb-item'>QB Reports</li>
                                     <li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+                                    <li class='breadcrumb-item'>Volunteers</li>
 
                                 </ol>
                                             
