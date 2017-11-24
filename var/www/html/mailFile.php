@@ -173,7 +173,6 @@ function sendFile(){
           swal("Error","An error occured. Please try again","error");
         }
         else {
-          alert(request.responseText);
           swal("Successful","File Sent To Southdata.","success");
         }
   }
