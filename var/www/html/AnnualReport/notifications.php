@@ -377,7 +377,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting_1' value='Phone'";
 
@@ -386,11 +386,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting_2' value='Email'";
 
@@ -399,11 +399,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting_3' value='Both'";
 
@@ -416,7 +416,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='None'";
 
@@ -441,25 +441,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_board_meeting' id='".$i."_board_meeting' value='None' checked> None
 
@@ -501,7 +501,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'";
 
@@ -510,11 +510,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'";
 
@@ -523,11 +523,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Both'";
 
@@ -540,7 +540,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='None'";
 
@@ -565,25 +565,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_payment_received' id='".$i."_payment_received' value='None' checked> None
 
@@ -625,7 +625,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Phone'";
 
@@ -634,11 +634,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Email'";
 
@@ -647,11 +647,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Both'";
 
@@ -664,7 +664,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='None'";
 
@@ -689,25 +689,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_landscape_maintenance' id='".$i."_landscape_maintenance' value='None' checked> None
 
@@ -749,7 +749,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'";
 
@@ -758,11 +758,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'";
 
@@ -771,11 +771,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Both'";
 
@@ -788,7 +788,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='None'";
 
@@ -813,25 +813,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_late_payment_posted' id='".$i."_late_payment_posted' value='None' checked> None
 
@@ -873,7 +873,7 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'";
 
@@ -882,11 +882,11 @@
 
                                                             echo "
                                                             
-                                                            > SMS Only
+                                                            > SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'";
 
@@ -895,11 +895,11 @@
 
                                                             echo "
 
-                                                            > Email Only
+                                                            > Email
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Both'";
 
@@ -912,7 +912,7 @@
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='None'";
 
@@ -937,25 +937,25 @@
 
                                                     <div class='row'>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
-                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'> SMS Only
-
-                                                        </div>
-
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
-
-                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'> Email Only
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Phone'> SMS
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
+
+                                                            <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Email'> Email
+
+                                                        </div>
+
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='Both'> Both
 
                                                         </div>
 
-                                                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'>
+                                                        <div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12'>
 
                                                             <input type='radio' name='".$i."_inspection_notices' id='".$i."_inspection_notices' value='None' checked> None
 
