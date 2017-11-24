@@ -396,6 +396,8 @@
                                         <input type='hidden' name='vendor_name' id='vendor_name' value='$vendor_name'>
 
                                       </div>
+
+                                      <hr class='small'>
                                           
                                       <div class='row container-fluid'>
                                             
