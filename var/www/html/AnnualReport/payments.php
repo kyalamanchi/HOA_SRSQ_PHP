@@ -67,9 +67,9 @@
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
-					<div class='inner-header text-center'>
+					<div class='inner-header text-left'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
+						<a ><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
 
 					</div>
 
