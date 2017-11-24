@@ -180,7 +180,7 @@
 					<!-- Logos-->
 					<div class='inner-header text-center'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_code; ?></h3></a>
+						<a><h5 style='color: green;'><?php echo $community_name; ?></h3></5>
 
 					</div>
 				

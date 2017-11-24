@@ -140,7 +140,7 @@
 					<!-- Logos-->
 					<div class='inner-header text-center'>
 
-						<a class='inner-brand'><h3 style='color: green;'><?php echo $community_code; ?></h3></a>
+						<a><h5 style='color: green;'><?php echo $community_code; ?></h5></a>
 
 					</div>
 
@@ -202,6 +202,7 @@
 	                                <li class='breadcrumb-item'>SMS Notifications</li>
 	                                <li class="breadcrumb-item">Agreements</li>
 	                                <li class='breadcrumb-item'>Documents</li>
+                                    <li class='breadcrumb-item'>CCR Inspection Notices</li>
 	                                <li class="breadcrumb-item">Payments</li>
 	                                <li class="breadcrumb-item">HOA Fact Sheet</li>
 	                                <li class="breadcrumb-item">Disclosures</li>
@@ -517,7 +518,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<!--script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script-->
 		<script src="assets/js/plugins.min.js"></script>
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>
