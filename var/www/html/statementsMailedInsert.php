@@ -15,9 +15,9 @@ if ( $connection){
     pg_query($query);
     exit(0);
     }
-
+    else {
     $query = "INSERT INTO COMMUNITY_STATEMENTS_MAILED(\"home_id\",\"hoa_id\",\"date_sent\",\"community_id\",\"statement_type_id\",\"notification_type\",\"order_id\",\"invoice_id\",\"updated_on\",\"updated_by\") VALUES(".$homeID.",".$_GET['id'].",'".date('Y-m-d')."',".$communityID.",2,4,".$orderNumber.",".$orderNumber.",'".date('Y-m-d')."',401)";
     pg_query($query);
-
+    }
 }
 ?>
