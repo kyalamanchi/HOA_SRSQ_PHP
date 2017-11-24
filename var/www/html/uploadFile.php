@@ -241,14 +241,13 @@ var fileName = "";
 //   }
 
 function updateContent(){
-  document.getElementById("categoryContent").append("<label>Date</label>\
+  document.getElementById("categoryContent").innerHTML = "<label>Date</label>\
         <div class=\"date\">\
             <div class=\"input-group input-append date\" id=\"datePicker\">\
                 <input type=\"text\" class=\"form-control\" name=\"date\" />\
                 <span class=\"input-group-addon add-on\"><span></span></span>\
             </div>\
-        </div>");
-
+        </div>";
 
 } 
 
