@@ -140,7 +140,7 @@
 					<!-- Logos-->
 					<div class='inner-header text-center'>
 
-						<a><h5 style='color: green;'><?php echo $community_code; ?></h5></a>
+						<a><h5 style='color: green;'><?php echo $community_name; ?></h5></a>
 
 					</div>
 
