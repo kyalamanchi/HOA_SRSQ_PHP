@@ -67,7 +67,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Vendor Expenditure Summary</strong></h1>
+          <h1><strong>Expenditure By Vendor</strong></h1>
 
           <ol class="breadcrumb">
             
