@@ -150,6 +150,9 @@ fclose($handler);
             $fileContent  = base64_encode($pdfFileContent);
 
             $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID;
+            echo "Length";
+            echo strlen($url);
+            
             $req = curl_init();
             curl_setopt($req, CURLOPT_URL,$url);
             curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
