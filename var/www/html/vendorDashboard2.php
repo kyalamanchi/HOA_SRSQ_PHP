@@ -338,7 +338,7 @@
                       <th>Oct</th>
                       <th>Nov</th>
                       <th>Dec</th>
-                      <th></th>
+                      <?php if($mode == 1) echo "<th></th>"; ?>
 
                     </thead>
 
@@ -492,7 +492,13 @@
                               $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
                           }
 
-                          echo "<tr><td>$current_year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td><td><a data-toggle='modal' data-target='#editVendorCurrentYearPaymentsProcessed_$current_year' class='btn-xs'><i class='fa fa-edit'></i> Edit</a></td></tr>";
+                          echo "<tr><td>$current_year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td>";
+
+                          if($mode == 1)
+                            echo "<td><a data-toggle='modal' data-target='#editVendorCurrentYearPaymentsProcessed_$current_year' class='btn-xs'><i class='fa fa-edit'></i> Edit</a></td>";
+
+                          echo "</tr>";
+
                         }
 
                       ?>
