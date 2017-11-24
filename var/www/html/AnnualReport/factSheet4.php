@@ -432,9 +432,9 @@
 											<ul class="nav nav-tabs" id='tab'>
 										
 												<li class="nav-item"><a class="nav-link active" href="#tab-1" data-toggle="tab">Board</a></li>
-												<li class="nav-item disabled"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
-												<li class="nav-item disabled"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
-												<li class="nav-item disabled"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
+												<li class="nav-item"><a class="nav-link" href="#tab-2" data-toggle="tab">Comms</a></li>
+												<li class="nav-item"><a class="nav-link" href="#tab-3" data-toggle="tab">Reserves</a></li>
+												<li class="nav-item"><a class="nav-link" href="#tab-4" data-toggle="tab">Finance</a></li>
 
 											</ul>
 
