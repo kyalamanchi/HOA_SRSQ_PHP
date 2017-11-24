@@ -168,7 +168,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 100, "order": [[0,"desc"]] });
+        $("#example1").DataTable({ "pageLength": 100 });
       });
     </script>
 
