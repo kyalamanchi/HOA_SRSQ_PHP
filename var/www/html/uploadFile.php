@@ -302,7 +302,7 @@ var fileName = "";
       </label>
       <h4 id="label"></h4>
 
-      <button type="button" class="btn btn-success" onclick="sendFile();" id="saveButton" >Upload</button>
+      <button type="button" class="btn btn-success" onclick="sendFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
 
 
