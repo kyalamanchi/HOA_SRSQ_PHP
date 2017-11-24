@@ -194,8 +194,8 @@
                                     <li class="breadcrumb-item">HOA Fact Sheet</li>
                                     <li class='breadcrumb-item'>Contracts</li>
                                     <li class='breadcrumb-item'>QB Reports</li>
-                                    <li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
-                                    <li class='breadcrumb-item'>Volunteers</li>
+                                    <li class="breadcrumb-item">Disclosures</li>
+                                    <li class='breadcrumb-item'><strong style='color: black;'>Volunteers</strong></li>
 
                                 </ol>
                                             
@@ -361,13 +361,13 @@
                                         
                                                 <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-left'>
 
-                                                    <button id='disclosures_back' name='disclosures_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
+                                                    <button id='volunteers_back' name='volunteers_back' class='btn btn-warning btn-xs'><i class='fa fa-arrow-left'></i> Back</button>
 
                                                 </div>
 
                                                 <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right'>
 
-                                                    <button id='disclosures_continue' name='disclosures_continue' class='btn btn-danger btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
+                                                    <button id='volunteers_continue' name='volunteers_continue' class='btn btn-danger btn-xs'><i class='fa fa-sign-out'></i> Exit</button>
 
                                                 </div>
 

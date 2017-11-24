@@ -6,6 +6,6 @@ $('#disclosures_back').click(function(){
 
 $('#disclosures_continue').click(function(){
 
-	window.location = 'exit.php';
+	window.location = 'volunteers.php';
 
 });
