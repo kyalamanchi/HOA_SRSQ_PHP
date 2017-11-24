@@ -233,7 +233,7 @@
 
 	                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-	                                    <center><h3>Community Contracts</h3></center>
+	                                    <center><h3>Financial Summary</h3></center>
 
 	                                </div>
 
@@ -245,74 +245,7 @@
 
 	                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 table-responsive'>
 
-	                                    <table class='table table-striped' id='contracts' style="color:black;">
-
-	                                        <thead>
-
-	                                            <th>Active From</th>
-	                                            <th>Active Until</th>
-	                                            <th>Description</th>
-	                                            <th>Vendor</th>
-	                                            <th>Vendor Type</th>
-	                                            <th>Yearly Amount</th>
-	                                            <th>Expiry Date</th>
-
-	                                        </thead>
-
-	                                        <tbody>
-
-	                                            <?php 
-
-	                                                $result = pg_query("SELECT * FROM community_contracts WHERE community_id=$community_id AND active_contract='t'");
-
-	                                                while($row = pg_fetch_assoc($result))
-	                                                {
-
-	                                                    $active_from = $row['active_from'];
-	                                                    $active_until = $row['active_until'];
-	                                                    $desc = $row['desc'];
-	                                                    $vendor_id = $row['vendor_id'];
-	                                                    $vendor_type = $row['vendor_type_id'];
-	                                                    $document = $row['document_id'];
-	                                                    $yearly_amount = $row['yearly_amount'];
-	                                                    $expiry_date = $row['expiry_date'];
-
-	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
-	                                                    $vendor_name = $row1['vendor_name'];
-
-	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_type WHERE vendor_type_id=$vendor_type"));
-	                                                    $vendor_type = $row1['vendor_type_name'];
-
-	                                                    if($document != '')
-	                                                    {
-
-	                                                    	$row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document"));
-
-	                                                    	$active = $row1['active'];
-
-	                                                    	if($active == 't')
-	                                                    	{
-
-	                                                    		$url = $row1['url'];
-
-	                                                    		$desc = "<a href='getDocumentPreview.php?path=$url&desc=$desc&cid=$community_id&doc_id=$document' target='_blank'>$desc</a>";
-
-	                                                    	}
-
-	                                                    }
-
-	                                                    if($yearly_amount != "")
-	                                                        $yearly_amount = "$ ".$yearly_amount;
-
-	                                                    echo "<tr><td>$active_from</td><td>$active_until</td><td>$desc</td><td>$vendor_name</td><td>$vendor_type</td><td>$yearly_amount</td><td>$expiry_date</td></tr>";
-	                          
-	                                                }
-
-	                                            ?>
-	                                            
-	                                        </tbody>
-
-	                                    </table>
+	                                    
 
 	                                </div>
 
