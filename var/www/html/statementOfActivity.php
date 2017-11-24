@@ -70,7 +70,7 @@
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-dollar"></i> Finance Dashboard</li>
+            <li><a href='financeDashboard.php'><i class="fa fa-dollar"></i> Finance Dashboard</a></li>
             <li>Statement Of Activity</li>
           
           </ol>
