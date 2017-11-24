@@ -266,7 +266,7 @@
 
           $violations = $row['count'];
 
-          $row = pg_fetch_assoc(pg_query("SELECT count(*) FROM reminders WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+          $row = pg_fetch_assoc(pg_query("SELECT count(*) FROM reminders WHERE hoa_id=$hoa_id AND home_id=$home_id AND reminder_status_id=1"));
 
           $reminders = $row['count'];
 
@@ -487,7 +487,7 @@
 
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
 
-                      <img src="invoice.png" height=75 width=75 alt='Invoice'>
+                      <img src="account_statement.png" height=75 width=75 alt='Account Statement'>
 
                     </div>
 
@@ -955,7 +955,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-              <a href='https://hoaboardtime.com/residentReminders.php'>
+              <a href='https://hoaboardtime.com/viewReminders.php'>
 
                 <div class="row container-fluid text-left">
 

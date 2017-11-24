@@ -67,11 +67,11 @@
         
         <section class="content-header">
 
-          <h1><strong>Vendor Expenditure Summary</strong></h1>
+          <h1><strong>Expenditure By Vendor</strong></h1>
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-support"></i> Reserves Dashboard</li>
+            <li><a href='financeDashboard.php'><i class="fa fa-dollar"></i> Finance Dashboard</a></li>
             <li>Expenditure By Vendor</li>
           
           </ol>

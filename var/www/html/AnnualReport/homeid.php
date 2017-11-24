@@ -57,6 +57,79 @@
 
 	<body>
 
+		<style type="text/css">
+			
+			body {
+  				background: #ecf0f1;
+			}
+
+			.loader {
+  				width: 50px;
+  				height: 30px;
+  				position: absolute;
+  				left: 50%;
+  				top: 50%;
+  				transform: translate(-50%, -50%);
+			}
+			.loader:after {
+  				position: absolute;
+  				content: "Loading";
+  				bottom: -40px;
+  				left: -2px;
+  				text-transform: uppercase;
+  				font-family: "Arial";
+  				font-weight: bold;
+  				font-size: 12px;
+			}
+
+			.loader > .line {
+  				background-color: #333;
+  				width: 6px;
+  				height: 100%;
+  				text-align: center;
+  				display: inline-block;
+  
+  				animation: stretch 1.2s infinite ease-in-out;
+			}
+
+			.line.one {
+			  	background-color: #2ecc71; 
+			}
+
+			.line.two {
+			  	animation-delay:  -1.1s;
+			  	background-color:#3498db;
+			}
+			.line.three {
+			  	animation-delay:  -1.0s;
+			  	background-color:#9b59b6;
+			}
+			.line.four {
+			  	animation-delay:  -0.9s;
+			   	background-color: #e67e22;
+			}
+			.line.five {
+			  	animation-delay:  -0.8s;
+			  	background-color: #e74c3c;
+			}
+
+			@keyframes stretch {
+			  	0%, 40%, 100% { transform: scaleY(0.4); }
+			  	20% {transform: scaleY(1.0);}
+			}
+
+		</style>
+
+		<div class="loader">
+  			
+  			<div class="line one"></div>
+  			<div class="line two"></div>
+  			<div class="line three"></div>
+  			<div class="line four"></div>
+  			<div class="line five"></div>
+		
+		</div>
+
 		<div class='layout'>
 
 			<!-- Header-->
@@ -333,22 +406,6 @@
 
 									</div>
 
-									<br>
-
-									<div class='row'>
-
-										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-											<center>
-
-												<script>(function(t,e,s,n){var o,a,c;t.SMCX=t.SMCX||[],e.getElementById(n)||(o=e.getElementsByTagName(s),a=o[o.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=n,c.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd_2BfaWOjaemomJA_2FAfa23Vy49wNbXrrSPU8mJda5XW6x7.js"].join(""),a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script><a style="font: 12px Helvetica, sans-serif; color: #999; text-decoration: none;" href=https://www.surveymonkey.com> Create your own user feedback survey </a>
-
-											</center>
-
-										</div>
-
-									</div>
-
 									<div class='row'>
 
 										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right'>
@@ -460,7 +517,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
+		<!--script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script-->
 		<script src="assets/js/plugins.min.js"></script>
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>

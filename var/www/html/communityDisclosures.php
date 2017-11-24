@@ -63,16 +63,19 @@
 
           $result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
 
+          $today = date('Y-m-d');
+
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Purchase Summary</strong></h1>
+          <h1><strong>Disclosures</strong></h1>
 
           <ol class="breadcrumb">
             
-            <li><a href='financeDashboard.php'><i class="fa fa-dollar"></i> Finance Dashboard</a></li>
-            <li>Purchase Summary</li>
+            <?php if($mode == 1) echo "<li><i class='fa fa-institution'></i> Community</li>"; ?>
+
+            <li>Disclosures</li>
           
           </ol>
 
@@ -94,12 +97,11 @@
                       
                       <tr>
                         
-                        <th>Date</th>
-                        <th>Payment Type</th>
-                        <th>Reference Number</th>
-                        <th>Payee</th>
-                        <th>Category</th>
-                        <th>Total</th>
+                        <th>Actual Date</th>
+                        <th>Disclosure Type</th>
+                        <th>Description</th>
+                        <th>Delivery Type</th>
+                        <th>Notes</th>
 
                       </tr>
 
@@ -109,44 +111,41 @@
 
                       <?php
 
-                          setlocale(LC_MONETARY, 'en_US');
-                          date_default_timezone_set('America/Los_Angeles');
-                          error_reporting(E_ERROR | E_PARSE);
-                          ini_set('display_errors', 1);
-                          
-                          if($community_id == 2)
+                        $result = pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id");
+
+                        while($row = pg_fetch_assoc($result))
+                        {
+
+                          $actual_date = $row['actual_date'];
+                          $disclosure_type = $row['type_id'];
+                          $delivery_type = $row['delivery_type'];
+                          $notes = $row['notes'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$disclosure_type"));
+
+                          $civilcode_section = $row1['civilcode_section'];
+                          $description = $row1['desc'];
+                          $legal_url = $row1['legal_url'];
+                          $disclosure_type = $row1['name'];
+
+                          if($civilcode_section != '')
                           {
-                            
-                            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-            
-                            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
-                            curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            
-                            $result = curl_exec($ch);
-                            $result =  json_decode($result);
-            
-                            foreach ($result->QueryResponse->Purchase as $purchase) 
-                            {
 
-                                $name = "";
-
-                                foreach ($purchase->Line as $accountData) 
-                                {
-
-                                    if ( $name != "" )
-                                      $name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                                    else
-                                      $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                                
-                                }
-                                
-                                echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a href="purchaseSummaryDetails.php?id='.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a></td></tr>';
-
-                            }
+                            $disclosure_type .= " (";
+                            $disclosure_type .= $civilcode_section;
+                            $disclosure_type .= ")";
 
                           }
+
+                          if($legal_url != '')
+                            $disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
+
+                          if($actual_date != '')
+                            $actual_date = date('m-d-Y', strtotime($actual_date));
+
+                                        echo "<tr><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$notes</td></tr>";
+
+                        }
 
                       ?>
                     
@@ -183,7 +182,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "paging": false, "pageLength": 500, "info": false });
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0,"desc"]] });
       });
     </script>
 

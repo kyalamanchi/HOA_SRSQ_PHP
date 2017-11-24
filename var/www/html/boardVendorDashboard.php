@@ -352,66 +352,7 @@
           
           <div class="row">
 
-            <section class="col-xl-offset-3 col-lg-offset-3 col-md-offset-2 col-lg-6 col-xl-6 col-md-8 col-xs-12">
-
-              <div class="box">
-
-                <div class="box-body table-responsive">
-                  
-                  <center>
-
-                    <div class="box-header with-border">
-              
-                      <h3 class="box-title"><?php echo $_SESSION['hoa_community_name']; ?> Vendors</h3>
             
-                    </div>
-
-                    <div class="box-body">
-                      
-                      <table class="table table-bordered">
-
-                        <thead>
-
-                          <th>Vendor Name</th>
-                          <th>Description</th>
-
-                        </thead>
-
-                        <tbody>
-
-                          <?php
-
-                            $i = 1;
-
-                            $result = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id");
-
-                            while($row = pg_fetch_assoc($result))
-                            {
-                              $vendor_id = $row['vendor_id'];
-                              $vendor_name = $row['vendor_name'];
-
-                              $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_pay_method WHERE vendor_id=$vendor_id"));
-
-                              $vendor_description = $row1['desc'];
-
-                              echo "<tr><td><a href='https://hoaboardtime.com/boardVendorDashboard2.php?select_vendor=$vendor_id' title='Vendor Dashboard'>".$vendor_name."</a></td><td>".$vendor_description."</td></tr>";
-                            }
-
-                          ?>
-                        
-                        </tbody>
-                        
-                      </table>
-                    
-                    </div>
-
-                  </center>
-
-                </div>
-
-              </div>
-
-            </section>
 
           </div>
 

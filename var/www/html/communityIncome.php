@@ -67,12 +67,12 @@
         
         <section class="content-header">
 
-          <h1><strong>Purchase Summary</strong></h1>
+          <h1><strong>Community Income</strong></h1>
 
           <ol class="breadcrumb">
             
             <li><a href='financeDashboard.php'><i class="fa fa-dollar"></i> Finance Dashboard</a></li>
-            <li>Purchase Summary</li>
+            <li>Community Income</li>
           
           </ol>
 
@@ -95,11 +95,9 @@
                       <tr>
                         
                         <th>Date</th>
-                        <th>Payment Type</th>
-                        <th>Reference Number</th>
-                        <th>Payee</th>
-                        <th>Category</th>
-                        <th>Total</th>
+                        <th>Deposit Type</th>
+                        <th>Amount</th>
+                        <th>Confirmation</th>
 
                       </tr>
 
@@ -107,46 +105,51 @@
 
                     <tbody>
 
-                      <?php
+                      <?php 
 
-                          setlocale(LC_MONETARY, 'en_US');
-                          date_default_timezone_set('America/Los_Angeles');
-                          error_reporting(E_ERROR | E_PARSE);
-                          ini_set('display_errors', 1);
+                        if($community_id == 1)
+                        {
                           
-                          if($community_id == 2)
-                          {
-                            
-                            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-            
-                            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
-                            curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            
-                            $result = curl_exec($ch);
-                            $result =  json_decode($result);
-            
-                            foreach ($result->QueryResponse->Purchase as $purchase) 
-                            {
+                          $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query?minorversion=8');
+                          
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539671",oauth_nonce="TTJKx4StAFv",oauth_version="1.0",oauth_signature="hPukL2qGZM2duER7bBV%2BZcMEtNs%3D"'));
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, "SELECT * from Deposit startposition 1 maxresults 1000");
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
-                                $name = "";
+                          $result = curl_exec($ch);
+                          $json_Decode = json_decode($result,TRUE);
+                          $srp_Deposits = $json_Decode['QueryResponse'];
 
-                                foreach ($purchase->Line as $accountData) 
-                                {
-
-                                    if ( $name != "" )
-                                      $name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                                    else
-                                      $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                                
-                                }
-                                
-                                echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a href="purchaseSummaryDetails.php?id='.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a></td></tr>';
-
-                            }
+                          foreach ($srp_Deposits['Deposit'] as $Deposit) {
+                              
+                            echo "<tr><td>".date('m-d-Y', strtotime($Deposit['TxnDate']))."</td><td>".nl2br($Deposit['DepositToAccountRef']['name'])."</td><td>$ ".nl2br($Deposit['TotalAmt'])."</td><td>".nl2br($Deposit['PrivateNote'])."</td></tr>";
 
                           }
+
+                        }
+                        else if($community_id == 2)
+                        {
+                          
+                          $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
+
+                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506452058",oauth_nonce="cEzWCgQy0l5",oauth_version="1.0",oauth_signature="KXtBMOAC0UjBuczxlE7tPlDyPN0%3D"'));
+                          curl_setopt($ch, CURLOPT_POSTFIELDS, "SELECT * from Deposit startposition 1 maxresults 1000");
+                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+
+                          $result = curl_exec($ch);
+
+                          $json_Decode = json_decode($result,TRUE);
+                          $srp_Deposits = $json_Decode['QueryResponse'];
+
+                          foreach ($srp_Deposits['Deposit'] as $Deposit) {
+                              
+                            echo "<tr><td>".date('m-d-Y', strtotime(nl2br($Deposit['TxnDate'])))."</td><td>".nl2br($Deposit['DepositToAccountRef']['name'])."</td><td>$ ".nl2br($Deposit['TotalAmt'])."</td><td>".nl2br($Deposit['PrivateNote'])."</td></tr>";
+
+                          }
+
+                        }
 
                       ?>
                     
@@ -183,7 +186,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "paging": false, "pageLength": 500, "info": false });
+        $("#example1").DataTable({ "pageLength": 50 });
       });
     </script>
 

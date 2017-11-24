@@ -23,6 +23,9 @@
       $user_id = $_SESSION['hoa_user_id'];
       $mode = $_SESSION['hoa_mode'];
 
+      if($mode == 2)
+        header("Location: residentDashboard.php");
+
     ?>
 
     <meta charset="utf-8">
@@ -63,16 +66,19 @@
 
           $result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
 
+          $today = date('Y-m-d');
+
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Purchase Summary</strong></h1>
+          <h1><strong>Mailing List</strong></h1>
 
           <ol class="breadcrumb">
             
-            <li><a href='financeDashboard.php'><i class="fa fa-dollar"></i> Finance Dashboard</a></li>
-            <li>Purchase Summary</li>
+            <?php if($mode == 1) echo "<li><i class='fa fa-institution'></i> Community</li>"; ?>
+
+            <li>Mailing List</li>
           
           </ol>
 
@@ -85,6 +91,17 @@
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
+                
+                <div class="box-header">
+                  <i class="fa fa-"></i>
+
+                  <div class="box-tools pull-right">
+
+                    <a type="button" href="mailingListCSV.php" class="btn bg-teal btn-sm">Export as .csv</a>
+
+                  </div>
+
+                </div>
 
                 <div class="box-body table-responsive">
                   
@@ -94,12 +111,12 @@
                       
                       <tr>
                         
-                        <th>Date</th>
-                        <th>Payment Type</th>
-                        <th>Reference Number</th>
-                        <th>Payee</th>
-                        <th>Category</th>
-                        <th>Total</th>
+                        <th>HOA ID</th>
+                        <th>Name</th>
+                        <th>Home ID</th>
+                        <th>Mailing Address</th>
+                        <th>Email</th>
+                        <th>Phone</th>
 
                       </tr>
 
@@ -107,50 +124,73 @@
 
                     <tbody>
 
-                      <?php
+                      <?php 
 
-                          setlocale(LC_MONETARY, 'en_US');
-                          date_default_timezone_set('America/Los_Angeles');
-                          error_reporting(E_ERROR | E_PARSE);
-                          ini_set('display_errors', 1);
-                          
-                          if($community_id == 2)
+                        $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+                        while($row = pg_fetch_assoc($result))
+                        {
+
+                          $home_id = $row['home_id'];
+                          $living_status = $row['living_status'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
+
+                          $hoa_id = $row1['hoa_id'];
+                          $name = $row1['firstname'];
+                          $name .= " ";
+                          $name .= $row1['lastname'];
+                          $email = $row1['email'];
+                          $phone = $row1['cell_no'];
+
+                          if($living_status == 't')
                           {
-                            
-                            $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-            
-                            curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
-                            curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
-                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-            
-                            $result = curl_exec($ch);
-                            $result =  json_decode($result);
-            
-                            foreach ($result->QueryResponse->Purchase as $purchase) 
-                            {
-
-                                $name = "";
-
-                                foreach ($purchase->Line as $accountData) 
-                                {
-
-                                    if ( $name != "" )
-                                      $name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                                    else
-                                      $name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                                
-                                }
-                                
-                                echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a href="purchaseSummaryDetails.php?id='.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a></td></tr>';
-
-                            }
-
+                            $address = $row['address1'];
+                            $city = $row['city_id'];
+                            $state = $row['state_id'];
+                            $zip = $row['zip_id'];
                           }
+                          else
+                          {
+                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+
+                            $address = $row1['address1'];
+                            $city = $row1['city_id'];
+                            $state = $row1['state_id'];
+                            $zip = $row1['zip_id'];
+                          }
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM city WHERE city_id=$city"));
+                          $city = $row1['city_name'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM state WHERE state_id=$state"));
+                          $state = $row1['state_code'];
+
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$zip"));
+                          $zip = $row1['zip_code'];
+
+                          echo "<tr><td>".$hoa_id."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."</a></td><td>".$home_id."</td><td>".$address.", ".$city." ".$state." ".$zip."</td><td>".$email."</td><td>".$phone."</td></tr>";
+
+                        }
 
                       ?>
                     
                     </tbody>
+
+                    <tfoot>
+
+                      <tr>
+
+                        <th>HOA ID</th>
+                        <th>Name</th>
+                        <th>Home ID</th>
+                        <th>Mailing Address</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+
+                      </tr>
+
+                    </tfoot>
 
                   </table>
 
@@ -183,7 +223,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "paging": false, "pageLength": 500, "info": false });
+        $("#example1").DataTable({ "pageLength": 50 });
       });
     </script>
 
