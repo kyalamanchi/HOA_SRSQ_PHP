@@ -117,6 +117,8 @@
 
                       <?php
 
+                        $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
+
                         $vendor_name = $row['vendor_name'];
                         $active_from = $row['active_from'];
                         $approved = $row['approved'];
