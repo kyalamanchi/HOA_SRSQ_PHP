@@ -1,6 +1,6 @@
 $('#disclosures_back').click(function(){
 
-	window.location = 'factSheet.php';
+	window.location = 'factSheet4.php';
 
 });
 
