@@ -241,7 +241,13 @@ var fileName = "";
 //   }
 
 function updateContent(){
-  document.getElementById("categoryContent").append("<h1>Hola!</h1>");
+  document.getElementById("categoryContent").append("<label>Date</label>\
+        <div class=\"date\">\
+            <div class=\"input-group input-append date\" id=\"datePicker\">\
+                <input type=\"text\" class=\"form-control\" name=\"date\" />\
+                <span class=\"input-group-addon add-on\"><span></span></span>\
+            </div>\
+        </div>");
 
 
 } 
@@ -323,13 +329,7 @@ function getFileData()
 
 
 
-        <label>Date</label>
-        <div class="date">
-            <div class="input-group input-append date" id="datePicker">
-                <input type="text" class="form-control" name="date" />
-                <span class="input-group-addon add-on"><span></span></span>
-            </div>
-        </div>
+        
 
 
 
