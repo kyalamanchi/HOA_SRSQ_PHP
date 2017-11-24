@@ -230,7 +230,14 @@ var fileName = "";
 //       }
 //   }
 
-  function getFileData()
+function updateContent(){
+  document.getElementById("categoryContent").append("<h1>Hola!</h1>");
+
+
+} 
+
+
+function getFileData()
 {
   var file = document.getElementById("fileInput").files[0];
   if ( file ){
@@ -284,25 +291,36 @@ var fileName = "";
         <section class="content" id="content">
                  
 
-                <div class="row-fluid">
-                    <label>File Category</label>
-                    <br>
-                    <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType">
+        <div class="row-fluid">
+              <label>File Category</label>
+              <br>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
                       <option data-hidden="true"></option>
                       <option>Insurance</option>
                       <option>Disclosure</option>
                       <option>Legal document</option>
-                    </select>
-                </div>
-
-                <br>
-                
+              </select>
+        </div>
+      <br>
+      
+      <div id="categoryContent">
+        
+      </div>    
       
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       <h4 id="label"></h4>
 
-      <button type="button" class="btn btn-success" onclick="sendFile();" id="saveButton" disabled="disabled">Upload</button>
+
+
+
+
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+
+
+
+
+
       </div>
 
 
