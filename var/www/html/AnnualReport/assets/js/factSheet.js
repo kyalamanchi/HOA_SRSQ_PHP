@@ -9,3 +9,7 @@ $('#hoa_fact_sheet_continue').click(function(){
 	window.location = 'disclosures.php';
 
 });
+
+$( "#tab" ).tabs({
+  disabled: [ 1, 3 ]
+});
