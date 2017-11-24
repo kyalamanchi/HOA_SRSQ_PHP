@@ -267,6 +267,7 @@ fclose($handler);
             }
             $dbResponse = $response;
 
+            echo $dbResponse;
 
             $fileContent  = base64_encode($pdfFileContent);
 
