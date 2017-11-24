@@ -332,18 +332,19 @@
                     <thead>
                       
                       <th>Year</th>
-                      <th>January</th>
-                      <th>February</th>
-                      <th>March</th>
-                      <th>April</th>
+                      <th>Jan</th>
+                      <th>Feb</th>
+                      <th>Mar</th>
+                      <th>Apr</th>
                       <th>May</th>
-                      <th>June</th>
-                      <th>July</th>
-                      <th>August</th>
-                      <th>September</th>
-                      <th>October</th>
-                      <th>November</th>
-                      <th>December</th>
+                      <th>Jun</th>
+                      <th>Jul</th>
+                      <th>Aug</th>
+                      <th>Sep</th>
+                      <th>Oct</th>
+                      <th>Nov</th>
+                      <th>Dec</th>
+                      <th></th>
 
                     </thead>
 
@@ -372,6 +373,122 @@
                           for ($i = 1; $i <= 12; $i++)
                             $m1[$i] = $m[$i];
 
+                          echo "
+
+                          <div class='modal fade hmodal-success' id='editVendorCurrentYearPaymentsProcessed' role='dialog'  aria-hidden='true'>
+                                            
+                            <div class='modal-dialog'>
+                                                
+                              <div class='modal-content'>
+                                    
+                                <div class='modal-header'>
+                                                            
+                                  <h4 class='modal-title'><strong>Edit Current Year Vendor Payments Processed</strong></h4>
+
+                                </div>
+
+                                <form class='row' method='post' action='https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php'>
+                                                        
+                                  <div class='modal-body'>
+                                                            
+                                    <div class='container-fluid'>
+
+                                      <div class='row container-fluid'>
+
+                                        <strong><center>$current_year</center></strong>
+
+                                        <input type='hidden' name='cypp_year' id='cypp_year' value='$current_year' >
+
+                                      </div>
+                                          
+                                      <div class='row container-fluid'>
+                                            
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' "; if($m1[1] == 't') echo "checked"; echo "></div>
+                                        </div>
+                                            
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' "; if($m1[2] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' "; if($m1[3] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' "; if($m1[4] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' "; if($m1[5] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' "; if($m1[6] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' "; if($m1[7] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' "; if($m1[8] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' "; if($m1[9] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' "; if($m1[10] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' "; if($m1[11] == 't') echo "checked"; echo "></div>
+                                        </div>
+
+                                        <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' "; if($m1[12] == 't') echo "checked"; echo "></div>
+
+                                          <input type='hidden' name='home_id' id='home_id' value='$home_id'>
+                                          <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                        </div>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row text-center'>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+                                      </div>
+                                                            
+                                    </div>
+
+                                  </div>
+
+                                </form>
+
+                              </div>
+                              
+                            </div>
+
+                          </div>
+
+                          ";
+
                           for ($i = 1; $i <= 12; $i++)
                           {
                             if($m[$i] == 't')
@@ -380,7 +497,7 @@
                               $m[$i] = "<center><i class='fa fa-square-o text-orange'></i></center>";
                           }
 
-                          echo "<tr><td>$current_year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td></tr>";
+                          echo "<tr><td>$current_year</td><td>$m[1]</td><td>$m[2]</td><td>$m[3]</td><td>$m[4]</td><td>$m[5]</td><td>$m[6]</td><td>$m[7]</td><td>$m[8]</td><td>$m[9]</td><td>$m[10]</td><td>$m[11]</td><td>$m[12]</td><td><a data-toggle='modal' data-target='#editVendorCurrentYearPaymentsProcessed_$current_year' class='btn-xs'><i class='fa fa-edit'></i> Edit</a></td></tr>";
                         }
 
                       ?>
@@ -389,128 +506,6 @@
                     
                   </table>
 
-                </div>
-
-              </div>
-
-              <div class="modal fade hmodal-success" id="editVendorCurrentYearPaymentsProcessed" role="dialog"  aria-hidden="true">
-                                
-                <div class="modal-dialog">
-                                    
-                  <div class="modal-content">
-                                        
-                    <div class="color-line"></div>
-                        
-                    <div class="modal-header">
-                                                
-                      <h4 class="modal-title"><strong>Edit Current Year Vendor Payments Processed</strong></h4>
-
-                    </div>
-
-                    <?php
-
-                    echo "
-
-                    <form class='row' method='post' action='https://hoaboardtime.com/boardEditCurrentYearPaymentsProcessed.php'>
-                                            
-                      <div class='modal-body'>
-                                                
-                        <div class='container-fluid'>
-
-                          <div class='row container-fluid'>
-
-                            <strong><center>$current_year</center></strong>
-
-                            <input type='hidden' name='cypp_year' id='cypp_year' value='$current_year' >
-
-                          </div>
-                              
-                          <div class='row container-fluid'>
-                                
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>January</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='January' name='month[]' id='month' "; if($m1[1] == 't') echo "checked"; echo "></div>
-                            </div>
-                                
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>February</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='February' name='month[]' id='month' "; if($m1[2] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>March</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='March' name='month[]' id='month' "; if($m1[3] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>April</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='April' name='month[]' id='month' "; if($m1[4] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>May</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='May' name='month[]' id='month' "; if($m1[5] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>June</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='June' name='month[]' id='month' "; if($m1[6] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>July</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='July' name='month[]' id='month' "; if($m1[7] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>August</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='August' name='month[]' id='month' "; if($m1[8] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>September</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='September' name='month[]' id='month' "; if($m1[9] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>October</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='October' name='month[]' id='month' "; if($m1[10] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>November</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='November' name='month[]' id='month' "; if($m1[11] == 't') echo "checked"; echo "></div>
-                            </div>
-
-                            <div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><label>December</label></div>
-                              <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><input type='checkbox' value='December' name='month[]' id='month' "; if($m1[12] == 't') echo "checked"; echo "></div>
-
-                              <input type='hidden' name='home_id' id='home_id' value='$home_id'>
-                              <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
-                            </div>
-
-                          </div>
-
-                          <br>
-
-                          <div class='row text-center'>
-                            <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Save Changes</button>
-                            <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
-                          </div>
-                                                
-                        </div>
-
-                      </div>
-
-                    </form>
-
-                    ";
-
-                    ?>
-
-                  </div>
-                  
                 </div>
 
               </div>
