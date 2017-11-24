@@ -230,21 +230,21 @@ var fileName = "";
 //       }
 //   }
 
-//   function getFileData()
-// {
-//   var file = document.getElementById("fileInput").files[0];
-//   if ( file ){
-//       var reader = new FileReader();
-//       reader.readAsDataURL(file);
-//       reader.onload = function (evt) {
-//          fileData =evt.target.result.split(',')[1];
-//         return fileData;
-//     }
-//     reader.onerror = function (evt) {
-//         fileData = "Error";
-//         return fileData;
-//     }
-// }
+  function getFileData()
+{
+  var file = document.getElementById("fileInput").files[0];
+  if ( file ){
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = function (evt) {
+         fileData =evt.target.result.split(',')[1];
+        return fileData;
+    }
+    reader.onerror = function (evt) {
+        fileData = "Error";
+        return fileData;
+    }
+}
 
 // }
 
