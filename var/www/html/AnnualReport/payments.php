@@ -69,7 +69,7 @@
 					<!-- Logos-->
 					<div class='inner-header text-left'>
 
-						<a ><h3 style='color: green;'><?php echo $community_name; ?></h3></a>
+						<a ><h5 style='color: green;'><?php echo $community_name; ?></h5></a>
 
 					</div>
 
