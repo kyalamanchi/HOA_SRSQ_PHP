@@ -128,7 +128,6 @@ fclose($handler);
             $zip->addFile($parseJSON[0]->file_name, $parseJSON[0]->file_name);
             $zip->addFile("data.tab", "data.tab");
             $zip->close();
-
             $url = 'https://content.dropboxapi.com/2/files/upload';
             $pdfFileContent = file_get_contents($zipFileNameFinal);
             $ch = curl_init($url);
@@ -142,29 +141,17 @@ fclose($handler);
                 echo "An error occured. Please try again.";
                 exit(0);
             }
-
             $dbResponse = $response;
-
             $response = file_get_contents($parseJSON[0]->file_name);
-
             $fileContent  = base64_encode($pdfFileContent);
-
-            $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID;
-            echo "Length";
-            echo strlen($url);
-            
+            $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?file_id=".$dbResponse->id."&hoaid=".$hoaID."&type_id=0";
             $req = curl_init();
             curl_setopt($req, CURLOPT_URL,$url);
             curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
             $message = curl_exec($req);
-
             echo 'Message'.$message;
-
             $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$hoaID.",'".$dbResponse->id."','".date('Y-m-d H:i:s')."','".$parseJSON[0]->file_name."')";
             pg_query($query);
-
-
-
             unlink($zipFileNameFinal);
         }
 
@@ -273,7 +260,7 @@ fclose($handler);
 
             $fileContent  = base64_encode($pdfFileContent);
 
-            $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID."&type=0";
+            $url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?file_id=".$dbResponse->id."&hoaid=".$hoaID."&type=0";
 
             $req = curl_init();
             curl_setopt($req, CURLOPT_URL,$url);
