@@ -5,7 +5,7 @@
 		<!-- Logos-->
 		<div class='inner-header'>
 
-			<a href=''><h5 style='color: green;'><?php echo $_SESSION['hoa_community_code']; ?></h5></a>
+			<a href=''><h5 style='color: green;'><?php echo $_SESSION['hoa_community_name']; ?></h5></a>
 
 		</div>
 		
