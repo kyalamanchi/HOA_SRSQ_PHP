@@ -283,6 +283,24 @@
 	                                                    $row1 = pg_fetch_assoc(pg_query("SELECT * FROM vendor_type WHERE vendor_type_id=$vendor_type"));
 	                                                    $vendor_type = $row1['vendor_type_name'];
 
+	                                                    if($document != '')
+	                                                    {
+
+	                                                    	$row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document"));
+
+	                                                    	$active = $row1['active'];
+
+	                                                    	if($active == 't')
+	                                                    	{
+
+	                                                    		$url = $row1['url'];
+
+	                                                    		$desc = "<a href='getDocumentPreview.php?path=$url&desc=$desc&cid=$community_id&doc_id=$document' target='_blank'>$desc</a>";
+
+	                                                    	}
+
+	                                                    }
+
 	                                                    if($yearly_amount != "")
 	                                                        $yearly_amount = "$ ".$yearly_amount;
 
