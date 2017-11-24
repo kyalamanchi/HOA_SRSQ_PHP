@@ -63,7 +63,7 @@
 
       <li class="treeview">
               
-        <a href="https://hoaboardtime.com/boardVendorDashboard.php">
+        <a href="https://hoaboardtime.com/vendorDashboard.php">
 
           <i class='fa fa-wrench'></i> <span>Vendors</span>
 
