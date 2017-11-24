@@ -55,7 +55,17 @@
               
         <a>
                 
-          <i class="fa fa-envelope"></i> <span>Comms</span>
+          <i class="fa fa-envelope"></i> <span>Communications</span>
+
+        </a>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a href="https://hoaboardtime.com/boardVendorDashboard.php">
+
+          <i class='fa fa-wrench'></i> <span>Vendors</span>
 
         </a>
 
@@ -224,36 +234,6 @@
             <a href="https://hoaboardtime.com/boardUserDashboard.php">
 
               <span>User Dashbord</span>
-
-            </a>
-
-          </li>
-
-        </ul>
-
-      </li>
-
-      <li class="treeview">
-              
-        <a href="#">
-
-          <i class="fa fa-wrench"></i> <span>Vendors</span>
-
-          <span class="pull-right-container">
-                        
-            <i class="fa fa-angle-left pull-right"></i>
-
-          </span>
-
-        </a>
-
-        <ul class="treeview-menu">
-                
-          <li>
-
-            <a href="https://hoaboardtime.com/boardVendorDashboard.php">
-
-              <span>Vendor Dashboard</span>
 
             </a>
 
