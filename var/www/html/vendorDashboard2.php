@@ -317,12 +317,6 @@
                   
                   <i class="fa fa-"></i>
 
-                  <div class="box-tools pull-right">
-
-                    <?php if($mode == 1) echo "<a data-toggle='modal' data-target='#editVendorCurrentYearPaymentsProcessed' class='btn-xs'><i class='fa fa-edit'></i> Edit</a>"; ?>
-
-                  </div>
-
                 </div>
 
                 <div class="box-body table-responsive">
@@ -375,7 +369,7 @@
 
                           echo "
 
-                          <div class='modal fade hmodal-success' id='editVendorCurrentYearPaymentsProcessed' role='dialog'  aria-hidden='true'>
+                          <div class='modal fade hmodal-success' id='editVendorCurrentYearPaymentsProcessed_$current_year' role='dialog'  aria-hidden='true'>
                                             
                             <div class='modal-dialog'>
                                                 
