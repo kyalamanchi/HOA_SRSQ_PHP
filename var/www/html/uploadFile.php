@@ -245,7 +245,7 @@ var fileName = "";
         return fileData;
     }
 }
-
+  document.getElementById("saveButton").disabled = false;
 }
 
 
