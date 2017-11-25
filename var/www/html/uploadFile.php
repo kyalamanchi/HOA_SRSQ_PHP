@@ -322,16 +322,15 @@ function getFileData()
       <div  id="categoryContent" hidden="hidden">
       <label>Valid Until</label>
       <br>
-      <input type="text" class="daterange" />
+      <input type="text" class="form-control daterange" />
       <script type="text/javascript">
             $('.daterange').daterangepicker();
       </script>
-
+      <br>
       <div >
         <label for="ex3">Name</label>
         <input class="form-control" id="name" type="text">
       </div>
-      <br>
       <br>
       <div >
         <label for="ex3">Short Description</label>
