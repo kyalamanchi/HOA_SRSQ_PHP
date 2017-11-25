@@ -38,7 +38,7 @@ else
 
 		foreach ($hoaIDS as $hoaID => $homeID) {
 			$value = $value + 1;
-			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,".date('Y-m-d H:i:s').")";
+			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,'".date('Y-m-d H:i:s')."')";
 			$re = pg_query($query);
 			if ( !$re ){
 				echo $query;
@@ -84,7 +84,7 @@ else {
 
 		foreach ($hoaIDS as $hoaID => $homeID) {
 			$value = $value + 1;
-			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,".date('Y-m-d H:i:s').")";
+			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,'".date('Y-m-d H:i:s')."')";
 			$re = pg_query($query); 
 			if ( !$re ){
 				echo $query;
