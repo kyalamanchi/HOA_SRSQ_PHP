@@ -336,7 +336,6 @@ function getFileData()
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       <h4 id="label"></h4>
-      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       <br>
       <div >
         <label for="name">Name</label>
@@ -349,7 +348,8 @@ function getFileData()
       </div>
       </div>    
       <br>
-
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+      <br>
 
 
 
