@@ -321,7 +321,6 @@ function getFileData()
       
       <div  id="categoryContent" hidden="hidden">
       <label>Valid Until</label>
-      <br>
       <input type="text" class="form-control daterange" />
       <script type="text/javascript">
             $('.daterange').daterangepicker();
