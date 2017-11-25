@@ -319,7 +319,7 @@ function getFileData()
         </div>
       <br>
       
-      <div class="col-xs-4"  id="categoryContent" hidden="hidden">
+      <div   id="categoryContent" hidden="hidden">
       <label>Valid Until</label>
       <br>
       <input type="text" class="daterange " />
