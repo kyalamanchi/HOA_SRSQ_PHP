@@ -289,7 +289,12 @@ function uploadFile(){
   if($("#fileType").val() == "Legal document"){
       var name = document.getElementById("name").value;
       var shortDesc = document.getElementById("short_desc").value;
-      alert(document.getElementById("daterange").value);
+      var dateRange = document.getElementById("daterange").value;
+      var dates = dateRange.split("-");
+      var startDate = dates[0].trim();
+      var endDate = dates[1].trim();
+      alert(startDate);
+      alert(endDate);
       // jsonData = [];
       // item = {};
       // item["uploaded_id"] = ;
