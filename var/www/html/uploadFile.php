@@ -332,6 +332,7 @@ function getFileData()
         <input class="form-control" id="name" type="text">
       </div>
       <br>
+      <br>
       <div class="col-xs-4">
         <label for="ex3">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
