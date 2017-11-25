@@ -289,8 +289,15 @@ function uploadFile(){
   if($("#fileType").val() == "Legal document"){
       var name = document.getElementById("name").value;
       var shortDesc = document.getElementById("short_desc").value;
-      alert(name);
-      alert(shortDesc);
+      alert(document.getElementById("daterange").value);
+      // jsonData = [];
+      // item = {};
+      // item["uploaded_id"] = ;
+      // item["file_name"] = ;
+      // item["name"] = ;
+      // item["short_desc"] = ;
+      // item["valid_from"] = ;
+      // item["valid_until"] = ;
   }
 }
 
@@ -347,7 +354,7 @@ function uploadFile(){
       <h5 id="label"></h5>
       <div  id="legalContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
-      <input type="text" class="form-control daterange" />
+      <input type="text" class="form-control daterange" id="daterange"/>
       <br>
       <div >
         <label for="name">Name</label>
