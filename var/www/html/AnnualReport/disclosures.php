@@ -192,7 +192,10 @@
                                     <li class='breadcrumb-item'>CCR Inspection Notices</li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item">HOA Fact Sheet</li>
+                                    <li class='breadcrumb-item'>Contracts</li>
+                                    <li class='breadcrumb-item'>Financial Summary</li>
                                     <li class="breadcrumb-item"><strong style='color: black;'>Disclosures</strong></li>
+                                    <li class='breadcrumb-item'>Volunteers</li>
 
                                 </ol>
                                             
@@ -364,7 +367,7 @@
 
                                                 <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-right'>
 
-                                                    <button id='disclosures_continue' name='disclosures_continue' class='btn btn-danger btn-xs'><i class='fa fa-sign-out'></i> Exit</button>
+                                                    <button id='disclosures_continue' name='disclosures_continue' class='btn btn-success btn-xs'>Continue <i class='fa fa-arrow-right'></i></button>
 
                                                 </div>
 

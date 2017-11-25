@@ -188,7 +188,10 @@
                                     <li class='breadcrumb-item'>CCR Inspection Notices</li>
                                     <li class="breadcrumb-item">Payments</li>
                                     <li class="breadcrumb-item"><strong style='color: black;'>HOA Fact Sheet</strong></li>
+                                    <li class='breadcrumb-item'>Contracts</li>
+                                    <li class='breadcrumb-item'>Financial Summary</li>
                                     <li class="breadcrumb-item">Disclosures</li>
+                                    <li class='breadcrumb-item'>Volunteers</li>
 
                                 </ol>
                                             
@@ -326,11 +329,13 @@
 		                          								<div class='counter h6'>
 
 		                            								<?php 
+                                                                        
+                                                                        $year = date('Y');
+                                                                        $month = date('m');
 
 		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
 
 		                              									$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
-		                              									$cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
 
 		                              									$reserve_allocation = $recommended_monthly_allocation_units * $month;
 

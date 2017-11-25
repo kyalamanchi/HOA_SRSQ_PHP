@@ -6,6 +6,6 @@ $('#hoa_fact_sheet_back').click(function(){
 
 $('#hoa_fact_sheet_continue').click(function(){
 
-	window.location = 'disclosures.php';
+	window.location = 'communityContracts.php';
 
 });

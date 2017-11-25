@@ -1,11 +1,11 @@
 $('#disclosures_back').click(function(){
 
-	window.location = 'factSheet.php';
+	window.location = 'financialSummary.php';
 
 });
 
 $('#disclosures_continue').click(function(){
 
-	window.location = 'exit.php';
+	window.location = 'volunteers.php';
 
 });
