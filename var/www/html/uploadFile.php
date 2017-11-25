@@ -369,7 +369,7 @@ function getFileData()
           var res = f.split(".");
           document.getElementById("name").value = res[res.length-2];
           document.getElementById("saveButton").disabled = false;
-          document.getElementById("label").value = fileName;
+          document.getElementById("label").innerHTML = fileName;
           getFileData();
         };
       </script>
