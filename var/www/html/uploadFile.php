@@ -254,8 +254,15 @@ function updateContent(){
   if ( type == "Insurance" ){
   document.getElementById("categoryContent").hidden = false;
   }
-  else if ( type == "" ){
+  else if ( type == "Disclosure" ){
+      document.getElementById("insuranceContent").hidden = true;
+  }
+  else if ( type == "Legal document" ){
 
+  }
+  else {
+      document.getElementById("insuranceContent").hidden = true;
+       
   }
 } 
 
@@ -330,7 +337,7 @@ function getFileData()
       </label>
       <br>
       <br>
-      <div  id="categoryContent" hidden="hidden">
+      <div  id="insuranceContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" />
       <h4 id="label"></h4>
