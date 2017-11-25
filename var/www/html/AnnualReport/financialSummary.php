@@ -340,7 +340,7 @@
 	                              						<a href='purchase_summary.php' target='_blank'>
 
 						                                	<!--i class='fa fa-file'></i-->
-						                                	<img src='trail_balance.png' alt='Trail Balance'>
+						                                	<img src='purchase_summary.png' alt='Trail Balance'>
 
 						                              	</a>
 	                                
