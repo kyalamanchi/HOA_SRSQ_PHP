@@ -337,7 +337,7 @@
 
 	                            					<div class='counter-number'>
 	                              
-	                              						<a href='trailBalanceReport.php' target='_blank'>
+	                              						<a href='purchase_summary.php' target='_blank'>
 
 						                                	<!--i class='fa fa-file'></i-->
 						                                	<img src='trail_balance.png' alt='Trail Balance'>
