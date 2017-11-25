@@ -314,7 +314,7 @@ function getFileData()
         
         <section class="content-header">
 
-          <h1><strong>Send To Member</strong></h1>
+          <h1><strong>Upload file</strong></h1>
 
         </section>
         <br>
@@ -335,6 +335,7 @@ function getFileData()
 
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
+      <h5 id="label"></h5>
       <br>
       <br>
       <div  id="insuranceContent" hidden="hidden">
@@ -366,8 +367,9 @@ function getFileData()
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
           var res = f.split(".");
-            document.getElementById("name").value = res[res.length-2];
-           document.getElementById("saveButton").disabled = false;
+          document.getElementById("name").value = res[res.length-2];
+          document.getElementById("saveButton").disabled = false;
+          document.getElementById("label").value = fileName;
           getFileData();
         };
       </script>
