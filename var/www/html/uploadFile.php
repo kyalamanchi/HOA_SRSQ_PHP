@@ -316,7 +316,7 @@ function getFileData()
         <div class="date">
             <div class="input-group input-append date" id="datePicker" style="width: 35%">
                 <input type="text" class="form-control" name="date" />
-                <span class="input-group-addon add-on"><span></span></span>
+                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
         </div>
       </div>    
