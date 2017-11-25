@@ -249,6 +249,9 @@ var fileName = "";
 //   }
 
 function updateContent(){
+
+  var type = $("#fileType").val();
+  alert(type);
   document.getElementById("categoryContent").hidden = false;
 } 
 
@@ -320,7 +323,7 @@ function getFileData()
       <br>
       
       <div  id="categoryContent" hidden="hidden">
-      <label>Valid From - Valid Until</label>
+      <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" />
       <script type="text/javascript">
             $('.daterange').daterangepicker();
