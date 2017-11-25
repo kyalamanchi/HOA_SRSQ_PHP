@@ -30,12 +30,12 @@
     
     <title><?php echo $community_code; ?> - Annual Report</title>
     
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="theme/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
-    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="theme/plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="theme/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="theme/dist/css/skins/_all-skins.min.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -221,14 +221,14 @@
 
     </div>
 
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/demo.js"></script>
+    <script src="theme/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="theme/bootstrap/js/bootstrap.min.js"></script>
+    <script src="theme/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="theme/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="theme/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="theme/plugins/fastclick/fastclick.js"></script>
+    <script src="theme/dist/js/app.min.js"></script>
+    <script src="theme/dist/js/demo.js"></script>
     <script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
 
