@@ -89,8 +89,8 @@
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">
+
     
-    <div class="wrapper">
 
       <style type="text/css">
       
@@ -164,6 +164,8 @@
         <div class="line five"></div>
     
     </div>
+    
+    <div class="wrapper">
 
     <div class="content-wrapper">
         
