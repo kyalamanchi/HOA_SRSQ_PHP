@@ -76,7 +76,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Trail Balance Report - Till <?php echo date('F d,Y'); ?></h1>
+								<br><h1 class="h5">Trail Balance Report - Till <?php echo date('F d,Y'); ?></h1>
 							
 							</div>
 						
