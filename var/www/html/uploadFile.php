@@ -365,7 +365,8 @@ function getFileData()
           var f =  this.value;
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
-           // document.getElementById("label").innerHTML = f;
+          var res = f.split(".");
+            document.getElementById("name").value = res[res.length-2];
            document.getElementById("saveButton").disabled = false;
           getFileData();
         };
