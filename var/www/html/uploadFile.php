@@ -295,14 +295,15 @@ function uploadFile(){
       var endDate = dates[1].trim();
       jsonData = [];
       item = {};
-      item["uploaded_id"] = <?php echo $_SESSION['hoa_user_id']; ?>;
-      item["file_name"] = ;
-      item["name"] = ;
-      item["short_desc"] = ;
-      item["valid_from"] = ;
-      item["valid_until"] = ;
-      var hoaID = <?php echo $_SESSION['hoa_user_id']; ?>;
-      alert(hoaID);
+      item["uploader_id"] = <?php echo $_SESSION['hoa_user_id']; ?>;
+      item["file_name"] = fileName;
+      item["name"] = name;
+      item["short_desc"] = shortDesc;
+      item["valid_from"] = startDate;
+      item["valid_until"] = endDate;
+      
+
+
   }
 }
 
