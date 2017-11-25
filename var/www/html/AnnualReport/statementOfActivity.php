@@ -166,187 +166,175 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<div class="row container-fluid">
-
-            <?php
+							<?php
         
-              $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
+              					$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
               
-              curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-              curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="z5lf3IXAgwz5xXVG11yFEYKkvqw%3D"'));
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+              					curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+              					curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="z5lf3IXAgwz5xXVG11yFEYKkvqw%3D"'));
+              					curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
-              $profitandloss = curl_exec($ch);
-              $jsonprofitandloss = json_decode($profitandloss,TRUE);
-              $data = $jsonprofitandloss['Rows']['Row'];
+              					$profitandloss = curl_exec($ch);
+              					$jsonprofitandloss = json_decode($profitandloss,TRUE);
+              					$data = $jsonprofitandloss['Rows']['Row'];
 
-              foreach ($data as $key ) {
+              					foreach ($data as $key ) {
 
-                foreach ($key['Summary'] as $Summary) {
+                					foreach ($key['Summary'] as $Summary) {
                   
-                  $count = 0;
+                  						$count = 0;
                   
-                  foreach ($Summary as $summary) {
+                  						foreach ($Summary as $summary) {
     
-                    if ($summary['value'] == 'Total Revenue') {
+                    						if ($summary['value'] == 'Total Revenue') {
                       
-                      $count = 1;
-                      continue;
+                      							$count = 1;
+                      							continue;
 
-                    }
-                    if ( $count == 1 ) {
+                    						}
+                    						if ( $count == 1 ) {
                       
-                      $income = $summary['value'];
-                      continue;
+                      							$income = $summary['value'];
+                      							continue;
 
-                    } 
+                    						} 
 
-                    if ( $summary['value'] == 'Total Expenditures') {
+                    						if ( $summary['value'] == 'Total Expenditures') {
                       
-                      $count = 2;
-                      continue;
+                      							$count = 2;
+                      							continue;
 
-                    }
+                    						}
 
-                    if ( $count == 2) {
+                    						if ( $count == 2) {
                       
-                      $expenditure = $summary['value'];
-                      continue;
+                      							$expenditure = $summary['value'];
+                      							continue;
 
-                    }
+                    						}
 
-                    if ( $summary['value'] == 'Net Revenue') {
+                    						if ( $summary['value'] == 'Net Revenue') {
                       
-                      $count = 3;
-                      continue;
+                      							$count = 3;
+                      							continue;
 
-                    }
+                    						}
 
-                    if ( $count == 3) {
+                    						if ( $count == 3) {
                       
-                      $revenue = $summary['value'];
-                      continue;
+                      							$revenue = $summary['value'];
+                      							continue;
 
-                    }
+                    						}
 
-                    if ( $summary['value'] == 'Total Office Supplies & Software'){
+                    						if ( $summary['value'] == 'Total Office Supplies & Software'){
                       
-                      $count = 4;
-                      continue;
+                      							$count = 4;
+                      							continue;
 
-                    }
-                    if( $count == 4) {
+                    						}
+                    						if( $count == 4) {
                       
-                      $officetotal = $summary['value'];
-                      continue;
+                      							$officetotal = $summary['value'];
+                      							continue;
 
-                    }
+                    						}
 
-                  }
+                  						}
 
-                }
+                					}
 
-                foreach ($key['Rows'] as $allRows) {
+                					foreach ($key['Rows'] as $allRows) {
                   
-                  foreach ($allRows as $individualRows) {
+                  						foreach ($allRows as $individualRows) {
   
-                    foreach ($individualRows as $colData) {
+                    						foreach ($individualRows as $colData) {
       
-                      foreach ($colData as $keyColData) {
+                      							foreach ($colData as $keyColData) {
                         
-                        $count = 0;
+                        							$count = 0;
          
-                        foreach ($keyColData as $keyColData2) {
+                        							foreach ($keyColData as $keyColData2) {
            
-                          if ( $keyColData2['value'] == 'Total 6410 Office/General Administrative Expenses') {
+                          								if ( $keyColData2['value'] == 'Total 6410 Office/General Administrative Expenses') {
                             
-                            $count = 1;
-                            continue;
+                            								$count = 1;
+                            								continue;
 
-                          }
-                          else if ( $keyColData2['value'] == 'Total 5420 Repairs & Maintenance') {
+                          								}
+                          								else if ( $keyColData2['value'] == 'Total 5420 Repairs & Maintenance') {
                             
-                            $count = 2;
-                            continue;
+                            								$count = 2;
+                            								continue;
 
-                          }
+                          								}
 
-                          if ( $count == 2 ){
+                          								if ( $count == 2 ){
                             
-                            $repair = $keyColData2['value'];
-                            $count = 0;
-                            continue;
+                            								$repair = $keyColData2['value'];
+                            								$count = 0;
+                            								continue;
 
-                          }
+                          								}
 
-                          if ( $count == 1) {
+                          								if ( $count == 1) {
             
-                            $officegeneral = $keyColData2['value'];
-                            $count = 0;
-                            continue;
+                            								$officegeneral = $keyColData2['value'];
+                            								$count = 0;
+                            								continue;
                           
-                          }
+                          								}
                         
-                        }
+                        							}
                       
-                      }  
+                      							}  
       
-                    }
+                    						}
                   
-                  }
+                  						}
 
-                }
+                					}
               
-              }
-            
-            ?>
+              					}
 
-            <section style="background-color: white;">
+                				$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
+                
+                				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+                				curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="XuTqhe0Pc3l6ByJNHpbyp1P8W0k%3D"'));
+                				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                				curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from CompanyInfo");
+                
+                				$companyInfo = curl_exec($ch);
+                
+                				curl_close($ch);
+                
+                				$companyInfo = json_decode($companyInfo,TRUE);
+                				$companyInfo  = $companyInfo['QueryResponse'];
+                				$companyInfo = $companyInfo['CompanyInfo'];
+                
+                				curl_close($ch);
+              
+                				$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLossDetail?minorversion=8');
+                
+                				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                				curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="nkBSFyHp1p022rshX1sc2twDKpA%3D"'));
+                				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                
+                				$result = curl_exec($ch);
+                				$json_Decode = json_decode($result,TRUE);
+                				$header = $json_Decode['Header'];
+                				$startDate  = $header['StartPeriod'];
+                				$endDate = $header['EndPeriod'];
+                				$startDate = strtotime($startDate);
+                				$endDate = strtotime($endDate);
+                				$startDate = date('F jS ',$startDate);
+                				$endDate = date('F jS, Y',$endDate);
+                
+                				curl_close($ch);
 
-              <br>
+              				?>
 
               <?php
-
-                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
-                
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="XuTqhe0Pc3l6ByJNHpbyp1P8W0k%3D"'));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from CompanyInfo");
-                
-                $companyInfo = curl_exec($ch);
-                
-                curl_close($ch);
-                
-                $companyInfo = json_decode($companyInfo,TRUE);
-                $companyInfo  = $companyInfo['QueryResponse'];
-                $companyInfo = $companyInfo['CompanyInfo'];
-                
-                curl_close($ch);
-              
-                $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLossDetail?minorversion=8');
-                
-                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="nkBSFyHp1p022rshX1sc2twDKpA%3D"'));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                
-                $result = curl_exec($ch);
-                $json_Decode = json_decode($result,TRUE);
-                $header = $json_Decode['Header'];
-                $startDate  = $header['StartPeriod'];
-                $endDate = $header['EndPeriod'];
-                $startDate = strtotime($startDate);
-                $endDate = strtotime($endDate);
-                $startDate = date('F jS ',$startDate);
-                $endDate = date('F jS, Y',$endDate);
-                
-                curl_close($ch);
-
-              ?>
-
-              <div class="row container-fluid">
-
-                <?php
 
                   $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
                   
@@ -646,14 +634,6 @@
                   </table>
 
                 </div>
-
-              </div>
-
-              <br>
-
-            </section>
-
-          </div>
 
 						</div>
 
