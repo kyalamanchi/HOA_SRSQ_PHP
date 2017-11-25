@@ -309,8 +309,23 @@ function uploadFile(){
         request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
         request.setRequestHeader("Content-type", "application/json");
         request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+
+
+
+
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
+            $("#pleaseWaitDialog2").modal("hide");
+            alert(request.responseText);
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
           }
