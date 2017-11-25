@@ -110,7 +110,7 @@ function hidePleaseWait() {
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           if ( request.responseText.includes("CHARGES ADDED") ){
-            swal(request.responseText,"","success");
+            swal("Charges added","","success");
           }
           else {
             swal(request.responseText,"","error");

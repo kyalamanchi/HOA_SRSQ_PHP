@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 date_default_timezone_set('America/Los_Angeles');
 $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 $lastRanTime = "SELECT * FROM BACKGROUND_JOBS WHERE \"JOB_CATEGORY_ID\" = 5 AND \"COMMUNITY_ID\"=1 ORDER BY \"START_TIME\" DESC";
@@ -36,17 +38,21 @@ else
 
 		foreach ($hoaIDS as $hoaID => $homeID) {
 			$value = $value + 1;
-			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,".date('Y-m-d H:i:s').")";
-			pg_query($query);
+			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,'".date('Y-m-d H:i:s')."')";
+			$re = pg_query($query);
+			if ( !$re ){
+				echo $query;
+				echo nl2br("\n");
+			}
 		}
 		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
 		pg_query($query);
 		echo "CHARGES ADDED";
 		
-		$req = curl_init();
-		curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
-		$message  = curl_exec($req);
-		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+		// $req = curl_init();
+		// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
+		// $message  = curl_exec($req);
+		// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 
 
 		exit(0);
@@ -78,17 +84,21 @@ else {
 
 		foreach ($hoaIDS as $hoaID => $homeID) {
 			$value = $value + 1;
-			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,".date('Y-m-d H:i:s').")";
-			pg_query($query);
+			$query = "INSERT INTO CURRENT_CHARGES(\"home_id\",\"hoa_id\",\"amount\",\"assessment_rule_type_id\",\"assessment_year\",\"assessment_month\",\"assessment_date\",\"community_id\",\"updated_by\",\"updated_on\") VALUES(".$homeID.",".$hoaID.",".$assessmentAmount.",1,".$nextYear.",".$nextMonth.",'".$nextDate."',1,401,'".date('Y-m-d H:i:s')."')";
+			$re = pg_query($query); 
+			if ( !$re ){
+				echo $query;
+				echo nl2br("\n");
+			}
 		}
 		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
 		pg_query($query);
 		print_r("CHARGES ADDED");
 
-		$req = curl_init();
-		curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
-		$message  = curl_exec($req);
-		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+		// $req = curl_init();
+		// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
+		// $message  = curl_exec($req);
+		// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 
 		exit(0);
 }

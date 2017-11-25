@@ -92,7 +92,7 @@
       request.onreadystatechange  = function(){
       if ( request.readyState == XMLHttpRequest.DONE ){
           if ( request.responseText.includes("CHARGES ADDED") ){
-            swal(request.responseText,"","success");
+            swal("Charges Added","","success");
           }
           else {
             swal(request.responseText,"","error");
