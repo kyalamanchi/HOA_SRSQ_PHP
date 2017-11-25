@@ -16,7 +16,31 @@ $shortDesc = $parseJSON[0]->short_desc;
 $validFrom = $parseJSON[0]->valid_from;
 $validUntil = $parseJSON[0]->valid_until;
 $fileContent = $parseJSON[0]->file_content;
-echo $fileName." ".$name." ".$uploaderId." ".$shortDesc." ".$validFrom." ".$validUntil;
+
+//Get community Info
+
+$query = "SELECT * FROM USR WHERE ID=".$uploaderId;
+$queryResult = pg_query($query);
+$row = pg_fetch_assoc($queryResult);
+$communityID = $row['community_id'];
+
+$query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
+$queryResult = pg_query($query);
+
+$row = pg_fetch_assoc($queryResult);
+
+$communityCode = $row['community_code'];
+
+echo $communityCode;
+
+
+//Upload file to dropbox
+
+
+
+
+//Insert to community legal docs
+
 }
 else {
 	echo "An error occured.";
