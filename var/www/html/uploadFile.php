@@ -320,25 +320,29 @@ function getFileData()
       <br>
       
       <div id="categoryContent" hidden="hidden">
-          <label>Date</label>
-<!--         <div class="date">
-            <div class="input-group input-append date" id="datePicker" style="width: 35%">
-                <input type="text" class="form-control" name="date" />
-                <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
-            </div>
-        </div> -->
-
-        <input type="text" class="daterange" />
-        <script type="text/javascript">
+      <label>Valid Until</label>
+      <input type="text" class="daterange" />
+      <script type="text/javascript">
             $('.daterange').daterangepicker();
-        </script>
+      </script>
+
+      <div class="col-xs-4">
+        <label for="ex3">Name</label>
+        <input class="form-control" id="name" type="text">
+      </div>
+
+      <div class="col-xs-4">
+        <label for="ex3">Short Description</label>
+        <input class="form-control" id="short_desc" type="text">
+      </div>
 
       </div>    
-      
+      <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       <h4 id="label"></h4>
 
+      
 
 
         
