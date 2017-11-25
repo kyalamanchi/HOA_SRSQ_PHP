@@ -293,16 +293,16 @@ function uploadFile(){
       var dates = dateRange.split("-");
       var startDate = dates[0].trim();
       var endDate = dates[1].trim();
-      alert(startDate);
-      alert(endDate);
-      // jsonData = [];
-      // item = {};
-      // item["uploaded_id"] = ;
-      // item["file_name"] = ;
-      // item["name"] = ;
-      // item["short_desc"] = ;
-      // item["valid_from"] = ;
-      // item["valid_until"] = ;
+      jsonData = [];
+      item = {};
+      item["uploaded_id"] = <?php echo $_SESSION['hoa_user_id']; ?>;
+      item["file_name"] = ;
+      item["name"] = ;
+      item["short_desc"] = ;
+      item["valid_from"] = ;
+      item["valid_until"] = ;
+      var hoaID = <?php echo $_SESSION['hoa_user_id']; ?>;
+      alert(hoaID);
   }
 }
 
