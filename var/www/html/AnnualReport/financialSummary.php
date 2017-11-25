@@ -268,6 +268,90 @@
 
 	                        				</div>
 
+	                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          					<div class='counter h6'>
+
+	                            					<div class='counter-number'>
+	                              
+	                              						<a href='chartOfAccounts.php' target='_blank'>
+
+						                                	<!--i class='fa fa-file'></i-->
+						                                	<img src='chart_of_accounts.png' alt='Chart Of Accounts'>
+
+						                              	</a>
+	                                
+	                            					</div>
+
+	                            					<div class='counter-title'>Chart Of Accounts</div>
+
+	                          					</div>
+
+	                        				</div>
+
+	                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          					<div class='counter h6'>
+
+	                            					<div class='counter-number'>
+	                              
+	                              						<a href='trailBalanceReport.php' target='_blank'>
+
+						                                	<!--i class='fa fa-file'></i-->
+						                                	<img src='generalLedger.png' alt='General Ledger'>
+
+						                              	</a>
+	                                
+	                            					</div>
+
+	                            					<div class='counter-title'>General Ledger</div>
+
+	                          					</div>
+
+	                        				</div>
+
+	                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          					<div class='counter h6'>
+
+	                            					<div class='counter-number'>
+	                              
+	                              						<a href='trailBalanceReport.php' target='_blank'>
+
+						                                	<!--i class='fa fa-file'></i-->
+						                                	<img src='statement_of_activity.png' alt='Statement Of Activity'>
+
+						                              	</a>
+	                                
+	                            					</div>
+
+	                            					<div class='counter-title'>Statement Of Activity</div>
+
+	                          					</div>
+
+	                        				</div>
+
+	                        				<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+	                          					<div class='counter h6'>
+
+	                            					<div class='counter-number'>
+	                              
+	                              						<a href='trailBalanceReport.php' target='_blank'>
+
+						                                	<!--i class='fa fa-file'></i-->
+						                                	<img src='trail_balance.png' alt='Trail Balance'>
+
+						                              	</a>
+	                                
+	                            					</div>
+
+	                            					<div class='counter-title'>Purchase Summary</div>
+
+	                          					</div>
+
+	                        				</div>
+
 	                      				</div>
 
 	                                </div>
