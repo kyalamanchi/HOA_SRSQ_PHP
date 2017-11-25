@@ -327,13 +327,13 @@ function getFileData()
             $('.daterange').daterangepicker();
       </script>
 
-      <div class="col-xs-4">
+      <div >
         <label for="ex3">Name</label>
         <input class="form-control" id="name" type="text">
       </div>
       <br>
       <br>
-      <div class="col-xs-4">
+      <div >
         <label for="ex3">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
