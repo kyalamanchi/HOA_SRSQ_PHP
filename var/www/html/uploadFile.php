@@ -286,7 +286,9 @@ function getFileData()
 }
 
 function uploadFile(){
-  alert($("#fileType").val());
+  if($("#fileType").val() == "Legal document"){
+    alert("Some message");
+  }
 }
 
 
