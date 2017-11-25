@@ -56,8 +56,6 @@
 		<link href='assets/css/animate.css' rel='stylesheet'>
 		<!-- Template core CSS-->
 		<link href='assets/css/template.min.css' rel='stylesheet'>
-		<!-- Datatable -->
-		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
 	</head>
 
@@ -649,19 +647,6 @@
 		<script src='assets/bootstrap/js/bootstrap.min.js'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
-		<!-- Datatable -->
-		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
-		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
-
-		<script>
-      	
-	      	$(function () {
-	        	
-	        	$("#example1").DataTable({ "paging": false, "pageLength": 500, "info": false });
-
-	      	});
-
-    	</script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->
