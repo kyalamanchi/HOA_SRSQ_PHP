@@ -249,7 +249,6 @@ var fileName = "";
 //   }
 
 function updateContent(){
-
   var type = $("#fileType").val();
   alert(type);
   document.getElementById("categoryContent").hidden = false;
