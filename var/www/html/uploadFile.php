@@ -287,7 +287,10 @@ function getFileData()
 
 function uploadFile(){
   if($("#fileType").val() == "Legal document"){
-    alert("Some message");
+      var name = document.getElementById("name").value;
+      var shortDesc = document.getElementById("short_desc").value;
+      alert(name);
+      alert(shortDesc);
   }
 }
 
