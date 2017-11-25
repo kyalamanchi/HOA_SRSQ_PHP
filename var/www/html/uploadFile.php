@@ -252,7 +252,7 @@ function updateContent(){
   var type = $("#fileType").val();
 
   if ( type == "Insurance" ){
-  document.getElementById("categoryContent").hidden = false;
+  document.getElementById("insuranceContent").hidden = false;
   }
   else if ( type == "Disclosure" ){
       document.getElementById("insuranceContent").hidden = true;
