@@ -149,7 +149,7 @@
 							
 							<div class="page-title-captions">
 								
-								<br><h1 class="h5">Trail Balance Report - Till <?php echo date('F d,Y'); ?></h1>
+								<br><h1 class="h5">Statement Of Activity</h1>
 							
 							</div>
 						
@@ -332,63 +332,59 @@
                 
                 				curl_close($ch);
 
-              				?>
-
-              <?php
-
-                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
+                  				$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLoss?minorversion=8');
                   
-                  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="z5lf3IXAgwz5xXVG11yFEYKkvqw%3D"'));
-                  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                  				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+                  				curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="z5lf3IXAgwz5xXVG11yFEYKkvqw%3D"'));
+                  				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                   
-                  $profitandloss = curl_exec($ch);
-                  $jsonprofitandloss = json_decode($profitandloss,TRUE);
-                  $profitandlossrows = $jsonprofitandloss['Rows']['Row'];
+                  				$profitandloss = curl_exec($ch);
+                  				$jsonprofitandloss = json_decode($profitandloss,TRUE);
+                  				$profitandlossrows = $jsonprofitandloss['Rows']['Row'];
                   
-                  foreach ($profitandlossrows as $profitandlosstest) {
+                  				foreach ($profitandlossrows as $profitandlosstest) {
                     
-                    foreach ($profitandlosstest['Header'] as $keyprofitandloss) {
+                    				foreach ($profitandlosstest['Header'] as $keyprofitandloss) {
                       
-                      foreach ($keyprofitandloss as $keyprofitandloss) {
+                      					foreach ($keyprofitandloss as $keyprofitandloss) {
                         
-                        $keyprofitandloss = $keyprofitandloss['value'];
+                        					$keyprofitandloss = $keyprofitandloss['value'];
                         
-                        if ( $keyprofitandloss == "Expenditures") {
+                        					if ( $keyprofitandloss == "Expenditures") {
                           
-                          foreach ($profitandlosstest['Rows'] as $keyprofitandlosstester) {
+                          						foreach ($profitandlosstest['Rows'] as $keyprofitandlosstester) {
                             
-                            foreach ($keyprofitandlosstester as $helloworld) {
+                            						foreach ($keyprofitandlosstester as $helloworld) {
                               
-                              $helloworld2 = $helloworld['Header'];
-                              $count = 0;
+                              							$helloworld2 = $helloworld['Header'];
+                              							$count = 0;
                               
-                              foreach ($helloworld2['ColData'] as $keycoldata) {
+                              							foreach ($helloworld2['ColData'] as $keycoldata) {
                                 
-                                $count = $count + 1;
-                                if ( $count == 2 ){
+                                						$count = $count + 1;
+                                						if ( $count == 2 ){
                                   
-                                }
+                                						}
 
-                              }
+                              						}
 
-                            }
+                            					}
 
-                          }
+                          					}
 
-                        }
+                        				}
 
-                      }
+                      				}
 
-                    }
+                    			}
 
-                  }
+                  			}	
 
-                ?>
+                		?>
 
                 <div class="col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
                   
-                  <table class="table table-hover table-bordered container-fluid">
+                  <table class="table table-hover table-bordered">
                     
                     <thead>
                         
