@@ -250,8 +250,13 @@ var fileName = "";
 
 function updateContent(){
   var type = $("#fileType").val();
-  alert(type);
+
+  if ( type == "Insurance" ){
   document.getElementById("categoryContent").hidden = false;
+  }
+  else if ( type == "" ){
+
+  }
 } 
 
 
@@ -328,6 +333,11 @@ function getFileData()
             $('.daterange').daterangepicker();
       </script>
       <br>
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
+      </label>
+      <h4 id="label"></h4>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+      <br>
       <div >
         <label for="name">Name</label>
         <input class="form-control" id="name" type="text">
@@ -339,21 +349,7 @@ function getFileData()
       </div>
       </div>    
       <br>
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
-      </label>
-      <h4 id="label"></h4>
 
-
-
-
-        
-
-
-
-
-
-
-      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
 
 
 
@@ -406,7 +402,7 @@ function getFileData()
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
 <script>
-$(document).ready(function() {
+// $(document).ready(function() {
     // $('#datePicker')
     //     .datepicker({
     //         autoclose: true,
@@ -416,7 +412,7 @@ $(document).ready(function() {
     //         // Revalidate the date field
     //     });
 
-});
+// });
 </script>
 
   </body>
