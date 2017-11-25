@@ -28,7 +28,7 @@ date_default_timezone_set('America/Los_Angeles');
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>General Ledger</title>
+    <title><?php echo $community_code; ?> - Annual Report</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -97,10 +97,8 @@ date_default_timezone_set('America/Los_Angeles');
 ?>
     <body>
 <div class="container">
-    <center><h3><span class="notbold">Stoneridge Square Association</span></h3></center>
     <br>
     <center><h4>GENERAL LEDGER</h4></center>
-     <center><h4><span class="notbold">January - December <?php echo date('Y')?></span></h4></center>
      <br>
 <table class="table table-responsive table-hover" id="example" style="font-size: 12px;">
   <thead>
