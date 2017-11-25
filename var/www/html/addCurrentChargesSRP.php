@@ -49,10 +49,10 @@ else
 		pg_query($query);
 		echo "FIRST CHARGES ADDED";
 		
-		$req = curl_init();
-		curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
-		$message  = curl_exec($req);
-		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+		// $req = curl_init();
+		// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
+		// $message  = curl_exec($req);
+		// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 
 
 		exit(0);
@@ -95,10 +95,10 @@ else {
 		pg_query($query);
 		print_r("SECOND CHARGES ADDED");
 
-		$req = curl_init();
-		curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
-		$message  = curl_exec($req);
-		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+		// $req = curl_init();
+		// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
+		// $message  = curl_exec($req);
+		// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 
 		exit(0);
 }
