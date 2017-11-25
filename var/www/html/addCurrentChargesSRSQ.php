@@ -79,7 +79,7 @@ else {
 		print_r("CHARGES ADDED");
 
 		$req = curl_init();
-		curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
+		curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=2&eid=5");
 		$message  = curl_exec($req);
 		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 
