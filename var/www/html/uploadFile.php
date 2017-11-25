@@ -156,98 +156,6 @@ input, label {
 <script type="text/javascript">
 var fileData = "";
 var fileName = "";
-
-
-
-
-// function sendFile(){
-
-//   var address = $('#memberAddress').val();
-//   json = [];
-//   item = {};
-//   item['file_data'] = fileData;
-//   item['file_name'] = fileName;
-//   item['hoa_id'] =  ghoaID;
-//   item['address'] =  address;
-//   json.push(item);
-//   sendData = JSON.stringify(json);
-//   var request= new XMLHttpRequest();
-//   request.open("POST", "https://hoaboardtime.com/sendFileToSouthData.php", true);
-//   request.setRequestHeader("Content-type", "application/json");
-//   request.send(sendData);
-//   var pleaseWaitData = '<div class="progress">\
-//                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-//                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
-//                       </div>\
-//                     </div>';
-//   $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
-//   $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-//   $("#pleaseWaitDialog2").modal("show");
-//   request.onreadystatechange = function () {
-//     if (request.readyState == XMLHttpRequest.DONE) {
-//         $("#pleaseWaitDialog2").modal("hide");
-//         if (request.responseText == "Address incomplete. Please update address first"){
-//           swal("Error","Address incomplete. Please update address.","error");
-//         }
-//         else if ( request.responseText == "An error occured. Please try again." ){
-//           swal("Error","An error occured. Please try again","error");
-//         }
-//         else {
-//           swal("Successful","File Sent To Southdata.","success");
-//         }
-//   }
-//   }
-
-// }
-
-//   function getAddress(){
-
-
-//       $("#memberAddress").find('option').remove();
-//       $("#memberAddress").selectpicker('refresh');
-//       var selectedMember = $('#memberID').find("option:selected").text();
-//       if ( selectedMember ){
-      
-
-//         var pleaseWaitData = '<div class="progress">\
-//                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-//                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
-//                       </div>\
-//                     </div>';
-//         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
-//         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-//         $("#pleaseWaitDialog2").modal("show");
-//         var memberId = $('#memberID').val();
-//         ghoaID = memberId;
-//         json = [];
-//         item = {};
-//         item["member_id"] = memberId;
-//         json.push(item);
-//         data = JSON.stringify(json);
-//         var request= new XMLHttpRequest();
-//         request.open("POST", "https://hoaboardtime.com/getAddress.php", true);
-//         request.setRequestHeader("Content-type", "application/json");
-//         request.send(data);
-//         request.onreadystatechange = function () {
-//           if (request.readyState == XMLHttpRequest.DONE) {
-//               $("#pleaseWaitDialog2").modal("hide");
-//               $("#memberAddress").append('<option selected="true" data-hidden="true"></option>');
-//               document.getElementById("memberAddress").options[0].disabled = false;
-//               var count = 1;
-//               for(var addresses in JSON.parse(request.responseText)){
-//                 var address = JSON.parse(request.responseText)[addresses];
-//                 $("#memberAddress").append('<option value="'+count+'">'+address+'</option>');
-//                 count = count + 1;
-//               }
-//               $("#memberAddress").selectpicker('refresh');
-//         }
-//         }
-//       } 
-//       else {
-//         swal("Please select a member","","error");
-//       }
-//   }
-
 function updateContent(){
   var type = $("#fileType").val();
 
@@ -318,13 +226,10 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
-
-
-
-
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
+            alert(request.responseText);
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
           }
