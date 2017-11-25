@@ -251,17 +251,17 @@ var fileName = "";
 function updateContent(){
   var type = $("#fileType").val();
 
-  if ( type == "Insurance" ){
-  document.getElementById("insuranceContent").hidden = false;
+  if ( type == "Legal document" ){
+  document.getElementById("legalContent").hidden = false;
   }
   else if ( type == "Disclosure" ){
-      document.getElementById("insuranceContent").hidden = true;
+      document.getElementById("legalContent").hidden = true;
   }
   else if ( type == "Legal document" ){
 
   }
   else {
-      document.getElementById("insuranceContent").hidden = true;
+      document.getElementById("legalContent").hidden = true;
        
   }
 } 
@@ -326,9 +326,9 @@ function getFileData()
               <br>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
                       <option data-hidden="true"></option>
-                      <option>Insurance</option>
-                      <option>Disclosure</option>
                       <option>Legal document</option>
+                      <option>Disclosure</option>
+                      <option>Insurance</option>
               </select>
         </div>
       <br>
@@ -336,7 +336,7 @@ function getFileData()
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       <h5 id="label"></h5>
-      <div  id="insuranceContent" hidden="hidden">
+      <div  id="legalContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" />
       <br>
