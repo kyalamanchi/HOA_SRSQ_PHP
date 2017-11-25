@@ -285,6 +285,10 @@ function getFileData()
   document.getElementById("saveButton").disabled = false;
 }
 
+function uploadFile(){
+  alert(document.getElementById("fileType").val());
+}
+
 
 
 </script>
