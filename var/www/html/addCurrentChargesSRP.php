@@ -47,7 +47,7 @@ else
 		}
 		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
 		pg_query($query);
-		echo "FIRST CHARGES ADDED";
+		echo "CHARGES ADDED";
 		
 		// $req = curl_init();
 		// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
@@ -93,7 +93,7 @@ else {
 		}
 		$query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"START_TIME\") VALUES(1,5,'".date('Y-m-d H:i:s')."')";
 		pg_query($query);
-		print_r("SECOND CHARGES ADDED");
+		print_r("CHARGES ADDED");
 
 		// $req = curl_init();
 		// curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=5");
