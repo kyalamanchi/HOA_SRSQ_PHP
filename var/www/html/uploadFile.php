@@ -336,8 +336,6 @@ function getFileData()
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       <h5 id="label"></h5>
-      <br>
-      <br>
       <div  id="insuranceContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" />
