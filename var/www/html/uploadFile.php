@@ -319,24 +319,24 @@ function getFileData()
         </div>
       <br>
       
-      <div   id="categoryContent" hidden="hidden">
+      <div  id="categoryContent" hidden="hidden">
       <label>Valid Until</label>
       <br>
       <input type="text" class="daterange " />
       <script type="text/javascript">
             $('.daterange').daterangepicker();
       </script>
-      <br>
+
       <div class="col-xs-4">
-        <label for="name">Name</label>
+        <label for="ex3">Name</label>
         <input class="form-control" id="name" type="text">
       </div>
-      <br>
+
       <div class="col-xs-4">
         <label for="ex3">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
-      <br>
+
       </div>    
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
