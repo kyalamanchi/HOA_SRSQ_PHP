@@ -327,12 +327,12 @@ function getFileData()
       </script>
       <br>
       <div >
-        <label for="ex3">Name</label>
+        <label for="name">Name</label>
         <input class="form-control" id="name" type="text">
       </div>
       <br>
       <div >
-        <label for="ex3">Short Description</label>
+        <label for="short_desc">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
       </div>    
