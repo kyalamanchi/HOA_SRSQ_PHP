@@ -61,7 +61,7 @@ $path = "/Legal Documents/".$communityCode."/".$fileName;
 
  else {
  	echo $dbResponse;
- 	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,tech_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$dbResponse->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."')";
+ 	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,tech_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$response->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."')";
  	echo $query;
  }
 
