@@ -23,24 +23,44 @@ $query = "SELECT * FROM USR WHERE ID=".$uploaderId;
 $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 $communityID = $row['community_id'];
-echo $query;
+
 $query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
 $queryResult = pg_query($query);
 
-echo $query;
 $row = pg_fetch_assoc($queryResult);
 
 $communityCode = $row['community_code'];
 
-echo $communityCode;
 
 
 //Upload file to dropbox
 
+$path = "/Legal Documents/".$communityCode."/".$fileName;
+
+ $url = 'https://content.dropboxapi.com/2/files/upload';
+ 
+ $ch = curl_init($url);
+ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": '.$path.',"mode": "add","autorename": true,"mute": false}'));
+ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent); 
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+ $response = curl_exec($ch);
+ $response = json_decode($response);
+ if ( isset($response->error_summary) ){
+     echo "An error occured.";
+     exit(0);
+ }
+
+ //Insert to community legal docs
+
+ else {
+ 	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,tech_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$response->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."')";
+ 	echo $query;
+ }
 
 
 
-//Insert to community legal docs
+
 
 }
 else {
