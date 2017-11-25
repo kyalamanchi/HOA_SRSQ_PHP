@@ -41,7 +41,7 @@ $path = "/Legal Documents/".$communityCode."/".$fileName;
  
  $ch = curl_init($url);
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
- curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": '.$path.',"mode": "add","autorename": true,"mute": false}'));
+ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Legal Documents/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
  curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent); 
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
  $response = curl_exec($ch);
