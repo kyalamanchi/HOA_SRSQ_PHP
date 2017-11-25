@@ -340,7 +340,6 @@ function getFileData()
       <div  id="insuranceContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" />
-      <h4 id="label"></h4>
       <br>
       <div >
         <label for="name">Name</label>
