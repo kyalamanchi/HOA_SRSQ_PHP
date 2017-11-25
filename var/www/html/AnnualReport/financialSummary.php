@@ -295,7 +295,7 @@
 
 	                            					<div class='counter-number'>
 	                              
-	                              						<a href='trailBalanceReport.php' target='_blank'>
+	                              						<a href='generalLedger.php' target='_blank'>
 
 						                                	<!--i class='fa fa-file'></i-->
 						                                	<img src='general_ledger.png' alt='General Ledger'>
