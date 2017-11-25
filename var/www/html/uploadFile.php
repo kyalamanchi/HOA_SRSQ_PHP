@@ -333,9 +333,6 @@ function getFileData()
       <div  id="categoryContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" />
-      <script type="text/javascript">
-            $('.daterange').daterangepicker();
-      </script>
       <h4 id="label"></h4>
       <br>
       <div >
@@ -351,11 +348,6 @@ function getFileData()
       <br>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       <br>
-
-
-
-
-
       </div>
 
 
@@ -402,7 +394,7 @@ function getFileData()
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
-<script>
+<!-- <script>
 // $(document).ready(function() {
     // $('#datePicker')
     //     .datepicker({
@@ -414,8 +406,11 @@ function getFileData()
     //     });
 
 // });
-</script>
+</script> -->
 
+      <script type="text/javascript">
+            $('.daterange').daterangepicker();
+      </script>
   </body>
 
 </html>
