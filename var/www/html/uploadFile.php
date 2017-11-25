@@ -325,6 +325,10 @@ function getFileData()
               </select>
         </div>
       <br>
+
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
+      </label>
+      <br>
       
       <div  id="categoryContent" hidden="hidden">
       <label>Valid From - Valid Until </label>
@@ -333,8 +337,7 @@ function getFileData()
             $('.daterange').daterangepicker();
       </script>
       <br>
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
-      </label>
+
       <h4 id="label"></h4>
       <br>
       <div >
