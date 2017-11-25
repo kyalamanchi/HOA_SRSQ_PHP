@@ -52,6 +52,11 @@ $path = "/Legal Documents/".$communityCode."/".$fileName;
      exit(0);
  }
 
+ else if (strpos($dbResponse, 'Error') !== false) {
+     echo "An error occured.";
+     exit(0);
+}
+
  //Insert to community legal docs
 
  else {
