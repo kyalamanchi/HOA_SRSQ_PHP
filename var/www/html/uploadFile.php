@@ -242,7 +242,6 @@ var fileName = "";
 
 function updateContent(){
   document.getElementById("categoryContent").hidden = false;
-
 } 
 
 
@@ -315,7 +314,7 @@ function getFileData()
       <div id="categoryContent" hidden="hidden">
           <label>Date</label>
         <div class="date">
-            <div class="input-group input-append date" id="datePicker">
+            <div class="input-group input-append date" id="datePicker" style="width: 35%">
                 <input type="text" class="form-control" name="date" />
                 <span class="input-group-addon add-on"><span></span></span>
             </div>
