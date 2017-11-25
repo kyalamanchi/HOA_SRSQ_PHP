@@ -301,8 +301,28 @@ function uploadFile(){
       item["short_desc"] = shortDesc;
       item["valid_from"] = startDate;
       item["valid_until"] = endDate;
-      
-
+      item["file_content"] = fileData;
+      item["file_type"] = "legal";
+      jsonData.push(item);
+      sendData = JSON.stringify(jsonData);
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+          if (request.responseText == "An error occured."){
+            swal("An error ocuured. Please try again. ","","error");
+          }
+          else {
+            swal("File uploaded to dropbox Successfully.","","success");
+          }
+        }
+        }
+      } 
+      else {
+        swal("Please select a member","","error");
+      }
 
   }
 }
