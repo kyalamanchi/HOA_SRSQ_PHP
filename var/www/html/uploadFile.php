@@ -286,7 +286,7 @@ function getFileData()
 }
 
 function uploadFile(){
-  alert(document.getElementById("fileType").val());
+  alert($("#fileType").val());
 }
 
 
