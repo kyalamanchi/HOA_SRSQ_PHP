@@ -298,7 +298,7 @@
 	                              						<a href='trailBalanceReport.php' target='_blank'>
 
 						                                	<!--i class='fa fa-file'></i-->
-						                                	<img src='generalLedger.png' alt='General Ledger'>
+						                                	<img src='general_ledger.png' alt='General Ledger'>
 
 						                              	</a>
 	                                
