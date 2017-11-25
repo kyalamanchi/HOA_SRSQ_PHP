@@ -34,8 +34,8 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" />
+<!--     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" /> -->
 
   
 
@@ -55,7 +55,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>  
+<!--       <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>   -->
+
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+
 
 
 
@@ -313,12 +321,18 @@ function getFileData()
       
       <div id="categoryContent" hidden="hidden">
           <label>Date</label>
-        <div class="date">
+<!--         <div class="date">
             <div class="input-group input-append date" id="datePicker" style="width: 35%">
                 <input type="text" class="form-control" name="date" />
                 <span class="input-group-addon add-on"><span class="glyphicon glyphicon-calendar"></span></span>
             </div>
-        </div>
+        </div> -->
+
+        <input type="text" class="daterange" />
+        <script type="text/javascript">
+            $('.daterange').daterangepicker();
+        </script>
+
       </div>    
       
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
@@ -388,14 +402,15 @@ function getFileData()
     <script src="dist/js/demo.js"></script>
 <script>
 $(document).ready(function() {
-    $('#datePicker')
-        .datepicker({
-            autoclose: true,
-            format: 'mm/dd/yyyy'
-        })
-        .on('changeDate', function(e) {
-            // Revalidate the date field
-        });
+    // $('#datePicker')
+    //     .datepicker({
+    //         autoclose: true,
+    //         format: 'mm/dd/yyyy'
+    //     })
+    //     .on('changeDate', function(e) {
+    //         // Revalidate the date field
+    //     });
+
 });
 </script>
 
