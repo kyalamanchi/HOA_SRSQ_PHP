@@ -68,7 +68,7 @@
 			<div class="wrapper">
 
 				<!-- Page Header -->
-				<section class="module-page-title">
+				<section class="module-page-title p-t-0">
 					
 					<div class="container">
 							
