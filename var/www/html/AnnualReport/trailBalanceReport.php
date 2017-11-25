@@ -1,8 +1,20 @@
 <?php
 	
-	ini_set("session.save_path","/var/www/html/session/");
-	
 	session_start();
+
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+	if(!$_SESSION['hoa_alchemy_hoa_id'])
+		header('Location: logout.php');
+
+	$email = $_SESSION['hoa_alchemy_email'];
+	$hoa_id = $_SESSION['hoa_alchemy_hoa_id'];
+	$home_id = $_SESSION['hoa_alchemy_home_id'];
+	$user_id = $_SESSION['hoa_alchemy_user_id'];
+	$username = $_SESSION['hoa_alchemy_username'];
+	$community_id = $_SESSION['hoa_alchemy_community_id'];
+	$community_code = $_SESSION['hoa_alchemy_community_code'];
+	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
 ?>
 
@@ -14,22 +26,9 @@
 
 		<?php
 
-			if(!$_SESSION['hoa_username'])
-				header("Location: logout.php");
-
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-			$community_id = $_SESSION['hoa_community_id'];
-			$mode = $_SESSION['hoa_mode'];
 			$today = date('Y-m-d');
-
-			if($mode == 2)
-			{	
-
-				$hoa_id = $_SESSION['hoa_hoa_id'];
-				$home_id = $_SESSION['hoa_home_id'];
-
-			}
 
 		?>
 
@@ -38,7 +37,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; if($mode == 1) echo " | Board Dashboard"; else if($mode == 2) echo " | Resident Dashboard"; ?></title>
+		<title><?php echo $community_code; ?> - Annual Report</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -65,9 +64,6 @@
 	<body>
 
 		<div class='layout'>
-
-			<!-- Header-->
-			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
 			<div class="wrapper">
 
@@ -215,9 +211,6 @@
 
 				</section>
 
-				<!-- Footer-->
-				<?php include 'footer.php'; ?>
-
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
 			</div>
@@ -228,7 +221,6 @@
 		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
 		<script src='assets/bootstrap/js/bootstrap.min.js'></script>
-		<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
 		<!-- Datatable -->
