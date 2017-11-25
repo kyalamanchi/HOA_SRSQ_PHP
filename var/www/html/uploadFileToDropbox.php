@@ -23,10 +23,11 @@ $query = "SELECT * FROM USR WHERE ID=".$uploaderId;
 $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 $communityID = $row['community_id'];
-
+echo $query;
 $query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
 $queryResult = pg_query($query);
 
+echo $query;
 $row = pg_fetch_assoc($queryResult);
 
 $communityCode = $row['community_code'];
