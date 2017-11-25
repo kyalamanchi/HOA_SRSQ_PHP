@@ -1,4 +1,19 @@
 <?php
+  
+  session_start();
+
+  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+  if(!$_SESSION['hoa_alchemy_hoa_id'])
+    header('Location: logout.php');
+
+  $community_id = $_SESSION['hoa_alchemy_community_id'];
+  $community_code = $_SESSION['hoa_alchemy_community_code'];
+  $community_name = $_SESSION['hoa_alchemy_community_name'];
+
+?>
+
+<?php
 date_default_timezone_set('America/Los_Angeles');
 ?>
 <!DOCTYPE html>
@@ -93,7 +108,11 @@ date_default_timezone_set('America/Los_Angeles');
     </thead>
     <tbody>
             <?php
-            setlocale(LC_MONETARY, 'en_US');
+            
+            if($community_id == 2)
+            {
+
+              setlocale(LC_MONETARY, 'en_US');
             error_reporting(E_ERROR | E_PARSE);
             ini_set('display_errors', 1);
             $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/GeneralLedger?date_macro=This%20Fiscal%20Year');
@@ -147,6 +166,8 @@ date_default_timezone_set('America/Los_Angeles');
                  }
                  $idNum = $idNum +  1;
                  
+            }
+
             }
 
         ?>
