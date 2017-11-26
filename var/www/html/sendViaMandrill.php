@@ -92,7 +92,7 @@ $message  = curl_exec($req);
 	$legalName = $row['legal_name'];
 	$communityEmail = $row['email'];
 
-	$fileName = 'hoa_account_statement_'.date('Y-m-d H:i:s').'.pdf';
+	$fileName = $_GET['hoaid'].'_account_statement_'.date('Y-m-d H:i:s').'.pdf';
 
 	if ( $comID == 2 ){
 	$mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));
