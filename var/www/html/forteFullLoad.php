@@ -180,8 +180,8 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['received_date']);
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
-        dataSet2.push("testing");
         dataSet2.push(data2[i]['status']);
+        dataSet2.push("testing");
         if  ( data2[i]['is_inserted'] == "Found" ){
             dataSet2.push("    ");
         }
