@@ -180,6 +180,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['received_date']);
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
+        dataSet2.push(data2[i]['tranasction_id']);
         dataSet2.push(data2[i]['status']);
         if  ( data2[i]['is_inserted'] == "Found" ){
             dataSet2.push("    ");
@@ -222,6 +223,8 @@ $(document).ready(function() {
             { title: "Action",
             "width" : "7%" },
             { title: "Status",
+            "width" : "15%" },
+            { title: "Transaction ID",
             "width" : "15%" },
             { title: "           ",
             "width" : "25%" }
