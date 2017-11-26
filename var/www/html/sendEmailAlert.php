@@ -13,7 +13,12 @@
 		if ( $eventID == 5 ){
 
 			while ($row = pg_fetch_assoc($queryResult)) {
-				print_r($row);
+				$hoaID = $row['hoa_id'];
+				$subQuery = "SELECT EMAIL FROM HOAID WHERE HOA_ID=".$hoa_id;
+				$subQueryResult = pg_query($subQuery);
+				$subRow = pg_fetch_assoc($subQueryResult);
+				$email = $subRow['email'];
+				print_r($hoaID." ".$email);
 				print_r(nl2br("\n\n"));
 			}
 
