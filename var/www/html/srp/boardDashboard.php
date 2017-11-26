@@ -1347,7 +1347,7 @@
 
                             <div class='counter-number'>
 
-                              <img src='expenditures_by_vendors.png'>
+                              <a href='expenditureByVendor.php'><img src='expenditures_by_vendors.png'></a>
                                 
                             </div>
 
