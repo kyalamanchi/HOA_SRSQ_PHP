@@ -133,7 +133,7 @@
 			<div class="wrapper">
 
 				<!-- Page Header -->
-				<section class="module-page-title">
+				<section class="module-page-title p-t-0">
 					
 					<div class="container">
 							
@@ -141,7 +141,7 @@
 							
 							<div class="page-title-captions">
 								
-								<h1 class="h5">Purchase Summary Details</h1>
+								<br><h1 class="h5">Purchase Summary Details</h1>
 							
 							</div>
 
