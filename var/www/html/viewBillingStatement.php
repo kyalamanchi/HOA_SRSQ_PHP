@@ -127,7 +127,6 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
     $this->Multicell(0,4,"Invoice No : 1-".$homeID."-".$hoaID."-".date('Y')."\nInvoice Date : ".date('Y-m-d')."\nDue Date : ".date('Y-m-'.'15')."\n\n",0,"R");
     }
     else {
-
     $this->Multicell(0,4,"Invoice No : 1-".$homeID."-".$hoaID."-".date('Y')."\nInvoice Date : ".date('Y-m-d')."\nDue Date : ".date('Y-m-'.'15',strtotime("+1 month"))."\n\n",0,"R"); 
     }
     $this->Multicell(80,4,"From:\n".$communityLegalName."\n".$communityRemitPaymentAddress."\n".$cityInfo[$communityPaymentCity].", ".$stateInfo[$communityPaymentState]." ".$zipInfo[$communityPaymentZip]."\n\n",0,"LRTB");
