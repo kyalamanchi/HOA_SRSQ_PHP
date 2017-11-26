@@ -227,8 +227,7 @@ $(document).ready(function() {
             "width" : "7%" },
             { title: "Status",
             "width" : "15%" },
-            { title: "Transaction ID",
-            "width" : "15%" },
+            { title: "Transaction ID" },
             { title: "           ",
             "width" : "10%" }
         ],
