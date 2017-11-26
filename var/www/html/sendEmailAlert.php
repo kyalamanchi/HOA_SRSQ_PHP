@@ -14,7 +14,7 @@
 
 			while ($row = pg_fetch_assoc($queryResult)) {
 				$hoaID = $row['hoa_id'];
-				$subQuery = "SELECT EMAIL FROM HOAID WHERE HOA_ID=".$hoa_id;
+				$subQuery = "SELECT EMAIL FROM HOAID WHERE HOA_ID=".$hoaID;
 				$subQueryResult = pg_query($subQuery);
 				$subRow = pg_fetch_assoc($subQueryResult);
 				$email = $subRow['email'];
