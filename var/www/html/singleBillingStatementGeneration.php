@@ -233,7 +233,7 @@ foreach ($monthsArray as $key ) {
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
             array_push($data2,($value2['id']).'-'.($value2['assessment_rule_type_id']));
-            array_push($data2,$value2['assessment_date'].' | '.$value2['assessment_rule_type_id']);
+            array_push($data2,$value2['assessment_date'].' | '.$assesmentsRuleArray[$value2['assessment_rule_type_id']]);
             array_push($data2,'$ '.$value2['amount']);
             array_push($data2,'');
             array_push($data2,'$ '.$value2['amount']);
@@ -255,7 +255,7 @@ foreach ($monthsArray as $key ) {
         }
     }
 }
-$pdf->SetFont('Arial','',6);
+$pdf->SetFont('Arial','',9);
 $pdf->AddPage();
 if ( $homeDS < 144 ){
     $commID  = 1;
