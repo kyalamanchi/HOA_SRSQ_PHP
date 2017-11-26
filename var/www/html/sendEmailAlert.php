@@ -6,21 +6,23 @@
 
 	//Getting list of members
 
+	if (  isset($communityID) && isset($eventID) ){
+		if ( $eventID == 5 ){
 
-	if ( $eventID == 5 ){
+
+			$query = "SELECT * FROM COMMUNITY_COMMS WHERE COMMUNITY_ID =".$communityID." AND EVENT_TYPE_ID = ".$eventID;
+			$queryResult = pg_query($query);
+
+			while ($row = pg_fetch_assoc($queryResult)) {
+				print_r($queryResult);
+				print_r(nl2br("\n\n"));
+			}
 
 
-		$query = "SELECT * FROM COMMUNITY_COMMS WHERE COMMUNITY_ID =".$communityID." AND EVENT_TYPE_ID = ".$eventID;
-		$queryResult = pg_query($query);
-
-		while ($row = pg_fetch_assoc($queryResult)) {
-			print_r($queryResult);
-			print_r(nl2br("\n\n"));
 		}
-
-
 	}
 	else {
+		echo "Invalid input given.";
 		exit(0);
 	}
 
