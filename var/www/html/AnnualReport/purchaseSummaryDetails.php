@@ -29,7 +29,7 @@
 		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
 		<meta name='author' content='Geeth'>
 
-		<title><?php echo $_SESSION['hoa_community_code']; if($mode == 1) echo " | Board Dashboard"; else if($mode == 2) echo " | Resident Dashboard"; ?></title>
+		<title><?php echo $community_code; ?> - Annual Report</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -129,9 +129,6 @@
 		</div>
 
 		<div class='layout'>
-
-			<!-- Header-->
-			<?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
 
 			<div class="wrapper">
 
@@ -384,7 +381,6 @@
 		<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js'></script>
 		<script src='assets/bootstrap/js/bootstrap.min.js'></script>
-		<script src='http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
 		<!-- Datatable -->
