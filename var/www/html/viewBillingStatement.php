@@ -265,7 +265,7 @@ foreach ($monthsArray as $key ) {
         }
     }
 }
-$pdf->SetFont('Arial','',9);
+$pdf->SetFont('Arial','',8);
 $pdf->AddPage();
 if ( $homeDS < 144 ){
     $commID  = 1;
