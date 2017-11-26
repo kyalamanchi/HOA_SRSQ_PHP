@@ -218,6 +218,10 @@ while ($row = pg_fetch_assoc($currentChargesQueryResult)) {
 }
 
 
+
+
+
+
 $currentPaymentsQuery = "SELECT * FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeDS." AND (payment_status_id=1 OR payment_status_id=6) ORDER BY process_date";
 $currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
 $currentPaymentsArray = array();
@@ -231,7 +235,7 @@ foreach ($monthsArray as $key ) {
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
             array_push($data2,($value2['id']).'-'.($value2['assessment_rule_type_id']));
-            array_push($data2,$value2['assessment_date'].' | '.$value2['assessment_rule_type_id']);
+            array_push($data2,$value2['assessment_date'].' | '.$assesmentsRuleArray[$value2['assessment_rule_type_id']]);
             array_push($data2,'$ '.$value2['amount']);
             array_push($data2,'');
             array_push($data2,'$ '.$value2['amount']);
