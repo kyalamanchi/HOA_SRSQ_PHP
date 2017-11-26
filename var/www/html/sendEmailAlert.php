@@ -14,7 +14,7 @@
 			$queryResult = pg_query($query);
 
 			while ($row = pg_fetch_assoc($queryResult)) {
-				print_r($queryResult);
+				print_r($row);
 				print_r(nl2br("\n\n"));
 			}
 
