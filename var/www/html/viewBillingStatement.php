@@ -123,7 +123,13 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
     $finalreturnAddress3 = $cityInfo[$communityFinalReturnAddress3];
     $finalreturnAddress4 = $stateInfo[$communityFinalReturnAddress4]." ".$zipInfo[$communityFinalReturnAddress5];
     $finalPayee = $communityFinalReturnAddress;
+    if ( date('d') <= 15 ){
     $this->Multicell(0,4,"Invoice No : 1-".$homeID."-".$hoaID."-".date('Y')."\nInvoice Date : ".date('Y-m-d')."\nDue Date : ".date('Y-m-'.'15')."\n\n",0,"R");
+    }
+    else {
+
+    $this->Multicell(0,4,"Invoice No : 1-".$homeID."-".$hoaID."-".date('Y')."\nInvoice Date : ".date('Y-m-d')."\nDue Date : ".date('Y-m-'.'15',strtotime("+1 month", date('Y-m-'.'15')))."\n\n",0,"R"); 
+    }
     $this->Multicell(80,4,"From:\n".$communityLegalName."\n".$communityRemitPaymentAddress."\n".$cityInfo[$communityPaymentCity].", ".$stateInfo[$communityPaymentState]." ".$zipInfo[$communityPaymentZip]."\n\n",0,"LRTB");
     $this->Multicell(80,4,"To:\n".$fname." ".$lname."\n".$address."\n".$cityInfo[$cityId].", ".$stateInfo[$stateId]." ".$zipInfo[$zipId]."\n",0,"LRTB");
     $f = array(0,0);
