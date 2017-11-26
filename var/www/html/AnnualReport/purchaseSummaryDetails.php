@@ -1,8 +1,20 @@
 <?php
 	
-	ini_set("session.save_path","/var/www/html/session/");
-	
 	session_start();
+
+	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+	if(!$_SESSION['hoa_alchemy_hoa_id'])
+		header('Location: logout.php');
+
+	$email = $_SESSION['hoa_alchemy_email'];
+	$hoa_id = $_SESSION['hoa_alchemy_hoa_id'];
+	$home_id = $_SESSION['hoa_alchemy_home_id'];
+	$user_id = $_SESSION['hoa_alchemy_user_id'];
+	$username = $_SESSION['hoa_alchemy_username'];
+	$community_id = $_SESSION['hoa_alchemy_community_id'];
+	$community_code = $_SESSION['hoa_alchemy_community_code'];
+	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
 ?>
 
@@ -11,27 +23,6 @@
 <html lang='en'>
 
 	<head>
-
-		<?php
-
-			if(!$_SESSION['hoa_username'])
-				header("Location: logout.php");
-
-			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
-			$community_id = $_SESSION['hoa_community_id'];
-			$mode = $_SESSION['hoa_mode'];
-			$today = date('Y-m-d');
-
-			if($mode == 2)
-			{	
-
-				$hoa_id = $_SESSION['hoa_hoa_id'];
-				$home_id = $_SESSION['hoa_home_id'];
-
-			}
-
-		?>
 
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
@@ -63,6 +54,79 @@
 	</head>
 
 	<body>
+
+		<style type="text/css">
+			
+			body {
+  				background: #ecf0f1;
+			}
+
+			.loader {
+  				width: 50px;
+  				height: 30px;
+  				position: absolute;
+  				left: 50%;
+  				top: 50%;
+  				transform: translate(-50%, -50%);
+			}
+			.loader:after {
+  				position: absolute;
+  				content: "Loading";
+  				bottom: -40px;
+  				left: -2px;
+  				text-transform: uppercase;
+  				font-family: "Arial";
+  				font-weight: bold;
+  				font-size: 12px;
+			}
+
+			.loader > .line {
+  				background-color: #333;
+  				width: 6px;
+  				height: 100%;
+  				text-align: center;
+  				display: inline-block;
+  
+  				animation: stretch 1.2s infinite ease-in-out;
+			}
+
+			.line.one {
+			  	background-color: #2ecc71; 
+			}
+
+			.line.two {
+			  	animation-delay:  -1.1s;
+			  	background-color:#3498db;
+			}
+			.line.three {
+			  	animation-delay:  -1.0s;
+			  	background-color:#9b59b6;
+			}
+			.line.four {
+			  	animation-delay:  -0.9s;
+			   	background-color: #e67e22;
+			}
+			.line.five {
+			  	animation-delay:  -0.8s;
+			  	background-color: #e74c3c;
+			}
+
+			@keyframes stretch {
+			  	0%, 40%, 100% { transform: scaleY(0.4); }
+			  	20% {transform: scaleY(1.0);}
+			}
+
+		</style>
+
+		<div class="loader">
+  			
+  			<div class="line one"></div>
+  			<div class="line two"></div>
+  			<div class="line three"></div>
+  			<div class="line four"></div>
+  			<div class="line five"></div>
+		
+		</div>
 
 		<div class='layout'>
 
