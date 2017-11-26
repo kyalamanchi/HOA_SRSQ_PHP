@@ -61,7 +61,7 @@ $message  = curl_exec($req);
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$random.'.pdf","mode": "add","autorename": true,"mute": false}'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $response); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
     $uploadID = json_decode($response)->id;
