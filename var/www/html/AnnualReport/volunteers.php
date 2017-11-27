@@ -354,27 +354,34 @@
                                                             while($row = pg_fetch_assoc($result))
                                                             {
 
-                                                                $task_id = $row['id'];
-                                                                $type = $row['type'];
-                                                                $detail = $row['detail'];
+                                                                $recurring_hrs = $row['recurring_hrs'];
 
-                                                                $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id");
-
-                                                                if(pg_num_rows($res1))
+                                                                if($recurring_hrs != '')
                                                                 {
+                                                                    
+                                                                    $task_id = $row['id'];
+                                                                    $type = $row['type'];
+                                                                    $detail = $row['detail'];
 
-                                                                    $r1 = pg_fetch_assoc($res1);
+                                                                    $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id");
 
-                                                                    $task_home_id = $r1['home_id'];
+                                                                    if(pg_num_rows($res1))
+                                                                    {
 
-                                                                    $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$task_home_id"));
-                                                                    $add = $r1['address1'];
+                                                                        $r1 = pg_fetch_assoc($res1);
 
-                                                                    echo "<option value='' disabled>".$type." - ".$detail." (".$add.")</option>";
+                                                                        $task_home_id = $r1['home_id'];
+
+                                                                        $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$task_home_id"));
+                                                                        $add = $r1['address1'];
+
+                                                                        echo "<option value='' disabled>".$type." - ".$detail." (".$add.")</option>";
+
+                                                                    }
+                                                                    else
+                                                                        echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
 
                                                                 }
-                                                                else
-                                                                    echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
 
                                                             }
 
