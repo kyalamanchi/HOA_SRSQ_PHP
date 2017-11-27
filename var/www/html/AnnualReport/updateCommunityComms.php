@@ -204,6 +204,6 @@
 
 	}
 
-	header("Location: notifications.php");
+	//header("Location: notifications.php");
 
 ?>
