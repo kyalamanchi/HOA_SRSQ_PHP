@@ -8,7 +8,7 @@
 	$home_id = $_POST['home_id'];
 	$community_id = $_POST['community_id'];
 
-	$result = pg_query("INSERT INTO volunteers (community_id, hoa_id, home_id, person_id, community_task_id) VALUES ($community_id, $hoa_id, $home_id, $person_id, $task)");
+	$result = pg_query("INSERT INTO volunteers (community_id, year, hoa_id, home_id, person_id, community_task_id) VALUES ($community_id, 2018, $hoa_id, $home_id, $person_id, $task)");
 
 	//print_r($_POST);
 
