@@ -218,59 +218,106 @@
 
                                 <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
 
-                                    <?php
+                                    <div class='row'>
 
-                                        $result = pg_query("SELECT * FROM volunteers WHERE home_id=$home_id AND hoa_id=$hoa_id");
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                        if(pg_num_rows($result))
-                                        {
+                                            <?php
 
-                                            echo "
+                                                $result = pg_query("SELECT * FROM volunteers WHERE home_id=$home_id AND hoa_id=$hoa_id");
 
-                                            <table>
-                                        
-                                                <thead>
-
-                                                    <th>Person</th>
-                                                    <th>Task Type</th>
-                                                    <th>Task Detail</th>
-                                                    <th>Year</th>
-                                                    
-                                                </thead>
-
-                                                <tbody>";
-
-                                                while($row = pg_fetch_assoc($result))
+                                                if(pg_num_rows($result))
                                                 {
 
-                                                    $person = $row['person_id'];
-                                                    $task = $row['community_task_id'];
-                                                    $year = $row['year'];
+                                                    echo "
 
-                                                    $ro1 = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$person"));
-                                                    $person = $ro1['fname'];
-                                                    $person .= " ";
-                                                    $person .= $ro1['lname'];
+                                                    <table>
+                                                
+                                                        <thead>
 
-                                                    $ro1 = pg_fetch_assoc(pg_query("SELECT * FROM community_task WHERE id=$task"));
-                                                    $task_type = $ro1['type'];
-                                                    $task_detail = $ro1['detail'];
+                                                            <th>Person</th>
+                                                            <th>Task Type</th>
+                                                            <th>Task Detail</th>
+                                                            <th>Year</th>
+                                                            
+                                                        </thead>
 
-                                                    echo "<tr><td>$person</td><td>$task_type</td><td>$task_detail</td><td>$year</td></tr>";
+                                                        <tbody>";
 
+                                                        while($row = pg_fetch_assoc($result))
+                                                        {
+
+                                                            $person = $row['person_id'];
+                                                            $task = $row['community_task_id'];
+                                                            $year = $row['year'];
+
+                                                            $ro1 = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$person"));
+                                                            $person = $ro1['fname'];
+                                                            $person .= " ";
+                                                            $person .= $ro1['lname'];
+
+                                                            $ro1 = pg_fetch_assoc(pg_query("SELECT * FROM community_task WHERE id=$task"));
+                                                            $task_type = $ro1['type'];
+                                                            $task_detail = $ro1['detail'];
+
+                                                            echo "<tr><td>$person</td><td>$task_type</td><td>$task_detail</td><td>$year</td></tr>";
+
+                                                        }
+                                                            
+                                                        echo "
+
+                                                        </tbody>
+                                                        }
+
+                                                    </table>
+
+                                                    ";
                                                 }
+
+                                            ?>
+
+                                        </div>
+
+                                    </div>
+
+                                    <br>
+
+                                    <div class='row'>
+
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                            <h3 class='h3'>Select a task to become a volunteer</h3>
+
+                                            <form method='POST' action='addVolunteer.php'>
+
+                                                <select class='form-control' name='community_task' id='community_task' required>
                                                     
-                                                echo "
+                                                    <option value="" selected disabled>Select a task</option>
 
-                                                </tbody>
-                                                }
+                                                    <?php
 
-                                            </table>
+                                                        $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id");
 
-                                            ";
-                                        }
+                                                        while($row = pg_fetch_assoc($result))
+                                                        {
 
-                                    ?>
+                                                            $task_id = $row['id'];
+                                                            $type = $row['type'];
+                                                            $detail = $row['detail'];
+
+                                                            echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
+
+                                                        }
+
+                                                    ?>
+
+                                                </select>
+
+                                            </form>
+
+                                        </div>
+
+                                    </div>
 
                                     <br>
 
