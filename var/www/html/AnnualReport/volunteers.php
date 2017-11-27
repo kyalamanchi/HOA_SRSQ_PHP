@@ -220,131 +220,54 @@
 
                                     <?php
 
-                                        $result = pg_query("SELECT * FROM community_disclosures WHERE community_id=$community_id");
+                                        $result = pg_query("SELECT * FROM volunteers WHERE home_id=$home_id AND hoa_id=$hoa_id");
 
-                                        while($row = pg_fetch_assoc($result))
+                                        if(pg_num_rows($result))
                                         {
-
-                                            $notes = $row['notes'];
-                                            $document_id = $row['document_id'];
-                                            $changed_this_year = $row['changed_this_year'];
-                                            $type_id = $row['type_id'];
-
-                                            $row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$type_id"));
-                                            $disclosure_name = $row['name'];
-                                            $desc = $row['desc'];
-                                            $civilcode_section = $row['civilcode_section'];
-                                            $legal_url = $row['legal_url'];
-
-                                            $dname = $disclosure_name;
-
-                                            if($civilcode_section != "")
-                                                $disclosure_name = $disclosure_name." (".$civilcode_section.")";
-
-                                            if($legal_url != '')
-                                                $disclosure_name = "<a target='_blank' href='$legal_url'>$disclosure_name</a>";
-
-                                            if($desc == "")
-                                                $desc = " - ";
-
-                                            if($notes == "")
-                                                $notes = " - ";
-
-                                            if($changed_this_year == 't') 
-                                                $changed_this_year = "Yes"; 
-                                            else if($changed_this_year == 'f') 
-                                                $changed_this_year = "No"; 
-                                            else 
-                                                $changed_this_year = " - ";
-
-                                            if($document_id == "")
-                                                $document = " - ";
-                                            else
-                                                $document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
 
                                             echo "
 
-                                            <div class='row'>
+                                            <table>
+                                        
+                                                <thead>
 
-                                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+                                                    <th>Person</th>
+                                                    <th>Task Type</th>
+                                                    <th>Task Detail</th>
+                                                    <th>Year</th>
+                                                    
+                                                </thead>
 
-                                                    <div class='container module-gray' style='color: black;'>
+                                                <tbody>";
 
-                                                        <br>
+                                                while($row = pg_fetch_assoc($result))
+                                                {
 
-                                                        <div class='row'>
+                                                    $person = $row['person_id'];
+                                                    $task = $row['community_task_id'];
+                                                    $year = $row['year'];
 
-                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+                                                    $ro1 = pg_fetch_assoc(pg_query("SELECT * FROM person WHERE id=$person"));
+                                                    $person = $ro1['fname'];
+                                                    $person .= " ";
+                                                    $person .= $ro1['lname'];
 
-                                                                <strong>Disclosure Name :</strong> $disclosure_name
+                                                    $ro1 = pg_fetch_assoc(pg_query("SELECT * FROM community_task WHERE id=$task"));
+                                                    $task_type = $ro1['type'];
+                                                    $task_detail = $ro1['detail'];
 
-                                                            </div>
+                                                    echo "<tr><td>$person</td><td>$task_type</td><td>$task_detail</td><td>$year</td></tr>";
 
-                                                        </div>
+                                                }
+                                                    
+                                                echo "
 
-                                                        <br>";
+                                                </tbody>
+                                                }
 
-                                                        if($changed_this_year != ' - ')
-                                                            echo "
-
-                                                            <div class='row'>
-
-                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-                                                                    <strong>Changed this year :</strong> $changed_this_year
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <br>
-
-                                                            ";
-
-                                                        if($notes != ' - ')
-                                                            echo "
-
-                                                            <div class='row'>
-
-                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-                                                                    <strong>Board Comments </strong> $notes
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <br>";
-
-                                                        if($document != ' - ')
-                                                            echo "
-
-                                                            <div class='row'>
-
-                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-                                                                    <strong>Document :</strong> $document
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <br>
-
-                                                            ";
-
-                                                    echo "
-
-                                                    </div>
-
-                                                    <br><br>
-
-                                                </div>
-
-                                            </div>
+                                            </table>
 
                                             ";
-
                                         }
 
                                     ?>
