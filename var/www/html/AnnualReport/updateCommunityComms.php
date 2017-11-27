@@ -22,7 +22,7 @@
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 		$inspection_notices = $_POST[$i.'_inspection_notices'];
 
-		echo $persin_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br><br>";
+		echo $person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br><br>";
 
 		$bm_phone = 'NULL';
 		$bm_email = 'NULL';
@@ -194,13 +194,23 @@
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 1, '$today', $user_id, '$bm_phone', '$bm_email', '$today', $user_id)");
 
+		echo "Res 1 : ".$result."<br>";
+
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 4, '$today', $user_id, '$pr_phone', '$pr_email', '$today', $user_id)");
+
+		echo "Res 2 : ".$result."<br>";
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 9, '$today', $user_id, '$lm_phone', '$lm_email', '$today', $user_id)");
 
+		echo "Res 3 : ".$result."<br>";
+
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 14, '$today', $user_id, '$lpp_phone', '$lpp_email', '$today', $user_id)");
 
+		echo "Res 4 : ".$result."<br>";
+
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 16, '$today', $user_id, '$in_phone', '$in_email', '$today', $user_id)");
+
+		echo "Res 5 : ".$result."<br>";
 
 	}
 
