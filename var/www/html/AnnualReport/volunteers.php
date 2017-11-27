@@ -231,7 +231,7 @@
 
                                                     echo "
 
-                                                    <table>
+                                                    <table class='table table-borderd table-striped' style='color: black;'>
                                                 
                                                         <thead>
 
@@ -267,7 +267,6 @@
                                                         echo "
 
                                                         </tbody>
-                                                        }
 
                                                     </table>
 
