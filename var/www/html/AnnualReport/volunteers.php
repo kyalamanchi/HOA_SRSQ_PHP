@@ -306,7 +306,7 @@
 
                                                             $i = 0;
 
-                                                            $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='f'");
+                                                            $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='t'");
 
                                                             while($r = pg_fetch_assoc($res))
                                                             {
