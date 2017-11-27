@@ -16,6 +16,16 @@
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
 	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
+	$today = date('Y-m-d');
+
+	$result = pg_fetch_assoc(pg_query("SELECT * FROM community_annual_report_pages WHERE community_id=$community_id"));
+	$page = $result['hoaid'];
+
+	if($page == 'f')
+		header("Location: homeid.php");
+
+	$result = pg_query("UPDATE community_annual_report_visited SET hoaid_page_visited='t', last_visited_on='$today' WHERE hoa_id=$hoa_id AND home_id=$home_id");
+
 ?>
 
 <!DOCTYPE html>
