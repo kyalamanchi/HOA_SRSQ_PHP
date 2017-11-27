@@ -246,7 +246,7 @@
 												
 													<div class="special-heading m-b-40">
 											
-														<h4><i class="fa fa-support"></i> Reserves Dashboard</h4>
+														<h4><i class="fa fa-support"></i> Reserves Dashboard - 2017</h4>
 										
 													</div>
 
@@ -260,7 +260,7 @@
 		                              
 		                              								<?php 
 
-		                                								$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+		                                								$assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2017"));
 
 		                                								if($assets != '')
 		                                  									echo "<div class='counter-number' style='color: green;'>$assets</div>";
@@ -281,7 +281,7 @@
 
 		                            								<?php 
 
-		                              									$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
+		                              									$row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2017-01-01' AND invoice_date<='2017-12-31'"));
 
 		                              									$repairs = $row['sum'];
 
@@ -308,7 +308,7 @@
 																		
 																		<?php 
 
-																			$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+																			$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
 
 																			$reserves = $row['cur_bal_vs_ideal_bal'];
 
@@ -333,7 +333,7 @@
                                                                         $year = date('Y');
                                                                         $month = date('m');
 
-		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+		                              									$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
 
 		                              									$recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
 
@@ -357,6 +357,120 @@
 														</div>
 
 													</div>
+
+                                                    <div class="special-heading m-b-40">
+                                            
+                                                        <h4><i class="fa fa-support"></i> Reserves Dashboard - 2018</h4>
+                                        
+                                                    </div>
+
+                                                    <div class='container'>
+
+                                                        <div class='row'>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+                                      
+                                                                    <?php 
+
+                                                                        $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2018"));
+
+                                                                        if($assets != '')
+                                                                            echo "<div class='counter-number' style='color: green;'>$assets</div>";
+                                                                        else
+                                                                            echo "<div class='counter-number'>$assets</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Assets</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+
+                                                                    <?php 
+
+                                                                        $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2018-01-01' AND invoice_date<='2018-12-31'"));
+
+                                                                        $repairs = $row['sum'];
+
+                                                                        $repairs = round($repairs, 0);
+                                            
+                                                                        if($repairs > 0)
+                                                                            echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
+                                                                        else
+                                                                            echo "<div class='counter-number'>".$repairs."</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Completed Repairs ($)</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+
+                                                                    <div class='counter-number'>
+                                                                        
+                                                                        <?php 
+
+                                                                            $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                                                                            $reserves = $row['cur_bal_vs_ideal_bal'];
+
+                                                                            echo $reserves;
+
+                                                                        ?>
+                                                                            
+                                                                    </div>
+
+                                                                    <div class='counter-title'>Reserves Funded (%)</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+
+                                                                    <?php 
+                                                                        
+                                                                        $year = date('Y');
+                                                                        $month = date('m');
+
+                                                                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                                                                        $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+
+                                                                        $reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+                                                                        $reserve_allocation = round($reserve_allocation, 0);
+
+                                                                        if($cur_bal_vs_ideal_bal >= 70)
+                                                                            echo "<div class='counter-number' style='color: green;'>".$reserve_allocation."</div>";
+                                                                        else
+                                                                            echo "<div class='counter-number' style='color: orange;'>".$reserve_allocation."</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>YTD Allocation ($)</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
 
 												</div>
 
