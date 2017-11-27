@@ -16,6 +16,41 @@
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
 	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
+    function get_client_ip() {
+
+        $ipaddress = '';
+
+        if (getenv('HTTP_CLIENT_IP'))
+            $ipaddress = getenv('HTTP_CLIENT_IP');
+        else if(getenv('HTTP_X_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_X_FORWARDED_FOR');
+        else if(getenv('HTTP_X_FORWARDED'))
+            $ipaddress = getenv('HTTP_X_FORWARDED');
+        else if(getenv('HTTP_FORWARDED_FOR'))
+            $ipaddress = getenv('HTTP_FORWARDED_FOR');
+        else if(getenv('HTTP_FORWARDED'))
+           $ipaddress = getenv('HTTP_FORWARDED');
+        else if(getenv('REMOTE_ADDR'))
+            $ipaddress = getenv('REMOTE_ADDR');
+        else
+            $ipaddress = 'UNKNOWN';
+
+        return $ipaddress;
+
+    }
+
+    $ip = get_client_ip();
+
+    $today = date('Y-m-d G:i:s');
+
+    $result = pg_fetch_assoc(pg_query("SELECT * FROM community_annual_report_pages WHERE community_id=$community_id"));
+    $page = $result['persons'];
+
+    if($page == 'f')
+        header("Location: homeid.php");
+
+    $result = pg_query("UPDATE community_annual_report_visited SET persons_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
+
 ?>
 
 <!DOCTYPE html>
