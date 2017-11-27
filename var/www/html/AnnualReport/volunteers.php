@@ -290,28 +290,40 @@
 
                                             <form method='POST' action='addVolunteer.php'>
 
-                                                <select class='form-control' name='community_task' id='community_task' required>
-                                                    
-                                                    <option value="" selected disabled>Select a task</option>
+                                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                    <?php
+                                                    <select class='form-control' name='community_task' id='community_task' required>
+                                                        
+                                                        <option value="" selected disabled>Select a task</option>
 
-                                                        $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id");
+                                                        <?php
 
-                                                        while($row = pg_fetch_assoc($result))
-                                                        {
+                                                            $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id");
 
-                                                            $task_id = $row['id'];
-                                                            $type = $row['type'];
-                                                            $detail = $row['detail'];
+                                                            while($row = pg_fetch_assoc($result))
+                                                            {
 
-                                                            echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
+                                                                $task_id = $row['id'];
+                                                                $type = $row['type'];
+                                                                $detail = $row['detail'];
 
-                                                        }
+                                                                echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
 
-                                                    ?>
+                                                            }
 
-                                                </select>
+                                                        ?>
+
+                                                    </select>
+
+                                                </div>
+
+                                                <br>
+
+                                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                    <center><button type='submit'>Submit</button></center>
+
+                                                </div>
 
                                             </form>
 
