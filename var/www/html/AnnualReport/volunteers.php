@@ -318,9 +318,9 @@
                                                                 $pid = $r['id'];
 
                                                                 if($i == 0)
-                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'><input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <label>$fname $lname</label></div>";
+                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'><input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <label style='color: black;'>$fname $lname</label></div>";
                                                                 else
-                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'><input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <label>$fname $lname</label></div>";
+                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'><input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <label style='color: black;'>$fname $lname</label></div>";
 
                                                                 $i++;
 
@@ -331,6 +331,8 @@
                                                     </div>
 
                                                 </div>
+
+                                                <br>
 
                                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
@@ -346,7 +348,7 @@
 
                                                         <?php
 
-                                                            $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id ORDER BY id ASC");
+                                                            $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id ORDER BY type ASC");
 
                                                             while($row = pg_fetch_assoc($result))
                                                             {
