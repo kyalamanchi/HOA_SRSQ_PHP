@@ -232,7 +232,7 @@
                                         
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['hoaid_page_visited']; if($link_enabled == 't') echo "<a href='hoaid.php'>";  print_r($res); ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['hoaid_page_visited']; if($link_enabled == 't') echo "<a href='hoaid.php'>";  print_r($res['hoaid_page_visited']); ?>
                                     
                                         User Details
 
