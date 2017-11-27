@@ -232,7 +232,7 @@
                                         
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='hoaid.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['hoaid_page_visited']; if($link_enabled == 't') echo "<a href='hoaid.php'>"; ?>
                                     
                                         User Details
 
@@ -242,7 +242,7 @@
 
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='homeid.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['homeid_page_visited']; if($link_enabled == 't') echo "<a href='homeid.php'>"; ?>
                                     
                                         Home Details
 
@@ -252,7 +252,7 @@
 
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='persons.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['persons_page_visited']; if($link_enabled == 't') echo "<a href='persons.php'>"; ?>
                                         
                                         <strong style='color: black;'>Persons</strong>
 
@@ -262,7 +262,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='primaryEmail.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['primary_email_page_visited']; if($link_enabled == 't') echo "<a href='primaryEmail.php'>"; ?>
                                     
                                         Primary Email
 
@@ -272,7 +272,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='notifications.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['notifications_page_visited']; if($link_enabled == 't') echo "<a href='notifications.php'>"; ?>
                                     
                                         SMS Notifications
 
@@ -282,7 +282,7 @@
 
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='agreements.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['agreements_page_visited']; if($link_enabled == 't') echo "<a href='agreements.php'>"; ?>
                                     
                                         Agreements
 
@@ -292,7 +292,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='documents.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['documents_page_visited']; if($link_enabled == 't') echo "<a href='documents.php'>"; ?>
                                     
                                         Documents
 
@@ -302,7 +302,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='inspectionNotices.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['inspection_notices_page_visited']; if($link_enabled == 't') echo "<a href='inspectionNotices.php'>"; ?>
                                     
                                         CCR Inspection Notices
 
@@ -312,7 +312,7 @@
 
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='payments.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['payments_page_visited']; if($link_enabled == 't') echo "<a href='payments.php'>"; ?>
                                     
                                         Payments
 
@@ -322,7 +322,7 @@
 
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='factSheet.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['hoa_fact_sheet_page_visited']; if($link_enabled == 't') echo "<a href='factSheet.php'>"; ?>
                                         
                                         HOA Fact Sheet
 
@@ -332,7 +332,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='communityContracts.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['contracts_page_visited']; if($link_enabled == 't') echo "<a href='communityContracts.php'>"; ?>
                                         
                                         Contracts
 
@@ -342,7 +342,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='financialSummary.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['financial_summary_page_visited']; if($link_enabled == 't') echo "<a href='financialSummary.php'>"; ?>
                                         
                                         Financial Summary
 
@@ -352,7 +352,7 @@
 
                                     <li class="breadcrumb-item">
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='disclosures.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['disclosures_page_visited']; if($link_enabled == 't') echo "<a href='disclosures.php'>"; ?>
                                     
                                         Disclosures
 
@@ -362,7 +362,7 @@
 
                                     <li class='breadcrumb-item'>
 
-                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['']; if($link_enabled == 't') echo "<a href='volunteers.php'>"; ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['volunteers_page_visited']; if($link_enabled == 't') echo "<a href='volunteers.php'>"; ?>
                                         
                                         Volunteers
 
