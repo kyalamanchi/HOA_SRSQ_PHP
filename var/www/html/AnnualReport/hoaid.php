@@ -41,6 +41,8 @@
 
 	echo get_client_ip();
 
+	echo "<br><br>Browser:".get_browser();
+
 	$today = date('Y-m-d G:i:s');
 
 	$result = pg_fetch_assoc(pg_query("SELECT * FROM community_annual_report_pages WHERE community_id=$community_id"));
