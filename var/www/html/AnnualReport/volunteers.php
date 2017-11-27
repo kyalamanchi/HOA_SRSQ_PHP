@@ -306,7 +306,7 @@
                                                                 $type = $row['type'];
                                                                 $detail = $row['detail'];
 
-                                                                $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id ORDER BY id");
+                                                                $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id ORDER BY id asc");
 
                                                                 if(pg_num_rows($res1))
                                                                 {
