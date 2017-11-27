@@ -1,3 +1,9 @@
+$('form').change(function(){
+
+	$('#notifications_continue').hide();
+
+});
+
 $('#notifications_back').click(function(){
 
 	window.location = 'primaryEmail.php';
