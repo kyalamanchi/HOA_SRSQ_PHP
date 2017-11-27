@@ -297,7 +297,7 @@
 
                                                         <?php
 
-                                                            $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id");
+                                                            $result = pg_query("SELECT * FROM community_task WHERE community_id=$community_id ORDER BY id ASC");
 
                                                             while($row = pg_fetch_assoc($result))
                                                             {
@@ -306,7 +306,7 @@
                                                                 $type = $row['type'];
                                                                 $detail = $row['detail'];
 
-                                                                $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id ORDER BY id asc");
+                                                                $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id");
 
                                                                 if(pg_num_rows($res1))
                                                                 {
