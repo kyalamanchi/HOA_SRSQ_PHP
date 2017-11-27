@@ -22,7 +22,7 @@
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 		$inspection_notices = $_POST[$i.'_inspection_notices'];
 
-		echo $person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br><br>";
+		echo $community_id." - - - ".$user_id." - - - ".$hoa_id." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br><br>";
 
 		$bm_phone = 'NULL';
 		$bm_email = 'NULL';
