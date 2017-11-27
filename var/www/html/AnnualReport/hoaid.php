@@ -39,9 +39,31 @@
 
 	}
 
+	function getBrowser(){
+        $browser = array("Navigator"            => "/Navigator(.*)/i",
+                         "Firefox"              => "/Firefox(.*)/i",
+                         "Internet Explorer"    => "/MSIE(.*)/i",
+                         "Google Chrome"        => "/chrome(.*)/i",
+                         "MAXTHON"              => "/MAXTHON(.*)/i",
+                         "Opera"                => "/Opera(.*)/i",
+                         );
+        foreach($browser as $key => $value){
+            if(preg_match($value, $this->agent)){
+                $this->info = array_merge($this->info,array("Browser" => $key));
+                $this->info = array_merge($this->info,array(
+                  "Version" => $this->getVersion($key, $value, $this->agent)));
+                break;
+            }else{
+                $this->info = array_merge($this->info,array("Browser" => "UnKnown"));
+                $this->info = array_merge($this->info,array("Version" => "UnKnown"));
+            }
+        }
+        return $this->info['Browser'];
+    }
+
 	echo get_client_ip();
 
-	echo "<br><br>Browser:".get_browser();
+	echo "<br><br>Browser:".getBrowser();
 
 	$today = date('Y-m-d G:i:s');
 
