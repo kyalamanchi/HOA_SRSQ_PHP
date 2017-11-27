@@ -285,7 +285,9 @@
 
                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                            <h3 class='h3'>Select a task to become a volunteer</h3>
+                                            <center><h3 class='h3'>Community Volunteers</h3></center>
+
+                                            <br>
 
                                             <form method='POST' action='addVolunteer.php'>
 
