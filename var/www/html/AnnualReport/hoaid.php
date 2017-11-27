@@ -16,7 +16,7 @@
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
 	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
-	$today = date('Y-m-d');
+	$today = date('Y-m-d G:i:s');
 
 	$result = pg_fetch_assoc(pg_query("SELECT * FROM community_annual_report_pages WHERE community_id=$community_id"));
 	$page = $result['hoaid'];
