@@ -293,6 +293,7 @@
 
                                                 <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
                                                 <input type='hidden' name='home_id' id='home_id' value='$home_id'>
+                                                <input type='hidden' name='community_id' id='community_id' value='$community_id'>
 
                                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
