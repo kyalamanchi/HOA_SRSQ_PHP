@@ -59,6 +59,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        dataSet2.push(data2[i]['transction_id']);
         if  ( data2[i]['is_inserted'] == "Found" ){
             dataSet2.push("    ");
         }
@@ -99,6 +100,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        dataSet2.push(data2[i]['transction_id']);
          if  ( data2[i]['is_inserted'] == "Found" ){
             dataSet2.push("    ");
         }
@@ -140,6 +142,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        dataSet2.push(data2[i]['transction_id']);
          if  ( data2[i]['is_inserted'] == "Found" ){
             dataSet2.push("    ");
         }
@@ -181,6 +184,7 @@ function changeOptions2(button){
         dataSet2.push(data2[i]['entered_by']);
         dataSet2.push(data2[i]['action']);
         dataSet2.push(data2[i]['status']);
+        dataSet2.push(data2[i]['transction_id']);
         if  ( data2[i]['is_inserted'] == "Found" ){
             dataSet2.push("    ");
         }
@@ -223,11 +227,12 @@ $(document).ready(function() {
             "width" : "7%" },
             { title: "Status",
             "width" : "15%" },
+            { title: "TransactionID" },
             { title: "           ",
-            "width" : "25%" }
+            "width" : "10%" }
         ],
         "fnRowCallback": function( nRow, aData, iDisplayIndex, iDisplayIndexFull ) {
-                    if ( aData[8] == "    " )
+                    if ( aData[9] == "    " )
                     {
                         $('td', nRow).css('background-color', '#cce0cc');
                     }

@@ -1,7 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 ini_set("session.save_path","/var/www/html/session/");
   
 session_start();
+
 
 $community_id = $_SESSION['hoa_community_id'];
 
@@ -120,7 +123,12 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
     $finalreturnAddress3 = $cityInfo[$communityFinalReturnAddress3];
     $finalreturnAddress4 = $stateInfo[$communityFinalReturnAddress4]." ".$zipInfo[$communityFinalReturnAddress5];
     $finalPayee = $communityFinalReturnAddress;
+    if ( date('d') <= 15 ){
     $this->Multicell(0,4,"Invoice No : 1-".$homeID."-".$hoaID."-".date('Y')."\nInvoice Date : ".date('Y-m-d')."\nDue Date : ".date('Y-m-'.'15')."\n\n",0,"R");
+    }
+    else {
+    $this->Multicell(0,4,"Invoice No : 1-".$homeID."-".$hoaID."-".date('Y')."\nInvoice Date : ".date('Y-m-d')."\nDue Date : ".date('Y-m-'.'15',strtotime("+1 month"))."\n\n",0,"R"); 
+    }
     $this->Multicell(80,4,"From:\n".$communityLegalName."\n".$communityRemitPaymentAddress."\n".$cityInfo[$communityPaymentCity].", ".$stateInfo[$communityPaymentState]." ".$zipInfo[$communityPaymentZip]."\n\n",0,"LRTB");
     $this->Multicell(80,4,"To:\n".$fname." ".$lname."\n".$address."\n".$cityInfo[$cityId].", ".$stateInfo[$stateId]." ".$zipInfo[$zipId]."\n",0,"LRTB");
     $f = array(0,0);
@@ -218,6 +226,10 @@ while ($row = pg_fetch_assoc($currentChargesQueryResult)) {
 }
 
 
+
+
+
+
 $currentPaymentsQuery = "SELECT * FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeDS." AND (payment_status_id=1 OR payment_status_id=6) ORDER BY process_date";
 $currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
 $currentPaymentsArray = array();
@@ -231,7 +243,7 @@ foreach ($monthsArray as $key ) {
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
             array_push($data2,($value2['id']).'-'.($value2['assessment_rule_type_id']));
-            array_push($data2,$value2['assessment_date'].' | '.$value2['assessment_rule_type_id']);
+            array_push($data2,$value2['assessment_date'].' | '.$assesmentsRuleArray[$value2['assessment_rule_type_id']]);
             array_push($data2,'$ '.$value2['amount']);
             array_push($data2,'');
             array_push($data2,'$ '.$value2['amount']);
@@ -253,7 +265,7 @@ foreach ($monthsArray as $key ) {
         }
     }
 }
-$pdf->SetFont('Arial','',6);
+$pdf->SetFont('Arial','',8);
 $pdf->AddPage();
 if ( $homeDS < 144 ){
     $commID  = 1;
