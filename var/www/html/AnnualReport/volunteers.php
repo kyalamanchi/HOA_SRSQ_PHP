@@ -317,10 +317,14 @@
                                                                 $lname = $r['lname'];
                                                                 $pid = $r['id'];
 
+                                                                echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12>";
+
                                                                 if($i == 0)
-                                                                    echo "<input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <label>$fname $lname</label>";
+                                                                    echo "<input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <strong> $fname $lname</strong>";
                                                                 else
-                                                                    echo "<input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <label>$fname $lname</label>";
+                                                                    echo "<input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <strong> $fname $lname</strong>";
+
+                                                                echo "</div>";
 
                                                                 $i++;
 
