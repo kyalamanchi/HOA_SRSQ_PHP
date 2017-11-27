@@ -300,6 +300,34 @@
 
                                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
+                                                    <div class='row'>
+
+                                                        <?php
+
+                                                            $i = 0;
+
+                                                            $res = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id AND is_active='f'");
+
+                                                            while($r = pg_fetch_assoc($res))
+                                                            {
+
+                                                                $fname = $r['fname'];
+                                                                $lname = $r['lname'];
+                                                                $pid = $r['id'];
+
+                                                                if($i == 0)
+                                                                    echo "<input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <label>$fname $lname</label>";
+                                                                else
+                                                                    echo "<input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <label>$fname $lname</label>";
+
+                                                                $i++;
+
+                                                            }
+
+                                                        ?>
+
+                                                    </div>
+
                                                 </div>
 
                                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
