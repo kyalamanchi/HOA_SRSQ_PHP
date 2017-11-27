@@ -318,9 +318,9 @@
                                                                 $pid = $r['id'];
 
                                                                 if($i == 0)
-                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12><input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <label>$fname $lname</label></div>";
+                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'><input type='radio' id='volunteer_person' name='volunteer_person' checked value='$pid'> <label>$fname $lname</label></div>";
                                                                 else
-                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12><input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <label>$fname $lname</label></div>";
+                                                                    echo "<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12'><input type='radio' id='volunteer_person' name='volunteer_person' value='$pid'> <label>$fname $lname</label></div>";
 
                                                                 $i++;
 
