@@ -321,7 +321,7 @@
 
                                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                    <center><button type='submit'>Submit</button></center>
+                                                    <center><button class='btn btn-info btn-xs' type='submit'>Submit</button></center>
 
                                                 </div>
 
