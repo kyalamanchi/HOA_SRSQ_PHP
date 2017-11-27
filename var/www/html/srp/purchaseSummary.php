@@ -107,55 +107,88 @@
 							        <th>Payee</th>
 							        <th>Category</th>
 							        <th>Total</th>
+							        <th>ATTACHMENT</th>
 
     							</thead>
 
     							<tbody>
-
+            						
             						<?php
+            
+            							setlocale(LC_MONETARY, 'en_US');
 
-							            setlocale(LC_MONETARY, 'en_US');
-							            date_default_timezone_set('America/Los_Angeles');
-							            error_reporting(E_ERROR | E_PARSE);
-							            ini_set('display_errors', 1);
-							            
-							            if($community_id == 2)
-							            {
-								            
-            								$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+            							date_default_timezone_set('America/Los_Angeles');
+            							$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+            							curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+            							curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
+            							curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
+            							curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             
-            								curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-            								curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509541160",oauth_nonce="4u2GbsqN86U",oauth_version="1.0",oauth_signature="OOpV7UMNAkRACPJjJ2SU%2FzidANE%3D"'));
-            								curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase MAXRESULTS 1000");
-            								curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            							$result = curl_exec($ch);
+            							$result =  json_decode($result);
+            							
+            							if ( isset($_GET['id']) ){
             
-            								$result = curl_exec($ch);
-            								$result =  json_decode($result);
-            
-            								foreach ($result->QueryResponse->Purchase as $purchase) 
-            								{
-
+            								foreach ($result->QueryResponse->Purchase as $purchase) {
+                
                 								$name = "";
-
-                								foreach ($purchase->Line as $accountData) 
-                								{
-
+                	
+                								foreach ($purchase->Line as $accountData) {
+                    
                     								if ( $name != "" )
                     									$name = $name."<br>".$accountData->AccountBasedExpenseLineDetail->AccountRef->name;
-                    								else
-                    									$name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
+                    								else 
+                    								{
+                        								
+                        								$name = $accountData->AccountBasedExpenseLineDetail->AccountRef->name;
+
+                    								}
+                								}
+
+                								if ( $purchase->EntityRef->name == $_GET['id'] ) {
+                
+                									echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a></td><td>';
+                        
+                        							$query = "SELECT *  FROM qb_purchase_attchments WHERE COMMUNITY_ID = 2 AND purchase_id=".$purchase->Id;
+                        							$queryResult = pg_query($query);
+                        							$name = "";
+                        							$count  =0;
+                        
+                        							while ($row = pg_fetch_assoc($queryResult)) {
+                            							
+                            							$count  = $count + 1;
+                            							$name =  $row['attachment_name'];
+                        
+                        							}
+                        
+                        							if ( $name == "" ){
+                            							
+                            							echo "No attachment(s) found.";
+                        
+                        							}
+                        
+                        							else if ( $count > 1) {
+                             
+                             							echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachments found".'</a>';
+                        
+                        							}
+                        
+                        							else {
+                            
+                            							echo '<a onClick="a(this);" style="cursor: pointer; cursor: hand;" id="'.$purchase->Id.'">'.$count." attachment found".'</a>';
+                        
+                        							}
+                
+                									echo '</td>';
+                									echo '</tr>';
                 								
                 								}
-                								
-                								echo '<tr><td>'.date('Y-m-d',strtotime($purchase->MetaData->CreateTime)).'</td><td>'.$Purchase->PaymentType.'</td><td>'.$purchase->DocNumber.'</td><td>'.$purchase->EntityRef->name.'</td><td>'.$name.'</td><td><a href="purchaseSummaryDetails.php?id='.$purchase->Id.'">'.money_format('%#10n',  $purchase->TotalAmt).'</a></td></tr>';
-
             								}
-
-            							}
-
+        								}
+        
         							?>
-
-    							</tbody>
+        
+        						</tbody>
 
   							</table>
 
