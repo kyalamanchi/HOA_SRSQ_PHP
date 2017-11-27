@@ -39,31 +39,7 @@
 
 	}
 
-	function getBrowser(){
-        $browser = array("Navigator"            => "/Navigator(.*)/i",
-                         "Firefox"              => "/Firefox(.*)/i",
-                         "Internet Explorer"    => "/MSIE(.*)/i",
-                         "Google Chrome"        => "/chrome(.*)/i",
-                         "MAXTHON"              => "/MAXTHON(.*)/i",
-                         "Opera"                => "/Opera(.*)/i",
-                         );
-        foreach($browser as $key => $value){
-            if(preg_match($value, $this->agent)){
-                $this->info = array_merge($this->info,array("Browser" => $key));
-                $this->info = array_merge($this->info,array(
-                  "Version" => $this->getVersion($key, $value, $this->agent)));
-                break;
-            }else{
-                $this->info = array_merge($this->info,array("Browser" => "UnKnown"));
-                $this->info = array_merge($this->info,array("Version" => "UnKnown"));
-            }
-        }
-        return $this->info['Browser'];
-    }
-
-	echo get_client_ip();
-
-	echo "<br><br>Browser:".getBrowser();
+	$ip = get_client_ip();
 
 	$today = date('Y-m-d G:i:s');
 
@@ -73,7 +49,7 @@
 	if($page == 'f')
 		header("Location: homeid.php");
 
-	$result = pg_query("UPDATE community_annual_report_visited SET hoaid_page_visited='t', last_visited_on='$today' WHERE hoa_id=$hoa_id AND home_id=$home_id");
+	$result = pg_query("UPDATE community_annual_report_visited SET hoaid_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
 ?>
 
