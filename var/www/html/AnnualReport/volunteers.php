@@ -307,7 +307,23 @@
                                                                 $type = $row['type'];
                                                                 $detail = $row['detail'];
 
-                                                                echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
+                                                                $res1 = pg_query("SELECT * FROM volunteers WHERE community_task_id=$task_id AND community_id=$community_id");
+
+                                                                if(pg_num_rows($res1))
+                                                                {
+
+                                                                    $r1 = pg_fetch_assoc($res1);
+
+                                                                    $task_home_id = $r1['home_id'];
+
+                                                                    $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$task_home_id"));
+                                                                    $add = $r1['address1'];
+
+                                                                    echo "<option value='' disabled>".$type." - ".$detail." (".$add.")</option>";
+
+                                                                }
+                                                                else
+                                                                    echo "<option value='".$task_id."'>".$type." - ".$detail."</option>";
 
                                                             }
 
