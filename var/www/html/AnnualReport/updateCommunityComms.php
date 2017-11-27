@@ -22,7 +22,7 @@
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 		$inspection_notices = $_POST[$i.'_inspection_notices'];
 
-		echo $community_id." - - - ".$user_id." - - - ".$hoa_id." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br><br>";
+		echo "<br>".$community_id." - - - ".$user_id." - - - ".$hoa_id." - - - ".$person_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br>";
 
 		$bm_phone = 'NULL';
 		$bm_email = 'NULL';
@@ -191,6 +191,8 @@
 
 		if(pg_num_rows($result))
 			$result = pg_query("DELETE FROM community_comms WHERE hoa_id=$hoa_id AND person_id=$person_id");
+
+		echo $bm_phone." - - -".$bm_email." - - - ".$pr_phone." - - - ".$pr_email." - - - ".$lm_phone." - - - ".$lm_email." - - - ".$lpp_phone." - - - ".$lpp_email." - - - ".$in_phone." - - - ".$in_email."<br>";
 
 		$result = pg_query("INSERT INTO community_comms (community_id, hoa_id, person_id, event_type_id, create_date, created_by, phone, email, updated_on, updated_by) VALUES ($community_id, $hoa_id, $person_id, 1, '$today', $user_id, '$bm_phone', '$bm_email', '$today', $user_id)");
 
