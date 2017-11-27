@@ -22,6 +22,8 @@
 		$late_payment_posted = $_POST[$i.'_late_payment_posted'];
 		$inspection_notices = $_POST[$i.'_inspection_notices'];
 
+		echo $persin_id." - - - ".$board_meeting." - - - ".$payment_received." - - - ".$landscape_maintenance." - - - ".$late_payment_posted." - - - ".$inspection_notices."<br><br>";
+
 		$bm_phone = 'NULL';
 		$bm_email = 'NULL';
 		$pr_phone = 'NULL';
@@ -148,9 +150,6 @@
 			$lpp_email = 'f';
 
 		}
-
-
-
 
 		if($inspection_notices == 'Phone')
 		{
