@@ -289,6 +289,25 @@
 
                                             <form method='POST' action='addVolunteer.php'>
 
+                                                <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                                <input type='hidden' name='home_id' id='home_id' value='$home_id'>
+
+                                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                    <label style='color: black;'><strong>Select Person</strong></label>
+
+                                                </div>
+
+                                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                </div>
+
+                                                <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                                                    <label style='color: black;'><strong>Select Task</strong></label>
+
+                                                </div>
+
                                                 <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
                                                     <select class='form-control' name='community_task' id='community_task' required>
