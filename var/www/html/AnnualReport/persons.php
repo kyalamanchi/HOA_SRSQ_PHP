@@ -51,6 +51,10 @@
 
     $result = pg_query("UPDATE community_annual_report_visited SET persons_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
+    $visited_pages = pg_query("SELECT * FROM community_annual_report_visited WHERE hoa_id=$hoa_id AND home_id=$home_id");
+
+    print_r($visited_pages);
+
 ?>
 
 <!DOCTYPE html>
@@ -232,7 +236,7 @@
                                         
                                     <li class="breadcrumb-item">
 
-                                        <?php print_r(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['hoaid_page_visited']; if($link_enabled == 't') echo "<a href='hoaid.php'>";  echo "dfghjk"; print_r($res['hoaid_page_visited']); ?>
+                                        <?php $res = pg_fetch_assoc(pg_query("SELECT * community_annual_report_visited WHERE home_id=$home_id AND hoa_id=$hoa_id")); $link_enabled = $res['hoaid_page_visited']; if($link_enabled == 't') echo "<a href='hoaid.php'>"; ?>
                                     
                                         User Details
 
