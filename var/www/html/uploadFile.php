@@ -376,17 +376,19 @@ function uploadFile(){
         <label for="comment">Notes:</label>
         <textarea class="form-control" rows="3" id="comment"></textarea>
       </div>
-      </div>
 
-      <br>
       <div class="row-fluid">
-      <label>Disclosure Type</label>
+      <label>Changed this year</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
                       <option data-hidden="true"></option>
                       <option>TRUE</option>
                       <option>FALSE</option>
               </select>
       </div>
+
+      </div>
+
+      <br>
 
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
