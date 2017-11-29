@@ -304,6 +304,11 @@ function uploadFile(){
         item['type'] = "legal";
         item['communty_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['sub_category'] = $("#fileSubCategory").val();
+
+        jsonData.push(item);
+
+        sendData = JSON.stringify(jsonData);
+
         var request  = new XMLHttpRequest();
         request.open("POST", "https://hoaboardtime.com/getFileCategoryDetails.php", true);
         request.setRequestHeader("Content-type", "application/json");
