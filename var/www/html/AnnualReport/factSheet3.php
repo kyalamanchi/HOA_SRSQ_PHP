@@ -443,6 +443,8 @@
 
                                                                         $depreciation = $depreciation['depreciation'];
 
+                                                                        $depreciation = round($depreciation, 0);
+
                                                                         if($depreciation == '')
                                                                             echo "<div class='counter-number'>0</div>";
                                                                         else
@@ -527,7 +529,7 @@
 
 																<div class='counter h6'>
 
-																	<div class='counter-number'>
+																	<div class='counter-number' style='color: orange;'>
 																		
 																		<?php 
 
@@ -600,6 +602,8 @@
                                                                         $depreciation = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
 
                                                                         $depreciation = $depreciation['depreciation'];
+
+                                                                        $depreciation = round($depreciation, 0);
 
                                                                         if($depreciation == '')
                                                                             echo "<div class='counter-number'>0</div>";
@@ -685,7 +689,7 @@
 
                                                                 <div class='counter h6'>
 
-                                                                    <div class='counter-number'>
+                                                                    <div class='counter-number' style='color: red;'>
                                                                         
                                                                         <?php 
 
