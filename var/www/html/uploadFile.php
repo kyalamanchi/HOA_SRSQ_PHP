@@ -302,7 +302,7 @@ function uploadFile(){
         jsonData = [];
         item = {};
         item['type'] = "legal";
-        item['communty_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>
+        item['communty_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['sub_category'] = $("#fileSubCategory").val();
         var request  = new XMLHttpRequest();
         request.open("POST", "https://hoaboardtime.com/getFileCategoryDetails.php", true);
