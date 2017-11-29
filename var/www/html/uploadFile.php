@@ -234,6 +234,21 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
+        jsonData = [];
+        item = {};
+        item['sub_category'] = $("#fileSubCategory").find("option:selected").attr("id");
+        item['legal_date_from'] = document.getElementById('legalDateActualDate').value.split("-")[0];
+        item['legal_date_to'] = document.getElementById('legalDateActualDate').value.split("-")[1];
+        item['delivery_type'] = document.getElementById('deliveryType').value;
+        item['fiscal_year_start'] = document.getElementById('fiscalYearStartEnd').value.split("-")[0];
+        item['fiscal_year_end'] = document.getElementById('fiscalYearStartEnd').value.split("-")[1];
+        item['legal_date_until'] = document.getElementById('legalDateUntil').value;
+        item['notes'] = document.getElementById("comment").value;
+        // item['file_content']  = fileData;
+        item['file_name'] = fileName;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+        alert(sendData);
       }
       else {
         swal("Please select a member","","error");
