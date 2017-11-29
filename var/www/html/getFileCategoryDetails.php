@@ -11,7 +11,7 @@ if ( $parseJSON[0]->type == "legal" ){
      $queryResult = pg_query($query);   
      $row = pg_fetch_assoc($queryResult);
 
-     $result = $row['name'].'@'.$row['short_desc'].'@'.$row['valid_from'].'@'.$row['valid_until'];
+     $result = $row['name'].'@'.$row['short_desc'].'@'.date('mm/dd/yyyy',strtotime($row['valid_from'])).'@'.date('mm/dd/yyyy',strtotime($row['valid_until']));
      echo $result;
 
 }
