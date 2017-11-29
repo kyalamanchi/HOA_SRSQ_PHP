@@ -529,7 +529,7 @@
 
 																<div class='counter h6'>
 
-																	<div class='counter-number'>
+																	<div class='counter-number' style='color: orange;'>
 																		
 																		<?php 
 
@@ -689,7 +689,7 @@
 
                                                                 <div class='counter h6'>
 
-                                                                    <div class='counter-number'>
+                                                                    <div class='counter-number' style='color: red;'>
                                                                         
                                                                         <?php 
 
