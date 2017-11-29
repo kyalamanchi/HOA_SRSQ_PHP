@@ -306,7 +306,7 @@ function uploadFile(){
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
                       <option data-hidden="true"></option>
                       <?php
-                        $query = "SELECT * from doc_mapping where community_id=".$_SESSION['hoa_community_id']." AND CATEGORY='Legal'";
+                        $query = "SELECT * from legal_docs_type where community_id=".$_SESSION['hoa_community_id']." AND CATEGORY='Legal'";
                         $queryResult = pg_query($query);
 
                         $count = 0;
