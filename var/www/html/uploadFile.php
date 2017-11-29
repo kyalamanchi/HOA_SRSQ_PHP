@@ -306,8 +306,9 @@ function uploadFile(){
                         $query = "SELECT * from doc_mapping where community_id=".$_SESSION['hoa_community_id']." AND CATEGORY='Legal'";
                         $queryResult = pg_query($query);
 
+                        $count = 0;
                         while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option>';
+                            echo '<option id="'.$row['id'].'">';
                               echo $row['sub_category'];
                             echo '</option>';
                         }
