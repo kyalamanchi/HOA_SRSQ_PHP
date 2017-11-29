@@ -300,7 +300,6 @@ function uploadFile(){
       <div class="row-fluid">
 
       <label>Sub Category</label>
-              <br>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
                       <option data-hidden="true"></option>
                       <?php
