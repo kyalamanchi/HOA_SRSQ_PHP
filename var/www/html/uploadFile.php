@@ -162,6 +162,7 @@ function updateContent(){
   }
   else {
       document.getElementById("legalContent").hidden = true;
+      document.getElementById("disclosuresContent").hidden = true;
        
   }
 } 
