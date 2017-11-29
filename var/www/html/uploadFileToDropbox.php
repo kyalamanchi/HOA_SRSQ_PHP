@@ -94,7 +94,7 @@ $queryResult = pg_query($query);
 
 $row = pg_fetch_assoc($queryResult);
 
-
+$communityCode = $row['community_code'];
 
 // Upload to Dropbox
 	
