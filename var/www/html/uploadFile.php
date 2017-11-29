@@ -194,7 +194,7 @@ function getFileData()
 }
 
 function getSubCategory(){
-  alert($("#fileSubCategory").id);
+  alert($("#fileSubCategory").find("option:selected").attr("id");
 }
 
 function uploadFile(){
