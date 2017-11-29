@@ -425,16 +425,11 @@ function uploadFile(){
 
       <script type="text/javascript">
             $('.daterange').daterangepicker();
-            $("#fiscalYearStartEnd").daterangepicker({
-<<<<<<< HEAD
-              singleDatePicker: true,
-              showDropdowns: true,
-=======
->>>>>>> 340e5de7e85b0184f45b72a092b6ae18c2498c4d
-               locale: {
-            format: 'YYYY'
-            }
-            });
+            // $("#fiscalYearStartEnd").daterangepicker({
+            //    locale: {
+            // format: 'YYYY'
+            // }
+            // });
       </script>
   </body>
 
