@@ -271,7 +271,13 @@ function uploadFile(){
 
         ?>
         
+        <section class="content-header">
 
+        <h1><strong>Upload file</strong></h1>
+
+        </section>
+        <br>
+        <section class="content" id="content">
                  
 
         <div class="row-fluid">
@@ -302,14 +308,6 @@ function uploadFile(){
               </select>
         </div>
       <br>
-
-      <section class="content-header">
-
-          <h1><strong>Upload file</strong></h1>
-
-        </section>
-        <br>
-        <section class="content" id="content">
 
 
       <br>
