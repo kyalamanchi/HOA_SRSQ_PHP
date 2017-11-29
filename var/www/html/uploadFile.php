@@ -330,7 +330,7 @@ function uploadFile(){
           }
           else {
               document.getElementById('name').value = request.responseText.split('@')[0];
-              alert(request.responseText);
+              document.getElementById('shortDesc').value = request.responseText.split('@').[1];
           }
         }
     }
