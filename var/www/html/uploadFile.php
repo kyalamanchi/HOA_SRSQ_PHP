@@ -248,9 +248,10 @@ function uploadFile(){
         item['notes'] = document.getElementById("comment").value;
         item['file_content']  = fileData;
         item['file_name'] = fileName;
+        item['changed_this_year'] = $("#changedThisYear").val();
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-
+        alert(sendData);
       }
       else {
         swal("Please select a Category","","error");
@@ -367,29 +368,22 @@ function uploadFile(){
       <label>Fiscal Year Start - End</label>
       <input type="text" class="form-control daterange" id="fiscalYearStartEnd"/>
       <br>
-      <br>
       <label>Legal Date Until</label>
       <input type="text" class="form-control daterange" id="legalDateUntil"/>
       <br>
-
       <div class="form-group" style="width: 35%">
         <label for="comment">Notes:</label>
         <textarea class="form-control" rows="3" id="comment"></textarea>
       </div>
-
       <div class="row-fluid">
       <label>Changed this year</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="changedThisYear" >
                       <option data-hidden="true"></option>
                       <option>TRUE</option>
                       <option>FALSE</option>
               </select>
       </div>
-
       </div>
-
-      <br>
-
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
