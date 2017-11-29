@@ -164,6 +164,7 @@ function updateContent(){
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
+      document.getElementById("disclosuresContent").hidden = false;
   }
   else if ( type == "Legal document" ){
 
@@ -242,6 +243,10 @@ function uploadFile(){
         }
         }
       } 
+      else if ( $("#fileType").val() == "Disclosure" ){
+
+
+      }
       else {
         swal("Please select a member","","error");
       }
@@ -332,7 +337,12 @@ function uploadFile(){
         <label for="short_desc">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
-      </div>    
+      </div>  
+
+      <div id="disclosuresContent" hidden="hidden">
+        
+      </div>
+
       <br>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       <br>
