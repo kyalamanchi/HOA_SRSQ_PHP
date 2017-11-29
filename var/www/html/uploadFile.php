@@ -236,12 +236,19 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
+<<<<<<< HEAD
+=======
+        alert(document.getElementById('deliveryType').value);
+>>>>>>> eaffc115b74026bd1f905d8139d7b604a624a8b7
         if ( (document.getElementById('deliveryType').value == 'undefined' ) ){
           swal("Delivery type is empty","","error");
           return;
         }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> eaffc115b74026bd1f905d8139d7b604a624a8b7
         jsonData = [];
         item = {};
         item['sub_category'] = $("#disclosureFileSubCategory  ").find("option:selected").attr("id");
@@ -415,7 +422,6 @@ function uploadFile(){
       <div class="row-fluid">
       <label>Changed this year</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="changedThisYear" >
-                      <option data-hidden="true"></option>
                       <option>TRUE</option>
                       <option>FALSE</option>
               </select>
