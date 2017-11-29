@@ -474,6 +474,8 @@
 
                                                                         $result = ($bb - $usb) / $tu;
 
+                                                                        $result = round($result, 0);
+
                                                                         echo "<div class='counter-number'>$result</div>";
 
                                                                     ?>
@@ -638,6 +640,8 @@
                                                                         $tu = $result['total_units'];
 
                                                                         $result = ($bb - $usb) / $tu;
+
+                                                                        $result = round($result, 0);
 
                                                                         echo "<div class='counter-number'>$result</div>";
 
