@@ -407,11 +407,11 @@
                                             $changed_this_year = $row['changed_this_year'];
                                             $type_id = $row['type_id'];
 
-                                            $row = pg_fetch_assoc(pg_query("SELECT * FROM disclosure_type WHERE id=$type_id"));
-                                            $disclosure_name = $row['name'];
-                                            $desc = $row['desc'];
-                                            $civilcode_section = $row['civilcode_section'];
-                                            $legal_url = $row['legal_url'];
+                                            $row1 = pg_fetch_assoc(pg_query("SELECT * FROM disclosure_type WHERE id=$type_id"));
+                                            $disclosure_name = $row1['name'];
+                                            $desc = $row1['desc'];
+                                            $civilcode_section = $row1['civilcode_section'];
+                                            $legal_url = $row1['legal_url'];
 
                                             $dname = $disclosure_name;
 
