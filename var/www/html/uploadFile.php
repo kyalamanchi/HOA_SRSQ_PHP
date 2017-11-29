@@ -250,7 +250,7 @@ function uploadFile(){
         item['file_name'] = fileName;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-        
+
       }
       else {
         swal("Please select a Category","","error");
@@ -354,7 +354,7 @@ function uploadFile(){
                         }
                       ?>
               </select>
-        </div>
+      </div>
       <br>
       <label>Legal date from - Actual Date</label>
       <input type="text" class="form-control daterange" id="legalDateActualDate"/>
@@ -379,7 +379,16 @@ function uploadFile(){
       </div>
 
       <br>
+      <div class="row-fluid">
+      <label>Disclosure Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+                      <option data-hidden="true"></option>
+                      <option>TRUE</option>
+                      <option>FALSE</option>
+              </select>
+      </div>
 
+      <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
