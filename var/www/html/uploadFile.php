@@ -314,8 +314,6 @@ function uploadFile(){
                       <?php
                         $query = "SELECT * from legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
                         $queryResult = pg_query($query);
-
-                        $count = 0;
                         while ($row = pg_fetch_assoc($queryResult)) {
                             echo '<option id="'.$row['id'].'">';
                               echo $row['name'];
@@ -340,7 +338,23 @@ function uploadFile(){
       </div>  
 
       <div id="disclosuresContent" hidden="hidden">
-        <h1>Disclosures Content</h1>
+
+      <div class="row-fluid">
+      <label>Disclosure Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+        </div>
+        <br>s
         
       </div>
 
