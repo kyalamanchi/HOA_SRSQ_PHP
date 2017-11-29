@@ -236,6 +236,7 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
+        alert($("#fileSubCategory").find("option:selected").attr("id"));
         jsonData = [];
         item = {};
         item['sub_category'] = $("#fileSubCategory").find("option:selected").attr("id");
