@@ -44,10 +44,10 @@
     $today = date('Y-m-d G:i:s');
 
     $result = pg_fetch_assoc(pg_query("SELECT * FROM community_annual_report_pages WHERE community_id=$community_id"));
-    $page = $result['hoaid'];
+    $page = $result['notifications'];
 
     if($page == 'f')
-        header("Location: homeid.php");
+        header("Location: agreements.php");
 
     $result = pg_query("UPDATE community_annual_report_visited SET notifications_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
 

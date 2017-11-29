@@ -47,7 +47,7 @@
     $page = $result['persons'];
 
     if($page == 'f')
-        header("Location: homeid.php");
+        header("Location: primaryEmail.php");
 
     $result = pg_query("UPDATE community_annual_report_visited SET persons_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
