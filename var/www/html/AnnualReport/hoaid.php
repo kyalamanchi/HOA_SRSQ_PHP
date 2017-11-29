@@ -51,6 +51,23 @@
 
 	$result = pg_query("UPDATE community_annual_report_visited SET hoaid_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
+	$visited_pages = pg_query("SELECT * FROM community_annual_report_visited WHERE hoa_id=$hoa_id AND home_id=$home_id");
+    $visited_pages = pg_fetch_assoc($visited_pages);
+    $hoaid_page_visited = $visited_pages['hoaid_page_visited'];
+    $homeid_page_visited = $visited_pages['homeid_page_visited'];
+    $persons_page_visited = $visited_pages['persons_page_visited'];
+    $primary_email_page_visited = $visited_pages['primary_email_page_visited'];
+    $notifications_page_visited = $visited_pages['notifications_page_visited'];
+    $agreements_page_visited = $visited_pages['agreements_page_visited'];
+    $documents_page_visited = $visited_pages['documents_page_visited'];
+    $payments_page_visited = $visited_pages['payments_page_visited'];
+    $hoa_fact_sheet_page_visited = $visited_pages['hoa_fact_sheet_page_visited'];
+    $disclosures_page_visited = $visited_pages['disclosures_page_visited'];
+    $contracts_page_visited = $visited_pages['contracts_page_visited'];
+    $financial_summary_page_visited = $visited_pages['financial_summary_page_visited'];
+    $volunteers_page_visited = $visited_pages['volunteers_page_visited'];
+    $inspection_notices_page_visited = $visited_pages['inspection_notices_page_visited'];
+
 ?>
 
 <!DOCTYPE html>
@@ -227,25 +244,150 @@
 	                    <div class='row-page-title'>
 	                                        
 	                        <div class='page-title-captions'>
-	                                            
-	                            <ol class="breadcrumb">
-	                                    
-	                                <li class="breadcrumb-item"><strong style='color: black;'>User Details</strong></li>
-	                                <li class="breadcrumb-item">Home Details</li>
-	                                <li class="breadcrumb-item">Persons</li>
-	                                <li class='breadcrumb-item'>Primary Email</li>
-	                                <li class='breadcrumb-item'>SMS Notifications</li>
-	                                <li class="breadcrumb-item">Agreements</li>
-	                                <li class='breadcrumb-item'>Documents</li>
-                                    <li class='breadcrumb-item'>CCR Inspection Notices</li>
-	                                <li class="breadcrumb-item">Payments</li>
-	                                <li class="breadcrumb-item">HOA Fact Sheet</li>
-                                    <li class='breadcrumb-item'>Contracts</li>
-                                    <li class='breadcrumb-item'>Financial Summary</li>
-	                                <li class="breadcrumb-item">Disclosures</li>
-	                                <li class='breadcrumb-item'>Volunteers</li>
 
-	                            </ol>
+	                        	<ol class="breadcrumb">
+                                        
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($hoaid_page_visited == 't') echo "<a href='hoaid.php'>"; ?>
+                                    
+                                        <strong style='color: black;'>User Details</strong>
+
+                                        <?php if($hoaid_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($homeid_page_visited == 't') echo "<a href='homeid.php'>"; ?>
+                                    
+                                        Home Details
+
+                                        <?php if($homeid_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($persons_page_visited == 't') echo "<a href='persons.php'>"; ?>
+                                        
+                                        Persons
+
+                                        <?php if($persons_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($primary_email_page_visited == 't') echo "<a href='primaryEmail.php'>"; ?>
+                                    
+                                        Primary Email
+
+                                        <?php if($primary_email_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($notifications_page_visited == 't') echo "<a href='notifications.php'>"; ?>
+                                    
+                                        SMS Notifications
+
+                                        <?php if($notifications_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($agreements_page_visited == 't') echo "<a href='agreements.php'>"; ?>
+                                    
+                                        Agreements
+
+                                        <?php if($agreements_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($documents_page_visited == 't') echo "<a href='documents.php'>"; ?>
+                                    
+                                        Documents
+
+                                        <?php if($documents_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($inspection_notices_page_visited == 't') echo "<a href='inspectionNotices.php'>"; ?>
+                                    
+                                        CCR Inspection Notices
+
+                                        <?php if($inspection_notices_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($payments_page_visited == 't') echo "<a href='payments.php'>"; ?>
+                                    
+                                        Payments
+
+                                        <?php if($payments_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($hoa_fact_sheet_page_visited == 't') echo "<a href='factSheet.php'>"; ?>
+                                        
+                                        HOA Fact Sheet
+
+                                        <?php if($hoa_fact_sheet_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($contracts_page_visited == 't') echo "<a href='communityContracts.php'>"; ?>
+                                        
+                                        Contracts
+
+                                        <?php if($contracts_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($financial_summary_page_visited == 't') echo "<a href='financialSummary.php'>"; ?>
+                                        
+                                        Financial Summary
+
+                                        <?php if($financial_summary_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class="breadcrumb-item">
+
+                                        <?php if($disclosures_page_visited == 't') echo "<a href='disclosures.php'>"; ?>
+                                    
+                                        Disclosures
+
+                                        <?php if($disclosures_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                    <li class='breadcrumb-item'>
+
+                                        <?php if($volunteers_page_visited == 't') echo "<a href='volunteers.php'>"; ?>
+                                        
+                                        Volunteers
+
+                                        <?php if($volunteers_page_visited == 't') echo "</a>"; ?>
+
+                                    </li>
+
+                                </ol>
 	                                        
 	                        </div>
 	                                    
