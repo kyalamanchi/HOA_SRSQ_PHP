@@ -45,7 +45,7 @@
     if($page == 'f')
         header("Location: homeid.php");
 
-    $result = pg_query("UPDATE community_annual_report_visited SET hoaid_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
+    $result = pg_query("UPDATE community_annual_report_visited SET hoa_fact_sheet_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
     $visited_pages = pg_query("SELECT * FROM community_annual_report_visited WHERE hoa_id=$hoa_id AND home_id=$home_id");
     $visited_pages = pg_fetch_assoc($visited_pages);
