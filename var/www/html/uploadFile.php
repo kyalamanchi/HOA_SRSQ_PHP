@@ -302,7 +302,7 @@ function uploadFile(){
         jsonData = [];
         item = {};
         item['type'] = "legal";
-        item['communty_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['sub_category'] = $("#fileSubCategory").val();
 
         jsonData.push(item);
