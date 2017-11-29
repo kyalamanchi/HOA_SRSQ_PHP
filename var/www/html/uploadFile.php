@@ -334,9 +334,6 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
-      </label>
-      <h5 id="label"></h5>
       </div>  
 
       <div id="disclosuresContent" hidden="hidden">
@@ -377,10 +374,13 @@ function uploadFile(){
         <label for="comment">Notes:</label>
         <textarea class="form-control" rows="3" id="comment"></textarea>
       </div>
+      </div>
+
+      <br>
+
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>      
       </label>
       <h5 id="label"></h5>
-      </div>
 
       <br>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
