@@ -36,27 +36,15 @@
 
 <!--     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" /> -->
-
-  
-
-
-
-
-
-
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-
-
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
 <!--       <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.min.js"></script>   -->
-
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 
@@ -164,6 +152,7 @@ function updateContent(){
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
+      document.getElementById("disclosuresContent").hidden = false;
   }
   else if ( type == "Legal document" ){
 
@@ -193,6 +182,8 @@ function getFileData()
   document.getElementById("saveButton").disabled = false;
 }
 
+
+
 function uploadFile(){
   if($("#fileType").val() == "Legal document"){
       var name = document.getElementById("name").value;
@@ -211,6 +202,7 @@ function uploadFile(){
       item["valid_until"] = endDate;
       item["file_content"] = fileData;
       item["file_type"] = "legal";
+      item["file_sub_category"] = $("#fileSubCategory").find("option:selected").attr("id");
       jsonData.push(item);
       sendData = JSON.stringify(jsonData);
         var request  = new XMLHttpRequest();
@@ -233,11 +225,16 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
+
             swal("File uploaded to dropbox Successfully.","","success");
           }
         }
         }
       } 
+      else if ( $("#fileType").val() == "Disclosure" ){
+
+
+      }
       else {
         swal("Please select a member","","error");
       }
@@ -296,6 +293,24 @@ function uploadFile(){
       </label>
       <h5 id="label"></h5>
       <div  id="legalContent" hidden="hidden">
+
+      <div class="row-fluid">
+
+      <label>Sub Category</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+        </div>
+      <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" id="daterange"/>
       <br>
@@ -308,7 +323,36 @@ function uploadFile(){
         <label for="short_desc">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
-      </div>    
+      </div>  
+
+      <div id="disclosuresContent" hidden="hidden">
+
+      <div class="row-fluid">
+      <label>Disclosure Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+        </div>
+      <br>
+      <label>Legal date from - Actual Date</label>
+      <input type="text" class="form-control daterange" id="legalDateActualDate"/>
+      <br>
+      <div >
+        <label for="deliveryType">Delivery Type</label>
+        <input class="form-control" id="deliveryType" type="text">
+      </div>
+        
+      </div>
+
       <br>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       <br>
