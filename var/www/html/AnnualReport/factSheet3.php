@@ -597,6 +597,50 @@
                                       
                                                                     <?php 
 
+                                                                        $depreciation = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                                                                        $depreciation = $depreciation['depreciation'];
+
+                                                                        if($depreciation == '')
+                                                                            echo "<div class='counter-number'>0</div>";
+                                                                        else
+                                                                            echo "<div class='counter-number'>$depreciation</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Annual Depreciation ($)</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+                                      
+                                                                    <?php 
+
+                                                                        $assets = pg_num_rows(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                                                                        if($assets != '')
+                                                                            echo "<div class='counter-number' style='color: green;'>$assets</div>";
+                                                                        else
+                                                                            echo "<div class='counter-number'>$assets</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Deficit Per Home</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+                                      
+                                                                    <?php 
+
                                                                         $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2018"));
 
                                                                         if($assets != '')
