@@ -248,9 +248,10 @@ function uploadFile(){
         item['notes'] = document.getElementById("comment").value;
         item['file_content']  = fileData;
         item['file_name'] = fileName;
+        item['changed_this_year'] = $("#changedThisYear").val();
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-
+        alert(sendData);
       }
       else {
         swal("Please select a Category","","error");
@@ -376,7 +377,7 @@ function uploadFile(){
       </div>
       <div class="row-fluid">
       <label>Changed this year</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="changedThisYear" >
                       <option data-hidden="true"></option>
                       <option>TRUE</option>
                       <option>FALSE</option>
