@@ -271,13 +271,7 @@ function uploadFile(){
 
         ?>
         
-        <section class="content-header">
 
-          <h1><strong>Upload file</strong></h1>
-
-        </section>
-        <br>
-        <section class="content" id="content">
                  
 
         <div class="row-fluid">
@@ -298,7 +292,7 @@ function uploadFile(){
       <div  id="legalContent" hidden="hidden">
 
       <div class="row-fluid">
-      <label>SUb Category</label>
+      <label>Sub Category</label>
               <br>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
                       <option data-hidden="true"></option>
@@ -307,6 +301,17 @@ function uploadFile(){
                       <option>Insurance</option>
               </select>
         </div>
+      <br>
+
+      <section class="content-header">
+
+          <h1><strong>Upload file</strong></h1>
+
+        </section>
+        <br>
+        <section class="content" id="content">
+
+
       <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" id="daterange"/>
