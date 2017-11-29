@@ -16,7 +16,7 @@ $shortDesc = $parseJSON[0]->short_desc;
 $validFrom = $parseJSON[0]->valid_from;
 $validUntil = $parseJSON[0]->valid_until;
 $fileContent = $parseJSON[0]->file_content;
-
+$subCategory = $parseJSON[0]->file_sub_category;
 //Get community Info
 
 $query = "SELECT * FROM USR WHERE ID=".$uploaderId;
@@ -61,7 +61,7 @@ $path = "/Legal Documents/".$communityCode."/".$fileName;
 
  else {
 
- 	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,tech_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$response->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."')";
+ 	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,tech_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from,legal_docs_type_id) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$response->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."',".$subCategory.")";
  	pg_query($query);
  }
 
