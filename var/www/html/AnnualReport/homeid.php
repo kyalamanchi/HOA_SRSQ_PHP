@@ -473,7 +473,7 @@
 											$document_id = $row['document_id'];
 											$changed_this_year = $row['changed_this_year'];
 
-											$row = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=14"));
+											$row = pg_fetch_assoc(pg_query("SELECT * FROM disclosure_type WHERE id=14"));
 											$disclosure_name = $row['name'];
 											$desc = $row['desc'];
 											$civilcode_section = $row['civilcode_section'];
@@ -503,57 +503,90 @@
 											else
 												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
 
+											echo "
+
+                                            <div class='row'>
+
+                                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+
+                                                    <div class='container module-gray' style='color: black;'>
+
+                                                        <br>
+
+                                                        <div class='row'>
+
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                <strong>Disclosure Name :</strong> $disclosure_name
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <br>";
+
+                                                        if($changed_this_year != ' - ')
+                                                            echo "
+
+                                                            <div class='row'>
+
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Changed this year :</strong> $changed_this_year
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <br>
+
+                                                            ";
+
+                                                        if($notes != ' - ')
+                                                            echo "
+
+                                                            <div class='row'>
+
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Board Comments </strong> $notes
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <br>";
+
+                                                        if($document != ' - ')
+                                                            echo "
+
+                                                            <div class='row'>
+
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Document :</strong> $document
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <br>
+
+                                                            ";
+
+                                                    echo "
+
+                                                    </div>
+
+                                                    <br>
+
+                                                </div>
+
+                                            </div>
+
+                                            ";
+
 										?>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Disclosure Name :</strong> <?php echo $disclosure_name; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Changed this year :</strong> <?php echo $changed_this_year; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Board Comments </strong> <?php echo $notes; ?>
-
-											</div>
-
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
-
-												<strong>Document :</strong> <?php echo $document; ?>
-
-											</div>
-
-										</div>
-
-										<br>
 
 									</div>
 
