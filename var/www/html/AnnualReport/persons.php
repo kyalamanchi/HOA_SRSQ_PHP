@@ -53,7 +53,11 @@
 
     $visited_pages = pg_query("SELECT * FROM community_annual_report_visited WHERE hoa_id=$hoa_id AND home_id=$home_id");
 
-    print_r($visited_pages);
+    print_r("Res : ".$visited_pages);
+
+    $visited_pages = pg_fetch_assoc($visited_pages);
+
+    print_r("Ans : ".$visited_pages);
 
 ?>
 
