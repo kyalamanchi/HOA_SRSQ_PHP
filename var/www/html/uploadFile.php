@@ -193,9 +193,7 @@ function getFileData()
   document.getElementById("saveButton").disabled = false;
 }
 
-function getSubCategory(){
-  alert($("#fileSubCategory").find("option:selected").attr("id"));
-}
+
 
 function uploadFile(){
   if($("#fileType").val() == "Legal document"){
@@ -215,6 +213,7 @@ function uploadFile(){
       item["valid_until"] = endDate;
       item["file_content"] = fileData;
       item["file_type"] = "legal";
+      item["file_sub_category"] = $("#fileSubCategory").find("option:selected").attr("id");
       jsonData.push(item);
       sendData = JSON.stringify(jsonData);
         var request  = new XMLHttpRequest();
@@ -304,7 +303,7 @@ function uploadFile(){
       <div class="row-fluid">
 
       <label>Sub Category</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" onchange="getSubCategory();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from doc_mapping where community_id=".$_SESSION['hoa_community_id']." AND CATEGORY='Legal'";
