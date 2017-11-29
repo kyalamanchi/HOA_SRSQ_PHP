@@ -298,13 +298,21 @@ function uploadFile(){
       <div  id="legalContent" hidden="hidden">
 
       <div class="row-fluid">
+
       <label>Sub Category</label>
               <br>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
                       <option data-hidden="true"></option>
-                      <option>Legal document</option>
-                      <option>Disclosure</option>
-                      <option>Insurance</option>
+                      <?php
+                        $query = "SELECT * from doc_mapping where community_id=".$_SESSION['hoa_community_id']." AND CATEGORY='Legal'";
+                        $queryResult = pg_query($query);
+
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option>';
+                              echo $row['sub_category'];
+                            echo '</option>';
+                        }
+                      ?>
               </select>
         </div>
       <br>
