@@ -443,7 +443,10 @@
 
                                                                         $depreciation = $depreciation['depreciation'];
 
-                                                                        echo "<div class='counter-number'>$depreciation</div>";
+                                                                        if($depreciation == '')
+                                                                            echo "<div class='counter-number'>0</div>";
+                                                                        else
+                                                                            echo "<div class='counter-number'>$depreciation</div>";
 
                                                                     ?>
 
