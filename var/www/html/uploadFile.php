@@ -359,7 +359,7 @@ function uploadFile(){
       <input type="text" class="form-control daterange" id="legalDateUntil"/>
       <br>
 
-      <div class="form-group">
+      <div class="form-group" style="width: 35%">
         <label for="comment">Notes:</label>
         <textarea class="form-control" rows="5" id="comment"></textarea>
       </div>
