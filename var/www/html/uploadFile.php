@@ -340,6 +340,7 @@ function uploadFile(){
       </div>  
 
       <div id="disclosuresContent" hidden="hidden">
+        <h1>Disclosures Content</h1>
         
       </div>
 
