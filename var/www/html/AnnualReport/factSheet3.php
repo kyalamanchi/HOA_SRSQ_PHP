@@ -601,6 +601,8 @@
 
                                                                         $depreciation = $depreciation['depreciation'];
 
+                                                                        $depreciation = round($depreciation, 0);
+
                                                                         if($depreciation == '')
                                                                             echo "<div class='counter-number'>0</div>";
                                                                         else
