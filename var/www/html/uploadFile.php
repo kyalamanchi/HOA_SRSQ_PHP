@@ -426,8 +426,6 @@ function uploadFile(){
       <script type="text/javascript">
             $('.daterange').daterangepicker();
             $("#fiscalYearStartEnd").daterangepicker({
-              singleDatePicker: true,
-              showDropdowns: true,
                locale: {
             format: 'YYYY'
             }
