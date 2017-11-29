@@ -149,6 +149,7 @@ function updateContent(){
 
   if ( type == "Legal document" ){
   document.getElementById("legalContent").hidden = false;
+  document.getElementById("disclosuresContent").hidden = true;
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
@@ -288,9 +289,6 @@ function uploadFile(){
               </select>
         </div>
       <br>
-
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
-      </label>
       <h5 id="label"></h5>
       <div  id="legalContent" hidden="hidden">
 
@@ -323,6 +321,8 @@ function uploadFile(){
         <label for="short_desc">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
+      </label>
       </div>  
 
       <div id="disclosuresContent" hidden="hidden">
@@ -363,7 +363,8 @@ function uploadFile(){
         <label for="comment">Notes:</label>
         <textarea class="form-control" rows="3" id="comment"></textarea>
       </div>
-        
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
+      </label>
       </div>
 
       <br>
