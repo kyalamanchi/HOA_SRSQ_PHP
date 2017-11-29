@@ -236,7 +236,7 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
-        if ( document.getElementById('deliveryType').value == null ){
+        if (document.getElementById('deliveryType').value){
           swal("Delivery type is empty","","error");
           return;
         }
