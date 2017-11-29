@@ -428,9 +428,12 @@ function uploadFile(){
 </script> -->
 
       <script type="text/javascript">
-            $('.daterange').daterangepicker();
+            $('.daterange').daterangepicker({
+              showDropdowns: true
+            });
             $("#legalDateUntil").daterangepicker({
-              singleDatePicker: true
+              singleDatePicker: true,
+              showDropdowns: true
             });
       </script>
   </body>
