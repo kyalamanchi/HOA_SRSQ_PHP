@@ -300,7 +300,7 @@ function uploadFile(){
       <div class="row-fluid">
 
       <label>Sub Category</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory">
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from doc_mapping where community_id=".$_SESSION['hoa_community_id']." AND CATEGORY='Legal'";
