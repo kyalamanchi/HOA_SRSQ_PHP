@@ -503,6 +503,89 @@
 											else
 												$document = "<a target='_blank' href='$document_id'>$document_id</a>";
 
+											echo "
+
+                                            <div class='row'>
+
+                                                <div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+
+                                                    <div class='container module-gray' style='color: black;'>
+
+                                                        <br>
+
+                                                        <div class='row'>
+
+                                                            <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                <strong>Disclosure Name :</strong> $disclosure_name
+
+                                                            </div>
+
+                                                        </div>
+
+                                                        <br>";
+
+                                                        if($changed_this_year != ' - ')
+                                                            echo "
+
+                                                            <div class='row'>
+
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Changed this year :</strong> $changed_this_year
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <br>
+
+                                                            ";
+
+                                                        if($notes != ' - ')
+                                                            echo "
+
+                                                            <div class='row'>
+
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Board Comments </strong> $notes
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <br>";
+
+                                                        if($document != ' - ')
+                                                            echo "
+
+                                                            <div class='row'>
+
+                                                                <div class='col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12 offset-xl-2 offset-lg-2 offset-md-1'>
+
+                                                                    <strong>Document :</strong> $document
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <br>
+
+                                                            ";
+
+                                                    echo "
+
+                                                    </div>
+
+                                                    <br><br>
+
+                                                </div>
+
+                                            </div>
+
+                                            ";
+
 										?>
 
 										<br>
