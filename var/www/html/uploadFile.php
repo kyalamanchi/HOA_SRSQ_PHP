@@ -296,6 +296,18 @@ function uploadFile(){
       </label>
       <h5 id="label"></h5>
       <div  id="legalContent" hidden="hidden">
+
+      <div class="row-fluid">
+      <label>SUb Category</label>
+              <br>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
+                      <option data-hidden="true"></option>
+                      <option>Legal document</option>
+                      <option>Disclosure</option>
+                      <option>Insurance</option>
+              </select>
+        </div>
+      <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" id="daterange"/>
       <br>
