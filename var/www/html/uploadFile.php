@@ -236,10 +236,10 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
-        alert($("#fileSubCategory").find("option:selected").attr("id"));
+        alert($("#disclosureFileSubCategory").find("option:selected").attr("id"));
         jsonData = [];
         item = {};
-        item['sub_category'] = $("#fileSubCategory").find("option:selected").attr("id");
+        item['sub_category'] = $("#disclosureFileSubCategory").find("option:selected").attr("id");
         item['legal_date_from'] = document.getElementById('legalDateActualDate').value.split("-")[0];
         item['legal_date_to'] = document.getElementById('legalDateActualDate').value.split("-")[1];
         item['delivery_type'] = document.getElementById('deliveryType').value;
@@ -376,7 +376,7 @@ function uploadFile(){
 
       <div class="row-fluid">
       <label>Disclosure Type</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" >
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
