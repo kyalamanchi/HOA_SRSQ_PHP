@@ -393,7 +393,7 @@
 
                                         <?php if($hoa_fact_sheet_page_visited == 't') echo "<a href='factSheet.php'>"; ?>
                                         
-                                        HOA Fact Sheet
+                                        <strong style='color: black;'>HOA Fact Sheet</strong>
 
                                         <?php if($hoa_fact_sheet_page_visited == 't') echo "</a>"; ?>
 

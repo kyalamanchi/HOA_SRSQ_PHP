@@ -321,7 +321,7 @@
 
                                         <?php if($inspection_notices_page_visited == 't') echo "<a href='inspectionNotices.php'>"; ?>
                                     
-                                        CCR Inspection Notices
+                                        <strong style='color: black;'>CCR Inspection Notices</strong>
 
                                         <?php if($inspection_notices_page_visited == 't') echo "</a>"; ?>
 

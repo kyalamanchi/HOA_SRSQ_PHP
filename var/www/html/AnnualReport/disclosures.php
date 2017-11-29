@@ -358,7 +358,7 @@
 
                                         <?php if($disclosures_page_visited == 't') echo "<a href='disclosures.php'>"; ?>
                                     
-                                        Disclosures
+                                        <strong style='color: black;'>Disclosures</strong>
 
                                         <?php if($disclosures_page_visited == 't') echo "</a>"; ?>
 

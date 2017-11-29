@@ -301,7 +301,7 @@
 
                                         <?php if($agreements_page_visited == 't') echo "<a href='agreements.php'>"; ?>
                                     
-                                        Agreements
+                                        <strong style='color: black;'>Agreements</strong>
 
                                         <?php if($agreements_page_visited == 't') echo "</a>"; ?>
 

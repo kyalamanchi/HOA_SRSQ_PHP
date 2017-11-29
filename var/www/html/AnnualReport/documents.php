@@ -311,7 +311,7 @@
 
                                         <?php if($documents_page_visited == 't') echo "<a href='documents.php'>"; ?>
                                     
-                                        Documents
+                                        <strong style='color: black;'>Documents</strong>
 
                                         <?php if($documents_page_visited == 't') echo "</a>"; ?>
 

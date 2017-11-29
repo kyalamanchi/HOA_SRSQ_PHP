@@ -323,7 +323,7 @@
 
                                         <?php if($payments_page_visited == 't') echo "<a href='payments.php'>"; ?>
                                     
-                                        Payments
+                                        <strong style='color: black;'>Payments</strong>
 
                                         <?php if($payments_page_visited == 't') echo "</a>"; ?>
 

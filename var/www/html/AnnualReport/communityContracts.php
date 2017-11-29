@@ -351,7 +351,7 @@
 
                                         <?php if($contracts_page_visited == 't') echo "<a href='communityContracts.php'>"; ?>
                                         
-                                        Contracts
+                                        <strong style='color: black;'>Contracts</strong>
 
                                         <?php if($contracts_page_visited == 't') echo "</a>"; ?>
 

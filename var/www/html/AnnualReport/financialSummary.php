@@ -361,7 +361,7 @@
 
                                         <?php if($financial_summary_page_visited == 't') echo "<a href='financialSummary.php'>"; ?>
                                         
-                                        Financial Summary
+                                        <strong style='color: black;'>Financial Summary</strong>
 
                                         <?php if($financial_summary_page_visited == 't') echo "</a>"; ?>
 

@@ -368,7 +368,7 @@
 
                                         <?php if($volunteers_page_visited == 't') echo "<a href='volunteers.php'>"; ?>
                                         
-                                        Volunteers
+                                        <strong style='color: black;'>Volunteers</strong>
 
                                         <?php if($volunteers_page_visited == 't') echo "</a>"; ?>
 
