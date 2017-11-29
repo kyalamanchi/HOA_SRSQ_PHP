@@ -273,7 +273,7 @@ function uploadFile(){
         
         <section class="content-header">
 
-        <h1><strong>Upload file</strong></h1>
+          <h1><strong>Upload file</strong></h1>
 
         </section>
         <br>
@@ -307,9 +307,6 @@ function uploadFile(){
                       <option>Insurance</option>
               </select>
         </div>
-      <br>
-
-
       <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" id="daterange"/>
