@@ -236,12 +236,11 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
+        alert(document.getElementById('deliveryType').value);
         if ( (document.getElementById('deliveryType').value == 'undefined' ) ){
           swal("Delivery type is empty","","error");
           return;
         }
-
-
         jsonData = [];
         item = {};
         item['sub_category'] = $("#disclosureFileSubCategory  ").find("option:selected").attr("id");
@@ -415,7 +414,6 @@ function uploadFile(){
       <div class="row-fluid">
       <label>Changed this year</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="changedThisYear" >
-                      <option data-hidden="true"></option>
                       <option>TRUE</option>
                       <option>FALSE</option>
               </select>
