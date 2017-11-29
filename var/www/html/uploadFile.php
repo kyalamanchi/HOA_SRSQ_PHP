@@ -236,11 +236,23 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
+<<<<<<< HEAD
+=======
         alert(document.getElementById('deliveryType').value);
+<<<<<<< HEAD
         if ( (document.getElementById('deliveryType').value == 'undefined' ) || (document.getElementById('deliveryType').value == '' ) ){
+=======
+>>>>>>> eaffc115b74026bd1f905d8139d7b604a624a8b7
+        if ( (document.getElementById('deliveryType').value == 'undefined' ) ){
+>>>>>>> a2f4d95cdf760ecd1c69f924da68d653f3888891
           swal("Delivery type is empty","","error");
           return;
         }
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> eaffc115b74026bd1f905d8139d7b604a624a8b7
         jsonData = [];
         item = {};
         item['sub_category'] = $("#disclosureFileSubCategory  ").find("option:selected").attr("id");
