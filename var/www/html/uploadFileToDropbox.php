@@ -62,6 +62,7 @@ $path = "/Legal Documents/".$communityCode."/".$fileName;
  else {
 
  	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,tech_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from,legal_docs_type_id) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$response->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."',".$subCategory.")";
+ 	echo $query;
  	if ( !(pg_query($query)) ){
  		echo $query;
  	}	
