@@ -8,6 +8,7 @@ $parseJSON = json_decode($data);
 
 if ( $parseJSON[0]->file_type == "legal" ){
      $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$parseJSON[0]->community_id." AND TABLE_NAME='legal_docs_type' AND SUB_CATEGORY='".$parseJSON[0]->sub_category."'";
+     echo $query;
      $queryResult = pg_query($query);   
      $row = pg_fetch_assoc($queryResult);
 
