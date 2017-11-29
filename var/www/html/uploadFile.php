@@ -246,14 +246,14 @@ function uploadFile(){
         item['fiscal_year_end'] = document.getElementById('fiscalYearStartEnd').value.split("-")[1];
         item['legal_date_until'] = document.getElementById('legalDateUntil').value;
         item['notes'] = document.getElementById("comment").value;
-        // item['file_content']  = fileData;
+        item['file_content']  = fileData;
         item['file_name'] = fileName;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-        alert(sendData);
+        
       }
       else {
-        swal("Please select a member","","error");
+        swal("Please select a Category","","error");
       }
 
   }
