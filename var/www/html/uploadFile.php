@@ -237,7 +237,7 @@ function uploadFile(){
           }
           else {
 
-            swal(request.responseText,"","success");
+            swal("File uploaded to dropbox Successfully.","","success");
           }
         }
         }
