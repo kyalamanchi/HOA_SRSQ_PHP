@@ -321,6 +321,7 @@ function uploadFile(){
         <label for="short_desc">Short Description</label>
         <input class="form-control" id="short_desc" type="text">
       </div>
+      <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
       </label>
       </div>  
