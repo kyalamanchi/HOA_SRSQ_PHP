@@ -464,12 +464,17 @@
                                       
                                                                     <?php 
 
-                                                                        $assets = pg_num_rows(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
+                                                                        $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018");
 
-                                                                        if($assets != '')
-                                                                            echo "<div class='counter-number' style='color: green;'>$assets</div>";
-                                                                        else
-                                                                            echo "<div class='counter-number'>$assets</div>";
+                                                                        $result = pg_fetch_assoc($result);
+
+                                                                        $isb = $result['ideal_start_bal'];
+                                                                        $bb = $result['begin_bal'];
+                                                                        $tu = $result['total_units'];
+
+                                                                        $result = ($bb - $usb) / $tu;
+
+                                                                        echo "<div class='counter-number'>$result</div>";
 
                                                                     ?>
 
@@ -624,12 +629,17 @@
                                       
                                                                     <?php 
 
-                                                                        $assets = pg_num_rows(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+                                                                        $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018");
 
-                                                                        if($assets != '')
-                                                                            echo "<div class='counter-number' style='color: green;'>$assets</div>";
-                                                                        else
-                                                                            echo "<div class='counter-number'>$assets</div>";
+                                                                        $result = pg_fetch_assoc($result);
+
+                                                                        $isb = $result['ideal_start_bal'];
+                                                                        $bb = $result['begin_bal'];
+                                                                        $tu = $result['total_units'];
+
+                                                                        $result = ($bb - $usb) / $tu;
+
+                                                                        echo "<div class='counter-number'>$result</div>";
 
                                                                     ?>
 
