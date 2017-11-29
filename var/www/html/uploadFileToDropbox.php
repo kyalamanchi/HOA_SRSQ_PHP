@@ -62,11 +62,81 @@ $path = "/Legal Documents/".$communityCode."/".$fileName;
  else {
 
  	$query =  "INSERT INTO community_legal_docs(community_id,name,short_desc,document_id,last_updated_on,updated_by,upload_date,uploaded_by,valid_until,valid_from,legal_docs_type_id) VALUES(".$communityID.",'".$name."','".$shortDesc."','".$response->id."','".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d')."',".$uploaderId.",'".date('Y-m-d',strtotime($validUntil))."','".date('Y-m-d',strtotime($validFrom))."',".$subCategory.")";
- 	echo $query;
  	if ( !(pg_query($query)) ){
  		echo $query;
  	}	
  }
+
+
+
+
+
+}
+
+else if ( $parseJSON[0]->file_type == "disclosure"  ){
+
+$uploaderId = $parseJSON[0]->uploader_id;
+
+
+$fileName = $parseJSON[0]->file_name;
+
+$fileContent = $parseJSON[0]->file_content;
+
+
+//Get community info 
+$query = "SELECT * FROM USR WHERE ID=".$uploaderId;
+$queryResult = pg_query($query);
+$row = pg_fetch_assoc($queryResult);
+$communityID = $row['community_id'];
+
+$query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
+$queryResult = pg_query($query);
+
+$row = pg_fetch_assoc($queryResult);
+
+
+
+// Upload to Dropbox
+	
+
+
+ $url = 'https://content.dropboxapi.com/2/files/upload';
+ 
+ $ch = curl_init($url);
+ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Disclosures/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent); 
+ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+ $response = curl_exec($ch);
+ $dbResponse = $response;
+ $response = json_decode($response);
+ if ( isset($response->error_summary) ){
+     echo "An error occured.";
+     exit(0);
+ }
+
+ else if (strpos($dbResponse, 'Error') !== false) {
+     echo "An error occured.";
+     exit(0);
+}
+
+
+//Insert to community disclosures
+
+ else {
+
+ 	$query  = "INSERT INTO community_disclosures(community_id,type_id,legal_date_from,actual_date,delivery_type,fiscal_year_start,fiscal_year_end,legal_date_until,applicable,notes,document_id,changed_this_year,updated_on,updated_by) VALUES(".$communityID.",".$parseJSON[0]->sub_category.",'".$parseJSON[0]->legal_date_from."','".$parseJSON[0]->legal_date_to."',".$parseJSON[0]->delivery_type.",'".$parseJSON[0]->fiscal_year_start."','".$parseJSON[0]->fiscal_year_end."','".$parseJSON[0]->legal_date_until."','TRUE','".$parseJSON[0]->notes."','".$response->id."',".$parseJSON[0]->changed_this_year.",'".date('Y-m-d H:i:s')."',".$uploaderId.")";
+
+ 	if ( !(pg_query($query)) ){
+ 		echo $query;
+ 	}
+
+ 
+
+
+ 	
+ }
+
 
 
 
