@@ -354,7 +354,9 @@ function uploadFile(){
                       ?>
               </select>
         </div>
-        <br>
+      <label>Legal date from - Actual Date</label>
+      <input type="text" class="form-control daterange" id="legalDateActualDate"/>
+      <br>
         
       </div>
 
