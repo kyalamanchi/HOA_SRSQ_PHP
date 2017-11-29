@@ -330,7 +330,7 @@ function uploadFile(){
           }
           else {
               document.getElementById('name').value = request.responseText.split('@')[0];
-              document.getElementById('shortDesc').value = request.responseText.split('@').[1];
+              document.getElementById('shortDesc').value = request.responseText.split('@')[1];
               $('#daterange').setStartDate('11/01/2017');
           }
         }
