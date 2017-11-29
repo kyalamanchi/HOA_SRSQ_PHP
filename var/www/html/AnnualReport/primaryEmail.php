@@ -44,12 +44,17 @@
 	$today = date('Y-m-d G:i:s');
 
 	$result = pg_fetch_assoc(pg_query("SELECT * FROM community_annual_report_pages WHERE community_id=$community_id"));
-	$page = $result['hoaid'];
+	$page = $result['primary_email'];
 
 	if($page == 'f')
-		header("Location: homeid.php");
+		header("Location: notifications.php");
 
 	$result = pg_query("UPDATE community_annual_report_visited SET primary_email_page_visited='t', last_visited_on='$today', last_visited_ip='$ip' WHERE hoa_id=$hoa_id AND home_id=$home_id");
+
+	$result = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id AND is_active='t'");
+
+	if(pg_num_rows($result) == 1)
+		header("Location: notifications.php")
 
 	$visited_pages = pg_query("SELECT * FROM community_annual_report_visited WHERE hoa_id=$hoa_id AND home_id=$home_id");
     $visited_pages = pg_fetch_assoc($visited_pages);
