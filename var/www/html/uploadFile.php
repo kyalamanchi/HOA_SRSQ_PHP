@@ -312,7 +312,7 @@ function uploadFile(){
                         $count = 0;
                         while ($row = pg_fetch_assoc($queryResult)) {
                             echo '<option id="'.$row['id'].'">';
-                              echo $row['sub_category'];
+                              echo $row['name'];
                             echo '</option>';
                         }
                       ?>
