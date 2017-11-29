@@ -329,10 +329,11 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-              document.getElementById('name').value = request.responseText.split('@')[0];
-              document.getElementById('short_desc').value = request.responseText.split('@')[1];
-              $('#daterange').data('daterangepicker').setStartDate('03/01/2014');
-              $('#daterange').data('daterangepicker').setEndDate('03/31/2014');
+              var date23 = request.responseText.split('@');
+              document.getElementById('name').value = date23[0];
+              document.getElementById('short_desc').value = date23[1];
+              $('#daterange').data('daterangepicker').setStartDate(date23[2]);
+              $('#daterange').data('daterangepicker').setEndDate(date23[3]);
           }
         }
     }
