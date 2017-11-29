@@ -236,7 +236,12 @@ function uploadFile(){
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
-        alert($("#disclosureFileSubCategory").find("option:selected").attr("id"));
+        if ( document.getElementById('deliveryType').value == null ){
+          swal("Delivery type is empty","","error");
+          return;
+        }
+
+
         jsonData = [];
         item = {};
         item['sub_category'] = $("#disclosureFileSubCategory  ").find("option:selected").attr("id");
