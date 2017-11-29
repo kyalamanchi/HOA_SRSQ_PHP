@@ -587,7 +587,7 @@
 
                                                                     ?>
 
-                                                                    <div class='counter-title'>Completed Repairs ($)</div>
+                                                                    <div class='counter-title'>Projected Repairs ($)</div>
 
                                                                 </div>
 
