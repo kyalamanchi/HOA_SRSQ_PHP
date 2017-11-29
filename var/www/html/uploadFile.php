@@ -145,6 +145,8 @@ input, label {
 var fileData = "";
 var fileName = "";
 function updateContent(){
+  
+  document.getElementById('fileInput').disabled = false;
   var type = $("#fileType").val();
 
   if ( type == "Legal document" ){
@@ -378,7 +380,7 @@ function uploadFile(){
 
       <br>
 
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>      
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
 
