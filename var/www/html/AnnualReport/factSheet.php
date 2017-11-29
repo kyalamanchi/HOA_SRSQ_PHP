@@ -8,7 +8,9 @@
 		header('Location: logout.php');
 
 	$username = $_SESSION['hoa_alchemy_username'];
-	$community_id = $_SESSION['hoa_alchemy_community_id'];
+	$hoa_id = $_SESSION['hoa_alchemy_hoa_id'];
+    $home_id = $_SESSION['hoa_alchemy_home_id'];
+    $community_id = $_SESSION['hoa_alchemy_community_id'];
 	$community_code = $_SESSION['hoa_alchemy_community_code'];
 	$community_name = $_SESSION['hoa_alchemy_community_name'];
 
