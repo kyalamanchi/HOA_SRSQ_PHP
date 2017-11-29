@@ -302,7 +302,6 @@ function uploadFile(){
               </select>
         </div>
       <br>
-      <h5 id="label"></h5>
       <div  id="legalContent" hidden="hidden">
 
       <div class="row-fluid">
@@ -335,7 +334,7 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden><h5 id="label"></h5>
       </label>
       </div>  
 
@@ -377,7 +376,7 @@ function uploadFile(){
         <label for="comment">Notes:</label>
         <textarea class="form-control" rows="3" id="comment"></textarea>
       </div>
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden>
+      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden><h5 id="label"></h5>
       </label>
       </div>
 
