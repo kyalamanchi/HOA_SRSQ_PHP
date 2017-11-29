@@ -331,7 +331,8 @@ function uploadFile(){
           else {
               document.getElementById('name').value = request.responseText.split('@')[0];
               document.getElementById('short_desc').value = request.responseText.split('@')[1];
-              $('#daterange').setStartDate('11/01/2017');
+              $('#daterange').data('daterangepicker').setStartDate('03/01/2014');
+              $('#daterange').data('daterangepicker').setEndDate('03/31/2014');
           }
         }
     }
