@@ -152,6 +152,7 @@ function updateContent(){
   if ( type == "Legal document" ){
   document.getElementById("legalContent").hidden = false;
   document.getElementById("disclosuresContent").hidden = true;
+
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
@@ -242,7 +243,7 @@ function uploadFile(){
         }
         jsonData = [];
         item = {};
-        item['sub_category'] = $("#disclosureFileSubCategory  ").find("option:selected").attr("id");
+        item['sub_category'] = $("#disclosureFileSubCategory").find("option:selected").attr("id");
         item['legal_date_from'] = document.getElementById('legalDateActualDate').value.split("-")[0];
         item['legal_date_to'] = document.getElementById('legalDateActualDate').value.split("-")[1];
         item['delivery_type'] = document.getElementById('deliveryType').value;
@@ -291,6 +292,46 @@ function uploadFile(){
       else {
         swal("Please select a Category","","error");
       }
+
+  }
+
+
+  function getFileDetails(){
+
+
+        jsonData = [];
+        item = {};
+        item['type'] = "legal";
+        item['communty_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>
+        item['sub_category'] = $("#fileSubCategory").val();
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/getFileCategoryDetails.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            $("#pleaseWaitDialog2").modal("hide");
+          if (request.responseText == "An error occured."){
+            swal("An error ocuured. Please try again. ","","error");
+          }
+          else {
+              document.getElementById('name').value = request.responseText.split('@')[0];
+          }
+        }
+    }
+
+
+
+
 
   }
 
@@ -345,7 +386,7 @@ function uploadFile(){
       <div class="row-fluid">
 
       <label>Sub Category</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" >
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
