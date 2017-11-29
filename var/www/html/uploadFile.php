@@ -354,6 +354,10 @@ function uploadFile(){
       <label>Fiscal Year Start - End</label>
       <input type="text" class="form-control daterange" id="fiscalYearStartEnd"/>
       <br>
+      <br>
+      <label>Legal Date Until</label>
+      <input type="text" class="form-control daterange" id="legalDateUntil"/>
+      <br>
 
         
       </div>
@@ -425,11 +429,9 @@ function uploadFile(){
 
       <script type="text/javascript">
             $('.daterange').daterangepicker();
-            // $("#fiscalYearStartEnd").daterangepicker({
-            //    locale: {
-            // format: 'YYYY'
-            // }
-            // });
+            $("#legalDateUntil").daterangepicker({
+              singleDatePicker: true
+            });
       </script>
   </body>
 
