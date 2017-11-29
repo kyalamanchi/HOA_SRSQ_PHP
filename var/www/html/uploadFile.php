@@ -229,17 +229,22 @@ function uploadFile(){
           }
           else {
 
-            swal("File uploaded to dropbox Successfully.","","success");
+            swal("File uploaded successfully.","","success");
           }
         }
         }
       } 
       else if ( $("#fileType").val() == "Disclosure" ){
 
-        alert($("#disclosureFileSubCategory").find("option:selected").attr("id"));
+        if ( (document.getElementById('deliveryType').value == 'undefined' ) ){
+          swal("Delivery type is empty","","error");
+          return;
+        }
+
+
         jsonData = [];
         item = {};
-        item['sub_category'] = $("#disclosureFileSubCategory").find("option:selected").attr("id");
+        item['sub_category'] = $("#disclosureFileSubCategory  ").find("option:selected").attr("id");
         item['legal_date_from'] = document.getElementById('legalDateActualDate').value.split("-")[0];
         item['legal_date_to'] = document.getElementById('legalDateActualDate').value.split("-")[1];
         item['delivery_type'] = document.getElementById('deliveryType').value;
@@ -276,9 +281,8 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-            
-            alert(request.responseText);
-            // swal("File uploaded to dropbox Successfully.","","success");
+          
+            swal("File uploaded successfully.","","success");
           }
         }
         }
