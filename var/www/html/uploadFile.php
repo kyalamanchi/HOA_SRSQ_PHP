@@ -472,7 +472,7 @@ function uploadFile(){
 
       <div class="row-fluid">
       <label>Disclosure Type</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" >
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
