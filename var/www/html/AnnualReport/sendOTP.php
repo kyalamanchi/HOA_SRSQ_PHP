@@ -34,7 +34,7 @@
             if(pg_num_rows($res))
             {
             
-            	$res = pg_query("UPDATE verification_code_sent SET verification_code=$six_digit_random_number, sent_on='$date', valid_until='$new_date', is_valid='t'");
+            	$res = pg_query("UPDATE verification_code_sent SET verification_code=$six_digit_random_number, sent_on='$date', valid_until='$new_date', is_valid='t' WHERE hoa_id=$hoa_id AND verification_code_type=4");
 
         	}
         	else
