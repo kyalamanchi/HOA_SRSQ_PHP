@@ -480,7 +480,7 @@
 
                                                                     ?>
 
-                                                                    <div class='counter-title'>Deficit Per Home</div>
+                                                                    <div class='counter-title'>Deficit Per Home ($)</div>
 
                                                                 </div>
 
@@ -647,7 +647,7 @@
 
                                                                     ?>
 
-                                                                    <div class='counter-title'>Deficit Per Home</div>
+                                                                    <div class='counter-title'>Deficit Per Home ($)</div>
 
                                                                 </div>
 
