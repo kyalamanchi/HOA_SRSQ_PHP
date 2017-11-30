@@ -377,7 +377,7 @@ function uploadFile(){
               $('#fiscalYearStartEnd').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateActualDate').data('daterangepicker').setStartDate(date23[2]);
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
-              $('#legalDateUntil').data('daterangepicker').setStartDate(date23[2]);
+              $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
           }
         }
     }
