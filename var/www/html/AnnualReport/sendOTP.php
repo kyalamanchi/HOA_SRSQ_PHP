@@ -20,7 +20,7 @@
 
             $body  = "Twilio Testing Message";
 
-            $key = "+918686488809";
+            $key = "918686488809";
 
             //Sending request to twilio
 
