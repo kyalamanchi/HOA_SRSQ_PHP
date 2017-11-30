@@ -12,9 +12,9 @@
 
 		$res = pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND is_valid='t' AND valid_until>='$date'");
 
-		$res = pg_fetch_assoc($res);
-
 		print_r("Result".$res);
+
+		$res = pg_fetch_assoc($res);
 
 		$sent_otp = $res['verification_code'];
 
