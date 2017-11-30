@@ -6,8 +6,6 @@
 	$community_id = $_POST['community_id'];
 	$confirm_cell_no = $_POST['confirm_cell_no'];
 
-	echo "$ocell_no - - - $community_id - - - $confirm_cell_no";
-
 	if($confirm_cell_no == "")
 		echo "Please enter your phone number";
 	else if($ocell_no == $confirm_cell_no)
@@ -48,8 +46,8 @@
 
             curl_close ($ch);
 
-            print_r(nl2br("\n\n"));
-            print_r("Response is ".$result);
+            //print_r(nl2br("\n\n"));
+            //print_r("Response is ".$result);
 
         }
 		
