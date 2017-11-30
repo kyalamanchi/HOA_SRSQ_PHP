@@ -24,7 +24,7 @@
 
             $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
 
-            $key = 919603923649;
+            $key = 19255205003;
 
             //Sending request to twilio
 
