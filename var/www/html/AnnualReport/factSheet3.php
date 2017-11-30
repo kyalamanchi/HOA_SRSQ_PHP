@@ -472,7 +472,7 @@
                                                                         $bb = $result['begin_bal'];
                                                                         $tu = $result['total_units'];
 
-                                                                        $result = ($bb - $usb) / $tu;
+                                                                        $result = ($bb - $isb) / $tu;
 
                                                                         $result = round($result, 0);
 
@@ -639,7 +639,7 @@
                                                                         $bb = $result['begin_bal'];
                                                                         $tu = $result['total_units'];
 
-                                                                        $result = ($bb - $usb) / $tu;
+                                                                        $result = ($bb - $isb) / $tu;
 
                                                                         $result = round($result, 0);
 
