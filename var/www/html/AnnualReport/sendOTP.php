@@ -29,11 +29,16 @@
 
             $res = pg_query("UPDATE verification_code_sent SET is_valid='f' WHERE hoa_id=$hoa_id");
 
-            print_r($res."<br>");
-            
-            $res = pg_query("INSERT INTO verification_code_sent(hoa_id, verification_code_type, verification_code, sent_on, valid_until, is_valid) VALUES($hoa_id, 4, $six_digit_random_number, '$date', '$new_date', 't')");
+            $res = pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND verification_code_type=4");
 
-            print_r($res."<br>");
+            if(pg_num_rows($res))
+            {
+            
+            	$res = pg_query("UPDATE verification_code_sent SET verification_code=$six_digit_random_number, sent_on='$date', valid_until='$new_date', is_valid='t'");
+
+        	}
+        	else
+        		$res = pg_query("INSERT INTO verification_code_sent (hoa_id, verification_code_type, verification_code, sent_on, valid_until, is_valid) VALUES ($hoa_id, 4, $six_digit_random_number, '$date', '$new_date', 't')");
             
             $body  = "$six_digit_random_number Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
 
