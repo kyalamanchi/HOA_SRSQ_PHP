@@ -173,7 +173,7 @@
 		<div class='layout'>
 
 			<!-- Header-->
-			<header class='header header-right undefined'>
+			<header class='header header-left undefined'>
 	
 				<div class='container-fluid'>
 								
