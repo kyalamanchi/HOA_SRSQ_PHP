@@ -375,6 +375,8 @@ function uploadFile(){
               var date23 = request.responseText.split('@');
               $('#fiscalYearStartEnd').data('daterangepicker').setStartDate(date23[2]);
               $('#fiscalYearStartEnd').data('daterangepicker').setEndDate(date23[3]);
+              $('#legalDateActualDate').data('daterangepicker').setStartDate(date23[2]);
+              $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
           }
         }
     }
