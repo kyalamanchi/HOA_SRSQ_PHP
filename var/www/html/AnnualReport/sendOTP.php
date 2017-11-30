@@ -2,7 +2,6 @@
 
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-	$name = $_POST['name'];
 	$ocell_no = $_POST['ocell_no'];
 	$community_id = $_POST['community_id'];
 	$confirm_cell_no = $_POST['confirm_cell_no'];
@@ -20,10 +19,8 @@
             $telnoassoc = pg_fetch_assoc(pg_query("SELECT telno FROM community_info WHERE community_id=".$community_id));
             $telno = $telnoassoc['telno'];
 
-            $six_digit_random_number = mt_rand(100000, 999999);
 
-
-            $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
+            $body  = "Twilio Testing Message";
 
             $key = 918686488809;
 
@@ -49,8 +46,8 @@
 
             curl_close ($ch);
 
-            //print_r(nl2br("\n\n"));
-            //print_r("Response is ".$result);
+            print_r(nl2br("\n\n"));
+            print_r("Response is ".$result);
 
         }
 		
