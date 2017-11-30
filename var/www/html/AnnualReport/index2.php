@@ -229,7 +229,7 @@
 
 									<div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>
 
-										<center>Please enter your mobile number.</center>
+										<center>Enter your 10 digit mobile number.</center>
 
 									</div>
 
@@ -241,6 +241,7 @@
 
 										<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
 										<input type='hidden' name='community_id' id='community_id' value='<?php echo $community_id; ?>'>
+										<input type='hidden' name='name' id='name' value='<?php echo $first_name." ".$last_name; ?>'>
 										<input type='hidden' name='ocell_no' id='ocell_no' value='<?php echo $ocell_no; ?>'>
 
 									</div>
