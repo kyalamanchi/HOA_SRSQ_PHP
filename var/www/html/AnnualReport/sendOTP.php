@@ -3,6 +3,7 @@
 	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	$name = $_POST['name'];
+	$hoa_id = $_POST['hoa_id'];
 	$ocell_no = $_POST['ocell_no'];
 	$community_id = $_POST['community_id'];
 	$confirm_cell_no = $_POST['confirm_cell_no'];
@@ -22,7 +23,15 @@
 
             $six_digit_random_number = mt_rand(100000, 999999);
 
-            $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
+            $date = date("Y-m-d H:i:s");
+
+            $new_date = date("Y-m-d H:i:s", strtotime('+4 hours', strtotime($date));
+
+            $res = pg_query("UPDATE verification_code_sent SET is_valid='f' WHERE hoa_id=$hoa_id");
+
+            $res = pg_query("INSERT INTO verification_code_sent(hoa_id, verification_code_type, verification_code, sent_on, valid_until, is_valid) VALUES($hoa_id, 4, $six_digit_random_number, '$date', '$new_date', 't')");
+
+            $body  = "$six_digit_random_number Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
 
             $key = 19255205003;
 
