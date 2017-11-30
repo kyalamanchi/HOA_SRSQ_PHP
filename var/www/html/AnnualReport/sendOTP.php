@@ -22,7 +22,7 @@
 
             $six_digit_random_number = mt_rand(100000, 999999);
 
-            $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
+            $body  = $six_digit_random_number."Hello ".$name.", OTP to view your HOA Annual Report is.";
 
             $key = 918686488809;
 
