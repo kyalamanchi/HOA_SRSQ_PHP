@@ -240,6 +240,7 @@
 										<input class='form-control' type='number' name='confirm_cell_no' id='confirm_cell_no' placeholder='<?php echo $cell_no; ?>'>
 
 										<input type='hidden' name='hoa_id' id='hoa_id' value='<?php echo $hoa_id; ?>'>
+										<input type='hidden' name='community_id' id='community_id' value='<?php echo $community_id; ?>'>
 										<input type='hidden' name='ocell_no' id='ocell_no' value='<?php echo $ocell_no; ?>'>
 
 									</div>
