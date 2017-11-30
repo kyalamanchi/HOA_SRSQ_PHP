@@ -366,6 +366,7 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
+          alert(request.responseText);
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
