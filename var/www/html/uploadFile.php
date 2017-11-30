@@ -373,10 +373,8 @@ function uploadFile(){
           }
           else {
               var date23 = request.responseText.split('@');
-              document.getElementById('name').value = date23[0];
-              document.getElementById('short_desc').value = date23[1];
-              $('#daterange').data('daterangepicker').setStartDate(date23[2]);
-              $('#daterange').data('daterangepicker').setEndDate(date23[3]);
+              $('#fiscalYearStartEnd').data('daterangepicker').setStartDate(date23[2]);
+              $('#fiscalYearStartEnd').data('daterangepicker').setEndDate(date23[3]);
           }
         }
     }
