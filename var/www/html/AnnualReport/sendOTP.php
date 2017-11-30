@@ -25,7 +25,7 @@
 
             $date = date("Y-m-d H:i:s");
 
-            $new_date = date("Y-m-d H:i:s", strtotime('+4 hours', strtotime($date));
+            $new_date = date("Y-m-d H:i:s", strtotime('+4 hours', strtotime($date)));
 
             $res = pg_query("UPDATE verification_code_sent SET is_valid='f' WHERE hoa_id=$hoa_id");
 
