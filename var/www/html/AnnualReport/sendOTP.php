@@ -40,7 +40,7 @@
         	else
         		$res = pg_query("INSERT INTO verification_code_sent (hoa_id, verification_code_type, verification_code, sent_on, valid_until, is_valid) VALUES ($hoa_id, 4, $six_digit_random_number, '$date', '$new_date', 't')");
             
-            $body  = "$six_digit_random_number Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
+            $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
 
             $key = 19255205003;
 
