@@ -464,7 +464,7 @@
                                       
                                                                     <?php 
 
-                                                                        $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018");
+                                                                        $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017");
 
                                                                         $result = pg_fetch_assoc($result);
 
