@@ -9,7 +9,7 @@
 	else if($ocell_no == $confirm_cell_no)
 	{
 
-		if()
+		if($community_id == 2)
 		{
 
 			//Getting telephone number of community
