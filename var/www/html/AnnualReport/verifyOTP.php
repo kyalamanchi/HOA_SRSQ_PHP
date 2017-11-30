@@ -14,6 +14,8 @@
 
 		$sent_otp = $res['verification_code'];
 
+		echo "$enter_otp - - - $sent_otp";
+
 		if($enter_otp == $sent_otp)
 			echo"correct";
 		else
