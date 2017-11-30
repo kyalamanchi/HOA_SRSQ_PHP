@@ -14,7 +14,7 @@
 
 		$res = pg_fetch_assoc($res);
 
-		print_r($res);
+		print_r("Result".$res);
 
 		$sent_otp = $res['verification_code'];
 
