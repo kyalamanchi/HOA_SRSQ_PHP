@@ -28,7 +28,7 @@
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B$telno");
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_USERPWD, "AC06019424f034503e8a7c67a8ddfcd490" . ":" . "a73768c36829436835653b51dd3c693c");
             $headers = array();
@@ -44,8 +44,8 @@
 
             curl_close ($ch);
 
-            //print_r(nl2br("\n\n"));
-            //print_r("Response is ".$result);
+            print_r(nl2br("\n\n"));
+            print_r("Response is ".$result);
 
         }
 		
