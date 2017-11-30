@@ -12,7 +12,7 @@
 
 		$res = pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND is_valid='t' AND valid_until>='$date'");
 
-		print_r("Result - - - ".$res."<br>");
+		print_r($date." - - - Result - - - ".$res."<br>");
 
 		$res = pg_fetch_assoc($res);
 
