@@ -48,8 +48,8 @@
 
             curl_close ($ch);
 
-            print_r(nl2br("\n\n"));
-            print_r("Response is ".$result);
+            //print_r(nl2br("\n\n"));
+            //print_r("Response is ".$result);
 
         }
 		
