@@ -10,7 +10,11 @@
 		echo "OTP cannot be empty.";
 	else{ 
 
-		$res = pg_fetch_assoc(pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND is_valid='t' AND valid_until>='$date'"));
+		$res = pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND is_valid='t' AND valid_until>='$date'");
+
+		$res = pg_fetch_assoc($res);
+
+		print_r($res);
 
 		$sent_otp = $res['verification_code'];
 
