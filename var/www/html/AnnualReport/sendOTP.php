@@ -59,11 +59,14 @@
 
             }
 
-            $result = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$country_id"));
+            $result = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$country"));
             $tel_prefix = $result['tel_prefix'];
 
             $key = $tel_prefix;
             $key .= $num;
+
+            //echo "$home_id - - - $hoa_id - - - country"
+
 
             //$key = 19255205003;
 
