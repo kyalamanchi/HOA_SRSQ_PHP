@@ -13,7 +13,7 @@ $uploaderId = $parseJSON[0]->uploader_id;
 $shortDesc = $parseJSON[0]->short_desc;
 $validFrom = $parseJSON[0]->valid_from;
 $validUntil = $parseJSON[0]->valid_until;
-$fileContent = $parseJSON[0]->file_content;
+$fileContent = base64_decode($parseJSON[0]->file_content);
 $subCategory = $parseJSON[0]->file_sub_category;
 //Get community Info
 
