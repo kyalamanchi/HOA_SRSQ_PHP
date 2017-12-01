@@ -725,10 +725,7 @@
 
                                                                         $assets = $sum_of / $assets;
 
-                                                                        if($assets != '')
-                                                                            echo "<div class='counter-number' style='color: green;'>$assets</div>";
-                                                                        else
-                                                                            echo "<div class='counter-number'>$assets</div>";
+                                                                        echo "<div class='counter-number'>round($assets, 2)</div>";
 
                                                                     ?>
 
