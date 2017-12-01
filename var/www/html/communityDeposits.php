@@ -69,12 +69,18 @@
 
           <h1><strong>Community Deposits</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
-          <ol class="breadcrumb">
+          <?php
+
+          if($mode == 1)
+
+            echo "<ol class='breadcrumb'>
             
-            <li><a href='boardDashboard.php'><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
-            <li>Community Deposits</li>
-          
-          </ol>
+                <li><a href='boardDashboard.php'><i class='fa fa-dashboard'></i> Board Dashboard</a></li>
+                <li>Community Deposits</li>
+              
+              </ol>";
+
+          ?>
 
         </section>
 
