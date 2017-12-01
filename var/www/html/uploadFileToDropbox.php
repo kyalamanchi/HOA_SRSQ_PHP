@@ -80,6 +80,7 @@ $fileName = $parseJSON[0]->file_name;
 
 $fileContent = $parseJSON[0]->file_content;
 
+echo $fileContent;
 
 //Get community info 
 $query = "SELECT * FROM USR WHERE ID=".$uploaderId;
