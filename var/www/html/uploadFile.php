@@ -237,7 +237,7 @@ function uploadFile(){
 })
 .then((uploadedFile) => {
   if (uploadedFile) {
-    window.location = "https://hoaboardtime.com/uploadedFile.php";
+    window.location = "https://hoaboardtime.com/uploadFile.php";
   } 
 });
           }
@@ -295,7 +295,7 @@ function uploadFile(){
 })
 .then((uploadedFile) => {
   if (uploadedFile) {
-    window.location = "https://hoaboardtime.com/uploadedFile.php";
+    window.location = "https://hoaboardtime.com/uploadFile.php";
   } 
 });
           }
