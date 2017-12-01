@@ -14,7 +14,7 @@
 		$accessToken = 'QwUjEm5GAkAAAAAAAAAAN-KemUHI72QOlDsQxtH6H9JlRixSoi1fqq7D7BCHrNFm';
 
 	}
-	else if( $_GET['t'] == 1 ){
+	if( $_GET['t'] == 1 ){
 		$accessToken= 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
 	}
 
