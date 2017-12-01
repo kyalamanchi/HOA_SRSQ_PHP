@@ -527,6 +527,27 @@
 
                                                             </div>
 
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+                                      
+                                                                    <?php 
+
+                                                                        $sum_of = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id AND year=2017"));
+                                                                        $sum_of = $sum_of['sum'];
+
+                                                                        $assets = $sum_of / $assets;
+
+                                                                        echo "<div class='counter-number'>round($assets, 2)</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Total Assets</div>
+
+                                                                </div>
+
+                                                            </div>
+
 		                        							<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 		                          								<div class='counter h6'>
