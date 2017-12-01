@@ -230,10 +230,16 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-
-            swal({title:"File uploaded successfully.",text:"",type:"success"}, function(){
-              window.location = "https://hoaboardtime.com/uploadFile.php";
-            });
+                              swal({
+  title: "File uploaded successfully",
+  text: "",
+  icon: "success",
+})
+.then((uploadedFile) => {
+  if (uploadedFile) {
+    window.location = "https://hoaboardtime.com/uploadedFile.php";
+  } 
+});
           }
         }
         }
@@ -282,9 +288,16 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-            swal({title:"File uploaded successfully.",text:"",type:"success"}, function(){
-              window.location = "https://hoaboardtime.com/uploadFile.php";
-            });
+                swal({
+  title: "File uploaded successfully",
+  text: "",
+  icon: "success",
+})
+.then((uploadedFile) => {
+  if (uploadedFile) {
+    window.location = "https://hoaboardtime.com/uploadedFile.php";
+  } 
+});
           }
         }
         }
