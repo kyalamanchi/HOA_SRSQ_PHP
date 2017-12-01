@@ -231,7 +231,9 @@ function uploadFile(){
           }
           else {
 
-            swal("File uploaded successfully.","","success");
+            swal({title:"File uploaded successfully.",text:"",type:"success"}, function(){
+              window.location = "https://hoaboardtime.com/uploadFile.php";
+            });
           }
         }
         }
@@ -280,8 +282,9 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-          
-            swal("File uploaded successfully.","","success");
+            swal({title:"File uploaded successfully.",text:"",type:"success"}, function(){
+              window.location = "https://hoaboardtime.com/uploadFile.php";
+            });
           }
         }
         }
