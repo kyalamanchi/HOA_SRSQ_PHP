@@ -109,12 +109,9 @@ $communityCode = $row['community_code'];
  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Disclosures/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
  curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent); 
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
- $response = curl_exec($ch);
-echo $response;
+ $response = curl_exec($ch); 
  $dbResponse = $response;
  $response = json_decode($response);
- echo $response;
- echo $dbResponse;
  if ( isset($response->error_summary) ){
      echo "An error occured.";
      exit(0);
