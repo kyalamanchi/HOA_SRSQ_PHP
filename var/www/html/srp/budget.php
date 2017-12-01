@@ -141,265 +141,318 @@ th, td {
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
 							<table id="example" class="cell-border" cellspacing="0" width="100%" style="color: black;">
-        <thead>
-            <tr>
-                <th rowspan="2"></th>
-                <th colspan="4">January</th>
-                <th colspan="4">February</th>
-                <th colspan="4">March</th>
-                <th colspan="4">April</th>
-                <th colspan="4">May</th>
-                <th colspan="4">June</th>
-                <th colspan="4">July</th>
-                <th colspan="4">August</th>
-                <th colspan="4">September</th>
-                <th colspan="4">October</th>
-                <th colspan="4">November</th>
-                <th colspan="4">December</th>
-                <th colspan="4">Total</th>
-            </tr>
-            <tr>
-                <th >ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th>ACTUAL</th>
-                <th>BUDGET</th>
-                <th>OVER BUDGET</th>
-                <th>% OF BUDGET</th>
-                <th class="total">YTD ACTUAL</th>
-                <th class="total">YTD BUDGET</th>
-                <th class="total">YTD OVER BUDGET</th>
-                <th class="total">YTD % OF BUDGET</th>
+        					
+        						<thead>
+            
+            						<tr>
+                
+                						<th rowspan="2"></th>
+                						<th colspan="4">January</th>
+                						<th colspan="4">February</th>
+                						<th colspan="4">March</th>
+                						<th colspan="4">April</th>
+                						<th colspan="4">May</th>
+                						<th colspan="4">June</th>
+                						<th colspan="4">July</th>
+                						<th colspan="4">August</th>
+                						<th colspan="4">September</th>
+                						<th colspan="4">October</th>
+                						<th colspan="4">November</th>
+                						<th colspan="4">December</th>
+                						<th colspan="4">Total</th>
+            						
+            						</tr>
+            
+            						<tr>
+                
+                						<th >ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th>ACTUAL</th>
+                						<th>BUDGET</th>
+                						<th>OVER BUDGET</th>
+                						<th>% OF BUDGET</th>
+                						<th class="total">YTD ACTUAL</th>
+                						<th class="total">YTD BUDGET</th>
+                						<th class="total">YTD OVER BUDGET</th>
+                						<th class="total">YTD % OF BUDGET</th>
 
-            </tr>
-        </thead>
-        <tbody>
-           <?php
-   date_default_timezone_set('America/Los_Angeles');
-   setlocale(LC_MONETARY, 'en_US');
-   
-   $query = "SELECT * FROM community_accounts WHERE COMMUNITY_ID = 2";
-   $queryResult = pg_query($query);
+            						</tr>
 
-   $accountTypes = array();
-
-   while ($row = pg_fetch_assoc($queryResult)) {
-       $accountTypes[$row['qb_id']] = $row['category'];
-   }
-
-
-   $query  = "select * from qb_monthly_actuals where year = ".date('Y');
-   $queryResult = pg_query($query);
-   $dbData  = array();
-
-   while ($row = pg_fetch_assoc($queryResult)) {
-      $dbData[$row['qb_vendor_id'].$row['month'].$row['year']] = $row['amount'];
-   }
-   $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
-   curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509983625",oauth_nonce="c14fWRf8XyQ",oauth_version="1.0",oauth_signature="lWDlUObdtq5u8GvxpRz07Or0d9c%3D"'));
-   curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Budget");
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-   $result = curl_exec($ch);
-   $result = json_decode($result);
-   $result = ($result->QueryResponse->Budget[0]);
-   $val = 0;
-   $prevVal = 0 ;
-   $valString = "";
-   $totalBudget = 0;
-   $totalActuals = 0;
-   $fbName = "";
-   foreach ($result->BudgetDetail as $budget) {
-    if ($accountTypes[$budget->AccountRef->value]  == 2)
-        $color = "red";
-    else if ( $accountTypes[$budget->AccountRef->value] == 3)
-        $color = "green";
-    else 
-        $color = "black";
-      if ( $val == 0  ){
-        $prevVal =  $budget->AccountRef->value;
-         $month = date('m',strtotime($budget->BudgetDate)) ;
-         $month  = ltrim($month, '0');
-         $year = date('Y');
-         $bName = $budget->AccountRef->name;
-         $fbName = $bName;
-         $actual = $dbData[$budget->AccountRef->value.$month.$year];
-         $budget = $budget->Amount;
-
-         $totalActuals = $actual;
-         $totalBudget = $budget;
-
-        $overBudget = $actual-$budget;
-         if($budget != 0 ){
-         $budgetPercentage = ($actual/$budget)*100;
-         }
-         else {
-            $budgetPercentage = "";
-         }
-         $valString .= "<tr>";
-
-         $valString .= "<td style=\"color: $color;\">";
-         $valString .= $bName;
-         $valString .= "</td>";
-
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $actual);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $budget);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $overBudget);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= round((float)$budgetPercentage,2) . '%';
-         $valString .= "</td>";
-
-      }
-      else {
-         if ( $prevVal ==  $budget->AccountRef->value ){
-         $month = date('m',strtotime($budget->BudgetDate)) ;
-         $month  = ltrim($month, '0');
-         $year = date('Y');
-         $bName = $budget->AccountRef->name;
-         $actual = $dbData[$budget->AccountRef->value.$month.$year];
-         $budget = $budget->Amount;
-         $totalBudget = $totalBudget + $budget;
-         $totalActuals = $totalActuals + $actual;
-         $overBudget = $actual-$budget;
-         if($budget != 0 ){
-         $budgetPercentage = ($actual/$budget)*100;
-         }
-         else {
-            $budgetPercentage = "";
-         }
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $actual);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $budget);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $overBudget);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= round((float)$budgetPercentage,2) . '%';
-         $valString .= "</td>";
-         $fbName = $bName;
-         }
-         else {
-         $prevVal = $budget->AccountRef->value;
-         $month = date('m',strtotime($budget->BudgetDate)) ;
-         $month  = ltrim($month, '0');
-         $year = date('Y');
-         $bName = $budget->AccountRef->name;
-         $actual = $dbData[$budget->AccountRef->value.$month.$year];
-         $budget = $budget->Amount;
-       
-         $overBudget = $actual-$budget;
-         if($budget != 0 ){
-         $budgetPercentage = ($actual/$budget)*100;
-         }
-         else {
-            $budgetPercentage = "";
-         }
-
-         $valString .= "<td class=\"total\">";
-            $valString .= money_format('%#10n',$totalActuals);
-         $valString .= "</td>";
-         $valString .= "<td class=\"total\">";
-            $valString .= money_format('%#10n',$totalBudget);
-         $valString .= "</td>";
-         $valString .= "<td class=\"total\">";
-            $valString .= money_format('%#10n',$totalActuals-$totalBudget);
-         $valString .= "</td>";
-         $valString .= "<td class=\"total\">";
-            $valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
-         $valString .= "</td>";
-         $valString .= "</tr>";
-           $totalBudget = $budget;
-         $totalActuals = $actual;
-         $valString .= "<tr>";
-         $valString .= "<td  style=\"color: $color;\">";
-         $valString .= $bName;
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $actual);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $budget);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= money_format('%#10n',  $overBudget);
-         $valString .= "</td>";
-         $valString .= "<td>";
-            $valString .= round((float)$budgetPercentage,2) . '%';
-         $valString .= "</td>";
-
-         }
-         }
-            $val = $val + 1;
-      }
-      $valString .= "<td class=\"total\">";
-            $valString .= money_format('%#10n',$totalActuals);
-         $valString .= "</td>";
-         $valString .= "<td class=\"total\">";
-            $valString .= money_format('%#10n',$totalBudget);
-         $valString .= "</td>";
-         $valString .= "<td class=\"total\">";
-            $valString .= money_format('%#10n',$totalActuals-$totalBudget);
-         $valString .= "</td>";
-         $valString .= "<td class=\"total\">";
-            $valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
-         $valString .= "</td>";
-      $valString .= "</tr>";
-      print_r($valString);
-
-?>
-        </tbody>
+        						</thead>
         
-    </table>
+        						<tbody>
+           
+           							<?php
+
+   										date_default_timezone_set('America/Los_Angeles');
+   										setlocale(LC_MONETARY, 'en_US');
+
+   										if($community_id == 2){
+   
+	   										$query = "SELECT * FROM community_accounts WHERE community_id=$community_id";
+	   										$queryResult = pg_query($query);
+
+	   										$accountTypes = array();
+
+	   										while ($row = pg_fetch_assoc($queryResult)) {
+	       
+	       										$accountTypes[$row['qb_id']] = $row['category'];
+	   										
+	   										}
+
+
+	   										$query  = "SELECT * FROM qb_monthly_actuals WHERE year=".date('Y');
+	   										$queryResult = pg_query($query);
+	   										$dbData  = array();
+
+	   										while ($row = pg_fetch_assoc($queryResult)) {
+
+	      										$dbData[$row['qb_vendor_id'].$row['month'].$row['year']] = $row['amount'];
+
+	   										}
+	   
+	   										$ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
+	   										
+	   										curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
+	   										curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509983625",oauth_nonce="c14fWRf8XyQ",oauth_version="1.0",oauth_signature="lWDlUObdtq5u8GvxpRz07Or0d9c%3D"'));
+	   										curl_setopt($ch, CURLOPT_POSTFIELDS, "Select * from Budget");
+	   										curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	   
+	   										$result = curl_exec($ch);
+	   										$result = json_decode($result);
+	   										$result = ($result->QueryResponse->Budget[0]);
+	   
+	   										$val = 0;
+	   										$prevVal = 0 ;
+	   										$valString = "";
+	   										$totalBudget = 0;
+	   										$totalActuals = 0;
+	   										$fbName = "";
+	   
+	   										foreach ($result->BudgetDetail as $budget) {
+	    
+	    										if ($accountTypes[$budget->AccountRef->value]  == 2)
+	        										$color = "red";
+	    										else if ( $accountTypes[$budget->AccountRef->value] == 3)
+	        										$color = "green";
+	    										else 
+	        										$color = "black";
+	      										
+	      										if ( $val == 0  ){
+
+	        										$prevVal =  $budget->AccountRef->value;
+	         										$month = date('m',strtotime($budget->BudgetDate)) ;
+	         										$month  = ltrim($month, '0');
+	         										$year = date('Y');
+	         										$bName = $budget->AccountRef->name;
+	         										$fbName = $bName;
+	         										$actual = $dbData[$budget->AccountRef->value.$month.$year];
+	         										$budget = $budget->Amount;
+	         										$totalActuals = $actual;
+	         										$totalBudget = $budget;
+	        										$overBudget = $actual-$budget;
+
+	         										if($budget != 0 ){
+
+	         											$budgetPercentage = ($actual/$budget)*100;
+
+	         										}
+	         										else {
+
+	            										$budgetPercentage = "";
+
+	         										}
+
+	         										$valString .= "<tr>";
+
+	         										$valString .= "<td style=\"color: $color;\">";
+	         										$valString .= $bName;
+	         										$valString .= "</td>";
+
+	         										$valString .= "<td>";
+	            									$valString .= money_format('%#10n',  $actual);
+	         										$valString .= "</td>";
+
+	         										$valString .= "<td>";
+	            									$valString .= money_format('%#10n',  $budget);
+	         										$valString .= "</td>";
+
+	         										$valString .= "<td>";
+	            									$valString .= money_format('%#10n',  $overBudget);
+	         										$valString .= "</td>";
+
+	         										$valString .= "<td>";
+	            									$valString .= round((float)$budgetPercentage,2) . '%';
+	         										$valString .= "</td>";
+
+	      										}
+	      										else {
+
+	         										if ( $prevVal ==  $budget->AccountRef->value ){
+
+	         											$month = date('m',strtotime($budget->BudgetDate)) ;
+	         											$month  = ltrim($month, '0');
+	         											$year = date('Y');
+	         											$bName = $budget->AccountRef->name;
+	         											$actual = $dbData[$budget->AccountRef->value.$month.$year];
+	         											$budget = $budget->Amount;
+	         											$totalBudget = $totalBudget + $budget;
+	         											$totalActuals = $totalActuals + $actual;
+	         											$overBudget = $actual-$budget;
+	         
+	         											if($budget != 0 ){
+
+	         												$budgetPercentage = ($actual/$budget)*100;
+
+	         											}
+	         											else {
+
+	            											$budgetPercentage = "";
+
+	         											}
+
+	         											$valString .= "<td>";
+	            										$valString .= money_format('%#10n',  $actual);
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= money_format('%#10n',  $budget);
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= money_format('%#10n',  $overBudget);
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= round((float)$budgetPercentage,2) . '%';
+	         											$valString .= "</td>";
+	         											$fbName = $bName;
+
+	         										}
+	         										else {
+
+	         											$prevVal = $budget->AccountRef->value;
+	         											$month = date('m',strtotime($budget->BudgetDate)) ;
+	         											$month  = ltrim($month, '0');
+	         											$year = date('Y');
+	         											$bName = $budget->AccountRef->name;
+	         											$actual = $dbData[$budget->AccountRef->value.$month.$year];
+	         											$budget = $budget->Amount;
+	         											$overBudget = $actual-$budget;
+
+	         											if($budget != 0 ){
+
+	         												$budgetPercentage = ($actual/$budget)*100;
+
+	         											}
+	         											else {
+
+	            											$budgetPercentage = "";
+
+	         											}
+
+	         											$valString .= "<td class=\"total\">";
+	            										$valString .= money_format('%#10n',$totalActuals);
+	         											$valString .= "</td>";
+	         											$valString .= "<td class=\"total\">";
+	            										$valString .= money_format('%#10n',$totalBudget);
+	         											$valString .= "</td>";
+	         											$valString .= "<td class=\"total\">";
+	            										$valString .= money_format('%#10n',$totalActuals-$totalBudget);
+	         											$valString .= "</td>";
+	         											$valString .= "<td class=\"total\">";
+	            										$valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
+	         											$valString .= "</td>";
+	         											$valString .= "</tr>";
+	           											$totalBudget = $budget;
+	         											$totalActuals = $actual;
+	         											$valString .= "<tr>";
+	         											$valString .= "<td  style=\"color: $color;\">";
+	         											$valString .= $bName;
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= money_format('%#10n',  $actual);
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= money_format('%#10n',  $budget);
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= money_format('%#10n',  $overBudget);
+	         											$valString .= "</td>";
+	         											$valString .= "<td>";
+	            										$valString .= round((float)$budgetPercentage,2) . '%';
+	         											$valString .= "</td>";
+
+	         										}
+	         									
+	         									}
+	            
+	            								$val = $val + 1;
+	      
+	      									}
+
+	      									$valString .= "<td class=\"total\">";
+	            							$valString .= money_format('%#10n',$totalActuals);
+	         								$valString .= "</td>";
+	         								$valString .= "<td class=\"total\">";
+	            							$valString .= money_format('%#10n',$totalBudget);
+	         								$valString .= "</td>";
+	         								$valString .= "<td class=\"total\">";
+	            							$valString .= money_format('%#10n',$totalActuals-$totalBudget);
+	         								$valString .= "</td>";
+	         								$valString .= "<td class=\"total\">";
+	            							$valString .=  round((float)(($totalActuals/$totalBudget)*100),2) . '%'; 
+	         								$valString .= "</td>";
+	      									$valString .= "</tr>";
+	      									
+	      									print_r($valString);
+
+      									}
+
+									?>
+        						
+        						</tbody>
+        
+    						</table>
 
 						</div>
 
