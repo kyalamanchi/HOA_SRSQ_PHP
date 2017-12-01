@@ -65,11 +65,6 @@
             $key = $tel_prefix;
             $key .= $num;
 
-            //echo "$home_id - - - $hoa_id - - - country"
-
-
-            //$key = 19255205003;
-
             //Sending request to twilio
 
             $url  = 'https://api.twilio.com/2010-04-01/Accounts/AC06019424f034503e8a7c67a8ddfcd490/Messages.json';
