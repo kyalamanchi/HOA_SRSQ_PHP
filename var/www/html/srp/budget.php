@@ -136,7 +136,7 @@ th, td {
 				<!-- Content -->
 				<section class="module">
 						
-					<div class="container-fluid">
+					<div class="container">
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
@@ -422,6 +422,9 @@ th, td {
 		<script src='assets/bootstrap/js/bootstrap.min.js'></script>
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
+		<!-- Datatable -->
+		<script src='//code.jquery.com/jquery-1.12.4.js'></script>
+		<script src='https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js'></script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src='assets/js/style-switcher.min.js'></script-->
