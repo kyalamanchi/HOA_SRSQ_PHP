@@ -494,7 +494,7 @@
                                                                         
                                                                         echo "<div class='counter-number'>";
 
-                                                                        echo (1665 * 143);
+                                                                        echo ($result * $tu);
 
                                                                         echo "</div>";
 
@@ -681,7 +681,7 @@
                                                                         
                                                                         echo "<div class='counter-number'>";
 
-                                                                        echo (1665 * 143);
+                                                                        echo ($result * $tu);
 
                                                                         echo "</div>";
 
