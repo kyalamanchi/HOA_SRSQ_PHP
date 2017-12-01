@@ -406,7 +406,7 @@
 
                     echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Amount<br>Received</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Paid<br>Customers</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Settling<br>Payments</div></div><div class='row text-center'>";
 
-                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthAmountRecieved.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthPaidMembers.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthSettlingMembers.php'>".$settling_customers."</a></strong></div>";
+                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>".$settling_customers."</a></strong></div>";
                   ?>
 
                   <br><br>
