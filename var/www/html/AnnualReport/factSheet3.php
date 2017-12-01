@@ -764,16 +764,11 @@
 
                                                                     <?php 
 
-                                                                        $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2018-01-01' AND invoice_date<='2018-12-31'"));
+                                                                        $row = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE year=2018 AND community_id=$community_id AND rul=0"));
 
                                                                         $repairs = $row['sum'];
 
-                                                                        $repairs = round($repairs, 0);
-                                            
-                                                                        if($repairs > 0)
-                                                                            echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
-                                                                        else
-                                                                            echo "<div class='counter-number'>".$repairs."</div>";
+                                                                        echo "<div class='counter-number'>".$repairs."</div>";
 
                                                                     ?>
 
