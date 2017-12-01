@@ -759,7 +759,11 @@
 
                                                                     <?php 
                                                                         
+                                                                        echo "<div class='counter-number'>";
+
                                                                         echo (1665 * 143);
+
+                                                                        echo "</div>";
 
                                                                     ?>
 
