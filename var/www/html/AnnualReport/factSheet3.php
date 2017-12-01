@@ -753,6 +753,22 @@
 
                                                             </div>
 
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+
+                                                                    <?php 
+                                                                        
+                                                                        echo (1665 * 143);
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Total Deficit ($)</div>
+
+                                                                </div>
+
+                                                            </div>
+
                                                         </div>
 
                                                     </div>
