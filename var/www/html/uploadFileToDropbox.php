@@ -78,7 +78,7 @@ $uploaderId = $parseJSON[0]->uploader_id;
 
 $fileName = $parseJSON[0]->file_name;
 
-$fileContent = $parseJSON[0]->file_content;
+$fileContent = base64_decode($parseJSON[0]->file_content);
 
 echo $fileContent;
 
