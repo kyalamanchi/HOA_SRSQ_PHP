@@ -177,6 +177,7 @@ function getFileData()
       reader.readAsDataURL(file);
       reader.onload = function (evt) {
          fileData =evt.target.result.split(',')[1];
+         alert(fileData);
         return fileData;
     }
     reader.onerror = function (evt) {
