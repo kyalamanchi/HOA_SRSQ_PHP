@@ -537,7 +537,7 @@
                                                                         $sum_of = $sum_of['sum'];
 
                                                                         $assets = $sum_of / $assets;
-                                                                        $assets = round($assets, 2);
+                                                                        $assets = round($assets, 0);
 
                                                                         echo "<div class='counter-number'>$assets</div>";
 
@@ -746,7 +746,7 @@
                                                                         $sum_of = $sum_of['sum'];
 
                                                                         $assets = $sum_of / $assets;
-                                                                        $assets = round($assets, 2);
+                                                                        $assets = round($assets, 0);
 
                                                                         echo "<div class='counter-number'>$assets</div>";
 
