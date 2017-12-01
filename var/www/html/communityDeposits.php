@@ -7,320 +7,337 @@
 ?>
 
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        <title>Transactions</title>
-        <link rel="stylesheet" href="bootstrap.css"/>
-        <link rel="stylesheet" href="../bower_components/Font-Awesome/css/font-awesome.css"/>
-        <link rel="stylesheet" href="build.css"/>
-        <link rel="stylesheet" href="dist/css/bootstrap-select.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-        <link rel='stylesheet' href='vendor/metisMenu/dist/metisMenu.css' />
-        <link rel='stylesheet' href='vendor/animate.css/animate.css' />
-        <link rel='stylesheet' href='fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css' />
-        <link rel='stylesheet' href='fonts/pe-icon-7-stroke/css/helper.css' />
-        <link rel='stylesheet' href='styles/style.css'>
-        <script src="dist/js/bootstrap-select.js"></script>
-        <script type="text/javascript">
-        var id = "";
-        function test(checkbox){
-            if (checkbox.checked == false) {
-                if (!checkbox.disabled) {
-                    document.getElementById("setreminder").disabled = true;
-                }
-            }
-            else  if(checkbox.checked == true){
-                document.getElementById("setreminder").disabled = false;
-                id = checkbox.id;
-            }
-        }
-        function buttonPressed() {
-            // alert(id);
-            var date = document.getElementById('inputdefault').value;
-            // window.location  = "localhost/forteTransactions.php?id=".date;
-            window.location = "http://localhost/forteTransactions.php?date=".concat(date);
-        }
-        function todayButtonPressed() {
-            var today = new Date();
-            var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-            window.location = "http://localhost/forteTransactions.php?date=".concat(date);
-        }
-  </script>
-  <style >     
-      .btn:hover {
-        background-position: 0px;
-    }
-     input[type="radio"], input[type="radio"]+label img {
-    vertical-align: middle;
-  }
-  </style>
-    </head>
-    <body>
-        <div class='splash'> 
-            <div class='color-line'></div>
-            <div class='splash-title'>
-                <h1></h1>
-                <div class='spinner'> 
-                    <div class='rect1'></div>
-                    <div class='rect2'></div>
-                    <div class='rect3'></div> 
-                    <div class='rect4'></div>
-                    <div class='rect5'></div>
-                </div>
-            </div>
-        </div>
-        <h1>Fundings</h1>
-<hr>
-<div class="container">
 
-		<div class="form-group" style="width: 200px;">
-    <!--   <label for="inputdefault">Enter Date</label>
-      <input class="form-control" id="inputdefault" type="text" placeholder="YYYY-MM-DD">
-      <input type="button" name="Some Button" value="Get Transactions" onclick="buttonPressed()">
-      <input type="button" name="Current Date" value="Today Transactions" oncancel="buttonPressed()"> -->
-    </div>
+  <head>
     
-        <br>
-        <div>
-    	<!-- <input type="button" name="" value="Update Database" style="float: right;" onclick="updateDatabase();"> -->
-    </div>
-        <table id="example" class="table table-striped" cellspacing="0" width="100%" style="font-size: 16px;">
-                                <thead>
-                                    <tr>
-                                    	<th>FundingID</th>
-                                        <th>Transaction Count</th>
-                                    	<th>Status</th>
-                                        <th>EffectiveDate</th>
-                                        <th>OriginationDate</th>
-                                        <th>Net Amount</th>
-                                        <th>Funding Source</th>
-                                        <th>Bank Information</th>
-                                        <th>Entry Description</th>
-                                        <th>Account Number</th>
-                                        <th>Routing Number</th>
-                                    </tr>
-                                </thead>
-                                <tbody>      
-                               <?php
-                               $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-                               if ( $dbconn3 ) {
-                                $getQuery = "SELECT funding_id FROM community_deposits WHERE community_id=2";
-                                $getResults = pg_query($getQuery);
-                                $fundingArray  = array();
-                                try {
-                                while ($row = pg_fetch_row($getResults)) {
-                                    $fundingArray[$row[0]] = 1;
-                                }
-                            }
-                            catch(Exception $e ){
-                                print_r($e);
-                            }
-                               }
-                               date_default_timezone_set('America/Los_Angeles');
-                                $url  = 'https://api.forte.net/v3/organizations/org_332536/fundings/';
-                                $ch = curl_init($url);
-                                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
-                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                                $result = curl_exec($ch);
-                                $result = json_decode($result,TRUE);
-                                curl_close($ch);
-                                $number_of_results = $result['number_results'];
-                                $url = $url.'?page_size='.$number_of_results;
-                                $ch = curl_init($url);
-                                curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
-                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                                $result = curl_exec($ch);
-                                $result = json_decode($result,TRUE);
-                                curl_close($ch);
+    <?php
 
-                                foreach ($result['results'] as $results) {
+      pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-                                    $url = $results['links']['transactions'];
+      if(@!$_SESSION['hoa_username'])
+        header("Location: https://hoaboardtime.com/logout.php");
 
-                                    $ch = curl_init($url);
-                                    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                                    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json','X-Forte-Auth-Organization-Id:org_332536','Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
-                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                                    $resultss = curl_exec($ch);
-                                    $resultss = json_decode($resultss,TRUE);
-                                    curl_close($ch);
-                                    $number_of_results = $resultss['number_results'];
+      $community_id = $_SESSION['hoa_community_id'];
+      $user_id=$_SESSION['hoa_user_id'];
 
+      if($_SESSION['hoa_mode'] == 2)
+        header("Location: https://hoaboardtime.com/residentDashboard.php");
 
+    ?>
 
-                                    echo '<tr>';
-                                    echo '<td>';
-                                        echo '<a href="http://localhost/forteFundingDetails.php?url='.$results['links']['transactions'].'">'.str_replace("fnd_","",$results['funding_id'])."</a>";
-                                    echo '</td>';
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <title><?php echo $_SESSION['hoa_community_name']; ?></title>
+    
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
+    <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
 
-                                    echo '<td>';
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-                                    $fundingID = str_replace("fnd_","",$results['funding_id']);
-                                    $numberOfResults = $number_of_results;
-                                    
-                                    echo $number_of_results;
-                                    echo '</td>';
+  </head>
 
-                                    echo '<td><font color="green";>';
-                                        if ( $results['status'] == 'completed' ) {
-                                            $resstatus = $results['status'];
-                                            echo strtoupper($results['status']);
+  <body class="hold-transition skin-blue sidebar-mini">
+    
+    <div class="wrapper">
 
-                                        }
-                                        else {
-                                            $resstatus = $results['status'];
-                                        echo strtoupper($results['status']);
-                                    }
+      <?php include "boardHeader.php"; ?>
+      
+      <?php include 'boardNavigationMenu.php'; ?>
 
-                                    echo '</font></td>';
+      <?php include 'zenDeskScript.php'; ?>
 
-                                    
+      <div class="content-wrapper">
 
-                                    echo '<td>';
-                                        $effectiveDate = date("Y-m-d",strtotime($results['effective_date']));
-                                        echo date("Y-m-d",strtotime($results['effective_date']));
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $originationDateR = date("Y-m-d",strtotime($results['origination_date']));
-                                        echo date("Y-m-d",strtotime($results['origination_date']));
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $netAmount = $results['net_amount'];
-                                        echo '$ '.$results['net_amount'];
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $fundingSourceCode = $results['funding_source']['code'];
-                                    echo $results['funding_source']['code'];
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $fundingDescription = $results['funding_source']['description'];
-                                        echo $results['bank_information'];
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $entryDescription = $results['entry_description'];
-                                        echo $results['entry_description'];
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $accountLastFourDigits = $results['last_4_account_number'];
-                                        echo $results['last_4_account_number'];
-                                    echo '</td>';
-                                    echo '<td>';
-                                        $routingNumber = $results['routing_number'];
-                                        echo $results['routing_number'];
-                                    echo '</td>';
-                                    echo '</tr>';
+        <?php
 
-                                    if ( $fundingArray[$fundingID] == 1){
-                                        $updateQuery = "UPDATE community_deposits SET status='";
-                                        $updateQuery = $updateQuery.$resstatus."' WHERE funding_id='";
-                                        $updateQuery = $updateQuery.$fundingID."'";
+            $year = date("Y");
+            $month = date("m");
+            $end_date = date("t");
 
-                                        print_r("Update Requested......".$updateQuery);
-                                        pg_query($updateQuery);
+          $result = pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'");
 
-                                    }
+        ?>
+        
+        <section class="content-header">
 
-                                    else {
-                                    $insertQuery = 'INSERT INTO community_deposits("community_id","funding_id","net_amount","number_of_transactions","status","effective_date","origination_date","routing_number","account_number_last_four_digits","funding_source_code","funding_source_description","entry_description") VALUES(2,';
-                                    $insertQuery = $insertQuery."'".$fundingID."',";
-                                    $insertQuery = $insertQuery."".round($netAmount,2).",";
-                                    $insertQuery = $insertQuery."".$numberOfResults.",";
-                                    $insertQuery = $insertQuery."'".$resstatus."',";
-                                    $insertQuery = $insertQuery."'".$effectiveDate."',";
-                                    $insertQuery = $insertQuery."'".$originationDateR."',";
-                                    $insertQuery = $insertQuery."".$routingNumber.",";
-                                    $insertQuery = $insertQuery."".$accountLastFourDigits.",";
-                                    $insertQuery = $insertQuery."'".$fundingSourceCode."',";
-                                    $insertQuery = $insertQuery."'".$fundingDescription."',";
-                                    $insertQuery = $insertQuery."'".$entryDescription."')";
-                                    echo nl2br("\n\n\n\n");
-                                   $result =  pg_query($insertQuery);
-                                   if ( !$result ){
-                                        print_r($insertQuery);
-                                   }
+          <h1><strong>Community Deposits</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
-
-                                }
-
-
-                                }
-                                pg_close($dbconn3);
-                               ?>
-                                </tbody>
-        </table>
-        <br><br>
-        <script type="text/javascript">
-        $(document).ready(function() {
-
+          <ol class="breadcrumb">
             
-              $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            {
-                text: 'My button',
-                action: function ( e, dt, node, config ) {
-                    alert( 'Button activated' );
-                }
-            }
-            ]
-            } ); 
-            var table = $('#example').DataTable({
-            dom: 'l<"toolbar">frtip',
-            initComplete: function(){
-            $('.datatable').dataTable({
-                "sPaginationType": "bs_four_button"
-            }); 
-            $('.datatable').each(function(){
-                var datatable = $(this);
-                var search_input = datatable.closest('.dataTables_wrapper').find('div[id$=_filter] input');
-                search_input.attr('placeholder', 'Search');
-                search_input.addClass('form-control input-sm');
-                var length_sel = datatable.closest('.dataTables_wrapper').find('div[id$=_length] select');
-                length_sel.addClass('form-control input-sm');
-            });
-        </script>
-        <script src='vendor/slimScroll/jquery.slimscroll.min.js'></script>
-        <script src='vendor/metisMenu/dist/metisMenu.min.js'></script>
-        <script src='scripts/homer.js'></script>
-        <script src='//code.jquery.com/jquery-1.12.4.js'></script>
-        <script src='https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js'></script>
-        <script src='https://cdn.datatables.net/1.10.13/js/dataTables.bootstrap.min.js'></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('#example').DataTable();
-            } );
-        </script> 
-<script type="text/javascript">
-    function changeState(el) {
-        if (el.readOnly) el.checked=el.readOnly=false;
-        else if (!el.checked) el.readOnly=el.indeterminate=true;
-    }
-</script>
-    <script src='scripts/homer.js'></script>
-          <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>This is a small modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+            <li><a href='boardDashboard.php'><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
+            <li>Community Deposits</li>
+          
+          </ol>
+
+        </section>
+
+        <section class="content">
+          
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+
+              <div class="box">
+                
+                <div class="box-body table-responsive">
+                  
+                  <table id="example1" class="table table-bordered table-striped">
+                    
+                    <thead>
+                      
+                        <th>Fund Received On</th>
+                        <th>ID</th>
+                        <th>Net Amount</th>
+                        <th>Number of Transactions</th>
+                        <th>Status</th>
+                        <th>Fund Sent On</th>
+
+                    </thead>
+
+                    <tbody>
+
+                        <?php
+
+                            if($community_id == 2)
+                            {
+
+                                $result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
+
+                                while($row = pg_fetch_assoc($result))
+                                {
+
+                                    $funding_id = $row['funding_id'];
+                                    $id1 = $row['id'];
+                                    $status = $row['status'];
+                                    $net_amount = $row['net_amount'];
+                                    $number_of_transactions = $row['number_of_transactions'];
+                                    $effective_date = $row['effective_date'];
+                                    $origination_date = $row['origination_date'];
+                                    $routing_number = $row['routing_number'];
+                                    $account_number = $row['account_number_last_four_digits'];
+                                    $entry_description = $row['entry_description'];
+
+                                    if($effective_date != '')
+                                        $effective_date = date('m-d-Y', strtotime($effective_date));
+
+                                    if($origination_date != '')
+                                        $origination_date = date('m-d-Y', strtotime($origination_date));
+
+                                    echo "<div class='modal fade hmodal-success' id='funding_id_".$funding_id."' role='dialog'  aria-hidden='true'>
+                                        
+                                    <div class='modal-dialog'>
+                                                      
+                                        <div class='modal-content'>
+                                                          
+                                            <div class='color-line'></div>
+
+                                                <div class='modal-body table-responsive'>";
+
+                                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id' ORDER BY id");
+
+                                                    echo "<div class='row container-fluid'>
+
+                                                        <div class='row text-center'>
+
+                                                            <strong>
+
+                                                                <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name<br>(HOA ID)</div>
+                                                                <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address<br>(Home ID)</div>
+                                                                <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>ID</div>
+                                                                <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Status</div>
+                                                                <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Amount</div>
+                                                                <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Received Date</div>
+
+                                                            </strong>
+
+                                                        </div>
+
+                                                        <br>
+
+                                                        <div class='row container-fluid'>";
+
+                                                            while($row1 = pg_fetch_assoc($result1))
+                                                            {
+
+                                                                $id = $row1['id'];
+                                                                $transaction_id = $row1['transaction_id'];
+                                                                $funding_status = $row1['status'];
+                                                                $amount = $row1['amount'];
+                                                                $received_date = $row1['received_date'];
+                                                                $funding_hoa_id = $row1['hoa_id'];
+
+                                                                if($received_date != '')
+                                                                    $received_date = date('m-d-Y', strtotime($received_date));
+
+                                                                $row11 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$funding_hoa_id"));
+
+                                                                $name = $row11['firstname'];
+                                                                $name .= " ";
+                                                                $name .= $row11['lastname'];
+                                                                $t_home_id = $row11['home_id'];
+
+                                                                $row11 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$t_home_id"));
+
+                                                                $address = $row11['address1'];
+                                                                $living_status = $row11['living_status'];
+
+                                                                if($name != " " && $address != "")
+                                                                {
+                                                    
+                                                                    $name = "$name<br>($funding_hoa_id)";
+                                                                    $address = "$address<br>($t_home_id)";
+
+                                                                }
+                                                                else
+                                                                {
+
+                                                                    echo "
+
+                                                                    <div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
+                                        
+                                                                        <div class='modal-dialog'>
+                                                                        
+                                                                            <div class='modal-content'>
+
+                                                                                <div class='modal-header table-responsive'>
+
+                                                                                    <h4>Add Hoa ID - <strong>$id</strong></h4>
+
+                                                                                </div>
+
+                                                                                <div class='modal-body table-responsive'>
+
+                                                                                    <form method='POST' action='https://hoaboardtime.com/boardEditDepositsHOAID.php'>
+                                                            
+                                                                                        <center>
+
+                                                                                        <select class='form-control select2' name='select_hoa' id='select_hoa' style='width: 100%;' required>
+
+                                                                                            <option value='' disabled selected>Select User</option>";
+
+                                                                                            $result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
+
+                                                                                            while($row000 = pg_fetch_assoc($result000))
+                                                                                            {
+
+                                                                                                $add_home_id = $row000['home_id'];
+                                                                                                $add_address1 = $row000['address1'];
+                                                                                              
+                                                                                                $row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
+
+                                                                                                $add_name = $row111['firstname'];
+                                                                                                $add_name .= " ";
+                                                                                                $add_name .= $row111['lastname'];
+                                                                                                $add_hoa_id = $row111['hoa_id'];
+
+                                                                                                echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
+
+                                                                                            }
+
+                                                                                        echo "</select>
+
+                                                                                        <input type='hidden' name='current_payments_id' id='current_payments_id' value='$id'>
+
+                                                                                        <br><br>
+
+                                                                                        <button class='btn btn-xs btn-info' type='submit'>Update</button>
+
+                                                                                    </center>
+
+                                                                                    </form>
+
+                                                                                </div>
+
+                                                                                <br>
+
+                                                                            </div>
+                                                      
+                                                                        </div>
+
+                                                                    </div>";//End
+
+                                                                    $name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+                                                                    $address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+
+                                                                }
+
+                                                                echo "<div class='row text-center";
+
+                                                                if($living_status != 't')
+                                                                    echo " text-red";
+
+                                                                echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
+
+                                                            }
+
+                                                        echo "</div>
+
+                                                    </div>";
+
+                                                echo "</div>
+
+                                                <br>
+
+                                            </div>
+                                    
+                                        </div>
+
+                                    </div>";
+
+                                    echo "<tr><td>".$effective_date."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td>".$status."</td><td>".$origination_date."</td></tr>";
+
+                                }
+
+                            }
+
+                        ?>
+                    
+                    </tbody>
+
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+        </section>
+
       </div>
+
+      <?php include "footer.php"; ?>
+
+      <div class="control-sidebar-bg"></div>
+
     </div>
-  </div>
-    </body>
+
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/demo.js"></script>
+
+    <script>
+      $(function () {
+        $("#example1").DataTable({ "pageLength": 50 });
+      });
+    </script>
+
+  </body>
+
 </html>
