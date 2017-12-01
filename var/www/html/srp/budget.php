@@ -60,6 +60,26 @@
 		<!-- Datatable -->
 		<link rel='stylesheet' href='https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css'>
 
+		
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.2.3/js/dataTables.fixedColumns.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedcolumns/3.2.3/css/fixedColumns.dataTables.min.css">
+
+		<style type="text/css">
+    .notbold{
+    font-weight:normal
+}​
+th, td {
+        white-space: nowrap;
+        padding-right: 1px !important;
+}
+.total{
+    border-left:  1px solid black !important;
+}
+</style>
+
 		<script type="text/javascript">
 			
 			$(document).ready(function() {
@@ -120,9 +140,8 @@
 							
 						<div class='table-responsive col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 						
-							<table id="example" class='table table-striped' style="color: black;">
-										
-								<thead>
+							<table id="example" class="cell-border" cellspacing="0" width="100%">
+        <thead>
             <tr>
                 <th rowspan="2"></th>
                 <th colspan="4">January</th>
@@ -195,10 +214,8 @@
 
             </tr>
         </thead>
-
-								<tbody>
-											
-									<?php
+        <tbody>
+           <?php
    date_default_timezone_set('America/Los_Angeles');
    setlocale(LC_MONETARY, 'en_US');
    
@@ -380,10 +397,9 @@
       print_r($valString);
 
 ?>
-
-								</tbody>
-										
-							</table>
+        </tbody>
+        
+    </table>
 
 						</div>
 
