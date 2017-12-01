@@ -437,7 +437,7 @@
                                             if($document_id == "")
                                                 $document = " - ";
                                             else
-                                                $document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
+                                                $document = "<a target='_blank' href='getDocumentPreview.php?cid=$community_id&path=$document_id&desc=$dname&t=-1'><i class='fa fa-file-pdf-o'></i> Click Here</a>";
 
                                             echo "
 
