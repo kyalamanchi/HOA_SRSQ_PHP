@@ -109,6 +109,7 @@ $communityCode = $row['community_code'];
  $dbResponse = $response;
  $response = json_decode($response);
  echo $response;
+ echo $dbResponse;
  if ( isset($response->error_summary) ){
      echo "An error occured.";
      exit(0);
