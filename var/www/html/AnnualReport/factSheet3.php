@@ -536,10 +536,10 @@
                                                                         $sum_of = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id AND year=2017"));
                                                                         $sum_of = $sum_of['sum'];
 
-                                                                        $assets = $sum_of / $assets;
+                                                                        //$assets = $sum_of / $assets;
                                                                         $assets = round($assets, 0);
 
-                                                                        echo "<div class='counter-number'>$assets</div>";
+                                                                        echo "<div class='counter-number'>$sum_of</div>";
 
                                                                     ?>
 
@@ -745,10 +745,10 @@
                                                                         $sum_of = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id AND year=2018"));
                                                                         $sum_of = $sum_of['sum'];
 
-                                                                        $assets = $sum_of / $assets;
+                                                                        //$assets = $sum_of / $assets;
                                                                         $assets = round($assets, 0);
 
-                                                                        echo "<div class='counter-number'>$assets</div>";
+                                                                        echo "<div class='counter-number'>$sum_of</div>";
 
                                                                     ?>
 
