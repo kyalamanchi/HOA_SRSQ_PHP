@@ -106,6 +106,7 @@ $communityCode = $row['community_code'];
  curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent); 
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
  $response = curl_exec($ch);
+echo $response;
  $dbResponse = $response;
  $response = json_decode($response);
  echo $response;
