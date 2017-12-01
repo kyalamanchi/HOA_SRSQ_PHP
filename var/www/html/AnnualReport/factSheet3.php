@@ -472,7 +472,7 @@
                                                                         $bb = $result['begin_bal'];
                                                                         $tu = $result['total_units'];
 
-                                                                        $result = ($bb - $isb) / $tu;
+                                                                        $result = ($isb - $bb) / $tu;
 
                                                                         $result = round($result, 0);
 
@@ -481,6 +481,26 @@
                                                                     ?>
 
                                                                     <div class='counter-title'>Deficit Per Home ($)</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+
+                                                                    <?php 
+                                                                        
+                                                                        echo "<div class='counter-number'>";
+
+                                                                        echo (1665 * 143);
+
+                                                                        echo "</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Total Deficit ($)</div>
 
                                                                 </div>
 
@@ -639,7 +659,7 @@
                                                                         $bb = $result['begin_bal'];
                                                                         $tu = $result['total_units'];
 
-                                                                        $result = ($bb - $isb) / $tu;
+                                                                        $result = ($isb - $bb) / $tu;
 
                                                                         $result = round($result, 0);
 
