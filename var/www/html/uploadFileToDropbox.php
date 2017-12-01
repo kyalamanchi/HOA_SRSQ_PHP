@@ -108,6 +108,7 @@ $communityCode = $row['community_code'];
  $response = curl_exec($ch);
  $dbResponse = $response;
  $response = json_decode($response);
+ echo $response;
  if ( isset($response->error_summary) ){
      echo "An error occured.";
      exit(0);
