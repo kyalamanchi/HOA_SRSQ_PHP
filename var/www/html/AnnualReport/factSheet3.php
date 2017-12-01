@@ -476,7 +476,7 @@
 
                                                                         $result = round($result, 0);
 
-                                                                        echo "<div class='counter-number'>$result</div>";
+                                                                        echo "<div class='counter-number' style='color: red'>$result</div>";
 
                                                                     ?>
 
@@ -492,7 +492,7 @@
 
                                                                     <?php 
                                                                         
-                                                                        echo "<div class='counter-number'>";
+                                                                        echo "<div class='counter-number' style='color: red'>";
 
                                                                         echo ($result * $tu);
 
@@ -685,7 +685,7 @@
 
                                                                         $result = round($result, 0);
 
-                                                                        echo "<div class='counter-number'>$result</div>";
+                                                                        echo "<div class='counter-number' style='color: red'>$result</div>";
 
                                                                     ?>
 
@@ -701,7 +701,7 @@
 
                                                                     <?php 
                                                                         
-                                                                        echo "<div class='counter-number'>";
+                                                                        echo "<div class='counter-number' style='color: red'>";
 
                                                                         echo ($result * $tu);
 
