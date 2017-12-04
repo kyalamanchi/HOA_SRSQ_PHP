@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a><h5 class='h5' style='color: blue;'>STONERIDGE SQUARE ASSOCIATION</h5></a>
+						<a><h4 class='h4' style='color: blue;'>STONERIDGE SQUARE ASSOCIATION</h4></a>
 
 					</div>
 
