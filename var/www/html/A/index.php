@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a><h4 class='h4' style='color: blue;'>STONERIDGE SQUARE ASSOCIATION</h4></a>
+						<a><h4 class='h4' style='color: green;'>STONERIDGE SQUARE ASSOCIATION</h4></a>
 
 					</div>
 
@@ -77,10 +77,10 @@
 								<ul>
 
 									<li><a href='index.php'><i class='fa fa-home'></i> Home</a></li>
-									<li><a class='smoothscroll' href='#pay_online'><i class='fa fa-dollar'></i> Pay Online</a></li>
-									<li><a class='smoothscroll' href='#budget'><i class='fa fa-calendar-o'></i> 2017 Budget</a></li>
-									<li><a class='smoothscroll' href='#r_p'><i class='fa fa-gavel'></i> Rule &amp; Policies</a></li>
-									<li><a class='smoothscroll' href='#contact'><i class='fa fa-phone'></i> Contact Us</a></li>
+									<li><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'><i class='fa fa-dollar'></i> Pay Online</a></li>
+									<li><a class='smoothscroll' href='#get_involved'><i class='fa fa-comment'></i> Get Involved</a></li>
+									<li><a href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'><i class='fa fa-envelope'></i> Mailing List</a></li>
+									<li><a class='smoothscroll' href='#contact'><i class='fa fa-phone'></i> Contact</a></li>
 									<li><a href='login_page.php' style='color: green;'><i class='fa fa-sign-in'></i> Log In</a></li>
 									<!--data-toggle='modal' data-target='#login_modal'-->
 								</ul>
@@ -499,7 +499,7 @@
 
 						<div class='row'>
 
-							<div id='r_p' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+							<div id='get_involved' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 								
 								<div class='icon-box'>
 
@@ -647,7 +647,7 @@
 
 							</div>
 
-							<div id='budget' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 								
 								<div class='icon-box'>
 
@@ -700,7 +700,7 @@
 				</section>
 
 				<!-- Footer-->
-				<footer class='footer'>
+				<footer id='contact' class='footer'>
 
 					<div class='container'>
 
