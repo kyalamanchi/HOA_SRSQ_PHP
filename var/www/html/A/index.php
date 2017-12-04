@@ -64,7 +64,7 @@
 					<!-- Logos-->
 					<div class='inner-header'>
 
-						<a class='inner-brand'><h5 style='color: green;'><img src='srsq_logo.JPG'></h5></a>
+						<a class='inner-brand'><h5 style='color: green;'><img src='srsq_logo.JPG' width=50% height=50%></h5></a>
 
 					</div>
 
