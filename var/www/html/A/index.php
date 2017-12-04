@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand'><h5 class='h5'>Stoneridge Square</h5></a>
+						<a class='inner-brand'><h5 class='h5' style='color: blue;'>STONERIDGE SQUARE</h5></a>
 
 					</div>
 
@@ -226,11 +226,13 @@
 
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-								<center><h4 class='h4'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h4></center>
+								<center><h3 class='h3'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
 
 							</div>
 
 						</div>
+
+						<br>
 
 						<div class='row'>
 
