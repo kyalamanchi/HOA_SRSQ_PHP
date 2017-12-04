@@ -611,7 +611,7 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'>Pay Now</a></div>
 
-									<br><br><br><br>
+									<br><br><br><br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Pool Signin</h3></div>
 
@@ -625,7 +625,7 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
 
-									<br><br><br><br>
+									<br><br><br><br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Resale &amp; Docs</h3></div>
 
@@ -684,6 +684,22 @@
                     						</li>
 
                   						</ul>
+
+									</div>
+
+									<br><br><br><br><br>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Contact</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<h4 class='h4'>PO Box 5272, Pleasanton, CA 94566</h4>
+
+										<br>
+
+										<h5 class='h5'><a href='' target='_blank'>https://www.stoneridgesquare.org</a></h5>
 
 									</div>
 
@@ -869,7 +885,7 @@
 
 									<div class='textwidget'>
 										
-										PO BOX 101901, Pleasanton, CA 94588<br />
+										PO BOX 101901, Pleasanton, CA 94566<br />
 										E-mail: <a href='mailto:billing@stoneridgesquare.org'>billing@stoneridgesquare.org</a> <br/>
 										Phone: 925 399 6642
 
