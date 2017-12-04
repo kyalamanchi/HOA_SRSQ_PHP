@@ -226,7 +226,7 @@
 
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-								<center><h3 class='h3'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
+								<center><h3 class='h3' style='color: green;'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
 
 							</div>
 
