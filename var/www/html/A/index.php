@@ -1232,7 +1232,7 @@
 				</section>
 
 				<!-- Footer-->
-				<footer class='footer footer-info'>
+				<footer class='footer footer-blue'>
 
 					<div class='container'>
 
