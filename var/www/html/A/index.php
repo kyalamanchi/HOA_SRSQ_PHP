@@ -382,7 +382,7 @@
 				<!-- Counters end -->
 
 				<!-- Row 1 -->
-				<section class='module p-t-0 p-b-0'>
+				<section class='module'>
 
 					<div class='container'>
 
@@ -493,7 +493,7 @@
 				</section>
 
 				<!-- Row 2 -->
-				<section class='module p-t-0 p-b-0'>
+				<section class='module module-gray'>
 
 					<div class='container'>
 
