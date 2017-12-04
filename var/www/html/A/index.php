@@ -492,18 +492,15 @@
 
 				</section>
 
-				<!-- Row 2 -->
 				<section class='module module-gray'>
-
+					
 					<div class='container'>
 
 						<div class='row'>
 
-							<div id='budget' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-								
-								<div class='icon-box'>
-									
-									<div class='icon-box-title text-center'><h3 style='color: green;'>Get Involved</h3></div>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+								<div class='icon-box-title text-center'><h3 style='color: green;'>Get Involved</h3></div>
 
 									<hr class='small'>
 
@@ -537,40 +534,25 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://www.dropbox.com/s/f8b0ie27loi057t/2017_Annual_Budget.pdf?dl=0'>Here is the 2017 Approved Budget</a></div>
 
-								</div>
-
 							</div>
 
-							<div id='r_p' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+						</div>
+
+					</div>
+
+				</section>
+
+				<!-- Row 2 -->
+				<section class='module'>
+
+					<div class='container'>
+
+						<div class='row'>
+
+							<div id='budget' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 								
 								<div class='icon-box'>
 
-									<div class='icon-box-title text-center'><h3 style='color: green;'>Make A Payment</h3></div>
-
-									<hr class='small'>
-
-									<div class='icon-box-content'>
-										
-										<p>Click <strong>Pay Now</strong> to enter your payment details with the Payment gateway directly to make a One time Payment.</p>
-
-									</div>
-
-									<div class='icon-box-link text-center'><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'>Pay Now</a></div>
-
-									<br><br>
-
-									<div class='icon-box-title text-center'><h3 style='color: green;'>Pool Signin</h3></div>
-
-									<hr class='small'>
-
-									<div class='icon-box-content'>
-										
-										<p>Click <strong>Sign Now</strong> to sign the Stoneridge Square Association Swimming Pool rules acknowledgement and key fob registration form.</p>
-
-									</div>
-
-									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
-									
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Community Info</h3></div>
 
 									<hr class='small'>
@@ -608,6 +590,104 @@
                   						</table>
 
 									</div>
+
+								</div>
+
+							</div>
+
+							<div id='r_p' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+								
+								<div class='icon-box'>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Make A Payment</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<p>Click <strong>Pay Now</strong> to enter your payment details with the Payment gateway directly to make a One time Payment.</p>
+
+									</div>
+
+									<div class='icon-box-link text-center'><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'>Pay Now</a></div>
+
+									<br><br>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Pool Signin</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<p>Click <strong>Sign Now</strong> to sign the Stoneridge Square Association Swimming Pool rules acknowledgement and key fob registration form.</p>
+
+									</div>
+
+									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
+
+									<br><br>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Resale &amp; Docs</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<ul>
+              
+                    						<li>
+                      
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/k4q6okz2nqe5szs/SRSQ_2017_Draft_Reserve_Study_2017.pdf?dl=0' target='_blank'>Draft Reserve Study</a>
+
+                    						</li>
+
+                    						<li>
+
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/jpw5mn87lzjf9zr/SRSQ_CC%26Rs_First_Draft_12-22-16.pdf?dl=0' target='_blank'>Proposed CCR</a>
+
+                    						</li>
+
+                    						<li>
+                    
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/oippjvpuazmi67t/SRSQ_Bylaws_First_Draft_2-12-22-16.pdf?dl=0' target='_blank'>Upcoming Governing Docs</a>
+
+                    						</li>
+
+                    						<li>
+
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/t2lm7rn0cot4acy/2017_Annual_Budget.pdf?dl=0' target='_blank'>2017 Annual Budget</a>
+
+                    						</li>
+
+                    						<li>
+                    
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/o7hrs8lanf4us0k/SRSQ_Voting%20%26%20Election%20Rules%2011-21-16.pdf?dl=0' target='_blank'>Current Election and Voting Rules</a>
+
+                    						</li>
+
+                    						<li>
+                    
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/zs9er1e7ai78lbu/Articles%20of%20Inc.pdf?dl=0' target='_blank'>Articles of Incorporation</a>
+
+                    						</li>
+
+                    						<li>
+                    
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/v5z15b028l26dlg/SRSQ_Enforcement%20Policy.pdf?dl=0' target='_blank'>Enforcement Policy</a>
+
+                    						</li>
+
+                    						<li>
+                    
+                      							<strong style='color: black;'>-</strong> <a href='https://www.dropbox.com/s/0u0uyq762vnnvr1/SRSQ_Farmers_5300_Disclosure.pdf?dl=0' target='_blank'>Insurance</a>
+
+                    						</li>
+
+                  						</ul>
+
+									</div>
+
+									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
 
 								</div>
 
