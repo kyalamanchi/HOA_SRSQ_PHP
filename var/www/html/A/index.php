@@ -544,6 +544,32 @@
 							<div id='r_p' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 								
 								<div class='icon-box'>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Make A Payment</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<p>Click <strong>Pay Now</strong> to enter your payment details with the Payment gateway directly to make a One time Payment.</p>
+
+									</div>
+
+									<div class='icon-box-link text-center'><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'>Pay Now</a></div>
+
+									<br><br>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Pool Signin</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<p>Click <strong>Sign Now</strong> to sign the Stoneridge Square Association Swimming Pool rules acknowledgement and key fob registration form.</p>
+
+									</div>
+
+									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
 									
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Community Info</h3></div>
 
