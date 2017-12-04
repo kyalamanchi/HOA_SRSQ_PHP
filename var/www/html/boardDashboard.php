@@ -728,7 +728,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>
+                      <h1 class='text-orange'><strong>
 
                         <?php 
                                 
@@ -736,7 +736,7 @@
 
                               ?>
 
-                      </a>
+                      </strong></h1>
 
                     </div>
 
