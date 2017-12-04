@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand'><img src='srsq_logo.JPG' width=60% height=60%></a>
+						<a class='inner-brand'><img src='srsq_logo.JPG' width=50% height=50%></a>
 
 					</div>
 
