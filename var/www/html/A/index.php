@@ -62,7 +62,7 @@
 				<div class='container-fluid'>
 								
 					<!-- Logos-->
-					<div class='inner-header text-left'>
+					<div class='inner-header inner-brand'>
 
 						<a><h5 style='color: green;'>Stoneridge Square Association</h5></a>
 
