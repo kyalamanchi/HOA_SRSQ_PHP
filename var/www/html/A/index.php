@@ -78,7 +78,7 @@
 
 									<li><a href='index.php'><i class='fa fa-home'></i> Home</a></li>
 									<li><a class='smoothscroll' href='#get_involved'><i class='fa fa-comment'></i> Get Involved</a></li>
-									<li><a href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'><i class='fa fa-envelope'></i> Mailing List</a></li>
+									<li><a target='_blank' href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'><i class='fa fa-envelope'></i> Mailing List</a></li>
 									<li><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'><i class='fa fa-dollar'></i> Pay Online</a></li>
 									<li><a class='smoothscroll' href='#contact'><i class='fa fa-phone'></i> Contact</a></li>
 									<li><a href='login_page.php' style='color: green;'><i class='fa fa-sign-in'></i> Log In</a></li>
