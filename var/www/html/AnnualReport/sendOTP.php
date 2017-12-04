@@ -42,7 +42,28 @@
             
             $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
 
-            $key = 19255205003;
+            $result = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+            $home_id = $result['home_id'];
+            $num = $result['cell_no'];
+
+            $result = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+            $living_status = $result['living_status'];
+
+            if($living_status == 't')
+                $country = $result['country_id'];
+            else
+            {
+
+                $result = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+                $country = $result['country_id'];
+
+            }
+
+            $result = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$country"));
+            $tel_prefix = $result['tel_prefix'];
+
+            $key = $tel_prefix;
+            $key .= $num;
 
             //Sending request to twilio
 

@@ -727,28 +727,48 @@
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													<div class='counter h6'>
+                          <div class='counter h6'>
 
-														<div class='counter-number'>
+                            <div class='counter-number'>
 
-															<?php 
-																
-																$late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
+                              <?php 
+                                
+                                $late_payments = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-16' AND process_date<='$year-$month-$last'"));
 
-																if ($late_payments == 0) 
-																	echo $late_payments;
-																else
-																	echo "<a href='latePayments.php' style='color: orange;'>$late_payments</a>";
+                                if ($late_payments == 0) 
+                                  echo $late_payments;
+                                else
+                                  echo "<a href='latePayments.php' style='color: orange;'>$late_payments</a>";
 
-															?>
+                              ?>
 
-														</div>
+                            </div>
 
-														<div class='counter-title'>Late Payments</div>
+                            <div class='counter-title'>Late Payments</div>
 
-													</div>
+                          </div>
 
-												</div>
+                        </div>
+
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+
+                              <?php 
+                                
+                                include "https://hoaboardtime.com/hoaResources/testing.php";
+
+                              ?>
+
+                            </div>
+
+                            <div class='counter-title'>Testing Tile</div>
+
+                          </div>
+
+                        </div>
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
@@ -1420,6 +1440,27 @@
 
                         </div>
 
+                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                          <div class='counter h6'>
+
+                            <div class='counter-number'>
+                              
+                              <a href='budget.php'>
+
+                                <!--i class='fa fa-file'></i-->
+                                <img src='purchase_summary.png' alt='Budget'>
+
+                              </a>
+                                
+                            </div>
+
+                            <div class='counter-title'>Budget</div>
+
+                          </div>
+
+                        </div>
+
                       </div>
 
                       <br><br>
@@ -1508,7 +1549,6 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA0rANX07hh6ASNKdBr4mZH0KZSqbHYc3Q"></script>
 		<script src="assets/js/plugins.min.js"></script>
 		<script src="assets/js/charts.js"></script>
 		<script src="assets/js/custom.min.js"></script>

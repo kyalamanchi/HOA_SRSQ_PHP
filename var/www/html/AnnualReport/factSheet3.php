@@ -476,7 +476,7 @@
 
                                                                         $result = round($result, 0);
 
-                                                                        echo "<div class='counter-number'>$result</div>";
+                                                                        echo "<div class='counter-number' style='color: red'>$result</div>";
 
                                                                     ?>
 
@@ -492,7 +492,7 @@
 
                                                                     <?php 
                                                                         
-                                                                        echo "<div class='counter-number'>";
+                                                                        echo "<div class='counter-number' style='color: red'>";
 
                                                                         echo ($result * $tu);
 
@@ -522,6 +522,28 @@
                                                                     ?>
 
                                                                     <div class='counter-title'>Assets</div>
+
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
+
+                                                                <div class='counter h6'>
+                                      
+                                                                    <?php 
+
+                                                                        $sum_of = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id AND year=2017"));
+                                                                        $sum_of = $sum_of['sum'];
+
+                                                                        //$assets = $sum_of / $assets;
+                                                                        $assets = round($assets, 0);
+
+                                                                        echo "<div class='counter-number'>$sum_of</div>";
+
+                                                                    ?>
+
+                                                                    <div class='counter-title'>Total Assets</div>
 
                                                                 </div>
 
@@ -663,7 +685,7 @@
 
                                                                         $result = round($result, 0);
 
-                                                                        echo "<div class='counter-number'>$result</div>";
+                                                                        echo "<div class='counter-number' style='color: red'>$result</div>";
 
                                                                     ?>
 
@@ -679,7 +701,7 @@
 
                                                                     <?php 
                                                                         
-                                                                        echo "<div class='counter-number'>";
+                                                                        echo "<div class='counter-number' style='color: red'>";
 
                                                                         echo ($result * $tu);
 
@@ -723,12 +745,10 @@
                                                                         $sum_of = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE community_id=$community_id AND year=2018"));
                                                                         $sum_of = $sum_of['sum'];
 
-                                                                        $assets = $sum_of / $assets;
+                                                                        //$assets = $sum_of / $assets;
+                                                                        $assets = round($assets, 0);
 
-                                                                        if($assets != '')
-                                                                            echo "<div class='counter-number' style='color: green;'>$assets</div>";
-                                                                        else
-                                                                            echo "<div class='counter-number'>$assets</div>";
+                                                                        echo "<div class='counter-number'>$sum_of</div>";
 
                                                                     ?>
 
@@ -744,16 +764,11 @@
 
                                                                     <?php 
 
-                                                                        $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2018-01-01' AND invoice_date<='2018-12-31'"));
+                                                                        $row = pg_fetch_assoc(pg_query("SELECT sum(avg_unit_cost) FROM community_assets WHERE year=2018 AND community_id=$community_id AND rul=0"));
 
                                                                         $repairs = $row['sum'];
 
-                                                                        $repairs = round($repairs, 0);
-                                            
-                                                                        if($repairs > 0)
-                                                                            echo "<div class='counter-number' style='color: green;'>".$repairs."</div>";
-                                                                        else
-                                                                            echo "<div class='counter-number'>".$repairs."</div>";
+                                                                        echo "<div class='counter-number'>".$repairs."</div>";
 
                                                                     ?>
 

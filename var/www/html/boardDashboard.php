@@ -406,7 +406,7 @@
 
                     echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Amount<br>Received</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Paid<br>Customers</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Settling<br>Payments</div></div><div class='row text-center'>";
 
-                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthAmountRecieved.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthPaidMembers.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCurrentMonthSettlingMembers.php'>".$settling_customers."</a></strong></div>";
+                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>".$settling_customers."</a></strong></div>";
                   ?>
 
                   <br><br>
@@ -470,7 +470,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCommunityDeposit.php'>
+                      <a href='https://hoaboardtime.com/communityDeposits.php'>
 
                         <h1 class="text-info"><strong><?php echo $deposits; ?></strong></h1>
 
@@ -705,6 +705,46 @@
                   <div class="row container-fluid text-center">
 
                     <h5><strong>Late Payments - <?php echo date("F"); ?></strong></h5>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              <!--/a-->
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <!--a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'-->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                      <h1 class='text-orange'><strong>
+
+                        <?php 
+                                
+                                include "https://hoaboardtime.com/hoaResources/testing.php";
+
+                              ?>
+
+                      </strong></h1>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-center">
+
+                    <h5><strong>Testing Tile</strong></h5>
 
                   </div>
 

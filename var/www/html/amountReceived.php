@@ -71,6 +71,13 @@
 
           <h1><strong>Amount Received / Members Paid</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
+          <ol class="breadcrumb">
+            
+            <li><a href='boardDashboard.php'><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
+            <li>Payment Information</li>
+          
+          </ol>
+
         </section>
 
         <section class="content">
