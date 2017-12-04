@@ -503,24 +503,33 @@
 								
 								<div class='icon-box'>
 									
-									<div class='icon-box-title text-center'><h3>2017 Budget</h3></div>
+									<div class='icon-box-title text-center'><h3>Get Involved</h3></div>
 
 									<hr class='small'>
 
 									<div class='icon-box-content'>
 										
-										<p>Here are the key changes</p>
+										<p>Here is the 2016 Strategy for our Home Owners Association, so we are well connected as a community and keep our HOA dues low. In order to accomplish these goals over the next several quarters we need volunteers and member support from the entire community.</p>
+              
+                  <ul>
+                    <li>CCR Updates – Declaration of <a href='http://stoneridgesquare.org/wp-content/uploads/2016/02/Stoneridge_square_CCR.pdf' target='_blank'>CCR</a> describes the rights and obligations of the membership of the association &amp; the association to the membership. Most communities update them after the builder has left and ours are 15 years old and we have hired Hughes Gill Cochrin to update ours. Changes to CCR will start in a few weeks now and expected to complete by end of the year or early 2017.</li>
+                      
+                    <li>Survey Monkey – Respond to our quarterly survey here.</li>
+                      
+                    <li>Updated Website – We are in the process of re-designing our website to achieve the following goals, allow login so we members can view past board meeting minutes, insurance info. Service Requests from now on will be visible to every member for common issues.</li>
+                      
+                    <li>Email Opt In List – Yes we saved $32.29 / year for Printed statements <a target='_blank' href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'>Sign Up to Receive Annual Disclosures &amp; Meeting notices via email here</a> we have 142 emails for 143 residents so far.</li>
+                      
+                    <li>ACH – Its green, secure and 97 out of your neighbors pay. If you don’t share your Bank Routing # and Bank Account # with your friends and family why are your sharing with your HOA by paying via Bill Pay / Check?</li>
+                      
+                    <li>Spring and Summer Party & Fall Party – Join our summer party next Sunday by our swimming pool at 12:30 PM for Pizza, BBQ & Soft Drinks on Sept 18th.</li>
 
-										<ul>
-											
-											<li> <strong>></strong> Increased Insurance coverage of common areas from 372,000 to 950,000 to ensure we are adequately covered.</li>
-											<li> <strong>></strong> Reduced Administrative charges by 21% or roughly $15,000.</li>
-											<li> <strong>></strong> Increased repair spending by $16,000 to pay for Special Projects like Security, Locked Mailboxes, Solar, Internet at Pool etc. without increasing monthly dues or special assessments.</li>
-											<li> <strong>></strong> Landscaping charges go down by 15%.</li>
-											<li> <strong>></strong> Contributions to Savings account increased by 12% or $42/month vs. 37.5/month in 2016.</li>
-											<li> <strong>></strong> Legal Fees go up by $10,000 more than last year to re-write our <a href='https://www.dropbox.com/s/pt3pcf2cq6pa8f7/SRP_CCR.pdf?dl=0' target='_blank'>CCR</a> which are 20 years old.</li>
+                    <li>News Letters – <a href='https://stoneridgesquare.org/disclosures/' target='_blank'>our past updates are posed here</a>.</li>
 
-										</ul>
+                    <li>Welcome New Neighbors – Create a list of Vital tel nos. and services for new neighbors and send them an email and invite them to signup to our Website and future Mobile App.</li>
+
+                    <li>Metrics – Create a list of metrics on how the Board of Directors should operate and provide valuable information to prospective buyers.</li>
+                  </ul>
 
 									</div>
 
@@ -586,7 +595,7 @@
 				</section>
 
 				<!-- Row 2 -->
-				<section class='module module-gray p-b-0'>
+				<section class='module module-gray'>
 
 					<div class='container'>
 
