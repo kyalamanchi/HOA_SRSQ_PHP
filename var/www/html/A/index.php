@@ -611,7 +611,7 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'>Pay Now</a></div>
 
-									<br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Pool Signin</h3></div>
 
@@ -625,7 +625,7 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
 
-									<br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Resale &amp; Docs</h3></div>
 
@@ -687,7 +687,7 @@
 
 									</div>
 
-									<br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Contact</h3></div>
 
