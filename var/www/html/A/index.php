@@ -244,7 +244,7 @@
 
 									<div class='counter-number'>
 
-										<div><span>%</span><?php echo $res_dir; ?></div>
+										<div><?php echo $res_dir; ?> <sup>%</sup></div>
 
 									</div>
 
@@ -260,7 +260,7 @@
 
 									<div class='counter-number'>
 
-										<div><span>%</span><?php echo $email_homes; ?></div>
+										<div><?php echo $email_homes; ?> <sup>%</sup></div>
 
 									</div>
 
