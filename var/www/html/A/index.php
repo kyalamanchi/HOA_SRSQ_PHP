@@ -410,22 +410,6 @@
 
 									<div class='counter-number'>
 
-										<div><?php echo $email_homes; ?></div>
-
-									</div>
-
-									<div class='counter-title'>Homes with emails</div>
-
-								</div>
-
-							</div>
-
-							<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
-
-								<div class='counter h6'>
-
-									<div class='counter-number'>
-
 										<div><?php echo ($total_homes - $tenants); ?></div>
 
 									</div>
@@ -463,6 +447,38 @@
 									</div>
 
 									<div class='counter-title'>Newly moved in</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $email_homes; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Email Signup</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php $rows = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id")); echo $rows; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Community Documents</div>
 
 								</div>
 
