@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand'><h5 class='h5' style='color: blue;'>STONERIDGE SQUARE</h5></a>
+						<a><h5 class='h5' style='color: blue;'>STONERIDGE SQUARE ASSOCIATION</h5></a>
 
 					</div>
 
