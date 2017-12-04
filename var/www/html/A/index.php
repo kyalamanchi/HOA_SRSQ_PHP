@@ -107,7 +107,7 @@
 			</header>
 
 			<!-- Header-->
-			<header class='header header-right undefined'>
+			<!--header class='header header-right undefined'>
 
 				<div class='container-fluid'>
 
@@ -131,14 +131,14 @@
 									<li><a class='smoothscroll' href='#r_p'><i class='fa fa-gavel'></i> Rule &amp; Policies</a></li>
 									<li><a class='smoothscroll' href='#contact'><i class='fa fa-phone'></i> Contact Us</a></li>
 									<li><a href='login_page.php' style='color: green;'><i class='fa fa-sign-in'></i> Log In</a></li>
-									<!--data-toggle='modal' data-target='#login_modal'-->
+									<!data-toggle='modal' data-target='#login_modal'>
 								</ul>
 
 							</div>
 
 						</div>
 
-					</div>
+					</div-->
 
 					<!-- Mobile menu-->
 					<div class='nav-toggle'>
