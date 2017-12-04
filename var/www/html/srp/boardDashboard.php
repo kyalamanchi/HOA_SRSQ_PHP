@@ -758,7 +758,7 @@
 
                               <?php 
                                 
-                                include "https://hoaboardtime.com/hoaResoutces/testing.php";
+                                include "https://hoaboardtime.com/hoaResources/testing.php";
 
                               ?>
 
