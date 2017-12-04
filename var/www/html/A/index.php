@@ -242,7 +242,7 @@
 
 										<div class="pricing-price">
 									
-											<h5><span>%</span><?php echo $res_dir; ?></h5>
+											<span>%</span><?php echo $res_dir; ?>
 										
 										</div>
 
@@ -262,7 +262,7 @@
 
 										<div class="pricing-price">
 									
-											<h5><span>%</span><?php echo $res_dir; ?></h5>
+											<span>%</span><?php echo $res_dir; ?>
 										
 										</div>
 
