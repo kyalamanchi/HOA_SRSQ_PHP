@@ -57,6 +57,55 @@
 		<!-- Layout-->
 		<div class='layout'>
 
+			<header class='header header-right undefined'>
+	
+				<div class='container-fluid'>
+								
+					<!-- Logos-->
+					<div class='inner-header text-left'>
+
+						<a><h5 style='color: green;'>Stoneridge Square Association</h5></a>
+
+					</div>
+
+					<!-- Navigation-->
+					<div class='inner-navigation collapse'>
+
+						<div class='inner-navigation-inline'>
+				
+							<div class='inner-nav'>
+						
+								<ul>
+
+									<li><a style="color: green;"><span>Hello <?php echo $username; ?></span></a></li>
+
+									<li><a style="color: orange;" href='logout.php'><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<!-- Mobile menu-->
+					<div class='nav-toggle'>
+						
+						<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
+							
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+							<span class='icon-bar'></span>
+
+						</a>
+
+					</div>
+				
+				</div>
+
+			</header>
+
 			<!-- Header-->
 			<header class='header header-right undefined'>
 
