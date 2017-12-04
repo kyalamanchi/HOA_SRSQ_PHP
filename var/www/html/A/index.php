@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand'><img src='srsq_logo.JPG' width=50% height=50%></a>
+						<a class='inner-brand'><h5 class='h5'>Stoneridge Square</h5></a>
 
 					</div>
 
@@ -216,6 +216,24 @@
 					</div>
 				
 				</div>
+
+				<section class='module p-t-0 p-b-0'>
+
+					<div class='container'>
+
+						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+							<center>
+								
+								<img src='srsq_logo.JPG' width=50% height=50%>
+
+							</center>
+
+						</div>
+
+					</div>
+					
+				</section>
 
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
