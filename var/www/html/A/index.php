@@ -549,55 +549,45 @@
 
 						<div class='row'>
 
-							<div id='budget' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+							<div id='r_p' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 								
 								<div class='icon-box'>
 
-									<div class='icon-box-title text-center'><h3 style='color: green;'>Community Info</h3></div>
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Get Involved</h3></div>
 
 									<hr class='small'>
 
 									<div class='icon-box-content'>
 										
-										<table class="table table-striped table-bordered">
-                    
-                    						<thead>
+										<p>Here is the 2016 Strategy for our Home Owners Association, so we are well connected as a community and keep our HOA dues low. In order to accomplish these goals over the next several quarters we need volunteers and member support from the entire community.</p>
+              
+                  						<ul>
+
+                    						<li> <strong style='color: black;'>-</strong> CCR Updates – Declaration of <a href='http://stoneridgesquare.org/wp-content/uploads/2016/02/Stoneridge_square_CCR.pdf' target='_blank'>CCR</a> describes the rights and obligations of the membership of the association &amp; the association to the membership. Most communities update them after the builder has left and ours are 15 years old and we have hired Hughes Gill Cochrin to update ours. Changes to CCR will start in a few weeks now and expected to complete by end of the year or early 2017.</li>
                       
-                      							<th>Type</th>
-                      							<th>Information</th>
-
-                    						</thead>
-
-                    						<tbody>
+                    						<li> <strong style='color: black;'>-</strong> Survey Monkey – Respond to our quarterly survey here.</li>
                       
-                    							<?php
+                    						<li> <strong style='color: black;'>-</strong> Updated Website – We are in the process of re-designing our website to achieve the following goals, allow login so we members can view past board meeting minutes, insurance info. Service Requests from now on will be visible to every member for common issues.</li>
+                      
+                    						<li> <strong style='color: black;'>-</strong> Email Opt In List – Yes we saved $32.29 / year for Printed statements <a target='_blank' href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'>Sign Up to Receive Annual Disclosures &amp; Meeting notices via email here</a> we have 142 emails for 143 residents so far.</li>
+                      
+                    						<li> <strong style='color: black;'>-</strong> ACH – Its green, secure and 97 out of your neighbors pay. If you don’t share your Bank Routing # and Bank Account # with your friends and family why are your sharing with your HOA by paying via Bill Pay / Check?</li>
+                      
+                    						<li> <strong style='color: black;'>-</strong> Spring and Summer Party & Fall Party – Join our summer party next Sunday by our swimming pool at 12:30 PM for Pizza, BBQ & Soft Drinks on Sept 18th.</li>
 
-                      								$result = pg_query("SELECT * FROM community_legal_table WHERE community_id=2");
+                    						<li> <strong style='color: black;'>-</strong> News Letters – <a href='https://stoneridgesquare.org/disclosures/' target='_blank'>our past updates are posed here</a>.</li>
 
-                      								while ($row = pg_fetch_assoc($result)) {
+                    						<li> <strong style='color: black;'>-</strong> Welcome New Neighbors – Create a list of Vital tel nos. and services for new neighbors and send them an email and invite them to signup to our Website and future Mobile App.</li>
 
-                        								$type = $row['item_type'];
-                        								$legal_info = $row['legal_info'];
+                    						<li> <strong style='color: black;'>-</strong> Metrics – Create a list of metrics on how the Board of Directors should operate and provide valuable information to prospective buyers.</li>
 
-                        								echo "<tr><td>$type</td><td>$legal_info</td></tr>";
-
-                      								}
-
-                    							?>
-
-                    						</tbody>
-
-                  						</table>
+                  						</ul>
 
 									</div>
 
-								</div>
+									<div class='icon-box-link text-center'><a target='_blank' href='https://www.dropbox.com/s/f8b0ie27loi057t/2017_Annual_Budget.pdf?dl=0'>Here is the 2017 Approved Budget</a></div>
 
-							</div>
-
-							<div id='r_p' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-								
-								<div class='icon-box'>
+									<br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Make A Payment</h3></div>
 
@@ -611,7 +601,7 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://hoaboardtime.com/paymentPage1.php'>Pay Now</a></div>
 
-									<br><br><br><br><br><br><br><br><br>
+									<br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Pool Signin</h3></div>
 
@@ -625,7 +615,7 @@
 
 									<div class='icon-box-link text-center'><a target='_blank' href='https://secure.na1.echosign.com/public/esignWidget?wid=CBFCIBAA3AAABLblqZhAt2FV611bZ0ufERNZzJ2mVo33iDdvuobFchD-30n8lj2fsppHb6ZN9IAQXBVKKsmk*'>Sign Now</a></div>
 
-									<br><br><br><br><br><br><br><br><br>
+									<br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Resale &amp; Docs</h3></div>
 
@@ -687,7 +677,7 @@
 
 									</div>
 
-									<br><br><br><br><br><br><br><br><br>
+									<br><br>
 
 									<div class='icon-box-title text-center'><h3 style='color: green;'>Contact</h3></div>
 
@@ -700,6 +690,52 @@
 										<br>
 
 										<center><h5 class='h5'><a href='https://www.stoneridgesquare.org/' target='_blank'>www.stoneridgesquare.org</a></h5></center>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div id='budget' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
+								
+								<div class='icon-box'>
+
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Community Info</h3></div>
+
+									<hr class='small'>
+
+									<div class='icon-box-content'>
+										
+										<table class="table table-striped table-bordered">
+                    
+                    						<thead>
+                      
+                      							<th>Type</th>
+                      							<th>Information</th>
+
+                    						</thead>
+
+                    						<tbody>
+                      
+                    							<?php
+
+                      								$result = pg_query("SELECT * FROM community_legal_table WHERE community_id=2");
+
+                      								while ($row = pg_fetch_assoc($result)) {
+
+                        								$type = $row['item_type'];
+                        								$legal_info = $row['legal_info'];
+
+                        								echo "<tr><td>$type</td><td>$legal_info</td></tr>";
+
+                      								}
+
+                    							?>
+
+                    						</tbody>
+
+                  						</table>
 
 									</div>
 
