@@ -503,7 +503,7 @@
 								
 								<div class='icon-box'>
 									
-									<div class='icon-box-title text-center'><h3>Get Involved</h3></div>
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Get Involved</h3></div>
 
 									<hr class='small'>
 
