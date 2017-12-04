@@ -57,63 +57,14 @@
 		<!-- Layout-->
 		<div class='layout'>
 
-			<header class='header header-right undefined'>
-	
-				<div class='container-fluid'>
-								
-					<!-- Logos-->
-					<div class='inner-header'>
-
-						<a class='inner-brand'><h5 style='color: green;'><img src='srsq_logo.JPG' width=50% height=50%></h5></a>
-
-					</div>
-
-					<!-- Navigation-->
-					<div class='inner-navigation collapse'>
-
-						<div class='inner-navigation-inline'>
-				
-							<div class='inner-nav'>
-						
-								<ul>
-
-									<li><a style="color: green;"><span>Hello <?php echo $username; ?></span></a></li>
-
-									<li><a style="color: orange;" href='logout.php'><span><i class='fa fa-sign-out'></i> Log Out</span></a></li>
-
-								</ul>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<!-- Mobile menu-->
-					<div class='nav-toggle'>
-						
-						<a href='#' data-toggle='collapse' data-target='.inner-navigation'>
-							
-							<span class='icon-bar'></span>
-							<span class='icon-bar'></span>
-							<span class='icon-bar'></span>
-
-						</a>
-
-					</div>
-				
-				</div>
-
-			</header>
-
 			<!-- Header-->
-			<!--header class='header header-right undefined'>
+			<header class='header header-right undefined'>
 
 				<div class='container-fluid'>
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand' href='index.php'><h5 style='color: green;'>Stoneridge Square Association</h5></a>
+						<a class='inner-brand'><img src='srsq_logo.JPG' width=50% height=50%></a>
 
 					</div>
 
@@ -131,14 +82,14 @@
 									<li><a class='smoothscroll' href='#r_p'><i class='fa fa-gavel'></i> Rule &amp; Policies</a></li>
 									<li><a class='smoothscroll' href='#contact'><i class='fa fa-phone'></i> Contact Us</a></li>
 									<li><a href='login_page.php' style='color: green;'><i class='fa fa-sign-in'></i> Log In</a></li>
-									<!data-toggle='modal' data-target='#login_modal'>
+									<!--data-toggle='modal' data-target='#login_modal'-->
 								</ul>
 
 							</div>
 
 						</div>
 
-					</div-->
+					</div>
 
 					<!-- Mobile menu-->
 					<div class='nav-toggle'>
