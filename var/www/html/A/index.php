@@ -13,7 +13,7 @@
 
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-			$community_id = 1;
+			$community_id = 2;
 			$days90 = date('Y-m-d', strtotime("-90 days"));
 			$today = date('Y-m-d');
 
@@ -27,10 +27,10 @@
 
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<meta name='description' content='Stoneridge Place At Pleasanton HOA'>
+		<meta name='description' content='Stoneridge Square Association'>
 		<meta name='author' content='Geeth'>
 
-		<title>Stoneridge Place At Pleasanton</title>
+		<title>Stoneridge Square Association</title>
 
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
@@ -64,7 +64,7 @@
 
 					<div class='inner-header'>
 						
-						<a class='inner-brand' href='index.php'><h5 style='color: green;'>Stoneridge Place<br>At Pleasanton HOA</h5></a>
+						<a class='inner-brand' href='index.php'><h5 style='color: green;'>Stoneridge Square Association</h5></a>
 
 					</div>
 
@@ -988,7 +988,7 @@
 									
 									<div class='textwidget'>
 										
-										<p><h3>Stoneridge Place</h3><h4>At Pleasanton HOA</h4></p>
+										<p><h3>Stoneridge Square Association</h3></p>
 
 									</div>
 
@@ -1002,9 +1002,9 @@
 
 									<div class='textwidget'>
 										
-										PO Box 5272 , Pleasanton, CA 94566<br />
-										E-mail: <a href='mailto:info@stoneridgeplace.org'>info@stoneridgeplace.org</a> <br/>
-										Phone: 925 201 3902
+										PO BOX 101901, Pleasanton, CA 94588<br />
+										E-mail: <a href='mailto:billing@stoneridgesquare.org'>billing@stoneridgesquare.org</a> <br/>
+										Phone: 925 399 6642
 
 									</div>
 
@@ -1026,7 +1026,7 @@
 
 									<div class='text-center'>
 
-										<span class='copyright'>© <?php echo date('Y'); ?> Stoneridge Place At Pleasanton HOA, All Rights Reserved.</span>
+										<span class='copyright'>© <?php echo date('Y'); ?> Stoneridge Square Association, All Rights Reserved.</span>
 
 									</div>
 
@@ -1055,8 +1055,6 @@
 		<script src='assets/js/plugins.min.js'></script>
 		<script src='assets/js/custom.min.js'></script>
 
-		<!-- Color Switcher (Remove these lines)-->
-		<!--script src='assets/js/style-switcher.min.js'></script-->
 	</body>
 
 </html>
