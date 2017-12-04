@@ -695,11 +695,11 @@
 
 									<div class='icon-box-content'>
 										
-										<h4 class='h4'>PO Box 5272, Pleasanton, CA 94566</h4>
+										<center><h4 class='h4'>PO Box 5272, Pleasanton, CA 94566</h4></center>
 
 										<br>
 
-										<h5 class='h5'><a href='' target='_blank'>https://www.stoneridgesquare.org</a></h5>
+										<center><h5 class='h5'><a href='https://www.stoneridgesquare.org/' target='_blank'>www.stoneridgesquare.org</a></h5></center>
 
 									</div>
 
