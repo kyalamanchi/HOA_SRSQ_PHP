@@ -386,6 +386,101 @@
 
 						<div class='row'>
 
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $res_dir; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Resident Directory</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $email_homes; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Homes with emails</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo ($total_homes - $tenants); ?></div>
+
+									</div>
+
+									<div class='counter-title'>Owners</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $tenants; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Tenants</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $newly_moved_in; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Newly moved in</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<br>
+
+					</div>
+
+				</section>
+
+				<!-- Row 2 -->
+				<section class='module p-t-0 p-b-0'>
+
+					<div class='container'>
+
+						<div class='row'>
+
 							<div id='budget' class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
 								
 								<div class='icon-box'>
