@@ -217,24 +217,6 @@
 				
 				</div>
 
-				<section class='module p-t-0 p-b-0'>
-
-					<div class='container'>
-
-						<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-
-							<center>
-								
-								<img src='srsq_logo.JPG' width=50% height=50%>
-
-							</center>
-
-						</div>
-
-					</div>
-					
-				</section>
-
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
 
@@ -242,17 +224,43 @@
 
 						<div class='row'>
 
-							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+								<center><h4 class='h4'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h4></center>
+
+							</div>
+
+						</div>
+
+						<div class='row'>
+
+							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
 
 								<div class='counter h6'>
 
 									<div class='counter-number'>
 
-										<div><?php echo $res_dir; ?></div>
+										<div><span>%</span><?php echo $res_dir; ?></div>
 
 									</div>
 
-									<div class='counter-title'>Resident Directory</div>
+									<div class='counter-title'>Payments Received</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><span>%</span><?php echo $email_homes; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Members Paid</div>
 
 								</div>
 
@@ -264,11 +272,21 @@
 
 									<div class='counter-number'>
 
-										<div><?php echo $email_homes; ?></div>
+										<div>
+
+											<?php 
+
+												$ach = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); 
+
+												echo $ach;
+
+											?>
+																				
+										</div>
 
 									</div>
 
-									<div class='counter-title'>Homes with emails</div>
+									<div class='counter-title'>ACH</div>
 
 								</div>
 
@@ -280,11 +298,21 @@
 
 									<div class='counter-number'>
 
-										<div><?php echo ($total_homes - $tenants); ?></div>
+										<div>
+
+											<?php 
+
+												$bill_pay = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); 
+
+												echo $bill_pay;
+
+											?>
+																				
+										</div>
 
 									</div>
 
-									<div class='counter-title'>Owners</div>
+									<div class='counter-title'>Bill Pay</div>
 
 								</div>
 
@@ -296,11 +324,21 @@
 
 									<div class='counter-number'>
 
-										<div><?php echo $tenants; ?></div>
+										<div>
+
+											<?php 
+
+												$check = pg_num_rows(pg_query("SELECT * FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); 
+
+												echo $check;
+
+											?>
+																				
+										</div>
 
 									</div>
 
-									<div class='counter-title'>Tenants</div>
+									<div class='counter-title'>Check</div>
 
 								</div>
 
@@ -312,11 +350,19 @@
 
 									<div class='counter-number'>
 
-										<div><?php echo $newly_moved_in; ?></div>
+										<div>
+
+											<?php 
+
+												echo ($total_homes - ( $ach + $bill_pay + $check ) );
+
+											?>
+																				
+										</div>
 
 									</div>
 
-									<div class='counter-title'>Newly moved in</div>
+									<div class='counter-title'>Others</div>
 
 								</div>
 
@@ -419,6 +465,101 @@
 							</div>
 
 						</div>
+
+					</div>
+
+				</section>
+
+				<!-- Row 2 -->
+				<section class='module module-gray p-b-0'>
+
+					<div class='container'>
+
+						<div class='row'>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $res_dir; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Resident Directory</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $email_homes; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Homes with emails</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo ($total_homes - $tenants); ?></div>
+
+									</div>
+
+									<div class='counter-title'>Owners</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $tenants; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Tenants</div>
+
+								</div>
+
+							</div>
+
+							<div class='col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-6'>
+
+								<div class='counter h6'>
+
+									<div class='counter-number'>
+
+										<div><?php echo $newly_moved_in; ?></div>
+
+									</div>
+
+									<div class='counter-title'>Newly moved in</div>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<br>
 
 					</div>
 
