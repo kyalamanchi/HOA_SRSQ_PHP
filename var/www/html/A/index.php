@@ -545,44 +545,41 @@
 								
 								<div class='icon-box'>
 									
-									<div class='icon-box-title text-center'><h3>Rules &amp; Policies</h3></div>
+									<div class='icon-box-title text-center'><h3 style='color: green;'>Community Info</h3></div>
 
 									<hr class='small'>
 
 									<div class='icon-box-content'>
 										
-										<p>These documents define the procedures and operating standards that the BHHOA will follow as a business entity, outlining what the organization can and cannot do.</p>
+										<table class="table table-striped table-bordered">
+                    
+                    						<thead>
+                      
+                      							<th>Type</th>
+                      							<th>Information</th>
 
-										<ul>
-											
-											<li> <strong>></strong> <a href='https://www.dropbox.com/s/l0labmzxng9svay/SRP_ByLaws.pdf?dl=0' target='_blank'>SRP Bylaws.</a></li>
-											<li> <strong>></strong> <a href='https://www.dropbox.com/s/jvyazuph8aawqb0/SRP_Articles.pdf?dl=0' target='_blank'>Articles of Incorporation.</a></li>
-											<li> <strong>></strong> SRP Mission Statement (Coming Soon).</li>
-											<li> <strong>></strong> Proposed <a href='https://www.dropbox.com/s/qxs87krtuzmk9o4/SRP_Voting_Rules_2016.pdf?dl=0' target='_blank'>Voting &amp; Elections Procedure.</a></li>
+                    						</thead>
 
-										</ul>
+                    						<tbody>
+                      
+                    							<?php
 
-										<p>These documents more directly affect Stoneridgeplace at Pleasanton residents.</p>
+                      								$result = pg_query("SELECT * FROM community_legal_table WHERE community_id=2");
 
-										<ul>
-											
-											<li> <strong>></strong> Proposed <a href='https://www.dropbox.com/s/z2h2ftloelhls4y/SRP_Pool_Rules_package.pdf?dl=0' target='_blank'>Swimming Pool Rules.</a></li>
-											<li> <strong>></strong> <a href='https://www.dropbox.com/s/d6yy4dqfuxx8ot7/SRP_Enforcement_Rules.pdf?dl=0' target='_blank'>CC&amp;R Enforcement Policy.</a></li>
-											<li> <strong>></strong> <a href='https://www.dropbox.com/s/itkykruoja3gcw3/SRP_Architectural_Guidelines.pdf?dl=0' target='_blank'>Architectural Rules.</a></li>
-											<li> <strong>></strong> <a href='https://www.dropbox.com/s/b1lokm15snl97zy/SRP_Collection-Policy.pdf?dl=0' target='_blank'>Delinquent Assessment Collection Policy.</a></li>
-											<li> <strong>></strong> Adjoining Fence Policy – Coming Soon.</li>
-											<li> <strong>></strong> <a href='https://www.dropbox.com/s/pt3pcf2cq6pa8f7/SRP_CCR.pdf?dl=0' target='_blank'>Covenants, Conditions &amp; Restrictions</a> – Will be updated in 2017.</li>
+                      								while ($row = pg_fetch_assoc($result)) {
 
-										</ul>
+                        								$type = $row['item_type'];
+                        								$legal_info = $row['legal_info'];
 
-										<p>Update to Governing Documents, Mission Statement, CCR and Architectural Rules and Delinquency policy are coming in 2017 to</p>
+                        								echo "<tr><td>$type</td><td>$legal_info</td></tr>";
 
-										<ul>
-											
-											<li> <strong>></strong> Simplify Governance</li>
-											<li> <strong>></strong> Effective collection policy to reduce Bad Debts with changing industry needs.</li>
+                      								}
 
-										</ul>
+                    							?>
+
+                    						</tbody>
+
+                  						</table>
 
 									</div>
 
