@@ -726,7 +726,7 @@
 
 									<div class='textwidget'>
 										
-										PO BOX 101901, Pleasanton, CA 94566<br />
+										PO BOX 5272, Pleasanton, CA 94566<br />
 										E-mail: <a href='mailto:billing@stoneridgesquare.org'>billing@stoneridgesquare.org</a> <br/>
 										Phone: 925 399 6642
 
@@ -750,7 +750,7 @@
 
 									<div class='text-center'>
 
-										<span class='copyright'>Copyright © <?php echo date('Y'); ?> - Stoneridge Square Association - All Rights Reserved.</span>
+										<span class='copyright'>Copyright © <?php echo date('Y'); ?> - <a target='_blank' href='https://www.stoneridgesquare.org/'>Stoneridge Square Association</a> - All Rights Reserved.</span>
 
 									</div>
 
