@@ -1232,7 +1232,7 @@
 				</section>
 
 				<!-- Footer-->
-				<footer class='footer footer-blue'>
+				<footer class='footer'>
 
 					<div class='container'>
 
@@ -1282,7 +1282,7 @@
 
 									<div class='text-center'>
 
-										<span class='copyright'>© <?php echo date('Y'); ?> Stoneridge Square Association, All Rights Reserved.</span>
+										<span class='copyright'>Copyright © <?php echo date('Y'); ?> - Stoneridge Square Association - All Rights Reserved.</span>
 
 									</div>
 
