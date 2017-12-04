@@ -240,7 +240,11 @@
 
 									<div class='counter-number'>
 
-										<div><span>%</span><?php echo $res_dir; ?></div>
+										<div class="pricing-price">
+									
+											<h5><span>%</span><?php echo $res_dir; ?></h5>
+										
+										</div>
 
 									</div>
 
@@ -256,7 +260,11 @@
 
 									<div class='counter-number'>
 
-										<div><span>%</span><?php echo $email_homes; ?></div>
+										<div class="pricing-price">
+									
+											<h5><span>%</span><?php echo $res_dir; ?></h5>
+										
+										</div>
 
 									</div>
 
