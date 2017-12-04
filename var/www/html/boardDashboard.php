@@ -718,6 +718,46 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
+              <!--a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'-->
+
+                <div class="row container-fluid text-left">
+
+                  <br>
+
+                  <div class="row container-fluid">
+
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                      <a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>
+
+                        <?php 
+                                
+                                include "https://hoaboardtime.com/hoaResoutces/testing.php";
+
+                              ?>
+
+                      </a>
+
+                    </div>
+
+                  </div>
+
+                  <div class="row container-fluid text-center">
+
+                    <h5><strong>Testing Tile</strong></h5>
+
+                  </div>
+
+                  <br>
+
+                </div>
+
+              <!--/a-->
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
               <!--a href='https://hoaboardtime.com/boardParkingTags.php'-->
 
                 <div class="row container-fluid text-left">
