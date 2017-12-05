@@ -3,7 +3,7 @@
 	function testingFunction()
 	{
 
-		echo 1;
+		return 1;
 
 	}
 
