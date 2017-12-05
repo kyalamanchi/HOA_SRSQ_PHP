@@ -566,6 +566,8 @@
 																$email = $row['email'];
 																$cell_no = $row['cell_no'];
 
+																$cell_no = base64_decode($cell_no);
+
 																$person_emails[$i] = $email;
 																$i++;
 
