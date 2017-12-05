@@ -20,6 +20,7 @@ $fileName = implode(" ", $fileName);
 
 $fileName = $fileName.date('Y-m-d H:i:s');
 
+$fileName = $fileName.'.'.$extension;
 
 $name = $parseJSON[0]->name;
 $uploaderId = $parseJSON[0]->uploader_id;
@@ -101,7 +102,7 @@ $fileName = implode(" ", $fileName);
 
 $fileName = $fileName.date('Y-m-d H:i:s');
 
-
+$fileName = $fileName.'.'.$extension;
 
 
 $fileContent = base64_decode($parseJSON[0]->file_content);
