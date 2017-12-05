@@ -732,9 +732,11 @@
 
                         <?php 
                                 
-                                include "https://hoaboardtime.com/hoaResources/testing.php";
+                          include "srp/hoaResources/testing.php";                       
 
-                              ?>
+      
+
+                        ?>
 
                       </strong></h1>
 

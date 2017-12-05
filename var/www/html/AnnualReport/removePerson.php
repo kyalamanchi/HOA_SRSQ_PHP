@@ -13,4 +13,6 @@
 	else
 		echo "Some error occured. Please try again.";
 
+	header("Location: persons.php");
+
 ?>
