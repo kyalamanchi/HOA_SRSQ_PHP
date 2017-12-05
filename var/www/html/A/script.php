@@ -10,11 +10,16 @@
 		$id = $row['id'];
 		$cell_no = $row['cell_no'];
 
-		$encrypted_cell_no = base64_encode($cell_no);
+		if($cell_no != '')
+		{
 
-		echo $id." - - - ".$cell_no." - - - ".$encrypted_cell_no."<br>";
+			$encrypted_cell_no = base64_encode($cell_no);
 
-		$res = pg_query("UPDATE person SET cell_no='$encrypted_cell_no' WHERE id=$id");
+			echo $id." - - - ".$cell_no." - - - ".$encrypted_cell_no."<br>";
+
+			$res = pg_query("UPDATE person SET cell_no='$encrypted_cell_no' WHERE id=$id");
+
+		}
 
 		echo $res."<br><br>";
 
