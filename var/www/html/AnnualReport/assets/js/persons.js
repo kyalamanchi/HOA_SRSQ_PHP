@@ -81,48 +81,6 @@ $('form.ajax5').on('submit', function(){
 	
 });
 
-$('form.ajax6').on('submit', function(){
-	
-	var obj = $(this),
-	url = obj.attr('action'),
-	method = obj.attr('method'),
-	id = obj.attr('id');
-
-	obj.find('[name]').each(function(index, value){
-
-		var input = $(this),
-		index = input.attr('name'),
-		value = input.val();
-
-		data[index] = value;
-
-	});
-
-
-		url: url,
-		type: method,
-		data: {person_id:id},
-		success: function(response){
-
-			if(response == 'Some error occured. Please try again.')
-				alert(response);
-			else
-			{
-
-				alert("Person Removed.");
-
-				window.location = 'persons.php';
-
-			}
-
-		}
-
-	});
-
-	return false;
-	
-});
-
 $('#person_continue').click(function(){
 
 	window.location = "primaryEmail.php";
