@@ -705,6 +705,8 @@
                                   $person_home_id = $r['home_id'];
                                   $person_id = $r['id'];
 
+                                  $person_cell_no = base64_decode($person_cell_no);
+
                                   $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
                                   $address = $r1['address1'];
 
