@@ -4,9 +4,10 @@ $('#person_back').click(function(){
 
 });
 
-$('#person_edit_save').click(function(){
+$('form.ajax4').on('submit', function(){
 
-	var person_id = $(this).val(),
+	var obj = $(this),
+	person_id = obj.attr('id'),
 	person_firstname = $('#edit_person_firstname_'+person_id).val(),
 	person_lastname = $('#edit_person_lastname_'+person_id).val(),
 	person_email = $('#edit_person_email_'+person_id).val(),
@@ -19,22 +20,20 @@ $('#person_edit_save').click(function(){
 	$.ajax({
 
 		url: 'updatePerson.php',
-		type: 'POST',
+		method: "POST",
 		data: data,
-		success: function(response){
+		success:function(response){
 
-				if(response != person_id)
-					alert(response);
-				else
-				{
-					alert("Updated!");
+			alert("Updated");
 
-				}
+			window.location = 'persons.php';
 
 		}
 
 	});
 
+	return false;
+	
 });
 
 $('form.ajax5').on('submit', function(){
