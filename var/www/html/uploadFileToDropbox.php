@@ -11,6 +11,16 @@ $parseJSON = json_decode($data);
 
 if ( $parseJSON[0]->file_type == "legal" ){
 $fileName = $parseJSON[0]->file_name;
+$fileNameArray = explode('.', $fileName);
+$extension = end($fileNameArray);
+
+$fileName = array_slice($fileNameArray, 0, -1);
+
+$fileName = implode(" ", $fileName);
+
+$fileName = $fileName.date('Y-m-d H:i:s');
+
+
 $name = $parseJSON[0]->name;
 $uploaderId = $parseJSON[0]->uploader_id;
 $shortDesc = $parseJSON[0]->short_desc;
@@ -80,6 +90,19 @@ $uploaderId = $parseJSON[0]->uploader_id;
 
 
 $fileName = $parseJSON[0]->file_name;
+
+
+$fileNameArray = explode('.', $fileName);
+$extension = end($fileNameArray);
+
+$fileName = array_slice($fileNameArray, 0, -1);
+
+$fileName = implode(" ", $fileName);
+
+$fileName = $fileName.date('Y-m-d H:i:s');
+
+
+
 
 $fileContent = base64_decode($parseJSON[0]->file_content);
 
