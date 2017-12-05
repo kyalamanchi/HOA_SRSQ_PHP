@@ -750,26 +750,6 @@
 
                         </div>
 
-                        <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
-
-                          <div class='counter h6'>
-
-                            <div class='counter-number'>
-
-                              <?php 
-                                
-                                include "hoaResources/testing.php";
-
-                              ?>
-
-                            </div>
-
-                            <div class='counter-title'>Testing Tile</div>
-
-                          </div>
-
-                        </div>
-
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
 													<div class='counter h6'>
