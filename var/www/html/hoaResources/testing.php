@@ -1,5 +1,10 @@
 <?php
 
-	echo "Hello World";
+	function testingFunction()
+	{
+
+		echo 1;
+
+	}
 
 ?>

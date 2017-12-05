@@ -734,7 +734,9 @@
                                 
                                 include "https://hoaboardtime.com/hoaResources/testing.php";
 
-                              ?>
+                                testingFunction();
+
+                        ?>
 
                       </strong></h1>
 
