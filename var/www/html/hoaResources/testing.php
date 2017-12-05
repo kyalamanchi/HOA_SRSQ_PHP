@@ -1,10 +1,5 @@
 <?php
 
-	function testingFunction()
-	{
-
-		return 1;
-
-	}
+	echo 1;
 
 ?>
