@@ -732,7 +732,7 @@
 
                         <?php 
                                 
-                          include "hoaResources/testing.php";                       
+                          include "srp/hoaResources/testing.php";                       
 
       
 
