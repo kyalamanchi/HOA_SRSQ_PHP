@@ -450,6 +450,8 @@
                                                     $person_relationship = $row['relationship_id'];
                                                     $person_role = $row['role_type_id'];
 
+                                                    $person_cell_no = base64_decode($person_cell_no);
+
                                                     $_SESSION['person_$person_id_firstname'] = $person_firstname;
                                                     $_SESSION['person_$person_id_lastname'] = $person_lastname;
                                                     $_SESSION['person_$person_id_email'] = $person_email;
