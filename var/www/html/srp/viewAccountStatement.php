@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    <script type="text/javascript">
+    <script>
         
         $(document).ready(function(){
 
