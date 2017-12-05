@@ -138,7 +138,7 @@
 		$fromNumber = $result->from;
 		$status = $result->status;
 		$uri = $result->uri;
-		$insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,TO_NUMBER,FROM_NUMBER,STATUS,URI,PERSON_ID) VALUES('$sid','$dateCreated','$dateUpdated','$toNumber','$fromNumber','$status','$uri',$value)";
+		$insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,PERSON_ID) VALUES('$sid','$dateCreated','$dateUpdated','$fromNumber','$status','$uri',$value)";
 		pg_query($insert);
 		}
 	}
