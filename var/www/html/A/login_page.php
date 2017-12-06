@@ -194,7 +194,7 @@
 
 										<div class="form-group">
 
-											<input class="form-control form-control-lg" type="password" name='srsq_login_password' id='srsq_login_password' placeholder="Pasword">
+											<input class="form-control form-control-lg" type="password" name='srsq_login_password' id='srsq_login_password' placeholder="Password">
 
 										</div>
 
