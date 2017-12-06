@@ -17,6 +17,8 @@
 	$valid_from = $_POST['edit_valid_from'];
 	$valid_until = $_POST['edit_valid_until'];
 
+	$ehoa_id = base64_encode($hoa_id);
+
 	$today = date('Y-m-d');
 	$user_id = $_SESSION['hoa_user_id'];
 
@@ -36,6 +38,6 @@
 	else
 		echo "<br><br><br><br><center><h3>Failed to update. Please try again.</h3></center>";
 
-	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$hoa_id."'>Click here</a> if this doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$hoa_id."'},2000);</script>";
+	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$ehoa_id."'>Click here</a> if this doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$ehoa_id."'},2000);</script>";
 
 ?>
