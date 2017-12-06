@@ -99,6 +99,10 @@
 
 						$result = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
+						echo "Resident";
+
+						die();
+
 						header("Location: residentDashboard.php");
 
 					}
@@ -107,6 +111,10 @@
 						
 						$_SESSION['hoa_mode'] = 2;
 						$result = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
+
+						echo "Board";
+
+						die();
 
 						header("Location: boardDashboard.php");
 
