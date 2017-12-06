@@ -23,6 +23,12 @@
       if($_SESSION['hoa_mode'] == 2)
         header("Location: https://hoaboardtime.com/residentDashboard.php");
 
+      $hoa_id = $_GET['hoa_id'];
+
+      $hoa_id = base64_decode($hoa_id);
+
+      $row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+
     ?>
 
     <meta charset="utf-8">
@@ -41,7 +47,7 @@
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+    
     <script src="dist/js/googleanalytics.js"></script>
 
     <script type="text/javascript">
@@ -76,7 +82,8 @@
 
           <ol class="breadcrumb">
             
-            <li>User Dashboard</li>
+            <li><a href='userDashboard.php'>User Dashboard</a></li>
+            <li><?php echo $row['firstname']." ".$row['lastname']; ?></li>
           
           </ol>
 
@@ -135,7 +142,7 @@
 
                               $ehoa_id = base64_encode($hoa_id);
 
-                              echo "<tr><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$address."</a></td><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$home_id."</a></td></tr>";
+                              echo "<tr><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$address."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$home_id."</a></td></tr>";
 
                             }
 
