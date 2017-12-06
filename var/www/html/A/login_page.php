@@ -184,7 +184,7 @@
 
 								<div class="up-form">
 
-									<form method="post">
+									<form method="post" action='login.php'>
 
 										<div class="form-group">
 
