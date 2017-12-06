@@ -9,6 +9,8 @@
 	$person_id = $_POST['person_id'];
 	$hoa_id = $_POST['hoa_id'];
 
+	$ehoa_id = base64_encode($hoa_id);
+
 	$result = pg_query("UPDATE person SET is_active='f' WHERE id=$person_id");
 
 	if($result)
@@ -16,6 +18,6 @@
 	else
 		echo "<br><br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
 
-	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'},1000);</script>";
+	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>Click here</a> if this page doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'},1000);</script>";
 
 ?>

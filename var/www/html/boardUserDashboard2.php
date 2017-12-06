@@ -342,6 +342,8 @@
 
           $hoa_id = $_REQUEST['hoa_id'];
 
+          $hoa_id = base64_decode($hoa_id);
+
           if(!$hoa_id)
             header("Location: https://hoaboardtime.com/boardUserDashboard.php");
 

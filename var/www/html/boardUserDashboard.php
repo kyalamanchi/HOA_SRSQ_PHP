@@ -389,6 +389,7 @@
 
                             while($row = pg_fetch_assoc($result))
                             {
+                              
                               $home_id = $row['home_id'];
                               $address = $row['address1'];
 
@@ -398,7 +399,10 @@
                               $firstname = $row1['firstname'];
                               $lastname = $row1['lastname'];
 
-                              echo "<tr><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$address."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$home_id."</a></td></tr>";
+                              $ehoa_id = base64_encode($hoa_id);
+
+                              echo "<tr><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$address."</a></td><td><a class='btn btn-link' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$ehoa_id'>".$home_id."</a></td></tr>";
+
                             }
 
                           ?>
