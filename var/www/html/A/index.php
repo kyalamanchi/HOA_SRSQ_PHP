@@ -699,7 +699,7 @@
 
 				</section>
 
-				<section class='module p-t-0 p-b-0'>
+				<section class='module p-b-0'>
 					
 					<div class='container'>
 
