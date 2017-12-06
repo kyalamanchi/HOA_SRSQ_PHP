@@ -699,7 +699,7 @@
 
 				</section>
 
-				<section class='module module-green'>
+				<section class='module p-t-0 p-b-0'>
 					
 					<div class='container'>
 
@@ -764,7 +764,7 @@
 				</section>
 
 				<!-- Footer-->
-				<footer id='contact' class='footer'>
+				<!--footer id='contact' class='footer'>
 
 					<div class='container'>
 
@@ -814,7 +814,7 @@
 
 									<div class='text-center'>
 
-										<span class='copyright'>Copyright © <?php echo date('Y'); ?> - <a target='_blank' href='https://www.stoneridgesquare.org/'>Stoneridge Square Association</a> - All Rights Reserved.</span>
+										<span class='copyright'>Copyright © <?php //echo date('Y'); ?> - <a target='_blank' href='https://www.stoneridgesquare.org/'>Stoneridge Square Association</a> - All Rights Reserved.</span>
 
 									</div>
 
@@ -826,7 +826,7 @@
 
 					</div>
 
-				</footer>
+				</footer-->
 
 				<a class='scroll-top' href='#top'><i class='fa fa-angle-up'></i></a>
 
