@@ -4,7 +4,7 @@
 </head>
 <body>
 <?php	
-	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=HOApgtest user=root password=hPKzMK^5cJg5");
+	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	$query = "SELECT legal_name FROM community_infi WHERE community_id = 1;
 	$result = pg_query($query);	
