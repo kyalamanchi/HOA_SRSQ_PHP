@@ -1,10 +1,5 @@
-<html lang='en'>
-
-	<head>
-</head>
-<body>
 <?php	
-	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=root password=hPKzMK^5cJg5");
 
 	$query = "SELECT legal_name FROM community_infi WHERE community_id = 1;
 	$result = pg_query($query);	
@@ -12,6 +7,14 @@
 	
 	echo $num_row;
 ?>
+
+<html lang='en'>
+
+
+	<head>
+</head>
+<body>
+
 <form method='POST' action='license_check.php'>
 
 										<div class='form-group'>
