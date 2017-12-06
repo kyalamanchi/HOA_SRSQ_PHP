@@ -189,7 +189,7 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				<div class='modal fade' id='login_modal'>
+				<!--div class='modal fade' id='login_modal'>
 					
 					<div class='modal-dialog'>
 						
@@ -259,19 +259,19 @@
 
 										<?php
 
-											$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
+											//$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
 
-											while($row = pg_fetch_assoc($result))
-											{
+											//while($row = pg_fetch_assoc($result))
+											//{
 
-												$hoa_id = $row['hoa_id'];
-												$name = $row['firstname'];
-												$name .= " ";
-												$name .= $row['lastname'];
+												//$hoa_id = $row['hoa_id'];
+												//$name = $row['firstname'];
+												//$name .= " ";
+												//$name .= $row['lastname'];
 
-												echo "<option value='$hoa_id'>$name</option>";
+												//echo "<option value='$hoa_id'>$name</option>";
 
-											}
+											//}
 
 										?>
 
@@ -293,7 +293,7 @@
 					
 					</div>
 				
-				</div>
+				</div-->
 
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
