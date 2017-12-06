@@ -226,6 +226,16 @@
 
 						<div class='row'>
 
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+								<h1 class="h2 m-b-20"><i><span class="rotate">Welcome to Stoneridge Square Association | Welcome to Stoneridge Square Association</span></i></h1>
+
+							</div>
+
+						</div>
+
+						<div class='row'>
+
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
 								<center><h3 class='h3' style='color: green;'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
@@ -686,70 +696,6 @@
                     						</tbody>
 
                   						</table>
-
-									</div>
-
-								</div>
-
-							</div>
-
-						</div>
-
-					</div>
-
-				</section>
-
-				<section class='module module-green'>
-					
-					<div class='container'>
-
-						<div class='row'>
-
-							<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-
-								<aside class='widget widget_text'>
-									
-									<div class='textwidget'>
-										
-										<p><h3>Stoneridge Square Association</h3></p>
-
-									</div>
-
-								</aside>
-
-							</div>
-
-							<div class='col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-6'>
-								
-								<aside class='widget widget_tag_cloud'>
-
-									<div class='textwidget'>
-										
-										PO BOX 5272, Pleasanton, CA 94566<br />
-										E-mail: <a href='mailto:billing@stoneridgesquare.org'>billing@stoneridgesquare.org</a> <br/>
-										Phone: 925 399 6642
-
-									</div>
-
-								</aside>
-
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class='footer-copyright'>
-
-						<div class='container'>
-
-							<div class='row'>
-
-								<div class='col-md-12'>
-
-									<div class='text-center'>
-
-										<span class='copyright'>Copyright © <?php echo date('Y'); ?> - <a target='_blank' href='https://www.stoneridgesquare.org/'>Stoneridge Square Association</a> - All Rights Reserved.</span>
 
 									</div>
 
