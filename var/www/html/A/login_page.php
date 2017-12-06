@@ -178,7 +178,7 @@
 
 								<div class="up-logo">
 
-									<p class="text-center m-b-50"><img src="assets/images/logo.png" width="100" alt=""></p>
+									<h1 class="h2 m-b-20" style='color: green;'><i><span class="rotate">Stoneridge Square Association | Pleasanton Home Owner Community</span></i></h1>
 
 								</div>
 
