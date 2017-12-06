@@ -231,7 +231,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/userDashboard.php">
+            <a href="https://hoaboardtime.com/boardUserDashboard.php">
 
               <span>User Dashbord</span>
 
