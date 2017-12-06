@@ -228,7 +228,7 @@
 
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-								<h1 class="h2 m-b-20"><i><span class="rotate">Welcome to Stoneridge Square Association | Welcome to Stoneridge Square Association</span></i></h1>
+								<h1 class="h2 m-b-20" style='color: green;'><i><span class="rotate">Stoneridge Square Association | Pleasanton Home Owner Community</span></i></h1>
 
 							</div>
 
@@ -240,7 +240,7 @@
 
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-								<center><h3 class='h3' style='color: green;'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
+								<center><h3 class='h3'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
 
 							</div>
 
