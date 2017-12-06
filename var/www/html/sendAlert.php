@@ -113,12 +113,17 @@
 		$body =  $mbody;
 		$body = str_replace('#homeid#', $personHOMEID[$value] , $body) ;
 		$url  = 'https://api.twilio.com/2010-04-01/Accounts/AC06019424f034503e8a7c67a8ddfcd490/Messages.json';
+		
+		if ( $communityID == 2 ){
+			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
+			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
+		}
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
 		curl_setopt($ch, CURLOPT_POST, 1);
-		curl_setopt($ch, CURLOPT_USERPWD, "AC06019424f034503e8a7c67a8ddfcd490" . ":" . "a73768c36829436835653b51dd3c693c");
+		curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
 		$headers = array();
 		$headers[] = "Content-Type: application/x-www-form-urlencoded";
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
@@ -129,6 +134,7 @@
 		curl_close ($ch);
 		print_r(nl2br("\n\n"));
 		print_r("Response is ".$result);
+
 		print_r(nl2br("\n\n"));
 		$result = json_decode($result);
 		$sid = $result->sid;
