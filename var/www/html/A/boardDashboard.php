@@ -325,114 +325,36 @@
                     <li>
                       <div>
                         <article class="post">
-                          <div class="post-preview"><a href="#"><img src="assets/images/blog/1.jpg" alt=""></a></div>
-                          <div class="post-wrapper">
-                            <div class="post-header">
-                              <h2 class="post-title"><a href="blog-single.html">Improvement in Love</a></h2>
-                              <ul class="post-meta h5">
-                                <li>August 18, 2016</li>
-                              </ul>
-                            </div>
-                            <div class="post-content">
-                              <p>Map where your photos were taken and discover local points of interest. Map where your photos.</p>
-                            </div>
-                            <div class="post-more"><a href="#">Read More →</a></div>
-                          </div>
+                          
+                          <div class="post-preview"><a >Board Dashboard</a></div>
+
                         </article>
                       </div>
                     </li>
                     <li>
                       <div>
                         <article class="post">
-                          <div class="post-preview"><a href="#"><img src="assets/images/blog/2.jpg" alt=""></a></div>
-                          <div class="post-wrapper">
-                            <div class="post-header">
-                              <h2 class="post-title"><a href="blog-single.html">Minimalist Chandelier</a></h2>
-                              <ul class="post-meta h5">
-                                <li>August 18, 2016</li>
-                              </ul>
-                            </div>
-                            <div class="post-content">
-                              <p>Map where your photos were taken and discover local points of interest. Map where your photos.</p>
-                            </div>
-                            <div class="post-more"><a href="#">Read More →</a></div>
-                          </div>
+                          
+                          <div class="post-preview"><a >Finance Dashboard</a></div>
+
                         </article>
                       </div>
                     </li>
                     <li>
                       <div>
                         <article class="post">
-                          <div class="post-preview"><a href="#"><img src="assets/images/blog/3.jpg" alt=""></a></div>
-                          <div class="post-wrapper">
-                            <div class="post-header">
-                              <h2 class="post-title"><a href="blog-single.html">Green Land Sport Season</a></h2>
-                              <ul class="post-meta h5">
-                                <li>August 18, 2016</li>
-                              </ul>
-                            </div>
-                            <div class="post-content">
-                              <p>Map where your photos were taken and discover local points of interest. Map where your photos.</p>
-                            </div>
-                            <div class="post-more"><a href="#">Read More →</a></div>
-                          </div>
+                          
+                          <div class="post-preview"><a >Reserves Dashboard</a></div>
+
                         </article>
                       </div>
                     </li>
                     <li>
                       <div>
                         <article class="post">
-                          <div class="post-preview"><a href="#"><img src="assets/images/blog/4.jpg" alt=""></a></div>
-                          <div class="post-wrapper">
-                            <div class="post-header">
-                              <h2 class="post-title"><a href="blog-single.html">Do Not Mess With My Style</a></h2>
-                              <ul class="post-meta h5">
-                                <li>August 18, 2016</li>
-                              </ul>
-                            </div>
-                            <div class="post-content">
-                              <p>Map where your photos were taken and discover local points of interest. Map where your photos.</p>
-                            </div>
-                            <div class="post-more"><a href="#">Read More →</a></div>
-                          </div>
-                        </article>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <article class="post">
-                          <div class="post-preview"><a href="#"><img src="assets/images/blog/5.jpg" alt=""></a></div>
-                          <div class="post-wrapper">
-                            <div class="post-header">
-                              <h2 class="post-title"><a href="blog-single.html">Group Session Moments</a></h2>
-                              <ul class="post-meta h5">
-                                <li>August 18, 2016</li>
-                              </ul>
-                            </div>
-                            <div class="post-content">
-                              <p>Map where your photos were taken and discover local points of interest. Map where your photos.</p>
-                            </div>
-                            <div class="post-more"><a href="#">Read More →</a></div>
-                          </div>
-                        </article>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <article class="post">
-                          <div class="post-preview"><a href="#"><img src="assets/images/blog/6.jpg" alt=""></a></div>
-                          <div class="post-wrapper">
-                            <div class="post-header">
-                              <h2 class="post-title"><a href="blog-single.html">Standard Shape</a></h2>
-                              <ul class="post-meta h5">
-                                <li>August 18, 2016</li>
-                              </ul>
-                            </div>
-                            <div class="post-content">
-                              <p>Map where your photos were taken and discover local points of interest. Map where your photos.</p>
-                            </div>
-                            <div class="post-more"><a href="#">Read More →</a></div>
-                          </div>
+                          
+                          <div class="post-preview"><a >Comms Dashboard</a></div>
+
                         </article>
                       </div>
                     </li>
