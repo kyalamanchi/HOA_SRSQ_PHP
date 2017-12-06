@@ -1,7 +1,7 @@
 <?php	
 	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=root password=hPKzMK^5cJg5");
 
-	$query = "SELECT legal_name FROM community_infi WHERE community_id = 1;
+	$query = "SELECT legal_name FROM community_infi WHERE community_id = 1";
 	$result = pg_query($query);	
 	$num_row = pg_num_rows($result);
 	
@@ -11,7 +11,7 @@
 <html lang='en'>
 
 
-	<head>
+<head>
 </head>
 <body>
 
