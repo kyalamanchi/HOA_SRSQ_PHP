@@ -3,6 +3,15 @@
 	<head>
 </head>
 <body>
+<?php	
+	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=HOApgtest user=root password=hPKzMK^5cJg5");
+
+	$query = "SELECT legal_name FROM community_infi WHERE community_id = 1;
+	$result = pg_query($query);	
+	$num_row = pg_num_rows($result);
+	
+	echo $num_row;
+?>
 <form method='POST' action='license_check.php'>
 
 										<div class='form-group'>
