@@ -6,7 +6,7 @@
 	ini_set('max_execution_time', 180);
 
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	pg_connect("host=hoaprodprivate.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=HOApgtest user=root password=hPKzMK^5cJg5");
 
 	$query = "SELECT * FROM car_details WHERE notes='".$license_enc."'";
 	$result = pg_query($query);
