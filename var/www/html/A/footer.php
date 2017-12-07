@@ -23,7 +23,7 @@ ini_set("session.save_path","/var/www/html/session/");
 
 ?>
 
-<footer class='footer'>
+<footer class='footer' style="background: green;">
 
 	<div class='container'>
 
