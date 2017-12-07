@@ -28,15 +28,20 @@ if ( $parseJSON[0]->type == "legal" ){
      echo $secondQuery;
      $secondQueryResult = pg_query($secondQuery);
      while( $row2 = pg_fetch_assoc($secondQueryResult) ){
-          $row = $row2;
+          $row23 = $row2;
      }
-     if ( $row['id'] ){
-          if ( $row['document_id'] ){
-               echo "@A file found@".$row['document_id'];
+     if ( isset($row23) ){
+     if ( $row23['id'] ){
+          if ( $row23['document_id'] ){
+               echo "@A file found@".$row23['document_id'];
           }
           else {
                echo "Not found";
           }
+     }
+     else {
+          echo "Not found";
+     }
      }
      else {
           echo "Not found";
@@ -59,16 +64,20 @@ else if ( $parseJSON[0]->type == "disclosure" ){
      echo $secondQuery;
      $secondQueryResult = pg_query($secondQuery);
      while( $row2  = pg_fetch_assoc($secondQueryResult) ){
-          $row = $row2;
+          $row23 = $row2;
      }
-     print_r($row);
-     if ( $row['id'] ){
-          if ( $row['document_id'] ){
-               echo "@A file found@".$row['document_id'];
+     if( isset($row23) ){
+     if ( $row23['id'] ){
+          if ( $row23['document_id'] ){
+               echo "@A file found@".$row23['document_id'];
           }
           else {
                echo "document missing";
           }
+     }
+     else {
+          echo "Not found";
+     }
      }
      else {
           echo "Not found";
