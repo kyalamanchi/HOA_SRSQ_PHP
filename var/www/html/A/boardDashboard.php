@@ -348,7 +348,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Finance</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_dashboard_button'>Finance</a>
 
                   </div>
 
@@ -360,7 +360,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Communications</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_dashboard_button'>Communications</a>
 
                   </div>
 
@@ -372,7 +372,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Reserves</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_dashboard_button'>Reserves</a>
 
                   </div>
 
@@ -994,7 +994,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Board</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_dashboard_button'>Board</a>
 
                   </div>
 
@@ -1018,7 +1018,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Communications</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_dashboard_button'>Communications</a>
 
                   </div>
 
@@ -1030,7 +1030,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Reserves</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_dashboard_button'>Reserves</a>
 
                   </div>
 
@@ -1404,7 +1404,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Board</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_dashboard_button'>Board</a>
 
                   </div>
 
@@ -1416,7 +1416,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Finance</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_dashboard_button'>Finance</a>
 
                   </div>
 
@@ -1440,7 +1440,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Reserves</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_dashboard_button'>Reserves</a>
 
                   </div>
 
@@ -1615,7 +1615,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Board</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_dashboard_button'>Board</a>
 
                   </div>
 
@@ -1627,7 +1627,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Finance</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_dashboard_button'>Finance</a>
 
                   </div>
 
@@ -1639,7 +1639,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Communications</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_dashboard_button'>Communications</a>
 
                   </div>
 
@@ -2053,6 +2053,9 @@
       });
 
     </script>
+
+    <script src='assets/js/home.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		
 	</body>
 
