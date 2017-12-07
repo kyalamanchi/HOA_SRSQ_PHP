@@ -366,12 +366,12 @@ function uploadFile(){
               $('#daterange').data('daterangepicker').setStartDate(date23[2]);
               $('#daterange').data('daterangepicker').setEndDate(date23[3]);
               if ( request.responseText.includes("Not found") ){
-                document.getElementById("legalRecordExisitsStatus").innerHTML = "";
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "No records exists for this category.";
               }
               else 
               {
                 
-                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exists for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
 
           }
@@ -418,15 +418,15 @@ function uploadFile(){
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
               if ( request.responseText.includes("Not found") ){
-                document.getElementById("recordExisitsStatus").innerHTML = "";
+                document.getElementById("recordExisitsStatus").innerHTML = "No records exists for this category.";
               }
               else if ( request.responseText.includes("document missing") ){
-                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. No file found.";
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exists for current category. No file found.";
               }
               else 
               {
                 
-                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exists for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
           }
         }
