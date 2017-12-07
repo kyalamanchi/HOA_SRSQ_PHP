@@ -324,7 +324,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                    <a class="btn btn-block btn-round btn-lg btn-success disabled">Dashboards</a>
+                    <a class="btn btn-block btn-round btn-lg btn-success disabled" style="color: white;">Dashboards</a>
 
                   </div>
 
