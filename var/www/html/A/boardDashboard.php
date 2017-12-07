@@ -316,49 +316,48 @@
 
 					<div class="container">
 
-						<div class="row">
+						<div id='board_dashboard_div' class="row">
 
               <div class='col-xl-2 col-lg-2 col-md-2 col-sm-12 col-xs-12'>
 
-                <div class="timeline">
-                  <ul>
-                    <li>
-                      <div>
-                        <article class="post">
-                          
-                          <div class="post-preview"><a >Board Dashboard</a></div>
+                <div class='row'>
 
-                        </article>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <article class="post">
-                          
-                          <div class="post-preview"><a >Finance Dashboard</a></div>
+                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                        </article>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <article class="post">
-                          
-                          <div class="post-preview"><a >Reserves Dashboard</a></div>
+                    <a class="btn btn-block btn-round btn-gray" href="#">Board</a>
 
-                        </article>
-                      </div>
-                    </li>
-                    <li>
-                      <div>
-                        <article class="post">
-                          
-                          <div class="post-preview"><a >Comms Dashboard</a></div>
+                  </div>
 
-                        </article>
-                      </div>
-                    </li>
-                  </ul>
+                </div>
+
+                <div class='row'>
+
+                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Finance</a>
+
+                  </div>
+
+                </div>
+
+                <div class='row'>
+
+                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Communications</a>
+
+                  </div>
+
+                </div>
+
+                <div class='row'>
+
+                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" href="#">Reserves</a>
+
+                  </div>
+
                 </div>
 
               </div>
