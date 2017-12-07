@@ -322,9 +322,9 @@
 
                 <div class='row'>
 
-                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-                    <a class="btn btn-circle btn-shadow btn-sm btn-white">Dashboards</a>
+                    <a class="btn btn-circle btn-shadow btn-sm btn-white disabled">Dashboards</a>
 
                   </div>
 
