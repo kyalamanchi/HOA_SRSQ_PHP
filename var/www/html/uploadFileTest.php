@@ -351,7 +351,6 @@ function uploadFile(){
               document.getElementById('short_desc').value = date23[1];
               $('#daterange').data('daterangepicker').setStartDate(date23[2]);
               $('#daterange').data('daterangepicker').setEndDate(date23[3]);
-              alert(request.responseText);
               if ( request.responseText.includes("Not found") ){
                 document.getElementById("legalRecordExisitsStatus").innerHTML = "";
               }
@@ -554,10 +553,11 @@ function uploadFile(){
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
-
-      <br>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       <br>
+        <h5>OR</h5>
+      <br>
+       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Save without file</button>
       </div>
 
 
