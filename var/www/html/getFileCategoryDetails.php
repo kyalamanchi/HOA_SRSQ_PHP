@@ -31,7 +31,7 @@ else if ( $parseJSON[0]->type == "disclosure" ){
      $row  = pg_fetch_assoc($secondQueryResult);
      if ( $row['id'] ){
           if ( $row['document_id'] ){
-               echo "A file found".$row['document_id'];
+               echo "@A file found@".$row['document_id'];
           }
           else {
                echo "Not found";
