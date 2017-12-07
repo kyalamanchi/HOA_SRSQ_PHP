@@ -630,7 +630,9 @@ $(document).ready(
               showDropdowns: true
             });
             $("#deliveryType").change(function(){
+                if ( $(this).val() ){
                 document.getElementById("saveButton2").disabled = false;
+                }
             });
       </script>
   </body>
