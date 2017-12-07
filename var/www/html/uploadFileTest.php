@@ -398,7 +398,7 @@ function uploadFile(){
               }
               else 
               {
-                document.getElementById("recordExisitsStatus").innerHTML = "This <a href=\"https://www.google.com\">"+"record will be overwritten on upload.";
+                document.getElementById("recordExisitsStatus").innerHTML = "<a href=\"https://www.google.com\">This</a>"+"record will be overwritten on upload.";
               }
           }
         }
