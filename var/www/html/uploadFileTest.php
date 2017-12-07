@@ -421,14 +421,7 @@ function uploadFile(){
 
   }
 
-  function changeState(){
-    if ( document.getElementById('deliveryType').value != "" ){
-      document.getElementById("saveButton2").disabled = false;
-    }
-    else {
-      document.getElementById("saveButton2").disabled = true;
-    }
-  }
+
 
 
 
@@ -614,19 +607,19 @@ function uploadFile(){
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
-<!-- <script>
-// $(document).ready(function() {
-    // $('#datePicker')
-    //     .datepicker({
-    //         autoclose: true,
-    //         format: 'mm/dd/yyyy'
-    //     })
-    //     .on('changeDate', function(e) {
-    //         // Revalidate the date field
-    //     });
+<script>
+$(document).ready(
+     function changeState(){
+    if ( document.getElementById('deliveryType').value != "" ){
+      document.getElementById("saveButton2").disabled = false;
+    }
+    else {
+      document.getElementById("saveButton2").disabled = true;
+    }
+  }
 
-// });
-</script> -->
+);
+</script>
 
       <script type="text/javascript">
             $('.daterange').daterangepicker({
