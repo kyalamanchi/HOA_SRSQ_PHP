@@ -29,7 +29,7 @@ else if ( $parseJSON[0]->type == "disclosure" ){
      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id;
      }
      else {
-      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."'";
+      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and valid_from='".$row['fiscal_year_start']."' and valid_until='".$row['fiscal_year_end']."'";
      }
      echo $secondQuery;
      $secondQueryResult = pg_query($secondQuery);
