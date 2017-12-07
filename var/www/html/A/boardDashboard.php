@@ -324,7 +324,17 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-gray" href="#">Board</a>
+                    <a class="btn btn-circle btn-shadow btn-sm btn-white">Dashboards</a>
+
+                  </div>
+
+                </div>
+
+                <div class='row'>
+
+                  <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+
+                    <a class="btn btn-block btn-round btn-sm btn-gray">Board</a>
 
                   </div>
 
