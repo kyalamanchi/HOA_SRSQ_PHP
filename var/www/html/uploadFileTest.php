@@ -398,6 +398,7 @@ function uploadFile(){
               }
               else 
               {
+                alert(date23[5]);
                 document.getElementById("recordExisitsStatus").innerHTML = "<a href=\"https://www.google.com\">This</a> "+"document will be overwritten on upload.";
               }
           }
