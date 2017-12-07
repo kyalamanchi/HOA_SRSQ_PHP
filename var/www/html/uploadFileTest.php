@@ -351,7 +351,7 @@ function uploadFile(){
               document.getElementById('short_desc').value = date23[1];
               $('#daterange').data('daterangepicker').setStartDate(date23[2]);
               $('#daterange').data('daterangepicker').setEndDate(date23[3]);
-              
+              alert(request.responseText);
               if ( request.responseText.includes("Not found") ){
                 document.getElementById("legalRecordExisitsStatus").innerHTML = "";
               }
