@@ -548,11 +548,8 @@ function uploadFile(){
                       <option>FALSE</option>
               </select>
       </div>
-      <br>
-        <h5>OR</h5>
-      <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Save without file</button>
-       
+        <h5>OR</h5>
       </div>
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
