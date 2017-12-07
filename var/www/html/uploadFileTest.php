@@ -510,9 +510,9 @@ function uploadFile(){
               </select>
       </div>
       <br>
-      <h4 id="recordExisitsStatus">
+      <h5 id="recordExisitsStatus">
       
-      </h4>
+      </h5>
       <br>
       <label>Legal date from - Actual Date</label>
       <input type="text" class="form-control daterange" id="legalDateActualDate"/>
