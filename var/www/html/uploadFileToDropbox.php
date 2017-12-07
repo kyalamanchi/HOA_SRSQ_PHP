@@ -107,7 +107,7 @@ $fileName = $fileName.'.'.$extension;
 
 $fileContent = base64_decode($parseJSON[0]->file_content);
 
-echo $fileContent;
+
 
 //Get community info 
 $query = "SELECT * FROM USR WHERE ID=".$uploaderId;
@@ -124,7 +124,7 @@ $communityCode = $row['community_code'];
 
 // Upload to Dropbox
 	
-
+if ( $fileContent ){
 
  $url = 'https://content.dropboxapi.com/2/files/upload';
  
@@ -164,7 +164,18 @@ $communityCode = $row['community_code'];
  	
  }
 
+}
 
+else {
+
+     $query  = "INSERT INTO community_disclosures(community_id,type_id,legal_date_from,actual_date,delivery_type,fiscal_year_start,fiscal_year_end,legal_date_until,applicable,notes,changed_this_year,updated_on,updated_by) VALUES(".$communityID.",".$parseJSON[0]->sub_category.",'".$parseJSON[0]->legal_date_from."','".$parseJSON[0]->legal_date_to."',".$parseJSON[0]->delivery_type.",'".$parseJSON[0]->fiscal_year_start."','".$parseJSON[0]->fiscal_year_end."','".$parseJSON[0]->legal_date_until."','TRUE','".$parseJSON[0]->notes."',".$parseJSON[0]->changed_this_year.",'".date('Y-m-d H:i:s')."',".$uploaderId.")";
+     echo $query;
+     if ( !(pg_query($query)) ){
+          echo "An error occured.";
+          exit(0);
+     }
+
+}
 
 
 
