@@ -394,11 +394,11 @@ function uploadFile(){
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
               if ( request.responseText.includes("Not found") ){
-
+                document.getElementById("recordExisitsStatus").innerHTML = "";
               }
               else 
               {
-                document.getElementById("recordExisitsStatus").innerHTML = "A record found.";
+                document.getElementById("recordExisitsStatus").innerHTML = "This <a href=\"https://www.google.com> record will be overwritten on upload.";
               }
           }
         }
@@ -509,6 +509,10 @@ function uploadFile(){
               </select>
       </div>
       <br>
+      <h4 id="recordExisitsStatus">
+      
+      </h4>
+      <br>
       <label>Legal date from - Actual Date</label>
       <input type="text" class="form-control daterange" id="legalDateActualDate"/>
       <br>
@@ -534,9 +538,6 @@ function uploadFile(){
                       <option>FALSE</option>
               </select>
       </div>
-      <h4 id="recordExisitsStatus">
-      
-      </h4>
       </div>
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
