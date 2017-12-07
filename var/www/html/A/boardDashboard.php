@@ -384,7 +384,7 @@
 
                 <div class="tab-content">
                   
-                  <div class="tab-pane in active">
+                  <div style='border: solid;'>
                     
                     <div class="special-heading m-b-40">
                   
