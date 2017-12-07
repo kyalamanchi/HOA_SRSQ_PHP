@@ -15,6 +15,10 @@
 
 	}
 
+	else if ( $_GET['t'] == -1){
+		$accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
+	}
+
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
 
