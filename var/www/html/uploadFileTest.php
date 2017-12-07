@@ -484,7 +484,7 @@ function uploadFile(){
                       ?>
               </select>
         </div>
-      <h5 id="recordExisitsStatus">
+      <h5 id="legalRecordExisitsStatus">
       
       </h5>
       <br>
@@ -520,7 +520,7 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-      <h5 id="legalRecordExisitsStatus">
+      <h5 id="recordExisitsStatus">
       
       </h5>
       <br>
