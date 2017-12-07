@@ -329,7 +329,7 @@ function uploadFile(){
 
 
     if ( $("#fileType").val() == "Legal document" ){
-
+        document.getElementById("legalRecordExisitsStatus").innerHTML = "";
         jsonData = [];
         item = {};
         item['type'] = "legal";
@@ -380,6 +380,7 @@ function uploadFile(){
   }
 
   else if ( $("#fileType").val() == "Disclosure" ){
+        document.getElementById("recordExisitsStatus").innerHTML = "";
         jsonData = [];
         item = {};
         item['type'] = "disclosure";
