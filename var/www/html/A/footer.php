@@ -59,7 +59,7 @@ ini_set("session.save_path","/var/www/html/session/");
 
 					<div class='text-center'>
 
-						<span class='copyright'>© <?php echo date('Y')." ".$_SESSION['hoa_community_name']; ?>, All Rights Reserved.</span>
+						<span class='copyright'>Copyright © <?php echo date('Y'); ?> - <?php echo $_SESSION['hoa_community_name']; ?> - All Rights Reserved.</span>
 
 					</div>
 

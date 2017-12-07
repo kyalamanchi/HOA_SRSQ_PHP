@@ -32,6 +32,11 @@
 
 		<title>Stoneridge Square Association</title>
 
+		<!-- Favicons-->
+		<link rel="shortcut icon" href="assets/images/favicon.png">
+		<link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="assets/images/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="assets/images/apple-touch-icon-114x114.png">
 		<!-- Web Fonts-->
 		<link href='https://fonts.googleapis.com/css?family=Poppins:500,600,700' rel='stylesheet'>
 		<link href='https://fonts.googleapis.com/css?family=Hind:400,600,700' rel='stylesheet'>
@@ -53,6 +58,79 @@
 	</head>
 
 	<body>
+
+		<style type="text/css">
+			
+			body {
+  				background: #ecf0f1;
+			}
+
+			.loader {
+  				width: 50px;
+  				height: 30px;
+  				position: absolute;
+  				left: 50%;
+  				top: 50%;
+  				transform: translate(-50%, -50%);
+			}
+			.loader:after {
+  				position: absolute;
+  				content: "Loading";
+  				bottom: -40px;
+  				left: -2px;
+  				text-transform: uppercase;
+  				font-family: "Arial";
+  				font-weight: bold;
+  				font-size: 12px;
+			}
+
+			.loader > .line {
+  				background-color: #333;
+  				width: 6px;
+  				height: 100%;
+  				text-align: center;
+  				display: inline-block;
+  
+  				animation: stretch 1.2s infinite ease-in-out;
+			}
+
+			.line.one {
+			  	background-color: #2ecc71; 
+			}
+
+			.line.two {
+			  	animation-delay:  -1.1s;
+			  	background-color:#3498db;
+			}
+			.line.three {
+			  	animation-delay:  -1.0s;
+			  	background-color:#9b59b6;
+			}
+			.line.four {
+			  	animation-delay:  -0.9s;
+			   	background-color: #e67e22;
+			}
+			.line.five {
+			  	animation-delay:  -0.8s;
+			  	background-color: #e74c3c;
+			}
+
+			@keyframes stretch {
+			  	0%, 40%, 100% { transform: scaleY(0.4); }
+			  	20% {transform: scaleY(1.0);}
+			}
+
+		</style>
+
+		<div class="loader">
+  			
+  			<div class="line one"></div>
+  			<div class="line two"></div>
+  			<div class="line three"></div>
+  			<div class="line four"></div>
+  			<div class="line five"></div>
+		
+		</div>
 
 		<!-- Layout-->
 		<div class='layout'>
@@ -111,7 +189,7 @@
 			<!-- Wrapper-->
 			<div class='wrapper'>
 
-				<div class='modal fade' id='login_modal'>
+				<!--div class='modal fade' id='login_modal'>
 					
 					<div class='modal-dialog'>
 						
@@ -181,19 +259,19 @@
 
 										<?php
 
-											$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
+											//$result = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id AND valid_until>='$today'");
 
-											while($row = pg_fetch_assoc($result))
-											{
+											//while($row = pg_fetch_assoc($result))
+											//{
 
-												$hoa_id = $row['hoa_id'];
-												$name = $row['firstname'];
-												$name .= " ";
-												$name .= $row['lastname'];
+												//$hoa_id = $row['hoa_id'];
+												//$name = $row['firstname'];
+												//$name .= " ";
+												//$name .= $row['lastname'];
 
-												echo "<option value='$hoa_id'>$name</option>";
+												//echo "<option value='$hoa_id'>$name</option>";
 
-											}
+											//}
 
 										?>
 
@@ -215,7 +293,7 @@
 					
 					</div>
 				
-				</div>
+				</div-->
 
 				<!-- Counters -->
 				<section class='module module-gray p-b-0'>
@@ -226,9 +304,21 @@
 
 						<div class='row'>
 
+							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
+
+								<h1 class="h2 m-b-20" style='color: green;'><i><span class="rotate">Stoneridge Square Association | Pleasanton Home Owner Community</span></i></h1>
+
+							</div>
+
+						</div>
+
+						<br>
+
+						<div class='row'>
+
 							<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-								<center><h3 class='h3' style='color: green;'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
+								<center><h3 class='h3'>Payment Information - <?php echo date('F').", ".date("Y"); ?></h3></center>
 
 							</div>
 
@@ -700,7 +790,7 @@
 				</section>
 
 				<!-- Footer-->
-				<footer id='contact' class='footer'>
+				<footer id='contact' class='footer' style="background: green;">
 
 					<div class='container'>
 

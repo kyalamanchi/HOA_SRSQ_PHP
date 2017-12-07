@@ -39,8 +39,8 @@
 
 			include 'password.php';
 
-			$login_email = $_POST['srp_login_email'];
-			$login_password = $_POST['srp_login_password'];
+			$login_email = $_POST['srsq_login_email'];
+			$login_password = $_POST['srsq_login_password'];
 
 			$result = pg_query("SELECT * FROM usr WHERE email='$login_email'");
 
