@@ -1806,12 +1806,12 @@
 
 		<!-- Scripts-->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
-		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-		<script src="assets/js/plugins.min.js"></script>
-		<script src="assets/js/charts.js"></script>
-		<script src="assets/js/custom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="assets/js/plugins.min.js"></script>
+    <script src="assets/js/charts.js"></script>
+    <script src="assets/js/custom.min.js"></script>
 
 		<!-- Color Switcher (Remove these lines)-->
 		<!--script src="assets/js/style-switcher.min.js"></script-->
