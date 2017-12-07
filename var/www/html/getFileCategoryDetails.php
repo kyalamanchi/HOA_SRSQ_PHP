@@ -66,7 +66,7 @@ else if ( $parseJSON[0]->type == "disclosure" ){
                echo "@A file found@".$row['document_id'];
           }
           else {
-               echo "Not found";
+               echo "document missing";
           }
      }
      else {

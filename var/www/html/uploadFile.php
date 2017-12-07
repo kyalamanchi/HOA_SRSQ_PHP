@@ -286,6 +286,20 @@ function uploadFile(){
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
           }
+
+          else if ( request.responseText == "Record Created" ){
+          swal({
+            title: "Record Created",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+              } 
+            });
+          }
+
           else {
                 swal({
   title: "File uploaded successfully",
@@ -404,6 +418,9 @@ function uploadFile(){
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
               if ( request.responseText.includes("Not found") ){
                 document.getElementById("recordExisitsStatus").innerHTML = "";
+              }
+              else if ( request.responseText.includes("document missing") ){
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. No file found.";
               }
               else 
               {
