@@ -282,7 +282,6 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
@@ -352,6 +351,15 @@ function uploadFile(){
               document.getElementById('short_desc').value = date23[1];
               $('#daterange').data('daterangepicker').setStartDate(date23[2]);
               $('#daterange').data('daterangepicker').setEndDate(date23[3]);
+              if ( request.responseText.includes("Not found") ){
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "";
+              }
+              else 
+              {
+                
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+              }
+
           }
         }
     }
@@ -394,6 +402,14 @@ function uploadFile(){
               $('#legalDateActualDate').data('daterangepicker').setStartDate(date23[2]);
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
+              if ( request.responseText.includes("Not found") ){
+                document.getElementById("recordExisitsStatus").innerHTML = "";
+              }
+              else 
+              {
+                
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+              }
           }
         }
     }
@@ -404,6 +420,8 @@ function uploadFile(){
 
 
   }
+
+
 
 
 
@@ -439,8 +457,6 @@ function uploadFile(){
         </section>
         <br>
         <section class="content" id="content">
-                 
-
         <div class="row-fluid">
               <label>File Category</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
@@ -454,7 +470,7 @@ function uploadFile(){
       <div  id="legalContent" hidden="hidden">
 
       <div class="row-fluid">
-
+      <br>
       <label>Sub Category</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
@@ -469,6 +485,9 @@ function uploadFile(){
                       ?>
               </select>
         </div>
+      <h5 id="legalRecordExisitsStatus">
+      
+      </h5>
       <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" id="daterange"/>
@@ -502,12 +521,15 @@ function uploadFile(){
                       ?>
               </select>
       </div>
+      <h5 id="recordExisitsStatus">
+      
+      </h5>
       <br>
       <label>Legal date from - Actual Date</label>
       <input type="text" class="form-control daterange" id="legalDateActualDate"/>
       <br>
       <div >
-        <label for="deliveryType">Delivery Type</label>
+        <label for="deliveryType" onchange="changeState();">Delivery Type</label>
         <input class="form-control" id="deliveryType" type="text">
       </div>
       <br>
@@ -528,15 +550,16 @@ function uploadFile(){
                       <option>FALSE</option>
               </select>
       </div>
+      <br>
+       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
+        <h5>OR</h5>
       </div>
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
-
-      <br>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
-      <br>
+
       </div>
 
 
@@ -585,19 +608,19 @@ function uploadFile(){
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
-<!-- <script>
-// $(document).ready(function() {
-    // $('#datePicker')
-    //     .datepicker({
-    //         autoclose: true,
-    //         format: 'mm/dd/yyyy'
-    //     })
-    //     .on('changeDate', function(e) {
-    //         // Revalidate the date field
-    //     });
+<script>
+$(document).ready(
+     function changeState(){
+    if ( document.getElementById('deliveryType').value != "" ){
+      document.getElementById("saveButton2").disabled = false;
+    }
+    else {
+      document.getElementById("saveButton2").disabled = true;
+    }
+  }
 
-// });
-</script> -->
+);
+</script>
 
       <script type="text/javascript">
             $('.daterange').daterangepicker({
@@ -606,6 +629,11 @@ function uploadFile(){
             $("#legalDateUntil").daterangepicker({
               singleDatePicker: true,
               showDropdowns: true
+            });
+            $("#deliveryType").change(function(){
+                if ( $(this).val() ){
+                document.getElementById("saveButton2").disabled = false;
+                }
             });
       </script>
   </body>
