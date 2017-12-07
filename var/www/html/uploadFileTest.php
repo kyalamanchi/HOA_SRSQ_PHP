@@ -398,7 +398,7 @@ function uploadFile(){
               }
               else 
               {
-                
+                alert(request.responseText);
                 document.getElementById("recordExisitsStatus").innerHTML = "<a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">This</a> "+"document will be overwritten on upload.";
               }
           }
