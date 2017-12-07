@@ -382,9 +382,9 @@
 
               <div class="table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
 
-                <div class="tab-content">
+                <div  style='border: solid;'>
                   
-                  <div style='border: solid;'>
+                  <div class="tab-pane in active">
                     
                     <div class="special-heading m-b-40">
                   
