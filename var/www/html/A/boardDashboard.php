@@ -348,7 +348,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_dashboard_button'>Finance</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_finance_dashboard_button'>Finance</a>
 
                   </div>
 
@@ -360,7 +360,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_dashboard_button'>Communications</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_communications_dashboard_button'>Communications</a>
 
                   </div>
 
@@ -372,7 +372,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_dashboard_button'>Reserves</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_reserves_dashboard_button'>Reserves</a>
 
                   </div>
 
@@ -994,7 +994,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_dashboard_button'>Board</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_board_dashboard_button'>Board</a>
 
                   </div>
 
@@ -1018,7 +1018,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_dashboard_button'>Communications</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_communications_dashboard_button'>Communications</a>
 
                   </div>
 
@@ -1030,7 +1030,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_dashboard_button'>Reserves</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_reserves_dashboard_button'>Reserves</a>
 
                   </div>
 
@@ -1404,7 +1404,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_dashboard_button'>Board</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_board_dashboard_button'>Board</a>
 
                   </div>
 
@@ -1416,7 +1416,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_dashboard_button'>Finance</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_finance_dashboard_button'>Finance</a>
 
                   </div>
 
@@ -1440,7 +1440,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_dashboard_button'>Reserves</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_reserves_dashboard_button'>Reserves</a>
 
                   </div>
 
@@ -1615,7 +1615,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='board_dashboard_button'>Board</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_board_dashboard_button'>Board</a>
 
                   </div>
 
@@ -1627,7 +1627,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='finance_dashboard_button'>Finance</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_finance_dashboard_button'>Finance</a>
 
                   </div>
 
@@ -1639,7 +1639,7 @@
 
                   <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='communications_dashboard_button'>Communications</a>
+                    <a class="btn btn-block btn-round btn-shadow btn-sm btn-white" id='reserves_communications_dashboard_button'>Communications</a>
 
                   </div>
 
