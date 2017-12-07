@@ -60,6 +60,7 @@ else if ( $parseJSON[0]->type == "disclosure" ){
      while( $row2  = pg_fetch_assoc($secondQueryResult) ){
           $row = $row2;
      }
+     print_r($row);
      if ( $row['id'] ){
           if ( $row['document_id'] ){
                echo "@A file found@".$row['document_id'];
