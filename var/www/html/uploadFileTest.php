@@ -456,8 +456,6 @@ function uploadFile(){
         </section>
         <br>
         <section class="content" id="content">
-                 
-
         <div class="row-fluid">
               <label>File Category</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileType" onchange="updateContent();">
@@ -471,7 +469,7 @@ function uploadFile(){
       <div  id="legalContent" hidden="hidden">
 
       <div class="row-fluid">
-
+      <br>
       <label>Sub Category</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
