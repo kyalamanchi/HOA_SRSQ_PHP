@@ -67,13 +67,13 @@
 
             //Sending request to twilio
 
-            $url  = 'https://api.twilio.com/2010-04-01/Accounts/AC06019424f034503e8a7c67a8ddfcd490/Messages.json';
+            $url  = 'https://api.twilio.com/2010-04-01/Accounts/AC9370eeb4b1922b7dc29d94c387b3ab56/Messages.json';
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_USERPWD, "AC06019424f034503e8a7c67a8ddfcd490" . ":" . "a73768c36829436835653b51dd3c693c");
+            curl_setopt($ch, CURLOPT_USERPWD, "AC9370eeb4b1922b7dc29d94c387b3ab56" . ":" . "PN8b5dfd08011bd80cbd6379d48c7d5090");
             $headers = array();
             $headers[] = "Content-Type: application/x-www-form-urlencoded";
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
