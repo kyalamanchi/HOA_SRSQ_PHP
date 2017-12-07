@@ -382,6 +382,7 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
+            alert(request.responseText);
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
@@ -398,7 +399,7 @@ function uploadFile(){
               }
               else 
               {
-                alert(request.responseText);
+                
                 document.getElementById("recordExisitsStatus").innerHTML = "<a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">This</a> "+"document will be overwritten on upload.";
               }
           }
