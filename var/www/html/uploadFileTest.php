@@ -421,6 +421,15 @@ function uploadFile(){
 
   }
 
+  function changeState(){
+    if ( document.getElementById('deliveryType').value != "" ){
+      document.getElementById("saveButton2").disabled = false;
+    }
+    else {
+      document.getElementById("saveButton2").disabled = true;
+    }
+  }
+
 
 
 </script>
@@ -527,7 +536,7 @@ function uploadFile(){
       <input type="text" class="form-control daterange" id="legalDateActualDate"/>
       <br>
       <div >
-        <label for="deliveryType">Delivery Type</label>
+        <label for="deliveryType" onchange="changeState();">Delivery Type</label>
         <input class="form-control" id="deliveryType" type="text">
       </div>
       <br>
@@ -548,7 +557,7 @@ function uploadFile(){
                       <option>FALSE</option>
               </select>
       </div>
-       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Save without file</button>
+       <button type="button" class="btn btn-success" onclick="uploadFile2();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
       </div>
       <br>
