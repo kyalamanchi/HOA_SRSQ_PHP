@@ -37,6 +37,9 @@ else if ( $parseJSON[0]->type == "disclosure" ){
                echo "Not found";
           }
      }
+     else {
+          echo "Not found";
+     }
 }
 
 ?>
