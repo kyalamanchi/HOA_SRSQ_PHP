@@ -629,6 +629,9 @@ $(document).ready(
               singleDatePicker: true,
               showDropdowns: true
             });
+            $("#deliveryType").change(function(){
+                document.getElementById("saveButton2").disabled = false;
+            });
       </script>
   </body>
 
