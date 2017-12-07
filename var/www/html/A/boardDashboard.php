@@ -382,7 +382,9 @@
 
               <div class="table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12">
 
-                <div  style='border: solid; border-spacing: 15px;'>
+                <ul class="nav nav-tabs"></ul>
+
+                <div class="tab-content">
                   
                   <div class="tab-pane in active">
                     
