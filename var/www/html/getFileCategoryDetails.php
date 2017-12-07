@@ -27,8 +27,8 @@ if ( $parseJSON[0]->type == "legal" ){
      }
      echo $secondQuery;
      $secondQueryResult = pg_query($secondQuery);
-     while( $row  = pg_fetch_assoc($secondQueryResult) ){
-          print_r($row);
+     while( $row2 = pg_fetch_assoc($secondQueryResult) ){
+          $row = $row2;
      }
      if ( $row['id'] ){
           if ( $row['document_id'] ){
@@ -57,7 +57,8 @@ else if ( $parseJSON[0]->type == "disclosure" ){
       $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."'";
      }
      $secondQueryResult = pg_query($secondQuery);
-     while( $row  = pg_fetch_assoc($secondQueryResult) ){
+     while( $row2  = pg_fetch_assoc($secondQueryResult) ){
+          $row = $row2;
      }
      if ( $row['id'] ){
           if ( $row['document_id'] ){
