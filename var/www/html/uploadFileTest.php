@@ -398,7 +398,7 @@ function uploadFile(){
               }
               else 
               {
-                alert("A record found.");
+                document.getElementById("recordExisitsStatus").innerHTML = "A record found.";
               }
           }
         }
@@ -534,6 +534,9 @@ function uploadFile(){
                       <option>FALSE</option>
               </select>
       </div>
+      <h4 id="recordExisitsStatus">
+      
+      </h4>
       </div>
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
