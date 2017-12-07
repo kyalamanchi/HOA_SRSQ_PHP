@@ -382,7 +382,6 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-            alert(request.responseText);
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
@@ -394,6 +393,13 @@ function uploadFile(){
               $('#legalDateActualDate').data('daterangepicker').setStartDate(date23[2]);
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
+              if ( request.responseText.includes("Not found") ){
+
+              }
+              else 
+              {
+                alert("A record found.");
+              }
           }
         }
     }
