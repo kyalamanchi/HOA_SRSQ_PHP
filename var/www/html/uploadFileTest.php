@@ -341,7 +341,6 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-            alert(request.responseText);
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
@@ -352,6 +351,16 @@ function uploadFile(){
               document.getElementById('short_desc').value = date23[1];
               $('#daterange').data('daterangepicker').setStartDate(date23[2]);
               $('#daterange').data('daterangepicker').setEndDate(date23[3]);
+              
+              if ( request.responseText.includes("Not found") ){
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "";
+              }
+              else 
+              {
+                
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+              }
+
           }
         }
     }
@@ -477,6 +486,9 @@ function uploadFile(){
                       ?>
               </select>
         </div>
+      <h5 id="recordExisitsStatus">
+      
+      </h5>
       <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange" id="daterange"/>
@@ -510,7 +522,6 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-      <br>
       <h5 id="recordExisitsStatus">
       
       </h5>
