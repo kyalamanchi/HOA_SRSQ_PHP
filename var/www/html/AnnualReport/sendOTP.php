@@ -73,7 +73,7 @@
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
             curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_USERPWD, "AC9370eeb4b1922b7dc29d94c387b3ab56" . ":" . "PN8b5dfd08011bd80cbd6379d48c7d5090");
+            curl_setopt($ch, CURLOPT_USERPWD, "AC9370eeb4b1922b7dc29d94c387b3ab56" . ":" . "3b29450d9ce0e5ec7ba6b328f05525a2");
             $headers = array();
             $headers[] = "Content-Type: application/x-www-form-urlencoded";
             curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
