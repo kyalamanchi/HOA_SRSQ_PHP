@@ -28,8 +28,8 @@ if ( $parseJSON[0]->type == "legal" ){
      echo $secondQuery;
      $secondQueryResult = pg_query($secondQuery);
      while( $row  = pg_fetch_assoc($secondQueryResult) ){
+          print_r($row);
      }
-     print_r($row);
      if ( $row['id'] ){
           if ( $row['document_id'] ){
                echo "@A file found@".$row['document_id'];
