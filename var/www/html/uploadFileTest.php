@@ -417,6 +417,7 @@ function uploadFile(){
               $('#legalDateActualDate').data('daterangepicker').setStartDate(date23[2]);
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
+              alert(request.responseText);
               if ( request.responseText.includes("Not found") ){
                 document.getElementById("recordExisitsStatus").innerHTML = "";
               }
