@@ -148,6 +148,26 @@ input, label {
   function appendName(){
     document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name#";
   }
+  function getSubscribers(){
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    $("#pleaseWaitDialog2").modal("show");
+
+  }
+  function updateValues(){
+
+  }
+  function sendToSingleMember(){
+
+  }
+  function sendToAllSubscribers(){
+
+  }
 </script>
   </head>
 
@@ -184,7 +204,7 @@ input, label {
         <div>
           <div class="row-fluid">
               <label>Event</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType" onchange="getSubscribers();">
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from event_type";
