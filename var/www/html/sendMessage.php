@@ -55,18 +55,14 @@ if ( $parseJSON[0]->mode == "all" ){
 
 	foreach ($personIDS as $key => $value) {
 
-		print_r($key);
-		
 		$query = "SELECT * FROM PERSON WHERE ID=".$key;
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
+		print_r($row);
 		if ( $row['cell_no'] ){
-
-
 		$message = str_replace('#address#', $homeIDS[$row['home_id']], $message);
 		$message = str_replace('#name#', $row['fname'].' '.$row['lname'], $message);
 		echo $message;
-
 		}
 		else {
 			echo "No Phone number found.";
