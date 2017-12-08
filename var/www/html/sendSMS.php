@@ -190,6 +190,8 @@ input, label {
   function sendToSingleMember(){
 
     var hoaID = $("#memberId").find("option:selected").attr("id");
+
+    if ( $("#eventType").find("option:selected").attr("id") ){
     if ( hoaID ){
         jsonData = [];
         item =  {};
@@ -205,6 +207,10 @@ input, label {
     else {
       swal("Please select a member","","error");
     }
+  }
+  else {
+      swal("Please select a event","","error");
+  }
 
   }
   function sendToAllSubscribers(){
