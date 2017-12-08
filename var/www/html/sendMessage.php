@@ -27,7 +27,7 @@ if ( $parseJSON[0]->mode == "all" ){
 		$query = "SELECT CELL_NO FROM PERSON WHERE ID=".$key;
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
-		print_r($row['cell_no']);
+		print_r(base64_decode($row['cell_no']));
 	}
 
 }
@@ -36,7 +36,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 	$query = "SELECT * FROM HOAID WHERE HOA_ID=".$parseJSON[0]->hoa_id;
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);
-	echo $row['cell_no'];
+	echo base64_decode($row['cell_no']);
 	
 }
 
