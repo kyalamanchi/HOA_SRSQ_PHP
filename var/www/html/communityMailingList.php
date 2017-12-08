@@ -182,6 +182,91 @@
 
                             $email = $email.'@'.$arr[1];
 
+                            echo "<div class='modal fade hmodal-success' id='send_email_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Send Email to ".$name." - ".$email."</h4>
+
+                                  </div>
+
+                                  <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
+                                                      
+                                    <div class='modal-body'>
+                                        
+                                        <div class='row container-fluid'>
+                                
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>First Name</label>
+                                            <input type='text' class='form-control' name='edit_firstname' id='edit_firstname' value='$firstname' readonly>
+                                          </div>
+                                                
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Last Name</label>
+                                            <input type='text' class='form-control' name='edit_lastname' id='edit_lastname' value='$lastname' readonly>
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+                                          
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Phone</label>
+                                            <input type='number' class='form-control' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
+                                          </div>
+                                              
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Email</label>
+                                            <input type='email' class='form-control' name='edit_email' id='edit_email' value='$email' required>
+                                          </div>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+                                          
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Resident Since</label>
+                                            <input type='date' class='form-control' name='edit_valid_from' id='edit_valid_from' value='$valid_from' required>
+                                          </div>
+                                              
+                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+                                            <label>Resident Until</label>
+                                            <input type='date' class='form-control' name='edit_valid_until' id='edit_valid_until' value='$valid_until' >
+
+                                            <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                          </div>
+
+                                        </div>
+
+                                        <br><br>
+
+                                        <center>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                        </center>
+
+                                    </div>
+
+                                  </form>
+
+                                </div>
+                            
+                              </div>
+
+                            </div>";
+
+                            $email = "<a data-toggle='modal' data-target='#send_email_".$hoa_id."'>".$email."</a>";
+
                           }
 
                           echo "<tr><td>".$hoa_id."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."</a></td><td>".$home_id."</td><td>".$address.", ".$city." ".$state." ".$zip."</td><td>".$email."</td><td>".$phone."</td></tr>";
