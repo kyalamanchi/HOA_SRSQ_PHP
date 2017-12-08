@@ -142,6 +142,8 @@ input, label {
 
     </style>
 <script type="text/javascript">
+  var message = "";
+  var mode;
   function appendAddress(){
     document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address#";
   }
@@ -185,15 +187,19 @@ input, label {
         }
     }
   }
-  function updateValues(){
-
-
-  }
   function sendToSingleMember(){
 
     var hoaID = $("#memberId").find("option:selected").attr("id");
     if ( hoaID ){
-
+        jsonData = [];
+        item =  {};
+        item['mode'] = "single";
+        item['event_type'] = $("#eventType").find("option:selected").attr("id");
+        item['hoa_id'] = hoaID;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+        alert(sendData);
     }
     else {
       swal("Please select a member","","error");
@@ -201,6 +207,9 @@ input, label {
 
   }
   function sendToAllSubscribers(){
+
+    
+
 
   }
 </script>
@@ -262,7 +271,7 @@ input, label {
         <div>
               <br>
               <label>Select a member</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId" onchange="updateValues();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId">
                       <option data-hidden="true"></option>
                       <?php
                         $homeAddressQuery = "SELECT address1,home_id FROM HOMEID WHERE community_id=".$_SESSION['hoa_community_id'];
