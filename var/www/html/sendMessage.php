@@ -165,9 +165,9 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$personQueryResult = pg_query($personQuery);
 		$personData = pg_fetch_assoc($personQueryResult);
 		$personID  = $personData['id'];
-
+		if ( $personID ){
 		echo $personID;
-
+		}
 
 	}
 	else 
