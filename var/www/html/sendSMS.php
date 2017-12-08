@@ -151,21 +151,34 @@ input, label {
   function getSubscribers(){
 
     var eventID = $("#eventType").find("option:selected").attr("id");
-    var communityID = <?php echo $_SESSION['hoa_community_id']; ?>
-    
+    var communityID = <?php echo $_SESSION['hoa_community_id']; ?>;
 
-    // var request  = new XMLHttpRequest();
-    // request.open("POST", "https://hoaboardtime.com/getEventSubscribers.php", true);
-    // request.setRequestHeader("Content-type", "application/json");
-    // request.send(sendData);
-    // var pleaseWaitData = '<div class="progress">\
-    //                   <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-    //                   aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
-    //                   </div>\
-    //                 </div>';
-    // $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
-    // $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-    // $("#pleaseWaitDialog2").modal("show");
+    jsonData = [];
+    item  = {};
+    item['community_id'] = communityID;
+    item['event_id']  = eventID;
+    jsonData.push(item);
+
+    sendData  = JSON.stringify(jsonData);
+
+    var request  = new XMLHttpRequest();
+    request.open("POST", "https://hoaboardtime.com/getEventSubscribers.php", true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(sendData);
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    $("#pleaseWaitDialog2").modal("show");
+
+    request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              alert(request.responseText);
+        }
+    }
 
 
 
