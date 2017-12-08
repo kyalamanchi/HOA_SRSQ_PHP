@@ -204,6 +204,12 @@ input, label {
                   <label>Insert:</label>
                   <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
         </div>
+        <div>
+          <label class="switch">Send to all subscribers
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+          </label>
+        </div>
         </div>
      
         </section>
