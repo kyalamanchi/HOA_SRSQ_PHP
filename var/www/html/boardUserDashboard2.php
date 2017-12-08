@@ -427,15 +427,20 @@
                                 $role = $row['role_type_id'];
                                 $home_id = $row['home_id'];
 
-                                $arr = array();
-                                $arr = explode('@', $email);
-                                $email = $arr[0];
-                                $i = strlen($email);
+                                if($email != '')
+                                {
+                                  
+                                  $arr = array();
+                                  $arr = explode('@', $email);
+                                  $email = $arr[0];
+                                  $i = strlen($email);
 
-                                for($j = 3; $j < $i; $j++)
-                                  $email[$j] = '*';
+                                  for($j = 3; $j < $i; $j++)
+                                    $email[$j] = '*';
 
-                                $email = $email.'@'.$arr[1];
+                                  $email = $email.'@'.$arr[1];
+
+                                }
 
                                 if($role != "")
                                 {
