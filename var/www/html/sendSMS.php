@@ -194,7 +194,7 @@ input, label {
         <br>
         <div class="form-group" style="width: 25%">
                   <label for="comment">Message:</label>
-                  <textarea class="form-control" rows="3" id="comment"></textarea>
+                  <textarea class="form-control" rows="5" id="comment"></textarea>
               </div>
         </div>
      
