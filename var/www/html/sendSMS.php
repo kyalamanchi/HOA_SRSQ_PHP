@@ -208,7 +208,8 @@ input, label {
                  <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="sendToAllButton" disabled="disabled">Send to all subscribers</button>
         </div>
         <div>
-
+              OR
+              <br>
               <label>Select a member</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType">
                       <option data-hidden="true"></option>
