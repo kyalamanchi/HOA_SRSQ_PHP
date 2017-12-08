@@ -164,6 +164,8 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$personID  = $personData['id'];
 		if ( $personID ){
 			$insertToSMS  = "INSERT INTO SMS_SENT(sid,date_created,date_updated,from_number,status,uri,person_id,updated_by,updated_on,sent_by) VALUES('".$sid."','".$dateCreated."','".$dateUpdated."','".$fromNumber."','".$status."','".$uri."',".$personID.",".$parseJSON[0]->sender.",'".date('Y-m-d H:i:s')."',".$parseJSON[0]->sender.")";
+			if ( !pg_query($insertToSMS)){
+				echo $insertToSMS;
 		}
 
 	}
