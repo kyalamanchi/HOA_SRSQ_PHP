@@ -110,8 +110,6 @@ if ( $parseJSON[0]->mode == "all" ){
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		// $result = curl_exec($ch);
 
-
-
 		}
 		else {
 			echo "No Phone number found.";
@@ -144,9 +142,6 @@ else if ( $parseJSON[0]->mode == "single" ){
 		// $headers[] = "Content-Type: application/x-www-form-urlencoded";
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		// $result = curl_exec($ch);
-
-
-
 
 
 	}
