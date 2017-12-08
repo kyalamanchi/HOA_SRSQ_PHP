@@ -39,9 +39,11 @@ if ( $parseJSON[0]->mode == "all" ){
 		$personIDS[$row['person_id']] = 1;
 	}
 
-	print_r($personIDS);
+
 
 	foreach ($personIDS as $key => $value) {
+
+		print_r($key);
 		
 		$query = "SELECT * FROM PERSON WHERE ID=".$key;
 		$queryResult = pg_query($query);
