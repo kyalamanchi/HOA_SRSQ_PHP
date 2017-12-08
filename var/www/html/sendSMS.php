@@ -149,14 +149,26 @@ input, label {
     document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name#";
   }
   function getSubscribers(){
-    var pleaseWaitData = '<div class="progress">\
-                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
-                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
-                      </div>\
-                    </div>';
-    $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
-    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-    $("#pleaseWaitDialog2").modal("show");
+
+    var eventID = $("#eventType").find("option:selected").attr("id");
+    alert(eventID);
+
+    // var request  = new XMLHttpRequest();
+    // request.open("POST", "https://hoaboardtime.com/getEventSubscribers.php", true);
+    // request.setRequestHeader("Content-type", "application/json");
+    // request.send(sendData);
+    // var pleaseWaitData = '<div class="progress">\
+    //                   <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+    //                   aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+    //                   </div>\
+    //                 </div>';
+    // $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+    // $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    // $("#pleaseWaitDialog2").modal("show");
+
+
+
+
 
   }
   function updateValues(){
