@@ -212,14 +212,20 @@ input, label {
               <h4>OR</h4>
               <br>
               <label>Select a member</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId" onchange="updateValues();">
                       <option data-hidden="true"></option>
                       <?php
+                        $homeAddressQuery = "SELECT ADDRESS1 FROM HOMEID WHERE community_id"=.$_SESSION['hoa_community_id'];
+                        $homeAddressQueryResult = pg_query($homeAddressQuery);
+                        $homeID = array();
+                        while ($row2 = pg_fetch_assoc($homeAddressQueryResult)) {
+                            $homeID[$row2['home_id']] = $row2['address1'];
+                        }
                         $query = "SELECT * from hoaid where community_id =".$_SESSION['hoa_community_id'];
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
                             echo '<option id="'.$row['hoa_id'].'">';
-                              echo $row['firstname'].' '.$row['lastname'];
+                              echo $row['firstname'].' '.$row['lastname'].' ('.$homeID[$row['home_id']].')';
                             echo '</option>';
                         }
                       ?>
