@@ -198,7 +198,7 @@ input, label {
 
     var hoaID = $("#memberId").find("option:selected").attr("id");
     if ( hoaID ){
-
+        alert(hoaID);
     }
     else {
       swal("Please select a member","","error");
