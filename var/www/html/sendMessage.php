@@ -14,7 +14,7 @@ $parseJSON = json_decode($data);
 
 
 
-
+//Configure Auth
 		
 if ( $parseJSON[0]->community_id == 1){
 			$accountID = '';
@@ -24,6 +24,19 @@ else if ( $parseJSON[0]->community_id == 2){
 			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
 			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
 }
+
+
+//Get From Number
+
+$telQuery = "SELECT TEL_NO FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$parseJSON[0]->community_id;
+
+$telQueryResult = pg_query($telQuery);
+
+$fromPhoneNumber = pg_fetch_assoc($telQueryResult)['tel_no'];
+
+
+
+
 
 $homeQuery = "SELECT * FROM HOMEID WHERE COMMUNITY_ID=".$parseJSON[0]->community_id;
 
@@ -37,10 +50,13 @@ while ($row23 = pg_fetch_assoc($homeQueryResult)) {
 
 
 
-
 $message = $parseJSON[0]->message_body;
 
 $message = str_replace('\n', '%0a', $message);
+
+
+echo $fromPhoneNumber;
+
 
 if ( $parseJSON[0]->mode == "all" ){
 	
@@ -50,9 +66,6 @@ if ( $parseJSON[0]->mode == "all" ){
 	while ($row  = pg_fetch_assoc($queryResult)) {
 		$personIDS[$row['person_id']] = 1;
 	}
-
-
-
 	foreach ($personIDS as $key => $value) {
 		$messageSub = $message;
 		$query = "SELECT * FROM PERSON WHERE ID=".$key;
@@ -76,20 +89,9 @@ else if ( $parseJSON[0]->mode == "single" ){
 	$row = pg_fetch_assoc($queryResult);
 	if ( $row['cell_no'] ){
 		$messageSub = $message;
-		if ( $parseJSON[0]->community_id == 1){
-			$accountID = '';
-			$authToken  = '';
-		}
-		else if ( $parseJSON[0]->community_id == 2){
-			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
-			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
-		}
-
 		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
 		$messageSub = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $messageSub);
 		echo $messageSub;
-
-
 
 	}
 	else 
