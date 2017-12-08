@@ -150,7 +150,7 @@ input, label {
   }
   function getSubscribers(){
 
-    var eventID = $("#eventType").find("option:selected").attr("id");
+    var eventID = $("#eventType").find("option:selected").val();
     alert(eventID);
 
     // var request  = new XMLHttpRequest();
