@@ -73,9 +73,6 @@ $message = $parseJSON[0]->message_body;
 $message = str_replace('\n', '%0a', $message);
 
 
-echo $fromPhoneNumber;
-
-
 if ( $parseJSON[0]->mode == "all" ){
 	
 	$query = "SELECT * FROM COMMUNITY_COMMS WHERE COMMUNITY_ID=".$parseJSON[0]->community_id." AND EVENT_TYPE_ID=".$parseJSON[0]->event_type;
