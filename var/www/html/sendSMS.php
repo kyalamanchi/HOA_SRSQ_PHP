@@ -200,9 +200,9 @@ input, label {
         <br>
         <div class="form-group" style="width: 25%">
                   <label for="comment">Message:</label>
-                  <textarea class="form-control" rows="5" id="messageBody"><button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button></textarea>
+                  <textarea class="form-control" rows="5" id="messageBody"></textarea>
                   <label>Insert:</label>
-                  
+                  <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
         </div>
         </div>
      
