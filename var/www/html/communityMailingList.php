@@ -198,7 +198,7 @@
 
                                   </div>
 
-                                  <form class='row' method='post' action='https://hoaboardtime.com/boardEditHOAID2.php'>
+                                  <form class='row' method='post' action='https://hoaboardtime.com/sendEmailToCustomer.php'>
                                                       
                                     <div class='modal-body'>
                                         
@@ -215,6 +215,9 @@
                                           
                                           <label>Message</label>
                                           <textarea class='form-control' name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
+
+                                          <input type='hidden' name='mail_email' id='mail_email' value='$aux_email'>
+                                          <input type='hidden' name='token' id='token' value='1'>
 
                                         </div>
 
