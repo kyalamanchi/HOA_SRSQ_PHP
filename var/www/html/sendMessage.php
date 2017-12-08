@@ -150,7 +150,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$result = curl_exec($ch);
 
 		echo $result;
-		
+
 		$result = json_decode($result);
 		$sid = $result->sid;
 		$dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
@@ -175,6 +175,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 	{
 		echo "No Phone number found.";
 	}
+}
 }
 
 else {
