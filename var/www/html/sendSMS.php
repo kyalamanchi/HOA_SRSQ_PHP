@@ -220,17 +220,16 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              alert(request.responseText);
-              // if ( request.responseText == 0 ){
-              //     swal("No suscribers for this category.","","error");
-              //     $("#sendToAllButton").text("Send to all subscribers");
-              //     document.getElementById("sendToAllButton").disabled = true;
-              // }
-              // else {
-
-              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
-              //     document.getElementById("sendToAllButton").disabled = false;
-              // }
+              
+              if ( request.responseText.includes("SMS sent") ){
+                swal("Message(s) sent.","","success");
+              }
+              else if ( request.responseText.includes("No Phone number found.") ){
+                swal("","One or more phone numbers could not be found","warning");
+              }
+              else{
+                swal("An error occured","","error");
+              }
         }
     }
 
@@ -271,17 +270,16 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              alert(request.responseText);
-              // if ( request.responseText == 0 ){
-              //     swal("No suscribers for this category.","","error");
-              //     $("#sendToAllButton").text("Send to all subscribers");
-              //     document.getElementById("sendToAllButton").disabled = true;
-              // }
-              // else {
-
-              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
-              //     document.getElementById("sendToAllButton").disabled = false;
-              // }
+              
+              if ( request.responseText.includes("SMS sent") ){
+                swal("Message(s) sent.","","success");
+              }
+              else if ( request.responseText.includes("No Phone number found.") ){
+                swal("","One or more phone numbers could not be found","warning");
+              }
+              else{
+                swal("An error occured","","error");
+              }
         }
     }
 

@@ -93,30 +93,36 @@ if ( $parseJSON[0]->mode == "all" ){
 		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
 		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $messageSub);
 		
+		$toNumber = '919603923649';
 
+		$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=".$messageSub."&To=%2B".$toNumber."&From=%2B1".$fromPhoneNumber);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
+		$headers = array();
+		$headers[] = "Content-Type: application/x-www-form-urlencoded";
+		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		$result = curl_exec($ch);
 
-		// $url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
-		// $ch = curl_init();
-		// curl_setopt($ch, CURLOPT_URL, $url);
-		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		// curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=".$messageSub."&To=%2B".$toNumber."&From=%2B1".$fromPhoneNumber);
-		// curl_setopt($ch, CURLOPT_POST, 1);
-		// curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
-		// $headers = array();
-		// $headers[] = "Content-Type: application/x-www-form-urlencoded";
-		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-		// $result = curl_exec($ch);
+		$result = json_decode($result);
+		$sid = $result->sid;
+		$dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
+		$dateUpdated = date('Y-m-d H:i:s',strtotime($result->date_updated));
+		$toNumber = $result->to;
+		$fromNumber = $result->from;
+		$status = $result->status;
+		$uri = $result->uri;
 
-		// $result = json_decode($result);
-		// $sid = $result->sid;
-		// $dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
-		// $dateUpdated = date('Y-m-d H:i:s',strtotime($result->date_updated));
-		// $toNumber = $result->to;
-		// $fromNumber = $result->from;
-		// $status = $result->status;
-		// $uri = $result->uri;
+		$insertToSMS  = "INSERT INTO SMS_SENT(sid,date_created,date_updated,from_number,status,uri,person_id,updated_by,updated_on,sent_by) VALUES('".$sid."','".$dateCreated."','".$dateUpdated."','".$fromNumber."','".$status."','".$uri."',".$key.",".$parseJSON[0]->sender.",'".date('Y-m-d H:i:s')."',".$parseJSON[0]->sender.")";
 
-		// $insertToSMS  = "INSERT INTO SMS_SENT(sid,date_created,date_updated,from_number,status,uri,person_id,updated_by,updated_on,sent_by) VALUES('".$sid."','".$dateCreated."','".$dateUpdated."','".$fromNumber."','".$status."','".$uri."',".$key.",".$parseJSON[0]->sender.",'".date('Y-m-d H:i:s')."',".$parseJSON[0]->sender.")";
+		if ( !pg_query($insertToSMS)){
+				echo $query;
+		}
+		echo "SMS sent";
+
 
 		}
 		else {
@@ -166,9 +172,9 @@ else if ( $parseJSON[0]->mode == "single" ){
 		if ( $personID ){
 			$insertToSMS  = "INSERT INTO SMS_SENT(sid,date_created,date_updated,from_number,status,uri,person_id,updated_by,updated_on,sent_by) VALUES('".$sid."','".$dateCreated."','".$dateUpdated."','".$fromNumber."','".$status."','".$uri."',".$personID.",".$parseJSON[0]->sender.",'".date('Y-m-d H:i:s')."',".$parseJSON[0]->sender.")";
 			if ( !pg_query($insertToSMS)){
-				echo $insertToSMS;
-		}
-
+				echo $query;
+			}	
+		echo "SMS sent";
 	}
 	else 
 	{
