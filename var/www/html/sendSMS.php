@@ -225,10 +225,9 @@ input, label {
                         }
                       ?>
               </select>
+              <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="sendToAllButton" disabled="disabled">Send to all subscribers</button>
               <br>
               <button type="button" class="btn btn-success" onclick="sendToSingleMember();" id="sendToSingleMemberButton" disabled="disabled">Send</button>
-
-                 <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="sendToAllButton" disabled="disabled">Send to all subscribers</button>
         </div>
         </div>
      
