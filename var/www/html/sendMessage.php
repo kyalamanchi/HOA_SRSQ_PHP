@@ -28,6 +28,7 @@ if ( $parseJSON[0]->mode == "all" ){
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		print_r(base64_decode($row['cell_no']));
+		print_r(nl2br("\n"));
 	}
 
 }
