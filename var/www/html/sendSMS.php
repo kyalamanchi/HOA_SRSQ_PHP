@@ -140,6 +140,17 @@ input, label {
     display:block;
 }
 
+div{
+    display:inline-block;
+    position:relative;
+}
+
+button{
+ position:absolute;
+ bottom:10px;
+ right:10px;
+}
+
     </style>
 <script type="text/javascript">
 </script>
@@ -195,7 +206,9 @@ input, label {
         <div class="form-group" style="width: 25%">
                   <label for="comment">Message:</label>
                   <textarea class="form-control" rows="5" id="comment"></textarea>
-              </div>
+                  <button>Name</button>
+                  <button>Address</button>
+        </div>
         </div>
      
         </section>
