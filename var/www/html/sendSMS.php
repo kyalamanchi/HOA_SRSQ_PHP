@@ -178,14 +178,14 @@ input, label {
         <div>
           <div class="row-fluid">
               <label>Event</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
                       <?php
-                        $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
+                        $query = "SELECT * from event_type";
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
                             echo '<option id="'.$row['id'].'">';
-                              echo $row['name'];
+                              echo $row['event_type_name'];
                             echo '</option>';
                         }
                       ?>
