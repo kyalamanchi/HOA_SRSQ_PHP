@@ -177,7 +177,7 @@ input, label {
 
         <div>
           <div class="row-fluid">
-              <label>Disclosure Type</label>
+              <label>Event</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
                       <?php
