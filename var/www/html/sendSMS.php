@@ -189,16 +189,20 @@ input, label {
               }
         }
     }
-
-
-
-
-
   }
   function updateValues(){
 
+
   }
   function sendToSingleMember(){
+
+    var hoaID = $("#memberId").find("option:selected").attr("id");
+    if ( hoaID ){
+        alert(hoaID);
+    }
+    else {
+      swal("Please select a member","","error");
+    }
 
   }
   function sendToAllSubscribers(){
