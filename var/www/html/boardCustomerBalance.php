@@ -828,6 +828,21 @@ function hidePleaseWait() {
                         else
                           $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
+                        if($email != '')
+                        {
+                                    
+                          $arr = array();
+                          $arr = explode('@', $email);
+                          $email = $arr[0];
+                          $i = strlen($email);
+
+                          for($j = 3; $j < $i; $j++)
+                            $email[$j] = '*';
+
+                          $email = $email.'@'.$arr[1];
+
+                        }
+
                         echo "<tr><td>$reminder</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='viewBillingStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td><td><button type=\"button\" class=\"btn btn-default\" id=$hoa_id onclick=\"emailStatement(this);\">Email Statement</button>
                         <button type=\"button\" id=$hoa_id class=\"btn btn-default\" onclick=\"sendSouthData(this);\">Send Via SouthData</button></td></tr>";
 
