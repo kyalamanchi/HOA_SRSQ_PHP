@@ -171,6 +171,8 @@
 
                           if($email != '')
                           {
+
+                            $aux_email = $email;
                                     
                             $arr = array();
                             $arr = explode('@', $email);
