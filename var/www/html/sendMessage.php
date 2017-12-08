@@ -13,6 +13,18 @@ $data = file_get_contents('php://input');
 $parseJSON = json_decode($data);
 
 
+
+
+		
+if ( $parseJSON[0]->community_id == 1){
+			$accountID = '';
+			$authToken  = '';
+}
+else if ( $parseJSON[0]->community_id == 2){
+			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
+			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
+}
+
 $homeQuery = "SELECT * FROM HOMEID WHERE COMMUNITY_ID=".$parseJSON[0]->community_id;
 
 $homeQueryResult = pg_query($homeQuery);
@@ -49,15 +61,7 @@ if ( $parseJSON[0]->mode == "all" ){
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		if ( $row['cell_no'] ){
-		
-		if ( $parseJSON[0]->community_id == 1){
-			$accountID = '';
-			$authToken  = '';
-		}
-		else if ( $parseJSON[0]->community_id == 2){
-			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
-			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
-		}
+
 
 		$message = str_replace('#address#', $homeIDS[$row['home_id']], $message);
 		$message = str_replace('#name#', $row['fname'].' '.$row['lname'], $message);
