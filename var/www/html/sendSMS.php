@@ -140,7 +140,7 @@ input, label {
     display:block;
 }
 
-div{
+.inl{
     display:inline-block;
     position:relative;
 }
@@ -203,7 +203,7 @@ button{
               </select>
         </div>
         <br>
-        <div class="form-group" style="width: 25%">
+        <div class="form-group inl" style="width: 25%">
                   <label for="comment">Message:</label>
                   <textarea class="form-control" rows="5" id="comment"></textarea>
                   <button>Name</button>
