@@ -1368,10 +1368,27 @@
 
                                   foreach ($result as $result1) {
 
+                                    $document_to = $result1->email;
+
+                                    if($document_to != '')
+                                    {
+                                      
+                                      $arr = array();
+                                      $arr = explode('@', $document_to);
+                                      $document_to = $arr[0];
+                                      $i = strlen($document_to);
+
+                                      for($j = 3; $j < $i; $j++)
+                                        $document_to[$j] = '*';
+
+                                      $document_to = $document_to.'@'.$arr[1];
+
+                                    }
+
                                     echo "<tr>";
 
                                     print_r("<td>".date('m-d-Y',$result1->ts)."</td>");
-                                    print_r("<td>".$result1->email."</td>");
+                                    print_r("<td>".$document_to."</td>");
                                     print_r("<td>".$result1->subject."</td>");
                                     print_r("<td>".$result1->opens."</td>");
                                     print_r("<td>".$result1->clicks."</td>");
