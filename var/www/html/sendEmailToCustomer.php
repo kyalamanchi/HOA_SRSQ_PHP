@@ -11,7 +11,7 @@
 	$subject = $_POST['mail_subject'];
 	$token = $_POST['token'];
 
-	echo $community_id."<br>".$to."<br><br>".$subject."<br><br>".$body."<br><br>".$token;
+	echo "<br>".$community_id."<br>".$to."<br><br>".$subject."<br><br>".$body."<br><br>".$token;
 
 	switch ($community_id) {
 
