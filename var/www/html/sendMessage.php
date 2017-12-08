@@ -27,18 +27,27 @@ if ( $parseJSON[0]->mode == "all" ){
 		$query = "SELECT CELL_NO FROM PERSON WHERE ID=".$key;
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
+		if ( $row['cell_no'] ){
 		print_r(base64_decode($row['cell_no']));
 		print_r(nl2br("\n"));
+		}
+		else {
+			echo "No Phone number found";
+		}
 	}
 
 }
 else if ( $parseJSON[0]->mode == "single" ){
-
 	$query = "SELECT * FROM HOAID WHERE HOA_ID=".$parseJSON[0]->hoa_id;
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);
+	if ( $row['cell_no'] ){
 	echo base64_decode($row['cell_no']);
-	
+	}
+	else 
+	{
+		echo "No Phone number found.";
+	}
 }
 
 else {
