@@ -174,17 +174,16 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              alert(request.responseText);
-              // if ( request.responseText == 0 ){
-              //     swal("No suscribers for this category.","","error");
-              //     $("#sendToAllButton").text("Send to all subscribers");
-              //     document.getElementById("sendToAllButton").disabled = true;
-              // }
-              // else {
+              if ( request.responseText == 0 ){
+                  swal("No suscribers for this category.","","error");
+                  $("#sendToAllButton").text("Send to all subscribers");
+                  document.getElementById("sendToAllButton").disabled = true;
+              }
+              else {
 
-              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
-              //     document.getElementById("sendToAllButton").disabled = false;
-              // }
+                  $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
+                  document.getElementById("sendToAllButton").disabled = false;
+              }
         }
     }
   }
