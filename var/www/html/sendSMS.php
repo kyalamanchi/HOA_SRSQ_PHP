@@ -170,7 +170,23 @@ input, label {
         <section class="content-header">
 
           <h1><strong>Send SMS</strong></h1>
-
+          <div>
+          <div class="row-fluid">
+              <label>Disclosure Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+          </div>
+          </div>
         </section>
         <br>
         <section class="content" id="content">
