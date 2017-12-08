@@ -312,7 +312,7 @@ input, label {
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
-<script>
+<!-- <script>
 $(document).ready(
      function changeState(){
     if ( document.getElementById('deliveryType').value != "" ){
@@ -324,7 +324,7 @@ $(document).ready(
   }
 
 );
-</script>
+</script> -->
 
       <script type="text/javascript">
             $('.daterange').daterangepicker({
