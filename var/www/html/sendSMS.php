@@ -151,7 +151,8 @@ input, label {
   function getSubscribers(){
 
     var eventID = $("#eventType").find("option:selected").attr("id");
-    alert(eventID);
+    var communityID = <?php echo $_SESSION['hoa_community_id']; ?>
+    
 
     // var request  = new XMLHttpRequest();
     // request.open("POST", "https://hoaboardtime.com/getEventSubscribers.php", true);
