@@ -204,10 +204,8 @@
                                         
                                         <div class='row container-fluid'>
                                 
-                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                                            <label>Subject</label>
-                                            <input type='text' name='mail_subject' id='mail_subject' required placeholder='Enter Mail Subject'>
-                                          </div>
+                                          <label>Subject</label>
+                                          <input class='form-control' type='text' name='mail_subject' id='mail_subject' required placeholder='Enter Mail Subject'>
 
                                         </div>
 
@@ -215,10 +213,8 @@
 
                                         <div class='row container-fluid'>
                                           
-                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
-                                            <label>Message</label>
-                                            <textarea name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
-                                          </div>
+                                          <label>Message</label>
+                                          <textarea class='form-control' name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
 
                                         </div>
 
