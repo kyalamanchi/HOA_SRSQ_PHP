@@ -12,6 +12,18 @@ $parseJSON = json_decode($data);
 
 $message = $parseJSON[0]->message_body;
 
-echo str_replace('\n', '%0a', $message);
+$message str_replace('\n', '%0a', $message);
+
+if ( $parseJSON[0]->mode == "all" ){
+	echo "ALL";
+}
+else if ( $parseJSON[0]->mode == "single" ){
+	echo "SINGLE";
+}
+
+else {
+	exit(0);
+}
+
 
 ?>
