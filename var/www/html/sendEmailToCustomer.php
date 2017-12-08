@@ -4,7 +4,7 @@
 
   	session_start();
 
-	$community_id = $_SESSTION['hoa_community_id'];
+	$community_id = $_SESSION['hoa_community_id'];
 
 	$to = $_POST['mail_email'];
 	$body = nl2br($_POST['mail_body']);
