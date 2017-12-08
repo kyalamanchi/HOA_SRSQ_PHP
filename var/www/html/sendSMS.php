@@ -225,7 +225,7 @@ input, label {
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
                             echo '<option id="'.$row['hoa_id'].'">';
-                              echo $row['firstname'].' '.$row['lastname'].' ('.$homeID[$row['home_id']].')';
+                              echo $row['firstname'].' '.$row['lastname'];
                             echo '</option>';
                         }
                       ?>
