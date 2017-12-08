@@ -169,7 +169,7 @@ input, label {
         
         <section class="content-header">
 
-          <h1><strong>Upload file</strong></h1>
+          <h1><strong>Send SMS</strong></h1>
 
         </section>
         <br>
