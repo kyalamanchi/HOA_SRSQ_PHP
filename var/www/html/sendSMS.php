@@ -170,7 +170,12 @@ input, label {
         <section class="content-header">
 
           <h1><strong>Send SMS</strong></h1>
-          <div>
+
+        </section>
+        <br>
+        <section class="content" id="content">
+
+        <div>
           <div class="row-fluid">
               <label>Disclosure Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
@@ -185,11 +190,8 @@ input, label {
                         }
                       ?>
               </select>
+        </div>
           </div>
-          </div>
-        </section>
-        <br>
-        <section class="content" id="content">
      
         </section>
 
