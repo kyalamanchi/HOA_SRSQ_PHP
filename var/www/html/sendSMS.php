@@ -142,6 +142,12 @@ input, label {
 
     </style>
 <script type="text/javascript">
+  function appendAddress(){
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address";
+  }
+  function appendName(){
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name";
+  }
 </script>
   </head>
 
@@ -194,9 +200,9 @@ input, label {
         <br>
         <div class="form-group" style="width: 25%">
                   <label for="comment">Message:</label>
-                  <textarea class="form-control" rows="5" id="comment"></textarea>
+                  <textarea class="form-control" rows="5" id="messageBody"></textarea>
                   <label>Insert:</label>
-                  <button>Name</button><button>Address</button>
+                  <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
         </div>
         </div>
      
