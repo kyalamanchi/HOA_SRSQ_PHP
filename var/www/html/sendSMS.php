@@ -196,7 +196,7 @@ input, label {
                   <label for="comment">Message:</label>
                   <textarea class="form-control" rows="5" id="comment"></textarea>
                   <label>Insert:</label>
-                  <button>Address</button><button>Name</button>
+                  <button>Name</button><button>Address</button>
         </div>
         </div>
      
