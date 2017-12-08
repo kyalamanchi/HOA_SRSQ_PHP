@@ -205,7 +205,6 @@ input, label {
                   <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
         </div>
         <div>
-              <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="sendToAllButton" disabled="disabled">Send to all subscribers</button>
               <br>
               <label>Select a member</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId" onchange="updateValues();">
@@ -227,8 +226,9 @@ input, label {
                       ?>
               </select>
               <br>
-              <br>
               <button type="button" class="btn btn-success" onclick="sendToSingleMember();" id="sendToSingleMemberButton" disabled="disabled">Send</button>
+              <br>
+              <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="sendToAllButton" disabled="disabled">Send to all subscribers</button>
         </div>
         </div>
      
