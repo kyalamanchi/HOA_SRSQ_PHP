@@ -562,6 +562,21 @@
                               
                             }
 
+                            if($document_to != '')
+                            {
+                                    
+                              $arr = array();
+                              $arr = explode('@', $document_to);
+                              $document_to = $arr[0];
+                              $i = strlen($document_to);
+
+                              for($j = 3; $j < $i; $j++)
+                                $document_to[$j] = '*';
+
+                              $document_to = $document_to.'@'.$arr[1];
+
+                            }
+
                             echo "<td>".$document_to."</td><td>".$agreement_name."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a href='https://hoaboardtime.com/cancelAgreement.php?id=".$agreement_id."'>Cancel</a></td></tr>";
 
                           }
