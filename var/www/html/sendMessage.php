@@ -54,13 +54,13 @@ if ( $parseJSON[0]->mode == "all" ){
 
 
 	foreach ($personIDS as $key => $value) {
-
+		$messageSub = $message;
 		$query = "SELECT * FROM PERSON WHERE ID=".$key;
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		if ( $row['cell_no'] ){
-		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $message);
-		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $message);
+		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
+		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $messageSub);
 		echo $messageSub;
 		}
 		else {
@@ -85,9 +85,9 @@ else if ( $parseJSON[0]->mode == "single" ){
 			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
 		}
 
-		$message = str_replace('#address#', $homeIDS[$row['home_id']], $message);
-		$message = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $message);
-		echo $message;
+		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $message);
+		$messageSub = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $message);
+		echo $messageSub;
 
 
 
