@@ -39,6 +39,8 @@ if ( $parseJSON[0]->mode == "all" ){
 		$personIDS[$row['person_id']] = 1;
 	}
 
+	print_r($personIDS);
+
 	foreach ($personIDS as $key => $value) {
 		
 		$query = "SELECT * FROM PERSON WHERE ID=".$key;
