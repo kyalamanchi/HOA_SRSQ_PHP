@@ -150,7 +150,7 @@ input, label {
   }
   function getSubscribers(){
 
-    var eventID = $("#eventType").find("option:selected").val();
+    var eventID = $("#eventType").find("option:selected").attr("id");
     alert(eventID);
 
     // var request  = new XMLHttpRequest();
@@ -222,7 +222,7 @@ input, label {
                         $query = "SELECT * from event_type";
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option id="'.$row['id'].'">';
+                            echo '<option id="'.$row['event_type_id'].'">';
                               echo $row['event_type_name'];
                             echo '</option>';
                         }
