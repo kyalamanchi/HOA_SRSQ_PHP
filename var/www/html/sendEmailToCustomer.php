@@ -6,7 +6,7 @@
 
 	$community_id = $_SESSION['hoa_community_id'];
 
-	$to = "geethchadalawada@gmail.com";//$_POST['mail_email'];
+	$to = $_POST['mail_email'];
 	$body = nl2br($_POST['mail_body']);
 	$subject = $_POST['mail_subject'];
 	$token = $_POST['token'];
