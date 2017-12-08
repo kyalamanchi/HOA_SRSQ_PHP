@@ -12,7 +12,7 @@ $parseJSON = json_decode($data);
 
 $message = $parseJSON[0]->message_body;
 
-$message str_replace('\n', '%0a', $message);
+$message = str_replace('\n', '%0a', $message);
 
 if ( $parseJSON[0]->mode == "all" ){
 	echo "ALL";
