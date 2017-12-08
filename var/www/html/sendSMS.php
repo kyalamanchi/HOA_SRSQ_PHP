@@ -200,10 +200,11 @@ input, label {
         item['hoa_id'] = hoaID;
         item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['message_body'] = document.getElementById("messageBody").value;
+        item['sender'] = <?php echo $_SESSION['hoa_user_id'];?>;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
 
-        
+
     var request  = new XMLHttpRequest();
     request.open("POST", "https://hoaboardtime.com/sendMessage.php", true);
     request.setRequestHeader("Content-type", "application/json");
@@ -252,6 +253,7 @@ input, label {
         item['event_type'] = $("#eventType").find("option:selected").attr("id");
         item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['message_body'] = document.getElementById("messageBody").value;
+        item['sender'] = <?php echo $_SESSION['hoa_user_id'];?>;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
     var request  = new XMLHttpRequest();
