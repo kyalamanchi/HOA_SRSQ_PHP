@@ -247,7 +247,7 @@ input, label {
     if ( $("#eventType").find("option:selected").attr("id") ){
         jsonData = [];
         item =  {};
-        item['mode'] = "single";
+        item['mode'] = "all";
         item['event_type'] = $("#eventType").find("option:selected").attr("id");
         item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['message_body'] = document.getElementById("messageBody").value;
