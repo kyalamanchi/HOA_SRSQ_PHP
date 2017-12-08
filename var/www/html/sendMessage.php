@@ -58,11 +58,10 @@ if ( $parseJSON[0]->mode == "all" ){
 		$query = "SELECT * FROM PERSON WHERE ID=".$key;
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
-		print_r($row);
 		if ( $row['cell_no'] ){
-		$message = str_replace('#address#', $homeIDS[$row['home_id']], $message);
-		$message = str_replace('#name#', $row['fname'].' '.$row['lname'], $message);
-		echo $message;
+		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $message);
+		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $message);
+		echo $messageSub;
 		}
 		else {
 			echo "No Phone number found.";
