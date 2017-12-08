@@ -74,6 +74,6 @@
     }
 
 	if($token == 1)
-		header("Location: communityMailingList.php");
+		echo "<br><br><center><a href='communityMailingList.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/communityMailingList.php'},1000);</script>";
 
 ?>
