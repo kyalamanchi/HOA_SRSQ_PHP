@@ -561,6 +561,21 @@
                               
                             }
 
+                            if($document_to != '')
+                            {
+                                    
+                              $arr = array();
+                              $arr = explode('@', $document_to);
+                              $document_to = $arr[0];
+                              $i = strlen($document_to);
+
+                              for($j = 3; $j < $i; $j++)
+                                $document_to[$j] = '*';
+
+                              $document_to = $document_to.'@'.$arr[1];
+
+                            }
+
                             echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$document_to."</a></td><td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                           }
