@@ -1264,6 +1264,21 @@
                                   if($last_updated != "")
                                     $last_updated = date('m-d-Y', strtotime($last_updated));
 
+                                  if($document_to != '')
+                                  {
+                                    
+                                    $arr = array();
+                                    $arr = explode('@', $document_to);
+                                    $document_to = $arr[0];
+                                    $i = strlen($document_to);
+
+                                    for($j = 3; $j < $i; $j++)
+                                      $document_to[$j] = '*';
+
+                                    $document_to = $document_to.'@'.$arr[1];
+
+                                  }
+
                                   if($is_board_document == 'f')
                                     echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
