@@ -205,7 +205,7 @@ input, label {
                   <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
         </div>
         <div>
-                 <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="saveButton2" disabled="disabled">Send to all subscribers</button>
+                 <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="saveButton2">Send to all subscribers</button>
         </div>
         </div>
      
