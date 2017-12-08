@@ -417,6 +417,21 @@
                               $reminders = "<center><a title='Email Not Available'><i class='fa fa-bell text-danger'></i></center>";
                           }
 
+                          if($email != '')
+                          {
+                                      
+                            $arr = array();
+                            $arr = explode('@', $email);
+                            $email = $arr[0];
+                            $i = strlen($email);
+
+                            for($j = 3; $j < $i; $j++)
+                              $email[$j] = '*';
+
+                            $email = $email.'@'.$arr[1];
+
+                          }
+
                           echo "<tr><td>$reminders</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$phone</td><td>$home_id</td><td>$living_in</td><td>$ $balance</td></tr>";
 
                         }
