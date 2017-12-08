@@ -226,8 +226,8 @@ input, label {
                         }
                       ?>
               </select>
-
               <br>
+              
               <button type="button" class="btn btn-success" onclick="sendToSingleMember();" id="sendToSingleMemberButton" disabled="disabled">Send</button>
         </div>
         </div>
