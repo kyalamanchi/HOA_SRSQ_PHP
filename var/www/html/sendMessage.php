@@ -161,7 +161,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 		// $status = $result->status;
 		// $uri = $result->uri;
 
-		$personQuery = "SELECT * FROM PERSON WHERE CELL_NO=".base64_encode($row['cell_no']);
+		$personQuery = "SELECT * FROM PERSON WHERE CELL_NO='".base64_encode($row['cell_no'])."'";
 		$personQueryResult = pg_query($personQuery);
 		$personData = pg_fetch_assoc($personQueryResult);
 		$personID  = $personData['id'];
