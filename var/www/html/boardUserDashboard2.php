@@ -427,6 +427,16 @@
                                 $role = $row['role_type_id'];
                                 $home_id = $row['home_id'];
 
+                                $arr = array();
+                                $arr = explode('@', $email);
+                                $email = $arr[0];
+                                $i = strlen($email);
+
+                                for($j = 3; $j < $i; $j++)
+                                  $email[$j] = '*';
+
+                                $email = $email.'@'.$arr[1];
+
                                 if($role != "")
                                 {
                                   $row = pg_fetch_assoc(pg_query("SELECT * FROM role_type WHERE role_type_id=$role"));
