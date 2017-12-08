@@ -203,6 +203,36 @@ input, label {
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
         alert(sendData);
+    var request  = new XMLHttpRequest();
+    request.open("POST", "https://hoaboardtime.com/sendMessage.php", true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(sendData);
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    $("#pleaseWaitDialog2").modal("show");
+    request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              $("#pleaseWaitDialog2").modal("hide");
+              alert(request.responseText);
+              // if ( request.responseText == 0 ){
+              //     swal("No suscribers for this category.","","error");
+              //     $("#sendToAllButton").text("Send to all subscribers");
+              //     document.getElementById("sendToAllButton").disabled = true;
+              // }
+              // else {
+
+              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
+              //     document.getElementById("sendToAllButton").disabled = false;
+              // }
+        }
+    }
+
+
     }
     else {
       swal("Please select a member","","error");
@@ -223,7 +253,35 @@ input, label {
         item['message_body'] = document.getElementById("messageBody").value;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-        alert(sendData);
+    var request  = new XMLHttpRequest();
+    request.open("POST", "https://hoaboardtime.com/sendMessage.php", true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(sendData);
+    var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+    $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+    $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+    $("#pleaseWaitDialog2").modal("show");
+    request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              $("#pleaseWaitDialog2").modal("hide");
+              alert(request.responseText);
+              // if ( request.responseText == 0 ){
+              //     swal("No suscribers for this category.","","error");
+              //     $("#sendToAllButton").text("Send to all subscribers");
+              //     document.getElementById("sendToAllButton").disabled = true;
+              // }
+              // else {
+
+              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
+              //     document.getElementById("sendToAllButton").disabled = false;
+              // }
+        }
+    }
+
     }
     else {
       swal("Please select an event","","error");
