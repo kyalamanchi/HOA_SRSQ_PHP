@@ -42,7 +42,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);
 	if ( $row['cell_no'] ){
-	echo base64_decode($row['cell_no']);
+	echo ($row['cell_no']);
 	}
 	else 
 	{
