@@ -204,14 +204,9 @@
                                         
                                         <div class='row container-fluid'>
                                 
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                            <label>First Name</label>
-                                            <input type='text' class='form-control' name='edit_firstname' id='edit_firstname' value='$firstname' readonly>
-                                          </div>
-                                                
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                            <label>Last Name</label>
-                                            <input type='text' class='form-control' name='edit_lastname' id='edit_lastname' value='$lastname' readonly>
+                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                            <label>Subject</label>
+                                            <input type='text' name='mail_subject' id='mail_subject' required placeholder='Enter Mail Subject'>
                                           </div>
 
                                         </div>
@@ -220,32 +215,9 @@
 
                                         <div class='row container-fluid'>
                                           
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                            <label>Phone</label>
-                                            <input type='number' class='form-control' name='edit_cell_no' id='edit_cell_no' value='$cell_no' required>
-                                          </div>
-                                              
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                            <label>Email</label>
-                                            <input type='email' class='form-control' name='edit_email' id='edit_email' value='$email' required>
-                                          </div>
-
-                                        </div>
-
-                                        <br>
-
-                                        <div class='row container-fluid'>
-                                          
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                            <label>Resident Since</label>
-                                            <input type='date' class='form-control' name='edit_valid_from' id='edit_valid_from' value='$valid_from' required>
-                                          </div>
-                                              
-                                          <div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-                                            <label>Resident Until</label>
-                                            <input type='date' class='form-control' name='edit_valid_until' id='edit_valid_until' value='$valid_until' >
-
-                                            <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                            <label>Message</label>
+                                            <textarea name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
                                           </div>
 
                                         </div>
@@ -253,8 +225,8 @@
                                         <br><br>
 
                                         <center>
-                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Update</button>
-                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Cancel</button>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Send Email</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Close</button>
                                         </center>
 
                                     </div>
