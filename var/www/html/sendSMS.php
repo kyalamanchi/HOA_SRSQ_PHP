@@ -181,7 +181,7 @@ input, label {
                   swal("No suscribers for this category.","","error");
               }
               else {
-                  document.getElementById("sendToAllButton").text = "Send to "+request.responseText+" subscribers";
+                  $("#sendToAllButton").val("Send to "+request.responseText+" subscribers");
               }
         }
     }
