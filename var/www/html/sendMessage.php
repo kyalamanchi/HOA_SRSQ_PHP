@@ -10,7 +10,8 @@ pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 db
 $data = file_get_contents('php://input');
 $parseJSON = json_decode($data);
 
+$message = $parseJSON[0]->message_body;
 
-print_r($parseJSON);
+echo str_replace('\n', '%0a', $message);
 
 ?>
