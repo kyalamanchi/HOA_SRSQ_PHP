@@ -143,10 +143,10 @@ input, label {
     </style>
 <script type="text/javascript">
   function appendAddress(){
-    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address";
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address#";
   }
   function appendName(){
-    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name";
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name#";
   }
 </script>
   </head>
