@@ -112,12 +112,11 @@
 		foreach ($toPhoneNumbers as $key => $value) {
 		$body =  $mbody;
 		$body = str_replace('#homeid#', $personHOMEID[$value] , $body) ;
-		$url  = 'https://api.twilio.com/2010-04-01/Accounts/AC06019424f034503e8a7c67a8ddfcd490/Messages.json';
-		
 		if ( $communityID == 2 ){
 			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
 			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
 		}
+		$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

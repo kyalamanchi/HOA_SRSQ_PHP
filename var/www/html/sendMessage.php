@@ -12,6 +12,18 @@ pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 db
 $data = file_get_contents('php://input');
 $parseJSON = json_decode($data);
 
+//Getting country prefix numbers 
+
+$countryQuery = "SELECT * FROM COUNTRY";
+
+$countryQueryResult = pg_query($countryQuery);
+
+$countryPrefixArray = array();
+
+while ($row = pg_fetch_assoc($countryQueryResult)) {
+	$countryPrefixArray[$row['country_id']] = $row['tel_prefix'];
+}
+
 
 
 //Configure Auth
@@ -47,8 +59,11 @@ $homeQueryResult = pg_query($homeQuery);
 
 $homeIDS = array();
 
+$homeCountries = array();
+
 while ($row23 = pg_fetch_assoc($homeQueryResult)) {
 	$homeIDS[$row23['home_id']] = $row23['address1'];
+	$homeCountries[$row23['home_id']] = $row23['country_id'];
 }
 
 
@@ -75,9 +90,31 @@ if ( $parseJSON[0]->mode == "all" ){
 		$queryResult = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		if ( $row['cell_no'] ){
+
+		$toNumber = $homeCountries[$row['home_id']].base64_decode($row['cell_no']);
+
 		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
 		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $messageSub);
-		echo $messageSub;
+		
+
+		echo $toNumber;
+
+		echo nl2br("\n\n");
+
+		// $url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
+		// $ch = curl_init();
+		// curl_setopt($ch, CURLOPT_URL, $url);
+		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		// curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=".$messageSub."&To=%2B".$toNumber."&From=%2B1".$fromPhoneNumber);
+		// curl_setopt($ch, CURLOPT_POST, 1);
+		// curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
+		// $headers = array();
+		// $headers[] = "Content-Type: application/x-www-form-urlencoded";
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		// $result = curl_exec($ch);
+
+
+
 		}
 		else {
 			echo "No Phone number found.";
@@ -94,7 +131,26 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$messageSub = $message;
 		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
 		$messageSub = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $messageSub);
-		echo $messageSub;
+
+		$toNumber = $homeCountries[$row['home_id']].$row['cell_no'];
+
+		echo $toNumber;
+		echo nl2br("\n\n");
+		// $url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
+		// $ch = curl_init();
+		// curl_setopt($ch, CURLOPT_URL, $url);
+		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		// curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=".$messageSub."&To=%2B".$toNumber."&From=%2B1".$fromPhoneNumber);
+		// curl_setopt($ch, CURLOPT_POST, 1);
+		// curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
+		// $headers = array();
+		// $headers[] = "Content-Type: application/x-www-form-urlencoded";
+		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+		// $result = curl_exec($ch);
+
+
+
+
 
 	}
 	else 
