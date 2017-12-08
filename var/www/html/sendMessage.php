@@ -149,6 +149,8 @@ else if ( $parseJSON[0]->mode == "single" ){
 		curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		$result = curl_exec($ch);
 
+		echo $result;
+		
 		$result = json_decode($result);
 		$sid = $result->sid;
 		$dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
