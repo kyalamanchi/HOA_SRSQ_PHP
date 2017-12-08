@@ -1160,18 +1160,19 @@
 
                               <?php
 
-                                $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE'");
+                                $result =pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='OUT_FOR_SIGNATURE' AND board_cancel_requested='f' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
                                 while($row = pg_fetch_assoc($result))
                                 {
-
+                        
+                                  $id = $row['id'];
                                   $document_to = $row['document_to'];
                                   $create_date = $row['create_date'];
                                   $send_date = $row['send_date'];
                                   $agreement_name = $row['agreement_name'];
-                                  $last_updated = $row['last_updated'];
                                   $esign_url = $row['esign_url'];
-                                  $emails = array();
+                                  $last_updated = $row['last_updated'];
+                                  $agreement_id = $row['agreement_id'];
 
                                   if($create_date != "")
                                     $create_date = date('m-d-Y', strtotime($create_date));
@@ -1182,19 +1183,22 @@
                                   if($last_updated != "")
                                     $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                                  $emails = explode(';', $document_to);
+                                  if($document_to != '')
+                                  {
+                                    
+                                    $arr = array();
+                                    $arr = explode('@', $document_to);
+                                    $document_to = $arr[0];
+                                    $i = strlen($document_to);
 
-                                  for($i = 0; $i < sizeof($emails); $i++)
-                                  {  
+                                    for($j = 3; $j < $i; $j++)
+                                      $document_to[$j] = '*';
 
-                                    if($emails[$i] == $email)
-                                    {  
-
-                                      echo "<tr><td>".$agreement_name."</td><td>".$emails[$i]."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td><td><a target='_blank' href='".$esign_url."'><i class='fa fa-file-pdf-o'></i></a></td></tr>";
-
-                                    }
+                                    $document_to = $document_to.'@'.$arr[1];
 
                                   }
+
+                                  echo "<tr><td>$document_to</td><td><a title='Click to sign agreement' target='_blank' href='$esign_url'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
                                 }
 
@@ -1242,18 +1246,18 @@
 
                               <?php
 
-                                $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND (document_to='$email' OR hoa_id=$hoa_id)");
+                                $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND document_to IN (SELECT email FROM person WHERE hoa_id=$hoa_id AND home_id=$home_id)");
 
                                 while($row = pg_fetch_assoc($result))
                                 {
-
+                        
+                                  $id = $row['id'];
                                   $document_to = $row['document_to'];
                                   $create_date = $row['create_date'];
                                   $send_date = $row['send_date'];
                                   $agreement_name = $row['agreement_name'];
                                   $last_updated = $row['last_updated'];
                                   $agreement_id = $row['agreement_id'];
-                                  $is_board_document = $row['is_board_document'];
 
                                   if($create_date != "")
                                     $create_date = date('m-d-Y', strtotime($create_date));
@@ -1279,8 +1283,7 @@
 
                                   }
 
-                                  if($is_board_document == 'f')
-                                    echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$document_to."</td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                                  echo "<tr><td>$document_to</td><td><a target='_blank' href='esignPreview.php?id=$agreement_id'>$agreement_name</a></td><td>$create_date</td><td>$send_date</td><td>$last_updated</td></tr>";
 
                                 }
 
