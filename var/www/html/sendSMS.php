@@ -149,18 +149,14 @@ input, label {
     document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name#";
   }
   function getSubscribers(){
-
     var eventID = $("#eventType").find("option:selected").attr("id");
     var communityID = <?php echo $_SESSION['hoa_community_id']; ?>;
-
     jsonData = [];
     item  = {};
     item['community_id'] = communityID;
     item['event_id']  = eventID;
     jsonData.push(item);
-
     sendData  = JSON.stringify(jsonData);
-
     var request  = new XMLHttpRequest();
     request.open("POST", "https://hoaboardtime.com/getEventSubscribers.php", true);
     request.setRequestHeader("Content-type", "application/json");
@@ -173,7 +169,6 @@ input, label {
     $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
     $("#pleaseWaitDialog2").modal("show");
-
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
@@ -198,7 +193,7 @@ input, label {
 
     var hoaID = $("#memberId").find("option:selected").attr("id");
     if ( hoaID ){
-        alert(hoaID);
+
     }
     else {
       swal("Please select a member","","error");
