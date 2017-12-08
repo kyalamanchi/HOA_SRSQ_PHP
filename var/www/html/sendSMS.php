@@ -179,10 +179,13 @@ input, label {
               $("#pleaseWaitDialog2").modal("hide");
               if ( request.responseText == 0 ){
                   swal("No suscribers for this category.","","error");
+                  $("#sendToAllButton").text("Send to all subscribers");
+                  document.getElementById("sendToAllButton").disabled = true;
               }
               else {
-                   $("#sendToAllButton").text("Send to");
+
                   $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
+                  document.getElementById("sendToAllButton").disabled = false;
               }
         }
     }
