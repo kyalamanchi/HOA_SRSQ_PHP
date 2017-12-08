@@ -9,6 +9,26 @@
 	$subject = $_POST['mail_subject'];
 	$token = $_POST['token'];
 
-	echo "<br>".$to."<br><br>".$subject."<br><br>".$body."<br><br>".$token;
+	echo $community_id."<br>".$to."<br><br>".$subject."<br><br>".$body."<br><br>".$token;
+
+	switch ($community_id) {
+
+        case 1:
+            $community = 'SRP';
+            $cnote = "Stoneridgeplace HOA";
+            $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+            $from = 'info@stoneridgeplace.org';
+            break;
+
+        case 2:
+            $community = 'SRSQ';
+            $cnote = "Stoneridge Square HOA";
+            $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+            $from = 'info@stoneridgesquare.org';
+            break;
+    }
+
+	//if($token == 1)
+	//	header("Location: communityMailingList.php");
 
 ?>
