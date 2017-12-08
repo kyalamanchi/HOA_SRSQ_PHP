@@ -37,33 +37,23 @@
 
 
     $params = array(
-
         "key" => $api_key,
-
             "message" => array(
-
             	"html" => $content,
             	"text" => $content_text,
             	"subject" => $subject,
             	"from_email" => $from,
             	"from_name" => $from,
-
             	"to" => array(
-
                     array("email" => $to, "name" => $to)
-
             	),
-
             	"track_opens" => true,
             	"track_clicks" => true,
             	"auto_text" => true,
             	"url_strip_qs" => true,
             	"preserve_recipients" => true
-
         	),
-
         "async" => false
-
     );
 
     if($to)
