@@ -110,6 +110,15 @@ if ( $parseJSON[0]->mode == "all" ){
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		// $result = curl_exec($ch);
 
+		// $result = json_decode($result);
+		// $sid = $result->sid;
+		// $dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
+		// $dateUpdated = date('Y-m-d H:i:s',strtotime($result->date_updated));
+		// $toNumber = $result->to;
+		// $fromNumber = $result->from;
+		// $status = $result->status;
+		// $uri = $result->uri;
+
 		}
 		else {
 			echo "No Phone number found.";
@@ -142,6 +151,22 @@ else if ( $parseJSON[0]->mode == "single" ){
 		// $headers[] = "Content-Type: application/x-www-form-urlencoded";
 		// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 		// $result = curl_exec($ch);
+
+		// $result = json_decode($result);
+		// $sid = $result->sid;
+		// $dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
+		// $dateUpdated = date('Y-m-d H:i:s',strtotime($result->date_updated));
+		// $toNumber = $result->to;
+		// $fromNumber = $result->from;
+		// $status = $result->status;
+		// $uri = $result->uri;
+
+		$personQuery = "SELECT * FROM PERSON WHERE CELL_NO=".base64_encode($row['cell_no']);
+		$personQueryResult = pg_query($personQuery);
+		$personData = pg_fetch_assoc($personQueryResult);
+		$personID  = $personData['id'];
+
+		echo $personID;
 
 
 	}
