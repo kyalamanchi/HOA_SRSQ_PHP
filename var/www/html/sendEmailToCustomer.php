@@ -6,7 +6,7 @@
 
 	$community_id = $_SESSION['hoa_community_id'];
 
-	$to = "geethchadalawada@gmail.com";//$_POST['mail_email'];
+	$to = $_POST['mail_email'];
 	$body = nl2br($_POST['mail_body']);
 	$subject = $_POST['mail_subject'];
 	$token = $_POST['token'];
@@ -74,6 +74,6 @@
     }
 
 	if($token == 1)
-		header("Location: communityMailingList.php");
+		echo "<br><br><center><a href='communityMailingList.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/communityMailingList.php'},1000);</script>";
 
 ?>
