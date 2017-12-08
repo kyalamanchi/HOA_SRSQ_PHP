@@ -202,7 +202,8 @@ input, label {
         item['message_body'] = document.getElementById("messageBody").value;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-        alert(sendData);
+
+        
     var request  = new XMLHttpRequest();
     request.open("POST", "https://hoaboardtime.com/sendMessage.php", true);
     request.setRequestHeader("Content-type", "application/json");
