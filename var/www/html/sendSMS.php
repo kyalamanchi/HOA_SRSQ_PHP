@@ -209,12 +209,26 @@ input, label {
     }
   }
   else {
-      swal("Please select a event","","error");
+      swal("Please select an event","","error");
   }
 
   }
   function sendToAllSubscribers(){
-
+    if ( $("#eventType").find("option:selected").attr("id") ){
+        jsonData = [];
+        item =  {};
+        item['mode'] = "single";
+        item['event_type'] = $("#eventType").find("option:selected").attr("id");
+        item['hoa_id'] = hoaID;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
+        item['message_body'] = document.getElementById("messageBody").value;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+        alert(sendData);
+    }
+    else {
+      swal("Please select an event","","error");
+    }
 
 
 
