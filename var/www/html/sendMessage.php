@@ -28,13 +28,16 @@ else if ( $parseJSON[0]->community_id == 2){
 
 //Get From Number
 
-$telQuery = "SELECT TEL_NO FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$parseJSON[0]->community_id;
+$telQuery = "SELECT telno FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$parseJSON[0]->community_id;
 
 $telQueryResult = pg_query($telQuery);
 
-$fromPhoneNumber = pg_fetch_assoc($telQueryResult)['tel_no'];
+$fromPhoneNumber = pg_fetch_assoc($telQueryResult)['telno'];
 
-
+if ( !$fromPhoneNumber ){
+	echo "Community does not have a phone number configured.";
+	exit(0);
+}
 
 
 
