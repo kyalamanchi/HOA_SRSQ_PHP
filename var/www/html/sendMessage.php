@@ -32,7 +32,7 @@ if ( $parseJSON[0]->mode == "all" ){
 		print_r(nl2br("\n"));
 		}
 		else {
-			echo "No Phone number found";
+			echo "No Phone number found.";
 		}
 	}
 
