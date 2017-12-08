@@ -184,7 +184,7 @@ input, label {
         <div>
           <div class="row-fluid">
               <label>Event</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType" onchange="getFileDetails();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType">
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from event_type";
@@ -206,6 +206,22 @@ input, label {
         </div>
         <div>
                  <button type="button" class="btn btn-success" onclick="sendToAllSubscribers();" id="sendToAllButton" disabled="disabled">Send to all subscribers</button>
+        </div>
+        <div>
+
+              <label>Select a member</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="eventType">
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from hoaid where community_id =".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['hoa_id'].'">';
+                              echo $row['firstname'].' '.$row['lastname'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
         </div>
         </div>
      
