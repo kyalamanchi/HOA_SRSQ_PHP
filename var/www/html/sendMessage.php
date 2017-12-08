@@ -15,10 +15,29 @@ $message = $parseJSON[0]->message_body;
 $message = str_replace('\n', '%0a', $message);
 
 if ( $parseJSON[0]->mode == "all" ){
-	echo "ALL";
+	
+	$query = "SELECT * FROM COMMUNITY_COMMS WHERE COMMUNITY_ID=".$parseJSON[0]->community_id." AND EVENT_TYPE_ID=".$parseJSON[0]->event_type;
+	$queryResult = pg_query($query);
+	$personIDS = array();
+	while ($row  = pg_fetch_assoc($queryResult)) {
+		$personIDS[$row['person_id']] = 1;
+	}
+
+	foreach ($personIDS as $key => $value) {
+		$query = "SELECT CELL_NO FROM PERSON WHERE ID=".$key;
+		$queryResult = pg_query($query);
+		$row = pg_fetch_assoc($queryResult);
+		print_r($row['cell_no']);
+	}
+
 }
 else if ( $parseJSON[0]->mode == "single" ){
-	echo "SINGLE";
+
+	$query = "SELECT * FROM HOAID WHERE HOA_ID=".$parseJSON[0]->hoa_id;
+	$queryResult = pg_query($query);
+	$row = pg_fetch_assoc($queryResult);
+	echo $row['cell_no'];
+	
 }
 
 else {
