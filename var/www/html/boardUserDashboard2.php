@@ -722,6 +722,23 @@
                                   $person_home_id = $r['home_id'];
                                   $person_id = $r['id'];
 
+                                  $person_person_email = $person_email;
+
+                                  if($person_person_email != '')
+                                  {
+                                    
+                                    $arr = array();
+                                    $arr = explode('@', $person_person_email);
+                                    $person_person_email = $arr[0];
+                                    $i = strlen($person_person_email);
+
+                                    for($j = 3; $j < $i; $j++)
+                                      $person_person_email[$j] = '*';
+
+                                    $person_person_email = $person_person_email.'@'.$arr[1];
+
+                                  }
+
                                   $person_cell_no = base64_decode($person_cell_no);
 
                                   $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
@@ -900,7 +917,7 @@
 
                                     ";
 
-                                  echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$person_role_type</td><td>$relationship</td><td>$person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
+                                  echo "<tr><td>$person_fname $person_lname</td><td>$address</td><td>$person_role_type</td><td>$relationship</td><td>$person_person_email</td><td>$person_cell_no</td><td><a data-toggle='modal' data-target='#editPerson_$person_id'>Edit</a></td><td><a data-toggle='modal' data-target='#removePerson_$person_id'>Remove</a></td></tr>";
                                 }
 
                               ?>
