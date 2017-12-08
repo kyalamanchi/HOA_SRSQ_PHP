@@ -190,6 +190,10 @@ input, label {
                         }
                       ?>
               </select>
+              <div class="form-group" style="width: 35%">
+                  <label for="comment">Notes:</label>
+                  <textarea class="form-control" rows="3" id="comment"></textarea>
+              </div>
         </div>
           </div>
      
