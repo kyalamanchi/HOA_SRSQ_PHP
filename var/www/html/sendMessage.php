@@ -94,9 +94,6 @@ if ( $parseJSON[0]->mode == "all" ){
 		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $messageSub);
 		
 
-		echo $toNumber;
-
-		echo nl2br("\n\n");
 
 		// $url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 		// $ch = curl_init();
@@ -137,9 +134,6 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$messageSub = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $messageSub);
 
 		$toNumber = $homeCountries[$row['home_id']].$row['cell_no'];
-
-		echo $toNumber;
-		echo nl2br("\n\n");
 		// $url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 		// $ch = curl_init();
 		// curl_setopt($ch, CURLOPT_URL, $url);
