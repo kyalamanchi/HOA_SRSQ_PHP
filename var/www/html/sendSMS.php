@@ -175,7 +175,7 @@ input, label {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
               if ( request.responseText == 0 ){
-                  swal("No suscribers for this category.","","error");
+                  swal("No subscribers found for this category.","","error");
                   $("#sendToAllButton").text("Send to all subscribers");
                   document.getElementById("sendToAllButton").disabled = true;
               }
