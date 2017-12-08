@@ -169,6 +169,21 @@
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM zip WHERE zip_id=$zip"));
                           $zip = $row1['zip_code'];
 
+                          if($email != '')
+                          {
+                                    
+                            $arr = array();
+                            $arr = explode('@', $email);
+                            $email = $arr[0];
+                            $i = strlen($email);
+
+                            for($j = 3; $j < $i; $j++)
+                              $email[$j] = '*';
+
+                            $email = $email.'@'.$arr[1];
+
+                          }
+
                           echo "<tr><td>".$hoa_id."</td><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."</a></td><td>".$home_id."</td><td>".$address.", ".$city." ".$state." ".$zip."</td><td>".$email."</td><td>".$phone."</td></tr>";
 
                         }

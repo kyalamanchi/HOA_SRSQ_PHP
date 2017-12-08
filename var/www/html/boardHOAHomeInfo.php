@@ -788,6 +788,20 @@
 
                           </div>";
 
+                          if($email != '')
+                          {
+                                    
+                            $arr = array();
+                            $arr = explode('@', $email);
+                            $email = $arr[0];
+                            $i = strlen($email);
+
+                            for($j = 3; $j < $i; $j++)
+                              $email[$j] = '*';
+
+                            $email = $email.'@'.$arr[1];
+
+                          }
 
                           echo "<tr><td><a data-toggle='modal' data-target='#HOAInfo_".$hoa_id."'>".$firstname." ".$lastname."<br>(".$hoa_id.")</a></td><td>".$email."</td><td>".$cell_no."</td><td>".$address."<br>(".$home_id.")</td><td><a data-toggle='modal' data-target='#paymentInfo_".$hoa_id."'>$ ".$balance."</a></td><td>".$mailing_address."<br>".$mailing_city."<br>".$mailing_state." ".$mailing_zip."</td><td><a data-toggle='modal' data-target='#homePayMethod_".$hoa_id."'>".$home_pay_method."</a></td><td>".$reminders."</td><td>".$recurring_pay."</td></tr>";
 
