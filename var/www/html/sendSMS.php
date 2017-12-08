@@ -203,12 +203,17 @@ input, label {
                   <textarea class="form-control" rows="5" id="messageBody"></textarea>
                   <label>Insert:</label>
                   <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
-        </div>
-        <div>
-          <label class="switch">Send to all subscribers
+
+                   <label class="switch">Send to all subscribers
               <input type="checkbox" checked>
               <span class="slider round"></span>
           </label>
+        </div>
+        <div>
+         <!--  <label class="switch">Send to all subscribers
+              <input type="checkbox" checked>
+              <span class="slider round"></span>
+          </label> -->
         </div>
         </div>
      
