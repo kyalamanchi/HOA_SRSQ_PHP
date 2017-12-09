@@ -29,19 +29,46 @@ date_default_timezone_set('America/Los_Angeles');
 		else {
 			$dateCreated2 = $message->date_created;
 			$dateUpdated2 = $message->date_updated;
-			// $toNumber = $message->to;
-			// $caseOne = substr($toNumber, 2);
-			// $caseTwo = substr($toNumber, 3);
-			// $caseThree = substr($toNumber, 4);
-			// $caseOne = base64_encode($caseOne);
-			// $caseThree = base64_encode($caseThree);
-			// $caseTwo = base64_encode($caseTwo);
-			// $personQuery = "SELECT * FROM PERSON WHERE CELL_NO = '".."'";
-			// $personQueryResult = pg_query($personQuery);
-			// $row = pg_fetch_assoc($personQueryResult);
-			// $personID = $row['id'];
+			$toNumber = $message->to;
+			$caseOne = substr($toNumber, 2);
+			$caseTwo = substr($toNumber, 3);
+			$caseThree = substr($toNumber, 4);
+			$caseOne = base64_encode($caseOne);
+			$caseThree = base64_encode($caseThree);
+			$caseTwo = base64_encode($caseTwo);
+			$personQuery = "SELECT * FROM PERSON WHERE CELL_NO = '".$caseOne."'";
+			$personQueryResult = pg_query($personQuery);
+			$row = pg_fetch_assoc($personQueryResult);
+			$personID = $row['id'];
+			if ( $personID ){
+			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,person_id,UPDATED_BY,UPDATED_ON) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->from','$message->status','$message->uri',".$personID.",401,'".date('Y-m-d H:i:s')."')";
+			pg_query($qr);
+			}
+			else {
+			$personQuery = "SELECT * FROM PERSON WHERE CELL_NO = '".$caseTwo."'";
+			$personQueryResult = pg_query($personQuery);
+			$row = pg_fetch_assoc($personQueryResult);
+			$personID = $row['id'];
+			if ( $personID ){
+			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,person_id,UPDATED_BY,UPDATED_ON) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->from','$message->status','$message->uri',".$personID.",401,'".date('Y-m-d H:i:s')."')";
+			pg_query($qr);
+			}
+			else {
+			$personQuery = "SELECT * FROM PERSON WHERE CELL_NO = '".$caseThree."'";
+			$personQueryResult = pg_query($personQuery);
+			$row = pg_fetch_assoc($personQueryResult);
+			$personID = $row['id'];
+			if ( $personID ){
+			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,person_id,UPDATED_BY,UPDATED_ON) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->from','$message->status','$message->uri',".$personID.",401,'".date('Y-m-d H:i:s')."')";
+			pg_query($qr);
+			}
+			else {
 			$qr = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,TO_NUMBER,FROM_NUMBER,STATUS,URI,UPDATED_BY,UPDATED_ON) VALUES('$message->sid','$dateCreated2','$dateUpdated2','$message->to','$message->from','$message->status','$message->uri',401,'".date('Y-m-d H:i:s')."')";
 			pg_query($qr);
+			}
+			}
+			}
+
 		}
 	}
 ?>
