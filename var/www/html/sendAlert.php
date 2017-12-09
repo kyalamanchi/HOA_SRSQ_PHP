@@ -152,10 +152,10 @@
 		$month = date('F');
 		$docNumber = $_GET['doc_number'];
 		$hoaID = $_GET['hoa_id'];
-		$query = "SELECT * FROM COMMUNITY_COMMS WHERE HOA_ID=".$hoaID." AND EVENT_TYPE_ID=".$eventID;
+		$query = "SELECT * FROM COMMUNITY_COMMS WHERE HOA_ID=".$hoaID." AND EVENT_TYPE_ID=".$eventID."AND COMMUNITY_ID=".$communityID;
 		$queryResult  = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
-		if ( $row['id'] ){
+		if ( $row['person_id'] ){
 
 		}
 		else {
