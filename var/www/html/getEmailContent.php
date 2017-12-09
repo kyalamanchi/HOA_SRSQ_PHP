@@ -12,12 +12,14 @@ $queryResult = pg_query($query);
 
 while ($row = pg_fetch_assoc($queryResult)) {
 
-print_r($row['api_mail_id']);
+
+
+$sendData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A","id" => $row['api_mail_id']);
+
+$sendData = json_encode($sendData);
+
+print_r($sendData);
 print_r(nl2br("\n\n"));
-// $sendData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A","id" => $row['API_MAIL_ID']);
-
-// $sendData = json_encode($sendData);
-
 // $ch = curl_init();
 // curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/content.json");
 // curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
