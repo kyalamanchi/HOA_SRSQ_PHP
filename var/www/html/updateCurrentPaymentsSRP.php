@@ -65,7 +65,8 @@ foreach ($result->results as $transaction) {
 
 		if ( $paymentStatusIDUpdate == 1 ){
 			if ( $bankTransactionsIDSArray[$transaction->transaction_id] != 1){
-				echo "Send Message";
+				//SEND SMS
+				
 			}
 		}
 
