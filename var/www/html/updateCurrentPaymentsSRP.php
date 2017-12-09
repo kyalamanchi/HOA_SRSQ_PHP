@@ -63,6 +63,10 @@ foreach ($result->results as $transaction) {
 			$transactionAmount = -$transaction->authorization_amount;
 		}
 
+		if ( $bankTransactionsIDSArray[$transaction->transaction_id] == 1 ){
+			
+		}
+		
 		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."' RETURNING HOA_ID";
 		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
 		$VAL = pg_query($updateQuery);
