@@ -32,6 +32,7 @@ if ( $result2->status == "error" ){
 else {
   print_r($result);
 }
+print_r($result);
   print_r(nl2br("\n\n"));
 }
 
@@ -64,6 +65,7 @@ if ( $result2->status == "error" ){
 else {
   print_r($result);
 }
+print_r($result);
   print_r(nl2br("\n\n"));
 }
 
