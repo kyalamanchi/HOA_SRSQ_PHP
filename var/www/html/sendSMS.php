@@ -344,7 +344,7 @@ input, label {
                         $query = "SELECT * from event_type";
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option id="'.$row['event_type_id'].'">';
+                            echo '<option id="'.$row['event_type_id'].'" data-subtext="'.$row['notification_type'].'">';
                               echo $row['event_type_name'];
                             echo '</option>';
                         }
