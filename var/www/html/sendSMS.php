@@ -184,7 +184,7 @@ input, label {
               }
               else {
 
-                  $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
+                  $("#sendToAllButton").text("Send to "+request.responseText.split("@")[0]+" subscribers");
                   document.getElementById("sendToAllButton").disabled = false;
               }
 
