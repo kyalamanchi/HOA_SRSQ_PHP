@@ -187,6 +187,12 @@ input, label {
         }
     }
   }
+
+  function changesButtonState(){
+    document.getElementById("sendToAllButton").disabled = true;
+  }
+
+
   function sendToSingleMember(){
 
     var hoaID = $("#memberId").find("option:selected").attr("id");
@@ -350,7 +356,7 @@ input, label {
         <div>
               <br>
               <label>Select a member</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId" onchange="changesButtonState();">
                       <option data-hidden="true"></option>
                       <?php
                         $homeAddressQuery = "SELECT address1,home_id FROM HOMEID WHERE community_id=".$_SESSION['hoa_community_id'];
