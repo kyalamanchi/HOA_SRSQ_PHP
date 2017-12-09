@@ -297,6 +297,14 @@ $message  = "Updating email data...Please wait.....";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/getEmailContent.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
+
+
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/mandrillUpdateStats.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
@@ -794,6 +802,13 @@ $message  = "Updating email data...Please wait.....";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
+
+$req = curl_init();
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/getEmailContent.php");
+curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+curl_exec($req);
+
+
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/mandrillUpdateStats.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
