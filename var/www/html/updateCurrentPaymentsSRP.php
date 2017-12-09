@@ -66,6 +66,10 @@ foreach ($result->results as $transaction) {
 		if ( $paymentStatusIDUpdate == 1 ){
 			if ( $bankTransactionsIDSArray[$transaction->transaction_id] != 1){
 				//SEND SMS
+				$req = curl_init();
+				curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php");
+				curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+				$message  = curl_exec($req);
 				
 			}
 		}

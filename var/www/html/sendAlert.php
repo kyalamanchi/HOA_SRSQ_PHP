@@ -147,6 +147,21 @@
 		pg_query($insert);
 		}
 	}
+	else if ( $eventID == 4 ){
+		$processDate = $_GET['process_date'];
+		$month = date('F');
+		$docNumber = $_GET['doc_number'];
+		$hoaID = $_GET['hoa_id'];
+		$query = "SELECT * FROM COMMUNITY_COMMS WHERE HOA_ID=".$hoaID." AND EVENT_TYPE_ID=".$eventID;
+		$queryResult  = pg_query($query);
+		$row = pg_fetch_assoc($queryResult);
+		if ( $row['id'] ){
+
+		}
+		else {
+			echo "Member not subscribed";
+		}
+	}
 	else {
 		exit(0);
 	}
