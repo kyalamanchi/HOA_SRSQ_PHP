@@ -35,7 +35,12 @@ if ( $result2->status == "error" ){
 }
 else {
   $query = "UPDATE COMMUNITY_EMAILS_SENT SET BODY='".$result."' WHERE api_mail_id = '".$row['api_mail_id']."'";
-  print_r($query);
+  if ( !pg_query($query) ){
+  	print_r($query);
+  }
+  else{
+  	print_r("Updated");
+  }
 }
 
 print_r(nl2br("\n\n\n\n"));
