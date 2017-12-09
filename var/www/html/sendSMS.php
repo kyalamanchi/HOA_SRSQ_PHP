@@ -177,7 +177,7 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              if ( request.responseText == 0 ){
+              if ( request.responseText.split("@")[0] == 0 ){
                   swal("No subscribers found for this category.","","error");
                   $("#sendToAllButton").text("Send to all subscribers");
                   document.getElementById("sendToAllButton").disabled = true;
