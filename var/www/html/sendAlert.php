@@ -161,6 +161,10 @@
 		if ( $row['person_id'] ){
 			if($personPhoneNumbers[$row['person_id']]){
 
+						print_r($body);
+
+						print_r(nl2br("\n\n"));
+						
 						$body = str_replace("#month#", date('F'), $body);
 
 						$body = str_replace("#homeid#", $personHOMEID[$row['person_id']], $body);
