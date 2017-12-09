@@ -164,7 +164,7 @@
 						print_r($body);
 
 						print_r(nl2br("\n\n"));
-						
+
 						$body = str_replace("#month#", date('F'), $body);
 
 						$body = str_replace("#homeid#", $personHOMEID[$row['person_id']], $body);
@@ -176,34 +176,36 @@
 
 						echo $body;
 
-						echo $personPhoneNumbers[$row['person_id']];
+						$key = $personPhoneNumbers[$row['person_id']];
+
+						$key = '919603923649';
 						
-						// if ( $communityID == 2 ){
-						// 	$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
-						// 	$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
-						// }
-						// $url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
-						// $ch = curl_init();
-						// curl_setopt($ch, CURLOPT_URL, $url);
-						// curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-						// curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
-						// curl_setopt($ch, CURLOPT_POST, 1);
-						// curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
-						// $headers = array();
-						// $headers[] = "Content-Type: application/x-www-form-urlencoded";
-						// curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-						// $result = curl_exec($ch);
-						// curl_close($ch);
-						// $result = json_decode($result);
-						// $sid = $result->sid;
-						// $dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
-						// $dateUpdated = date('Y-m-d H:i:s',strtotime($result->date_updated));
-						// $toNumber = $result->to;
-						// $fromNumber = $result->from;
-						// $status = $result->status;
-						// $uri = $result->uri;
-						// $insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,PERSON_ID,updated_by,updated_on) VALUES('$sid','$dateCreated','$dateUpdated','$fromNumber','$status','$uri',".$row['person_id'].",401,'".date('Y-m-d H:i:s')."')";
-						// pg_query($insert);
+						if ( $communityID == 2 ){
+							$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
+							$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
+						}
+						$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
+						$ch = curl_init();
+						curl_setopt($ch, CURLOPT_URL, $url);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
+						curl_setopt($ch, CURLOPT_POST, 1);
+						curl_setopt($ch, CURLOPT_USERPWD, $accountID . ":" . $authToken);
+						$headers = array();
+						$headers[] = "Content-Type: application/x-www-form-urlencoded";
+						curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+						$result = curl_exec($ch);
+						curl_close($ch);
+						$result = json_decode($result);
+						$sid = $result->sid;
+						$dateCreated = date('Y-m-d H:i:s',strtotime($result->date_created));
+						$dateUpdated = date('Y-m-d H:i:s',strtotime($result->date_updated));
+						$toNumber = $result->to;
+						$fromNumber = $result->from;
+						$status = $result->status;
+						$uri = $result->uri;
+						$insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,PERSON_ID,updated_by,updated_on) VALUES('$sid','$dateCreated','$dateUpdated','$fromNumber','$status','$uri',".$row['person_id'].",401,'".date('Y-m-d H:i:s')."')";
+						pg_query($insert);
 
 
 			}
