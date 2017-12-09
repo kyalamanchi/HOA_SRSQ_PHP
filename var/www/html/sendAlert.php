@@ -62,6 +62,7 @@
 
 
 	$toPhoneNumbers = array();
+	$personPhoneNumbers = array();
 	$toEmails = array();
 	$personHOMEID  = array();
 	foreach ($phoneAlerts as $key) {
@@ -116,6 +117,7 @@
 			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
 			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
 		}
+		$key = base64_decode($key);
 		$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
