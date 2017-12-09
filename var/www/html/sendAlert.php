@@ -72,10 +72,12 @@
 		$personHOMEID[$key] = $number['home_id'];
 		$number = $number['cell_no'];
 
-		if ($number)
+		if ($number){
+		$number = base64_decode($number);
 		$toPhoneNumbers[$personCountry[$key].$number] = $key;
+		$personPhoneNumbers[$key] = $personCountry[$key].$number;
 	}
-
+	} 
 	foreach ($emailAlerts as $key) {
 		$emailQ = "SELECT EMAIL,HOME_ID FROM PERSON WHERE ID=$key";
 		$emailQR = pg_query($emailQ);
@@ -117,7 +119,6 @@
 			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
 			$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
 		}
-		$key = base64_decode($key);
 		$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 		$ch = curl_init();
 		curl_setopt($ch, CURLOPT_URL, $url);
@@ -158,16 +159,17 @@
 		$queryResult  = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		if ( $row['person_id'] ){
-			$personQuery = "SELECT * FROM PERSON WHERE ID = ".$row['person_id'];
-			$personQueryResult = pg_query($personQuery);
-			$personRow = pg_fetch_assoc($personQueryResult);
-			if ( $personRow['cell_no'] ){
-				print_r($toPhoneNumbers);
-				print_r(base64_decode($personRow['cell_no']));
-			}
-			else {
-				print_r("No phone number found");
-			}
+
+			// $personQuery = "SELECT * FROM PERSON WHERE ID = ".$row['person_id'];
+			// $personQueryResult = pg_query($personQuery);
+			// $personRow = pg_fetch_assoc($personQueryResult);
+			// if ( $personRow['cell_no'] ){
+			// 	print_r($toPhoneNumbers);
+			// 	print_r(base64_decode($personRow['cell_no']));
+			// }
+			// else {
+			// 	print_r("No phone number found");
+			// }
 		}
 		else {
 			echo "Member not subscribed";
