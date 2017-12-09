@@ -12,7 +12,7 @@ $queryResult = pg_query($query);
 
 while ($row = pg_fetch_assoc($queryResult)) {
 
-print_r($row);
+print_r($row['api_mail_id']);
 print_r(nl2br("\n\n"));
 // $sendData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A","id" => $row['API_MAIL_ID']);
 
