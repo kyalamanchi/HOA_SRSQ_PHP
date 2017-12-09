@@ -156,7 +156,7 @@
 		$queryResult  = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		if ( $row['person_id'] ){
-
+			echo "Person found";
 		}
 		else {
 			echo "Member not subscribed";
