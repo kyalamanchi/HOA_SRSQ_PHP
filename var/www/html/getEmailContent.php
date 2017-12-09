@@ -35,7 +35,7 @@ if ( $result2->status == "error" ){
 }
 else {
   $query = "UPDATE COMMUNITY_EMAILS_SENT SET BODY='".$result."' WHERE api_mail_id = '".$row['api_mail_id']."'";
-  print_r($query)
+  print_r($query);
 }
 
 print_r(nl2br("\n\n\n\n"));
