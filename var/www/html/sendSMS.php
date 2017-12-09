@@ -145,10 +145,13 @@ input, label {
   var message = "";
   var mode;
   function appendAddress(){
-    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address#";
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address# ";
   }
   function appendName(){
-    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name#";
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name# ";
+  }
+  function appendMonth(){
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#month# ";
   }
   function getSubscribers(){
     var eventID = $("#eventType").find("option:selected").attr("id");
@@ -351,7 +354,7 @@ input, label {
                   <label for="comment">Message:</label>
                   <textarea class="form-control" rows="5" id="messageBody"></textarea>
                   <label>Insert:</label>
-                  <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
+                  <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button><button onclick="appendMonth();">Month</button>
         </div>
         <div>
               <br>

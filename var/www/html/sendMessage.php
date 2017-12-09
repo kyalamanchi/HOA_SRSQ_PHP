@@ -92,7 +92,7 @@ if ( $parseJSON[0]->mode == "all" ){
 
 		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
 		$messageSub = str_replace('#name#', $row['fname'].' '.$row['lname'], $messageSub);
-		
+		$messageSub = str_replace('#month#', date('F'), $messageSub);
 		// $toNumber = '919603923649';
 
 		$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
@@ -140,6 +140,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$messageSub = $message;
 		$messageSub = str_replace('#address#', $homeIDS[$row['home_id']], $messageSub);
 		$messageSub = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $messageSub);
+		$messageSub = str_replace('#month#', date('F'), $messageSub);
 
 		$toNumber = $homeCountries[$row['home_id']].$row['cell_no'];
 		// $toNumber = '919603923649';
