@@ -160,6 +160,7 @@
 			$personQueryResult = pg_query($personQuery);
 			$personRow = pg_fetch_assoc($personQueryResult);
 			if ( $personRow['cell_no'] ){
+				print_r($toPhoneNumbers);
 				print_r(base64_decode($personRow['cell_no']));
 			}
 			else {
