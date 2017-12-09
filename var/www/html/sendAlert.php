@@ -159,7 +159,7 @@
 			$personQuery = "SELECT * FROM PERSON WHERE PERSON_ID = ".$row['person_id'];
 			$personQueryResult = pg_query($personQuery);
 			$personRow = pg_fetch_assoc($personQueryResult);
-			print_r($personRow);
+			print_r($personQuery);
 			if ( $personRow['cell_no'] ){
 				print_r(base64_decode($personRow['cell_no']));
 			}
