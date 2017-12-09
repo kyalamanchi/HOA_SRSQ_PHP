@@ -159,7 +159,7 @@
 		$queryResult  = pg_query($query);
 		$row = pg_fetch_assoc($queryResult);
 		if ( $row['person_id'] ){
-
+			print_r($personPhoneNumbers[$row['person_id']]);
 			// $personQuery = "SELECT * FROM PERSON WHERE ID = ".$row['person_id'];
 			// $personQueryResult = pg_query($personQuery);
 			// $personRow = pg_fetch_assoc($personQueryResult);
