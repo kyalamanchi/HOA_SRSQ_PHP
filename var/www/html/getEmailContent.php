@@ -12,6 +12,8 @@ $queryResult = pg_query($query);
 
 while ($row = pg_fetch_assoc($queryResult)) {
 
+print_r($row['API_MAIL_ID']);
+print_r(nl2br("\n\n"));
 $sendData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A","id" => $row['API_MAIL_ID']);
 
 $sendData = json_encode($sendData);
@@ -44,6 +46,9 @@ $query = "SELECT * FROM COMMUNITY_EMAILS_SENT WHERE COMMUNITY_ID = 2 AND API_MAI
 $queryResult = pg_query($query);
 
 while ($row = pg_fetch_assoc($queryResult)) {
+
+print_r($row['API_MAIL_ID']);
+print_r(nl2br("\n\n"));
 
 $sendData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA","id" => $row['API_MAIL_ID']);
 
