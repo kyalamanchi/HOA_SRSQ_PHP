@@ -188,7 +188,7 @@ input, label {
                   document.getElementById("sendToAllButton").disabled = false;
               }
 
-              document.getElementById("messageBody").text = request.responseText.split("@")[1];
+              $("#messageBody").text(request.responseText.split("@")[1]);
         }
     }
   }
