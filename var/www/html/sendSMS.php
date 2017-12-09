@@ -348,7 +348,7 @@ input, label {
                             if ( $row['notification_type'] ){
 
 
-                            echo '<option id="'.$row['event_type_id'].'" data-subtext="'.$row['notification_type'].'" disabled="disabled">';
+                            echo '<option id="'.$row['event_type_id'].'" data-subtext=["'.$row['notification_type'].']" disabled="disabled">';
                               echo $row['event_type_name'];
                             echo '</option>';
 
