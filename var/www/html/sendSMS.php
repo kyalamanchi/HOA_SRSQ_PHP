@@ -344,9 +344,26 @@ input, label {
                         $query = "SELECT * from event_type";
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option id="'.$row['event_type_id'].'" data-subtext="'.$row['notification_type'].'">';
+
+                            if ( $row['notification_type'] ){
+
+
+                            echo '<option id="'.$row['event_type_id'].'" data-subtext="'.$row['notification_type'].'" disabled="disabled">';
                               echo $row['event_type_name'];
                             echo '</option>';
+
+
+
+                            }
+
+
+                            else {
+                            echo '<option id="'.$row['event_type_id'].'">';
+                              echo $row['event_type_name'];
+                            echo '</option>';
+                            }
+
+
                         }
                       ?>
               </select>
