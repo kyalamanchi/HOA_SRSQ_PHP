@@ -204,7 +204,7 @@
 						$fromNumber = $result->from;
 						$status = $result->status;
 						$uri = $result->uri;
-						$insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,PERSON_ID,updated_by,updated_on) VALUES('$sid','$dateCreated','$dateUpdated','$fromNumber','$status','$uri',".$row['person_id'].",401,'".date('Y-m-d H:i:s')."')";
+						$insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,PERSON_ID,updated_by,updated_on,sent_by) VALUES('$sid','$dateCreated','$dateUpdated','$fromNumber','$status','$uri',".$row['person_id'].",401,'".date('Y-m-d H:i:s')."',401)";
 						pg_query($insert);
 
 
