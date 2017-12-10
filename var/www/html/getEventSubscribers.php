@@ -17,6 +17,17 @@ $queryResult  = pg_query($query);
 
 echo pg_fetch_assoc($queryResult)['count'];
 
+
+$query = "SELECT * FROM MOBILE_NOTIF_BODY WHERE COMMUNITY_ID=".$parseJSON[0]->community_id." AND EVENT_TYPE_ID=".$parseJSON[0]->event_id;
+
+$queryResult  =pg_query($query);
+
+$row = pg_fetch_assoc($queryResult);
+
+echo "@".$row['body'];
+
+
+
 // if ( $parseJSON[0]->type == "legal" ){
 //      $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$parseJSON[0]->community_id." AND TABLE_NAME='legal_docs_type' AND SUB_CATEGORY='".$parseJSON[0]->sub_category."'";
 //      $queryResult = pg_query($query);   

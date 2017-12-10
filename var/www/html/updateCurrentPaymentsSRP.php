@@ -63,11 +63,33 @@ foreach ($result->results as $transaction) {
 			$transactionAmount = -$transaction->authorization_amount;
 		}
 
-		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."' RETURNING HOA_ID";
+
+		$updateQuery = "UPDATE current_payments SET amount=".$transactionAmount.",payment_status_id=".$paymentStatusIDUpdate.",last_updated_on='".date("Y-m-d")."' WHERE bank_transaction_id='".$transaction->transaction_id."' RETURNING HOA_ID,PROCESS_DATE,DOCUMENT_NUM";
 		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
 		$VAL = pg_query($updateQuery);
 		$VAL = pg_fetch_assoc($VAL);
 		$val = $VAL['hoa_id'];
+
+		$processDate = $VAL['PROCESS_DATE'];
+
+		$documentNumber = $VAL['DOCUMENT_NUM'];
+
+
+
+		if ( $val ){
+		if ( $paymentStatusIDUpdate == 1 ){
+			if ( $bankTransactionsIDSArray[$transaction->transaction_id] != 1){
+				//SEND SMS
+				$req = curl_init();
+				curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=1&eid=4&hoa_id=".$val."&process_date=".$processDate."&doc_number=".$documentNumber);
+				curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+				$message  = curl_exec($req);
+				
+			}
+		}
+		}
+
+
 		$updateCount = $updateCount + 1;
 		if ( $updateHPM ){
 			$qr = "UPDATE HOME_PAY_METHOD SET PAYMENT_TYPE_ID=1 WHERE HOA_ID=".$val;

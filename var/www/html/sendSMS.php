@@ -145,10 +145,13 @@ input, label {
   var message = "";
   var mode;
   function appendAddress(){
-    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address#";
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#address# ";
   }
   function appendName(){
-    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name#";
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#name# ";
+  }
+  function appendMonth(){
+    document.getElementById("messageBody").value = document.getElementById("messageBody").value+"#month# ";
   }
   function getSubscribers(){
     var eventID = $("#eventType").find("option:selected").attr("id");
@@ -174,19 +177,27 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              if ( request.responseText == 0 ){
-                  swal("No suscribers for this category.","","error");
+              if ( request.responseText.split("@")[0] == 0 ){
+                  swal("No subscribers found for this category.","","error");
                   $("#sendToAllButton").text("Send to all subscribers");
                   document.getElementById("sendToAllButton").disabled = true;
               }
               else {
 
-                  $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
+                  $("#sendToAllButton").text("Send to "+request.responseText.split("@")[0]+" subscribers");
                   document.getElementById("sendToAllButton").disabled = false;
               }
+
+              $("#messageBody").text(request.responseText.split("@")[1]);
         }
     }
   }
+
+  function changesButtonState(){
+    document.getElementById("sendToAllButton").disabled = true;
+  }
+
+
   function sendToSingleMember(){
 
     var hoaID = $("#memberId").find("option:selected").attr("id");
@@ -200,9 +211,11 @@ input, label {
         item['hoa_id'] = hoaID;
         item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['message_body'] = document.getElementById("messageBody").value;
+        item['sender'] = <?php echo $_SESSION['hoa_user_id'];?>;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-        alert(sendData);
+
+
     var request  = new XMLHttpRequest();
     request.open("POST", "https://hoaboardtime.com/sendMessage.php", true);
     request.setRequestHeader("Content-type", "application/json");
@@ -218,17 +231,16 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              alert(request.responseText);
-              // if ( request.responseText == 0 ){
-              //     swal("No suscribers for this category.","","error");
-              //     $("#sendToAllButton").text("Send to all subscribers");
-              //     document.getElementById("sendToAllButton").disabled = true;
-              // }
-              // else {
-
-              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
-              //     document.getElementById("sendToAllButton").disabled = false;
-              // }
+              
+              if ( request.responseText.includes("SMS sent") ){
+                swal("Message(s) sent.","","success");
+              }
+              else if ( request.responseText.includes("No Phone number found.") ){
+                swal("","One or more phone numbers could not be found","warning");
+              }
+              else{
+                swal("An error occured","","error");
+              }
         }
     }
 
@@ -251,6 +263,7 @@ input, label {
         item['event_type'] = $("#eventType").find("option:selected").attr("id");
         item['community_id'] = <?php echo $_SESSION['hoa_community_id'];  ?>;
         item['message_body'] = document.getElementById("messageBody").value;
+        item['sender'] = <?php echo $_SESSION['hoa_user_id'];?>;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
     var request  = new XMLHttpRequest();
@@ -268,17 +281,16 @@ input, label {
     request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
-              alert(request.responseText);
-              // if ( request.responseText == 0 ){
-              //     swal("No suscribers for this category.","","error");
-              //     $("#sendToAllButton").text("Send to all subscribers");
-              //     document.getElementById("sendToAllButton").disabled = true;
-              // }
-              // else {
-
-              //     $("#sendToAllButton").text("Send to "+request.responseText+" subscribers");
-              //     document.getElementById("sendToAllButton").disabled = false;
-              // }
+              
+              if ( request.responseText.includes("SMS sent") ){
+                swal("Message(s) sent.","","success");
+              }
+              else if ( request.responseText.includes("No Phone number found.") ){
+                swal("","One or more phone numbers could not be found","warning");
+              }
+              else{
+                swal("An error occured","","error");
+              }
         }
     }
 
@@ -332,9 +344,26 @@ input, label {
                         $query = "SELECT * from event_type";
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
+
+                            if ( $row['notification_type'] ){
+
+
+                            echo '<option id="'.$row['event_type_id'].'" data-subtext="'.'['.$row['notification_type'].']'.'" disabled="disabled">';
+                              echo $row['event_type_name'];
+                            echo '</option>';
+
+
+
+                            }
+
+
+                            else {
                             echo '<option id="'.$row['event_type_id'].'">';
                               echo $row['event_type_name'];
                             echo '</option>';
+                            }
+
+
                         }
                       ?>
               </select>
@@ -344,12 +373,12 @@ input, label {
                   <label for="comment">Message:</label>
                   <textarea class="form-control" rows="5" id="messageBody"></textarea>
                   <label>Insert:</label>
-                  <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button>
+                  <button onclick="appendName();">Name</button><button onclick="appendAddress();">Address</button><button onclick="appendMonth();">Month</button>
         </div>
         <div>
               <br>
               <label>Select a member</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="memberId" onchange="changesButtonState();">
                       <option data-hidden="true"></option>
                       <?php
                         $homeAddressQuery = "SELECT address1,home_id FROM HOMEID WHERE community_id=".$_SESSION['hoa_community_id'];
