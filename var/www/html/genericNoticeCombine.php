@@ -160,27 +160,27 @@ function generateNotice( $inspectionID ){
 		$tabFileNameFinal  = $fileNameFinal.'.tab';
 		$zipFileNameFinal = $fileNameFinal.'.zip';
 		$pdf->Output();
-		// $handler = fopen($tabFileNameFinal, 'w');
-		// $finalWriteData = "1"."\t".$personFirstName.' '.$personLastName."\t".$homeAddress1Final."\t".$cityArray[$homeAddressCityFinal]." ".$stateArray[$homeAddressStateFinal]." ".$zipArray[$homeAddressZipFinal]."\t\t\t1\t".$pdf->PageNo()."\t".$pdfFileNameFinal."\t".$communityMailingAddress."\t".$cityArray[$communityMailingAddressCity]." ".$stateArray[$communityMailingAddressState]." ".$zipArray[$communityMailingAddressZip]."\t\t\t".$communityLegalName;
-		// fwrite($handler, $finalWriteData);
-		// fclose($handler);
-		// $zip = new ZipArchive;
-		// if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
-		// 	$zip->addFile($pdfFileNameFinal, $pdfFileNameFinal);
-		// 	$zip->addFile($tabFileNameFinal, $tabFileNameFinal);
-		// 	$zip->close();
-		// 	$fileData = file_get_contents($zipFileNameFinal);
-		// 	$url = 'https://content.dropboxapi.com/2/files/upload';
-  //   		$ch = curl_init($url);
-  //   		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-  //   		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/ZIP/'.$zipFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
-  //   		curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
-  //   		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-  //   		$response = curl_exec($ch);
-  //   		curl_close($ch);
-  //   		unlink($zipFileNameFinal);
-  //   		unlink($tabFileNameFinal);
-  //   		unlink($pdfFileNameFinal);
+		$handler = fopen($tabFileNameFinal, 'w');
+		$finalWriteData = "1"."\t".$personFirstName.' '.$personLastName."\t".$homeAddress1Final."\t".$cityArray[$homeAddressCityFinal]." ".$stateArray[$homeAddressStateFinal]." ".$zipArray[$homeAddressZipFinal]."\t\t\t1\t".$pdf->PageNo()."\t".$pdfFileNameFinal."\t".$communityMailingAddress."\t".$cityArray[$communityMailingAddressCity]." ".$stateArray[$communityMailingAddressState]." ".$zipArray[$communityMailingAddressZip]."\t\t\t".$communityLegalName;
+		fwrite($handler, $finalWriteData);
+		fclose($handler);
+		$zip = new ZipArchive;
+		if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
+			$zip->addFile($pdfFileNameFinal, $pdfFileNameFinal);
+			$zip->addFile($tabFileNameFinal, $tabFileNameFinal);
+			$zip->close();
+			$fileData = file_get_contents($zipFileNameFinal);
+			$url = 'https://content.dropboxapi.com/2/files/upload';
+    		$ch = curl_init($url);
+    		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/ZIP/'.$zipFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
+    		curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
+    		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    		$response = curl_exec($ch);
+    		curl_close($ch);
+    		unlink($zipFileNameFinal);
+    		unlink($tabFileNameFinal);
+    		unlink($pdfFileNameFinal);
     		}
 		}
 		}
