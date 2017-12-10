@@ -66,6 +66,9 @@ foreach ($result->results as $transaction) {
 		// print_r("Count is ".$val." ".$updateQuery.nl2br("\n"));
 		$VAL = pg_query($updateQuery);
 		$VAL = pg_fetch_assoc($VAL);
+
+		print_r($VAL);
+		
 		$val = $VAL['hoa_id'];
 
 		$processDate = $VAL['PROCESS_DATE'];
@@ -78,7 +81,6 @@ foreach ($result->results as $transaction) {
 		if ( $paymentStatusIDUpdate == 1 ){
 			if ( $bankTransactionsIDSArray[$transaction->transaction_id] != 1){
 				//SEND SMS
-
 				$url23 = "https://hoaboardtime.com/sendAlert.php?cid=2&eid=4&hoa_id=".$val."&process_date=".$processDate."&doc_number=".$documentNumber;
 				print_r($url23);
 				// $req = curl_init();
