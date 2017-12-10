@@ -472,7 +472,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/communityDeposits.php'>
+                      <a href='communityDeposits.php'>
 
                         <h1 class="text-info"><strong><?php echo $deposits; ?></strong></h1>
 
@@ -508,7 +508,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCommunityDocuments.php'>
+                      <a href='boardCommunityDocuments.php'>
 
                         <h1 class="text-info"><strong><?php echo $documents; ?></strong></h1>
 
@@ -544,7 +544,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/delinquentAccounts.php'>
+                      <a href='delinquentAccounts.php'>
 
                         <?php 
 
@@ -587,7 +587,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardViolationHomes.php'>
+                      <a href='boardViolationHomes.php'>
 
                         <?php 
 
@@ -641,7 +641,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardViolationCitations.php'>
+                      <a href='boardViolationCitations.php'>
 
                         <?php 
 
@@ -684,7 +684,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCurrentMonthLatePayments.php'>
+                      <a href='boardCurrentMonthLatePayments.php'>
 
                         <?php 
                           
@@ -730,7 +730,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardParkingTags.php'>
+                      <a href='boardParkingTags.php'>
 
                         <?php 
 
@@ -772,7 +772,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCommunityPendingAgreements.php'>
+                      <a href='boardCommunityPendingAgreements.php'>
 
                         <?php 
 
@@ -815,7 +815,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/currentMonthPendingPayments.php'>
+                      <a href='currentMonthPendingPayments.php'>
 
                         <?php 
 
@@ -884,7 +884,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCurrentMonthPrePaidMembers.php'>
+                      <a href='boardCurrentMonthPrePaidMembers.php'>
 
                         <?php
 
@@ -933,7 +933,7 @@
 
                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                      <a href='https://hoaboardtime.com/boardCommunitySignedAgreements.php'>
+                      <a href='boardCommunitySignedAgreements.php'>
 
                         <?php 
 
