@@ -82,12 +82,12 @@ foreach ($result->results as $transaction) {
 				//SEND SMS
 				$url23 = "https://hoaboardtime.com/sendAlert.php?cid=2&eid=4&hoa_id=".$val."&process_date=".$processDate."&doc_number=".$documentNumber;
 				print_r($url23);
-				// $req = curl_init();
-				// curl_setopt($req, CURLOPT_URL,$url23);
-				// curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-				// $message  = curl_exec($req);
-				// print_r($message);
-				
+				$req = curl_init();
+				curl_setopt($req, CURLOPT_URL,$url23);
+				curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+				$message  = curl_exec($req);
+				print_r($message);
+				print_r(nl2br("\n\n\n"));
 			}
 		}
 		}
