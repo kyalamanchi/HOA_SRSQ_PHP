@@ -103,12 +103,12 @@
                       
                       <tr>
                         
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Payment Date</th>
-                        <th>Confirmation Number</th>
-                        <th>Amount</th>
-                        <th>Pay Method</th>
+                        <th>Agreement To</th>
+                        <th>Email</th>
+                        <th>Agreement Name</th>
+                        <th>Create Date</th>
+                        <th>Send Date</th>
+                        <th>Last Updated</th>
 
                       </tr>
 
@@ -120,38 +120,202 @@
 
                         while($row = pg_fetch_assoc($result))
                         {
-
+                          
+                          $id = $row['id'];
+                          $document_to = $row['document_to'];
+                          $create_date = $row['create_date'];
+                          $send_date = $row['send_date'];
+                          $agreement_name = $row['agreement_name'];
+                          $last_updated = $row['last_updated'];
+                          $agreement_id = $row['agreement_id'];
                           $hoa_id = $row['hoa_id'];
-                          $home_id = $row['home_id'];
-                          $amount = $row['amount'];
-                          $process_date = $row['process_date'];
-                          $confirmation = $row['document_num'];
-                          $pay_method = $row['payment_type_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id AND home_id=$home_id"));
+                          if($create_date != "")
+                            $create_date = date('m-d-Y', strtotime($create_date));
 
-                          $name = $row1['firstname'];
-                          $name .= " ";
-                          $name .= $row1['lastname'];
+                          if($send_date != "")
+                            $send_date = date('m-d-Y', strtotime($send_date));
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+                          if($last_updated != "")
+                            $last_updated = date('m-d-Y', strtotime($last_updated));
 
-                          $address = $row1['address1'];
-                          $living_status = $row1['living_status'];
+                          if($document_to != "")
+                          {  
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM payment_type WHERE payment_type_id=$pay_method"));
+                            echo "<tr>";
+                              
+                            $result1 = pg_query("SELECT * FROM hoaid WHERE email='".$document_to."'");
 
-                          $pay_method = $row1['payment_type_name'];
+                            if(pg_num_rows($result1))
+                            {
 
-                          if($confirmation == "")
-                            $confirmation = "N/A";
+                              $row1 = pg_fetch_assoc($result1);
+                                
+                              $name = $row1['firstname'];
+                              $name .= " ";
+                              $name .= $row1['lastname'];
+                              $hoa_id = $row1['hoa_id'];
 
-                          echo "<tr";
+                              echo "<td>".$name."<br>($hoa_id)</td>";
 
-                          if($living_status != 't')
-                            echo " class='text-red' ";
+                            }
+                            else if($hoa_id != "")
+                            {
 
-                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
+                              $result1 = pg_query("SELECT * FROM hoaid WHERE hoa_id='".$hoa_id."'");
+
+                              $row1 = pg_fetch_assoc($result1);
+                                
+                              $name = $row1['firstname'];
+                              $name .= " ";
+                              $name .= $row1['lastname'];
+
+                              echo "<td>".$name."<br>($hoa_id)</td>";
+                            }
+                            else
+                            {
+                              
+                              $result1 = pg_query("SELECT * FROM vendor_master WHERE email='".$document_to."'");
+
+                              if(pg_num_rows($result1))
+                              {  
+
+                                $row1 = pg_fetch_assoc($result1);
+
+                                echo "<td>".$row1['vendor_name']."</td>";
+
+                              }
+                              else
+                              {  
+
+                                echo "
+
+                                <div class='modal fade hmodal-success' id='addHOAId_".$id."' role='dialog'  aria-hidden='true'>
+                                
+                                  <div class='modal-dialog'>
+                                                      
+                                    <div class='modal-content'>
+                                          
+                                      <div class='modal-header'>
+                                                                  
+                                        <h4 class='modal-title'>Agreement sent to <strong>".$document_to."</strong></h4>
+
+                                      </div>
+
+                                      <div class='modal-body'>
+                                                                  
+                                        <div class='container-fluid'>
+
+                                          <form class='row' method='post' action='https://hoaboardtime.com/addAgreementHOAID.php'>
+
+                                            <div class='row container-fluid'>
+
+                                              <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
+                                              
+                                                <center>Select User</center>
+
+                                                <br>
+
+                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' >
+
+                                                  <option value='' disabled selected>Select User</option>";
+
+                                                  $result000 = pg_query("SELECT * FROM hoaid WHERE community_id=$community_id ORDER BY firstname");
+
+                                                  while($row000 = pg_fetch_assoc($result000))
+                                                  {
+
+                                                    $add_hoa_id = $row000['hoa_id'];
+                                                    $name = $row000['firstname'];
+                                                    $name .= " ";
+                                                    $name .= $row000['lastname'];
+
+                                                    echo "<option value='".$add_hoa_id."'>".$name."</option>";
+                                                  }
+
+                                                echo "</select>
+
+                                                <input type='hidden' name='document_to' id='document_to' value='".$document_to."'>
+                                                <input type='hidden' name='id' id='id' value='".$id."'>
+
+                                                <br><br><center>OR</center><br><br>
+
+                                                <center>Select Vendor</center>
+
+                                                <br>
+                                                
+                                                <select class='form-control select2' name='select_vendor' id='select_vendor' style='width: 100%;' >
+
+                                                  <option value='' disabled selected>Select Vendor</option>";
+
+                                                  $result000 = pg_query("SELECT * FROM vendor_master WHERE community_id=$community_id ORDER BY vendor_name");
+
+                                                  while($row000 = pg_fetch_assoc($result000))
+                                                  {
+
+                                                    $add_vendor_id = $row000['vendor_id'];
+                                                    $vendor_name = $row000['vendor_name'];
+
+                                                    echo "<option value='".$add_vendor_id."'>".$vendor_name."</option>";
+                                                  }
+
+                                                echo "</select>
+
+                                                <br><br>
+
+                                                <center><input type='checkbox' name='board_document' id='board_document' value='Yes'> <label> Is board document?</label></center>
+
+                                                <input type='hidden' name='flag' id='flag' value='1'>
+
+                                              </div>
+
+                                            </div>
+
+                                            <br>
+
+                                            <div class='row container-fluid text-center'>
+                                              <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i> Update</button>
+                                              <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i> Cancel</button>
+                                            </div>
+
+                                          </form>
+                                                                  
+                                        </div>
+
+                                      </div>
+
+                                    </div>
+                                    
+                                  </div>
+
+                                </div>
+
+                                ";
+
+                                echo "<td><a data-toggle='modal' data-target='#addHOAId_".$id."'>N/A</a></td>";
+
+                              }
+                              
+                            }
+
+                            if($document_to != '')
+                            {
+                                    
+                              $arr = array();
+                              $arr = explode('@', $document_to);
+                              $document_to = $arr[0];
+                              $i = strlen($document_to);
+
+                              for($j = 3; $j < $i; $j++)
+                                $document_to[$j] = '*';
+
+                              $document_to = $document_to.'@'.$arr[1];
+
+                            }
+
+                            echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$document_to."</a></td><td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+
+                          }
 
                         }
 
@@ -163,12 +327,12 @@
 
                       <tr>
 
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Payment Date</th>
-                        <th>Confirmation Number</th>
-                        <th>Amount</th>
-                        <th>Pay Method</th>
+                        <th>Agreement To</th>
+                        <th>Email</th>
+                        <th>Agreement Name</th>
+                        <th>Create Date</th>
+                        <th>Send Date</th>
+                        <th>Last Updated</th>
 
                       </tr>
 
