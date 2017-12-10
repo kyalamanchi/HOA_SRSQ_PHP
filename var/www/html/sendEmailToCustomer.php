@@ -74,6 +74,10 @@
     }
 
 	if($token == 1)
-		echo "<br><br><center><a href='communityMailingList.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/communityMailingList.php'},1000);</script>";
+		echo "<br><br><br><center><a href='communityMailingList.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/communityMailingList.php'},1000);</script>";
+	else if($token == 2)
+		echo "<br><br><br><center><a href='currentMonthPendingPayments.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/currentMonthPendingPayments.php'},1000);</script>";
+	else if($token == 3)
+		echo "<br><br><br><center><a href='delinquentAccounts.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/delinquentAccounts.php'},1000);</script>";
 
 ?>
