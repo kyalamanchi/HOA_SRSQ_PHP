@@ -67,13 +67,12 @@ foreach ($result->results as $transaction) {
 		$VAL = pg_query($updateQuery);
 		$VAL = pg_fetch_assoc($VAL);
 
-		print_r($VAL);
-		
+
 		$val = $VAL['hoa_id'];
 
-		$processDate = $VAL['PROCESS_DATE'];
+		$processDate = $VAL['process_date'];
 
-		$documentNumber = $VAL['DOCUMENT_NUM'];
+		$documentNumber = $VAL['document_num'];
 
 
 
