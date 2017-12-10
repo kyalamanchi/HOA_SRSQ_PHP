@@ -61,7 +61,7 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED'");
+          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND agreement_status='SIGNED' AND board_cancel_requested='f'");
 
         ?>
         
@@ -73,7 +73,7 @@
 
           if($mode == 1)
             echo "
-          
+
               <ol class='breadcrumb'>
                 
                 <li><a href='boardDashboard.php'><i class='fa fa-dashboard'></i> Board Dashboard</a></li>
