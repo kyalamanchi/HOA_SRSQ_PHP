@@ -82,6 +82,7 @@ foreach ($result->results as $transaction) {
 				curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/sendAlert.php?cid=2&eid=4&hoa_id=".$val."&process_date=".$processDate."&doc_number=".$documentNumber);
 				curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 				$message  = curl_exec($req);
+				print_r($message);
 				
 			}
 		}
