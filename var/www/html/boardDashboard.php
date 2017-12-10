@@ -223,7 +223,7 @@
 	                    
                       <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center" style="border-right: 1px solid #f4f4f4">
 	                  
-	                  		<a href="https://hoaboardtime.com/amountReceived.php">
+	                  		<a href="amountReceived.php">
 	                  		 
                          <input type="text" class="knob" data-thickness="0.2" value="<?php if($amount_percentage < 100) echo round($amount_percentage, 1); else echo "100"; ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
@@ -235,7 +235,7 @@
 
 	                	  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xl-6 text-center">
 	                  
-	                  		<a href='https://hoaboardtime.com/amountReceived.php'>
+	                  		<a href='amountReceived.php'>
 	                  		
                           <input type="text" class="knob" data-thickness="0.2" value="<?php echo round($paid_percentage, 1); ?>" data-width="100" data-height="100" data-fgColor="#00c0ef" data-readonly="true">
 
@@ -251,30 +251,32 @@
 
                     <div class='row text-center container-fluid'>
 
-                      <a href='https://hoaboardtime.com/boardHomePayMethod.php'>
-                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3"  style="border: solid; border-right: none;">
+                      <a href='boardHomePayMethod.php'>
 
-                        <strong>ACH : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); $ach = $row['count']; echo $ach; ?></strong>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3"  style="border: solid; border-right: none;">
 
-                      </div>
+                          <strong>ACH : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=1")); $ach = $row['count']; echo $ach; ?></strong>
 
-                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-right: none; border-left: none;">
+                        </div>
 
-                        <strong>BillPay : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); $billpay = $row['count']; echo $billpay; ?></strong>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-right: none; border-left: none;">
 
-                      </div>
+                          <strong>BillPay : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=2")); $billpay = $row['count']; echo $billpay; ?></strong>
 
-                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-right: none; border-left: none;">
+                        </div>
 
-                        <strong>Check : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); $check = $row['count']; echo $check; ?></strong>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-right: none; border-left: none;">
 
-                      </div>
+                          <strong>Check : <?php $row=pg_fetch_assoc(pg_query("SELECT count(home_id) FROM home_pay_method WHERE community_id=$community_id AND payment_type_id=3")); $check = $row['count']; echo $check; ?></strong>
 
-                      <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-left: none;">
+                        </div>
 
-                        <strong>Others : <?php echo $total_customers-$ach-$billpay-$check; ?></strong>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3" style="border: solid; border-left: none;">
 
-                      </div>
+                          <strong>Others : <?php echo $total_customers-$ach-$billpay-$check; ?></strong>
+
+                        </div>
+
                       </a>
 
                     </div>
@@ -332,7 +334,7 @@
 
                       echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Savings</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Checkings</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_savings_balance."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_current_balance."</a></strong></div>";
+                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='communityIncome.php'>$ ".$srp_savings_balance."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='communityIncome.php'>$ ".$srp_current_balance."</a></strong></div>";
                     }
                     else if($community_id == 2)
                     {
@@ -375,7 +377,7 @@
 
                       echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Checkings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Savings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Investments</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/communityIncome.php'>$ ".$srsq_third_Account_Balance."</a></strong></div>";
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srsq_third_Account_Balance."</a></strong></div>";
                     }
 
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
@@ -406,7 +408,7 @@
 
                     echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Amount<br>Received</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Paid<br>Customers</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Settling<br>Payments</div></div><div class='row text-center'>";
 
-                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/amountReceived.php'>".$settling_customers."</a></strong></div>";
+                    echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='amountReceived.php'>$ ".$amount_recieved."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='amountReceived.php'>".$paid_customers."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='currentMonthSettlingMembers.php'>".$settling_customers."</a></strong></div>";
                   ?>
 
                   <br><br>

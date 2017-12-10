@@ -69,12 +69,12 @@
         
         <section class="content-header">
 
-          <h1><strong>Amount Received / Members Paid</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
+          <h1><strong>Delinquent Accounts</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
           <ol class="breadcrumb">
             
             <li><a href='boardDashboard.php'><i class="fa fa-dashboard"></i> Board Dashboard</a></li>
-            <li>Payment Information</li>
+            <li>Delinquent Accounts</li>
           
           </ol>
 
