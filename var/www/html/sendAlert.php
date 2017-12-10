@@ -184,6 +184,9 @@
 							$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
 							$authToken  = '3b29450d9ce0e5ec7ba6b328f05525a2';
 						}
+						else if ( $communityID == 1 ){
+							exit(0);
+						}
 						$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 						$ch = curl_init();
 						curl_setopt($ch, CURLOPT_URL, $url);
