@@ -216,7 +216,7 @@
 
                                                 <br>
 
-                                                <select class='form-contril select2' name='select_hoa' id='select_hoa' style='width: 100%;' >
+                                                <select class='form-control select2' name='select_hoa' id='select_hoa' style='width: 100%;' >
 
                                                   <option value='' disabled selected>Select User</option>";
 
@@ -313,7 +313,7 @@
 
                             }
 
-                            echo "<td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$document_to."</a></td><td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
+                            echo "<td>".$document_to."</td><td><a target='_blank' href='https://hoaboardtime.com/esignPreview.php?id=".$agreement_id."'>".$agreement_name."</a></td><td>".$create_date."</td><td>".$send_date."</td><td>".$last_updated."</td></tr>";
 
                           }
 
