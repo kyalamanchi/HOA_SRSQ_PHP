@@ -229,12 +229,16 @@ function previewAndGenerate(button){
                 var data = JSON.parse(request.responseText.split("@")[0]);
                 pdf = data.pdf;
 
-                var fieldData = '<button type="button" class="btn btn-default" onclick="showPreview()">View</button>\
+                var fieldData =     '<h4 class="modal-title">Generating Preview...Please Wait...</h4>';
+
+                $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
+
+                var fieldData = '<button type="button" class="btn btn-success" onclick="showPreview()">View</button>\
           <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
           <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-right: 5px;">Email Notice(s)</button>';
-                $("#myModal2").find('.modal-header').html(fieldData);
+                $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
 
-                $("#myModal2").modal("show");
+                $("#pleaseWaitDialog2").modal("show");
 
               }
         }
