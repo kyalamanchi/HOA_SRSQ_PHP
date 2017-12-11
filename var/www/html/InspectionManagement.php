@@ -242,8 +242,6 @@ function previewAndGenerate(button){
     //     $("#myModal2").find('.modal-body').html(fieldData);
     //     $("#myModal2").modal("show");
     }
-}
-}
 function sendCombinedDocumentMail(hoaid){
     $("#myModal2").modal("hide");
     $("#pleaseWaitDialog2").modal("show");
