@@ -2,6 +2,8 @@
 	
 	session_start();
 
+	if ( isset($_GET['cid']) ){
+
 	if($_GET['cid'] == 1)
 	{
 		
@@ -15,8 +17,16 @@
 
 	}
 
+	}
+
+
+
 	if ( $_GET['t'] == -1){
 		$accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
+	}
+
+	else if (  $_GET['t'] == -2 ){
+		$accessToken = 'GzqVivbSGFAAAAAAAAAC1oFMaa1UDMQ81y-mT2e0tdlt22AKxJ5_AaLCPRryNqDn';
 	}
 
 	$path = $_GET['path'];
