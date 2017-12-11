@@ -204,22 +204,27 @@ function previewAndGenerate(button){
                       </div>\
                     </div>';
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
-    var source = new EventSource("https://hoaboardtime.com/genericNoticeCombine.php?id="+button.id);
-    source.onmessage = function(event) {
-    $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
-    if ( (event.data == "Generated notice(s).")){
-        source.close();
-        $("#pleaseWaitDialog2").modal("hide");
-        var fieldData = '<button type="button" class="btn btn-default" onclick="editNotice('+button.id+')">Edit</button>\
-          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
-          <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
-        $("#myModal2").find('.modal-header').html(fieldData);
-        var fieldData = ' <div>\
-            <iframe src="preview.pdf"\
-            style="width:880px; height:768px;" frameborder="0"></iframe>\
-        </div>';
-        $("#myModal2").find('.modal-body').html(fieldData);
-        $("#myModal2").modal("show");
+
+    
+
+
+
+    // var source = new EventSource("https://hoaboardtime.com/genericNoticeCombine.php?id="+button.id);
+    // source.onmessage = function(event) {
+    // $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
+    // if ( (event.data == "Generated notice(s).")){
+    //     source.close();
+    //     $("#pleaseWaitDialog2").modal("hide");
+    //     var fieldData = '<button type="button" class="btn btn-default" onclick="editNotice('+button.id+')">Edit</button>\
+    //       <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
+    //       <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
+    //     $("#myModal2").find('.modal-header').html(fieldData);
+    //     var fieldData = ' <div>\
+    //         <iframe src="preview.pdf"\
+    //         style="width:880px; height:768px;" frameborder="0"></iframe>\
+    //     </div>';
+    //     $("#myModal2").find('.modal-body').html(fieldData);
+    //     $("#myModal2").modal("show");
     }
 }
 }
