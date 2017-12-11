@@ -14,6 +14,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
+var pdf  = "";
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -69,8 +71,8 @@ function changeOptions2(){
 } 
 }
 
-function showPreview(id){
-    window.open("https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&path="+id);
+function showPreview(){
+    window.open("https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&path="+pdf);
 }
 
 
@@ -225,8 +227,9 @@ function previewAndGenerate(button){
               }
               else {
                 var data = JSON.parse(request.responseText.split("@")[0]);
-                alert(data.pdf);
-                var fieldData = '<button type="button" class="btn btn-default" onclick="showPreview('+data.pdf+')">View</button>\
+                pdf = data.pdf;
+
+                var fieldData = '<button type="button" class="btn btn-default" onclick="showPreview()">View</button>\
           <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
           <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-right: 5px;">Email Notice(s)</button>';
                 $("#myModal2").find('.modal-header').html(fieldData);
