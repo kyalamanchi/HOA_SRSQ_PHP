@@ -69,7 +69,12 @@ function changeOptions2(){
 } 
 }
 
-function editNotice (editButton){
+function showPreview(id){
+    window.open("https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&path="+id);
+}
+
+
+function editNotice(editButton){
 
     $("#myModal2").modal("hide");
     showPleaseWait();
@@ -216,10 +221,18 @@ function previewAndGenerate(button){
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
               if ( request.responseText.includes("An error occured.") ) {
-
+                alert("An error occured.");
               }
               else {
-                alert(request.responseText);
+                var data = JSON.parse(request.responseText.split("@")[0]);
+
+                var fieldData = '<button type="button" class="btn btn-default" onclick="showPreview('+data.pdf+')">View</button>\
+          <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
+          <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-right: 5px;">Email Notice(s)</button>';
+                $("#myModal2").find('.modal-header').html(fieldData);
+
+                $("#myModal2").modal("show");
+
               }
         }
     }
