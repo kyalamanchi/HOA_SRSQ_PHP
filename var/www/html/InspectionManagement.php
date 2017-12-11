@@ -205,8 +205,24 @@ function previewAndGenerate(button){
                     </div>';
     $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
 
-    
+    var url  = "https://hoaboardtime.com/genericNoticeCombine.php?id="+button.id;
 
+    var request  = new XMLHttpRequest();
+    request.open("POST", url, true);
+    request.setRequestHeader("Content-type", "application/json");
+    request.send(null);
+
+    request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+              $("#pleaseWaitDialog2").modal("hide");
+              if ( request.responseText.includes("An error occured.") ) {
+
+              }
+              else {
+                alert(request.responseText);
+              }
+        }
+    }
 
 
     // var source = new EventSource("https://hoaboardtime.com/genericNoticeCombine.php?id="+button.id);
