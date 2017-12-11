@@ -33,8 +33,10 @@ require('mc_table.php');
         $allInspectionQueryResult = pg_query($allInspectionQuery);
         while($row = pg_fetch_assoc($allInspectionQueryResult))
         {
-            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
-            $id = $row['id']; 
+
+
+
+        $id = $row['id']; 
         $inspectionDateFinal = $row['inspection_date'];
         $inspectionStatusIDFinal = $row['inspection_status_id'];
         $inspectionDescriptionFinal = $row['description'];
@@ -70,7 +72,42 @@ require('mc_table.php');
         $communityMailingAddressCity  = $row['mailing_addr_city'];
         $communityMailingAddressState = $row['mailing_addr_state'];
         $communityMailingAddressZip = $row['mailing_addr_zip'];
+       
+        $inspectionIDS = array();
+
+        $newQuery = "SELECT * FROM INSPECTION_NOTICES WHERE HOME_ID=".$inspectionHomeID." AND (INSPECTION_STATUS_ID != 2 AND INSPECTION_STATUS_ID != 13 AND INSPECTION_STATUS_ID != 14) ORDER BY ID";
+
+        $newQueryResult = pg_query($newQuery);
+
+        while ($newRow = pg_fetch_assoc($newQueryResult)) {
+            $inspectionIDS[$newRow['id']] = 1;
+        }
+
+
+        $pdf=new PDF_MC_Table();
+        $pdf->SetFont('Arial','B',8);
+
+
+
+        foreach ($inspectionIDS as $key => $value) {
+
+
+        $allInspectionQuery = "SELECT * FROM INSPECTION_NOTICES WHERE ID=".$key." ORDER  BY ID ASC";
+        $allInspectionQueryResult = pg_query($allInspectionQuery);
+        $row = pg_fetch_assoc($allInspectionQueryResult);
+        $id = $row['id']; 
+        $inspectionDateFinal = $row['inspection_date'];
+        $inspectionStatusIDFinal = $row['inspection_status_id'];
+        $inspectionDescriptionFinal = $row['description'];
+        $inspectionNoticeTypeFinal  = $row['inspection_notice_type_id'];
+        $inspectionCommunityIDFinal = $row['community_id'];
+        $inspectionCategoryID = $row['inspection_category_id'];
+        $inspectionLocationID = $row['location_id'];
+        $inspectionSubCategoryID = $row['inspection_sub_category_id'];
+
+
         $inspectionTypeNameFinal = "";
+
         $inspectionStatusQuery = "SELECT * FROM INSPECTION_STATUS WHERE ID=".$inspectionStatusIDFinal;
         $inspectionStatusQueryResult = pg_query($inspectionStatusQuery);
         $roww = pg_fetch_assoc($inspectionStatusQueryResult);
@@ -99,8 +136,6 @@ require('mc_table.php');
         }
         date_default_timezone_set('America/Los_Angeles');
         
-        $pdf=new PDF_MC_Table();
-        $pdf->SetFont('Arial','B',8);
         $pdf->AddPage();
         $pdf->SetTextColor(0,0,128);
         $pdf->Ln();
@@ -132,50 +167,91 @@ require('mc_table.php');
         $pdf->SetFont('','B',9);
         $pdf->MultiCell(0,3.5,"\n\nRE: ".$re[0]." - ".$inspectionStatusTextFinal." ",0,'0',false);
         $pdf->SetFont('','',9);
-    $pdf->MultiCell(0,3.5,"\n\nDear ".$personFirstName." ".$personLastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
+        $pdf->MultiCell(0,3.5,"\n\nDear ".$personFirstName." ".$personLastName." OR Current Resident:\n\n".$communityLegalName." is a planned community governed by covenants, conditions and restrictions. Compliance with these rules benefits the entire community and all property owners are responsible for protecting the aesthetics and harmony of the neighborhood.
 \n\nBy now you have probably already corrected the following issue at ".$homeAddress1Final.". If not, then this is a courtesy reminder from ".$communityLegalName.".\n\nIt has been reported or observed during a routine site inspection on ".date('m/d/y',strtotime($inspectionDateFinal))." that the property was out of compliance with the community rules and regulations.",0,'0',false);
-$pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b> It was noted that this violation occurred in the following location: <b>".$locationArray[$inspectionLocationID]."</b>.");
-$pdf->Ln();
-$pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
-$pdf->Rect($pdf->w,$pdf->h,100,1);
+        $pdf->WriteHTML("<br><b>This violation specifically regards the following item(s): ".$inspectionDescriptionFinal."</b> It was noted that this violation occurred in the following location: <b>".$locationArray[$inspectionLocationID]."</b>.");
+        $pdf->Ln();
+        $pdf->WriteHTML('<br>If you have already corrected the issue noted above, please disregard this courtesy notice, since no further action is required.<br><br>Thank you for your cooperation in maintaining the appearance and value of '.$communityLegalName.'. If you have any questions, please contact us via our Resident Portal at <a href="https://hoaboardtime.com">https://hoaboardtime.com</a><br><br>'.$communityLegalName);
+        $pdf->Rect($pdf->w,$pdf->h,100,1);
 
- if (file_exists('data.zip')) { 
-    unlink ('data.zip'); 
+        if (file_exists('data.zip')) { 
+                unlink ('data.zip'); 
     
-}
- if (file_exists('data.tab')) { 
-    unlink ('data.tab');   
-}
-$fileNameFinal = $inspectionHOAID.'-'.$inspectionHomeID.'-'.$id.'-'.$inspectionDateFinal;
-$pdfFileNameFinal  = $fileNameFinal.'.pdf';
-$tabFileNameFinal  = $fileNameFinal.'.tab';
-$zipFileNameFinal = $fileNameFinal.'.zip';
-$pdf->Output();
-// $handler = fopen($tabFileNameFinal, 'w');
-// $finalWriteData = "1"."\t".$personFirstName.' '.$personLastName."\t".$homeAddress1Final."\t".$cityArray[$homeAddressCityFinal]." ".$stateArray[$homeAddressStateFinal]." ".$zipArray[$homeAddressZipFinal]."\t\t\t1\t".$pdf->PageNo()."\t".$pdfFileNameFinal."\t".$communityMailingAddress."\t".$cityArray[$communityMailingAddressCity]." ".$stateArray[$communityMailingAddressState]." ".$zipArray[$communityMailingAddressZip]."\t\t\t".$communityLegalName;
-// fwrite($handler, $finalWriteData);
-// fclose($handler);
-// $zip = new ZipArchive;
-// if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
-// $zip->addFile($pdfFileNameFinal, $pdfFileNameFinal);
-// $zip->addFile($tabFileNameFinal, $tabFileNameFinal);
-// $zip->close();
-// $fileData = file_get_contents($zipFileNameFinal);
-// $url = 'https://content.dropboxapi.com/2/files/upload';
-//     $ch = curl_init($url);
-//     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/ZIP/'.$zipFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-//     $response = curl_exec($ch);
-//     curl_close($ch);
-//     unlink($zipFileNameFinal);
-//     unlink($tabFileNameFinal);
-//     unlink($pdfFileNameFinal);
-    }
+        }
+        if (file_exists('data.tab')) { 
+                unlink ('data.tab');   
+        }
+        $fileNameFinal = mt_rand();
+        $pdfFileNameFinal  = $fileNameFinal.'.pdf';
+        $tabFileNameFinal  = $fileNameFinal.'.tab';
+        $zipFileNameFinal = $fileNameFinal.'.zip';
+} 
+    
+
+        $pdf->Output($pdfFileNameFinal,'F');
+        $handler = fopen($tabFileNameFinal, 'w');
+        $finalWriteData = "1"."\t".$personFirstName.' '.$personLastName."\t".$homeAddress1Final."\t".$cityArray[$homeAddressCityFinal]." ".$stateArray[$homeAddressStateFinal]." ".$zipArray[$homeAddressZipFinal]."\t\t\t1\t".$pdf->PageNo()."\t".$pdfFileNameFinal."\t".$communityMailingAddress."\t".$cityArray[$communityMailingAddressCity]." ".$stateArray[$communityMailingAddressState]." ".$zipArray[$communityMailingAddressZip]."\t\t\t".$communityLegalName;
+        fwrite($handler, $finalWriteData);
+        fclose($handler);
+        $zip = new ZipArchive;
+        if ($zip->open($zipFileNameFinal,  ZipArchive::CREATE)) {
+            $zip->addFile($pdfFileNameFinal, $pdfFileNameFinal);
+            $zip->addFile($tabFileNameFinal, $tabFileNameFinal);
+            $zip->close();
+
+
+
+
+
+
+            $fileData = file_get_contents($zipFileNameFinal);
+            $url = 'https://content.dropboxapi.com/2/files/upload';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/ZIP/'.$zipFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $response = curl_exec($ch);
+
+            $zipTechID = json_decode($response)->id;
+
+            $fileData = file_get_contents($pdfFileNameFinal);
+            $url = 'https://content.dropboxapi.com/2/files/upload';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Notices_New/PDF/'.$pdfFileNameFinal.'","mode": "overwrite","autorename": true,"mute": false}'));
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData); 
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $response = curl_exec($ch);
+
+
+
+            curl_close($ch);
+            unlink($zipFileNameFinal);
+            unlink($tabFileNameFinal);
+            unlink($pdfFileNameFinal);
+
+
+            $pdfTechID = json_decode($response)->id;
+
+            if ( $pdfTechID && $zipTechID) {
+                $idsArray = array();
+                $idsArray["zip"] = $zipTechID;
+                $idsArray["pdf"] = $pdfTechID;
+                $jsonData = json_encode($idsArray);
+                print_r(json_decode($jsonData));
+                echo "File Uploaded.";
+            }
+            else{
+                echo "An error occured.";
+            }
+
+        }
 }
 }
 catch( Exception $ex){
     print_r($ex->getMessage());
+    echo "An error occured.";
+    exit(0);
 }
 ?>
