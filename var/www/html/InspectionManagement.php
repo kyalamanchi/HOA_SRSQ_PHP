@@ -434,7 +434,6 @@ function hidePleaseWait() {
                 <div class="modal-body">
                 </div>
                 <div class="modal-footer">
-                    
                 </div>
             </div>
         </div>
