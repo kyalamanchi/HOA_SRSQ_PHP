@@ -163,7 +163,7 @@ require('mc_table.php');
         $re = explode('.', $inspectionDescriptionFinal);
         $pdf->MultiCell(0,6,$personFirstName." ".$personLastName." OR Current Resident",0,'0',false);
         $pdf->SetFont('','',9);
-        $pdf->MultiCell(0,3.5,$homeAddress1Final."\n".$cityArray[$homeAddressCityFinal].", ".$stateArray[$homeAddressStateFinal].",".$zipArray[$homeAddressZipFinal]."\n\n\n".date('M d,Y',strtotime($inspectionDateFinal))."",0,'0',false);
+        $pdf->MultiCell(0,3.5,$homeAddress1Final."\n".$cityArray[$homeAddressCityFinal].", ".$stateArray[$homeAddressStateFinal].",".$zipArray[$homeAddressZipFinal]."\n\n\n".date('M d, Y',strtotime($inspectionDateFinal))."",0,'0',false);
         $pdf->SetFont('','B',9);
         $pdf->MultiCell(0,3.5,"\n\nRE: ".$re[0]." - ".$inspectionStatusTextFinal." ",0,'0',false);
         $pdf->SetFont('','',9);
