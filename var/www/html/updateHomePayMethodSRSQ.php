@@ -102,7 +102,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 }
 
 
-foreach ($clientid as $key => $value) {
+foreach ($clientIDS as $key => $value) {
 	if ( $value == 0 ){
 		print_r($key);
 		print_r(nl2br("\n\n\n"));
