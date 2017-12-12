@@ -8,6 +8,16 @@ $homeresult = pg_query($homeidquery);
 $homeIDSARRAY = array();
 
 
+
+
+print_r(nl2br("\n\n\n"));
+
+while ($row = pg_fetch_assoc($homeresult)) {
+	$homeIDSARRAY[$row['hoa_id']] = $row['home_id'];
+}
+
+
+
 $customerQuery = "SELECT * FROM HOME_PAY_METHOD WHERE COMMUNITY_ID = 2 AND CLIENTID IS NOT NULL";
 
 $customerQueryResult = pg_query($customerQuery);
@@ -21,12 +31,6 @@ while ($rpw = pg_fetch_assoc($customerQueryResult)) {
 
 print_r($clientIDS);
 
-print_r(nl2br("\n\n\n"));
-
-while ($row = pg_fetch_assoc($homeresult)) {
-	$homeIDSARRAY[$row['hoa_id']] = $row['home_id'];
-}
-
 $url = "https://api.forte.net/v3/schedules?page_size=10000";
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
@@ -39,7 +43,8 @@ $failedScheduleIDS = array();
 $completedSchedules = array();
 if ( $result->number_results <= 10000){
 foreach ($result->results as $schedule) {
-	$clientIDS[$schedule->customer_id] = 1;
+	
+	$clientIDS[$schedule->customer_token] = 1;
 
 	if ( $schedule->schedule_summary->schedule_remaining_quantity == 0){
 		$completedSchedules[$schedule->schedule_id] = 0;
