@@ -17,6 +17,7 @@
 
 var pdf  = "";
 var zip = "";
+var hoaid;
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -230,7 +231,8 @@ function previewAndGenerate(button){
                 var data = JSON.parse(request.responseText.split("@")[0]);
                 pdf = data.pdf;
                 zip = data.zip;
-
+                hoaid = data.hoaid;
+                alert(hoaid);
                 var fieldData =     '<h4 class="modal-title">Preview Generated</h4>';
 
                 $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
