@@ -226,7 +226,7 @@ function previewAndGenerate(button){
           if (request.readyState == XMLHttpRequest.DONE) {
               $("#pleaseWaitDialog2").modal("hide");
               if ( request.responseText.includes("An error occured.") ) {
-                alert("An error occured.");
+                swal("An error occured.","","error");
               }
               else {
                 var data = JSON.parse(request.responseText.split("@")[0]);
