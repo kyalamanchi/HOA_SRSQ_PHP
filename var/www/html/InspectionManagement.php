@@ -297,6 +297,40 @@ function sendViaSouthData(){
 
 function mailStatement(){
 
+        $("#pleaseWaitDialog2").modal("hide");
+        var fieldData =     '<h4 class="modal-title">Generating Preview...Please Wait...</h4>';
+        $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        jsonData = [];
+        item = {};
+        item["hoa_id"] = hoaid;
+        item["zip_id"] = zip;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+        var url  = "https://hoaboardtime.com/emailFileToSouthData.php";
+        var request  = new XMLHttpRequest();
+        request.open("POST", url, true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function() {
+            if ( request.readyState == XMLHttpRequest.DONE ) {
+                $("#pleaseWaitDialog2").modal("hide");
+                if ( request.responseText.includes("An error occured.") ){
+                    swal("Failed to send statement","","error");
+                }
+                else {
+                    swal("Statement Mailed","","success");
+                }
+
+            }
+        }
+
 }
 
 function sendCombinedDocumentMail(hoaid){
