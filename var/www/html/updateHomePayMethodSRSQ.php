@@ -120,16 +120,11 @@ foreach ($clientIDS as $key => $value) {
 				$result = curl_exec($ch);
 				curl_close($ch);
 				$result = json_decode($result);
-
 				if ( $result->response->response_desc == "This API Access ID does not have permission to access the requested customer_token." ){
 					print_r("Delete record ... ".$key);
 				}
-
-
 	}
 }
-
-
 
 print_r("Records updated : ".$updateCount);
 ?>
