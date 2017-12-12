@@ -29,7 +29,6 @@ while ($rpw = pg_fetch_assoc($customerQueryResult)) {
 	$clientIDS[$rpw['clientid']] = 0;
 }
 
-print_r($clientIDS);
 
 $url = "https://api.forte.net/v3/schedules?page_size=10000";
 $ch = curl_init($url);
@@ -109,9 +108,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	}
 }
 
-print_r(nl2br("\n\n\n"));
-print_r($clientIDS);
-print_r(nl2br("\n\n\n"));
+
 
 foreach ($clientIDS as $key => $value) {
 	if ( $value == 0 ){
