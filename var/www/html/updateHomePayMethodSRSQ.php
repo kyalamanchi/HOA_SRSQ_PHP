@@ -14,11 +14,14 @@ $customerQueryResult = pg_query($customerQuery);
 
 $clientIDS = array();
 
+
 while ($rpw = pg_fetch_assoc($customerQueryResult)) {
 	$clientIDS[$rpw['clientid']] = 0;
 }
 
+print_r($clientIDS);
 
+print_r(nl2br("\n\n\n"));
 
 while ($row = pg_fetch_assoc($homeresult)) {
 	$homeIDSARRAY[$row['hoa_id']] = $row['home_id'];
@@ -101,11 +104,13 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	}
 }
 
+print_r(nl2br("\n\n\n"));
+print_r($clientIDS);
+print_r(nl2br("\n\n\n"));
 
 foreach ($clientIDS as $key => $value) {
 	if ( $value == 0 ){
-		print_r($key);
-		print_r(nl2br("\n\n\n"));
+
 	}
 }
 
