@@ -48,6 +48,7 @@ foreach ($result->results as $schedule) {
 
 	else {
 		print_r("Not found");
+		print_r(nl2br("\n\n\n"));
 	}
 }
 }
