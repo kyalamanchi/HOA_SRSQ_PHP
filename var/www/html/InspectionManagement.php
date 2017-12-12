@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Inspeciton Management</title>
     <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -232,7 +233,6 @@ function previewAndGenerate(button){
                 pdf = data.pdf;
                 zip = data.zip;
                 hoaid = data.hoaid;
-                alert(hoaid);
                 var fieldData =     '<h4 class="modal-title">Preview Generated</h4>';
 
                 $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
@@ -252,25 +252,49 @@ function previewAndGenerate(button){
               }
         }
     }
+}
+
+function sendViaSouthData(){
 
 
-    // var source = new EventSource("https://hoaboardtime.com/genericNoticeCombine.php?id="+button.id);
-    // source.onmessage = function(event) {
-    // $("#pleaseWaitDialog2").find('.modal-header').html('<h4 class="modal-title">'+event.data+'</h4>');
-    // if ( (event.data == "Generated notice(s).")){
-    //     source.close();
-    //     $("#pleaseWaitDialog2").modal("hide");
-    //     var fieldData = '<button type="button" class="btn btn-default" onclick="editNotice('+button.id+')">Edit</button>\
-    //       <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentSouthData('+event.lastEventId+')" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
-    //       <button type="button" class="btn btn-primary pull-right" onclick="sendCombinedDocumentMail('+event.lastEventId+')" style="padding-right: 5px;">Email Notice(s)</button>';
-    //     $("#myModal2").find('.modal-header').html(fieldData);
-    //     var fieldData = ' <div>\
-    //         <iframe src="preview.pdf"\
-    //         style="width:880px; height:768px;" frameborder="0"></iframe>\
-    //     </div>';
-    //     $("#myModal2").find('.modal-body').html(fieldData);
-    //     $("#myModal2").modal("show");
-    }
+        swal("Statement Mailed.","","success");
+
+        // $("#pleaseWaitDialog2").modal("hide");
+        // var fieldData =     '<h4 class="modal-title">Generating Preview...Please Wait...</h4>';
+        // $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
+        // var pleaseWaitData = '<div class="progress">\
+        //               <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+        //               aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+        //               </div>\
+        //             </div>';
+        // $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        // jsonData = [];
+        // item = {};
+        // item["hoa_id"] = hoaid;
+        // item["zip_id"] = zip;
+        // jsonData.push(item);
+        // sendData = JSON.stringify(jsonData);
+        // var url  = "https://hoaboardtime.com/mailFileToSouthData.php";
+        // var request  = new XMLHttpRequest();
+        // request.open("POST", url, true);
+        // request.setRequestHeader("Content-type", "application/json");
+        // request.send(sendData);
+
+        // request.onreadystatechange = function() {
+        //     if ( request.readyState == XMLHttpRequest.DONE ) {
+
+        //     }
+        // }
+
+
+
+
+}
+
+function mailStatement(){
+
+}
+
 function sendCombinedDocumentMail(hoaid){
     $("#myModal2").modal("hide");
     $("#pleaseWaitDialog2").modal("show");
