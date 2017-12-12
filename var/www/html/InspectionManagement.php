@@ -276,10 +276,10 @@ function sendViaSouthData(){
         request.open("POST", url, true);
         request.setRequestHeader("Content-type", "application/json");
         request.send(sendData);
-
+        $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function() {
             if ( request.readyState == XMLHttpRequest.DONE ) {
-
+                $("#pleaseWaitDialog2").modal("hide");
                 if ( request.responseText.includes("An error occured.") ){
                     swal("Failed to send statement","","error");
                 }
