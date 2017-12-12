@@ -39,6 +39,12 @@ foreach ($result->results as $schedule) {
 	else if ( $schedule->schedule_summary->schedule_remaining_quantity == 1) {
 		$failedScheduleIDS[$schedule->schedule_id] = 1;
 	}
+
+	if ( $schedule->customer_id == 'cst_24970720' ){
+		print_r(nl2br("\n\n\n"));
+		print_r($schedule);
+		print_r(nl2br("\n\n\n"));
+	}
 }
 }
 else {
