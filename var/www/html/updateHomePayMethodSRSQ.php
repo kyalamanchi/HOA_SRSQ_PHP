@@ -7,6 +7,19 @@ $homeidquery = "SELECT * FROM hoaid WHERE community_id = 2";
 $homeresult = pg_query($homeidquery);
 $homeIDSARRAY = array();
 
+
+$customerQuery = "SELECT * FROM HOME_PAY_METHOD WHERE COMMUNITY_ID = 2 AND CLIENTID IS NOT NULL";
+
+$customerQueryResult = pg_query($customerQuery);
+
+$clientIDS = array();
+
+while ($rpw = pg_fetch_assoc($customerQueryResult)) {
+	$clientIDS[$rpw['clientid']] = 0;
+}
+
+
+
 while ($row = pg_fetch_assoc($homeresult)) {
 	$homeIDSARRAY[$row['hoa_id']] = $row['home_id'];
 }
@@ -23,6 +36,8 @@ $failedScheduleIDS = array();
 $completedSchedules = array();
 if ( $result->number_results <= 10000){
 foreach ($result->results as $schedule) {
+	$clientIDS[$schedule->customer_id] = 1;
+
 	if ( $schedule->schedule_summary->schedule_remaining_quantity == 0){
 		$completedSchedules[$schedule->schedule_id] = 0;
 	}
@@ -39,22 +54,12 @@ foreach ($result->results as $schedule) {
 	else if ( $schedule->schedule_summary->schedule_remaining_quantity == 1) {
 		$failedScheduleIDS[$schedule->schedule_id] = 1;
 	}
-
-	if ( $schedule->customer_id == 'cst_24970720' ){
-		print_r(nl2br("\n\n\n"));
-		print_r($schedule);
-		print_r(nl2br("\n\n\n"));
-	}
-
-	else {
-		print_r("Not found");
-		print_r(nl2br("\n\n\n"));
-	}
 }
 }
 else {
 	// print_r("Number of schedules greater than 1000".nl2br("\n").$failedScheduleIDS);
 }
+
 	// print_r(nl2br("\n"));
 foreach ($failedScheduleIDS as $key => $value) {
 	$url = "https://api.forte.net/v3/schedules/";
@@ -95,5 +100,16 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		// print_r($url.nl2br("\n"));
 	}
 }
+
+
+foreach ($clientid as $key => $value) {
+	if ( $value == 0 ){
+		print_r($key);
+		print_r(nl2br("\n\n\n"));
+	}
+}
+
+
+
 print_r("Records updated : ".$updateCount);
 ?>
