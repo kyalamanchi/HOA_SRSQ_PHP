@@ -1,3 +1,4 @@
+
 <?php
 ini_set("session.save_path","/var/www/html/session/");
 	session_start();
@@ -23,7 +24,7 @@ ini_set("session.save_path","/var/www/html/session/");
 
 ?>
 
-<footer class='footer' style="background: green;">
+<footer class='footer'>
 
 	<div class='container'>
 
