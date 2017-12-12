@@ -284,7 +284,7 @@ function sendViaSouthData(){
                     swal("Failed to send statement","","error");
                 }
                 else {
-                    swal("Statement Mailed","","success");
+                    swal("Statement Sent","","success");
                 }
 
             }
@@ -309,7 +309,7 @@ function mailStatement(){
         jsonData = [];
         item = {};
         item["hoa_id"] = hoaid;
-        item["zip_id"] = zip;
+        item["pdf_id"] = pdf;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
         var url  = "https://hoaboardtime.com/emailFileToSouthData.php";
