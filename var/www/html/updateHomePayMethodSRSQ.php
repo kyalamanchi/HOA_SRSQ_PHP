@@ -28,7 +28,7 @@ $clientIDS = array();
 while ($rpw = pg_fetch_assoc($customerQueryResult)) {
 	$clientIDS[$rpw['clientid']] = 0;
 }
-
+	
 
 $url = "https://api.forte.net/v3/schedules?page_size=10000";
 $ch = curl_init($url);
@@ -112,8 +112,19 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
 foreach ($clientIDS as $key => $value) {
 	if ( $value == 0 ){
+				$url = "https://api.forte.net/v3/organizations/org_332536/locations/loc_190785/customers/".$key;
+				$ch = curl_init($url);
+				curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+				curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+				$result = curl_exec($ch);
+				curl_close($ch);
+				$result = json_decode($result);
 
-		print_r($key);
+				if ( $result->response->response_desc == "This API Access ID does not have permission to access the requested customer_token." ){
+					print_r("Delete record ... ".$key);
+				}
+
 
 	}
 }
