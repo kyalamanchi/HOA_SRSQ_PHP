@@ -282,7 +282,7 @@ function sendViaSouthData(){
 
         request.onreadystatechange = function() {
             if ( request.readyState == XMLHttpRequest.DONE ) {
-                
+                alert(request.responseText);
             }
         }
 
