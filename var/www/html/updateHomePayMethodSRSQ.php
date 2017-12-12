@@ -116,6 +116,8 @@ print_r(nl2br("\n\n\n"));
 foreach ($clientIDS as $key => $value) {
 	if ( $value == 0 ){
 
+		print_r($key);
+
 	}
 }
 
