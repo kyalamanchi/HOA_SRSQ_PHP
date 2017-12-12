@@ -238,6 +238,7 @@ require('mc_table.php');
                 $idsArray = array();
                 $idsArray["zip"] = $zipTechID;
                 $idsArray["pdf"] = $pdfTechID;
+                $idsArray["hoaid"] = $inspectionHOAID;
                 $jsonData = json_encode($idsArray);
                 echo $jsonData;
                 echo "@File Uploaded.";

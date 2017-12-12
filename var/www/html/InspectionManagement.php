@@ -16,6 +16,7 @@
 <script type="text/javascript">
 
 var pdf  = "";
+var zip = "";
 function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -228,14 +229,15 @@ function previewAndGenerate(button){
               else {
                 var data = JSON.parse(request.responseText.split("@")[0]);
                 pdf = data.pdf;
+                zip = data.zip;
 
                 var fieldData =     '<h4 class="modal-title">Preview Generated</h4>';
 
                 $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
 
                 var fieldData = '<button type="button" class="btn btn-success" onclick="showPreview()">View</button>\
-          <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
-          <button type="button" class="btn btn-primary pull-right" onclick="" style="padding-right: 5px;">Email Notice(s)</button>';
+          <button type="button" class="btn btn-primary pull-right" onclick="sendViaSouthData();" style="padding-left: 5px;">Send Notice(s) - SouthData</button>\
+          <button type="button" class="btn btn-primary pull-right" onclick="mailStatement();" style="padding-right: 5px;">Email Notice(s)</button>';
                 $("#pleaseWaitDialog2").find('.modal-body').html(fieldData);
 
                 var fieldData = '<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>';
