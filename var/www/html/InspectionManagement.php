@@ -256,9 +256,6 @@ function previewAndGenerate(button){
 
 function sendViaSouthData(){
 
-
-        // swal("Statement Mailed.","","success");
-
         $("#pleaseWaitDialog2").modal("hide");
         var fieldData =     '<h4 class="modal-title">Generating Preview...Please Wait...</h4>';
         $("#pleaseWaitDialog2").find('.modal-header').html(fieldData);
