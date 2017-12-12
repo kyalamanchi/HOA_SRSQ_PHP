@@ -282,7 +282,14 @@ function sendViaSouthData(){
 
         request.onreadystatechange = function() {
             if ( request.readyState == XMLHttpRequest.DONE ) {
-                
+
+                if ( request.responseText.includes("An error occured.") ){
+                    swal("Failed to send statement","","error");
+                }
+                else {
+                    swal("Statement Mailed","","success");
+                }
+
             }
         }
 
