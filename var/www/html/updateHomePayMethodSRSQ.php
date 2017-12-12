@@ -122,6 +122,14 @@ foreach ($clientIDS as $key => $value) {
 				$result = json_decode($result);
 				if ( $result->response->response_desc == "This API Access ID does not have permission to access the requested customer_token." ){
 					print_r("Delete record ... ".$key);
+					$deleteQuery = "DELETE FROM HOME_PAY_METHOD WHERE CLIENTID = '".$key."'";
+
+					if ( !(pg_query($deleteQuery)) ) {
+						print_r($deleteQuery);
+					}
+					else {
+						print_r("Removed ".$key);
+					}
 				}
 	}
 }
