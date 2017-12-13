@@ -9,7 +9,28 @@
 
             $fileID = $parsJSON[0]->pdf_id;
 
-            echo "An error occured.";
+
+            //Download file from dropbox
+
+            $accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
+            $url = 'https://content.dropboxapi.com/2/files/download';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$fileID.'"}'));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $response = curl_exec($ch);
+            
+            $response23 = json_decode($response);
+
+            if ( ($response23->error_summary)){
+                echo "An error occured.";
+            }
+
+            else {
+                echo "File Downloaded.";
+            }
+
+
 
             // $req = curl_init();
             // curl_setopt($req, CURLOPT_URL,$url);
