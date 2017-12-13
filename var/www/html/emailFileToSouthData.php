@@ -27,7 +27,7 @@
             }
 
             else {
-                echo "File Downloaded.";
+                $fileData = base64_decode($response);
             }
 
 
