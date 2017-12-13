@@ -325,7 +325,6 @@ function mailStatement(){
                     swal("Failed to send statement","","error");
                 }
                 else {
-                    alert(request.responseText);
                     swal("Statement Mailed","","success");
                 }
 
