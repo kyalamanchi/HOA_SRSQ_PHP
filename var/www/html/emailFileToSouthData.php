@@ -102,7 +102,6 @@
                             $homeID = $row['home_id'];
                             $query = "INSERT INTO community_emails_sent(from_email,to_email,email_subject,api_mail_id,sent_date,status,community_id,update_date,updated_by,hoa_id,message_type,document_id) VALUES('".$row23['email']."','".$toEmail."','Inspection Notice - ".$hrow['address1']."','".$result[0]->_id."','".date('Y-m-d H:i:s')."','".$result[0]->status."',".$communityID.",'".date('Y-m-d H:i:s')."',401,".$hoaID.",2,'".$fileID."')";
                             pg_query($query);
-                            echo $query;
                             echo "Email sent";
                         }
                 }
