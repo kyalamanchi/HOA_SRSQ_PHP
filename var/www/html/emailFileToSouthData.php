@@ -5,22 +5,47 @@
 			$parsJSON = json_decode($data);
 			pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
-			$url = "http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?file_id=".$parsJSON[0]->zip_id."&hoaid=".$parsJSON[0]->hoa_id."&type=0";
+            $hoaID = $parsJSON[0]->hoa_id;
 
-            $req = curl_init();
-            curl_setopt($req, CURLOPT_URL,$url);
-            curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
-            if(curl_exec($req) === false)
-            {
-                $message =  "An error occured.";
-                echo $message;
-                exit(0);
+            $fileID = $parsJSON[0]->pdf_id;
+
+
+            //Download file from dropbox
+
+            $accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
+            $url = 'https://content.dropboxapi.com/2/files/download';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$fileID.'"}'));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $response = curl_exec($ch);
+            
+            $response23 = json_decode($response);
+
+            if ( ($response23->error_summary)){
+                echo "An error occured.";
             }
-            else 
-            {   
-                $message = "File uploaded to South Data.";
-                echo $message;       
-            }       
-            $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$parsJSON[0]->hoa_id.",'".$parsJSON[0]->zip_id."','".date('Y-m-d H:i:s')."','Inspection Notice')";
-            pg_query($query);
+
+            else {
+                $fileData = base64_decode($response);
+            }
+
+
+
+            // $req = curl_init();
+            // curl_setopt($req, CURLOPT_URL,$url);
+            // curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
+            // if(curl_exec($req) === false)
+            // {
+            //     $message =  "An error occured.";
+            //     echo $message;
+            //     exit(0);
+            // }
+            // else 
+            // {   
+            //     $message = "File uploaded to South Data.";
+            //     echo $message;       
+            // }       
+            // $query = "INSERT INTO files_sent(hoa_id,file_tech_id,sent_date,file_name) VALUES(".$parsJSON[0]->hoa_id.",'".$parsJSON[0]->zip_id."','".date('Y-m-d H:i:s')."','Inspection Notice')";
+            // pg_query($query);
 ?>
