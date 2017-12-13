@@ -118,10 +118,7 @@ $result = curl_exec($ch);
 	curl_close ($ch);
 	$result  = json_decode($result);
 	if ( $result[0]->status == 'error'){
-	$message  = $result[0]->name;
-  	echo $message."\n\n";  
-  	ob_end_flush();
-  	flush();
+  	echo "An error occured.";  
   	}
   	else if ( ($result[0]->status == 'sent' ) || ($result[0]->status == 'queued') ){
 	$message  = "Mail sent successfully";
