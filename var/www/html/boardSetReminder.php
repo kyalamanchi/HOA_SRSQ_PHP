@@ -406,6 +406,16 @@
                           $balance = $charges - $payments;
 
                           $reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND reminder_status_id=1"));
+                          
+                          if($reminders)
+                            $reminders = "<center><a href='https://hoaboardtime.com/boardViewReminders.php'><i class='fa fa-bell text-green'></i></a></center>";
+                          else 
+                          {
+                            if($email != "")
+                              $reminders = "<center><form method='POST' action='https://hoaboardtime.com/boardSetReminder2.php'><input type='hidden' name='hoa_id' id='hoa_id' value='".$hoa_id."'><input type='hidden' name='home_id' id='home_id' value='".$home_id."'><input type='hidden' name='name' id='name' value='".$name."'><input type='hidden' name='living_in' id='living_in' value='".$living_in."'><input type='hidden' name='email' id='email' value='".$email."'><button class='btn btn-link' type='submit'><i class='fa fa-bell text-info'></i></button></form></center>";
+                            else
+                              $reminders = "<center><a title='Email Not Available'><i class='fa fa-bell text-danger'></i></center>";
+                          }
 
                           if($email != '')
                           {
@@ -476,16 +486,8 @@
 
                             </div>";
 
-                          }
-                          
-                          if($reminders)
-                            $reminders = "<center><a href='https://hoaboardtime.com/boardViewReminders.php'><i class='fa fa-bell text-green'></i></a></center>";
-                          else 
-                          {
-                            if($email != "")
-                              $reminders = "<center><form method='POST' action='https://hoaboardtime.com/boardSetReminder2.php'><input type='hidden' name='hoa_id' id='hoa_id' value='".$hoa_id."'><input type='hidden' name='home_id' id='home_id' value='".$home_id."'><input type='hidden' name='name' id='name' value='".$name."'><input type='hidden' name='living_in' id='living_in' value='".$living_in."'><input type='hidden' name='email' id='email' value='".$email."'><button class='btn btn-link' type='submit'><i class='fa fa-bell text-info'></i></button></form></center>";
-                            else
-                              $reminders = "<center><a title='Email Not Available'><i class='fa fa-bell text-danger'></i></center>";
+                            $email = "<a data-toggle='modal' data-target='#send_email_".$hoa_id."'>".$email."</a>";
+
                           }
 
                           echo "<tr><td>$reminders</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$phone</td><td>$home_id</td><td>$living_in</td><td>$ $balance</td></tr>";
