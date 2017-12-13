@@ -228,7 +228,7 @@ function hidePleaseWait() {
 
             <center>
               
-              <form method='POST' action='https://hoaboardtime.com/boardCustomerBalance.php'>
+              <form method='POST' action='customerBalance.php'>
                   
                 <?php
 
@@ -271,17 +271,6 @@ function hidePleaseWait() {
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
-                
-                <div class="box-header">
-                  <i class="fa fa-"></i>
-
-                  <div class="box-tools pull-right">
-
-                    <a type="button" href="mailingListCSV.php" class="btn bg-teal btn-sm">Export as .csv</a>
-
-                  </div>
-
-                </div>
 
                 <div class="box-body table-responsive">
                   
