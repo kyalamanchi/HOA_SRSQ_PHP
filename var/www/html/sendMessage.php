@@ -29,8 +29,8 @@ while ($row = pg_fetch_assoc($countryQueryResult)) {
 //Configure Auth
 		
 if ( $parseJSON[0]->community_id == 1){
-			$accountID = '';
-			$authToken  = '';
+			$accountID = 'AC47d50be5b8410a9305ed04b67803bb28';
+			$authToken  = 'f61860cb082aa663a97d51f1f4a64122';
 }
 else if ( $parseJSON[0]->community_id == 2){
 			$accountID = 'AC9370eeb4b1922b7dc29d94c387b3ab56';
