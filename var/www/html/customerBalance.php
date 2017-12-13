@@ -356,6 +356,7 @@ function hidePleaseWait() {
 
                         $result1 = pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND is_active='t'");
                         $numrow1 = pg_num_rows($result1);
+                        
                         if($numrow1 != 0 )
                         {  
 
@@ -505,6 +506,8 @@ function hidePleaseWait() {
                         if($email != '')
                         {
                                     
+                          $aux_email = $email;
+                                    
                           $arr = array();
                           $arr = explode('@', $email);
                           $email = $arr[0];
@@ -514,6 +517,62 @@ function hidePleaseWait() {
                             $email[$j] = '*';
 
                           $email = $email.'@'.$arr[1];
+
+                          echo "<div class='modal fade hmodal-success' id='send_email_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                                
+                            <div class='modal-dialog'>
+                                              
+                              <div class='modal-content'>
+                                                  
+                                <div class='color-line'></div>
+                                  
+                                  <div class='modal-header'>
+                                                          
+                                    <h4 class='modal-title'>Send Email to ".$name." - ".$email."</h4>
+
+                                  </div>
+
+                                  <form class='row' method='post' action='https://hoaboardtime.com/sendEmailToCustomer.php'>
+                                                      
+                                    <div class='modal-body'>
+                                        
+                                        <div class='row container-fluid'>
+                                
+                                          <label>Subject</label>
+                                          <input class='form-control' type='text' name='mail_subject' id='mail_subject' required placeholder='Enter Mail Subject'>
+
+                                        </div>
+
+                                        <br>
+
+                                        <div class='row container-fluid'>
+                                          
+                                          <label>Message</label>
+                                          <textarea class='form-control' name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
+
+                                          <input type='hidden' name='mail_email' id='mail_email' value='$aux_email'>
+                                          <input type='hidden' name='token' id='token' value='1'>
+
+                                        </div>
+
+                                        <br><br>
+
+                                        <center>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Send Email</button>
+                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Close</button>
+                                        </center>
+
+                                    </div>
+
+                                  </form>
+
+                                </div>
+                            
+                              </div>
+
+                            </div>";
+
+                          $email = "<a data-toggle='modal' data-target='#send_email_".$hoa_id."'>".$email."</a>";
 
                         }
 
