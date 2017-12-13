@@ -83,5 +83,7 @@
 		echo "<br><br><br><center><a href='setReminder.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='setReminder.php'},1000);</script>";
 	else if($token == 5)
 		echo "<br><br><br><center><a href='boardHOAHomeInfo.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='boardHOAHomeInfo.php'},1000);</script>";
+	else if($token == 6)
+		echo "<br><br><br><center><a href='customerBalance.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='customerBalance.php'},1000);</script>";
 
 ?>

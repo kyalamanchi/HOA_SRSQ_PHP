@@ -211,7 +211,7 @@
                 
           <li>
 
-            <a href="boardCustomerBalance.php">
+            <a href="customerBalance.php">
 
               <span>Balance</span>
 

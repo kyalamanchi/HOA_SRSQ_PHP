@@ -198,7 +198,7 @@
 
                                   </div>
 
-                                  <form class='row' method='post' action='https://hoaboardtime.com/sendEmailToCustomer.php'>
+                                  <form class='row' method='post' action='sendEmailToCustomer.php'>
                                                       
                                     <div class='modal-body'>
                                         

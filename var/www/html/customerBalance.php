@@ -374,7 +374,7 @@ function hidePleaseWait() {
                                                                   
                                   <div class='container-fluid'>
 
-                                    <form class='row' method='post' action='https://hoaboardtime.com/boardEditReminder.php'>
+                                    <form class='row' method='post' action='boardEditReminder.php'>
 
                                       <div class='row container-fluid'>
 
@@ -490,7 +490,7 @@ function hidePleaseWait() {
                           $reminder = "<center><a data-toggle='modal' data-target='#editReminder_$rid'><i class='fa fa-bell text-green'></i></a></center>";
                         }
                         else
-                          $reminder = "<center><a title='Set Reminder' href='https://hoaboardtime.com/boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
+                          $reminder = "<center><a title='Set Reminder' href='boardSetReminder2.php?name=$name&living_in=$address&hoa_id=$hoa_id&home_id=$home_id&email=$email'><i class='fa fa-bell'></i></a></center>";
 
                         if($email != '')
                         {
@@ -521,7 +521,7 @@ function hidePleaseWait() {
 
                                   </div>
 
-                                  <form class='row' method='post' action='https://hoaboardtime.com/sendEmailToCustomer.php'>
+                                  <form class='row' method='post' action='sendEmailToCustomer.php'>
                                                       
                                     <div class='modal-body'>
                                         
@@ -687,7 +687,7 @@ function hidePleaseWait() {
                                           <textarea class='form-control' name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
 
                                           <input type='hidden' name='mail_email' id='mail_email' value='$aux_email'>
-                                          <input type='hidden' name='token' id='token' value='1'>
+                                          <input type='hidden' name='token' id='token' value='6'>
 
                                         </div>
 
