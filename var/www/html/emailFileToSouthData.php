@@ -42,7 +42,14 @@
 
                 $row = pg_fetch_assoc($queryResult);
 
+                $toEmail = $row['email'];
 
+                $name = $row['firstname'].' '.$row['lastname'];
+
+                if ( !(isset($toEmail)) ){
+                    echo "An error occured.";
+                    exit(0);
+                }
 
                 $communityID = $row['community_id'];
 
@@ -66,7 +73,7 @@
 
                     $subject  = "Inspection Notice  - ".$hrow['address1'];
 
-                    $mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Hello ".$row['firstname'].' '.$row['lastname'].", </b><br><br>Inspection deficiency, please address this issue ASAP.<br><br>Thanks,<br>".$row23['legal_name'],"subject" => $subject,"from_email" => $row23['email'],"from_name" => $row23['legal_name'],"to" => array(array("email"=>"dhivysh@gmail.com","name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "inspection_notice.pdf","content" => $fileData)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00")); 
+                    $mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Hello ".$row['firstname'].' '.$row['lastname'].", </b><br><br>Inspection deficiency, please address this issue ASAP.<br><br>Thanks,<br>".$row23['legal_name'],"subject" => $subject,"from_email" => $row23['email'],"from_name" => $row23['legal_name'],"to" => array(array("email"=>$toEmail,"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "inspection_notice.pdf","content" => $fileData)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00")); 
 
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/send.json");
@@ -93,7 +100,7 @@
                             $queryResult = pg_query($query);
                             $row = pg_fetch_assoc($queryResult);
                             $homeID = $row['home_id'];
-                            $query = "INSERT INTO community_emails_sent(from_email,to_email,email_subject,api_mail_id,sent_date,status,community_id,update_date,updated_by,hoa_id,message_type,document_id) VALUES('".$row23['email']."','dhivysh@gmail.com','Inspection Notice - ".$hrow['address1']."','".$result[0]->_id."','".date('Y-m-d H:i:s')."','".$result[0]->status."',".$communityID.",'".date('Y-m-d H:i:s')."',401,".$hoaID.",2,'".$fileID."')";
+                            $query = "INSERT INTO community_emails_sent(from_email,to_email,email_subject,api_mail_id,sent_date,status,community_id,update_date,updated_by,hoa_id,message_type,document_id) VALUES('".$row23['email']."','".$toEmail."','Inspection Notice - ".$hrow['address1']."','".$result[0]->_id."','".date('Y-m-d H:i:s')."','".$result[0]->status."',".$communityID.",'".date('Y-m-d H:i:s')."',401,".$hoaID.",2,'".$fileID."')";
                             pg_query($query);
                             echo $query;
                             echo "Email sent";
