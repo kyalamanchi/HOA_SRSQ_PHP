@@ -28,6 +28,27 @@
 
             else {
                 $fileData = base64_decode($response);
+
+                $query = "SELECT * FROM HOAID WHERE HOA_ID=".$hoaID;
+                $queryResult = pg_query($query);
+
+                $row = pg_fetch_assoc($queryResult);
+
+                $communityID = $row['community_id'];
+
+                $cquery  = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$communityID;
+
+                $cqueryResult = pg_query($cquery);
+
+                $row23 = pg_fetch_assoc($cqueryResult);
+
+                echo $row23['email'];
+
+                echo $row23['legal_name'];
+
+                echo $row23['community_code'];
+
+                
             }
 
 
