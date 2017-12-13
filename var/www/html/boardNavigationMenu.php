@@ -23,7 +23,7 @@
 
       <li class="treeview">
               
-        <a href='https://hoaboardtime.com/boardDashboard.php'>
+        <a href='boardDashboard.php'>
                 
           <i class="fa fa-dashboard"></i> <span>Board</span>
 
@@ -33,7 +33,7 @@
 
       <li class="treeview">
               
-        <a href='https://hoaboardtime.com/financeDashboard.php'>
+        <a href='financeDashboard.php'>
                 
           <i class="fa fa-dollar"></i> <span>Finance</span>
 
@@ -43,7 +43,7 @@
 
       <li class="treeview">
               
-        <a href='https://hoaboardtime.com/reservesDashboard.php'>
+        <a href='reservesDashboard.php'>
                 
           <i class="fa fa-support"></i> <span>Reserves</span>
 
@@ -63,7 +63,7 @@
 
       <li class="treeview">
               
-        <a href="https://hoaboardtime.com/vendorDashboard.php">
+        <a href="vendorDashboard.php">
 
           <i class='fa fa-wrench'></i> <span>Vendors</span>
 
@@ -91,7 +91,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/boardCharges.php">
+            <a href="boardCharges.php">
 
               <span>Charges</span>
 
@@ -101,7 +101,7 @@
                 
           <li>
 
-            <a href='https://hoaboardtime.com/boardSetReminder.php'>
+            <a href='setReminder.php'>
 
               <span>Create Reminder</span>
 
@@ -111,7 +111,7 @@
 
           <li>
 
-            <a href='https://hoaboardtime.com/boardProcessPayment.php'>
+            <a href='boardProcessPayment.php'>
 
               <span>Process Payments</span>
                   
@@ -121,7 +121,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/viewReminders.php">
+            <a href="viewReminders.php">
 
               <span>View Reminders</span>
 
@@ -151,7 +151,7 @@
                 
           <li>
 
-            <a href="https://hoaboardtime.com/communityDisclosures.php">
+            <a href="communityDisclosures.php">
 
               <span>Disclosures</span>
 
@@ -161,7 +161,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/communityMailingList.php">
+            <a href="communityMailingList.php">
 
               <span>Mailing List</span>
 
@@ -171,7 +171,7 @@
 
           <li>
                   
-            <a href="https://hoaboardtime.com/boardPreviousMonthsPayments.php">
+            <a href="boardPreviousMonthsPayments.php">
 
               <span>Previous Months Payments</span>
 
@@ -211,7 +211,7 @@
                 
           <li>
 
-            <a href="https://hoaboardtime.com/boardCustomerBalance.php">
+            <a href="boardCustomerBalance.php">
 
               <span>Balance</span>
 
@@ -221,7 +221,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/boardHOAHomeInfo.php">
+            <a href="boardHOAHomeInfo.php">
 
               <span>HOA &amp; Home Info</span>
 
@@ -231,7 +231,7 @@
 
           <li>
 
-            <a href="https://hoaboardtime.com/boardUserDashboard.php">
+            <a href="boardUserDashboard.php">
 
               <span>User Dashbord</span>
 
