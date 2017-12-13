@@ -27,12 +27,16 @@
             }
 
             else {
-                $fileData = base64_decode($response);
+
+                echo $response;
+
+
+                $fileData = base64_encode($response);
 
 
                 echo $fileData;
 
-                
+
                 $query = "SELECT * FROM HOAID WHERE HOA_ID=".$hoaID;
                 $queryResult = pg_query($query);
 
