@@ -28,13 +28,13 @@
 
             else {
 
-                echo $response;
+
 
 
                 $fileData = base64_encode($response);
 
 
-                echo $fileData;
+            
 
 
                 $query = "SELECT * FROM HOAID WHERE HOA_ID=".$hoaID;
@@ -42,11 +42,7 @@
 
                 $row = pg_fetch_assoc($queryResult);
 
-                echo $row['email'];
 
-                echo $row['firstname'];
-
-                echo $row['lastname'];
 
                 $communityID = $row['community_id'];
 
@@ -56,11 +52,7 @@
 
                 $row23 = pg_fetch_assoc($cqueryResult);
 
-                echo $row23['email'];
-
-                echo $row23['legal_name'];
-
-                echo $row23['community_code'];
+                
 
 
             }
