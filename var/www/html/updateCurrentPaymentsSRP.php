@@ -112,6 +112,9 @@ foreach ($result->results as $transaction) {
 		else if ( $transaction->reference_id ){
 			$hoaID = $transaction->reference_id;
 		}
+		else if ( $transaction->echeck->item_description ){
+			$hoaID = $transaction->echeck->item_description;
+		}
 		if ( $transaction->status == 'funded' ){
 			$paymentStatusID = 1;
 			$updateHPM = 1;
@@ -190,7 +193,7 @@ if (!empty($failedTransactionIDS)){
 		else {
 			$transactionAmount = $transactionresult->authorization_amount;
 		}
-		if ( is_numeric($transactionresult->echeck->item_description) ){
+		if ( ($transactionresult->echeck->item_description) ){
 			// print_r("Found hoa id in echeck object");
 			$hoaID = $transactionresult->echeck->item_description;
 			$paymentID = $hoaID.$hoaIDSArray[$hoaID];

@@ -113,6 +113,9 @@ foreach ($result->results as $transaction) {
 		else if ( $transaction->reference_id ){
 			$hoaID = $transaction->reference_id;
 		}
+		else if ( $transaction->echeck->item_description ){
+			$hoaID = $transaction->echeck->item_description;
+		}
 		if ( $transaction->status == 'funded' ){
 			$paymentStatusID = 1;
 			$updateHPM = 1;
