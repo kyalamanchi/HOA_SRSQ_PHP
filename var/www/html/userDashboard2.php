@@ -463,6 +463,8 @@
                                   if($person_person_email != '')
                                   {
                                     
+                                    $aux_email = $person_person_email;
+
                                     $arr = array();
                                     $arr = explode('@', $person_person_email);
                                     $person_person_email = $arr[0];
@@ -472,6 +474,63 @@
                                       $person_person_email[$j] = '*';
 
                                     $person_person_email = $person_person_email.'@'.$arr[1];
+
+                                    echo "<div class='modal fade hmodal-success' id='send_email_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                                
+                                      <div class='modal-dialog'>
+                                                        
+                                        <div class='modal-content'>
+                                                            
+                                          <div class='color-line'></div>
+                                            
+                                            <div class='modal-header'>
+                                                                    
+                                              <h4 class='modal-title'>Send Email to ".$name." - ".$email."</h4>
+
+                                            </div>
+
+                                            <form class='row' method='post' action='sendEmailToCustomer.php'>
+                                                                
+                                              <div class='modal-body'>
+                                                  
+                                                  <div class='row container-fluid'>
+                                          
+                                                    <label>Subject</label>
+                                                    <input class='form-control' type='text' name='mail_subject' id='mail_subject' required placeholder='Enter Mail Subject'>
+
+                                                  </div>
+
+                                                  <br>
+
+                                                  <div class='row container-fluid'>
+                                                    
+                                                    <label>Message</label>
+                                                    <textarea class='form-control' name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
+
+                                                    <input type='hidden' name='mail_email' id='mail_email' value='$aux_email'>
+                                                    <input type='hidden' name='hoa_id' id='hoa_id' value='$hoa_id'>
+                                                    <input type='hidden' name='token' id='token' value='1'>
+
+                                                  </div>
+
+                                                  <br><br>
+
+                                                  <center>
+                                                  <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Send Email</button>
+                                                  <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Close</button>
+                                                  </center>
+
+                                              </div>
+
+                                            </form>
+
+                                          </div>
+                                      
+                                        </div>
+
+                                      </div>";
+
+                                    $person_person_email = "<a data-toggle='modal' data-target='#send_email_".$hoa_id."'>".$person_person_email."</a>";
 
                                   }
 
