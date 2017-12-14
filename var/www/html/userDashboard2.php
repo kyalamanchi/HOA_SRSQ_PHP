@@ -27,6 +27,10 @@
 
       $hoa_id = base64_decode($hoa_id);
 
+      $year = date("Y");
+      $month = date("m");
+      $end_date = date("t");
+
       $row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 
     ?>
