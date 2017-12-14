@@ -11,6 +11,14 @@
 	$subject = $_POST['mail_subject'];
 	$token = $_POST['token'];
 
+	if($token == 7)
+	{
+
+		$hoa_id = $_POST['hoa_id'];
+		$ehoa_id = base64_encode($hoa_id);
+		
+	}
+
 	//echo "<br>".$community_id."<br>".$to."<br><br>".$subject."<br><br>".$body."<br><br>".$token;
 
 	switch ($community_id) {
@@ -85,5 +93,7 @@
 		echo "<br><br><br><center><a href='boardHOAHomeInfo.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='boardHOAHomeInfo.php'},1000);</script>";
 	else if($token == 6)
 		echo "<br><br><br><center><a href='customerBalance.php'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='customerBalance.php'},1000);</script>";
+	else if($token == 7)
+		echo "<br><br><br><center><a href='userDashboard2.php?hoa_id=$ehoa_id'>Click here</a> if this doesn't redirect in 5 seconds.</center><script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=$ehoa_id'},1000);</script>";
 
 ?>
