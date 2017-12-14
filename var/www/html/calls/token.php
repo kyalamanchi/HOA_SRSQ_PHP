@@ -1,6 +1,5 @@
 <?php
 include('./vendor/autoload.php');
-// include('/Library/WebServer/Documents/twilio/twilio/Twilio/autoload.php')
 include('./config.php');
 include('./randos.php');
 
