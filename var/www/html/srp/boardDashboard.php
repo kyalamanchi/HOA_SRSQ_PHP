@@ -1188,27 +1188,27 @@
 
 												<div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
-													<div class='counter h6'>
+                          <div class='counter h6'>
 
-														<div class='counter-number'>
-															
-															<?php 
+                            <div class='counter-number' style='color: orange;'>
+                                    
+                              <?php 
 
-																$row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
 
-																$reserves = $row['cur_bal_vs_ideal_bal'];
+                                $reserves = $row['cur_bal_vs_ideal_bal'];
 
-																echo $reserves;
+                                echo $reserves;
 
-															?>
-																
-														</div>
+                              ?>
+                                      
+                            </div>
 
-														<div class='counter-title'>Reserves Funded (%)</div>
+                            <div class='counter-title'>Reserves Funded (%)</div>
 
-													</div>
+                          </div>
 
-												</div>
+                        </div>
 
                         <div class='col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-6'>
 
@@ -1379,18 +1379,18 @@
 
                           <div class='counter h6'>
 
-                            <div class='counter-number'>
-                              
+                            <div class='counter-number' style='color: red;'>
+                                    
                               <?php 
 
-                                $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
+                                $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
 
                                 $reserves = $row['cur_bal_vs_ideal_bal'];
 
                                 echo $reserves;
 
                               ?>
-                                
+                                      
                             </div>
 
                             <div class='counter-title'>Reserves Funded (%)</div>
