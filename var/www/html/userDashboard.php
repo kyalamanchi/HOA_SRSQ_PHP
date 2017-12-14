@@ -135,7 +135,7 @@
 
                               $ehoa_id = base64_encode($hoa_id);
 
-                              echo "<tr><td><a class='btn btn-link' href='boardUserDashboard2.php?hoa_id=$ehoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='boardUserDashboard2.php?hoa_id=$ehoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='boardUserDashboard2.php?hoa_id=$ehoa_id'>".$address."</a></td><td><a class='btn btn-link' href='boardUserDashboard2.php?hoa_id=$ehoa_id'>".$home_id."</a></td></tr>";
+                              echo "<tr><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$firstname." ".$lastname."</a></td><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$hoa_id."</a></td><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$address."</a></td><td><a class='btn btn-link' href='userDashboard2.php?hoa_id=$ehoa_id'>".$home_id."</a></td></tr>";
 
                             }
 
