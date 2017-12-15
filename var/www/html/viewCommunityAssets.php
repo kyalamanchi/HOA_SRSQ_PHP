@@ -146,7 +146,7 @@
 
                                         <th>Sub Category</th>
                                         <th>Usable Life</th>
-                                        <th>Remaining Usable Life L</th>
+                                        <th>Remaining Usable Life</th>
                                         <th>Minimum Unit Cost</th>
                                         <th>Average Unit Cost</th>
                                         <th>Maximum Unit Cost</th>
