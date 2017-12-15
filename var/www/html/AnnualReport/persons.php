@@ -672,7 +672,7 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                            <h3 class='h3'>Are you sure you want to remove $person_firstname $person_lastname?</h3>
+                                                                                            <h3 class='h3'>Are you sure you want to remove $person_firstname?</h3>
 
                                                                                             <h5 class='h5'>Note : This action cannot be undone.</h5>
 
