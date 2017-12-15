@@ -17,6 +17,8 @@
 	$valid_from = $_POST['edit_valid_from'];
 	$valid_until = $_POST['edit_valid_until'];
 
+	$cell_no = base64_encode($cell_no);
+
 	$ehoa_id = base64_encode($hoa_id);
 
 	$today = date('Y-m-d');
@@ -38,6 +40,6 @@
 	else
 		echo "<br><br><br><br><center><h3>Failed to update. Please try again.</h3></center>";
 
-	echo "<br><br><br><center><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$ehoa_id."'>Click here</a> if this doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=".$ehoa_id."'},2000);</script>";
+	echo "<br><br><br><center><a href='userDashboard2.php?hoa_id=".$ehoa_id."'>Click here</a> if this doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=".$ehoa_id."'},1000);</script>";
 
 ?>

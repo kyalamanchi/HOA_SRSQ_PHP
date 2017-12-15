@@ -29,6 +29,8 @@
 	$cell_no = $row['cell_no'];
 	$community_id = $row['community_id'];
 
+	$cell_no = base64_decode($cell_no);
+
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
 
 	$community_name = $row['legal_name'];
@@ -219,7 +221,7 @@
 
 							<div class='special-heading m-b-40'>
 
-								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
+								<h2 class='h2'>Welcome <?php echo $first_name; ?></h2>
 
 							</div>
 
@@ -264,7 +266,7 @@
 
 							<div class='special-heading m-b-40'>
 
-								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
+								<h2 class='h2'>Welcome <?php echo $first_name; ?></h2>
 
 							</div>
 

@@ -422,8 +422,7 @@
 
                                         <thead>
 
-                                            <th>Firstname</th>
-                                            <th>Lastname</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Role</th>
@@ -475,7 +474,7 @@
 
                                                                     <div class='modal-header'>
 
-                                                                        <h4 class='h4'>Edit - $person_firstname $person_lastname</h4>
+                                                                        <h4 class='h4'>Edit - $person_firstname</h4>
                                                                         <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
                                                                     </div>
@@ -656,7 +655,7 @@
 
                                                                     <div class='modal-header'>
 
-                                                                        <h4 class='h4'>Remove - $person_firstname $person_lastname</h4>
+                                                                        <h4 class='h4'>Remove - $person_firstname</h4>
                                                                         <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
                                                                     </div>
@@ -673,7 +672,7 @@
 
                                                                                         <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>
 
-                                                                                            <h3 class='h3'>Are you sure you want to remove $person_firstname $person_lastname?</h3>
+                                                                                            <h3 class='h3'>Are you sure you want to remove $person_firstname?</h3>
 
                                                                                             <h5 class='h5'>Note : This action cannot be undone.</h5>
 
@@ -718,7 +717,6 @@
                                                     <tr>
 
                                                         <td name='person_".$person_id."_firstname' id='person_".$person_id."_firstname'>$person_firstname</td>
-                                                        <td name='person_".$person_id."_lastname' id='person_".$person_id."_lastname'>$person_lastname</td>
                                                         <td name='person_".$person_id."_email' id='person_".$person_id."_email'>$person_email</td>
                                                         <td name='person_".$person_id."_cell_no' id='person_".$person_id."_cell_no'>$person_cell_no</td>
                                                         <td name='person_".$person_id."_role' id='person_".$person_id."_role'>$person_role</td>

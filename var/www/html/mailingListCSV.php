@@ -61,6 +61,9 @@
 		$email = $row1['email'];
 		$cell_no = $row1['cell_no'];
 
+		if($cell_no != '')
+			$cell_no = base64_decode($cell_no);
+
 		echo ('"'.$hoa_id.'","'.$firstname.'","'.$lastname.'","'.$home_id.'","'.$address.'","'.$city.'","'.$state.'","'.$zip.'","'.$email.'","'.$cell_no.'"');
 		echo "\n";
 	}

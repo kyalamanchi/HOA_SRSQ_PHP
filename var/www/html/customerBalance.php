@@ -323,6 +323,9 @@ function hidePleaseWait() {
                         $email = $row1['email'];
                         $phone = $row1['cell_no'];
 
+                        if($phone != '')
+                          $phone = base64_decode($phone);
+
                         $result1 = pg_query("SELECT address1 FROM homeid WHERE community_id=$community_id AND home_id=$home_id");
                         $row1 = pg_fetch_assoc($result1);
 
@@ -603,6 +606,9 @@ function hidePleaseWait() {
                         $name .= $row1['lastname'];
                         $email = $row1['email'];
                         $phone = $row1['cell_no'];
+
+                        if($phone != '')
+                          $phone = base64_decode($phone);
 
                         $result1 = pg_query("SELECT address1 FROM homeid WHERE community_id=$community_id AND home_id=$home_id");
                         $row1 = pg_fetch_assoc($result1);

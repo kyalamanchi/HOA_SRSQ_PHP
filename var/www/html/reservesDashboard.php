@@ -180,7 +180,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Reserves Dashboard</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Reserves Dashboard</strong><small> - 2017</small></h1>
 
           <ol class="breadcrumb">
             
@@ -195,6 +195,232 @@
           <div class="row container-fluid" style="background-color: #ffffff;">
 
             <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $depreciation = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
+
+                      $depreciation = $depreciation['depreciation'];
+
+                      $depreciation = round($depreciation, 0);
+
+                      echo "<h1 class='text-info'><strong>$ ".$depreciation."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Annual Deprecation</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2017"));
+
+                      if($assets > 0)
+                        echo "<h1 class='text-success'><strong><a href='viewCommunityAssets.php?year=2017'>$assets</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Assets</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2017-01-01' AND invoice_date<='2017-12-31'"));
+
+                      $repairs = $row['sum'];
+
+                      $repairs = round($repairs, 0);
+
+                      if($assets > 0)
+                        echo "<h1 class='text-success'><strong><a href='reserveRepairs.php?year=2017'>$ $repairs</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>$ ".$repairs."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Completed Repairs</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017");
+
+                      $result = pg_fetch_assoc($result);
+
+                      $isb = $result['ideal_start_bal'];
+                      $bb = $result['begin_bal'];
+                      $tu = $result['total_units'];
+
+                      $result = ($isb - $bb) / $tu;
+
+                      $result = round($result, 0);
+
+                      echo "<h1 class='text-danger'><strong>$ ".$result."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Deficit Per Home</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      echo "<h1 class='text-danger'><strong>$ ".($result * $tu)."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Total Deficit</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
