@@ -32,12 +32,12 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$communityQueryResult = pg_query($communityQuery);
 	$communityRow = pg_fetch_assoc($communityQueryResult);
 
-	$userData['community_id'] = $subRow['community_id'];
+	$userData['user_community_id'] = $subRow['community_id'];
 	$userData['user_community_code'] = $communityRow['community_code'];
-	$userData['user_community_legal_name'] = $communityRow['community_legal_name'];
+	$userData['user_community_legal_name'] = $communityRow['legal_name'];
 	$userData['user_community_telno'] = $communityRow['telno'];
 
-	
+
 
 
 
