@@ -459,7 +459,7 @@
 
 											<br>
 
-											<h3 class='h3' style='color: black;'><?php echo $user_firstname." ".$user_lastname; ?></h3>
+											<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
 
 										</div>
 
