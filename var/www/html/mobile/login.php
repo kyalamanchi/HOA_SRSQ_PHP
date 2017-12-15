@@ -27,6 +27,14 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData['address'] = $subRow['address'];
 
 
+	$hoaquery = "SELECT * FROM HOAID WHERE HOA_ID=".$subRow['hoa_id'];
+	$hoaqueryResult = pg_query($hoaquery);
+	$hoarow = pg_fetch_assoc($hoaqueryResult);
+	$userData['user_cellno'] = $hoarow['cellno'];
+
+
+
+
 
 	$communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$subRow['community_id'];
 	$communityQueryResult = pg_query($communityQuery);
@@ -36,6 +44,19 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData['user_community_code'] = $communityRow['community_code'];
 	$userData['user_community_legal_name'] = $communityRow['legal_name'];
 	$userData['user_community_telno'] = '+1'.$communityRow['telno'];
+
+
+	$boardMemberQuery = "SELECT * FROM BOARD_COMMITTEE_DETAILS WHERE USER_ID=".$row['id'];
+	$boardMemberQueryResult = pg_query($boardMemberQuery);
+	$boardMemberRow = pg_fetch_assoc($boardMemberQueryResult);
+
+	if ( isset($boardMemberRow['board_member_id'])){
+		$userData['is_board_member'] = "true";
+	}
+	else {
+		$userData['is_board_member'] = "false";
+	}
+
 
 
 
