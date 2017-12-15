@@ -422,7 +422,7 @@
 
                                         <thead>
 
-                                            <th>Firstname</th>
+                                            <th>Name</th>
                                             <th>Email</th>
                                             <th>Phone</th>
                                             <th>Role</th>
