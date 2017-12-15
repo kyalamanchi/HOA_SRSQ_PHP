@@ -132,6 +132,8 @@
                           $cell_no = $row['cell_no'];
                           $home_id = $row['home_id'];
 
+                          $cell_no = base64_decode($cell_no);
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
 
                           $address = $row1['address1'];
