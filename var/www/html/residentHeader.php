@@ -4,6 +4,12 @@
 
   	session_start();
 
+  	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+  	$query = "SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id'];
+    $result = pg_query($query);
+    $board = pg_num_rows($result);
+
 ?>
 
 <header class="main-header">
@@ -28,11 +34,16 @@
 	            
 	        <ul class="nav navbar-nav">
 
-		       	<li class="dropdown user user-menu">
-	              
-		            <a href="residentDashboard.php">Resident Dashboard</a>
+	        	<?php
 
-		        </li>
+                    if($board)
+                    	echo "<li class='dropdown user user-menu'>
+  	              
+  		            		<a href='boardDashboard.php'>Board Dashboard</a>
+
+  		          		</li>";
+
+                ?>
 
 		        <li class="dropdown user user-menu">
 
