@@ -85,97 +85,6 @@
         	$month = date("m");
         	$end_date = date("t");
 
-        	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
-
-        	$amount_recieved = $row['sum'];
-
-          if($amount_recieved == "")
-            $amount_recieved = 0.0;
-
-        	$row = pg_fetch_assoc(pg_query("SELECT count(hoa_id) FROM hoaid WHERE community_id=$community_id"));
-
-        	$total_customers = $row['count'];
-
-        	$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
-
-        	$assessment_amount = $row['amount'];
-
-        	$total_amount = ( $total_customers * $assessment_amount );
-        	$amount_percentage = (( $amount_recieved / $total_amount ) * 100 );
-
-        	$paid_customers = pg_num_rows(pg_query("SELECT DISTINCT hoa_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
-
-        	$paid_percentage = (( $paid_customers / $total_customers) * 100 );
-
-        	$del_acc = 0;
-          $del = 3;
-
-          $del_amount = $assessment_amount * $del;
-
-          $result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
-
-          while($row = pg_fetch_assoc($result))
-          {
-
-            $home_id = $row['home_id'];
-            $assessment_charges = $row['sum'];
-
-            $query2 = "SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-
-            $firstname = $row2['firstname'];
-            $lastname = $row2['lastname'];
-            $hoa_id = $row2['hoa_id'];
-            $cell_no = $row2['cell_no'];
-            $email = $row2['email'];
-
-            $query2 = "SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $charges = $row2['sum'];
-
-            $query2 = "SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $payments = $row2['sum'];
-
-            $balance = $charges - $payments;
-
-            $query2 = "SELECT address1 FROM homeid WHERE home_id=".$home_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $address1 = $row2['address1'];
-
-            if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
-              $del_acc++;
-
-          }
-
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='SIGNED'");
-          $signed_agreements = pg_num_rows($result);
-
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='OUT_FOR_SIGNATURE'");
-          $pending_agreements = pg_num_rows($result);
-
-          $inspections = 0;
-
-          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id");
-
-          while($row = pg_fetch_assoc($result))
-          {
-            $status = $row['inspection_status_id'];
-
-            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
-              $inspections++;
-          }
-
-          $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
-
-          $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date' AND payment_status_id=8"));
-
-          $ress = pg_query("UPDATE reminders SET reminder_status_id=2 WHERE reminder_status_id=1 AND due_date<='".date('Y-m-d')."'");
-
         ?>
         
         <section class="content-header">
@@ -440,6 +349,298 @@
                       $month = date('m');
 
                       $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
+
+                      $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+
+                      $reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+                      $reserve_allocation = round($reserve_allocation, 0);
+
+                      if($cur_bal_vs_ideal_bal >= 70)
+                        echo "<h1 class='text-green'><strong>".$reserve_allocation."</strong></h1>";
+                      else
+                        echo "<h1 class='text-orange'><strong>".$reserve_allocation."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>YTD Allocation</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <br>
+
+          </div>
+
+        </section>
+
+        <section class="content-header">
+
+          <h1><strong>Reserves Dashboard</strong><small> - 2018</small></h1>
+
+        </section>
+
+        <section class="content">
+
+          <div class="row container-fluid" style="background-color: #ffffff;">
+
+            <br>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $depreciation = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                      $depreciation = $depreciation['depreciation'];
+
+                      $depreciation = round($depreciation, 0);
+
+                      echo "<h1 class='text-info'><strong>$ ".$depreciation."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Annual Deprecation</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2018"));
+
+                      if($assets > 0)
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='viewCommunityAssets.php?year=2018'>$assets</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Assets</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2018-01-01' AND invoice_date<='2018-12-31'"));
+
+                      $repairs = $row['sum'];
+
+                      $repairs = round($repairs, 0);
+
+                      if($assets > 0)
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='reserveRepairs.php?year=2018'>$ $repairs</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>$ ".$repairs."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Completed Repairs</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018");
+
+                      $result = pg_fetch_assoc($result);
+
+                      $isb = $result['ideal_start_bal'];
+                      $bb = $result['begin_bal'];
+                      $tu = $result['total_units'];
+
+                      $result = ($isb - $bb) / $tu;
+
+                      $result = round($result, 0);
+
+                      echo "<h1 class='text-red'><strong>$ ".$result."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Deficit Per Home</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      echo "<h1 class='text-red'><strong>$ ".($result * $tu)."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Total Deficit</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                      $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+
+                      echo "<h1 class='text-orange'><strong>".$cur_bal_vs_ideal_bal." %</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Reserves Funded</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $year = date('Y');
+                      $month = date('m');
+
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
 
                       $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
 
