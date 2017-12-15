@@ -163,6 +163,9 @@
                                 $role = $row['role_type_id'];
                                 $home_id = $row['home_id'];
 
+                                if($cell_no != '')
+                                  $cell_no = base64_decode($cell_no);
+
                                 if($email != '')
                                 {
                                   
