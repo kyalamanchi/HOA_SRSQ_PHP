@@ -418,9 +418,9 @@
 
                       $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
 
-                      $reserves = $row['cur_bal_vs_ideal_bal'];
+                      $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
 
-                      echo "<h1 class='text-orange'><strong>".$reserves." %</strong></h1>";
+                      echo "<h1 class='text-orange'><strong>".$cur_bal_vs_ideal_bal." %</strong></h1>";
 
                     ?>
 
@@ -431,6 +431,52 @@
                 <div class="row container-fluid text-center">
 
                   <h5><strong>Reserves Funded</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $year = date('Y');
+                      $month = date('m');
+
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
+
+                      $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+
+                      $reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+                      $reserve_allocation = round($reserve_allocation, 0);
+
+                      if($cur_bal_vs_ideal_bal >= 70)
+                        echo "<h1 class='text-green'><strong>".$reserve_allocation." %</strong></h1>";
+                      else
+                        echo "<h1 class='text-orange'><strong>".$reserve_allocation." %</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>YTD Allocation</strong></h5>
 
                 </div>
 
