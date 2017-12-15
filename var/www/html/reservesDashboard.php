@@ -85,97 +85,6 @@
         	$month = date("m");
         	$end_date = date("t");
 
-        	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
-
-        	$amount_recieved = $row['sum'];
-
-          if($amount_recieved == "")
-            $amount_recieved = 0.0;
-
-        	$row = pg_fetch_assoc(pg_query("SELECT count(hoa_id) FROM hoaid WHERE community_id=$community_id"));
-
-        	$total_customers = $row['count'];
-
-        	$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
-
-        	$assessment_amount = $row['amount'];
-
-        	$total_amount = ( $total_customers * $assessment_amount );
-        	$amount_percentage = (( $amount_recieved / $total_amount ) * 100 );
-
-        	$paid_customers = pg_num_rows(pg_query("SELECT DISTINCT hoa_id FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
-
-        	$paid_percentage = (( $paid_customers / $total_customers) * 100 );
-
-        	$del_acc = 0;
-          $del = 3;
-
-          $del_amount = $assessment_amount * $del;
-
-          $result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
-
-          while($row = pg_fetch_assoc($result))
-          {
-
-            $home_id = $row['home_id'];
-            $assessment_charges = $row['sum'];
-
-            $query2 = "SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-
-            $firstname = $row2['firstname'];
-            $lastname = $row2['lastname'];
-            $hoa_id = $row2['hoa_id'];
-            $cell_no = $row2['cell_no'];
-            $email = $row2['email'];
-
-            $query2 = "SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $charges = $row2['sum'];
-
-            $query2 = "SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $payments = $row2['sum'];
-
-            $balance = $charges - $payments;
-
-            $query2 = "SELECT address1 FROM homeid WHERE home_id=".$home_id;
-            $result2 = pg_query($query2);
-            $row2 = pg_fetch_assoc($result2);
-            $address1 = $row2['address1'];
-
-            if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
-              $del_acc++;
-
-          }
-
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='SIGNED'");
-          $signed_agreements = pg_num_rows($result);
-
-          $result = pg_query("SELECT * FROM community_sign_agreements WHERE community_id=$community_id AND document_to!=';' AND agreement_status='OUT_FOR_SIGNATURE'");
-          $pending_agreements = pg_num_rows($result);
-
-          $inspections = 0;
-
-          $result = pg_query("SELECT * FROM inspection_notices WHERE community_id=$community_id");
-
-          while($row = pg_fetch_assoc($result))
-          {
-            $status = $row['inspection_status_id'];
-
-            if($status != 2 && $status != 6 && $status != 9 && $status != 14 && $status != 13)
-              $inspections++;
-          }
-
-          $deposits = pg_num_rows(pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id"));
-
-          $settling_customers = pg_num_rows(pg_query("SELECT * FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date' AND payment_status_id=8"));
-
-          $ress = pg_query("UPDATE reminders SET reminder_status_id=2 WHERE reminder_status_id=1 AND due_date<='".date('Y-m-d')."'");
-
         ?>
         
         <section class="content-header">
@@ -195,22 +104,6 @@
           <div class="row container-fluid" style="background-color: #ffffff;">
 
             <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
@@ -265,7 +158,7 @@
                       $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2017"));
 
                       if($assets > 0)
-                        echo "<h1 class='text-success'><strong><a href='viewCommunityAssets.php?year=2017'>$assets</a></strong></h1>";
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='viewCommunityAssets.php?year=2017'>$assets</a></strong></h1>";
                       else
                         echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
 
@@ -306,7 +199,7 @@
                       $repairs = round($repairs, 0);
 
                       if($assets > 0)
-                        echo "<h1 class='text-success'><strong><a href='reserveRepairs.php?year=2017'>$ $repairs</a></strong></h1>";
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='reserveRepairs.php?year=2017'>$ $repairs</a></strong></h1>";
                       else
                         echo "<h1 class='text-info'><strong>$ ".$repairs."</strong></h1>";
 
@@ -352,7 +245,7 @@
 
                       $result = round($result, 0);
 
-                      echo "<h1 class='text-danger'><strong>$ ".$result."</strong></h1>";
+                      echo "<h1 class='text-red'><strong>$ ".$result."</strong></h1>";
 
                     ?>
 
@@ -384,7 +277,7 @@
 
                     <?php 
 
-                      echo "<h1 class='text-danger'><strong>$ ".($result * $tu)."</strong></h1>";
+                      echo "<h1 class='text-red'><strong>$ ".($result * $tu)."</strong></h1>";
 
                     ?>
 
@@ -404,359 +297,377 @@
 
             </div>
 
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
+              <div class="row container-fluid text-left">
 
+                <br>
 
+                <div class="row container-fluid">
 
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
+                    <?php 
 
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
 
+                      $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
 
+                      echo "<h1 class='text-orange'><strong>".$cur_bal_vs_ideal_bal." %</strong></h1>";
 
-
-
-
-
-
-
-
-
-
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
-
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
-
-                <div class="row container-fluid text-left">
-
-                  <br>
-
-                  <div class="row container-fluid">
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
-
-                      <img src="pending_payments.png" height=75 width=75 alt='Number of Assets'>
-
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      
-
-                    </div>
+                    ?>
 
                   </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr>
-                    <h4><strong>Add New Asset</strong></h4>
-
-                  </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Reserves Funded</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+              <div class="row container-fluid text-left">
 
-                <div class="row container-fluid text-left">
+                <br>
 
-                  <br>
+                <div class="row container-fluid">
 
-                  <div class="row container-fluid">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <?php 
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Recommended Reserve Allocation'>
+                      $year = date('Y');
+                      $month = date('m');
 
-                    </div>
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                      $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
 
-                      <?php 
+                      $reserve_allocation = $recommended_monthly_allocation_units * $month;
 
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+                      $reserve_allocation = round($reserve_allocation, 0);
 
-                        $minimum_monthly_allocation_units = $row['min_mthly_alloc_unit'];
-                        $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+                      if($cur_bal_vs_ideal_bal >= 70)
+                        echo "<h1 class='text-green'><strong>".$reserve_allocation."</strong></h1>";
+                      else
+                        echo "<h1 class='text-orange'><strong>".$reserve_allocation."</strong></h1>";
 
-                        $reserve_allocation = $minimum_monthly_allocation_units * $month;
-
-                        $reserve_allocation = round($reserve_allocation, 0);
-
-                        if($cur_bal_vs_ideal_bal >= 70)
-                          echo "<h3 class='text-orange'><strong>$ ".$reserve_allocation."</strong></h3>";
-                        else
-                          echo "<h3 class='text-red'><strong>$ ".$reserve_allocation."</strong></h3>";
-
-                      ?>
-
-                    </div>
+                    ?>
 
                   </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr style="color: white;">
-                    <h4><strong>Minimum Reserve Allocation</strong></h4>
-
-                  </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>YTD Allocation</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <br>
 
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+          </div>
 
-                <div class="row container-fluid text-left">
+        </section>
 
-                  <br>
+        <section class="content-header">
 
-                  <div class="row container-fluid">
+          <h1><strong>Reserves Dashboard</strong><small> - 2018</small></h1>
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+        </section>
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Minimum Reserve Allocation'>
+        <section class="content">
 
-                    </div>
+          <div class="row container-fluid" style="background-color: #ffffff;">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+            <br>
 
-                      <?php 
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND fisc_yr_end<='$year-12-31'"));
+              <div class="row container-fluid text-left">
 
-                        $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
-                        $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+                <br>
 
-                        $reserve_allocation = $recommended_monthly_allocation_units * $month;
+                <div class="row container-fluid">
 
-                        $reserve_allocation = round($reserve_allocation, 0);
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                        if($cur_bal_vs_ideal_bal >= 70)
-                          echo "<h3 class='text-green'><strong>$ ".$reserve_allocation."</strong></h3>";
-                        else
-                          echo "<h3 class='text-orange'><strong>$ ".$reserve_allocation."</strong></h3>";
+                    <?php 
 
-                      ?>
+                      $depreciation = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
 
-                    </div>
+                      $depreciation = $depreciation['depreciation'];
 
-                  </div>
+                      $depreciation = round($depreciation, 0);
 
-                  <div class="row container-fluid text-left">
+                      echo "<h1 class='text-info'><strong>$ ".$depreciation."</strong></h1>";
 
-                    <hr style="color: white;">
-                    <h4><strong>Recommended Reserve Allocation</strong></h4>
+                    ?>
 
                   </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Annual Deprecation</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/reserveRepairs.php'>
+              <div class="row container-fluid text-left">
 
-                <div class="row container-fluid text-left">
+                <br>
 
-                  <br>
+                <div class="row container-fluid">
 
-                  <div class="row container-fluid">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <?php 
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Reserve Repairs'>
+                      $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2018"));
 
-                    </div>
+                      if($assets > 0)
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='viewCommunityAssets.php?year=2018'>$assets</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      <?php 
-
-                        $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id"));
-
-                        $repairs = $row['sum'];
-
-                        $repairs = round($repairs, 0);
-
-                        if($repairs > 0)
-                          echo "<h3><strong>$ ".$repairs."</strong></h3>";
-                        else
-                          echo "<h3><strong>$ ".$repairs."</strong></h3>";
-
-                      ?>
-
-                    </div>
+                    ?>
 
                   </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr style="color: white;">
-                    <h4><strong>Reserve Repairs</strong></h4>
-
-                  </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Assets</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+              <div class="row container-fluid text-left">
 
-                <div class="row container-fluid text-left">
+                <br>
 
-                  <br>
+                <div class="row container-fluid">
 
-                  <div class="row container-fluid">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <?php 
 
-                      <img src="pending_payments.png" height=75 width=75 alt='Reserves Funded'>
+                      $row = pg_fetch_assoc(pg_query("SELECT sum(invoice_amount) FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='2018-01-01' AND invoice_date<='2018-12-31'"));
 
-                    </div>
+                      $repairs = $row['sum'];
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                      $repairs = round($repairs, 0);
 
-                      <?php 
+                      if($assets > 0)
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='reserveRepairs.php?year=2018'>$ $repairs</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>$ ".$repairs."</strong></h1>";
 
-                        $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id"));
-
-                        $res_funded = $row['cur_bal_vs_ideal_bal'];
-
-                        if($res_funded > 0)
-                          echo "<h3 class='text-green'><strong>".$res_funded."%</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-info'><strong>".$res_funded."%</strong></h3>";
-
-                      ?>
-
-                    </div>
+                    ?>
 
                   </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr style="color: white;">
-                    <h4><strong>Reserves Funded</strong></h4>
-
-                  </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Completed Repairs</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a href='https://hoaboardtime.com/viewCommunityAssets.php'>
+              <div class="row container-fluid text-left">
 
-                <div class="row container-fluid text-left">
+                <br>
 
-                  <br>
+                <div class="row container-fluid">
 
-                  <div class="row container-fluid">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <?php 
 
-                      <img src="community_assets.png" height=75 width=75 alt='Number of Assets'>
+                      $result = pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018");
 
-                    </div>
+                      $result = pg_fetch_assoc($result);
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
+                      $isb = $result['ideal_start_bal'];
+                      $bb = $result['begin_bal'];
+                      $tu = $result['total_units'];
 
-                      <?php 
+                      $result = ($isb - $bb) / $tu;
 
-                        $no_assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id"));
+                      $result = round($result, 0);
 
-                        if($no_assets > 0)
-                          echo "<h3 class='text-green'><strong>".$no_assets."</strong></h3>"; 
-                        else
-                          echo "<h3 class='text-info'><strong>".$no_assets."</strong></h3>";
+                      echo "<h1 class='text-red'><strong>$ ".$result."</strong></h1>";
 
-                      ?>
-
-                    </div>
+                    ?>
 
                   </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr>
-                    <h4><strong>Total # of Assets</strong></h4>
-
-                  </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Deficit Per Home</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
-              <a ><!-- href='https://hoaboardtime.com/boardCommunityAssets.php' -->
+              <div class="row container-fluid text-left">
 
-                <div class="row container-fluid text-left">
+                <br>
 
-                  <br>
+                <div class="row container-fluid">
 
-                  <div class="row container-fluid">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
 
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-center">
+                    <?php 
 
-                      <img src="update_assets.png" height=75 width=75 alt='Update Assets'>
+                      echo "<h1 class='text-red'><strong>$ ".($result * $tu)."</strong></h1>";
 
-                    </div>
-
-                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 text-left">
-
-                      
-
-                    </div>
+                    ?>
 
                   </div>
-
-                  <div class="row container-fluid text-left">
-
-                    <hr>
-                    <h4><strong>Update Assets</strong></h4>
-
-                  </div>
-
-                  <br>
 
                 </div>
 
-              </a>
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Total Deficit</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                      $cur_bal_vs_ideal_bal = $row['cur_bal_vs_ideal_bal'];
+
+                      echo "<h1 class='text-orange'><strong>".$cur_bal_vs_ideal_bal." %</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Reserves Funded</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $year = date('Y');
+                      $month = date('m');
+
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2018"));
+
+                      $recommended_monthly_allocation_units = $row['rec_mthly_alloc_unit'];
+
+                      $reserve_allocation = $recommended_monthly_allocation_units * $month;
+
+                      $reserve_allocation = round($reserve_allocation, 0);
+
+                      if($cur_bal_vs_ideal_bal >= 70)
+                        echo "<h1 class='text-green'><strong>".$reserve_allocation."</strong></h1>";
+                      else
+                        echo "<h1 class='text-orange'><strong>".$reserve_allocation."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>YTD Allocation</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
 
             </div>
 
