@@ -106,9 +106,7 @@
         }
         else
             echo "You do not have access for annual disclosure.";
-		
-		
-
+        
 	}
 	else
 		echo "Incorrect Phone Number.
