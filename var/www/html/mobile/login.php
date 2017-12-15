@@ -30,7 +30,7 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$hoaquery = "SELECT * FROM HOAID WHERE HOA_ID=".$subRow['hoa_id'];
 	$hoaqueryResult = pg_query($hoaquery);
 	$hoarow = pg_fetch_assoc($hoaqueryResult);
-	$userData['user_cellno'] = $hoarow['cellno'];
+	$userData['user_cellno'] = $hoarow['cell_no'];
 
 
 
