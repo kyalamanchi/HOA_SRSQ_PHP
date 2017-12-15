@@ -29,6 +29,8 @@
 	$cell_no = $row['cell_no'];
 	$community_id = $row['community_id'];
 
+	$cell_no = base64_decode($cell_no);
+
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM community_info WHERE community_id=$community_id"));
 
 	$community_name = $row['legal_name'];

@@ -417,6 +417,8 @@
 										$user_email = $row['email'];
 										$user_cell_no = $row['cell_no'];
 
+										$user_cell_no = base64_decode($user_cell_no);
+
                                         $_SESSION['hoa_alchemy_cell_no'] = $user_cell_no;
 
 									?>
