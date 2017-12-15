@@ -133,7 +133,7 @@
 
                 <div class="row container-fluid text-center">
 
-                  <h5><strong>Annual Deprecation</strong></h5>
+                  <h5><strong>Deterioration Cost / Yr</strong></h5>
 
                 </div>
 
@@ -425,7 +425,7 @@
 
                 <div class="row container-fluid text-center">
 
-                  <h5><strong>Annual Deprecation</strong></h5>
+                  <h5><strong>Deterioration Cost / Yr</strong></h5>
 
                 </div>
 
