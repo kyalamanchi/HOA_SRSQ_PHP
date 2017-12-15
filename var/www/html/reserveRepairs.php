@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="plugins/select2/select2.min.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -47,9 +48,9 @@
     
     <div class="wrapper">
 
-      <?php if($mode == 1) include "boardHeader.php"; ?>
+      <?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
       
-      <?php if($mode == 1) include 'boardNavigationMenu.php'; ?>
+      <?php if($mode == 1) include 'boardNavigationMenu.php'; else if($mode == 2) include "residentNavigationMenu.php"; ?>
 
       <?php include 'zenDeskScript.php'; ?>
 
@@ -61,17 +62,17 @@
           $month = date("m");
           $end_date = date("t");
 
-          $result = pg_query("SELECT * FROM community_invoices WHERE community_id=$community_id AND reserve_expense='t'");
+          $ryear = $_GET['year'];
 
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Reserve Repairs</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Reserve Repairs</strong><small> - <?php echo $ryear; ?></small></h1>
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-support"></i> Reserves Dashboard</li>
+            <li><a href='reservesDashboard.php'><i class="fa fa-support"></i> Reserves Dashboard</a></li>
             <li>Reserve Repairs</li>
           
           </ol>
@@ -84,7 +85,7 @@
 
             <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
-              <div class="box">
+              <div class="row container-fluid" style="background-color: white;">
 
                 <div class="box-body table-responsive">
                   
@@ -108,6 +109,8 @@
                     <tbody>
 
                       <?php 
+
+                        $result = pg_query("SELECT * FROM community_invoices WHERE reserve_expense='t' AND community_id=$community_id AND invoice_date>='$ryear-01-01' AND invoice_date<='$ryear-12-31'");
 
                         while ($row = pg_fetch_assoc($result)) 
                         {
@@ -179,6 +182,7 @@
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
+    <script src="plugins/select2/select2.full.min.js"></script>
 
     <script>
       $(function () {
