@@ -20,15 +20,17 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 
 	$subRow = pg_fetch_assoc($subQueryResult);
 
-
-
-	$userData['hoa_id'] = $subRow['hid'];
+	$userData['hoa_id'] = $subRow['hoa_id'];
 
 	$userData['first_name'] = $row['first_name'];
 
 	$userData['last_name'] = $row['last_name'];
 
 	$userData['login_email'] = $_GET['email'];
+
+	$userData['house_number'] = $subRow['house_number'];
+
+	$userData['address'] = $subRow['address'];
 
 	print_r(json_encode($userData));
 }
