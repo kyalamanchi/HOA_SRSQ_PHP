@@ -214,7 +214,7 @@
 
                       $depreciation = round($depreciation, 0);
 
-                      echo "<h1><strong>$ ".$depreciation."</strong></h1>";
+                      echo "<h1 class='text-info'><strong>$ ".$depreciation."</strong></h1>";
 
                     ?>
 
