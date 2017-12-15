@@ -404,6 +404,42 @@
 
             </div>
 
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $row = pg_fetch_assoc(pg_query("SELECT * FROM community_reserves WHERE community_id=$community_id AND year=2017"));
+
+                      $reserves = $row['cur_bal_vs_ideal_bal'];
+
+                      echo "<h1 class='text-danger'><strong>".$reserves." %</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Reserves Funded</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
 
 
 
