@@ -219,7 +219,7 @@
 
 							<div class='special-heading m-b-40'>
 
-								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
+								<h2 class='h2'>Welcome <?php echo $first_name; ?></h2>
 
 							</div>
 
@@ -264,7 +264,7 @@
 
 							<div class='special-heading m-b-40'>
 
-								<h2 class='h2'>Welcome <?php echo $first_name." ".$last_name; ?></h2>
+								<h2 class='h2'>Welcome <?php echo $first_name; ?></h2>
 
 							</div>
 

@@ -11,8 +11,8 @@
 
 	$row = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
 	$username = $row['firstname'];
-	$username .= " ";
-	$username .= $row['lastname'];
+	//$username .= " ";
+	//$username .= $row['lastname'];
 	$_SESSION['hoa_alchemy_cell_no'] = $row['cell_no'];
 	$_SESSION['hoa_alchemy_email'] = $row['email'];
 	$_SESSION['hoa_alchemy_home_id'] = $row['home_id'];
