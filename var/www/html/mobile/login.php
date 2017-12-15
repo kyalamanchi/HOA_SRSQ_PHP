@@ -12,6 +12,8 @@ $queryResult = pg_query($query);
 
 $row = pg_fetch_assoc($queryResult);
 
+$result = array();
+
 if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData = array();
 
@@ -57,15 +59,20 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 		$userData['is_board_member'] = "false";
 	}
 
+	$result["result"] = "success";
+
+	$result["user_data"] = $userData;
 
 
 
 
 
-	print_r(json_encode($userData));
+	
 }
 else {
-	print_r($row);
+	$result["result"] = "error";
 }
+
+print_r(json_encode($userData));
 
 ?>
