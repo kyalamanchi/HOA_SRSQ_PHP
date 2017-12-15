@@ -20,8 +20,7 @@
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
 
-      if($_SESSION['hoa_mode'] == 2)
-        header("Location: https://hoaboardtime.com/residentDashboard.php");
+      $mode = $_SESSION['hoa_mode'];
 
     ?>
 
@@ -71,9 +70,9 @@
     
     <div class="wrapper">
 
-      <?php include 'boardHeader.php'; ?>
+      <?php if($mode == 1) include 'boardHeader.php'; else if($mode == 2) include 'residentHeader.php'; ?>
       
-      <?php include 'boardNavigationMenu.php'; ?>
+      <?php if($mode == 1) include 'boardNavigationMenu.php'; else if($mode == 2) include 'residentNavigationMenu.php'; ?>
 
       <?php include 'zenDeskScript.php'; ?>
 
