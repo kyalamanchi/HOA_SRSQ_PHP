@@ -223,7 +223,7 @@
                       
                       <tr>
                         
-                        <th>Name</th>
+                        <!--th>Name</th-->
                         <th>Property Address</th>
                         <th>Mailing Address</th>
                         <th>Email</th>
@@ -286,9 +286,9 @@
                           $living_status = $row100['living_status'];
 
                           if($living_status == 't')
-                            echo "<tr><td>".$name."</td><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
+                            echo "<tr><td>".$property."</td><td>".$mailing_address."</td><td>".$email."</td><td>".$cell."</td></tr>";
                           else
-                            echo "<tr><td class='text-danger'>".$name."</td><td class='text-danger'>".$property."</td><td class='text-danger'>".$mailing_address."</td><td class='text-danger'>".$email."</td><td class='text-danger'>".$cell."</td></tr>";
+                            echo "<tr><td class='text-danger'>".$property."</td><td class='text-danger'>".$mailing_address."</td><td class='text-danger'>".$email."</td><td class='text-danger'>".$cell."</td></tr>";
 
                         }
 
@@ -300,7 +300,7 @@
 
                       <tr>
 
-                        <th>Name</th>
+                        <!--th>Name</th-->
                         <th>Property Address</th>
                         <th>Mailing Address</th>
                         <th>Email</th>
