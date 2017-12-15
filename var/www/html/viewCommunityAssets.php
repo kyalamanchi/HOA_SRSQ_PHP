@@ -62,15 +62,17 @@
           $month = date("m");
           $end_date = date("t");
 
+          $ryear = $_GET['year'];
+
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Community Assets</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Community Assets</strong><small> - <?php echo $ryear; ?></small></h1>
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-support"></i> Reserves Dashboard</li>
+            <li><a href='reservesDashboard.php'><i class="fa fa-support"></i> Reserves Dashboard</a></li>
             <li>Community Assets</li>
           
           </ol>
@@ -95,7 +97,7 @@
 
                         <?php
 
-                          $res = pg_query("SELECT asset_category_id, count(*), sum(ideal_balance) AS ib, sum(current_balance) AS cb FROM community_assets WHERE community_id=$community_id GROUP BY asset_category_id");
+                          $res = pg_query("SELECT asset_category_id, count(*), sum(ideal_balance) AS ib, sum(current_balance) AS cb FROM community_assets WHERE community_id=$community_id AND year=$ryear GROUP BY asset_category_id");
 
                           while($row = pg_fetch_assoc($res))
                           {

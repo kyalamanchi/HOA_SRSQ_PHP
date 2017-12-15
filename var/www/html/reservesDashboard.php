@@ -259,7 +259,7 @@
                       $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2017"));
 
                       if($assets != '')
-                        echo "<h1 class='text-success'><strong><a href='communityAssets.php?year=2017'>$assets</a></strong></h1>";
+                        echo "<h1 class='text-success'><strong><a href='viewCommunityAssets.php?year=2017'>$assets</a></strong></h1>";
                       else
                         echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
 
