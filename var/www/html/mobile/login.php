@@ -73,6 +73,6 @@ else {
 	$result["result"] = "error";
 }
 
-print_r(json_encode($userData));
+print_r(json_encode($result));
 
 ?>
