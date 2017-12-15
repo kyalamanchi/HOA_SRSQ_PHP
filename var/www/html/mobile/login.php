@@ -12,6 +12,8 @@ $queryResult = pg_query($query);
 
 $row = pg_fetch_assoc($queryResult);
 
+$result = array();
+
 if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData = array();
 
@@ -27,6 +29,13 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData['address'] = $subRow['address'];
 
 
+	$hoaquery = "SELECT * FROM HOAID WHERE HOA_ID=".$subRow['hoa_id'];
+	$hoaqueryResult = pg_query($hoaquery);
+	$hoarow = pg_fetch_assoc($hoaqueryResult);
+	$userData['user_cellno'] = $hoarow['cell_no'];
+	$userData['user_home_id'] = $hoarow['home_id'];
+
+
 
 	$communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$subRow['community_id'];
 	$communityQueryResult = pg_query($communityQuery);
@@ -38,13 +47,26 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData['user_community_telno'] = '+1'.$communityRow['telno'];
 
 
+	$boardMemberQuery = "SELECT * FROM BOARD_COMMITTEE_DETAILS WHERE USER_ID=".$row['id'];
+	$boardMemberQueryResult = pg_query($boardMemberQuery);
+	$boardMemberRow = pg_fetch_assoc($boardMemberQueryResult);
 
+	if ( isset($boardMemberRow['board_member_id'])){
+		$userData['is_board_member'] = "true";
+	}
+	else {
+		$userData['is_board_member'] = "false";
+	}
 
+	$result["result"] = "success";
 
-	print_r(json_encode($userData));
+	$result["user_data"] = $userData;
+
 }
 else {
-	print_r($row);
+	$result["result"] = "error";
 }
+
+print_r(json_encode($result));
 
 ?>
