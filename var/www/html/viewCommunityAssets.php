@@ -145,8 +145,8 @@
                                       <thead>
 
                                         <th>Sub Category</th>
-                                        <th>UL</th>
-                                        <th>Reusable L</th>
+                                        <th>Usable Life</th>
+                                        <th>Remaining Usable Life L</th>
                                         <th>Minimum Unit Cost</th>
                                         <th>Average Unit Cost</th>
                                         <th>Maximum Unit Cost</th>
@@ -156,7 +156,6 @@
                                         <th>Monthly Contribution</th>
                                         <th>Quantity</th>
                                         <th>Repair Type</th>
-                                        <th>Units Of Measure</th>
 
                                       </thead>
 
@@ -213,7 +212,7 @@
                                           if($asset_placement_date != "")
                                             $asset_placement_date = date('m-d-Y', strtotime($asset_placement_date));
 
-                                          echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$min_unit_cost</td><td>$ $avg_unit_cost</td><td>$max_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity</td><td>$community_repair_type</td><td>$community_uom</td></tr>";
+                                          echo "<tr><td>$asset_sub_category</td><td>$ul</td><td>$rul</td><td>$min_unit_cost</td><td>$ $avg_unit_cost</td><td>$max_unit_cost</td><td>$asset_placement_date</td><td>$ $ideal_balance</td><td>$ $current_balance</td><td>$ $monthly_contributions</td><td>$quantity $community_uom</td><td>$community_repair_type</td></tr>";
 
                                         }
 
