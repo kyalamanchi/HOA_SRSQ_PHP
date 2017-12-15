@@ -474,7 +474,7 @@
 
                                                                     <div class='modal-header'>
 
-                                                                        <h4 class='h4'>Edit - $person_firstname $person_lastname</h4>
+                                                                        <h4 class='h4'>Edit - $person_firstname</h4>
                                                                         <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
                                                                     </div>
@@ -655,7 +655,7 @@
 
                                                                     <div class='modal-header'>
 
-                                                                        <h4 class='h4'>Remove - $person_firstname $person_lastname</h4>
+                                                                        <h4 class='h4'>Remove - $person_firstname</h4>
                                                                         <button class='close' type='button' data-dismiss='modal' aria-label='Close'><span>&times;</span></button>
 
                                                                     </div>
