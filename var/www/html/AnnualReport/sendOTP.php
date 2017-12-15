@@ -13,82 +13,93 @@
 	else if($ocell_no == $confirm_cell_no)
 	{
 
-		if($community_id == 2)
-		{
+		$row = pg_fetch_assoc(pg_query("SELECT * FROM member_info WHERE hoa_id=$hoa_id"));
+        $member_id = $row['member_id'];
 
-			//Getting telephone number of community
+        $row = pg_fetch_assoc(pg_query("SELECT * FROM usr WHERE member_id=$member_id"));
+        $annual_disclosure_enabled = $row['annual_discl_enabled'];
 
-            $telnoassoc = pg_fetch_assoc(pg_query("SELECT telno FROM community_info WHERE community_id=".$community_id));
-            $telno = $telnoassoc['telno'];
+        if($annual_disclosure_enabled == 't')
+        {
+        
+            if($community_id == 2)
+    		{
 
-            $six_digit_random_number = mt_rand(100000, 999999);
+    			//Getting telephone number of community
 
-            $date = date("Y-m-d H:i:s");
+                $telnoassoc = pg_fetch_assoc(pg_query("SELECT telno FROM community_info WHERE community_id=".$community_id));
+                $telno = $telnoassoc['telno'];
 
-            $new_date = date("Y-m-d H:i:s", strtotime('+4 hours', strtotime($date)));
+                $six_digit_random_number = mt_rand(100000, 999999);
 
-            $res = pg_query("UPDATE verification_code_sent SET is_valid='f' WHERE hoa_id=$hoa_id");
+                $date = date("Y-m-d H:i:s");
 
-            $res = pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND verification_code_type=4");
+                $new_date = date("Y-m-d H:i:s", strtotime('+4 hours', strtotime($date)));
 
-            if(pg_num_rows($res))
-            {
-            
-            	$res = pg_query("UPDATE verification_code_sent SET verification_code=$six_digit_random_number, sent_on='$date', valid_until='$new_date', is_valid='t' WHERE hoa_id=$hoa_id AND verification_code_type=4");
+                $res = pg_query("UPDATE verification_code_sent SET is_valid='f' WHERE hoa_id=$hoa_id");
 
-        	}
-        	else
-        		$res = pg_query("INSERT INTO verification_code_sent (hoa_id, verification_code_type, verification_code, sent_on, valid_until, is_valid) VALUES ($hoa_id, 4, $six_digit_random_number, '$date', '$new_date', 't')");
-            
-            $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
+                $res = pg_query("SELECT * FROM verification_code_sent WHERE hoa_id=$hoa_id AND verification_code_type=4");
 
-            $result = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
-            $home_id = $result['home_id'];
-            $num = $result['cell_no'];
+                if(pg_num_rows($res))
+                {
+                
+                	$res = pg_query("UPDATE verification_code_sent SET verification_code=$six_digit_random_number, sent_on='$date', valid_until='$new_date', is_valid='t' WHERE hoa_id=$hoa_id AND verification_code_type=4");
 
-            $result = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
-            $living_status = $result['living_status'];
+            	}
+            	else
+            		$res = pg_query("INSERT INTO verification_code_sent (hoa_id, verification_code_type, verification_code, sent_on, valid_until, is_valid) VALUES ($hoa_id, 4, $six_digit_random_number, '$date', '$new_date', 't')");
+                
+                $body  = "Hello ".$name.", OTP to view your HOA Annual Report is ".$six_digit_random_number.".";
 
-            if($living_status == 't')
-                $country = $result['country_id'];
-            else
-            {
+                $result = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
+                $home_id = $result['home_id'];
+                $num = $result['cell_no'];
 
-                $result = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
-                $country = $result['country_id'];
+                $result = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
+                $living_status = $result['living_status'];
+
+                if($living_status == 't')
+                    $country = $result['country_id'];
+                else
+                {
+
+                    $result = pg_fetch_assoc(pg_query("SELECT * FROM home_mailing_address WHERE home_id=$home_id"));
+                    $country = $result['country_id'];
+
+                }
+
+                $result = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$country"));
+                $tel_prefix = $result['tel_prefix'];
+
+                $key = $tel_prefix;
+                $key .= $num;
+
+                //Sending request to twilio
+
+                $url  = 'https://api.twilio.com/2010-04-01/Accounts/AC9370eeb4b1922b7dc29d94c387b3ab56/Messages.json';
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_USERPWD, "AC9370eeb4b1922b7dc29d94c387b3ab56" . ":" . "3b29450d9ce0e5ec7ba6b328f05525a2");
+                $headers = array();
+                $headers[] = "Content-Type: application/x-www-form-urlencoded";
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+                $result = curl_exec($ch);
+
+                if (curl_errno($ch)) {
+
+                    echo 'Error:' . curl_error($ch);
+
+                }
+
+                curl_close ($ch);
+
+                //print_r(nl2br("\n\n"));
+                //print_r("Response is ".$result);
 
             }
-
-            $result = pg_fetch_assoc(pg_query("SELECT * FROM country WHERE country_id=$country"));
-            $tel_prefix = $result['tel_prefix'];
-
-            $key = $tel_prefix;
-            $key .= $num;
-
-            //Sending request to twilio
-
-            $url  = 'https://api.twilio.com/2010-04-01/Accounts/AC9370eeb4b1922b7dc29d94c387b3ab56/Messages.json';
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, "Body=$body&To=%2B$key&From=%2B1$telno");
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_USERPWD, "AC9370eeb4b1922b7dc29d94c387b3ab56" . ":" . "3b29450d9ce0e5ec7ba6b328f05525a2");
-            $headers = array();
-            $headers[] = "Content-Type: application/x-www-form-urlencoded";
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-            $result = curl_exec($ch);
-
-            if (curl_errno($ch)) {
-
-                echo 'Error:' . curl_error($ch);
-
-            }
-
-            curl_close ($ch);
-
-            //print_r(nl2br("\n\n"));
-            //print_r("Response is ".$result);
 
         }
 		
