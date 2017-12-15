@@ -535,21 +535,11 @@
 
 											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
 
-												<label><strong>First Name</strong></label>
+												<label><strong>Name</strong></label>
 
 												<br>
 
-												<input class='form-control' type='text' name='edit_firstname' id='edit_firstname' value='<?php echo $user_firstname; ?>' readonly>
-
-											</div>
-
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
-
-												<label><strong>Last Name</strong></label>
-
-												<br>
-
-												<input class='form-control' type='text' name='edit_lastname' id='edit_lastname' value='<?php echo $user_lastname; ?>' readonly>
+												<input class='form-control' type='text' name='edit_name' id='edit_name' value='<?php echo $user_firstname." ".$user_lastname; ?>' readonly>
 
 											</div>
 
