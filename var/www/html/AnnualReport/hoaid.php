@@ -453,23 +453,13 @@
 
 									<div class='row'>
 										
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
-											<label><strong><u>First Name</u></strong></label>
-
-											<br>
-
-											<h3 class='h3' style='color: black;'><?php echo $user_firstname; ?></h3>
-
-										</div>
-
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
-
-											<label><strong><u>Last Name</u></strong></label>
+											<label><strong><u>Name</u></strong></label>
 
 											<br>
 
-											<h3 class='h3' style='color: black;'><?php echo $user_lastname; ?></h3>
+											<h3 class='h3' style='color: black;'><?php echo $user_firstname." ".$user_lastname; ?></h3>
 
 										</div>
 
@@ -479,7 +469,7 @@
 
 									<div class='row'>
 
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
 											<label><strong><u>Email</u></strong></label>
 
@@ -489,7 +479,11 @@
 
 										</div>
 
-										<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 text-center'>
+									</div>
+
+									<div class='row'>
+
+										<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
 
 											<label><strong><u>Cell Number</u></strong></label>
 
