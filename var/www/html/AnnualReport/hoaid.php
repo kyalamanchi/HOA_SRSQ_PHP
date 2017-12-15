@@ -539,9 +539,10 @@
 
 												<br>
 
-												<input class='form-control' type='text' name='edit_name' id='edit_name' value='<?php echo $user_firstname." ".$user_lastname; ?>' readonly>
+												<input class='form-control' type='text' name='edit_name' id='edit_name' value='<?php echo $user_firstname; ?>' readonly>
 
 											</div>
+
 
 											<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
