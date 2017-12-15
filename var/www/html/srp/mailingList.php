@@ -139,6 +139,9 @@
 											$email = $row1['email'];
 											$cell_no = $row1['cell_no'];
 
+											if($cell_no != '')
+												$cell_no = base64_encode($cell_no);
+
 											if($living_status == 'f')
 											{
 												
