@@ -13,7 +13,24 @@ $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 
 if ( password_verify($_GET['pwd'], $row['password']) ){
-	echo "Login success";
+	$userData = array();
+
+	$subQuery = "SELECT * FROM member_info WHERE member_id=".$row['member_id'];
+	$subQueryResult = pg_query($subQuery);
+
+	$subRow = pg_fetch_assoc($subQueryResult);
+
+
+
+	$userData['hoa_id'] = $subRow['hid'];
+
+	$userData['first_name'] = $row['first_name'];
+
+	$userData['last_name'] = $row['last_name'];
+
+	$userData['login_email'] = $_GET['email'];
+
+	print_r(json_encode($userData));
 }
 else {
 	print_r($row);
