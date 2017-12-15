@@ -82,7 +82,7 @@
 
         <section class="content">
           
-          <div class="row">
+          <div class="row container-fluid">
 
             <ul class="timeline">
 
