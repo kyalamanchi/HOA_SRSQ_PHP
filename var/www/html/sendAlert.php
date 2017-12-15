@@ -179,7 +179,7 @@
 						$body = str_replace("#process_date#", $processDate, $body);
 
 
-						echo $body;
+
 
 						$key = $personPhoneNumbers[$row['person_id']];
 
@@ -215,13 +215,14 @@
 						$uri = $result->uri;
 						$insert = "INSERT INTO SMS_SENT(SID,DATE_CREATED,DATE_UPDATED,FROM_NUMBER,STATUS,URI,PERSON_ID,updated_by,updated_on,sent_by) VALUES('$sid','$dateCreated','$dateUpdated','$fromNumber','$status','$uri',".$row['person_id'].",401,'".date('Y-m-d H:i:s')."',401)";
 						pg_query($insert);
-						echo $result;
+						
 
 
 			}
 		}
 		else {
-			echo "Member not subscribed";
+			echo $hoaID." Member not subscribed";
+			echo nl2br("\n");
 		}
 	}
 	else {
