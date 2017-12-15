@@ -33,8 +33,7 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$hoaqueryResult = pg_query($hoaquery);
 	$hoarow = pg_fetch_assoc($hoaqueryResult);
 	$userData['user_cellno'] = $hoarow['cell_no'];
-
-
+	$userData['user_home_id'] = $hoarow['home_id'];
 
 
 
@@ -63,11 +62,6 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 
 	$result["user_data"] = $userData;
 
-
-
-
-
-	
 }
 else {
 	$result["result"] = "error";
