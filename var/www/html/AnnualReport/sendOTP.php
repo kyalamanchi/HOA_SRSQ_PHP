@@ -54,6 +54,8 @@
                 $result = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id"));
                 $home_id = $result['home_id'];
                 $num = $result['cell_no'];
+                
+                $num = base64_decode($num);
 
                 $result = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$home_id"));
                 $living_status = $result['living_status'];
@@ -106,7 +108,7 @@
         }
         else
             echo "You do not have access for annual disclosure.";
-        
+
 	}
 	else
 		echo "Incorrect Phone Number.
