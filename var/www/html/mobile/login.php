@@ -19,18 +19,27 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$subQueryResult = pg_query($subQuery);
 
 	$subRow = pg_fetch_assoc($subQueryResult);
-
 	$userData['hoa_id'] = $subRow['hoa_id'];
-
 	$userData['first_name'] = $row['first_name'];
-
 	$userData['last_name'] = $row['last_name'];
-
 	$userData['login_email'] = $_GET['email'];
-
 	$userData['house_number'] = $subRow['house_number'];
-
 	$userData['address'] = $subRow['address'];
+
+
+
+	$communityQuery = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID=".$subRow['community_id'];
+	$communityQueryResult = pg_query($communityQuery);
+	$communityRow = pg_fetch_assoc($communityQueryResult);
+
+	$userData['community_id'] = $subRow['community_id'];
+	$userData['user_community_code'] = $communityRow['community_code'];
+	$userData['user_community_legal_name'] = $communityRow['community_legal_name'];
+	$userData['user_community_telno'] = $communityRow['telno'];
+
+	
+
+
 
 	print_r(json_encode($userData));
 }
