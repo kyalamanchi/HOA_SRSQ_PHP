@@ -503,7 +503,7 @@
 
                 <div class="row container-fluid text-center">
 
-                  <h5><strong>Completed Repairs</strong></h5>
+                  <h5><strong>Projected Repairs</strong></h5>
 
                 </div>
 
