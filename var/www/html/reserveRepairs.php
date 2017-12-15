@@ -96,7 +96,7 @@
                       <tr>
                         
                         <th>Invoice Date</th>
-                        <th>Vendor Name (Vendor ID)</th>
+                        <th>Vendor Name<?php if($mode == 1) echo " (Vendor ID)"; ?></th>
                         <th>Work Status</th>
                         <th>Payment Status</th>
                         <th>Invoice Amount</th>
@@ -131,7 +131,12 @@
                           if($invoice_amount != '')
                             $invoice_amount = "$ ".$invoice_amount;
 
-                          echo "<tr><td>$invoice_date</td><td>$vendor_name ($vendor_id)</td><td>$work_status</td><td>$payment_status</td><td>$invoice_amount</td><td>$invoice_id</td></tr>";
+                          echo "<tr><td>$invoice_date</td><td>$vendor_name";
+
+                          if($mode == 1)
+                            echo " ($vendor_id)";
+
+                          echo "</td><td>$work_status</td><td>$payment_status</td><td>$invoice_amount</td><td>$invoice_id</td></tr>";
 
                         }
 
