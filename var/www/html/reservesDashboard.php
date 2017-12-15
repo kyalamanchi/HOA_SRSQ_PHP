@@ -420,7 +420,7 @@
 
                       $reserves = $row['cur_bal_vs_ideal_bal'];
 
-                      echo "<h1 class='text-danger'><strong>".$reserves." %</strong></h1>";
+                      echo "<h1 class='text-warning'><strong>".$reserves." %</strong></h1>";
 
                     ?>
 
