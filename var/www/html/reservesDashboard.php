@@ -265,7 +265,7 @@
                       $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2017"));
 
                       if($assets > 0)
-                        echo "<h1 class='text-success'><strong><a href='viewCommunityAssets.php?year=2017'>$assets</a></strong></h1>";
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='viewCommunityAssets.php?year=2017'>$assets</a></strong></h1>";
                       else
                         echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
 
@@ -306,7 +306,7 @@
                       $repairs = round($repairs, 0);
 
                       if($assets > 0)
-                        echo "<h1 class='text-success'><strong><a href='reserveRepairs.php?year=2017'>$ $repairs</a></strong></h1>";
+                        echo "<h1 class='text-green'><strong><a class='text-green' href='reserveRepairs.php?year=2017'>$ $repairs</a></strong></h1>";
                       else
                         echo "<h1 class='text-info'><strong>$ ".$repairs."</strong></h1>";
 
@@ -352,7 +352,7 @@
 
                       $result = round($result, 0);
 
-                      echo "<h1 class='text-danger'><strong>$ ".$result."</strong></h1>";
+                      echo "<h1 class='text-red'><strong>$ ".$result."</strong></h1>";
 
                     ?>
 
@@ -384,7 +384,7 @@
 
                     <?php 
 
-                      echo "<h1 class='text-danger'><strong>$ ".($result * $tu)."</strong></h1>";
+                      echo "<h1 class='text-red'><strong>$ ".($result * $tu)."</strong></h1>";
 
                     ?>
 
