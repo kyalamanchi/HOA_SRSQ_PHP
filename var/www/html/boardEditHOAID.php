@@ -40,6 +40,6 @@
 	else
 		echo "<br><br><br><br><center><h3>Failed to update. Please try again.</h3></center>";
 
-	echo "<br><br><br><center><a href='userDashboard2.php?hoa_id=".$ehoa_id."'>Click here</a> if this doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=".$ehoa_id."'},2000);</script>";
+	echo "<br><br><br><center><a href='userDashboard2.php?hoa_id=".$ehoa_id."'>Click here</a> if this doesnot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='userDashboard2.php?hoa_id=".$ehoa_id."'},1000);</script>";
 
 ?>
