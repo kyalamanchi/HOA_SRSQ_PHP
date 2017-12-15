@@ -533,7 +533,7 @@
 																						
 										<div class='row'>
 
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
 												<label><strong>Name</strong></label>
 
@@ -543,20 +543,14 @@
 
 											</div>
 
-										</div>
-
-										<br>
-
-										<div class='row'>
-
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
 												<label><strong>Email</strong></label><br>
 												<input class='form-control' type='email' name='edit_email' id='edit_email' value='<?php echo $user_email; ?>' required>
 
 											</div>
 
-											<div class='col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12'>
+											<div class='col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12'>
 
 												<label><strong>Phone</strong></label><br>
 												<input class='form-control' type='number' name='edit_cell_no' id='edit_cell_no' value='<?php echo $user_cell_no; ?>' required>
