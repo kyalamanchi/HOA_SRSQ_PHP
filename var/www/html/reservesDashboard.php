@@ -180,7 +180,7 @@
         
         <section class="content-header">
 
-          <h1><strong>Reserves Dashboard</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
+          <h1><strong>Reserves Dashboard</strong><small> - 2017</small></h1>
 
           <ol class="breadcrumb">
             
@@ -195,6 +195,16 @@
           <div class="row container-fluid" style="background-color: #ffffff;">
 
             <br>
+
+
+
+
+
+
+
+
+
+
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
 
@@ -233,6 +243,52 @@
               </div>
 
             </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12">
+
+              <div class="row container-fluid text-left">
+
+                <br>
+
+                <div class="row container-fluid">
+
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+
+                    <?php 
+
+                      $assets = pg_num_rows(pg_query("SELECT * FROM community_assets WHERE community_id=$community_id AND year=2017"));
+
+                      if($assets != '')
+                        echo "<h1 class='text-success'><strong><a href='communityAssets.php?year=2017'>$assets</a></strong></h1>";
+                      else
+                        echo "<h1 class='text-info'><strong>".$assets."</strong></h1>";
+
+                    ?>
+
+                  </div>
+
+                </div>
+
+                <div class="row container-fluid text-center">
+
+                  <h5><strong>Assets</strong></h5>
+
+                </div>
+
+                <br>
+
+              </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
 
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
 
