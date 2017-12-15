@@ -143,6 +143,8 @@
                           $email = $row1['email'];
                           $phone = $row1['cell_no'];
 
+                          $phone = base64_decode($phone);
+
                           if($living_status == 't')
                           {
                             $address = $row['address1'];
