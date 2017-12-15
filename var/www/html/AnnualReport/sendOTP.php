@@ -99,11 +99,15 @@
                 //print_r(nl2br("\n\n"));
                 //print_r("Response is ".$result);
 
+                echo "sent";
+
             }
 
         }
+        else
+            echo "You do not have access for annual disclosure.";
 		
-		echo "sent";
+		
 
 	}
 	else
