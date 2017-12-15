@@ -35,7 +35,7 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 	$userData['user_community_id'] = $subRow['community_id'];
 	$userData['user_community_code'] = $communityRow['community_code'];
 	$userData['user_community_legal_name'] = $communityRow['legal_name'];
-	$userData['user_community_telno'] = $communityRow['telno'];
+	$userData['user_community_telno'] = '+1'.$communityRow['telno'];
 
 
 
