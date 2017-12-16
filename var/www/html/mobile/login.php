@@ -65,6 +65,11 @@ if ( password_verify($_GET['pwd'], $row['password']) ){
 }
 else {
 	$result["result"] = "error";
+
+	$userData = array();
+
+	$result["user_data"] = $userData;
+
 }
 
 print_r(json_encode($result));
