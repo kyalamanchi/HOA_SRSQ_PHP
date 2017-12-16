@@ -197,7 +197,7 @@
 
                       $repairs = round($repairs, 0);
 
-                      if($assets > 0)
+                      if($repairs > 0)
                         echo "<h1 class='text-green'><strong><a class='text-green' href='reserveRepairs.php?year=2017'>$ $repairs</a></strong></h1>";
                       else
                         echo "<h1 class='text-info'><strong>$ ".$repairs."</strong></h1>";

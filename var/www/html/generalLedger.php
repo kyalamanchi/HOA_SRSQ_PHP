@@ -93,9 +93,9 @@
     
     <div class="wrapper">
 
-      <?php if($mode == 1) include "boardHeader.php"; ?>
+      <?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
       
-      <?php if($mode == 1) include 'boardNavigationMenu.php'; ?>
+      <?php if($mode == 1) include 'boardNavigationMenu.php'; else if($mode == 2) include "residentNavigationMenu.php"; ?>
 
       <?php include 'zenDeskScript.php'; ?>
 
@@ -117,7 +117,7 @@
 
           <ol class="breadcrumb">
             
-            <li><i class="fa fa-dollar"></i> Finance Dashboard</li>
+            <li><a href='financeDashboard.php'><i class="fa fa-dollar"></i> Finance Dashboard</a></li>
             <li>General Ledger</li>
           
           </ol>
