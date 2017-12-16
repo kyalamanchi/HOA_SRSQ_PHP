@@ -40,10 +40,6 @@
 
       	$community_id = $_SESSION['hoa_community_id'];
 
-        $query = "SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id'];
-        $result = pg_query($query);
-        $board = pg_num_rows($result);
-
         $hoa_id = $_SESSION['hoa_hoa_id'];
         $home_id = $_SESSION['hoa_home_id'];
         $user_id = $_SESSION['hoa_user_id'];
@@ -86,7 +82,7 @@
     
     <div class="wrapper">
 
-      	<header class="main-header">
+      	<!--header class="main-header">
         
         	<a class="logo">
           
@@ -223,7 +219,13 @@
 
         	</section>
 
-      	</aside>
+      	</aside-->
+
+        <?php include 'residentHeader.php'; ?>
+
+        <?php include 'residentNavigationMenu.php'; ?>
+
+        <?php  include 'zenDeskScript.php'; ?>
 
       <div class="content-wrapper">
 
