@@ -16,13 +16,13 @@ while ($row = pg_fetch_assoc($queryResult)) {
 	$homeID['home_id'] = $row['address1'];
 }
 
+print_r($homeID);
 
 $query = "SELECT * FROM HOAID WHERE COMMUNITY_ID=".$_GET['cid'];
 $queryResult = pg_query($query);
 $members = array();
 while ($row = pg_fetch_assoc($queryResult)) {
 	$sub = array();
-
 	$sub['hoa_id'] = $row['hoa_id'];
 	$sub['first_name'] = $row['firstname'];
 	$sub['last_name'] = $row['lastname'];
