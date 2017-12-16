@@ -57,10 +57,14 @@
 				
 				$query = "SELECT * FROM hoaid WHERE email='".$login_email."'";
 				$result = pg_query($query);
-				$row =pg_fetch_assoc($result);
+				$row = pg_fetch_assoc($result);
 
 				$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
 				$_SESSION['hoa_home_id'] = $row['home_id'];
+
+				echo $_SESSION['hoa_hoa_id']." - - - ".$_SESSION['hoa_home_id'];
+
+				die();
 
 				$query = "SELECT * FROM homeid WHERE home_id=".$_SESSION['hoa_home_id'];
 				$result = pg_query($query);
