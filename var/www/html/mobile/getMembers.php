@@ -20,10 +20,23 @@ $queryResult = pg_query($query);
 $members = array();
 while ($row = pg_fetch_assoc($queryResult)) {
 	$sub = array();
+	if ( $row['hoa_id'] )
 	$sub['hoa_id'] = $row['hoa_id'];
+	else {
+		$sub['hoa_id'] = "";
+	}
+	if ( $row['firstname'] )
 	$sub['first_name'] = $row['firstname'];
+	else 
+		$sub['first_name'] = "";
+	if ($row['lastname'])
 	$sub['last_name'] = $row['lastname'];
+	else 
+		$sub['last_name'] = "";
+	if ( $homeID[$row['home_id']] )
 	$sub['address'] = $homeID[$row['home_id']];
+	else 
+		$sub['address']  = "";
 
 	array_push($members, $sub);
 }
