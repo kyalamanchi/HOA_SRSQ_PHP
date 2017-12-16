@@ -13,7 +13,7 @@ $queryResult = pg_query($query);
 $homeID = array();
 
 while ($row = pg_fetch_assoc($queryResult)) {
-	print_r($row);
+	$homeID[$row['home_id']] = $row['address1'];
 }
 
 print_r($homeID);
