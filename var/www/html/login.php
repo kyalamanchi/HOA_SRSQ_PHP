@@ -62,7 +62,9 @@
 				$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
 				$_SESSION['hoa_home_id'] = $row['home_id'];
 
-				echo $_SESSION['hoa_hoa_id']." - - - ".$_SESSION['hoa_home_id'];
+				echo $_SESSION['hoa_email']."<br>";
+
+				print_r($row);
 
 				die();
 
