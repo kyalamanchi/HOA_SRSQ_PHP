@@ -62,12 +62,6 @@
 				$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
 				$_SESSION['hoa_home_id'] = $row['home_id'];
 
-				echo $login_email."<br>";
-
-				print_r($row);
-
-				die();
-
 				$query = "SELECT * FROM homeid WHERE home_id=".$_SESSION['hoa_home_id'];
 				$result = pg_query($query);
 				$row =pg_fetch_assoc($result);
