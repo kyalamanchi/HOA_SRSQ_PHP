@@ -43,6 +43,8 @@
         $home_id = $_SESSION['hoa_home_id'];
         $user_id = $_SESSION['hoa_user_id'];
 
+        echo "<h1>".$hoa_id." - - - ".$home_id." - - - ".$user_id." - - - ".$community_id."</h1>";
+
     ?>
 
     <meta charset="utf-8">
