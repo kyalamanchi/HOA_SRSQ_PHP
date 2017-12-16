@@ -477,7 +477,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-              <?php echo "<a target='_blank' href='viewBillingStatement.php?hoa_id=$hoa_id'>"; ?>
+              <?php echo "<a target='_blank' href='viewBillingStatement.php?hoa_id=".$hoa_id."'>"; ?>
 
                 <div class="row container-fluid text-left">
 
