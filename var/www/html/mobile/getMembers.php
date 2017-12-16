@@ -15,7 +15,7 @@ $homeID = array();
 while ($row = pg_fetch_assoc($queryResult)) {
 	$homeID[$row['home_id']] = $row['address1'];
 }
-$query = "SELECT * FROM HOAID WHERE COMMUNITY_ID=".$_GET['cid'];
+$query = "SELECT * FROM HOAID WHERE COMMUNITY_ID=".$_GET['cid']." ORDER BY FIRSTNAME ASC";
 $queryResult = pg_query($query);
 $members = array();
 while ($row = pg_fetch_assoc($queryResult)) {
