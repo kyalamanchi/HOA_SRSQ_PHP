@@ -7,47 +7,49 @@ ini_set('display_errors', 1);
 date_default_timezone_set('America/Los_Angeles');
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 
-$query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['hoa_id'];
+echo "Message";
 
-$queryResult = pg_query($query);
+// $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['hoa_id'];
 
-$hoaRow = pg_fetch_assoc($queryResult);
+// $queryResult = pg_query($query);
 
-$homeID = $hoaRow['home_id'];
+// $hoaRow = pg_fetch_assoc($queryResult);
 
-$currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
-$currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
-$row = pg_fetch_assoc($currentPaymentsQueryResult);
+// $homeID = $hoaRow['home_id'];
 
-$currentPaymentsTotal = $row['sum'];
+// $currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
+// $currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
+// $row = pg_fetch_assoc($currentPaymentsQueryResult);
 
-
-$currentChargesQuery = "SELECT SUM(AMOUNT) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID;
-$currentChargesQueryResult = pg_query($currentChargesQuery);
-
-$row = pg_fetch_assoc($currentChargesQueryResult);
-
-$currentChargesTotal  = $row['sum'];
-
-$balance = $currentChargesTotal - $currentPaymentsTotal;
+// $currentPaymentsTotal = $row['sum'];
 
 
-$personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
-$personQueryResult  = pg_query($personQuery);
-$count = 0;
+// $currentChargesQuery = "SELECT SUM(AMOUNT) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID;
+// $currentChargesQueryResult = pg_query($currentChargesQuery);
 
-$emailsQuery = "SELECT COUNT(*) FROM community_emails_sent WHERE TO_EMAIL='".;
-while ($row = pg_fetch_assoc()) {
-	$count = $count + 1;
-	if ( isset($row['email']) ){
-	$emailsQuery = $emailsQuery.$row['email']."'";
-	}
-	if ( $count > 1 ){
-		$emailsQuery = $emailsQuery." or to_email='".$row['email']."'";
-	}
-}
+// $row = pg_fetch_assoc($currentChargesQueryResult);
 
-print_r($emailsQuery);
+// $currentChargesTotal  = $row['sum'];
+
+// $balance = $currentChargesTotal - $currentPaymentsTotal;
+
+
+// $personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
+// $personQueryResult  = pg_query($personQuery);
+// $count = 0;
+
+// $emailsQuery = "SELECT COUNT(*) FROM community_emails_sent WHERE TO_EMAIL='".;
+// while ($row = pg_fetch_assoc()) {
+// 	$count = $count + 1;
+// 	if ( isset($row['email']) ){
+// 	$emailsQuery = $emailsQuery.$row['email']."'";
+// 	}
+// 	if ( $count > 1 ){
+// 		$emailsQuery = $emailsQuery." or to_email='".$row['email']."'";
+// 	}
+// }
+
+// print_r($emailsQuery);
 
 
 ?>
