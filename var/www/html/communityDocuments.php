@@ -150,8 +150,13 @@
                                 }
                                 else
                                   $category = 'Others';
-
+                                if ( $community_id == 2 ){
                                 echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id&t=-2' target='_blank'>$date_of_upload</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id&t=-2' target='_blank'>$desc</a></td></tr>";
+                                }
+                                else {
+                                  echo "<tr><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$date_of_upload</a></td><td><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?path=$document_url&desc=$desc&cid=$community_id' target='_blank'>$desc</a></td></tr>";
+
+                                }
 
                               }
 
