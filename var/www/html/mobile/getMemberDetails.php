@@ -106,6 +106,8 @@ $response["response"] = "success";
 
 $response["member_data"] = $memberData;
 
+print_r(json_encode($response));
+
 
 
 
