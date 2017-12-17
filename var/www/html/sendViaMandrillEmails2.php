@@ -14,7 +14,9 @@ if ( isset($row['email']) ){
 	$url = "https://hoaboardtime.com/sendViaMandrill.php?hoaid=".$hoaID."&email=".$email;
 	$req = curl_init();
 	curl_setopt($req, CURLOPT_URL,$url);
+	curl_setopt($req, CURLOPT_RETURNTRANSFER, TRUE);
 	curl_exec($req);
+
 	$response = array();
 	$response["response"] = "success";
 
