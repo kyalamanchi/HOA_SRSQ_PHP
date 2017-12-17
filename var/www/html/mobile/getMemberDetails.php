@@ -32,9 +32,11 @@ $row = pg_fetch_assoc($currentChargesQueryResult);
 
 $currentChargesTotal  = $row['sum'];
 
-echo $currentChargesTotal;
 
-// $balance = $currentChargesTotal - $currentPaymentsTotal;
+
+$balance = $currentChargesTotal - $currentPaymentsTotal;
+
+echo $balance;
 
 
 // $personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
