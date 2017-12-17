@@ -16,12 +16,14 @@ $hoaRow = pg_fetch_assoc($queryResult);
 
 $homeID = $hoaRow['home_id'];
 
-print_r($homeID);
-// $currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
-// $currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
-// $row = pg_fetch_assoc($currentPaymentsQueryResult);
 
-// $currentPaymentsTotal = $row['sum'];
+$currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
+$currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
+$row = pg_fetch_assoc($currentPaymentsQueryResult);
+
+$currentPaymentsTotal = $row['sum'];
+
+echo $currentPaymentsTotal;
 
 
 // $currentChargesQuery = "SELECT SUM(AMOUNT) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID;
