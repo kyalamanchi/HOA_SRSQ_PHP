@@ -45,19 +45,30 @@ $count = 0;
 
 $emailQuery = "SELECT COUNT(*) FROM COMMUNITY_EMAILS_SENT WHERE TO_EMAIL='";
 
+$smsQuery = "SELECT * FROM SMS_SENT WHERE PERSON_ID=";
+
 while ($personRow = pg_fetch_assoc($personQueryResult)) {
+
 	if ( $count == 0 ){
 		if (isset($personRow['email'])){
 		$emailQuery = $emailQuery.$personRow['email']."'";
 		$count  = $count + 1;
+		$smsQuery = $smsQuery.$personRow['id'];
 		}
+
 	}
 	else {
 		$emailQuery = $emailQuery." OR TO_EMAIL='".$personRow['email']."'";
+		$smsQuery = $smsQuery." OR PERSON_ID=".$personRow['id'];
 	}
 }
 
 print_r($emailQuery);
+
+
+print_r(nl2br("\n\n"));
+
+print_r($smsQuery);
 
 
 
