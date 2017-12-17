@@ -1,4 +1,3 @@
-a
 <?php
 
 include 'password.php';
@@ -7,16 +6,17 @@ ini_set('display_errors', 1);
 date_default_timezone_set('America/Los_Angeles');
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 
-echo "Message";
 
-// $query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['hoa_id'];
 
-// $queryResult = pg_query($query);
+$query = "SELECT * FROM HOAID WHERE HOA_ID=".$_GET['hoa_id'];
 
-// $hoaRow = pg_fetch_assoc($queryResult);
+$queryResult = pg_query($query);
 
-// $homeID = $hoaRow['home_id'];
+$hoaRow = pg_fetch_assoc($queryResult);
 
+$homeID = $hoaRow['home_id'];
+
+print_r($homeID);
 // $currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
 // $currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
 // $row = pg_fetch_assoc($currentPaymentsQueryResult);
