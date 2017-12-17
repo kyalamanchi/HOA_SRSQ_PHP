@@ -1,8 +1,5 @@
 <?php
-
-include 'password.php';
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+setlocale(LC_MONETARY, 'en_US');
 date_default_timezone_set('America/Los_Angeles');
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 
@@ -99,7 +96,7 @@ $memberRating = $memberRow['member_rating'];
 
 $memberData = array();
 
-$memberData["user_balance"] =  (string)$balance;
+$memberData["user_balance"] =  money_format('%#10n',  (string)$balance);
 
 $memberData["user_rating"] = (string)$memberRating;
 
