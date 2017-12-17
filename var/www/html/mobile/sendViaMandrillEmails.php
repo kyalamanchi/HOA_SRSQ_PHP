@@ -1,5 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
 $hoaID = $_GET['hoa_id'];
 $query = "SELECT EMAIL FROM HOAID WHERE HOA_ID=".$hoaID;
