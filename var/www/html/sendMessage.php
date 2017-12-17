@@ -142,7 +142,7 @@ else if ( $parseJSON[0]->mode == "single" ){
 		$messageSub = str_replace('#name#', $row['firstname'].' '.$row['lastname'], $messageSub);
 		$messageSub = str_replace('#month#', date('F'), $messageSub);
 
-		$toNumber = $homeCountries[$row['home_id']].$row['cell_no'];
+		$toNumber = $homeCountries[$row['home_id']].base64_decode($row['cell_no']);
 		// $toNumber = '919603923649';
 		$url  = 'https://api.twilio.com/2010-04-01/Accounts/'.$accountID.'/Messages.json';
 		$ch = curl_init();
