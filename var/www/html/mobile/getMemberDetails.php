@@ -71,9 +71,9 @@ $emailQueryResultResponse = pg_fetch_assoc($emailQueryResult);
 
 $smsQueryResultResponse = pg_fetch_assoc($smsQueryResult);
 
-print_r($emailQueryResultResponse);
+$emailsCount =  $emailQueryResultResponse['count'];
 
-print_r($smsQueryResultResponse);
+$smsCount = $smsQueryResultResponse['count'];
 
 
 
