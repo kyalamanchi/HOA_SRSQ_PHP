@@ -23,15 +23,16 @@ $row = pg_fetch_assoc($currentPaymentsQueryResult);
 
 $currentPaymentsTotal = $row['sum'];
 
-echo $currentPaymentsTotal;
 
 
-// $currentChargesQuery = "SELECT SUM(AMOUNT) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID;
-// $currentChargesQueryResult = pg_query($currentChargesQuery);
+$currentChargesQuery = "SELECT SUM(AMOUNT) FROM CURRENT_CHARGES WHERE HOME_ID=".$homeID;
+$currentChargesQueryResult = pg_query($currentChargesQuery);
 
-// $row = pg_fetch_assoc($currentChargesQueryResult);
+$row = pg_fetch_assoc($currentChargesQueryResult);
 
-// $currentChargesTotal  = $row['sum'];
+$currentChargesTotal  = $row['sum'];
+
+echo $currentChargesTotal;
 
 // $balance = $currentChargesTotal - $currentPaymentsTotal;
 
