@@ -84,7 +84,7 @@ $memberRatingQueryResult = pg_query($memberRatingQuery);
 
 $memberRow  = pg_fetch_assoc($memberRatingQueryResult);
 
-$memberRating = $memberRow['MEMBER_RATING'];
+$memberRating = $memberRow['member_rating'];
 
 print_r($memberRating)
 
