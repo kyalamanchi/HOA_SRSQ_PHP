@@ -43,10 +43,10 @@ $personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
 $personQueryResult  = pg_query($personQuery);
 $count = 0;
 
-$emailsQuery = "SELECT COUNT(*) FROM community_emails_sent WHERE TO_EMAIL='".;
 
 
-print_r($emailsQuery);
+
+
 
 
 ?>
