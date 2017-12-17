@@ -86,6 +86,18 @@ $memberRow  = pg_fetch_assoc($memberRatingQueryResult);
 
 $memberRating = $memberRow['member_rating'];
 
+$memberData = array();
+
+$memberData["user_balance"] =  $balance;
+
+$memberData["user_rating"] = $memberRating;
+
+$memberData["user_emails_count"] = $emailsCount;
+
+$memberData["user_sms_count"] = $smsCount;
+
+
+
 
 
 
