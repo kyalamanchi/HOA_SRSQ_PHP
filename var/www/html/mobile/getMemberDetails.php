@@ -86,7 +86,7 @@ $memberRow  = pg_fetch_assoc($memberRatingQueryResult);
 
 $memberRating = $memberRow['member_rating'];
 
-print_r($memberRating)
+
 
 
 
