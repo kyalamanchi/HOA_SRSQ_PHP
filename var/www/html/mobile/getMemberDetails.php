@@ -58,6 +58,7 @@ while ($personRow = pg_fetch_assoc($personQueryResult)) {
 
 	}
 	else {
+		$count  = $count + 1;
 		$emailQuery = $emailQuery." OR TO_EMAIL='".$personRow['email']."'";
 		$smsQuery = $smsQuery." OR PERSON_ID=".$personRow['id'];
 	}
@@ -96,7 +97,14 @@ $memberData["user_emails_count"] = $emailsCount;
 
 $memberData["user_sms_count"] = $smsCount;
 
+$memberData["user_persons"] = $count;
 
+
+$response = array();
+
+$response["response"] = "success";
+
+$response["member_data"] = $memberData;
 
 
 
