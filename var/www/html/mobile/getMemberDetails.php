@@ -76,9 +76,7 @@ $emailsCount =  $emailQueryResultResponse['count'];
 
 $smsCount = $smsQueryResultResponse['count'];
 
-print_r($emailsCount);
-print_r(nl2br("\n\n"));
-print_r($smsCount);
+
 
 $memberRatingQuery = "SELECT MEMBER_RATING FROM community_campaigns_lists_members WHERE email_address  = (SELECT EMAIL FROM HOAID WHERE HOA_ID = 1259)";
 $memberRatingQueryResult = pg_query($memberRatingQuery);
@@ -106,7 +104,7 @@ $response["response"] = "success";
 
 $response["member_data"] = $memberData;
 
-print_r(json_encode($response));
+print_r(json_encode($response));	
 
 
 
