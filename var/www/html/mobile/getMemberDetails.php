@@ -36,25 +36,25 @@ $currentChargesTotal  = $row['sum'];
 
 $balance = $currentChargesTotal - $currentPaymentsTotal;
 
-echo $balance;
 
 
-// $personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
-// $personQueryResult  = pg_query($personQuery);
-// $count = 0;
 
-// $emailsQuery = "SELECT COUNT(*) FROM community_emails_sent WHERE TO_EMAIL='".;
-// while ($row = pg_fetch_assoc()) {
-// 	$count = $count + 1;
-// 	if ( isset($row['email']) ){
-// 	$emailsQuery = $emailsQuery.$row['email']."'";
-// 	}
-// 	if ( $count > 1 ){
-// 		$emailsQuery = $emailsQuery." or to_email='".$row['email']."'";
-// 	}
-// }
+$personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
+$personQueryResult  = pg_query($personQuery);
+$count = 0;
 
-// print_r($emailsQuery);
+$emailsQuery = "SELECT COUNT(*) FROM community_emails_sent WHERE TO_EMAIL='".;
+while ($row = pg_fetch_assoc()) {
+	$count = $count + 1;
+	if ( isset($row['email']) ){
+	$emailsQuery = $emailsQuery.$row['email']."'";
+	}
+	if ( $count > 1 ){
+		$emailsQuery = $emailsQuery." or to_email='".$row['email']."'";
+	}
+}
+
+print_r($emailsQuery);
 
 
 ?>
