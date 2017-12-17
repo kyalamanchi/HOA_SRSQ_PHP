@@ -75,7 +75,9 @@ $emailsCount =  $emailQueryResultResponse['count'];
 
 $smsCount = $smsQueryResultResponse['count'];
 
-
+print_r($emailsCount);
+print_r(nl2br("\n\n"));
+print_r($smsCount);
 
 
 ?>
