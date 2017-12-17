@@ -94,6 +94,20 @@ $memberRow  = pg_fetch_assoc($memberRatingQueryResult);
 
 $memberRating = $memberRow['member_rating'];
 
+
+$subscriptionQuery = "SELECT COUNT(*) FROM COMMUNITY_COMMS WHERE HOA_ID=".$_GET['hoa_id'];
+
+$subscriptionQueryResult = pg_query($subscriptionQuery);
+
+$subscriptionRow = pg_fetch_assoc($subscriptionQueryResult);
+
+if( isset($subscriptionRow['count']) ){
+	$subScriptions = $subscriptionRow['count'];
+}
+else{
+	$subScriptions = 0;
+}
+
 $memberData = array();
 
 $memberData["user_balance"] =  money_format('%#10n',  (string)$balance);
@@ -107,6 +121,8 @@ $memberData["user_sms_count"] = (string)$smsCount;
 $memberData["user_persons"] = (string)$count;
 
 $memberData["user_phone_number"] = '+'.$telPrefix.(string)$phoneNumber;
+
+$memberData["user_subscription_count"] = (string)$subScriptions;
 
 $response = array();
 
