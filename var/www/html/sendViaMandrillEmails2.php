@@ -10,7 +10,6 @@ $row = pg_fetch_assoc($queryResult);
 
 if ( isset($row['email']) ){
 	$email  = $row['email'];
-	$email  = "dhivysh@gmail.com";
 	$url = "https://hoaboardtime.com/sendViaMandrill.php?hoaid=".$hoaID."&email=".$email;
 	$req = curl_init();
 	curl_setopt($req, CURLOPT_URL,$url);
