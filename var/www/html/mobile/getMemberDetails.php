@@ -110,7 +110,7 @@ else{
 
 $memberData = array();
 
-$memberData["user_balance"] =  money_format('%#10n',  (string)$balance);
+$memberData["user_balance"] =  money_format('%#10n',(string)$balance);
 
 $memberData["user_rating"] = (string)$memberRating;
 
