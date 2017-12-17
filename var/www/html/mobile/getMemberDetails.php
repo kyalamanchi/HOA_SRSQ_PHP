@@ -43,7 +43,9 @@ $personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
 $personQueryResult  = pg_query($personQuery);
 $count = 0;
 
-
+while ($personRow = pg_fetch_assoc($personQueryResult)) {
+	print_r($personRow);
+}
 
 
 
