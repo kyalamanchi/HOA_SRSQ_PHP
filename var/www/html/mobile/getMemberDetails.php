@@ -45,7 +45,7 @@ $count = 0;
 
 $emailQuery = "SELECT COUNT(*) FROM COMMUNITY_EMAILS_SENT WHERE TO_EMAIL='";
 
-$smsQuery = "SELECT * FROM SMS_SENT WHERE PERSON_ID=";
+$smsQuery = "SELECT COUNT(*) FROM SMS_SENT WHERE PERSON_ID=";
 
 while ($personRow = pg_fetch_assoc($personQueryResult)) {
 
