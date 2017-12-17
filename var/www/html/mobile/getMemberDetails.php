@@ -17,6 +17,17 @@ $hoaRow = pg_fetch_assoc($queryResult);
 $homeID = $hoaRow['home_id'];
 $phoneNumber = base64_decode($hoaRow['cell_no']);
 
+$homeIDQuery = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID;
+$homeIDQueryResult  = pg_query($homeIDQuery);
+$homeRow = pg_fetch_assoc($homeIDQueryResult);
+$countryID = $homeRow['country_id'];
+
+$countryQuery  = "SELECT * FROM country WHERE country_id=".$countryID;
+$countryQueryResult = pg_query($countryQuery);
+$countryRow = pg_fetch_assoc($countryQueryResult);
+
+$telPrefix  = $countryRow['tel_prefix'];
+
 
 $currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
 $currentPaymentsQueryResult = pg_query($currentPaymentsQuery);
@@ -98,7 +109,7 @@ $memberData["user_sms_count"] = (string)$smsCount;
 
 $memberData["user_persons"] = (string)$count;
 
-$memberData["user_phone_number"] = (string)$phoneNumber;
+$memberData["user_phone_number"] = '+'.$telPrefix.(string)$phoneNumber;
 
 $response = array();
 
