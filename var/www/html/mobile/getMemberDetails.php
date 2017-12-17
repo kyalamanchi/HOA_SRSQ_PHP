@@ -15,6 +15,7 @@ $queryResult = pg_query($query);
 $hoaRow = pg_fetch_assoc($queryResult);
 
 $homeID = $hoaRow['home_id'];
+$phoneNumber = base64_decode($hoaRow['cell_no']);
 
 
 $currentPaymentsQuery = "SELECT SUM(AMOUNT) FROM CURRENT_PAYMENTS WHERE HOME_ID=".$homeID;
@@ -97,6 +98,7 @@ $memberData["user_sms_count"] = (string)$smsCount;
 
 $memberData["user_persons"] = (string)$count;
 
+$memberData["user_phone_number"] = (string)$phoneNumber;
 
 $response = array();
 
