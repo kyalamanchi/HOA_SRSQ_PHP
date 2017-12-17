@@ -63,12 +63,17 @@ while ($personRow = pg_fetch_assoc($personQueryResult)) {
 	}
 }
 
-print_r($emailQuery);
+$emailQueryResult  = pg_query($emailQuery) ;
 
+$smsQueryResult = pg_query($smsQuery);
 
-print_r(nl2br("\n\n"));
+$emailQueryResultResponse = pg_fetch_assoc($emailQueryResult);
 
-print_r($smsQuery);
+$smsQueryResultResponse = pg_fetch_assoc($smsQueryResult);
+
+print_r($emailQueryResultResponse);
+
+print_r($smsQueryResultResponse);
 
 
 
