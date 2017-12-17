@@ -43,10 +43,21 @@ $personQuery = "SELECT * FROM PERSON WHERE HOA_ID=".$_GET['hoa_id']."";
 $personQueryResult  = pg_query($personQuery);
 $count = 0;
 
+$emailQuery = "SELECT COUNT(*) FROM COMMUNITY_EMAILS_SENT WHERE TO_EMAIL='";
+
 while ($personRow = pg_fetch_assoc($personQueryResult)) {
-	print_r($personRow);
+	if ( $count == 0 ){
+		if (isset($personRow['email'])){
+		$emailQuery = $emailQuery.$personRow['email']."'";
+		$count  = $count + 1;
+		}
+	}
+	else {
+		$emailQuery = $emailQuery." OR TO_EMAIL='".$personRow['email']."'";
+	}
 }
 
+print_r($emailQuery);
 
 
 
