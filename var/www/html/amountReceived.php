@@ -1,3 +1,4 @@
+
 <?php
 
   ini_set("session.save_path","/var/www/html/session/");
@@ -159,6 +160,8 @@
                           $confirmation = $row['document_num'];
                           $pay_method = $row['payment_type_id'];
 
+                          $ehoa_id = base64_encode($hoa_id);
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$hoa_id AND home_id=$home_id"));
 
                           $name = $row1['firstname'];
@@ -182,7 +185,7 @@
                           if($living_status != 't')
                             echo " class='text-red' ";
 
-                          echo "><td><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
+                          echo "><td><a href='userDashboard2.php?hoa_id=$ehoa_id'>".$name."($hoa_id)</a></td><td>".$address."($home_id)</td><td>".date("m-d-Y", strtotime($process_date))."</td><td>".$confirmation."</td><td>$ ".$amount."</td><td>".$pay_method."</td></tr>";
 
                         }
 
