@@ -600,7 +600,7 @@
 
             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12 col-xs-12">
 
-              <a href='https://hoaboardtime.com/residentVendorDashboard.php'>
+              <a href='https://hoaboardtime.com/vendorDashboard.php'>
 
                 <div class="row container-fluid text-left">
 
