@@ -17,11 +17,11 @@ $row = pg_fetch_assoc($queryResult);
 
 if ( $row['cell_no'] ){
   $id = "";
-  $id = $id.strlen($row['cell_no']);
+  $id = $id.strlen(base64_decode($row['cell_no']));
   $id = $id." ";
-  $length  = strlen($row['cell_no']);
+  $length  = strlen(base64_decode($row['cell_no']));
   $id  = $id.str_repeat("*", $length-2);
-  $id = $id.substr($row['cell_no'], -2);
+  $id = $id.substr(base64_decode($row['cell_no']), -2);
   echo "id: $id\n";
   $message = "number";
   echo 'data: '.$message."\n\n";  
