@@ -19,6 +19,7 @@
 	@$m[10] = $_POST['month'][10];
 	@$m[11] = $_POST['month'][11];
 	$updated_by = $_SESSION['hoa_user_id'];
+	$community_id = $_SESSION['hoa_community_id'];
 
 	$d = date("Y-m-d");
 
@@ -35,7 +36,10 @@
 	$m11 = 'f';
 	$m12 = 'f';
 
-    $conn = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+    if($community_id == 1)
+        $conn = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+    else if($community_id == 2)
+        $conn = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     $query = "SELECT * FROM current_year_payments_processed WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
     $result = pg_query($query);

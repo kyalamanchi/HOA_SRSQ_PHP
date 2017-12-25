@@ -30,8 +30,6 @@
 	</script>
     <?php
 
-      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
       	if(@!$_SESSION['hoa_username'])
       		header("Location: logout.php");
 
@@ -42,6 +40,11 @@
         $hoa_id = $_SESSION['hoa_hoa_id'];
         $home_id = $_SESSION['hoa_home_id'];
         $user_id = $_SESSION['hoa_user_id'];
+
+        if($community_id == 1)
+          pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+        else if($community_id == 2)
+          pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
         //echo "<h1>".$hoa_id." - - - ".$home_id." - - - ".$user_id." - - - ".$community_id."</h1>";
 

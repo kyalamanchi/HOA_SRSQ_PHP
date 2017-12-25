@@ -45,8 +45,6 @@ class PDF extends FPDF
 {
 function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTotal2,$homeID,$connection,$zipInfo,$stateInfo,$cityInfo,$commID)
 {
-    $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
-    or die("Failed to connect to database");
 
     global $pageNumber,$finalHOAID,$finalHOMEID,$finalAddress1,$finalAddress2,$finalAddress3,$finalAddress4,$finalAddress5,$finalreturnAddress1,$finalreturnAddress2,$finalreturnAddress3,$finalreturnAddress4,$finalPayee;
     if( $homeID < 144){
@@ -55,6 +53,12 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
     else if ( $homeID > 287 ){
         $commID = 2;
     }
+
+    if($community_id == 1)
+        $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+    else if($community_id == 2)
+        $connection = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
     $z = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID = ".$commID;
     $g = pg_query($z);
     

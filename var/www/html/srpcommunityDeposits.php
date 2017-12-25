@@ -101,7 +101,7 @@
                                 </thead>
                                 <tbody>      
                                <?php
-                               $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+                               $dbconn3 = pg_pconnect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
                                 $insertCount = 0;
                                 $updateCount = 0;
                                 $getQuery = "SELECT funding_id FROM community_deposits WHERE community_id=1";
