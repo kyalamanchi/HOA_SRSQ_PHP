@@ -318,7 +318,7 @@
 
             </div>
 
-            <form class="row" method="post" action="forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+            <form class="row" method="post" action="forgotPassword.php"><!-- action="forgotPassword.php" -->
                                             
               <div class="modal-body">
                                                 
@@ -750,7 +750,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
                   
-                  <a href='https://hoaboardtime.com/mailchimpCampaigns.php'>
+                  <a href='mailchimpCampaigns.php'>
 
                     <div class="small-box bg-teal">
                     
@@ -819,7 +819,7 @@
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
                   
-                  <a href='https://hoaboardtime.com/communityAssets.php'>
+                  <a href='communityAssets.php'>
 
                     <div class="small-box bg-teal">
                     
@@ -1052,7 +1052,7 @@
                   
                   <center>
 
-                    <a class='btn btn-info btn-sm' href='https://hoaboardtime.com/paymentPage1.php' target='_blank'>Pay Now</a>
+                    <a class='btn btn-info btn-sm' href='paymentPage1.php' target='_blank'>Pay Now</a>
 
                   </center>
 
