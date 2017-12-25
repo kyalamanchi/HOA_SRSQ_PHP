@@ -50,7 +50,7 @@
 
       <header class="main-header">
         
-        <a href="https://hoaboardtime.com/srsq.php" class="logo">
+        <a href="index.php" class="logo">
           
           <span class="logo-mini">SRSQ</span>
           
@@ -78,7 +78,7 @@
 
                 <ul class="dropdown-menu">
                   
-                  <form class="container-fluid" method="POST" action="https://hoaboardtime.com/login.php">
+                  <form class="container-fluid" method="POST" action="login.php">
                     
                     <li class="user-body">
 
@@ -144,7 +144,7 @@
 
             </div>
 
-            <form class="row" method="post" action="https://hoaboardtime.com/forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+            <form class="row" method="post" action="forgotPassword.php"><!-- action="forgotPassword.php" -->
                                             
               <div class="modal-body">
                                                 
@@ -186,7 +186,7 @@
             
             <li class="treeview">
               
-              <a href="https://hoaboardtime.com/">
+              <a href="index.php">
                 
                 <i class="fa fa-home"></i> <span>Home</span>
 
@@ -196,7 +196,7 @@
 
             <li class="treeview">
               
-              <a href="https://hoaboardtime.com#getInvolved">
+              <a href="index.php#getInvolved">
                 
                 <i class="fa fa-comment"></i> <span>Get Involved</span>
 
@@ -216,7 +216,7 @@
              
             <li class="treeview">
 
-              <a href='https://hoaboardtime.com#pay'>
+              <a href='index.php#pay'>
 
                 <i class='fa fa-dollar'></i> <span>Make a payment</span>
               
@@ -226,7 +226,7 @@
             
             <li class="treeview">
               
-              <a href='https://hoaboardtime.com#pool'>
+              <a href='index.php#pool'>
 
                 <i class='fa fa-pencil-square-o'></i> <span>Pool Signin</span>
 
@@ -236,7 +236,7 @@
             
             <li class="treeview">
 
-              <a href='https://hoaboardtime.com#resale'>
+              <a href='index.php#resale'>
 
                 <i class='fa fa-sitemap'></i> <span>Resale Docs</span>
 
@@ -246,7 +246,7 @@
             
             <li class="treeview">
 
-              <a href='https://hoaboardtime.com#contact'>
+              <a href='index.php#contact'>
               
                 <i class='fa fa-phone'></i> <span>Contact</span>
 
