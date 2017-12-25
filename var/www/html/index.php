@@ -224,7 +224,7 @@
 
       <header class="main-header">
         
-        <a href="https://hoaboardtime.com/srsq.php" class="logo">
+        <a href="index.php" class="logo">
           
           <span class="logo-mini">SRSQ</span>
           
@@ -252,7 +252,7 @@
 
                 <ul class="dropdown-menu">
                   
-                  <form class="container-fluid" method="POST" action="https://hoaboardtime.com/login.php">
+                  <form class="container-fluid" method="POST" action="login.php">
                     
                     <li class="user-body">
 
@@ -318,7 +318,7 @@
 
             </div>
 
-            <form class="row" method="post" action="https://hoaboardtime.com/forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+            <form class="row" method="post" action="forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
                                             
               <div class="modal-body">
                                                 

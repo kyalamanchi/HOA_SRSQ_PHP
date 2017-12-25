@@ -21,7 +21,7 @@
 	{
 		echo '<script type="text/javascript">'; 
 		echo 'alert("User doesnot exist.");'; 
-		echo 'window.location.href = "https://hoaboardtime.com/";';
+		echo 'window.location.href = "index.php";';
 		echo '</script>';
 	}
 	else
@@ -51,7 +51,7 @@
 
 				$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
-				header("Location: https://hoaboardtime.com/backendBalance.php");
+				header("Location: backendBalance.php");
 				
 			}
 			else
@@ -90,7 +90,7 @@
 
 					$_SESSION['hoa_mode'] = 2;
 
-					header("Location: https://hoaboardtime.com/residentDashboard.php");
+					header("Location: residentDashboard.php");
 
 				}
 				else
@@ -100,7 +100,7 @@
 
 					$_SESSION['hoa_mode'] = 1;
 
-					header("Location: https://hoaboardtime.com/boardDashboard.php");
+					header("Location: boardDashboard.php");
 				}
 
 			}
@@ -109,7 +109,7 @@
 		{
 			echo '<script type="text/javascript">'; 
 			echo 'alert("Invalid password entered.Please check the password and try again.");'; 
-			echo 'window.location.href = "https://hoaboardtime.com/";';
+			echo 'window.location.href = "index.php";';
 			echo '</script>';
 		}
 	}
