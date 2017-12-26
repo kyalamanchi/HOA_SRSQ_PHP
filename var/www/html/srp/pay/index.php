@@ -4,7 +4,7 @@
 	
 	session_start();
 
-	echo "Message";
+	
 
 ?>
 
