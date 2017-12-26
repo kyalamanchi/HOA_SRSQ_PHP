@@ -1,4 +1,4 @@
-Geeth<!DOCTYPE html>
+<!DOCTYPE html>
 <html style="font-family: Avenir;">
   <head>
     
@@ -8,7 +8,7 @@ Geeth<!DOCTYPE html>
 
       session_start();
 
-      pg_connect("host=http://srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $community_id = 2;
 
@@ -224,7 +224,7 @@ Geeth<!DOCTYPE html>
 
       <header class="main-header">
         
-        <a href="https://hoaboardtime.com/srsq.php" class="logo">
+        <a href="index.php" class="logo">
           
           <span class="logo-mini">SRSQ</span>
           
@@ -252,7 +252,7 @@ Geeth<!DOCTYPE html>
 
                 <ul class="dropdown-menu">
                   
-                  <form class="container-fluid" method="POST" action="https://hoaboardtime.com/login.php">
+                  <form class="container-fluid" method="POST" action="login.php">
                     
                     <li class="user-body">
 
@@ -318,7 +318,7 @@ Geeth<!DOCTYPE html>
 
             </div>
 
-            <form class="row" method="post" action="https://hoaboardtime.com/forgotPassword.php"><!-- action="https://hoaboardtime.com/forgotPassword.php" -->
+            <form class="row" method="post" action="forgotPassword.php"><!-- action="forgotPassword.php" -->
                                             
               <div class="modal-body">
                                                 
@@ -750,7 +750,7 @@ Geeth<!DOCTYPE html>
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
                   
-                  <a href='https://hoaboardtime.com/mailchimpCampaigns.php'>
+                  <a href='mailchimpCampaigns.php'>
 
                     <div class="small-box bg-teal">
                     
@@ -819,7 +819,7 @@ Geeth<!DOCTYPE html>
 
                 <div class="col-xl-3 col-lg-3 col-md-4 col-xs-6" title='Click to view details'>
                   
-                  <a href='https://hoaboardtime.com/communityAssets.php'>
+                  <a href='communityAssets.php'>
 
                     <div class="small-box bg-teal">
                     
@@ -1052,7 +1052,7 @@ Geeth<!DOCTYPE html>
                   
                   <center>
 
-                    <a class='btn btn-info btn-sm' href='https://hoaboardtime.com/paymentPage1.php' target='_blank'>Pay Now</a>
+                    <a class='btn btn-info btn-sm' href='paymentPage1.php' target='_blank'>Pay Now</a>
 
                   </center>
 

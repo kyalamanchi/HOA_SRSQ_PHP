@@ -13,14 +13,17 @@
   <head>
     <?php
 
-      pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
       if(@!$_SESSION['hoa_username'])
         header("Location: https://hoaboardtime.com/logout.php");
 
       $community_id = $_SESSION['hoa_community_id'];
       $user_id = $_SESSION['hoa_user_id'];
       $mode = $_SESSION['hoa_mode'];
+
+      if($community_id == 1)
+        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      else if($community_id == 2)
+        pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     ?>
         <meta charset="utf-8">

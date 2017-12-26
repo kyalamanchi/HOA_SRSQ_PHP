@@ -4,8 +4,6 @@
 
 	session_start();
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
 	$fname = $_POST['person_firstname'];
 	$lname = $_POST['person_lastname'];
 	$cell_no = $_POST['person_cell_no'];
@@ -15,6 +13,11 @@
 	$home_id = $_POST['home_id'];
 	$hoa_id = $_POST['hoa_id'];
 	$community_id = $_SESSION['hoa_community_id'];
+
+	if($community_id == 1)
+        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+    else if($community_id == 2)
+        pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	$cell_no = base64_encode($cell_no);
 	$ehoa_id = base64_encode($hoa_id);

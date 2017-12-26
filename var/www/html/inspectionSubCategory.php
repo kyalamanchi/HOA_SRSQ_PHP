@@ -159,7 +159,7 @@ function saveChanges(){
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+                                    $connection = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
                                     if ( $connection ){
                                         $query = "SELECT * FROM INSPECTION_SUB_CATEGORY ORDER BY ID";
                                         $queryResult = pg_query($query);

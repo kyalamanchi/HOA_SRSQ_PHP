@@ -1,5 +1,5 @@
 <?php
-$connection = pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+$connection = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy"); or die("Failed to connect to database");
 if ( $connection){
     $transactionIDSQuery = "SELECT document_num FROM CURRENT_PAYMENTS WHERE COMMUNITY_ID = 2 AND document_num IS NOT NULL";
     $transactionIDSQueryResult = pg_query($transactionIDSQuery);

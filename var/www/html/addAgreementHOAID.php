@@ -4,14 +4,17 @@
 
 	session_start();
 
-    pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
     $community_id = $_SESSION['hoa_community_id'];
     $hoa_id = $_POST['select_hoa'];
     $vendor_id = $_POST['select_vendor'];
 	$document_to = $_POST['document_to'];
 	$is_board_document = $_POST['board_document'];
 	$flag = $_POST['flag'];
+
+	if($community_id == 1)
+		pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	else if($community_id == 2)
+		pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	if($is_board_document == "Yes")
 		$is_board_document = 't';

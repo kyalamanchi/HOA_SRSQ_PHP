@@ -14,8 +14,6 @@
     
     <?php
 
-      pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
       if(@!$_SESSION['hoa_username'])
         header("Location: https://hoaboardtime.com/logout.php");
 
@@ -24,6 +22,11 @@
       $mode = $_SESSION['hoa_mode'];
       $vendor_id = $_GET['select_vendor'];
       $vendor_id = base64_decode($vendor_id);
+
+      if($community_id == 1)
+        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      else if($community_id == 2)
+        pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
       $vendor_name = $row['vendor_name'];

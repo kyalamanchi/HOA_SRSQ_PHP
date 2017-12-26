@@ -2,6 +2,13 @@
 	
 	session_start();
 
+	$community_id = $_SESSION['hoa_community_id'];
+
+	if($community_id == 1)
+        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+    else if($community_id == 2)
+        pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
 	if ( isset($_GET['cid']) ){
 
 	if($_GET['cid'] == 1)

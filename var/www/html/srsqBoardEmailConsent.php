@@ -11,7 +11,7 @@ $email = 'dhivysh@gmail.com';
 $currentdate = date("Y/m/d");
 $name = 'dhivysh';
 $address = 'Address';
-$dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+$dbconn3 = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 if ( $dbconn3 ) {
    $query = "select hoa_id,home_id,firstname,lastname,email from hoaid where hoa_id=".$_GET['id'];
    $result  = pg_query($query);

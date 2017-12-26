@@ -88,7 +88,7 @@
     </div>
        
                                <?php
-                               $dbconn3 = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to db");
+                               $dbconn3 = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
                                //Connection begin
                                if ( $dbconn3 ) {
                                 $getQuery = "SELECT funding_id,number_of_transactions FROM community_deposits WHERE community_id=2";
