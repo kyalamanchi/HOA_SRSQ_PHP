@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
-pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbProfitLossMonth.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);

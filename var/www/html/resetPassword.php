@@ -2,7 +2,7 @@
 
 	include 'password.php';
 
-	pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
 	$reset_email = $_POST['forgot_password_email'];
 	$new_password = $_POST['new_password'];
@@ -14,7 +14,7 @@
 
 		echo "<br><br><br><br><br><center><h3>New password and Re-type password are not same. Please enter same password and try again.</h3></center>";
 
-		echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/forgotPassword2.php?forgot_password_email=".$reset_email."&otp_entered=".$otp_entered."'},2000);</script>";
+		echo "<script>setTimeout(function(){window.location.href='forgotPassword2.php?forgot_password_email=".$reset_email."&otp_entered=".$otp_entered."'},2000);</script>";
 
 	}
 	else
@@ -34,7 +34,7 @@
 		else
 			echo "<br><br><br><center><h3>Some error occured. Please try again.</h3></center>";
 
-		echo "<script>setTimeout(function(){window.location.href='https://hoaboardtime.com/'},2000);</script>";
+		echo "<script>setTimeout(function(){window.location.href='index.php'},2000);</script>";
 	}
 
 ?>

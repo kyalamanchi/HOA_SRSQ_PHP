@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
-pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
 $query = "SELECT * FROM current_payments WHERE payment_status_id !=1 AND community_id = 2 AND last_updated_on < '".date('Y-m-d')."' AND bank_transaction_id IS NOT NULL";
 $queryResult = pg_query($query);
 while ($row = pg_fetch_assoc($queryResult)) {

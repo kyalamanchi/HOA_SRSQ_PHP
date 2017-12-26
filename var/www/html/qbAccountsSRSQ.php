@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
 setlocale(LC_MONETARY, 'en_US');
-pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query');
    curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1510096508",oauth_nonce="k1v4mlVIwhI",oauth_version="1.0",oauth_signature="qEH58oWNfZPyw7YpjpyftHQQRd4%3D"'));

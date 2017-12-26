@@ -30,7 +30,7 @@ date_default_timezone_set('America/Los_Angeles');
 $currentChargesTotal  = 0;
 $currentPaymentsTotal = 0;
 $lastData  = array();
-$connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
+$connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
 or die("Failed to connect to database");
 $cityInfo = array();
 $stateInfo = array();

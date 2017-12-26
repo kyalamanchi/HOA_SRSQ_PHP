@@ -2,7 +2,7 @@
 // error_reporting(E_ERROR | E_PARSE);
 $jsonData = json_decode(file_get_contents('php://input'));
 try{
-if ($connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database")){
+if ($connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database")){
 	$hoaID = $jsonData[0]->hoa_id;
 	$homeID = $jsonData[0]->home_id;
 	$category = $jsonData[0]->category;

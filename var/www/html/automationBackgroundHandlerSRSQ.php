@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 
-$connection = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+$connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 $message  = "Please Wait...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();

@@ -36,7 +36,7 @@
     </head>
     <body>
     <?php
-    $connection = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+    $connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
     if ( $connection ){
         $inspectionNoticeTypeQuery = "SELECT * FROM INSPECTION_NOTICE_TYPE";
         $inspectionNoticeTypeQueryResult = pg_query($inspectionNoticeTypeQuery);
