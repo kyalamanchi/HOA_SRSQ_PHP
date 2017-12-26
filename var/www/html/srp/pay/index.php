@@ -81,7 +81,7 @@ function payNow(){
   jsonObj.push(item);
   lol = JSON.stringify(jsonObj);
   var request  = new  XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/processPaymentSRP.php",true);
+  request.open("POST","processPaymentSRP.php",true);
   request.send(lol.toString());
   request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
@@ -113,7 +113,7 @@ function verifyUser(){
   document.getElementById("paymentPage").hidden = true;
 var $input = $('#refresh');
     $input.val() == 'yes' ? location.reload(true) : $input.val('yes');
-var url = "https://hoaboardtime.com/verifyUser.php?id="+<?php echo $_REQUEST['id'];?>;
+var url = "verifyUser.php?id="+<?php echo $_REQUEST['id'];?>;
 var comID = <?php
   $query = "SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID = ".$_GET['id'];
   $queryResult = pg_query($query);
@@ -161,7 +161,7 @@ source.onmessage = function(event){
 }
 function verifyDetails(hoaid){
   showPleaseWait();
-  var url = "https://hoaboardtime.com/verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
+  var url = "verifyUserData.php?id="+hoaid+"&data="+document.getElementById("verifydata").value;
   var source = new EventSource(url);
   source.onmessage = function(event){
     if ( (event.data == "success") ){
@@ -210,7 +210,7 @@ function error(){
     })
    .then((willDelete) => {
   if (willDelete) {
-    window.location = "https://hoaboardtime.com"
+    window.location = "https://stoneridgeplace.com"
   } else {
   }
 });
