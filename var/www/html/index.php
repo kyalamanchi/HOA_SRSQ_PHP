@@ -1207,7 +1207,7 @@
 
         <div class="pull-right hidden-xs"></div>
         
-        <strong>Copyright &copy; <?php echo date('Y'); ?> - <a target='_blank' href="https://www.stoneridgesquare.org">Stoneridge Square Association</a> - <a target='_blank' href='https://termsfeed.com/privacy-policy/7803b3220cee25bd8bdb55c3d2a5dcb5'>Privacy Policy</a> - </strong> All rights reserved
+        <center><strong>Copyright &copy; <?php echo date('Y'); ?> - <a target='_blank' href="https://www.stoneridgesquare.org">Stoneridge Square Association</a> - <a target='_blank' href='https://termsfeed.com/privacy-policy/7803b3220cee25bd8bdb55c3d2a5dcb5'>Privacy Policy</a> - </strong> All rights reserved</center>
 
       </footer>
 
