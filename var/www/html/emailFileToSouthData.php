@@ -106,9 +106,6 @@
                         }
                 }
 
-                else if ( $communityID == 1 ){
-
-                }
 
 
             }

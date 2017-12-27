@@ -18,9 +18,7 @@
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $mode = $_SESSION['hoa_mode'];
@@ -73,35 +71,7 @@
 
     <?php
 
-      if($community_id == 1)
-      { 
-                      
-        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
-                      
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="jzXGHD9VKI6fxwrXaWg90HQgFuI%3D"'));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            
-        $result = curl_exec($ch);
-        $json_decode = json_decode($result,TRUE);
-        $srp_primarySavings = $json_decode['Account'];
-        $srp_current_balance = $srp_primarySavings['CurrentBalance'];
-                            
-        curl_close($ch);
-
-        $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
-                            
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539532",oauth_nonce="2nX9kd69aNw",oauth_version="1.0",oauth_signature="5ZScoTRHF28D3YT0kHO27%2Br8Hvo%3D"'));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            
-        $result2 = curl_exec($ch);
-        $json_decode2 = json_decode($result2,TRUE);
-        $srp = $json_decode2['Account'];
-        $srp_savings_balance = $srp['CurrentBalance'];
-
-      }
-      else if($community_id == 2)
+      if($community_id == 2)
       {
                       
         $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
@@ -180,71 +150,7 @@
 
                 <?php
 
-                  if($community_id == 1)
-                  {
-
-                    echo "
-
-                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-
-                      <div class='row container-fluid text-left'>
-
-                        <div class='row container-fluid'>
-
-                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
-
-                            <a href='https://hoaboardtime.com/communityIncome.php'>
-
-                              <h1 class='text-info'><strong>$ ".round($srp_savings_balance, 0)."</strong></h1>
-
-                            </a>
-
-                          </div>
-
-                        </div>
-
-                        <div class='row container-fluid text-center'>
-
-                          <h5><strong>Savings</strong></h5>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    <div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12'>
-
-                      <div class='row container-fluid text-left'>
-
-                        <div class='row container-fluid'>
-
-                          <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center'>
-
-                            <a href='https://hoaboardtime.com/communityIncome.php'>
-
-                              <h1 class='text-info'><strong>$ ".round($srp_current_balance, 0)."</strong></h1>
-
-                            </a>
-
-                          </div>
-
-                        </div>
-
-                        <div class='row container-fluid text-center'>
-
-                          <h5><strong>Checkings</strong></h5>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    ";
-
-                  }
-                  else if($community_id == 2)
+                  if($community_id == 2)
                   {
 
                     echo "

@@ -6,10 +6,6 @@
  	echo 'data: '.$message."\n\n";  
   	ob_end_flush();
   	flush();
-  	$query = "SELECT email FROM community_info WHERE community_id = 1";
-$queryResult = pg_query($query);
-$res = pg_fetch_assoc($queryResult);
-$fromCommunityEmail1 = $res['email'];
 
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);

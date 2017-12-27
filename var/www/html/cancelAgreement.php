@@ -20,9 +20,7 @@
 
       $community_id = $_SESSION['hoa_community_id'];
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $id = $_GET['id'];
@@ -40,8 +38,6 @@
       
       if($_SESSION['hoa_community_id'] == 2)
         curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Access-Token: 3AAABLblqZhBbuoGJoQZXIMhISUIAnh7R_qmzGgn_COsBf1G0kXyDFiaXxE-oM8ZMaL1LPybdYz1U2gYXszLLzpLuenZ3Ojfm'));
-      else if($_SESSION['hoa_community_id'] == 1)
-          curl_setopt($ch, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Access-Token: 3AAABLblqZhBWF9BYTpVk2qiLdux9HoMp6296MnQhdvuw5sR-wRF84ZkKs3rUG6GDbSI8MVYE2-Kgabac7qiVa1FqAytq957r'));
 
       $result = curl_exec($ch);
 

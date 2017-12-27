@@ -20,9 +20,7 @@
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
@@ -380,9 +378,7 @@
 
                     <div class='timeline-body container-fluid'>";
                   
-                      if($community_id == 1)
-                        $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload AND url LIKE '/SRP_HOA/Documents/Minutes/SRP_Minutes_".$year_of_upload."_%'");
-                      else if($community_id == 2)
+                      if($community_id == 2)
                         $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload AND url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year_of_upload."_%'");
 
                       while($row1 = pg_fetch_assoc($result1))
