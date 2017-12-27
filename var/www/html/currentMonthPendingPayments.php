@@ -20,12 +20,7 @@
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
 
-<<<<<<< HEAD
       pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-=======
-      f($community_id == 2)
-        pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
->>>>>>> 489f630114d4f5d4061ef7e3045d3ad1e46cbb5c
 
       if($_SESSION['hoa_mode'] == 2)
         header("Location: https://hoaboardtime.com/residentDashboard.php");
