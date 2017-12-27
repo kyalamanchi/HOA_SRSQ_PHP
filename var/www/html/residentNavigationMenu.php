@@ -1,3 +1,4 @@
+
 <?php
 
   ini_set("session.save_path","/var/www/html/session/");
@@ -14,8 +15,7 @@
             
       <?php 
 
-        if($community_id == 2)
-          echo "<li class='header text-center'><img src='srsq_logo.JPG'></li>"; 
+        echo "<li class='header text-center'><img src='srsq_logo.JPG'></li>"; 
 
       ?>
             
@@ -75,7 +75,7 @@
 
       <li class="treeview">
 
-        <a href='residentRecurringPay.php'>
+        <a>
 
           <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
               
