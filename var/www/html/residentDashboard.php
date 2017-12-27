@@ -1160,13 +1160,7 @@
 
       </div>
 
-      <footer class="main-footer">
-
-        <div class="pull-right hidden-xs"></div>
-        
-        <strong>Copyright &copy; <?php echo date('Y'); ?> <a target='_blank' href="<?php echo $_SESSION['hoa_community_website_url']; ?>"><?php echo $_SESSION['hoa_community_name']; ?></a>.</strong> All rights reserved.
-
-      </footer>
+      <?php include 'footer.php'; ?>
 
       <div class="control-sidebar-bg"></div>
 
