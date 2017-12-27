@@ -52,7 +52,7 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
     }
 
     if($community_id == 2)
-        $connection = pg_connect("host=srsq-only.crsa3tdmtcll.ussrsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+        $connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     $z = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID = ".$commID;
     $g = pg_query($z);
@@ -165,7 +165,7 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
      $pageNumber = $this->PageNo();
 }
 }
-$connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
+$connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
 or die("Failed to connect to database");
 
 $homequery = "SELECT HOME_ID FROM HOMEID WHERE COMMUNITY_ID = 2 ORDER BY HOME_ID";
