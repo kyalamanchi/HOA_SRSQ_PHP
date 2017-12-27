@@ -21,9 +21,7 @@
       $user_id = $_SESSION['hoa_user_id'];
       $mode = $_SESSION['hoa_mode'];
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     ?>
@@ -112,48 +110,7 @@
                         $totalDebitAmount = "NULL";
                         $totalCreditAmount = "NULL";
 
-                        if($community_id == 1)
-                        {
-
-                          $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/TrialBalance?minorversion=8');
-                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509536054",oauth_nonce="BSq0LM2DLXq",oauth_version="1.0",oauth_signature="uiV4TxabtQEpa2nzx3Kmp96%2Fc40%3D"'));
-                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                          $result = curl_exec($ch);
-                            
-                          $result =  json_decode($result);
-
-                          foreach ($result->Rows->Row as $row) 
-                          {
-
-                            if ( $row->ColData )
-                            {
-
-                              echo "<tr><td>".$row->ColData[0]->value."</td><td>";
-                                          
-                              if ( $row->ColData[1]->value != "" )
-                                echo "$ ".$row->ColData[1]->value;
-                                  
-                              echo "</td><td>";
-                                          
-                              if ( $row->ColData[2]->value != "" )
-                                echo "$ ".$row->ColData[2]->value;
-                                  
-                              echo "</td></tr>";
-
-                            }
-                            else if ( $row->Summary )
-                            {
-                      
-                              $totalDebitAmount = $row->Summary->ColData[1]->value;
-                              $totalCreditAmount = $row->Summary->ColData[2]->value;
-
-                            }
-
-                          }
-
-                        }
-                        else if($community_id == 2)
+                        if($community_id == 2)
                         {
 
                           $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/TrialBalance?minorversion=8');

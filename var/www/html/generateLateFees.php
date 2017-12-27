@@ -161,7 +161,7 @@ function hidePleaseWait() {
               $lateFee[$row['community_id']] = $row['assessment_amount'];
             }
             }
-            $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID = 1 OR COMMUNITY_ID = 2 ORDER BY HOME_ID";
+            $query = "SELECT * FROM HOMEID WHERE COMMUNITY_ID = 2 ORDER BY HOME_ID";
             $queryResult = pg_query($query);
             $homeIDSArray = array();
             while ($row = pg_fetch_assoc($queryResult)) {

@@ -4,8 +4,6 @@ pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 db
 
 // $srsqkey = "cYcxW-Z8ZPuaqPne1hFjrA";
 
-// $srpkey = "NRqC1Izl9L8aU-lgm_LS2A";
-
 $query = "SELECT * FROM COMMUNITY_EMAILS_SENT WHERE COMMUNITY_ID = 2 AND API_MAIL_ID IS NOT NULL";
 
 $queryResult = pg_query($query);
@@ -15,49 +13,6 @@ while ($row = pg_fetch_assoc($queryResult)) {
 
 
 $sendData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA","id" => $row['api_mail_id']);
-
-$sendData = json_encode($sendData);
-
-print_r($sendData);
-print_r(nl2br("\n\n"));
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/content.json");
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS,$sendData);
-curl_setopt($ch, CURLOPT_POST, 1);
-$headers = array();
-$headers[] = "Content-Type: application/x-www-form-urlencoded";
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-$result = curl_exec($ch);
-$result2  = json_decode($result);
-if ( $result2->status == "error" ){
-  print_r("An error ocuured");
-}
-else {
-  $query = "UPDATE COMMUNITY_EMAILS_SENT SET BODY='".$result."' WHERE api_mail_id = '".$row['api_mail_id']."'";
-  if ( !pg_query($query) ){
-  	print_r($query);
-  }
-  else{
-  	print_r("Updated");
-  }
-}
-
-print_r(nl2br("\n\n\n\n"));
-}
-
-
-
-
-
-
-$query = "SELECT * FROM COMMUNITY_EMAILS_SENT WHERE COMMUNITY_ID = 1 AND API_MAIL_ID IS NOT NULL";
-
-$queryResult = pg_query($query);
-
-while ($row = pg_fetch_assoc($queryResult)) {
-	
-$sendData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A","id" => $row['api_mail_id']);
 
 $sendData = json_encode($sendData);
 

@@ -14,7 +14,7 @@
     
     <?php
 
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+        pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
         if(@!$_SESSION['hoa_username'])
           header("Location: https://hoaboardtime.com/logout.php");
@@ -508,7 +508,7 @@
                         <?php
             setlocale(LC_MONETARY, 'en_US');
             date_default_timezone_set('America/Los_Angeles');
-            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+            $connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
             $vendorID = $_GET['select_vendor'];
             if ( $vendorID ){
             $query = "SELECT quickbooks_id from vendor_master where vendor_id = $vendorID";

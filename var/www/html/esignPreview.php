@@ -14,9 +14,7 @@
 	
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 
-	if($_SESSION['hoa_community_id'] == 1)
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Access-Token:3AAABLblqZhBWF9BYTpVk2qiLdux9HoMp6296MnQhdvuw5sR-wRF84ZkKs3rUG6GDbSI8MVYE2-Kgabac7qiVa1FqAytq957r'));
-	else if($_SESSION['hoa_community_id'] == 2)
+	if($_SESSION['hoa_community_id'] == 2)
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Access-Token:3AAABLblqZhBbuoGJoQZXIMhISUIAnh7R_qmzGgn_COsBf1G0kXyDFiaXxE-oM8ZMaL1LPybdYz1U2gYXszLLzpLuenZ3Ojfm'));
 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);

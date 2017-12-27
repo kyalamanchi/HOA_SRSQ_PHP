@@ -32,7 +32,7 @@ require('mc_table.php');
         $allInspectionQueryResult = pg_query($allInspectionQuery);
         while($row = pg_fetch_assoc($allInspectionQueryResult))
         {
-            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+            $connection = pg_pconnect("host=host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
             $id = $row['id']; 
         $inspectionDateFinal = $row['inspection_date'];
         $inspectionStatusIDFinal = $row['inspection_status_id'];

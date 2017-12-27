@@ -21,9 +21,7 @@
       $user_id = $_SESSION['hoa_user_id'];
       $mode = $_SESSION['hoa_mode'];
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     ?>
@@ -110,66 +108,7 @@
 
                     $finalAmount = "NULL";
 
-                    if($community_id == 1)
-                    {
-
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/reports/VendorExpenses?minorversion=8');
-                          // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
-                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="doJ2s3%2F2B6LEarru2JKFfy9%2B8V0%3D"'));
-                          // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
-                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                          $result = curl_exec($ch);
-                          $result  = json_decode($result);
-        
-                          $vendorsArray = array();
-
-                            foreach ($result->Rows->Row as $ColumnData) 
-                            {
-                              
-                              $values = array();
-                              $id = -10;
-                              $vendors = array();
-                              $amounts = array();
-            
-                              foreach ($ColumnData as $row) 
-                              {
-                                  
-                                  $name = "";
-                                  $id = "";
-                                  $amount = "";
-                                  
-                                  if ( $row->ColData )
-                                  {
-                                      
-                                      $finalAmount = $row->ColData[1]->value;
-                                      setlocale(LC_MONETARY, 'en_US');
-                                      $finalAmount = money_format('%#10n', $finalAmount);
-
-                                  }
-                                  else 
-                                  {
-                   
-                                      $vendorsArray[$row[0]->value] = $row[1]->value;
-                                      setlocale(LC_MONETARY, 'en_US');
-                                      $vendorsArray[$row[0]->value] = money_format('%#10n', $row[1]->value);
-
-                                  }
-
-                              }
-                          
-                          }
-
-                          foreach ($vendorsArray as $key => $value) 
-                            {
-                                
-                              if ( $key && $value )
-                                echo "<tr><td>".$key."</td><td>".$value."</td></tr>";
-
-                          }
-
-                        }
-                    else if($community_id == 2)
+                    if($community_id == 2)
                     {
 
                       $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?minorversion=8');

@@ -41,9 +41,7 @@
         $home_id = $_SESSION['hoa_home_id'];
         $user_id = $_SESSION['hoa_user_id'];
 
-        if($community_id == 1)
-          pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-        else if($community_id == 2)
+        if($community_id == 2)
           pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
         //echo "<h1>".$hoa_id." - - - ".$home_id." - - - ".$user_id." - - - ".$community_id."</h1>";
@@ -1106,37 +1104,7 @@
                   <span class="info-box-text text-yellow">Bank Account Balance</span>
                     
                   <?php
-
-                    if($community_id == 1)
-                    { 
-                      
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/77?minorversion=8');      
-                      
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdtnlpBxOlv0BmjUwWTfj29gEC0KrzOcJQHaiaUDajyIO",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1492203509",oauth_nonce="Q2Ck7t",oauth_version="1.0",oauth_signature="voGBPJafHfxz8bOURbG7VntK8sI%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            
-                      $result = curl_exec($ch);
-                      $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_current_balance = $srp_primarySavings['CurrentBalance'];
-                            
-                      curl_close($ch);
-
-                      $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/account/74?minorversion=8');      
-                            
-                      curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                      curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdtnlpBxOlv0BmjUwWTfj29gEC0KrzOcJQHaiaUDajyIO",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506683164",oauth_nonce="UFK2HGiv0KT",oauth_version="1.0",oauth_signature="SmDroRQxwOUYd33MIj7EA0jRVUc%3D"'));
-                      curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                            
-                      $result2 = curl_exec($ch);
-                      $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings_balance = $srp['CurrentBalance'];
-
-                      echo "Savings : <strong>$ ".$srp_savings_balance."</strong><br>Checkings : <strong>$ ".$srp_current_balance."</strong>";
-                    }
-                    else if($community_id == 2)
+                    if($community_id == 2)
                     {
                       
                       $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      

@@ -3,13 +3,11 @@
   ini_set("session.save_path","/var/www/html/session/");
 
   session_start();
-
+    
 ?>
 
 <!DOCTYPE html>
-
 <html>
-
   <head>
     
     <?php
@@ -20,14 +18,14 @@
       	$community_id = $_SESSION['hoa_community_id'];
       	$user_id=$_SESSION['hoa_user_id'];
 
-        if($community_id == 2)
+        iif($community_id == 2)
           pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       	$result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
     		$num_row = pg_num_rows($result);
 
     		if($num_row == 0)
-    			header("Location: residentDashboard.php");
+    			header("Location: https://hoaboardtime.com/residentDashboard.php");
 
     ?>
 
@@ -43,6 +41,7 @@
     <link rel="stylesheet" href="plugins/datatables/dataTables.bootstrap.css">
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="plugins/select2/select2.min.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -181,9 +180,9 @@
 
                 </li>
             
-                <li class="active treeview">
+                <li class="treeview">
               
-                  <a>
+                  <a href='https://hoaboardtime.com/boardSetReminder.php'>
 
                     <i class='fa fa-bell'></i> <span>Create Reminder</span>
 
@@ -340,146 +339,217 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
-
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Create Reminder</strong></h1>
+          <h1><strong>Community Deposits</strong><small> - <?php echo $_SESSION['hoa_community_name']; ?></small></h1>
 
         </section>
 
         <section class="content">
           
-          <div class="row">
+          <div class="row container-fluid">
 
-          	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
 
-              <div class="box">
-                
+              <div class="row container-fluid"  style="background-color: white;">
+
                 <div class="box-body table-responsive">
                   
-                  <table id="example1" class="table table-bordered table-striped">
-                    
+                  <table id='example1' class="table table-striped table-bordered">
+
                     <thead>
                       
-                      <tr>
-                        
-                        <th></th>
-                        <th>HOA ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Home ID</th>
-                        <th>Address</th>
-                        <th>Balance</th>
-
-                      </tr>
+                      <th>Fund Received On</th>
+                      <th>ID</th>
+                      <th>Net Amount</th>
+                      <th>Number of Transactions</th>
+                      <th>Status</th>
+                      <th>Fund Sent On</th>
 
                     </thead>
 
                     <tbody>
 
-                      <?php 
+                      <?php
+
+                        $result = pg_query("SELECT * FROM community_deposits WHERE community_id=$community_id");
 
                         while($row = pg_fetch_assoc($result))
                         {
 
-                          $home_id = $row['home_id'];
-                          $living_in = $row['address1'];
+                          $funding_id = $row['funding_id'];
+                          $id1 = $row['id'];
+                          $status = $row['status'];
+                          $net_amount = $row['net_amount'];
+                          $number_of_transactions = $row['number_of_transactions'];
+                          $effective_date = $row['effective_date'];
+                          $origination_date = $row['origination_date'];
+                          $routing_number = $row['routing_number'];
+                          $account_number = $row['account_number_last_four_digits'];
+                          $entry_description = $row['entry_description'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$home_id"));
+                          if($effective_date != '')
+                            $effective_date = date('m-d-Y', strtotime($effective_date));
 
-                          $hoa_id = $row1['hoa_id'];
-                          $name = $row1['firstname'];
-                          $name .= " ";
-                          $name .= $row1['lastname'];
-                          $email = $row1['email'];
-                          $phone = $row1['cell_no'];
+                          if($origination_date != '')
+                            $origination_date = date('m-d-Y', strtotime($origination_date));
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE home_id=$home_id AND hoa_id=$hoa_id"));
-                          $charges = $row1['sum'];
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND home_id=$home_id AND hoa_id=$hoa_id"));
-                          $payments = $row1['sum'];
-
-                          $balance = $charges - $payments;
-
-                          $reminders = pg_num_rows(pg_query("SELECT * FROM reminders WHERE home_id=$home_id AND hoa_id=$hoa_id AND reminder_status_id=1"));
-                          
-                          if($reminders)
-                            $reminders = "<center><a href='https://hoaboardtime.com/boardViewReminders.php'><i class='fa fa-bell text-green'></i></a></center>";
-                          else 
-                          {
-                            if($email != "")
-                              $reminders = "<center><form method='POST' action='https://hoaboardtime.com/boardSetReminder2.php'><input type='hidden' name='hoa_id' id='hoa_id' value='".$hoa_id."'><input type='hidden' name='home_id' id='home_id' value='".$home_id."'><input type='hidden' name='name' id='name' value='".$name."'><input type='hidden' name='living_in' id='living_in' value='".$living_in."'><input type='hidden' name='email' id='email' value='".$email."'><button class='btn btn-link' type='submit'><i class='fa fa-bell text-info'></i></button></form></center>";
-                            else
-                              $reminders = "<center><a title='Email Not Available'><i class='fa fa-bell text-danger'></i></center>";
-                          }
-
-                          if($email != '')
-                          {
-                                      
-                            $aux_email = $email;
-                                    
-                            $arr = array();
-                            $arr = explode('@', $email);
-                            $email = $arr[0];
-                            $i = strlen($email);
-
-                            for($j = 3; $j < $i; $j++)
-                              $email[$j] = '*';
-
-                            $email = $email.'@'.$arr[1];
-
-                            echo "<div class='modal fade hmodal-success' id='send_email_".$hoa_id."' role='dialog'  aria-hidden='true'>
+                          echo "<div class='modal fade hmodal-success' id='funding_id_".$funding_id."' role='dialog'  aria-hidden='true'>
                                 
                             <div class='modal-dialog'>
                                               
                               <div class='modal-content'>
                                                   
                                 <div class='color-line'></div>
-                                  
-                                  <div class='modal-header'>
-                                                          
-                                    <h4 class='modal-title'>Send Email to ".$name." - ".$email."</h4>
 
-                                  </div>
+                                  <div class='modal-body table-responsive'>";
 
-                                  <form class='row' method='post' action='https://hoaboardtime.com/sendEmailToCustomer.php'>
-                                                      
-                                    <div class='modal-body'>
-                                        
-                                        <div class='row container-fluid'>
+                                    $result1 = pg_query("SELECT * FROM community_funding_transactions WHERE funding_id='$funding_id' ORDER BY id");
+
+                                    echo "<div class='row container-fluid'>
+
+                                      <div class='row text-center'>
+
+                                        <strong>
+
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Name<br>(HOA ID)</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Address<br>(Home ID)</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>ID</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Status</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Amount</div>
+                                          <div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>Received Date</div>
+
+                                        </strong>
+
+                                      </div>
+
+                                      <br>
+
+                                      <div class='row container-fluid'>";
+
+                                        while($row1 = pg_fetch_assoc($result1))
+                                        {
+
+                                          $id = $row1['id'];
+                                          $transaction_id = $row1['transaction_id'];
+                                          $funding_status = $row1['status'];
+                                          $amount = $row1['amount'];
+                                          $received_date = $row1['received_date'];
+                                          $funding_hoa_id = $row1['hoa_id'];
+
+                                          if($received_date != '')
+                                            $received_date = date('m-d-Y', strtotime($received_date));
+
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE hoa_id=$funding_hoa_id"));
+
+                                          $name = $row11['firstname'];
+                                          $name .= " ";
+                                          $name .= $row11['lastname'];
+                                          $t_home_id = $row11['home_id'];
+
+                                          $row11 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$t_home_id"));
+
+                                          $address = $row11['address1'];
+                                          $living_status = $row11['living_status'];
+
+                                          if($name != " " && $address != "")
+                                          {
+                                            
+                                            $name = "$name<br>($funding_hoa_id)";
+                                            $address = "$address<br>($t_home_id)";
+
+                                          }
+                                          else
+                                          {
+
+                                            echo "
+
+                                            <div class='modal fade hmodal-success' id='addHOAID_$id1_$id' role='dialog'  aria-hidden='true'>
                                 
-                                          <label>Subject</label>
-                                          <input class='form-control' type='text' name='mail_subject' id='mail_subject' required placeholder='Enter Mail Subject'>
+                                              <div class='modal-dialog'>
+                                                                
+                                                <div class='modal-content'>
 
-                                        </div>
+                                                  <div class='modal-header table-responsive'>
 
-                                        <br>
+                                                    <h4>Add Hoa ID - <strong>$id</strong></h4>
 
-                                        <div class='row container-fluid'>
-                                          
-                                          <label>Message</label>
-                                          <textarea class='form-control' name='mail_body' id='mail_body' required placeholder='Enter Email Body'></textarea>
+                                                  </div>
 
-                                          <input type='hidden' name='mail_email' id='mail_email' value='$aux_email'>
-                                          <input type='hidden' name='token' id='token' value='4'>
+                                                  <div class='modal-body table-responsive'>
 
-                                        </div>
+                                                    <form method='POST' action='https://hoaboardtime.com/boardEditDepositsHOAID.php'>
+                                                    
+                                                    <center>
 
-                                        <br><br>
+                                                      <select class='form-control select2' name='select_hoa' id='select_hoa' style='width: 100%;' required>
 
-                                        <center>
-                                        <button type='submit' name='submit' id='submit' class='btn btn-success btn-xs'><i class='fa fa-check'></i>Send Email</button>
-                                        <button type='button' class='btn btn-warning btn-xs' data-dismiss='modal'><i class='fa fa-close'></i>Close</button>
-                                        </center>
+                                                        <option value='' disabled selected>Select User</option>";
 
-                                    </div>
+                                                        $result000 = pg_query("SELECT * FROM homeid WHERE community_id=$community_id");
 
-                                  </form>
+                                                        while($row000 = pg_fetch_assoc($result000))
+                                                        {
+
+                                                          $add_home_id = $row000['home_id'];
+                                                          $add_address1 = $row000['address1'];
+                                                          
+                                                          $row111 = pg_fetch_assoc(pg_query("SELECT * FROM hoaid WHERE home_id=$add_home_id"));
+
+                                                          $add_name = $row111['firstname'];
+                                                          $add_name .= " ";
+                                                          $add_name .= $row111['lastname'];
+                                                          $add_hoa_id = $row111['hoa_id'];
+
+                                                          echo "<option value='".$add_hoa_id."'>".$add_name." - ".$add_address1."</option>";
+
+                                                        }
+
+                                                      echo "</select>
+
+                                                      <input type='hidden' name='current_payments_id' id='current_payments_id' value='$id'>
+
+                                                      <br><br>
+
+                                                      <button class='btn btn-xs btn-info' type='submit'>Update</button>
+
+                                                    </center>
+
+                                                    </form>
+
+                                                  </div>
+
+                                                  <br>
+
+                                                </div>
+                                              
+                                              </div>
+
+                                            </div>";//End
+
+                                            $name = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+                                            $address = "<a data-toggle='modal' data-target='#addHOAID_$id1_$id' title='Add HOA ID'>N/A</a>";
+
+                                          }
+
+                                          echo "<div class='row text-center";
+
+                                          if($living_status != 't')
+                                            echo " text-red";
+
+                                          echo "'><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'><a href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$t_hoa_id' title='User Dashboard'>$name</a></div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$address</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$id</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$funding_status</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$amount</div><div class='col-xl-2 col-lg-2 col-md-2 col-sm-2 col-xs-2'>$received_date</div></div><br>";
+
+                                        }
+
+                                      echo "</div>
+
+                                    </div>";
+
+                                  echo "</div>
+
+                                  <br>
 
                                 </div>
                             
@@ -487,35 +557,25 @@
 
                             </div>";
 
-                            $email = "<a data-toggle='modal' data-target='#send_email_".$hoa_id."'>".$email."</a>";
-
-                          }
-
-                          echo "<tr><td>$reminders</td><td>$hoa_id</td><td>$name</td><td>$email</td><td>$phone</td><td>$home_id</td><td>$living_in</td><td>$ $balance</td></tr>";
+                          echo "<tr><td>".$effective_date."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$id1."</td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>$ ".$net_amount."</a></td><td><a data-toggle='modal' data-target='#funding_id_".$funding_id."'>".$number_of_transactions."</a></td><td>".$status."</td><td>".$origination_date."</td></tr>";
 
                         }
 
                       ?>
-                    
+
                     </tbody>
 
                     <tfoot>
-
-                      <tr>
-
-                        <th></th>
-                        <th>HOA ID</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                        <th>Home ID</th>
-                        <th>Address</th>
-                        <th>Balance</th>
-
-                      </tr>
+                      
+                      <th>Fund Received On</th>
+                      <th>Funding Id</th>
+                      <th>Net Amount</th>
+                      <th>Number of Transactions</th>
+                      <th>Status</th>
+                      <th>Fund Sent On</th>
 
                     </tfoot>
-
+                    
                   </table>
 
                 </div>
@@ -548,12 +608,17 @@
     <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="plugins/select2/select2.full.min.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50, "order": [[1, "asc"]] });
+        $("#example1").DataTable({ "pageLength": 50, "order": [[0, 'desc']] });
+
+        $("#example2").DataTable({ "pageLength": 50 });
+
+        $(".select2").select2();
       });
     </script>
 

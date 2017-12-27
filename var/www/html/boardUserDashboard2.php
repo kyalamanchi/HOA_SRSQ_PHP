@@ -14,7 +14,7 @@
     
     <?php
 
-      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      	pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       	if(@!$_SESSION['hoa_username'])
       		header("Location: logout.php");
@@ -1354,9 +1354,7 @@
 
                                 date_default_timezone_set('America/Los_Angeles');
                                 $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
-                                if($community_id == 1)
-                                  $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
-                                else if($community_id == 2)
+                                if($community_id == 2)
                                   $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
 
                                 $resss = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
@@ -1929,16 +1927,7 @@
                                   $header = array();
                                   $header[] = 'Content-Type: application/json';
                                   
-                                  if($community_id == 1)
-                                  {
-
-                                    $header[] = "X-Forte-Auth-Organization-Id:org_335357";
-                                    $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
-                                                                              
-                                    curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
-
-                                  }
-                                  else if($community_id == 2)
+                                  if($community_id == 2)
                                   {
                                       
                                     $header[] = "X-Forte-Auth-Organization-Id:org_332536";

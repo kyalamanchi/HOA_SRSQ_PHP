@@ -14,7 +14,7 @@
     
     <?php
 
-      	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      	pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       	if(@!$_SESSION['hoa_username'])
       		header("Location: logout.php");
@@ -237,57 +237,7 @@
 
                       <?php
                         
-                        if($community_id == 1)
-                        {  
-
-                          $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145854171542/query?minorversion=8');
-                          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprd0JzDPeMNuATqXcic8hnusenW2",oauth_token="qyprdxuMeT1noFaS5g6aywjSOkFQo16WnvwigzPbxQ01LPYF",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1508539671",oauth_nonce="TTJKx4StAFv",oauth_version="1.0",oauth_signature="hPukL2qGZM2duER7bBV%2BZcMEtNs%3D"'));
-                          curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-                          curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from purchase startposition 1 maxresults 1000");
-        
-                          $result = curl_exec($ch);
-                          $jsonDecode  = json_decode($result,TRUE);
-                          $queryResponse = $jsonDecode['QueryResponse'];
-                        
-                          foreach ($queryResponse['Purchase'] as $purchase) {
-                          
-                            echo '<tr><td>';
-                            print_r(date("m-d-Y",strtotime($purchase['TxnDate'])));
-                            echo '</td><td>Expenditure</td><td>';
-                            echo $purchase['EntityRef']['name'];
-                            echo '</td><td>';
-                            
-                            $count = 0;
-                            
-                            foreach ($purchase['Line'] as $line) {
-                              
-                              $count = $count + 1;
-                              $category = $line['AccountBasedExpenseLineDetail']['AccountRef']['name'];
-
-                            }
-                            
-                            if ( $count == 1) {
-                              
-                              echo $category;
-                              $count = 0;
-
-                            }
-                            else {
-                              
-                              echo "-Split-";
-                              $count = 0;
-
-                            }
-
-                            echo '</td><td>';
-                            print_r("$".number_format($purchase['TotalAmt'],2));
-                            echo '</td></tr>';
-
-                          }
-                          
-                        }
-                        else if($community_id == 2)
+                        if($community_id == 2)
                         {  
 
                           $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');

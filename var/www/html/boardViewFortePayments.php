@@ -26,9 +26,7 @@
 
             $community_id = $_SESSION['hoa_community_id'];
 
-			if($community_id == 1)
-        		pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      		else if($community_id == 2)
+			if($community_id == 2)
         		pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
             $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id']);
@@ -87,16 +85,7 @@
 						$ch = curl_init();
 					    $header = array();
 					    $header[] = 'Content-Type: application/json';
-
-					    if($community_id == 1)
-					    {
-					                                                
-					        $header[] = "X-Forte-Auth-Organization-Id:org_335357";
-					        $header[] = "Authorization:Basic NjYxZmM4MDdiZWI4MDNkNTRkMzk5MjUyZjZmOTg5YTY6NDJhNWU4ZmNjYjNjMWI2Yzc4N2EzOTY2NWQ4ZGMzMWQ=";
-					                                                
-					        curl_setopt($ch, CURLOPT_URL, "https://api.forte.net/v3/organizations/org_335357/locations/loc_193771/transactions?filter=customer_id+eq+'".$hoa_id."'");
-					    }  
-					    else if($community_id == 2)
+						if($community_id == 2)
 					    {
 					        $header[] = "X-Forte-Auth-Organization-Id:org_332536";
 					        $header[] = "Authorization:Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU=";

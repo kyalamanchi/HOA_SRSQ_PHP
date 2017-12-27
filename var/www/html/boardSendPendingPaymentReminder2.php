@@ -20,13 +20,6 @@
 	$to = "geethchadalawada@gmail.com";
 
     switch ($community_id) {
-        case 1:
-            $community = 'SRP';
-            $cnote = "Stoneridgeplace HOA";
-            $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
-            $from = 'info@stoneridgeplace.org';
-            break;
-
         case 2:
             $community = 'SRSQ';
             $cnote = "Stoneridge Square HOA";

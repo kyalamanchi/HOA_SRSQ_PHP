@@ -6,9 +6,7 @@
 
     $community_id = $_SESSION['hoa_community_id'];
 
-    if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-    else if($community_id == 2)
+    if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     $disclosure_id = $_POST['disclosure_id'];

@@ -135,7 +135,7 @@
                   <img src='srsq_logo.JPG'>
 
                 </li>"; ?>
-            
+
                 <li class="header text-center"> Quick Links </li>
 
                 <li class="treeview">
@@ -181,7 +181,7 @@
 
                 </li>
             
-                <li class="active treeview">
+                <li class="treeview">
               
                   <a href='https://hoaboardtime.com/boardSetReminder.php'>
 
@@ -340,18 +340,11 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $rid = $_POST['reminder_id'];
-          $due_date = $_POST['edit_reminder_due_date'];
-          $vendor_assigned = $_POST['edit_vendor'];
-          $comment = $_POST['edit_comment'];
-          $update_date = date('Y-m-d');
-          $reminder_type = $_POST['edit_reminder_type'];
-
         ?>
         
         <section class="content-header">
 
-          <h1><strong>Edit Reminder</strong></h1>
+          <h1><strong>Delinquent Accounts</strong><small> - <?php echo date("F").", ".$year; ?></small></h1>
 
         </section>
 
@@ -359,43 +352,168 @@
           
           <div class="row">
 
+            <section class="col-xl-offset-2 col-lg-offset-2 col-md-offset-1 col-xl-8 col-lg-8 col-md-10 col-sm-12 col-xs-12">
+              
+                <div class="row container-fluid">
+
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                    <div class="alert alert-info alert-dismissible">
+                
+                      <form method="POST" action="boardDelinquentAccounts.php">
+                      <center>
+                      <?php
+
+                        if( isset($_POST['submit']) )
+                        {
+                          
+                          if( $_POST['due'] == 1 )
+                          {
+
+                            echo "Show customers with due ";
+
+                            echo "<input type='radio' checked name='due' id='due' value='1'> 30 Days <input type='radio' name='due' id='due' value='2'> 60 Days <input type='radio' name='due' id='due' value='3'> 90 Days <br><br><input class='btn btn-warning' type='submit' name='submit' id='submit' value='Show'>"; 
+
+                            $del = 1;
+
+                          }
+                          else if( $_POST['due'] == 2 )
+                          {
+
+                            echo "Show customers with due ";
+
+                            echo "<input type='radio' name='due' id='due' value='1'> 30 Days <input type='radio' checked name='due' id='due' value='2'> 60 Days <input type='radio' name='due' id='due' value='3'> 90 Days <br><br><input class='btn btn-warning' type='submit' name='submit' id='submit' value='Show'>"; 
+
+                            $del = 2;
+
+                          }
+                          else
+                          {
+
+                            echo "Show customers with due ";
+
+                            echo "<input type='radio' name='due' id='due' value='1'> 30 Days <input type='radio' name='due' id='due' value='2'> 60 Days <input type='radio' name='due' id='due' checked value='3'> 90 Days <br><br><input class='btn btn-warning' type='submit' name='submit' id='submit' value='Show'>"; 
+
+                            $del = 3;
+
+                          }
+
+                        }
+                        else
+                        {
+                          
+                          echo "Show customers with due ";
+
+                          echo "<input type='radio' name='due' id='due' value='1'> 30 Days <input type='radio' name='due' id='due' value='2'> 60 Days <input type='radio' name='due' checked id='due' value='3'> 90 Days <br><br><input class='btn btn-warning' type='submit' name='submit' id='submit' value='Show'>"; 
+
+                          $del = 3;
+
+                        }
+
+                      ?>
+                      </center>
+                      </form>
+                      
+                    </div>
+
+                  </div>
+
+                </div>
+
+            </section>
+
           	<section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
 
               <div class="box">
                 
-                <div class="box-body">
-
-                  <br><br><br>
+                <div class="box-body table-responsive">
                   
-                  <?php 
-
-                    if($vendor_assigned == "")
-                      $query = "UPDATE reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type WHERE id=$rid";
-                    else
-                      $query = "UPDATE reminders SET due_date='$due_date', update_date='$update_date', comments='$comment', reminder_type_id=$reminder_type, vendor_assigned=$vendor_assigned WHERE id=$rid";
-
-                    $result = pg_query($query);
-
-                    if(!$result)
-                    {
+                  <table id="example1" class="table table-bordered table-striped">
+                    
+                    <thead>
                       
-                      echo "<center>Some error occured. Please try again</center><br><br>";
+                      <tr>
+                        
+                        <th>Name</th>
+                        <th>Property Address</th>
+                        <th>Total Due</th>
+                        <th>Phone</th>
+                        <th>Email</th>
 
-                      echo "<br><br><center><a href='https://hoaboardtime.com/viewReminders.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/viewReminders.php'},1000);</script>";
+                      </tr>
 
-                    }
-                    else 
-                    {
-                      
-                      echo "<center>Reminder edited successfully. Page will auto redirect to reminders page.</center>";
+                    </thead>
 
-                      echo "<br><br><center><a href='https://hoaboardtime.com/viewReminders.php'>Click here</a> if this page doenot redirect automatically in 5 seconds.</center><script>setTimeout(function(){window.location.href='https://hoaboardtime.com/viewReminders.php'},1000);</script>";
+                    <tbody>
 
-                    }
+                      <?php 
 
-                  ?>
+                        $result = pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id");
+                        $row = pg_fetch_assoc($result);
 
-                  <br><br><br>
+                        $assessment_amount = $row['amount'];
+
+                        $del_amount = $assessment_amount * $del;
+
+                        $result = pg_query("SELECT home_id, sum(amount) FROM current_charges WHERE assessment_rule_type_id=1 AND community_id=$community_id GROUP BY home_id ORDER BY home_id");
+
+                        while($row = pg_fetch_assoc($result))
+                        {
+
+                          $home_id = $row['home_id'];
+                          $assessment_charges = $row['sum'];
+
+                          $query2 = "SELECT hoa_id, firstname, lastname, cell_no, email FROM hoaid WHERE home_id=".$home_id;
+                          $result2 = pg_query($query2);
+                          $row2 = pg_fetch_assoc($result2);
+
+                          $firstname = $row2['firstname'];
+                          $lastname = $row2['lastname'];
+                          $hoa_id = $row2['hoa_id'];
+                          $cell_no = $row2['cell_no'];
+                          $email = $row2['email'];
+
+                          $query2 = "SELECT sum(amount) FROM current_charges WHERE hoa_id=".$hoa_id;
+                          $result2 = pg_query($query2);
+                          $row2 = pg_fetch_assoc($result2);
+                          $charges = $row2['sum'];
+
+                          $query2 = "SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND hoa_id=".$hoa_id;
+                          $result2 = pg_query($query2);
+                          $row2 = pg_fetch_assoc($result2);
+                          $payments = $row2['sum'];
+
+                          $balance = $charges - $payments;
+
+                          $query2 = "SELECT address1 FROM homeid WHERE home_id=".$home_id;
+                          $result2 = pg_query($query2);
+                          $row2 = pg_fetch_assoc($result2);
+                          $address1 = $row2['address1'];
+
+                          if($del_amount <= ($assessment_charges - $payments) && $balance >= $del_amount)
+                            echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>".$firstname." ".$lastname."</a></td><td> ".$address1."</td><td>$ ".$balance."</td><td>".$cell_no."</td><td>".$email."</td></tr>";
+
+                        }
+
+                      ?>
+                    
+                    </tbody>
+
+                    <tfoot>
+
+                      <tr>
+
+                        <th>Name</th>
+                        <th>Property Address</th>
+                        <th>Total Due</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+
+                      </tr>
+
+                    </tfoot>
+
+                  </table>
 
                 </div>
 
@@ -432,7 +550,7 @@
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50, "order": [[1, "asc"]] });
+        $("#example1").DataTable({ "pageLength": 50 });
       });
     </script>
 

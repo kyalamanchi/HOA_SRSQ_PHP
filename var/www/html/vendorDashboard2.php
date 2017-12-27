@@ -23,9 +23,7 @@
       $vendor_id = $_GET['select_vendor'];
       $vendor_id = base64_decode($vendor_id);
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $row = pg_fetch_assoc(pg_query("SELECT * FROM vendor_master WHERE vendor_id=$vendor_id"));
@@ -234,7 +232,7 @@
                         <?php
             setlocale(LC_MONETARY, 'en_US');
             date_default_timezone_set('America/Los_Angeles');
-            $connection = pg_pconnect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+            $connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
             //$vendorID = $_GET['select_vendor'];
             if ( $vendorID ){
             $query = "SELECT quickbooks_id from vendor_master where vendor_id = $vendorID";

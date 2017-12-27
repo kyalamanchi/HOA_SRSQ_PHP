@@ -18,9 +18,7 @@
       $community_id = $_SESSION['hoa_community_id'];
       $user_id=$_SESSION['hoa_user_id'];
 
-      if($community_id == 1)
-        pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-      else if($community_id == 2)
+      if($community_id == 2)
         pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
       $mode = $_SESSION['hoa_mode'];
@@ -58,9 +56,7 @@
     <script type="text/javascript">
       var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
       var dimensionValue2 = "${communityInfo.communityCode}";
-      if(<?php echo $community_id; ?> == 1)
-        ga('create', 'UA-102881886-1', 'auto');
-      else if(<?php echo $community_id; ?> == 2)
+      if(<?php echo $community_id; ?> == 2)
         ga('create', 'UA-102881886-2', 'auto');
       ga('set', 'dimension1', dimensionValue1);
       ga('set', 'dimension2', dimensionValue2);
