@@ -63,8 +63,6 @@
         	$month = date("m");
         	$end_date = date("t");
 
-          $result = pg_query("SELECT * FROM homeid WHERE community_id=$community_id AND home_id NOT IN (SELECT home_id FROM current_payments WHERE community_id=$community_id AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date')");
-
         ?>
         
         <section class="content-header">
@@ -107,6 +105,14 @@
                     <tbody>
 
                       <?php 
+
+                        $row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+
+                        $assessment_amount = $row['amount'];
+
+                        $assessment_amount = 0 - $assessment_amount;
+
+                        $result = pg_query("SELECT h.home_id, h.address1, h.living_status FROM homeid h WHERE community_id=$community_id AND (SELECT sum(amount) FROM current_charges WHERE home_id=h.home_id)-(SELECT sum(amount) FROM current_payments WHERE home_id=h.home_id AND payment_status_id=1)<=$assessment_amount");
 
                         while($row = pg_fetch_assoc($result))
                         {
