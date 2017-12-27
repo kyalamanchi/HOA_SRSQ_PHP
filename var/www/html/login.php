@@ -41,76 +41,64 @@
 			$_SESSION['hoa_email'] = $login_email;
 			$_SESSION['hoa_user_id'] = $row['id'];
 			$_SESSION['hoa_community_id'] = $row['community_id'];
+				
+			$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
+				
+			$query = "SELECT * FROM hoaid WHERE email='".$login_email."'";
+			$result = pg_query($query);
+			$row = pg_fetch_assoc($result);
 
-			if($_SESSION['hoa_community_id'] != 2)
-				header("Location: logout.php");
+			$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
+			$_SESSION['hoa_home_id'] = $row['home_id'];
 
-			if($_SESSION['hoa_user_id'] == 400)
+			$query = "SELECT * FROM homeid WHERE home_id=".$_SESSION['hoa_home_id'];
+			$result = pg_query($query);
+			$row =pg_fetch_assoc($result);
+
+			$_SESSION['hoa_address'] = $row['address1'];
+
+			$query = "SELECT * FROM community_info WHERE community_id=".$_SESSION['hoa_community_id'];
+			$result = pg_query($query);
+			$row =pg_fetch_assoc($result);
+
+			$_SESSION['hoa_community_name'] = $row['legal_name'];
+			$_SESSION['hoa_community_code'] = $row['community_code'];
+			$_SESSION['hoa_community_website_url'] = $row['community_website_url'];
+
+			$query = "SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id'];
+			$result = pg_query($query);
+			$num_row = pg_num_rows($result);
+
+			if($num_row == 0)
 			{
-				$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
-
+					
 				$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
-				header("Location: backendBalance.php");
-				
+				$_SESSION['hoa_mode'] = 2;
+
+				header("Location: residentDashboard.php");
+
 			}
 			else
 			{
-				$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
-				
-				$query = "SELECT * FROM hoaid WHERE email='".$login_email."'";
-				$result = pg_query($query);
-				$row = pg_fetch_assoc($result);
 
-				$_SESSION['hoa_hoa_id'] = $row['hoa_id'];
-				$_SESSION['hoa_home_id'] = $row['home_id'];
+				$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
 
-				$query = "SELECT * FROM homeid WHERE home_id=".$_SESSION['hoa_home_id'];
-				$result = pg_query($query);
-				$row =pg_fetch_assoc($result);
+				$_SESSION['hoa_mode'] = 1;
 
-				$_SESSION['hoa_address'] = $row['address1'];
-
-				$query = "SELECT * FROM community_info WHERE community_id=".$_SESSION['hoa_community_id'];
-				$result = pg_query($query);
-				$row =pg_fetch_assoc($result);
-
-				$_SESSION['hoa_community_name'] = $row['legal_name'];
-				$_SESSION['hoa_community_code'] = $row['community_code'];
-				$_SESSION['hoa_community_website_url'] = $row['community_website_url'];
-
-				$query = "SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id'];
-				$result = pg_query($query);
-				$num_row = pg_num_rows($result);
-
-				if($num_row == 0)
-				{
-					
-					$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
-
-					$_SESSION['hoa_mode'] = 2;
-
-					header("Location: residentDashboard.php");
-
-				}
-				else
-				{
-
-					$result123 = pg_query("UPDATE usr SET last_login='$now' WHERE id=$id");
-
-					$_SESSION['hoa_mode'] = 1;
-
-					header("Location: boardDashboard.php");
-				}
+				header("Location: boardDashboard.php");
 
 			}
+
 		}
 		else
 		{
+			
 			echo '<script type="text/javascript">'; 
 			echo 'alert("Invalid password entered.Please check the password and try again.");'; 
 			echo 'window.location.href = "index.php";';
 			echo '</script>';
+
 		}
 	}
 ?>
