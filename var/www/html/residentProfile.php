@@ -211,6 +211,8 @@
           $firstname = $row['firstname'];
           $lastname = $row['lastname'];
 
+          $cell_no = base64_decode($cell_no);
+
         ?>
 
         <section class="content-header">
@@ -227,7 +229,7 @@
 
               <br><br>
 
-              <form class="container-fluid" method="POST" action="https://hoaboardtime.com/residentUpdateProfile.php">
+              <form class="container-fluid" method="POST" action="residentUpdateProfile.php">
               
                 <div class="row container-fluid">
 
@@ -638,6 +640,8 @@
                       $person_lname = $r['lname'];
                       $person_home_id = $r['home_id'];
                       $person_id = $r['id'];
+
+                      $person_cell_no = base64_decode($person_cell_no);
 
                       $r1 = pg_fetch_assoc(pg_query("SELECT * FROM homeid WHERE home_id=$person_home_id"));
                       $address = $r1['address1'];
