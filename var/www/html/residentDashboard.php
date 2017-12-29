@@ -44,8 +44,7 @@
         $home_id = $_SESSION['hoa_home_id'];
         $user_id = $_SESSION['hoa_user_id'];
 
-        if($community_id == 2)
-          pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+        include 'includes/dbconn.php';
 
         //echo "<h1>".$hoa_id." - - - ".$home_id." - - - ".$user_id." - - - ".$community_id."</h1>";
 
