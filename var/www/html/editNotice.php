@@ -105,7 +105,7 @@ function sendData(){
       <div style="width: 100%;">
       <h4>Subject</h4>
       <?php
-      $connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy"); or die("Failed to connect to database");
+      include 'includes/dbconn.php';
       $query = "SELECT * FROM INSPECTION_NOTICES WHERE ID = ".$_GET['id'];
       $queryResult = pg_query($query);
       $queryResult = pg_fetch_assoc($queryResult);

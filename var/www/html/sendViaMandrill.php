@@ -1,7 +1,8 @@
 <?php
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set("America/Los_Angeles");
-$connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
+
+include 'includes/dbconn.php';
 
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);

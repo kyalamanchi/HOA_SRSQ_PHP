@@ -6,8 +6,7 @@
 
 	$community_id = $_SESSION['hoa_community_id'];
 
-	if($community_id == 2)
-        pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	include 'includes/dbconn.php';
 
 	header ( "Content-Type: application/vnd.ms-excel" );
     header ( "Content-disposition: attachment; filename=".$_SESSION['hoa_community_code']."-Mailing_List-_".date('m-d-Y H:i:s').".csv" );

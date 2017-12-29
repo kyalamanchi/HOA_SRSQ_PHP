@@ -112,7 +112,7 @@ function hidePleaseWait() {
     $("#pleaseWaitDialog").modal("hide");
 }
 <?php
-$connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+include 'includes/dbconn.php';
 $hoaidquery = "SELECT * FROM HOAID WHERE COMMUNITY_ID=2";
         $hoaidqueryresult = pg_query($hoaidquery);
         $hoaIDArray = array();

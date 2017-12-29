@@ -1,6 +1,8 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
-pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+
+include 'includes/dbconn.php';
+
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbPurchaseAttachments.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
