@@ -610,8 +610,11 @@ function hidePleaseWait() {
 
                       echo "<thead><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
+                      $counter = 0 ;
                       while ($row = pg_fetch_assoc($result)) 
                       {
+
+                        $counter = $counter + 1;
                         
                         $hoa_id = $row['hoa_id'];
                         $home_id = $row['home_id'];
@@ -748,6 +751,7 @@ function hidePleaseWait() {
 
                       }
 
+                      if ( $counter == pg_num_rows($result) )
                       echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr></tbody></table>";
 
                     }
