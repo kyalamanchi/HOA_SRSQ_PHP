@@ -4,6 +4,12 @@
 
   session_start();
 
+  $totalCharges = 0;
+
+  $totalPayments = 0 ;
+
+  $totalBalance = 0;
+
 ?>
 
 <!DOCTYPE html>
@@ -570,6 +576,11 @@ function hidePleaseWait() {
 
                         echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a></td><td>$address ($home_id)</td><td>$ $charges</td><td>$ $payments</td><td>$ $balance</td></tr>";
 
+                        $totalCharges =  $totalCharges  + $charges;
+
+                        $totalPayments  = $totalPayments + $payments;
+
+                        $totalBalance = $totalBalance + $balance;
 
                       }
 
@@ -588,7 +599,7 @@ function hidePleaseWait() {
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges)</th><th>Total Payments ($ $totalPayments)</th><th>Total Balance ($ $totalBalance)</th></tfoot><table>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -719,10 +730,14 @@ function hidePleaseWait() {
 
                         echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a></td><td>$address ($home_id)</td><td>$ $charges</td><td>$ $payments</td><td>$ $balance</td></tr>";
 
+                        $totalCharges =  $totalCharges  + $charges;
 
+                        $totalPayments  = $totalPayments + $payments;
+
+                        $totalBalance = $totalBalance + $balance;
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges)</th><th>Total Payments ($ $totalPayments)</th><th>Total Balance ($ $totalBalance)</th></tfoot><table>";
 
                     }
                   
