@@ -758,9 +758,20 @@ function hidePleaseWait() {
     <script src="dist/js/demo.js"></script>
 
     <script>
-      $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
-      });
+
+
+
+      $('#example1').DataTable( {
+        "pageLength": 50,
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    } );
+
+
+
+
+
     </script>
 
   </body>
