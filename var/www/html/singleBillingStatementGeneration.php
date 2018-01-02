@@ -229,10 +229,18 @@ $currentPaymentsArray = array();
 while ($row = pg_fetch_assoc($currentPaymentsQueryResult)) {
     array_push($currentPaymentsArray, $row); 
 }
+$otherYearCharges = array();
+$otherYearPayments  = array();
 foreach ($monthsArray as $key ) {
     $currentChoosenMonth = date('F', mktime(0, 0, 0, $key, 10));
     foreach ($currentChargesList as $key2 => $value2) {
         if ( (date('m',strtotime($value2['assessment_date']))) == $key ){
+
+            if ( $value2['assessment_year'] != date('Y') ){
+                array_push($otherYearCharges, $value2);
+                break;
+            }
+
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
             array_push($data2,($value2['id']).'-'.($value2['assessment_rule_type_id']));
@@ -246,6 +254,11 @@ foreach ($monthsArray as $key ) {
     }
     foreach ($currentPaymentsArray as $key2 => $value2) {
         if ( (date('m',strtotime($value2['process_date'])) == $key)  ){
+
+            if ( (date('Y',strtotime($value2['process_date'])) != date('Y') ) ){
+                array_push($otherYearPayments, $value2);
+                break;
+            }
             $data2 = array();
             array_push($data2, $currentChoosenMonth);
             array_push($data2,($value2['id']).'-'.($value2['payment_type_id']));
