@@ -585,7 +585,8 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges) </th><th>Total Payments ($ $totalPayments)</th><th>Total Balance($ $totalBalance)</th></tfoot><table>";
+                      echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr>";
+
 
                     }
                     else
@@ -746,7 +747,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges)</th><th>Total Payments ($totalPayments)</th><th>Total Balance ($ $totalBalance)</th></tfoot><table>";
+                      echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr>";
 
                     }
                   
