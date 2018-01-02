@@ -9,7 +9,7 @@ if ( pg_query($createSequenceQuery) ){
 	print_r("Sequence created");
 
 	$query = 'CREATE TABLE "public"."adobe_api" (
-    "id" bigint DEFAULT 'adobe_api_seq',
+    "id" bigint DEFAULT \'adobe_api_seq\',
     "community_id" bigint,
     "access_token" text,
     "updated_by" bigint,
