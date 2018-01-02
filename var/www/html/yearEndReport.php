@@ -41,35 +41,36 @@
     <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
     <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
-
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-
+    
     <script>
 
-      // $(document).ready(function() {
-      //   $('#example').DataTable( {
-      //     dom: 'Bfrtip',
-      //     buttons: [
-      //       'copy', 'csv', 'excel', 'pdf', 'print'
-      //     ],
-      //     "pageLength": 50
-      //     } );
-      // } );
-
-
-      $(function () {
-        $("#example1").DataTable({ 
-          "pageLength": 50,
+      $(document).ready(function() {
+        $('#example').DataTable( {
           dom: 'Bfrtip',
           buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
-          ]
+          ],
+          "pageLength": 50
+          } );
+      } );
 
-         });
-      });
+
+      // $(function () {
+      //   $("#example1").DataTable({ 
+      //     "pageLength": 50,
+      //     dom: 'Bfrtip',
+      //     buttons: [
+      //       'copy', 'csv', 'excel', 'pdf', 'print'
+      //     ]
+
+      //    });
+      // });
     </script>
 
     <script type="text/javascript">
