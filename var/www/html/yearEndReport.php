@@ -305,7 +305,7 @@ function hidePleaseWait() {
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                     echo "<thead><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></thead><tbody>";
+                     echo "<thead><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -568,13 +568,12 @@ function hidePleaseWait() {
 
                         }
 
-                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='viewBillingStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td><td><button type=\"button\" class=\"btn btn-default\" id=$hoa_id onclick=\"emailStatement(this);\">Email Statement</button>
-                        <button type=\"button\" id=$hoa_id class=\"btn btn-default\" onclick=\"sendSouthData(this);\">Send Via SouthData</button></td></tr>";
+                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></tfoot><table>";
 
                     }
                     else
@@ -589,7 +588,7 @@ function hidePleaseWait() {
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo "<thead><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></thead><tbody>";
+                      echo "<thead><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -718,13 +717,12 @@ function hidePleaseWait() {
 
                         }
 
-                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td><td><form method='POST' action='print_invoice.php'><a target='_blank' href='viewBillingStatement.php?hoa_id=$hoa_id'><i class='fa fa-print'></i> Invoice</a></td><td><button type=\"button\" class=\"btn btn-default\" id=$hoa_id onclick=\"emailStatement(this);\">Email Statement</button>
-                        <button type=\"button\" id=$hoa_id class=\"btn btn-default\" onclick=\"sendSouthData(this);\">Send Via SouthData</button></td></tr>";
+                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th><th></th><th></th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></tfoot><table>";
 
                     }
                   
