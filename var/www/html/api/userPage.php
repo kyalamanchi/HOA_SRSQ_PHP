@@ -295,7 +295,152 @@
         }
     }
 };
-    var data = JSON.stringify({"email": "hey@mail.com", "password": "101010"});
+    
+    xhr.send(lol);
+
+
+    }
+
+
+    function saveQuickbooksApiKey() {
+
+    swal("Please wait...", {
+                    button: false,
+                    closeOnEsc: false,
+                    closeOnClickOutside: false
+    });
+
+    jsonObj = [];
+    item = {};
+    item["consumer_key"] = document.getElementById("quickbooks_consumer_key").value;
+    item["consumer_secret"] = document.getElementById("quickbooks_consumer_secret").value;
+    item["access_token"] = document.getElementById("quickbooks_access_token").value;
+    item["access_secret"] = document.getElementById("quickbooks_access_secret").value;
+    item["company_id"] = document.getElementById("quickbooks_company_id").value;
+    item["token_duration"] = document.getElementById("quickbooks_token_duration").value; 
+    item["api"] = "quickbooks";
+    jsonObj.push(item);
+    lol = JSON.stringify(jsonObj);
+
+    var xhr = new XMLHttpRequest();
+    var url = "updateKeys.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        swal.close();   
+        if ( xhr.responseText.includes("Failed") ){
+            swal("Failed to update",xhr.responseText,"error");
+        }
+        else {
+            swal("Key updated.","","success");
+        }
+    }
+    };
+    xhr.send(lol);
+
+    }
+
+    function saveAdobeApiKey(){
+    swal("Please wait...", {
+                    button: false,
+                    closeOnEsc: false,
+                    closeOnClickOutside: false
+    });
+
+    jsonObj = [];
+    item = {};
+    item["oauth_token"] = document.getElementById("adobe_api_key").value;
+    item["api"] = "adobesign";
+    jsonObj.push(item);
+    lol = JSON.stringify(jsonObj);
+
+    var xhr = new XMLHttpRequest();
+    var url = "updateKeys.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        swal.close();   
+        if ( xhr.responseText.includes("Failed") ){
+            swal("Failed to update","","error");
+        }
+        else {
+            swal("Key updated.","","success");
+        }
+    }
+    };
+    xhr.send(lol);
+    }
+
+    function saveForteApiKey(){
+    swal("Please wait...", {
+                    button: false,
+                    closeOnEsc: false,
+                    closeOnClickOutside: false
+    });
+
+    jsonObj = [];
+    item = {};
+    item["access_token"] = document.getElementById("forte_access_token").value;
+    item["access_secret"] = document.getElementById("forte_access_secret").value;
+    item["loc_id"] = document.getElementById("forte_loc_id").value;
+    item["org_id"] = document.getElementById("forte_org_id").value;
+    item["api"] = "forte";
+
+    jsonObj.push(item);
+    lol = JSON.stringify(jsonObj);
+
+    var xhr = new XMLHttpRequest();
+    var url = "updateKeys.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        swal.close();   
+        if ( xhr.responseText.includes("Failed") ){
+            swal("Failed to update",xhr.responseText,"error");
+        }
+        else {
+            swal("Key updated.","","success");
+        }
+    }
+    };
+    xhr.send(lol);
+    }
+
+
+
+
+    function saveMandrillApiKey(){
+    swal("Please wait...", {
+                    button: false,
+                    closeOnEsc: false,
+                    closeOnClickOutside: false
+    });
+
+    jsonObj = [];
+    item = {};
+    item["oauth2_token"] = document.getElementById("mandrill_api_key").value;
+    item["api"] = "mandrill";
+    jsonObj.push(item);
+    lol = JSON.stringify(jsonObj);
+
+    var xhr = new XMLHttpRequest();
+    var url = "updateKeys.php";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-type", "application/json");
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+        swal.close();   
+        if ( xhr.responseText.includes("Failed") ){
+            swal("Failed to update","","error");
+        }
+        else {
+            swal("Key updated.","","success");
+        }
+    }
+    };
     xhr.send(lol);
 
 
@@ -373,7 +518,7 @@
 
 							<div class='row container-fluid'>
 
-								<div class='table-responsive col-xl-10 col-lg-10 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1'>
+								<div class='table-responsive col-xl-10 col-lg-12 col-md-10 col-sm-12 col-xs-12 offset-xl-1 offset-lg-1 offset-md-1' style="height: 400px;">
 
 									<?php
 
