@@ -264,8 +264,6 @@
 			</div>
 
 		</div>
-
-		<!-- Scripts-->
 		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.1.1/js/tether.min.js"></script>
 		<script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -274,9 +272,6 @@
 
 		<script src='assets/js/index.js'></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-		<!-- Color Switcher (Remove these lines)-->
-		<!--script src='assets/js/style-switcher.min.js'></script-->
 	</body>
 
 </html>
