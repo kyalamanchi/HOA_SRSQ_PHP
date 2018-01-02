@@ -2,6 +2,7 @@
 	
 	session_start();
 
+	
 	require 'includes/dbconn.php';
 
 	if(!isset($_REQUEST['hoa_id']))
