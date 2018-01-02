@@ -44,6 +44,15 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
+    <script>
+      $('#example1').DataTable( {
+        "pageLength": 50,
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    } );
+    </script>
+
     <script type="text/javascript">
         function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
@@ -756,23 +765,6 @@ function hidePleaseWait() {
     <script src="plugins/fastclick/fastclick.js"></script>
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
-
-    <script>
-
-
-
-      $('#example1').DataTable( {
-        "pageLength": 50,
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ]
-    } );
-
-
-
-
-
-    </script>
 
   </body>
 
