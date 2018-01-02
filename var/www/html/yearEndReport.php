@@ -228,7 +228,7 @@ function hidePleaseWait() {
 
             <center>
               
-              <form method='POST' action='customerBalance.php'>
+              <form method='POST' action='yearEndReport.php'>
                   
                 <?php
 
