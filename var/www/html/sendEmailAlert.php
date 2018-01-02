@@ -4,6 +4,13 @@
 	$communityID = $_GET['cid'];
 	$eventID = $_GET['eid'];
 
+	if ( !isset($communityID) ){
+		exit(0);
+	}
+	if ( !isset($eventID) ){
+		exit(0);
+	}
+
 	//Getting list of members
 
 	if (  isset($communityID) && isset($eventID) ){
