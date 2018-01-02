@@ -44,7 +44,26 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
+    <script>
+
+      $(document).ready(function() {
+        $('#example').DataTable( {
+          dom: 'Bfrtip',
+          buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+          ],
+          "pageLength": 50
+          } );
+      } );
+
+
+      // $(function () {
+      //   $("#example1").DataTable({  });
+      // });
+    </script>
+
     <script type="text/javascript">
+
         function showPleaseWait() {
     var modalLoading = '<div class="modal" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false role="dialog">\
         <div class="modal-dialog">\
@@ -757,11 +776,7 @@ function hidePleaseWait() {
     <script src="dist/js/app.min.js"></script>
     <script src="dist/js/demo.js"></script>
 
-    <script>
-      $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
-      });
-    </script>
+
 
   </body>
 
