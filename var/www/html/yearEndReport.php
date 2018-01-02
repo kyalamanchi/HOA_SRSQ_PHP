@@ -47,20 +47,28 @@
 
     <script>
 
-      $(document).ready(function() {
-        $('#example').DataTable( {
+      // $(document).ready(function() {
+      //   $('#example').DataTable( {
+      //     dom: 'Bfrtip',
+      //     buttons: [
+      //       'copy', 'csv', 'excel', 'pdf', 'print'
+      //     ],
+      //     "pageLength": 50
+      //     } );
+      // } );
+
+
+      $(function () {
+        $("#example1").DataTable({ 
+
           dom: 'Bfrtip',
           buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print'
           ],
           "pageLength": 50
-          } );
-      } );
 
-
-      // $(function () {
-      //   $("#example1").DataTable({  });
-      // });
+         });
+      });
     </script>
 
     <script type="text/javascript">
