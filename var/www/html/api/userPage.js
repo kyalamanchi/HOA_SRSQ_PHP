@@ -246,19 +246,160 @@ $('.dropdown-item').click(function() {
   }
   else if ( $(this).text()  == "Adobe Sign" ){
 
+  	document.getElementById("generate_keys_description").innerHTML = "<ul>\
+  	<li><b><font size=\"4\">Login to <a href=\"https://secure.echosign.com/public/login\"> Adobe Sign </a> and select API.</font></b></li>\
+  	<li><b><font size=\"4\">Under API select API Applications and click Create Application.</font></b></li>\
+  	<li><b><font size=\"4\">Click View/Edit to to get Application ID and Secret.</font></b></li>\
+  	<li><b><font size=\"4\">Click Configure OAuth for Application to enable scopes. Select scopes that you intend to request usign OAuth.</font></b></li>\
+  	<li><b><font size=\"4\">Click Allow Access to receive access token.</font></b></li>\
+	</ul>";
+
+	document.getElementById("update_keys_div").innerHTML = "<div class='row'>\
+                                            <div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>\
+                                                <label><strong>Access Token</strong></label>\
+                                                <br>\
+                                                <input class='form-control' type='text' name='adobe_api_key' id='adobe_api_key' value='' required>\
+                                            </div>\
+                                        </div>\
+                                        <br>\
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>\
+                                            <center>\
+                                                <button class='btn btn-success btn-xs' id='' hidden='hidden'>Save</button>\
+                                                <button class='btn btn-warning btn-xs' id='new_api_key_back_button' onclick='newApiKeyBackButton();'>Back<i class='fa fa-arrow-left'></i></button>\
+                                                <button class='btn btn-success btn-xs' id='new_api_key_save_button' onclick='saveAdobeApiKey();'>Save</button>\
+                                            </center>\
+                                        </div>";
+
 
 
   }
 
    else if ( $(this).text()  == "Quickbooks" ){
+
+   	document.getElementById("generate_keys_description").innerHTML = "<ul>\
+  	<li><b><font size=\"4\">Login to <a href=\"http://developer.intuit.com/\">Quickbooks Developer</a> page.</font></b></li>\
+  	<li><b><font size=\"4\">Get QuickBooks Online sandbox access.</font></b></li>\
+  	<li><b><font size=\"4\">Create a QuickBooks Online app and get API keys.</font></b></li>\
+  	<li><b><font size=\"4\">When you create an app, Intuit Developer creates API keys on your behalf. You are provided two sets:\
+	Development keys for connecting to your QuickBooks Online sandbox company.\
+	Production keys for connecting to a QuickBooks Online production company</font></b></li>\
+	<li><b><font size=\"4\">Goto <a href=\"https://appcenter.intuit.com/Playground/OAuth/IA\"> OAuth Playground tool</a> to generate  OAuth access token and access token secret using the app’s API keys.</font></b></li>\
+	<li><b><font size=\"4\">Enter OAuth Consumer Key and OAuth Consumer Secret from Production Keys tab for your app.</font></b></li>\
+	<li><b><font size=\"4\"><li><b><font size=\"4\">Enter Access Token Duration in seconds, upto a maximum of 15552000 seconds(180 days).</font></b></li>\</font></b></li>\
+	</ul>";
+
+	document.getElementById("update_keys_div").innerHTML = "<div class=\"row\">\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Consumer Key</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='quickbooks_consumer_key' id='quickbooks_consumer_key' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Consumer Secret</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='quickbooks_consumer_secret' id='quickbooks_consumer_secret' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Access Token</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='quickbooks_access_token' id='quickbooks_access_token' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Access Secret</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='quickbooks_access_secret' id='quickbooks_access_secret' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Token Duration</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='quickbooks_token_duration' id='quickbooks_token_duration' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Company ID</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='quickbooks_company_id' id='quickbooks_company_id' value='' required>\
+												</div>\
+												</div>\
+												<br>\
+                                        		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>\
+                                            	<center>\
+                                                <button class='btn btn-success btn-xs' id='' hidden='hidden'>Save</button>\
+                                                <button class='btn btn-warning btn-xs' id='mandrill_api_key_back_button' onclick='newApiKeyBackButton();'>Back<i class='fa fa-arrow-left'></i></button>\
+                                                <button class='btn btn-success btn-xs' id='mandrill_api_key_save_button' onclick='saveQuickbooksApiKey();'>Save</button>\
+                                            	</center>\
+                                        		</div>";
   	
   }
 
    else if ( $(this).text()  == "Forte" ){
+
+
+   	document.getElementById("generate_keys_description").innerHTML = "<ul>\
+  	<li><b><font size=\"4\">Log into <a href=\"https://login.forte.net/\">Forte Account.</a></font></b></li>\
+  	<li><b><font size=\"4\">Select Developer -> API Credentials from main menu.</font></b></li>\
+  	<li><b><font size=\"4\">Click Create.</font></b></li>\
+  	<li><b><font size=\"4\">Enter a name for this set of API credentials.</font></b></li>\
+	<li><b><font size=\"4\">Use the dropdown menu in the Groups and Roles field to select All or a group that was predefined by your Organization Admin.</font></b></li>\
+	<li><b><font size=\"4\">Click create new API key. Copy API Access ID and API Secure Key.</font></b></li>\
+	</ul>";
+
+	document.getElementById("update_keys_div").innerHTML = "<div class=\"row\">\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Access Token</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='forte_access_token' id='forte_access_token' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Access Secret</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='forte_access_secret' id='forte_access_secret' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Organization ID</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='forte_org_id' id='forte_org_id' value='' required>\
+												</div>\
+												<div class='col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12'>\
+												<label><strong>Location ID</strong></label>\
+												<br>\
+												<input class='form-control' type='text' name='forte_loc_id' id='forte_loc_id' value='' required>\
+												</div>\
+												</div>\
+												<br>\
+                                        		<div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>\
+                                            	<center>\
+                                                <button class='btn btn-success btn-xs' id='' hidden='hidden'>Save</button>\
+                                                <button class='btn btn-warning btn-xs' id='mandrill_api_key_back_button' onclick='newApiKeyBackButton();'>Back<i class='fa fa-arrow-left'></i></button>\
+                                                <button class='btn btn-success btn-xs' id='mandrill_api_key_save_button' onclick='saveForteApiKey();'>Save</button>\
+                                            	</center>\
+                                        		</div>";
   	
   }
 
     else if ( $(this).text()  == "Mandrill" ){
+
+    document.getElementById("generate_keys_description").innerHTML = "<ul>\
+  	<li><b><font size=\"4\">Login to <a href=\"http://mailchimp.com\">Mailchimp.</a></font></b></li>\
+  	<li><b><font size=\"4\">Access 	Profile and goto Transactional.</font></b></li>\
+  	<li><b><font size=\"4\">Goto Mandrill settings and click 'SMTP& API info' and create  api key.</font></b></li>\
+  	<li><b><font size=\"4\">Copy generated token and paste in next page.</font></b></li>\
+	</ul>";
+
+	document.getElementById("update_keys_div").innerHTML = "<div class='row'>\
+                                            <div class='col-xl-6 col-lg-6 col-md-8 col-sm-10 col-xs-12 offset-xl-3 offset-lg-3 offset-md-2 offset-sm-1'>\
+                                                <label><strong>Access Key</strong></label>\
+                                                <br>\
+                                                <input class='form-control' type='text' name='mandrill_api_key' id='mandrill_api_key' value='' required>\
+                                            </div>\
+                                        </div>\
+                                        <br>\
+                                        <div class='col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12'>\
+                                            <center>\
+                                                <button class='btn btn-success btn-xs' id='' hidden='hidden'>Save</button>\
+                                                <button class='btn btn-warning btn-xs' id='mandrill_api_key_back_button' onclick='newApiKeyBackButton();'>Back<i class='fa fa-arrow-left'></i></button>\
+                                                <button class='btn btn-success btn-xs' id='mandrill_api_key_save_button' onclick='saveMandrillApiKey();'>Save</button>\
+                                            </center>\
+                                        </div>";
   	
   }
 
