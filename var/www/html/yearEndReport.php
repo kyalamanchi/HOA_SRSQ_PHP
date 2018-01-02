@@ -585,7 +585,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges)</th><th>Total Payments ($totalPayments)</th><th>Total Balance ($ $totalBalance)</th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th></th><th>$ $totalCharges</th><th>$totalPayments</th><th>$ $totalBalance</th></tfoot><table>";
 
 
 
@@ -751,10 +751,9 @@ function hidePleaseWait() {
 
                       }
 
-                      // if ( $counter == pg_num_rows($result) )
-                      // echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr></tbody></table>";
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges)</th><th>Total Payments ($totalPayments)</th><th>Total Balance ($ $totalBalance)</th></tfoot><table>";
+
+                      echo"</tbody><tfoot><th></th><th></th><th>$ $totalCharges</th><th>$totalPayments</th><th>$ $totalBalance</th></tfoot><table>";
 
 
                     }
