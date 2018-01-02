@@ -44,6 +44,15 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/demo.js"></script>
+
     <script>
       $('#example1').DataTable( {
         "pageLength": 50,
@@ -757,14 +766,7 @@ function hidePleaseWait() {
 
     </div>
 
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/demo.js"></script>
+
 
   </body>
 
