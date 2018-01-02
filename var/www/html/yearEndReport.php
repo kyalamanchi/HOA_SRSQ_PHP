@@ -585,7 +585,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges) </th><th>Total Payments ($ $totalPayments)</th><th>Total Balance($ $totalBalance)</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($ $totalCharges) </th><th>Total Payments ($ $totalPayments)</th><th>Total Balance($ $totalBalance)</th></tfoot><table>";
 
                     }
                     else
