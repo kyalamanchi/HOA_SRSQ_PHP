@@ -573,7 +573,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
 
                     }
                     else
@@ -722,7 +722,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
 
                     }
                   
