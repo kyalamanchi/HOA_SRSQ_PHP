@@ -42,7 +42,7 @@ curl_exec($req);
 
 }
 else {
-	$message =  "An error occured. Please try again.";
+	$message =  "An error occured. Invalid HOAID.";
 	echo $message."\n\n";  
 	
 	
