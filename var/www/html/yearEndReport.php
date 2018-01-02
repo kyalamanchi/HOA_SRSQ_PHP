@@ -307,8 +307,14 @@ function hidePleaseWait() {
 
                      echo "<thead><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
+                        $totalPayments = 0;
+                        $totalCharges  = 0;
+                        $totalBalance = 0;
+
                       while ($row = pg_fetch_assoc($result)) 
                       {
+
+
                         
                         $hoa_id = $row['hoa_id'];
                         $home_id = $row['home_id'];
@@ -568,16 +574,28 @@ function hidePleaseWait() {
 
                         }
 
+                        $totalCharges = $totalCharges + $charges;
+
+                        $totalPayments = $totalPayments  + $payments;
+
+                        $totalBalance = $totalBalance + $balance;
+
                         echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a></td><td>$address ($home_id)</td><td>$ $charges</td><td>$ $payments</td><td>$ $balance</td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name</th><th>Living In</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name</th><th>Living In</th><th>Total Charges ($totalCharges) <br>Total Payments ($totalPayments)</th></tfoot><table>";
 
                     }
                     else
                     {
+
+                      $totalBalance = 0 ;
+
+                      $totalCharges = 0;
+
+                      $totalPayments = 0;
                                 
                       $having = 1;
                       $value = 0;
@@ -717,12 +735,18 @@ function hidePleaseWait() {
 
                         }
 
+                        $totalCharges = $totalCharges + $charges;
+
+                        $totalPayments = $totalPayments  + $payments;
+
+                        $totalBalance = $totalBalance + $balance;
+
                         echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a></td><td>$address ($home_id)</td><td>$ $charges</td><td>$ $payments</td><td>$ $balance</td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges ($totalCharges)</th><th>Total Payments ($totalPayments)</th></tfoot><table>";
 
                     }
                   
