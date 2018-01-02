@@ -777,6 +777,7 @@ function hidePleaseWait() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
@@ -810,6 +811,8 @@ function hidePleaseWait() {
 =======
 >>>>>>> parent of 371bb884... test
 =======
+=======
+>>>>>>> parent of fa43908b... changes
     <script>
 
 
@@ -826,6 +829,9 @@ function hidePleaseWait() {
 
 
     </script>
+<<<<<<< HEAD
+>>>>>>> parent of fa43908b... changes
+=======
 >>>>>>> parent of fa43908b... changes
 
   </body>
