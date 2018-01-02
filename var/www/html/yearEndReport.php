@@ -588,7 +588,7 @@ function hidePleaseWait() {
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo "<thead><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -722,7 +722,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th></tfoot><table>";
 
                     }
                   
