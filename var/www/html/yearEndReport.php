@@ -759,7 +759,11 @@ function hidePleaseWait() {
 
     <script>
       $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
+        $("#example1").DataTable({ "pageLength": 50,
+        dom: 'Bfrtip',
+         buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ] });
       });
     </script>
 
