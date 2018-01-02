@@ -573,7 +573,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges</th><th>Total Payments</th><th>Total Balance</th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name</th><th>Living In</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
 
                     }
                     else
