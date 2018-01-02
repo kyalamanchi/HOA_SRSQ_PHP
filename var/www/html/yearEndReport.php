@@ -585,7 +585,8 @@ function hidePleaseWait() {
 
                       }
 
-                      echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr>";
+                      echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr></tbody></table>";
+
 
 
                     }
@@ -747,7 +748,7 @@ function hidePleaseWait() {
 
                       }
 
-                      echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr>";
+                      echo "<tr><td></td><td></td><td><b>$ $totalCharges</b></td><td><b>$ $totalPayments</b></td><td><b>$ $totalBalance</b></td></tr></tbody></table>";
 
                     }
                   
