@@ -305,7 +305,7 @@ function hidePleaseWait() {
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                     echo "<thead><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></thead><tbody>";
+                     echo "<thead><th>Name</th><th>Living In</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -568,12 +568,12 @@ function hidePleaseWait() {
 
                         }
 
-                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td></tr>";
+                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a></td><td>$address ($home_id)</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th></th><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
+                      echo"</tbody><tfoot><th></th><th>Name</th><th>Living In</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
 
                     }
                     else
@@ -588,7 +588,7 @@ function hidePleaseWait() {
 
                       echo "<table class='table table-striped table-bordered' id='example1' width=100%>";
 
-                      echo "<thead><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></thead><tbody>";
+                      echo "<thead><th>Name</th><th>Living In</th><th>Total Charges<br>Total Payments</th><th>Total Balance</th></thead><tbody>";
 
                       while ($row = pg_fetch_assoc($result)) 
                       {
@@ -717,12 +717,12 @@ function hidePleaseWait() {
 
                         }
 
-                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a><br>$address ($home_id)</td><td>$email<br>$phone</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td></tr>";
+                        echo "<tr><td><a title='User Dashboard' href='https://hoaboardtime.com/boardUserDashboard2.php?hoa_id=$hoa_id'>$name ($hoa_id)</a></td><td>$address ($home_id)</td><td>$ $charges<br>$ $payments</td><td>$ $balance</td></tr>";
 
 
                       }
 
-                      echo"</tbody><tfoot><th>Name<br>Living In</th><th>Contact Details</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
+                      echo"</tbody><tfoot><th>Name</th><th>Living In</th><th>Total Charges<br>Total Payments</th></tfoot><table>";
 
                     }
                   
