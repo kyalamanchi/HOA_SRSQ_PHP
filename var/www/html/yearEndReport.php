@@ -32,7 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <title><?php echo $_SESSION['hoa_community_name'].' Year End Report 2017'; ?></title>
+    <title><?php echo $_SESSION['hoa_community_name'].' Year End Report '.date('Y',strtotime('-1 year')); ?></title>
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -210,7 +210,7 @@ function hidePleaseWait() {
         
         <section class="content-header">
 
-          <h1><strong>Customer Balance</strong></h1>
+          <h1><strong>Year End Report <?php  echo date('Y',strtotime('-1 year')); ?></strong></h1>
 
           <ol class="breadcrumb">
             
