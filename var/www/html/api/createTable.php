@@ -31,9 +31,4 @@ else {
 	print_r("Failed to create Sequence");
 }
 
-
-
-
-
-
 ?>
