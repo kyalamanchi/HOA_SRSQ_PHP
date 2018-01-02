@@ -43,9 +43,34 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
 
-
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <script src="plugins/fastclick/fastclick.js"></script>
+    <script src="dist/js/app.min.js"></script>
+    <script src="dist/js/demo.js"></script>
+
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js">></script>
+    <script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+    <script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+    <script>
+      $('#example1').DataTable( {
+        "pageLength": 50,
+    buttons: [
+        'copy', 'excel', 'pdf'
+    ]
+    } );
+    </script>
 
     <script type="text/javascript">
         function showPleaseWait() {
@@ -751,88 +776,7 @@ function hidePleaseWait() {
 
     </div>
 
-<<<<<<< HEAD
-    <!-- <script src="plugins/jQuery/jquery-2.2.3.min.js"></script> -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script src="plugins/datatables/jquery.dataTables.min.js"></script> -->
-    <!-- <script src="plugins/datatables/dataTables.bootstrap.min.js"></script> -->
-    <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
-=======
-    <script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
-    <script src="//cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
-    <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>
-    <!-- <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script> -->
->>>>>>> parent of 371bb884... test
-    <script src="plugins/fastclick/fastclick.js"></script>
-    <script src="dist/js/app.min.js"></script>
-    <script src="dist/js/demo.js"></script>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-
-<<<<<<< HEAD
-    <script>
-      $(function () {
-        $('#example1').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-        } );
-      });
-         
-
-=======
-=======
->>>>>>> parent of 18e7b47b... changes
-    <script>
-      $(function () {
-        $("#example1").DataTable({ "pageLength": 50 });
-      });
-<<<<<<< HEAD
->>>>>>> parent of 18e7b47b... changes
-=======
->>>>>>> parent of 18e7b47b... changes
-    </script>
-=======
->>>>>>> parent of 371bb884... test
-=======
-=======
->>>>>>> parent of fa43908b... changes
-    <script>
-
-
-
-      $('#example1').DataTable( {
-        "pageLength": 50,
-    buttons: [
-        'copy', 'excel', 'pdf'
-    ]
-    } );
-
-
-
-
-
-    </script>
-<<<<<<< HEAD
->>>>>>> parent of fa43908b... changes
-=======
->>>>>>> parent of fa43908b... changes
 
   </body>
 
