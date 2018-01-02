@@ -2,7 +2,7 @@
 date_default_timezone_set('America/Los_Angeles');
 $updateCount = 0;
 $insertCount = 0;
-$dbconn3 = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database");
+include 'includes/dbconn.php';
 $pullAgreementsQuery = "SELECT mega_sign_id FROM community_mega_sign_agreements WHERE COMMUNITY_ID = 2";
 $result  = pg_query($pullAgreementsQuery);
 
@@ -68,5 +68,5 @@ echo "Update Count : " + $updateCount;
 =======
 print_r("Records inserted : ".$insertCount." . Records Updated: ".$updateCount);
 >>>>>>> 7fd5e19af8ed00258485152e1e09e492139e728d
-pg_close($dbconn3);
+pg_close();
 ?>

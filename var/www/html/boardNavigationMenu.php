@@ -14,8 +14,7 @@
             
       <?php 
 
-        if($community_id == 2)
-          echo "<li class='header text-center'><img src='srsq_logo.JPG'></li>"; 
+        echo "<li class='header text-center'><img src='srsq_logo.JPG'></li>"; 
 
       ?>
             
@@ -171,7 +170,7 @@
 
           <li>
                   
-            <a href="boardPreviousMonthsPayments.php">
+            <a href="previousMonthPayments.php">
 
               <span>Previous Months Payments</span>
 

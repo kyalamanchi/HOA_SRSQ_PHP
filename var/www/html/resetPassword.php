@@ -2,7 +2,7 @@
 
 	include 'password.php';
 
-	pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	include 'includes/dbconn.php';
 
 	$reset_email = $_POST['forgot_password_email'];
 	$new_password = $_POST['new_password'];

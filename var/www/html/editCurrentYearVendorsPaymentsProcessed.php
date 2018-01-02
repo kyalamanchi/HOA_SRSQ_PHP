@@ -37,8 +37,7 @@
 	$m11 = 'f';
 	$m12 = 'f';
 
-	if($community_id == 2)
-        $conn = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	include 'includes/dbconn.php';
 
     $query = "SELECT * FROM current_year_vendors_pmt_processed WHERE vendor_id=".$home_id." AND hoa_id=".$hoa_id;   
     $result = pg_query($query);

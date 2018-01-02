@@ -40,7 +40,7 @@ else {
 }
 $data = date('Y-m-d');
 
-$connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+include 'includes/dbconn.php';
 //Fetch UserDetails 
 $query = "SELECT * FROM HOAID WHERE HOA_ID=".$hoaID;
 $queryResult = pg_query($query);

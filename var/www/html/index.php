@@ -8,7 +8,7 @@
 
       session_start();
 
-      pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+      include 'includes/dbconn.php';
 
       $community_id = 2;
 
@@ -1207,7 +1207,7 @@
 
         <div class="pull-right hidden-xs"></div>
         
-        <strong>Copyright &copy; <?php echo date('Y'); ?> <a target='_blank' href="https://www.stoneridgesquare.org">Stoneridge Square Association</a>.</strong> All rights reserved.
+        <center><strong>Copyright &copy; <?php echo date('Y'); ?> - </strong> All rights reserved</center>
 
       </footer>
 

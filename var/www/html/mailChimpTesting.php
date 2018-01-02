@@ -1,6 +1,6 @@
 <?php
 
-	pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	include 'includes/dbconn.php';
 
 	$ch = curl_init('https://us12.api.mailchimp.com/3.0/lists/09692e90bd/members');
 

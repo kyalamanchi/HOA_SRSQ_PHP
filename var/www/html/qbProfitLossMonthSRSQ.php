@@ -1,6 +1,6 @@
 <?php
   
-   pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+   include 'includes/dbconn.php';
    
    function get_data($receivedData,$month){
    $year = 2017;
