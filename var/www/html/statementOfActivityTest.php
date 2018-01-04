@@ -281,6 +281,9 @@
                         if ( $keyprofitandloss == "Expenditures") {
                           
                           foreach ($profitandlosstest['Rows'] as $keyprofitandlosstester) {
+
+                            print_r($keyprofitandlosstester);
+                            print_r(nl2br("\n\n"));
                             
                             foreach ($keyprofitandlosstester as $helloworld) {
                               
