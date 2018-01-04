@@ -53,10 +53,9 @@
     <script src="dist/js/googleanalytics.js"></script>
 
     <script type="text/javascript">
-      var dimensionValue1 = "${userDetails.user.memberInfo.hoaId.hoaId}";
-      var dimensionValue2 = "${communityInfo.communityCode}";
-      if(<?php echo $community_id; ?> == 2)
-        ga('create', 'UA-102881886-2', 'auto');
+      var dimensionValue1 = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
+      var dimensionValue2 = "SRSQ";
+      ga('create', 'UA-102881886-2', 'auto');
       ga('set', 'dimension1', dimensionValue1);
       ga('set', 'dimension2', dimensionValue2);
       ga('send', 'pageview');

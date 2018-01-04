@@ -1,4 +1,4 @@
-<?php
+userDetails.user.memberInfo.hoaId.hoaId<?php
 
   ini_set("session.save_path","/var/www/html/session/");
 
@@ -60,7 +60,7 @@
 
     <script type="text/javascript">
       var dimensionValue1 = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
-      var dimensionValue2 = "${communityInfo.communityCode}";
+      var dimensionValue2 = "SRSQ";
       if(<?php echo $community_id; ?> == 2)
         ga('create', 'UA-102881886-2', 'auto');
       ga('set', 'dimension1', dimensionValue1);
