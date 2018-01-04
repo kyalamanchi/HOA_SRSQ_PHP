@@ -94,10 +94,14 @@
 
 
               foreach ($data as $ke) {
+
                   
                   foreach ($ke['Summary'] as $Sum) {
+                    print_r($Sum);
+                    print_r(nl2br("\n\n"));
                       
                       if ( $Sum['ColData']['value'] == "Total Expenditures" ){
+
                         $counter = 1;
                         continue;
                       }
