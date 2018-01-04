@@ -89,7 +89,6 @@
               curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1515048386",oauth_nonce="MDJZ4AL18Dm",oauth_version="1.0",oauth_signature="GlDdeYzPrwLtM47M9zz9g2eymws%3D"'));
               curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
               $profitandloss = curl_exec($ch);
-              print_r($profitandloss);
               $jsonprofitandloss = json_decode($profitandloss,TRUE);
               $data = $jsonprofitandloss['Rows']['Row'];
 
