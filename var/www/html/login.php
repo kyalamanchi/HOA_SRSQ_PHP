@@ -7,6 +7,9 @@
 	$login_email = $_POST['login_email'];
 	$login_password = $_POST['login_password'];
 
+	$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
+	$userAgent = $_SERVER['HTTP_USER_AGENT'];
+
 	ini_set('max_execution_time', 180);
 
 	include 'password.php';
@@ -68,6 +71,10 @@
 			$query = "SELECT * FROM board_committee_details WHERE user_id=".$_SESSION['hoa_user_id'];
 			$result = pg_query($query);
 			$num_row = pg_num_rows($result);
+
+			$escapedAgent = pg_escape_string($userAgent);	
+
+			$insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
 
 			if($num_row == 0)
 			{
