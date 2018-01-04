@@ -424,9 +424,6 @@
                               $summary = $key['Summary'];
                     
                               foreach ($summary['ColData'] as $colval) {
-
-                                print_r($colval);
-                                print_r(nl2br("\n\n"));
                       
                                 foreach ($colval as $keycol) {
                                   
