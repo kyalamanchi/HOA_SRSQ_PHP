@@ -92,6 +92,10 @@
               $jsonprofitandloss = json_decode($profitandloss,TRUE);
               $data = $jsonprofitandloss['Rows']['Row'];
 
+              print_r($data);
+
+              print_r(nl2br("\n\n"));
+
               foreach ($data as $key ) {
 
                 foreach ($key['Summary'] as $Summary) {
@@ -281,9 +285,6 @@
                         if ( $keyprofitandloss == "Expenditures") {
                           
                           foreach ($profitandlosstest['Rows'] as $keyprofitandlosstester) {
-
-                            print_r($keyprofitandlosstester);
-                            print_r(nl2br("\n\n"));
                             
                             foreach ($keyprofitandlosstester as $helloworld) {
                               
