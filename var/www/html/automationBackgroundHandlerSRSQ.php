@@ -55,7 +55,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/communityDeposits.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/srsqCommunityDeposits.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 curl_exec($req);
 
