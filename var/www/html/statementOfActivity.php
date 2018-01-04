@@ -260,10 +260,10 @@
 
                 <?php
 
-                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/reports/ProfitAndLoss?start_date=2017-01-01&end_date=2017-12-31');
+                  $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/ProfitAndLossDetail?start_date=2017-01-01&end_date=2017-12-31');
                   
                   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1515081115",oauth_nonce="UZ8qSdTVDnK",oauth_version="1.0",oauth_signature="9123FYPZlPWgzqwDzW0XCzVj5ck%3D"'));
+                  curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Content-Type:application/text','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1515081600",oauth_nonce="6SEOtbsBpeo",oauth_version="1.0",oauth_signature="2CDXairNhrSeeYxQ3jZLMp0wDPM%3D"'));
                   curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                   
                   $profitandloss = curl_exec($ch);
