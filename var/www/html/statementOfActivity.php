@@ -439,7 +439,7 @@
 
                           echo '<td>';
                           echo '<b>';
-                          echo '$ ';
+                          echo '$ '.$totalExpenditures;
 
                           $allRows = $json_Decode['Rows'];
                           
@@ -470,7 +470,7 @@
                                     
                                     if($fval && intval($fval) != $fval)
                                     {
-                                      echo $totalExpenditures;
+                                      // echo $totalExpenditures;
                                       $cell = 0;
                                       break 3;
 
