@@ -92,14 +92,32 @@
               $jsonprofitandloss = json_decode($profitandloss,TRUE);
               $data = $jsonprofitandloss['Rows']['Row'];
 
-              print_r($data);
 
-              print_r(nl2br("\n\n"));
+              foreach ($data as $ke) {
+                  
+                  foreach ($ke['Summary'] as $Sum) {
+                      
+                      if ( $Sum['ColData']['value'] == "Total Expenditures" ){
+                        $counter = 1;
+                        continue;
+                      }
+
+                      if ( $counter == 1 ){
+                        $totalExpenditures = floatval($Sum['ColData']['value']);
+                      }
+
+
+                  }
+
+              }
+
+
 
               foreach ($data as $key ) {
 
                 foreach ($key['Summary'] as $Summary) {
-                  
+
+
                   $count = 0;
                   
                   foreach ($Summary as $summary) {
@@ -441,7 +459,7 @@
                                     
                                     $fval  = floatval($keycol);
 
-                                    $totalExpenditures = floatval($keycol);
+                                    
                                     
                                     if($fval && intval($fval) != $fval)
                                     {
