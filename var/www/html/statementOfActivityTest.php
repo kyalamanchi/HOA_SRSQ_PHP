@@ -422,7 +422,8 @@
                             foreach($insideRow as $key ) {
                               
                               $summary = $key['Summary'];
-                    
+                              print_r($summary);
+                              print_r(nl2br("\n\n"));
                               foreach ($summary['ColData'] as $colval) {
                       
                                 foreach ($colval as $keycol) {
