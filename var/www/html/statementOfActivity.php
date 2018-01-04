@@ -486,7 +486,12 @@
                                   
                                   if ( $count == 2 ){
                                     
+                                    if ( isset($keycoldata['value']) ){
                                     echo '<h5>'.$firstvalue.'<span style="float:right;">$ '.$keycoldata['value'].'</span></h5>';
+                                    }
+                                    else {
+                                      echo '<h5>'.$firstvalue.'<span style="float:right;">-</span></h5>';
+                                    }
                                     echo "<hr>";
                     
                                   }
