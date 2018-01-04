@@ -97,18 +97,19 @@
 
                   
                   foreach ($ke['Summary'] as $Sum) {
-                    print_r($Sum);
-                    print_r(nl2br("\n\n"));
-                      
-                      if ( $Sum['ColData']['value'] == "Total Expenditures" ){
 
+                    foreach ($Sum as $Totals) {
+                      if ( $Totals['ColData']['value'] == "Total Expenditures" ){
                         $counter = 1;
                         continue;
                       }
 
                       if ( $counter == 1 ){
-                        $totalExpenditures = floatval($Sum['ColData']['value']);
+                        $totalExpenditures = floatval($Totals['ColData']['value']);
                       }
+                    }
+                      
+
 
 
                   }
