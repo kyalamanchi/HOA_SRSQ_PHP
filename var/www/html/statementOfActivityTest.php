@@ -101,13 +101,13 @@
                     foreach ($Sum as $Totals) {
                       print_r($Totals);
                       print_r(nl2br("\n\n"));
-                      if ( $Totals['ColData']['value'] == "Total Expenditures" ){
+                      if ( $Totals['value'] == "Total Expenditures" ){
                         $counter = 1;
                         continue;
                       }
 
                       if ( $counter == 1 ){
-                        $totalExpenditures = floatval($Totals['ColData']['value']);
+                        $totalExpenditures = floatval($Totals['value']);
                       }
                     }
                       
