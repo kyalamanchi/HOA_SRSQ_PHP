@@ -470,7 +470,7 @@
                                     
                                     if($fval && intval($fval) != $fval)
                                     {
-                                      echo $fval;
+                                      echo $totalExpenditures;
                                       $cell = 0;
                                       break 3;
 
