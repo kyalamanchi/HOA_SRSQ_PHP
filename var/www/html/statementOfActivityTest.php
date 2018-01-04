@@ -531,12 +531,9 @@
                               
                               }
 
-                              if ( isset($fval) && $fval != "" ){
+
                               echo '<h4>Total Expenditure<span style="float:right;">$ '.$totalExpenditures.'</span></h4>';
-                              }
-                              else {
-                                    echo '<h4>Total Expenditure<span style="float:right;">'.$totalExpenditures.'</span></h4>';    
-                              }
+
 
                             ?>
 
