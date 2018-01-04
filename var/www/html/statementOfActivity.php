@@ -92,10 +92,39 @@
               $jsonprofitandloss = json_decode($profitandloss,TRUE);
               $data = $jsonprofitandloss['Rows']['Row'];
 
+
+              foreach ($data as $ke) {
+
+                  
+                  foreach ($ke['Summary'] as $Sum) {
+
+                    foreach ($Sum as $Totals) {
+                      if ( $Totals['value'] == "Total Expenditures" ){
+                        $counter = 1;
+
+                        continue;
+                      }
+
+                      if ( $counter == 1 ){
+                        $totalExpenditures = floatval($Totals['value']);
+                        $counter = -1;
+                      }
+                    }
+                      
+
+
+
+                  }
+
+              }
+
+
+
               foreach ($data as $key ) {
 
                 foreach ($key['Summary'] as $Summary) {
-                  
+
+
                   $count = 0;
                   
                   foreach ($Summary as $summary) {
@@ -422,7 +451,6 @@
                             foreach($insideRow as $key ) {
                               
                               $summary = $key['Summary'];
-                    
                               foreach ($summary['ColData'] as $colval) {
                       
                                 foreach ($colval as $keycol) {
@@ -438,7 +466,7 @@
                                     
                                     $fval  = floatval($keycol);
 
-                                    $totalExpenditures = floatval($keycol);
+                                    
                                     
                                     if($fval && intval($fval) != $fval)
                                     {
@@ -503,12 +531,9 @@
                               
                               }
 
-                              if ( isset($fval) && $fval != "" ){
+
                               echo '<h4>Total Expenditure<span style="float:right;">$ '.$totalExpenditures.'</span></h4>';
-                              }
-                              else {
-                                    echo '<h4>Total Expenditure<span style="float:right;">'.$totalExpenditures.'</span></h4>';    
-                              }
+
 
                             ?>
 
