@@ -430,6 +430,7 @@
                                   if ( $keycol == "Total for Expenditures") {
                         
                                     $cell = 1;
+                                    continue;
 
                                   }
 
