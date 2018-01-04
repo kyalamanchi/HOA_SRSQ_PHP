@@ -195,8 +195,16 @@
                                         $updateQuery = "UPDATE community_deposits SET status='";
                                         $updateQuery = $updateQuery.$resstatus."' WHERE funding_id='";
                                         $updateQuery = $updateQuery.$fundingID."'";
-                                        print_r("Update Requested......".$updateQuery);
+                                        // print_r("Update Requested......".$updateQuery);
                                         pg_query($updateQuery);
+
+                                        if ( !(pg_query($updateQuery)) ){
+                                            print_r("Failed to update.Funding ID:".$updateQuery.$fundingID);
+                                        }
+                                        else {
+                                            print_r("Updated Funding ID:".$$updateQuery.$fundingID);
+                                        }
+                                        print_r(nl2br("\n\n"));
                                     }
                                     else {
                                     $insertQuery = 'INSERT INTO community_deposits("community_id","funding_id","net_amount","number_of_transactions","status","effective_date","origination_date","routing_number","account_number_last_four_digits","funding_source_code","funding_source_description","entry_description") VALUES(2,';
