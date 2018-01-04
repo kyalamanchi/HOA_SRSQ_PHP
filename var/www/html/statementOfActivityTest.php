@@ -99,15 +99,18 @@
                   foreach ($ke['Summary'] as $Sum) {
 
                     foreach ($Sum as $Totals) {
-                      print_r($Totals);
-                      print_r(nl2br("\n\n"));
                       if ( $Totals['value'] == "Total Expenditures" ){
                         $counter = 1;
+                        print_r($Totals['value']);
+                        print_r(nl2br("\n\n"));
                         continue;
                       }
 
                       if ( $counter == 1 ){
                         $totalExpenditures = floatval($Totals['value']);
+                        print_r($Totals['value']);
+                        print_r(nl2br("\n\n"));
+                        $counter = -1;
                       }
                     }
                       
