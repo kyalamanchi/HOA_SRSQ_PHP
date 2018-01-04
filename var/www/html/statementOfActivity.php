@@ -437,6 +437,8 @@
                                   if ( $cell == 1 ){
                                     
                                     $fval  = floatval($keycol);
+
+                                    $totalExpenditures = floatval($keycol);
                                     
                                     if($fval && intval($fval) != $fval)
                                     {
@@ -502,10 +504,10 @@
                               }
 
                               if ( isset($fval) && $fval != "" ){
-                              echo '<h4>Total Expenditure<span style="float:right;">$ '.$fval.'</span></h4>';
+                              echo '<h4>Total Expenditure<span style="float:right;">$ '.$totalExpenditures.'</span></h4>';
                               }
                               else {
-                                    echo '<h4>Total Expenditure<span style="float:right;">-</span></h4>';    
+                                    echo '<h4>Total Expenditure<span style="float:right;">'.$totalExpenditures.'</span></h4>';    
                               }
 
                             ?>
