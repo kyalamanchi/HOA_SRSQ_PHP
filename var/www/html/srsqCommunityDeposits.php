@@ -211,9 +211,17 @@
                                     $insertQuery = $insertQuery."'".$fundingSourceCode."',";
                                     $insertQuery = $insertQuery."'".$fundingDescription."',";
                                     $insertQuery = $insertQuery."'".$entryDescription."')";  
-                                    print_r($insertQuery);
-                                    echo nl2br("\n\n\n\n");
-                                    pg_query($insertQuery);
+                                    // print_r($insertQuery);
+                                    // echo nl2br("\n\n\n\n");
+                                    // pg_query($insertQuery);
+                                    if  ( !(pg_query($insertQuery)) ){
+                                        print_r("Insert failed.");
+                                        print_r($insertQuery);
+                                        print_r(nl2br("\n\n"));
+                                    }
+                                    else {
+                                        print_r("Inserted");
+                                    }
                                 }
                                 }
                                 
