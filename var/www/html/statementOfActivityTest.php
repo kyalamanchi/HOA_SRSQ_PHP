@@ -382,7 +382,7 @@
                                       echo '</td>';
                                       echo '</tr>';
                                       }
-                                      else {
+                                      else if ( isset($row['ColData'][0]['value']) ){
                                       echo '<tr>';
                                       echo '<td>';
                                       echo '<ul>';
