@@ -358,7 +358,7 @@
                                       // print_r(nl2br("\n\n"));
                                       $case = 0;
                                       echo '<td>'.$mainStirng.'</td>';
-                                      echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td>';
+                                      echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td></tr>';
                                  }
                                 }
                                 if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
@@ -373,6 +373,7 @@
                                   }
                                 }
                          }
+                          echo '<tr>';
                           echo '<td>Revenue</td>';
                           echo '<td>';
                           echo '<b>';
