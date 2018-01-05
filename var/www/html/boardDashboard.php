@@ -1,4 +1,4 @@
-userDetails.user.memberInfo.hoaId.hoaId<?php
+<?php
 
   ini_set("session.save_path","/var/www/html/session/");
 
