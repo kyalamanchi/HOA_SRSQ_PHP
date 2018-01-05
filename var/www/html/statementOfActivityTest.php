@@ -354,9 +354,11 @@
                                 }
                                 if ( $case == 1 ){
                                   if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
-                                      print_r($mainStirng." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
-                                      print_r(nl2br("\n\n"));
+                                      // print_r($mainStirng." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
+                                      // print_r(nl2br("\n\n"));
                                       $case = 0;
+                                      echo '<td>'.$mainStirng.'</td>';
+                                      echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td>';
                                  }
                                 }
                                 if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
