@@ -92,17 +92,29 @@
               $jsonprofitandloss = json_decode($profitandloss,TRUE);
               $data = $jsonprofitandloss['Rows']['Row'];
 
+              $case = 0;
 
               foreach ($data as $profitAndLossAll) {
                   if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
-                    // print_r("New Main Row ".$profitAndLossAll['Header']['ColData'][0]['value']." and value:".$profitAndLossAll['Header']['ColData'][1]['value']);
-                    // print_r(nl2br("\n\n"));
                     $string = $profitAndLossAll['Header']['ColData'][0]['value'];
+                    $case = 1;
                   }
+                  if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
+                    $string = $profitAndLossAll['Summary']['ColData'][0]['value'];
+                    $case = 2;
+                  }
+                  if ( $case == 1 ){
                   if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
                       print_r($string." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
                       print_r(nl2br("\n\n"));
                   }
+                }
+                if ( $case == 2 ){
+                  if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
+                      print_r($string." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
+                      print_r(nl2br("\n\n"));
+                  }
+                }
               }
 
 
