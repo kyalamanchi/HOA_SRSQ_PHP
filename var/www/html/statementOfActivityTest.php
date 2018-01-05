@@ -93,30 +93,19 @@
               $data = $jsonprofitandloss['Rows']['Row'];
 
 
-              foreach ($data as $ke) {
-
-                  
-                  foreach ($ke['Summary'] as $Sum) {
-
-                    foreach ($Sum as $Totals) {
-                      if ( $Totals['value'] == "Total Expenditures" ){
-                        $counter = 1;
-
-                        continue;
-                      }
-
-                      if ( $counter == 1 ){
-                        $totalExpenditures = floatval($Totals['value']);
-                        $counter = -1;
-                      }
-                    }
-                      
-
-
-
+              foreach ($data as $profitAndLossAll) {
+                  if ( isset($profitAndLossAll['Header']['ColData'][0]) ){
+                    print_r("New Main Row ".$profitAndLossAll['Header']['ColData'][0]." and value:".$profitAndLossAll['Header']['ColData'][1]);
+                    print_r(nl2br("\n\n"));
                   }
-
               }
+
+
+
+
+
+
+
 
 
 
