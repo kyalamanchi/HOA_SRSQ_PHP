@@ -351,7 +351,7 @@
                                       $string = $profitAndLossAll['Header']['ColData'][0]['value'];
                                       $mainStirng = $string;
                                       $case = 1;
-                                  }
+                                }
                                 if ( $case == 1 ){
                                   if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
                                       print_r($mainStirng." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
@@ -362,8 +362,7 @@
                                 if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
                                       $string = $profitAndLossAll['Summary']['ColData'][0]['value'];
                                        $case = 2;
-                                 }
-
+                                }
                                 if ( $case == 2 ){
                                   if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
                                     print_r($string." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
