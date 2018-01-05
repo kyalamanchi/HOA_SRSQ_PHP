@@ -347,18 +347,7 @@
 
                           foreach ($data as $profitAndLossAll) {
                                 
-                                if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
-                                      $string = $profitAndLossAll['Header']['ColData'][0]['value'];
-                                      $mainStirng = $string;
-                                      $case = 1;
-                                }
-                                if ( $case == 1 ){
-                                  if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
-                                      $case = 0;
-                                      echo '<tr><td>'.$mainStirng.'</td>';
-                                      echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td></tr>';
-                                 }
-                                }
+
                                 if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
                                       $string = $profitAndLossAll['Summary']['ColData'][0]['value'];
                                        $case = 2;
@@ -370,6 +359,19 @@
                                     echo '</tr>';
                                     $case = 0;
                                   }
+                                }
+                                
+                                if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
+                                      $string = $profitAndLossAll['Header']['ColData'][0]['value'];
+                                      $mainStirng = $string;
+                                      $case = 1;
+                                }
+                                if ( $case == 1 ){
+                                  if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
+                                      $case = 0;
+                                      echo '<tr><td>'.$mainStirng.'</td>';
+                                      echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td></tr>';
+                                 }
                                 }
 
                                 if ( isset($profitAndLossAll['Rows']['Row']) ){
