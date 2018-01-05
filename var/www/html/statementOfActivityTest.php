@@ -368,7 +368,7 @@
                                   if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
                                     echo '<tr>';
 
-                                    echo '<td>'.$string.'</td><td><b>$ '.$profitAndLossAll['Summary']['ColData'][0]['value'].'</b></td>';
+                                    echo '<td>'.$string.'</td><td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td>';
 
                                     echo '</tr>';
                                     // print_r($string." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
