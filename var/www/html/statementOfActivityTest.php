@@ -373,7 +373,6 @@
 
                                 if ( isset($profitAndLossAll['Rows']['Row']) ){
                                   foreach ($profitAndLossAll['Rows']['Row'] as $row) {
-
                                       if ( isset($row['ColData'][1]['value']) ){
                                       echo '<tr>';
                                       echo '<td>';
@@ -391,9 +390,7 @@
                                       echo '</ul>';
                                       echo '</td>';
                                       echo '</tr>';
-                                      }
-
-
+                                    }
                                   }
                                 }
 
