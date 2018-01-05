@@ -378,7 +378,6 @@
                                       echo '<ul>';
                                       // print_r($row);
                                       if ( isset($row['ColData'][1]['value']) ){
-                                        print_r("Found");
                                         echo '<h4>'.$row['ColData'][0]['value'].'<span style="float:right;">$ '.$row['ColData'][1]['value'].'</span></h4>';
                                       }
                                       else {
