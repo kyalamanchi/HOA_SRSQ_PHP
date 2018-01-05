@@ -392,8 +392,37 @@
                                       echo '</tr>';
                                     }
                                     else {
-                                      print_r($row);
-                                      print_r(nl2br("\n\n"));
+                                      if ( isset($row['Header']['ColData'][0]['value'])){
+                                        $subAccountString = $row['Header']['ColData'][0]['value'];
+                                        $subAccountMainString = $subAccountString;
+                                        $subCase = 1 ;
+                                      }
+                                      if ( $subCase == 1 ){
+                                        if( isset($row['Summary']['ColData'][1]['value'])){
+                                          $subCase = 0;
+                                              echo '<tr>';
+                                              echo '<td>';
+                                              echo '<ul>';
+                                                echo '<h4>'.$subAccountMainString.'<span style="float:right;">$ '.$row['Summary']['ColData'][1]['value'].'</span></h4>';
+                                              echo '</ul>';
+                                              echo '</td>';
+                                              echo '</tr>';
+                                        }
+                                      }
+                                      if ( isset($row['Summary']['ColData'][0]['value']) ){
+                                          $subAccountString = $row['Summary']['ColData'][0]['value'];
+                                          $subCase = 2;
+                                      }
+
+                                      if ( $subCase == 2 ){
+                                         if ( isset($row['Summary']['ColData'][0]['value']) ){
+                                            echo '<tr>';
+                                            echo '<td><ul><h4>'.$subAccountString.'<span style="float:right;">$ '.$row['Summary']['ColData'][1]['value'].'</span></ul></h4></td>';
+                                            echo '</tr>';
+                                            $case = 0;
+                                        }
+                                      }
+
                                     }
                                   }
                                 }
