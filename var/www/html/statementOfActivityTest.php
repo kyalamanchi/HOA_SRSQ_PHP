@@ -399,19 +399,7 @@
                                               echo '</tr>';
                                         }
                                       }
-                                      if ( isset($row['Summary']['ColData'][0]['value']) ){
-                                          $subAccountString = $row['Summary']['ColData'][0]['value'];
-                                          $subCase = 2;
-                                      }
 
-                                      if ( $subCase == 2 ){
-                                         if ( isset($row['Summary']['ColData'][0]['value']) ){
-                                            echo '<tr>';
-                                            echo '<td><ul><h4>'.$subAccountString.'<span style="float:right;">$ '.$row['Summary']['ColData'][1]['value'].'</span></ul></h4></td>';
-                                            echo '</tr>';
-                                            $case = 0;
-                                        }
-                                      }
 
                                       if ( isset($row['Rows']['Row']) ){
                                         foreach ($row['Rows']['Row'] as $subRow) {
@@ -436,6 +424,20 @@
                                         }
                                       }
 
+                                     if ( isset($row['Summary']['ColData'][0]['value']) ){
+                                          $subAccountString = $row['Summary']['ColData'][0]['value'];
+                                          $subCase = 2;
+                                      }
+
+                                      if ( $subCase == 2 ){
+                                         if ( isset($row['Summary']['ColData'][0]['value']) ){
+                                            echo '<tr>';
+                                            echo '<td><ul><h4>'.$subAccountString.'<span style="float:right;"><b>$ '.$row['Summary']['ColData'][1]['value'].'</b></span></ul></h4></td>';
+                                            echo '</tr>';
+                                            $case = 0;
+                                        }
+                                      }
+
                                     }
                                   }
                                 if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
@@ -445,7 +447,7 @@
                                 if ( $case == 2 ){
                                   if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
                                     echo '<tr>';
-                                    echo '<td><ul><h4>'.$string.'<span style="float:right;">$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</span></ul></h4></td>';
+                                    echo '<td><ul><h4>'.$string.'<span style="float:right;"><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></span></ul></h4></td>';
                                     echo '</tr>';
                                     $case = 0;
                                   }
