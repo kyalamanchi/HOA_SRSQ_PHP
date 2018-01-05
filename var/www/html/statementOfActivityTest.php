@@ -99,8 +99,8 @@
                     // print_r(nl2br("\n\n"));
                     $string = $profitAndLossAll['Header']['ColData'][0]['value'];
                   }
-                  if ( isset($profitAndLossAll['Summary']['ColData'][1]) ){
-                      print_r($string." ".$profitAndLossAll['Summary']['ColData'][1]);
+                  if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
+                      print_r($string." ".$profitAndLossAll['Summary']['ColData'][1]['value']);
                       print_r(nl2br("\n\n"));
                   }
               }
