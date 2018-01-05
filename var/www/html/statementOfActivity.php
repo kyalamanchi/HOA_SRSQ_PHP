@@ -93,30 +93,13 @@
               $data = $jsonprofitandloss['Rows']['Row'];
 
 
-              foreach ($data as $ke) {
-
-                  
-                  foreach ($ke['Summary'] as $Sum) {
-
-                    foreach ($Sum as $Totals) {
-                      if ( $Totals['value'] == "Total Expenditures" ){
-                        $counter = 1;
-
-                        continue;
-                      }
-
-                      if ( $counter == 1 ){
-                        $totalExpenditures = floatval($Totals['value']);
-                        $counter = -1;
-                      }
-                    }
-                      
 
 
 
-                  }
 
-              }
+
+
+
 
 
 
@@ -355,241 +338,125 @@
                     </thead>
                     
                     <tbody>
-                      
-                      <tr>
-                        
-                        <?php
-                          
-                          echo '<td>Revenue</td>';
-                          echo '<td>';
-                          echo '<b>';
-                          echo '$ ';
-                          
-                          $allRows = $json_Decode['Rows'];
-                          
-                          foreach ($allRows['Row'] as $singleRow) {
-                            
-                            $insideRows = $singleRow['Rows'];
-                            $insideRow = $insideRows['Row'];
-                  
-                            foreach($insideRow as $key ) {
-                    
-                              $summary = $key['Summary'];
-                    
-                              foreach ($summary['ColData'] as $colval) {
-                                
-                                $value = floatval($colval['value']);
-                                
-                                if($value && intval($value) != $value)
-                                {
-                                  echo $value;
-                                  break 3;
-
-                                }
-
-                              }
-                            
-                            }
-
-                          }
-                          
-                          echo '</b>';
-
-                        ?>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>
-                          
-                          <h5>4010 Assessments<span style="float:right;">$ <?php  echo $value; ?></span></h5>
-                          
-                          <ul>
-                            
-                            <hr>
-                            <h4>Total Revenue<span style="float:right;">$ <?php  echo $value; ?></span></h4>
-                        
-                          </ul>
-                        
-                        </td>
-
-                      </tr>
-                      
-                      <tr>
-                      
-                        <td>Gross Profit </td>
-                        <td><b>$ <?php echo $value; ?></b></td>
-
-                      </tr>
-
-                      <tr>
-                        
-                        <td colspan="5"><ul><li>No data found.</li></ul></td>
-                      
-                      </tr>
-
-                      <tr>
-                        
-                        <td>Expenditures</td>
+            
                         
                         <?php
 
-                          $cell = 0;
+                           $case = 0;
+                           $subCase = 0;
 
-                          echo '<td>';
-                          echo '<b>';
-                          echo '$ '.$totalExpenditures;
-
-                          $allRows = $json_Decode['Rows'];
-                          
-                          foreach ($allRows['Row'] as $singleRow) {
-                            
-                            $insideRows = $singleRow['Rows'];
-                            $insideRow = $insideRows['Row'];
-                  
-                            foreach($insideRow as $key ) {
-                              
-                              $summary = $key['Summary'];
-                              foreach ($summary['ColData'] as $colval) {
-                      
-                                foreach ($colval as $keycol) {
-                                  
-                                  if ( $keycol == "Total for Expenditures") {
-                        
-                                    $cell = 1;
-                                    continue;
-
-                                  }
-
-                                  if ( $cell == 1 ){
-                                    
-                                    $fval  = floatval($keycol);
-
-                                    
-                                    
-                                    if($fval && intval($fval) != $fval)
-                                    {
-                                      // echo $totalExpenditures;
-                                      $cell = 0;
-                                      break 3;
-
-                                    }
-
-                                  }
-
+                          foreach ($data as $profitAndLossAll) {
+                                
+                                if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
+                                      $string = $profitAndLossAll['Header']['ColData'][0]['value'];
+                                      $mainStirng = $string;
+                                      $case = 1;
+                                }
+                                if ( $case == 1 ){
+                                  if ( isset($profitAndLossAll['Summary']['ColData'][1]['value']) ){
+                                      $case = 0;
+                                      echo '<tr><td>'.$mainStirng.'</td>';
+                                      echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td></tr>';
+                                 }
                                 }
 
-                              }
 
-                            }
-
-                          }
-
-                          echo '</b>';
-                        
-                        ?>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>
-                          
-                          <ul>
-                  
-                            <?php 
-                  
-                              foreach ($keyprofitandlosstester as $helloworld) {
-                  
-                                $helloworld2 = $helloworld['Header'];
-                                $count = 0;
-                  
-                                foreach ($helloworld2['ColData'] as $keycoldata) {
-                    
-                                  $count = $count + 1;
-                                  
-                                  if ( $count == 1){
-
-                                    $firstvalue = $keycoldata['value'];
-                                  
-                                  }
-                                  
-                                  if ( $count == 2 ){
-                                    
-                                    if ( isset($keycoldata['value']) ){
-                                    echo '<h5>'.$firstvalue.'<span style="float:right;">$ '.$keycoldata['value'].'</span></h5>';
+                                if ( isset($profitAndLossAll['Rows']['Row']) ){
+                                  foreach ($profitAndLossAll['Rows']['Row'] as $row) {
+                                      if ( isset($row['ColData'][1]['value']) ){
+                                      echo '<tr>';
+                                      echo '<td>';
+                                      echo '<ul>';
+                                        echo '<h4>'.$row['ColData'][0]['value'].'<span style="float:right;">$ '.$row['ColData'][1]['value'].'</span></h4>';
+                                      echo '</ul>';
+                                      echo '</td>';
+                                      echo '</tr>';
+                                      }
+                                      else if ( isset($row['ColData'][0]['value']) ){
+                                      echo '<tr>';
+                                      echo '<td>';
+                                      echo '<ul>';
+                                        echo '<h4>'.$row['ColData'][0]['value'].'</h4>';
+                                      echo '</ul>';
+                                      echo '</td>';
+                                      echo '</tr>';
                                     }
                                     else {
-                                      echo '<h5>'.$firstvalue.'<span style="float:right;">-</span></h5>';
+                                      if ( isset($row['Header']['ColData'][0]['value'])){
+                                        $subAccountString = $row['Header']['ColData'][0]['value'];
+                                        $subAccountMainString = $subAccountString;
+                                        $subCase = 1 ;
+                                      }
+                                      if ( $subCase == 1 ){
+                                        if( isset($row['Summary']['ColData'][1]['value'])){
+                                          $subCase = 0;
+                                              echo '<tr>';
+                                              echo '<td>';
+                                              echo '<ul>';
+                                                echo '<h4>'.$subAccountMainString.'<span style="float:right;">$ '.$row['Summary']['ColData'][1]['value'].'</span></h4>';
+                                              echo '</ul>';
+                                              echo '</td>';
+                                              echo '</tr>';
+                                        }
+                                      }
+
+
+                                      if ( isset($row['Rows']['Row']) ){
+                                        foreach ($row['Rows']['Row'] as $subRow) {
+                                          if ( isset($subRow['ColData'][1]['value']) ){
+                                            echo '<tr>';
+                                            echo '<td>';
+                                            echo '<ul>';
+                                              echo '<h4>'.$subRow['ColData'][0]['value'].'<span style="float:right;">$ '.$subRow['ColData'][1]['value'].'</span></h4>';
+                                            echo '</ul>';
+                                            echo '</td>';
+                                            echo '</tr>';
+                                          }
+                                          else if ( isset($subRow['ColData'][0]['value']) ){  
+                                            echo '<tr>';
+                                            echo '<td>';
+                                            echo '<ul>';
+                                            echo '<h4>'.$subRow['ColData'][0]['value'].'</h4>';
+                                            echo '</ul>';
+                                            echo '</td>';
+                                            echo '</tr>';
+                                          }
+                                        }
+                                      }
+
+                                     if ( isset($row['Summary']['ColData'][0]['value']) ){
+                                          $subAccountString = $row['Summary']['ColData'][0]['value'];
+                                          $subCase = 2;
+                                      }
+
+                                      if ( $subCase == 2 ){
+                                         if ( isset($row['Summary']['ColData'][0]['value']) ){
+                                            echo '<tr>';
+                                            echo '<td><ul><h4><b>'.$subAccountString.'<span style="float:right;">$ '.$row['Summary']['ColData'][1]['value'].'</b></span></ul></h4></td>';
+                                            echo '</tr>';
+                                            $case = 0;
+                                        }
+                                      }
+
                                     }
-                                    echo "<hr>";
-                    
                                   }
-                                
+                                if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
+                                      $string = $profitAndLossAll['Summary']['ColData'][0]['value'];
+                                       $case = 2;
                                 }
-                              
-                              }
-
-
-                              echo '<h4>Total Expenditure<span style="float:right;">$ '.$totalExpenditures.'</span></h4>';
-
-
-                            ?>
-
-                          </ul>
-
-                        </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>Net Operating Revenue</td>
-                        <td><b>$ 
-                          <?php
-                            
-                            foreach ($allRows['Row'] as $singleRow) {
-                              
-                              $summary = $singleRow['Summary'];
-                              $ColData  = $summary['ColData'];
-                    
-                              foreach ($ColData as $key) {
-                      
-                                $value   = $key['value'];
-                      
-                                if($value && intval($value) != $value)
-                                {
-                            
-                                  echo $value;
-                                  break 2;
-
+                                if ( $case == 2 ){
+                                  if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
+                                    echo '<tr>';
+                                    echo '<td><ul><h4><b>'.$string.'<span style="float:right;">$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></span></ul></h4></td>';
+                                    echo '</tr>';
+                                    $case = 0;
+                                  }
                                 }
-                    
-                              }
-                            }
-                          ?>
-                          
-                        </b></td>
+                                }
 
-                      </tr>
 
-                      <tr>
-
-                        <td colspan="5">
-                
-                          <ul><li>No data found.</li></ul>
-
-                        </td>
-
-                      </tr>
-
-                      <tr>
-
-                        <td>Net Revenue</td>
-                        <td><b>$ <?php echo $value; ?></b></td>
-
-                      </tr>
+                         }
+                        ?>
                     
                     </tbody>
 
