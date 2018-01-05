@@ -367,12 +367,8 @@
                                 if ( $case == 2 ){
                                   if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
                                     echo '<tr>';
-
-                                   
-
                                     echo '<td><h4>'.$string.'<span style="float:right;">$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</span></h4></td>';
                                     echo '</tr>';
-
                                     $case = 0;
                                   }
                                 }
