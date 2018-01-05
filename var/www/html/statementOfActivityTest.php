@@ -347,20 +347,6 @@
 
                           foreach ($data as $profitAndLossAll) {
                                 
-
-                                if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
-                                      $string = $profitAndLossAll['Summary']['ColData'][0]['value'];
-                                       $case = 2;
-                                }
-                                if ( $case == 2 ){
-                                  if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
-                                    echo '<tr>';
-                                    echo '<td><ul><h4>'.$string.'<span style="float:right;">$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</span></ul></h4></td>';
-                                    echo '</tr>';
-                                    $case = 0;
-                                  }
-                                }
-                                
                                 if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
                                       $string = $profitAndLossAll['Header']['ColData'][0]['value'];
                                       $mainStirng = $string;
@@ -373,6 +359,7 @@
                                       echo '<td><b>$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</b></td></tr>';
                                  }
                                 }
+
 
                                 if ( isset($profitAndLossAll['Rows']['Row']) ){
                                   foreach ($profitAndLossAll['Rows']['Row'] as $row) {
@@ -451,6 +438,18 @@
 
                                     }
                                   }
+                                if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
+                                      $string = $profitAndLossAll['Summary']['ColData'][0]['value'];
+                                       $case = 2;
+                                }
+                                if ( $case == 2 ){
+                                  if ( isset($profitAndLossAll['Summary']['ColData'][0]['value']) ){
+                                    echo '<tr>';
+                                    echo '<td><ul><h4>'.$string.'<span style="float:right;">$ '.$profitAndLossAll['Summary']['ColData'][1]['value'].'</span></ul></h4></td>';
+                                    echo '</tr>';
+                                    $case = 0;
+                                  }
+                                }
                                 }
 
 
