@@ -19,7 +19,7 @@ curl_exec($req);
 	$response = curl_exec($ch);
 	if ( strpos($response, "Error in call to API function") !== false ) {
 		$message =  "An error occured. Please try again.";
-		echo $message."\n\n";
+		echo $message."";
 		exit(0);
 	}
 	else {
