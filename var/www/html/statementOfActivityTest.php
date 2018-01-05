@@ -373,19 +373,26 @@
 
                                 if ( isset($profitAndLossAll['Rows']['Row']) ){
                                   foreach ($profitAndLossAll['Rows']['Row'] as $row) {
-                                    echo '<tr>';
+
+                                      if ( isset($row['ColData'][1]['value']) ){
+                                      echo '<tr>';
                                       echo '<td>';
                                       echo '<ul>';
-                                      // print_r($row);
-                                      if ( isset($row['ColData'][1]['value']) ){
                                         echo '<h4>'.$row['ColData'][0]['value'].'<span style="float:right;">$ '.$row['ColData'][1]['value'].'</span></h4>';
-                                      }
-                                      else {
-                                        echo '<h4>'.$row['ColData'][0]['value'].'</h4>';
-                                      }
                                       echo '</ul>';
                                       echo '</td>';
-                                    echo '</tr>';
+                                      echo '</tr>';
+                                      }
+                                      else {
+                                      echo '<tr>';
+                                      echo '<td>';
+                                      echo '<ul>';
+                                        echo '<h4>'.$row['ColData'][0]['value'].'</h4>';
+                                      echo '</ul>';
+                                      echo '</td>';
+                                      echo '</tr>';
+                                      }
+
 
                                   }
                                 }
