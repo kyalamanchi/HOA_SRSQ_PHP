@@ -95,7 +95,7 @@
 
               foreach ($data as $profitAndLossAll) {
                   if ( isset($profitAndLossAll['Header']['ColData'][0]) ){
-                    print_r("New Main Row ".$profitAndLossAll['Header']['ColData'][0]." and value:".$profitAndLossAll['Header']['ColData'][1]);
+                    print_r("New Main Row ".$profitAndLossAll['Header']['ColData'][0]['value']." and value:".$profitAndLossAll['Header']['ColData'][1]['value']);
                     print_r(nl2br("\n\n"));
                   }
               }
