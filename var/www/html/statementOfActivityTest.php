@@ -370,6 +370,21 @@
                                     $case = 0;
                                   }
                                 }
+
+                                if ( isset($profitAndLossAll['Rows']['Row']) ){
+                                  foreach ($profitAndLossAll['Rows']['Row'] as $row) {
+                                    echo '<tr>';
+                                      echo '<td>';
+                                      echo '<ul>';
+                                    print_r($row);
+                                      echo '</ul>';
+                                      echo '</td>';
+                                    echo '</tr>';
+
+                                  }
+                                }
+
+
                          }
                         ?>
                     
