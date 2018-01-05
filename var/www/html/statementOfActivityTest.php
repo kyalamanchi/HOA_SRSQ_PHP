@@ -423,6 +423,29 @@
                                         }
                                       }
 
+                                      if ( isset($row['Rows']['Row']) ){
+                                        foreach ($row['Rows']['Row'] as $subRow) {
+                                          if ( isset($subRow['ColData'][1]['value']) ){
+                                            echo '<tr>';
+                                            echo '<td>';
+                                            echo '<ul>';
+                                              echo '<h4>'.$subRow['ColData'][0]['value'].'<span style="float:right;">$ '.$subRow['ColData'][1]['value'].'</span></h4>';
+                                            echo '</ul>';
+                                            echo '</td>';
+                                            echo '</tr>';
+                                          }
+                                          else if ( isset($subRow['ColData'][0]['value']) ){  
+                                            echo '<tr>';
+                                            echo '<td>';
+                                            echo '<ul>';
+                                            echo '<h4>'.$subRow['ColData'][0]['value'].'</h4>';
+                                            echo '</ul>';
+                                            echo '</td>';
+                                            echo '</tr>';
+                                          }
+                                        }
+                                      }
+
                                     }
                                   }
                                 }
