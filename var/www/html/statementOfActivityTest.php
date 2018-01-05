@@ -343,6 +343,7 @@
                         <?php
 
                            $case = 0;
+                           $subCase = 0;
 
                           foreach ($data as $profitAndLossAll) {
                                 
