@@ -391,6 +391,10 @@
                                       echo '</td>';
                                       echo '</tr>';
                                     }
+                                    else {
+                                      print_r($row);
+                                      print_r(nl2br("\n\n"));
+                                    }
                                   }
                                 }
 
