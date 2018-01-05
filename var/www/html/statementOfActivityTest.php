@@ -346,7 +346,8 @@
                            $case = 0;
 
                           foreach ($data as $profitAndLossAll) {
-                                 if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
+                                
+                                if ( isset($profitAndLossAll['Header']['ColData'][0]['value']) ){
                                       $string = $profitAndLossAll['Header']['ColData'][0]['value'];
                                       $mainStirng = $string;
                                       $case = 1;
