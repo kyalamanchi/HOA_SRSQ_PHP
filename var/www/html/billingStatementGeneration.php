@@ -268,7 +268,7 @@ $message  = "Uploading Statement to Dropbox...Please Wait...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-if ( $homeDS < 287 ){
+if ( $commID == 2 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
@@ -282,12 +282,20 @@ print('PDF Response'.$response.nl2br("\n"));
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 
+
+$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    print_r("Failed to insert to dropbox_stats");
+    print_r(nl2br("\n\n"));
+}
+
 }
 $message  = "Uploading Statement ZIP file to Dropbox...Please Wait...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
-if ( $homeDS < 287 ){
+if ( $commID == 2 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.zip');
 $ch = curl_init($url);
@@ -297,6 +305,14 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+
+
+$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    print_r("Failed to insert to dropbox_stats");
+    print_r(nl2br("\n\n"));
+}
 
 }
 print_r($response.nl2br("\n"));

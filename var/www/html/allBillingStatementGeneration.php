@@ -293,6 +293,15 @@ $response = curl_exec($ch);
 curl_close($ch);
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
+
+$dropboxPath = "/Billing_Statements/SRP/".date('Y')."/PDF/".$finalHOAID.".pdf";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    print_r("Failed to insert to dropbox_stats");
+    print_r(nl2br("\n\n"));
+}
+
+
 }
 else if ( $homeDS < 287 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
@@ -306,6 +315,14 @@ $response = curl_exec($ch);
 curl_close($ch);
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
+
+
+$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    print_r("Failed to insert to dropbox_stats");
+    print_r(nl2br("\n\n"));
+}
 
 }
 $message  = "Uploading ".$homeID." Statement ZIP file to Dropbox...Please Wait...";
@@ -323,6 +340,16 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+
+
+$dropboxPath = "/Billing_Statements/SRP/".date('Y')."/ZIP/".$finalHOAID.".zip";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    print_r("Failed to insert to dropbox_stats");
+    print_r(nl2br("\n\n"));
+}
+
+
 }
 else if ( $homeDS < 287 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
@@ -334,6 +361,13 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+
+$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    print_r("Failed to insert to dropbox_stats");
+    print_r(nl2br("\n\n"));
+}
 
 }
 unlink($finalHOAID.'.zip');

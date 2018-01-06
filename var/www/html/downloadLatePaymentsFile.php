@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Los_Angeles');
 if ( $_GET['id'] ){
 	$fileName = $_GET['id'].'.zip';
 	$url = 'https://content.dropboxapi.com/2/files/download';
@@ -16,5 +17,10 @@ if ( $_GET['id'] ){
 	header("Content-disposition: attachment; filename=\"" . basename($fileName) . "\""); 
 	readfile($fileName);
 	unlink($fileName);
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$_GET['data']."','".date('Y-m-d H:i:s')."')";
+	if ( !pg_query($dropboxInsertQuery) ){
+    	// print_r("Failed to insert to dropbox_stats");
+    	// print_r(nl2br("\n\n"));
+	}
 }
 ?>
