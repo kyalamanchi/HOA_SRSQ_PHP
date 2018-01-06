@@ -170,6 +170,12 @@ $pdf->Rect($pdf->w,$pdf->h,100,1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $response = curl_exec($ch);
         curl_close($ch);
+        $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$techID."','".date('Y-m-d H:i:s')."')";
+        if ( !pg_query($dropboxInsertQuery) ){
+            // print_r("Failed to insert to dropbox_stats");
+            // print_r(nl2br("\n\n"));
+        }
+
         $attachmentName = uniqid();
         $attachmentName = $attachmentName.".".$format;
         $file = fopen($attachmentName, "w");
@@ -211,6 +217,13 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     $response = json_decode($response);
     $fileID = $response->id;
     curl_close($ch);
+
+    $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','/Inspection_Notices_New/PDF/".$pdfFileNameFinal."','".date('Y-m-d H:i:s')."')";
+    if ( !pg_query($dropboxInsertQuery) ){
+        print_r("Failed to insert to dropbox_stats");
+        print_r(nl2br("\n\n"));
+    }
+
     unlink($zipFileNameFinal);
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
