@@ -213,6 +213,14 @@ require('mc_table.php');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
 
+            $dropboxPath = "/Inspection_Notices_New/ZIP/".$zipFileNameFinal;
+
+            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','')";
+            if ( !pg_query($dropboxInsertQuery) ){
+                    print_r("Failed to insert to dropbox_stats");
+                    print_r(nl2br("\n\n"));
+            }
+
             $zipTechID = json_decode($response)->id;
 
             $fileData = file_get_contents($pdfFileNameFinal);
@@ -224,6 +232,12 @@ require('mc_table.php');
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
 
+            $dropboxPath = "/Inspection_Notices_New/PDF/".$pdfFileNameFinal;
+            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+            if ( !pg_query($dropboxInsertQuery) ){
+                print_r("Failed to insert to dropbox_stats");
+                print_r(nl2br("\n\n"));
+            }
 
 
             curl_close($ch);
