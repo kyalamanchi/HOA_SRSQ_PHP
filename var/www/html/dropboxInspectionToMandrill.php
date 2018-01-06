@@ -20,6 +20,12 @@ if ($_GET['hoaid']){
 		echo "An error occured.Dropbox".$response;
 		exit(0);
 	}
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$documentID."','".date('Y-m-d H:i:s')."')";
+	if ( !pg_query($dropboxInsertQuery) ){
+    	// print_r("Failed to insert to dropbox_stats");
+    	// print_r(nl2br("\n\n"));
+	}
 	//Upload file content to Dropbox Sent Emails Folders
 
 
@@ -33,6 +39,12 @@ if ($_GET['hoaid']){
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
     $uploadID = json_decode($response)->id;
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','/Sent Files/".$random.".pdf','".date('Y-m-d H:i:s')."')";
+	if ( !pg_query($dropboxInsertQuery) ){
+    	// print_r("Failed to insert to dropbox_stats");
+    	// print_r(nl2br("\n\n"));
+	}
 
 	else { 
 		$hoaID= $_GET['hoaid'];
