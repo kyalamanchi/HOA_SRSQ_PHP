@@ -115,6 +115,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$pathVar."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    // print_r("Failed to insert to dropbox_stats");
+    // print_r(nl2br("\n\n"));
+}
 $jsonDecode = json_decode($response);
 if ( $jsonDecode->id ){
 	$message  = "Uploaded to Dropbox Successfully";
