@@ -2,7 +2,7 @@
 	
 	session_start();
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
+	require 'includes/dbconn.php';
 
 	if($_GET['cid'] == 1)
 	{
@@ -29,6 +29,12 @@
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$path.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$path."','".date('Y-m-d H:i:s')."')";
+	if ( !pg_query($dropboxInsertQuery) ){
+    		// print_r("Failed to insert to dropbox_stats");
+    		// print_r(nl2br("\n\n"));
+	}
 
 	if (strpos( json_decode($response), 'error_summary') !== false) 
 	{
