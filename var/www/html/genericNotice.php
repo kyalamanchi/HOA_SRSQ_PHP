@@ -3,6 +3,15 @@
 // ini_set('display_errors', 1);
 date_default_timezone_set("America/New_York");
 header("Content-Type: text/event-stream\n\n");
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
 $message  = "Generating Inspection Notice...Please Wait...";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
@@ -115,6 +124,11 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$pathVar."','".date('Y-m-d H:i:s')."')";
+if ( !pg_query($dropboxInsertQuery) ){
+    // print_r("Failed to insert to dropbox_stats");
+    // print_r(nl2br("\n\n"));
+}
 $jsonDecode = json_decode($response);
 if ( $jsonDecode->id ){
 	$message  = "Uploaded to Dropbox Successfully";

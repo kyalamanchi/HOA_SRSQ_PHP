@@ -1,4 +1,13 @@
 <?php
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+include 'includes/dbconn.php';
 header("Content-Type: text/event-stream\n\n");
 $someJSON = file_get_contents('php://input');
 $parsedJSON = json_decode($someJSON);
@@ -17,9 +26,11 @@ curl_exec($req);
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/ZIP/'.$hoaID.'.zip"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Inspection_Attachments/".date('Y')."/".$fileName."','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);
 	if ( strpos($response, "Error in call to API function") !== false ) {
 		$message =  "An error occured. Please try again.";
-		echo $message."\n\n";
+		echo $message."";
 		exit(0);
 	}
 	else {
@@ -42,7 +53,7 @@ curl_exec($req);
 
 }
 else {
-	$message =  "An error occured. Please try again.";
+	$message =  "An error occured. Invalid HOAID.";
 	echo $message."\n\n";  
 	
 	

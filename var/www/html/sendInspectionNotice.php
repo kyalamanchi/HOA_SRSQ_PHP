@@ -1,6 +1,15 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+include 'includes/dbconn.php';
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 $message  = "Mailing Statement...Please Wait...";
@@ -8,7 +17,9 @@ $message  = "Mailing Statement...Please Wait...";
   ob_end_flush();
   flush();
 
-include 'includes/dbconn.php';
+
+
+
 
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);
@@ -40,6 +51,11 @@ $url = 'https://content.dropboxapi.com/2/files/download';
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "'.$documentID.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
+
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$documentID."','".date('Y-m-d H:i:s')."')";
+pg_query($dropboxInsertQuery);
+
+
 	curl_close($ch);
 $fileContents = $response;
 $fileContents = base64_encode($fileContents);

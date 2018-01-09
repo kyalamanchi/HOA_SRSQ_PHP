@@ -11,7 +11,7 @@ if ( $_GET['id'] && $_GET['data']){
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
   if ( $row['cell_no'] ){
-      if ( !(strcmp($row['cell_no'], $_GET['data'])) ){
+      if ( !(strcmp( base64_decode($row['cell_no']), $_GET['data'])) ){
   
         $message  = "success";
       echo 'data: '.$message."\n\n";  

@@ -90,7 +90,8 @@
                                <?php
                                include 'includes/dbconn.php';
                                //Connection begin
-                               if ( $dbconn3 ) {
+                               $a = 1;
+                               if ( $a == 1 ) {
                                 $getQuery = "SELECT funding_id,number_of_transactions FROM community_deposits WHERE community_id=2";
                                 $getResults = pg_query($getQuery);
                                 $getQuery2 = "SELECT transaction_id FROM community_funding_transactions";

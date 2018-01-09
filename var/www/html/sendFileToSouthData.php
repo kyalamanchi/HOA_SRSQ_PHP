@@ -1,4 +1,12 @@
 <?php
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 date_default_timezone_set('America/Los_Angeles');
@@ -139,6 +147,10 @@ fclose($handler);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
             $response = json_decode($response);
+            
+            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Sent Files/".$zipFileNameFinal."','".date('Y-m-d H:i:s')."')";
+            pg_query($dropboxInsertQuery);
+
             if ( isset($response->error_summary) ){
                 echo "An error occured. Please try again.";
                 exit(0);
@@ -263,6 +275,11 @@ fclose($handler);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $response = curl_exec($ch);
             $response = json_decode($response);
+
+            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Sent Files/".$zipFileNameFinal."','".date('Y-m-d H:i:s')."')";
+            pg_query($dropboxInsertQuery);
+
+
             if ( isset($response->error_summary) ){
                 echo "An error occured. Please try again.";
                 exit(0);

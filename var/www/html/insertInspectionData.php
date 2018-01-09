@@ -1,7 +1,14 @@
 <?php
 
 include 'includes/dbconn.php';
-
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 // error_reporting(E_ERROR | E_PARSE);
 $jsonData = json_decode(file_get_contents('php://input'));
 try{
@@ -37,6 +44,10 @@ if (true){
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		$response = curl_exec($ch);
 		unlink($name);
+
+		$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Inspection_Attachments/".date('Y')."/".$fileName."','".date('Y-m-d H:i:s')."')";
+		pg_query($dropboxInsertQuery);
+		
 		$decodeData = json_decode($response);
 		$fileID  = $decodeData->id;
 		$query = "INSERT INTO DOCUMENT_MANAGEMENT(\"active\",\"description\",\"month_of_upload\",\"uploaded_date\",\"url\",\"year_of_upload\",\"community_id\",\"member_id\",\"hoa_id\",\"tech_id\") VALUES('TRUE','".$fileName."','".date('M')."','".date('Y-m-d H:i:s')."','/Inspection_Attachments/".date('Y')."/',".date('Y').",(SELECT COMMUNITY_ID FROM HOAID WHERE HOA_ID=".$hoaID."),(SELECT MEMBER_ID FROM MEMBER_INFO WHERE HOA_ID=".$hoaID."),".$hoaID.",'".$fileID."') RETURNING document_id";

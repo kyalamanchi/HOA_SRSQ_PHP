@@ -29,6 +29,12 @@
 
             else {
 
+                $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$fileID."','".date('Y-m-d H:i:s')."')";
+                if ( !pg_query($dropboxInsertQuery) ){
+                        // print_r("Failed to insert to dropbox_stats");
+                        // print_r(nl2br("\n\n"));
+                } 
+
 
 
 
