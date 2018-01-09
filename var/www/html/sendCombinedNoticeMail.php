@@ -1,4 +1,14 @@
 <?php
+	
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
 	date_default_timezone_set("America/New_York");
 	header("Content-Type: text/event-stream\n\n");
  	include 'includes/dbconn.php';
@@ -6,6 +16,9 @@
  	echo 'data: '.$message."\n\n";  
   	ob_end_flush();
   	flush();
+
+
+
 
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);
@@ -30,6 +43,9 @@ $fromCommunityEmail2 = $res['email'];
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 	curl_close($ch);
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$pathVar."','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);
 	$jsonDecode = json_decode($response);
 	if ( $jsonDecode->id ){
 		$message  = "Uploaded to Dropbox Successfully";

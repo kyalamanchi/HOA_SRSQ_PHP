@@ -6,7 +6,14 @@
 
 	include 'includes/dbconn.php';
 	date_default_timezone_set('America/Los_Angeles');
-
+	ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 	if ( isset($_GET['cid']) ){
 
 	if($_GET['cid'] == 1)
@@ -44,7 +51,7 @@
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 
-	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$path."','".date('Y-m-d H:i:s')."')";
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$path."','".date('Y-m-d H:i:s')."')";
 	if ( !pg_query($dropboxInsertQuery) ){
     		// print_r("Failed to insert to dropbox_stats");
     		// print_r(nl2br("\n\n"));

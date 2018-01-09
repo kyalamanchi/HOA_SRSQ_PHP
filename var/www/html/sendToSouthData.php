@@ -1,5 +1,17 @@
 <?php
 header("Content-Type: text/event-stream\n\n");
+include 'includes/dbconn.php';
+
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
+
 
 if ($_GET['data']){	
 	$url = 'https://content.dropboxapi.com/2/files/download';
@@ -15,6 +27,8 @@ if ($_GET['data']){
 		flush();
 		exit(0);
 	}
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'".$_GET['data']."','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);
 	else {
 		$fileContent = base64_encode($response);
 		$req = curl_init();

@@ -1,5 +1,13 @@
 <?php
 require('fpdf.php');
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 $pageNumber = -1;
 $finalHOAID = -1;
 $finalHOMEID = -1;
@@ -265,7 +273,7 @@ print_r($response);
 unlink($finalHOAID.'.zip');
 
 $dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip";
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
     print_r(nl2br("\n\n"));

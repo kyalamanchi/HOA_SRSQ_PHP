@@ -3,6 +3,14 @@ error_reporting(E_ERROR | E_PARSE);
 $jsonData = json_decode(file_get_contents('php://input'));
 
 include 'includes/dbconn.php';
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 
 $hoaID =  $jsonData->hoa_id;
 $noticeName =  $jsonData->notice_name;
@@ -70,6 +78,10 @@ $inspectionStatus = 1;
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
 	$req = curl_init();
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$docid."','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);
+
 		curl_setopt($req, CURLOPT_URL,"http://southdata.us-west-2.elasticbeanstalk.com/TestOrderMailing.aspx?id=".$fileContent."&hoaid=".$hoaID);
 		curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 		if(curl_exec($req) === false)

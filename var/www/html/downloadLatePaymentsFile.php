@@ -1,4 +1,13 @@
 <?php
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
 date_default_timezone_set('America/Los_Angeles');
 if ( $_GET['id'] ){
 	$fileName = $_GET['id'].'.zip';
@@ -17,7 +26,7 @@ if ( $_GET['id'] ){
 	header("Content-disposition: attachment; filename=\"" . basename($fileName) . "\""); 
 	readfile($fileName);
 	unlink($fileName);
-	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$_GET['data']."','".date('Y-m-d H:i:s')."')";
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$_GET['data']."','".date('Y-m-d H:i:s')."')";
 	if ( !pg_query($dropboxInsertQuery) ){
     	// print_r("Failed to insert to dropbox_stats");
     	// print_r(nl2br("\n\n"));

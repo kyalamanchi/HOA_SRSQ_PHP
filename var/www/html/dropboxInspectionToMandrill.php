@@ -1,6 +1,14 @@
 <?php
 //Requires HOAID,Subject,Body,Id From Dropbox
 date_default_timezone_set("America/Los_Angeles");
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 include 'includes/dbconn.php';
 $fileContents = "";
 $subject = "Inspection Notice";
@@ -21,7 +29,7 @@ if ($_GET['hoaid']){
 		exit(0);
 	}
 
-	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$documentID."','".date('Y-m-d H:i:s')."')";
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$documentID."','".date('Y-m-d H:i:s')."')";
 	if ( !pg_query($dropboxInsertQuery) ){
     	// print_r("Failed to insert to dropbox_stats");
     	// print_r(nl2br("\n\n"));
@@ -40,7 +48,7 @@ if ($_GET['hoaid']){
     $response = curl_exec($ch);
     $uploadID = json_decode($response)->id;
 
-	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','/Sent Files/".$random.".pdf','".date('Y-m-d H:i:s')."')";
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Sent Files/".$random.".pdf','".date('Y-m-d H:i:s')."')";
 	if ( !pg_query($dropboxInsertQuery) ){
     	// print_r("Failed to insert to dropbox_stats");
     	// print_r(nl2br("\n\n"));

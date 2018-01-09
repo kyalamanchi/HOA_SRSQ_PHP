@@ -1,8 +1,17 @@
 <?php
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 header("Content-Type: text/event-stream\n\n");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require('fpdf/fpdf.php');
+include 'includes/dbconn.php';
 $pageNumber = -1;
 $finalHOAID = -1;
 $finalHOMEID = -1;
@@ -315,6 +324,10 @@ $response = curl_exec($ch);
 curl_close($ch);
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
+
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRP/".date('Y')."/PDF/".$finalHOAID.".pdf','".date('Y-m-d H:i:s')."')";
+pg_query($dropboxInsertQuery);
+
 }
 else if ( $homeDS < 287 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
@@ -328,6 +341,9 @@ $response = curl_exec($ch);
 curl_close($ch);
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
+
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf','".date('Y-m-d H:i:s')."')";
+pg_query($dropboxInsertQuery);
 
 }
 $message  = "Uploading ".$homeDS." Statement ZIP file to Dropbox...Please Wait...";
@@ -345,6 +361,8 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRP/".date('Y')."/ZIP/".$finalHOAID.".zip','".date('Y-m-d H:i:s')."')";
+pg_query($dropboxInsertQuery);
 }
 else if ( $homeDS < 287 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
@@ -356,6 +374,9 @@ curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
+
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip','".date('Y-m-d H:i:s')."')";
+pg_query($dropboxInsertQuery);
 
 }
 unlink($finalHOAID.'.zip');

@@ -1,4 +1,13 @@
 <?php
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+include 'includes/dbconn.php';
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set("America/Los_Angeles");
 $connection =  pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy") or die("Failed to connect to database.......");
@@ -35,6 +44,10 @@ $message  = curl_exec($req);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Billing_Statements/SRSQ/".date('Y')."/PDF/".$_GET['hoaid'].".pdf','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);	
+
 	}
 
 	else if ( $communityIDD == 1 ){
@@ -49,6 +62,10 @@ $message  = curl_exec($req);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Billing_Statements/SRSQ/".date('Y')."/PDF/".$_GET['hoaid'].".pdf','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);	
+
 	}
 
 
@@ -65,6 +82,9 @@ $message  = curl_exec($req);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);
     $uploadID = json_decode($response)->id;
+
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Sent Files/".$random.".pdf','".date('Y-m-d H:i:s')."')";
+	pg_query($dropboxInsertQuery);	
 
 
 

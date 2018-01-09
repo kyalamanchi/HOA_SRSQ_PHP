@@ -3,6 +3,15 @@
 // ini_set('display_errors', 1);
 require('mc_table.php');
 
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
     include 'includes/dbconn.php';
         $cityQuery = "SELECT * FROM CITY";
         $cityQueryResult = pg_query($cityQuery);
@@ -170,7 +179,7 @@ $pdf->Rect($pdf->w,$pdf->h,100,1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         $response = curl_exec($ch);
         curl_close($ch);
-        $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$techID."','".date('Y-m-d H:i:s')."')";
+        $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$techID."','".date('Y-m-d H:i:s')."')";
         if ( !pg_query($dropboxInsertQuery) ){
             // print_r("Failed to insert to dropbox_stats");
             // print_r(nl2br("\n\n"));

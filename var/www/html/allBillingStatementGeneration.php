@@ -1,5 +1,11 @@
 <?php
 header("Content-Type: text/event-stream\n\n");
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require('fpdf/fpdf.php');
@@ -295,7 +301,7 @@ unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 
 $dropboxPath = "/Billing_Statements/SRP/".date('Y')."/PDF/".$finalHOAID.".pdf";
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
     print_r(nl2br("\n\n"));
@@ -318,7 +324,7 @@ unlink($finalHOAID.'.tab');
 
 
 $dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf";
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
     print_r(nl2br("\n\n"));
@@ -343,7 +349,7 @@ curl_close($ch);
 
 
 $dropboxPath = "/Billing_Statements/SRP/".date('Y')."/ZIP/".$finalHOAID.".zip";
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
     print_r(nl2br("\n\n"));
@@ -363,7 +369,7 @@ $response = curl_exec($ch);
 curl_close($ch);
 
 $dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip";
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
     print_r(nl2br("\n\n"));

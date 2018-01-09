@@ -1,6 +1,15 @@
 <?php
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
 require('mc_table.php');
     try{
     include 'includes/dbconn.php';
@@ -173,7 +182,7 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
     unlink($tabFileNameFinal);
     unlink($pdfFileNameFinal);
 
-    $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','/Inspection_Notices_New/ZIP/'".$zipFileNameFinal.",'".date('Y-m-d H:i:s')."')";
+    $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Inspection_Notices_New/ZIP/'".$zipFileNameFinal.",'".date('Y-m-d H:i:s')."')";
     if ( !pg_query($dropboxInsertQuery) ){
         // print_r("Failed to insert to dropbox_stats");
         // print_r(nl2br("\n\n"));

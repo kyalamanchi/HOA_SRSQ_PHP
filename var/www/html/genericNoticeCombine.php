@@ -2,6 +2,16 @@
 // error_reporting(E_ALL);
 // ini_set('display_errors', 1);
 require('mc_table.php');
+require('includes/dbconn.php')
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
     try{
     include 'includes/dbconn.php';
         $cityQuery = "SELECT * FROM CITY";
@@ -215,7 +225,7 @@ require('mc_table.php');
 
             $dropboxPath = "/Inspection_Notices_New/ZIP/".$zipFileNameFinal;
 
-            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','')";
+            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','')";
             if ( !pg_query($dropboxInsertQuery) ){
                     print_r("Failed to insert to dropbox_stats");
                     print_r(nl2br("\n\n"));
@@ -233,7 +243,7 @@ require('mc_table.php');
             $response = curl_exec($ch);
 
             $dropboxPath = "/Inspection_Notices_New/PDF/".$pdfFileNameFinal;
-            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
+            $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
             if ( !pg_query($dropboxInsertQuery) ){
                 print_r("Failed to insert to dropbox_stats");
                 print_r(nl2br("\n\n"));

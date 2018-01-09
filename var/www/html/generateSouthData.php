@@ -1,6 +1,15 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set("session.save_path","/var/www/html/session/");
+session_start();
+if ( $_SESSION['hoa_user_id'] ){
+    $dropboxInsertUserID = $_SESSION['hoa_user_id'];
+}
+else {
+    $dropboxInsertUserID = 401;
+}
+
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 $message  = "Please Wait...";
@@ -56,7 +65,7 @@ $url = 'https://content.dropboxapi.com/2/files/download';
  $response = curl_exec($ch);
  curl_close($ch);
 
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(401,'DOWNLOAD','".$documentID."','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','".$documentID."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
     print_r(nl2br("\n\n"));
