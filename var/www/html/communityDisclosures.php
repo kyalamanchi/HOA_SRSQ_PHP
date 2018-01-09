@@ -122,7 +122,7 @@
                           $notes = $row['notes'];
                           $document_id = $row['document_id'];
 
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM community_disclosure_type WHERE id=$disclosure_type"));
+                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM disclosure_type WHERE id=$disclosure_type"));
 
                           $civilcode_section = $row1['civilcode_section'];
                           $description = $row1['desc'];
@@ -131,10 +131,10 @@
 
                           $document = "";
 
-                      if($document_id != "")
-                      {
-                        $document = "<a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file'></i></a>";
-                      }
+                          if($document_id != "")
+                          {
+                            $document = "<a href='getDocumentPreview.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file'></i></a>";
+                          }
 
                           if($civilcode_section != '')
                           {
@@ -151,7 +151,7 @@
                           if($actual_date != '')
                             $actual_date = date('m-d-Y', strtotime($actual_date));
 
-                                        echo "<tr><td>$actual_date</td><td>$disclosure_type</td><td>$description</td><td>$delivery_type</td><td>$notes</td></tr>";
+                          echo "<tr><td>$disclosure_type</td><td>$actual_date</td><td>$delivery_type</td><td>$notes</td><td>$document</td></tr>";
 
                         }
 
