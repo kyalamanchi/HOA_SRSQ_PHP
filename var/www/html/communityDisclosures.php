@@ -122,6 +122,9 @@
                           $notes = $row['notes'];
                           $document_id = $row['document_id'];
 
+                          if($delivery_type == 1)
+                            $delivery_type = 'Email';
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT * FROM disclosure_type WHERE id=$disclosure_type"));
 
                           $civilcode_section = $row1['civilcode_section'];
