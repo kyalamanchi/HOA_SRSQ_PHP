@@ -330,6 +330,7 @@ function uploadFile(){
         // alert($("#boardMeetingList").find("option:selected").attr("id"));
         jsonData = [];
         item = {};
+        item['file_type'] = 'minutes';
         item['board_meeting'] = $("#boardMeetingList").find("option:selected").attr("id");
         item['board_meeting_type'] = $("#boardMeetingType").find("option:selected").attr("id");
         item['meeting_minutes_date'] = document.getElementById("daterange").value;
@@ -351,6 +352,42 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
 
+
+
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            $("#pleaseWaitDialog2").modal("hide");
+          if (request.responseText == "An error occured."){
+            swal("An error ocuured. Please try again. ","","error");
+          }
+
+          else if ( request.responseText == "Record Created" ){
+          swal({
+            title: "Record Created",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+              } 
+            });
+          }
+
+          else {
+                swal({
+                title: "File uploaded successfully",
+                text: "",
+                icon: "success",
+          })
+          .then((uploadedFile) => {
+          if (uploadedFile) {
+              window.location = "https://hoaboardtime.com/uploadFile.php";
+          } 
+          });
+          }
+        }
+        }
 
 
 
