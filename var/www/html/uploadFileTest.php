@@ -324,6 +324,8 @@ function uploadFile(){
       }
       else if ( $("#fileType").val() == "Minutes" ) {
         alert(document.getElementById("daterange").value);
+        alert(document.getElementById("boardMeetingList").value);
+        alert(document.getElementById("boardMeetingType").value);
       }
       else {
         swal("Please select a Category","","error");
