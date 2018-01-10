@@ -704,6 +704,10 @@ function uploadFile(){
 
 
       <div id="contractsContent" hidden="hidden">
+      <label>Active From - Active Until </label>
+      <input type="text" class="form-control daterange"  id="daterange"/>
+      <br>
+      
       <div class="row-fluid">
       <label>Board Meeting </label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
