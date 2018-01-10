@@ -731,19 +731,16 @@ function uploadFile(){
               </select>
       </div>
       <br>
-      <label>Valid From - Valid Until </label>
-      <input type="text" class="form-control daterange"  id="daterange"/>
-      <br>
       <div class="row-fluid">
-      <label>Board Meeting Type</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" >
+      <label>Vendor Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorType" >
                       <option data-hidden="true"></option>
                       <?php
-                        $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
+                        $query = "SELECT * from vendor_type";
                         $queryResult = pg_query($query);
                         while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option id="'.$row['id'].'">';
-                              echo $row['name'];
+                            echo '<option id="'.$row['vendor_type_id'].'">';
+                              echo $row['vendor_type_name'];
                             echo '</option>';
                         }
                       ?>
