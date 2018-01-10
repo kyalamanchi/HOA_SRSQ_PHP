@@ -197,6 +197,11 @@ else {
 
 
 }
+
+else if ( $parseJSON[0]->file_type == "minutes" ){
+    print_r($parseJSON);
+}
+
 else {
 	echo "An error occured.";
 }
