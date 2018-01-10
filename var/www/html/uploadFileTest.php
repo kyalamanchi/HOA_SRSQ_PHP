@@ -591,7 +591,7 @@ function uploadFile(){
       <div id="minutesContent" hidden="hidden">
 
       <label>Valid From - Valid Until </label>
-      <input type="text" class="form-control daterange" id="daterange"/>
+      <input type="text" class="form-control daterange" style="width: 35%;" id="daterange"/>
       <br>
 
       <div class="row-fluid">
