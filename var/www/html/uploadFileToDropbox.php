@@ -199,7 +199,32 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
     $boardMeetingDate = $parseJSON[0]->meeting_minutes_date;
     $boardMeetingFileName = $parseJSON[0]->meeting_file_name;
     $boardMeetingFileData = $parseJSON[0]->meeting_file_data;
-    
+    $boardMeetingDate = explode('-', $boardMeetingDate);
+    $boardMeeting = $parseJSON[0]->board_meeting;
+
+    if ( ($boardMeetingType == 'undefined') && ($boardMeeting == 'undefined') ){
+        print_r($boardMeeting);
+        print_r($boardMeetingType);
+        print_r($boardMeetingFileData);
+        print_r($boardMeetingFileName);
+        print_r($boardMeetingDate[0]);
+        print_r($boardMeetingDate[1]);
+
+    }
+    else  if ( ($boardMeetingType == 'undefined')  ) { 
+
+
+    }
+
+    else if ( ($boardMeeting == 'undefined') ) {
+
+    }
+
+    else {
+
+    }
+
+
 }
 
 else {
