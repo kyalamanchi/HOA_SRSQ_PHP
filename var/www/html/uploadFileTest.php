@@ -772,7 +772,7 @@ function uploadFile(){
       <input type="text" class="form-control" style="width: 35%;"  id="shortDesc"/>
       <br>
       <label>Description</label>
-      <textarea class="form-control" rows="5" style="width: 35%"></textarea>
+      <textarea class="form-control" rows="5" style="width: 35%" id="description"></textarea>
       <br>
 
 
