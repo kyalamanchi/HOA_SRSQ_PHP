@@ -274,6 +274,10 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
     }
 }
 
+else if ( $parseJSON[0]->file_type == "contracts"){
+  print_r($parseJSON);
+}
+
 else {
 	echo "An error occured.";
 }
