@@ -323,11 +323,6 @@ function uploadFile(){
 
       }
       else if ( $("#fileType").val() == "Minutes" ) {
-        // alert(document.getElementById("daterange").value);
-        // alert(document.getElementById("boardMeetingList").value);
-        // alert(document.getElementById("boardMeetingType").value);
-        // alert($("#boardMeetingType").find("option:selected").attr("id"));
-        // alert($("#boardMeetingList").find("option:selected").attr("id"));
         jsonData = [];
         item = {};
         item['file_type'] = 'minutes';
@@ -351,41 +346,39 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
-
-
-
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
-          if (request.responseText == "An error occured."){
-            swal("An error ocuured. Please try again. ","","error");
-          }
+            alert(request.responseText);
+          // if (request.responseText == "An error occured."){
+          //   swal("An error ocuured. Please try again. ","","error");
+          // }
 
-          else if ( request.responseText == "Record Created" ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
-          }
+          // else if ( request.responseText == "Record Created" ){
+          // swal({
+          //   title: "Record Created",
+          //   text: "",
+          //   icon: "success",
+          // })
+          // .then((uploadedFile) => {
+          //   if (uploadedFile) {
+          //       window.location = "https://hoaboardtime.com/uploadFile.php";
+          //     } 
+          //   });
+          // }
 
-          else {
-                swal({
-                title: "File uploaded successfully",
-                text: "",
-                icon: "success",
-          })
-          .then((uploadedFile) => {
-          if (uploadedFile) {
-              window.location = "https://hoaboardtime.com/uploadFile.php";
-          } 
-          });
-          }
+          // else {
+          //       swal({
+          //       title: "File uploaded successfully",
+          //       text: "",
+          //       icon: "success",
+          // })
+          // .then((uploadedFile) => {
+          // if (uploadedFile) {
+          //     window.location = "https://hoaboardtime.com/uploadFile.php";
+          // } 
+          // });
+          // }
         }
         }
 
