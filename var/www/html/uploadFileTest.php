@@ -482,8 +482,9 @@ function uploadFile(){
                       <option data-hidden="true"></option>
                       <option>Legal document</option>
                       <option>Disclosure</option>
-                      <option>Insurance</option>
                       <option>Minutes</option>
+                      <option>Contracts</option>
+                      <option>Invoices</option>
               </select>
         </div>
       <br>
