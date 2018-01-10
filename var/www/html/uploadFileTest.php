@@ -708,7 +708,7 @@ function uploadFile(){
       <input type="text" class="form-control daterange"  id="daterange"/>
       <br>
       <label>Board Approval ID</label>
-      <input type="text" class=""  id="boardApprovalId"/>
+      <input type="text" class="form-control" style="width: 35%;"  id="boardApprovalId"/>
       <br>
 
       <div class="row-fluid">
