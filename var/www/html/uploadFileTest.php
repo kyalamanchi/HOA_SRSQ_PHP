@@ -607,7 +607,6 @@ function uploadFile(){
                           echo '<option data-hidden="true">No meetings exisits.</option>';
                         }
                       ?>
-
               </select>
       </div>
 
