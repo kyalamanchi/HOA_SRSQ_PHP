@@ -664,7 +664,7 @@ function uploadFile(){
       <div id="minutesContent" hidden="hidden">
       <div class="row-fluid">
       <label>Board Meeting </label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" >
                       <?php
                         $query = "SELECT * from board_meeting where community_id=".$_SESSION['hoa_community_id'];
                         $queryResult = pg_query($query);
@@ -687,7 +687,7 @@ function uploadFile(){
       <br>
       <div class="row-fluid">
       <label>Board Meeting Type</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" onchange="getFileDetails();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" >
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
@@ -713,7 +713,7 @@ function uploadFile(){
 
       <div class="row-fluid">
       <label>Vendor</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorList" >
                       <?php
                         $query = "SELECT * from vendor_master where community_id=".$_SESSION['hoa_community_id'];
                         $queryResult = pg_query($query);
@@ -736,7 +736,7 @@ function uploadFile(){
       <br>
       <div class="row-fluid">
       <label>Board Meeting Type</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" onchange="getFileDetails();">
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" >
                       <option data-hidden="true"></option>
                       <?php
                         $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
