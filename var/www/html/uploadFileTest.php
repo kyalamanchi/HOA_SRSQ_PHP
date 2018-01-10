@@ -322,6 +322,9 @@ function uploadFile(){
 
 
       }
+      else if ( $("#fileType").val() == "Minutes" ) {
+        alert(fileName);
+      }
       else {
         swal("Please select a Category","","error");
       }
@@ -624,6 +627,8 @@ function uploadFile(){
               </select>
       </div>
      </div>
+
+
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
