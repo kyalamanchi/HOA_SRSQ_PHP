@@ -201,15 +201,19 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
     $boardMeetingFileData = $parseJSON[0]->meeting_file_data;
     $boardMeetingDate = explode('-', $boardMeetingDate23);
     $boardMeeting = $parseJSON[0]->board_meeting;
+    $communityID = $parseJSON[0]->community_id;
+    $userID = $parseJSON[0]->user_id;
 
     if ( ($boardMeetingType == 'undefined') && ($boardMeeting == 'undefined') ){
-        print_r($boardMeeting);
-        print_r($boardMeetingType);
-        print_r($boardMeetingFileData);
-        print_r($boardMeetingFileName);
-        print_r($boardMeetingDate[0]);
-        print_r($boardMeetingDate[1]);
-        print_r($boardMeetingDate23);
+        // print_r($boardMeeting);
+        // print_r($boardMeetingType);
+        // print_r($boardMeetingFileData);
+        // print_r($boardMeetingFileName);
+        // print_r($boardMeetingDate[0]);
+        // print_r($boardMeetingDate[1]);
+        // print_r($boardMeetingDate23);
+        $query = "INSERT INTO community_minutes(community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from) VALUES(".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."')";
+        echo $query;
 
     }
     else  if ( ($boardMeetingType == 'undefined')  ) { 

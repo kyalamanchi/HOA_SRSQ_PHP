@@ -341,6 +341,8 @@ function uploadFile(){
         item['meeting_minutes_date'] = document.getElementById("daterange").value;
         item['meeting_file_name'] =  fileName;
         item['meeting_file_data'] = fileData;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id']; ?>;
+        item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
         var request  = new XMLHttpRequest();
