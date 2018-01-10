@@ -330,7 +330,7 @@ function uploadFile(){
         item['board_meeting_type'] = $("#boardMeetingType").find("option:selected").attr("id");
         item['meeting_minutes_date'] = document.getElementById("daterange").value;
         item['meeting_file_name'] =  fileName;
-        item['meeting_file_date'] = fileData;
+        item['meeting_file_data'] = fileData;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
         var request  = new XMLHttpRequest();

@@ -195,7 +195,11 @@ else {
 }
 
 else if ( $parseJSON[0]->file_type == "minutes" ){
-    print_r($parseJSON);
+    $boardMeetingType = $parseJSON[0]->board_meeting_type;
+    $boardMeetingDate = $parseJSON[0]->meeting_minutes_date;
+    $boardMeetingFileName = $parseJSON[0]->meeting_file_name;
+    $boardMeetingFileData = $parseJSON[0]->meeting_file_data;
+
 }
 
 else {
