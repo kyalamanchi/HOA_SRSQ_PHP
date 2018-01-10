@@ -584,9 +584,6 @@ function uploadFile(){
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
       </div>
-
-
-
       <div id="minutesContent" hidden="hidden">
       <div class="row-fluid">
       <label>Board Meeting </label>
@@ -607,7 +604,6 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-
       <br>
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange"  id="daterange"/>
@@ -627,11 +623,7 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-
      </div>
-
-
-
       <br>
       <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
