@@ -703,6 +703,91 @@ function uploadFile(){
      </div>
 
 
+      <div id="contractsContent" hidden="hidden">
+      <div class="row-fluid">
+      <label>Board Meeting </label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
+                      <?php
+                        $query = "SELECT * from board_meeting where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $counter = 0;
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['meeting_title'];
+                            echo '</option>';
+                            $counter = $counter + 1;
+                        }
+                        if ( $counter == 0 ){
+                          echo '<option data-hidden="true">No meetings exisits.</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+      <br>
+      <label>Valid From - Valid Until </label>
+      <input type="text" class="form-control daterange"  id="daterange"/>
+      <br>
+      <div class="row-fluid">
+      <label>Board Meeting Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" onchange="getFileDetails();">
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+     </div>
+
+      <div id="invoicesContent" hidden="hidden">
+      <div class="row-fluid">
+      <label>Board Meeting </label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
+                      <?php
+                        $query = "SELECT * from board_meeting where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $counter = 0;
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['meeting_title'];
+                            echo '</option>';
+                            $counter = $counter + 1;
+                        }
+                        if ( $counter == 0 ){
+                          echo '<option data-hidden="true">No meetings exisits.</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+      <br>
+      <label>Valid From - Valid Until </label>
+      <input type="text" class="form-control daterange"  id="daterange"/>
+      <br>
+      <div class="row-fluid">
+      <label>Board Meeting Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" onchange="getFileDetails();">
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+     </div>
+
+
+
+
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
