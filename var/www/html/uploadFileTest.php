@@ -589,6 +589,7 @@ function uploadFile(){
 
 
       <div id="minutesContent" hidden="hidden">
+        <h1>Minutes</h1>
 
 <!--       <div class="row-fluid">
       <label>Disclosure Type</label>
