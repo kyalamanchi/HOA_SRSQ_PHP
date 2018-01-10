@@ -707,7 +707,10 @@ function uploadFile(){
       <label>Active From - Active Until </label>
       <input type="text" class="form-control daterange"  id="daterange"/>
       <br>
-      
+      <label>Board Approval ID</label>
+      <input type="text" class=""  id="boardApprovalId"/>
+      <br>
+
       <div class="row-fluid">
       <label>Board Meeting </label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
