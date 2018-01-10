@@ -764,6 +764,17 @@ function uploadFile(){
               </select>
       </div>
 
+      <br>
+      <label>Yearly Amount</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="yearlyAmount"/>
+      <br>
+      <label>Short Description</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="shortDesc"/>
+      <br>
+      <label>Description</label>
+      <textarea class="form-control" rows="5" style="width: 35%"></textarea>
+      <br>
+
 
      </div>
 
