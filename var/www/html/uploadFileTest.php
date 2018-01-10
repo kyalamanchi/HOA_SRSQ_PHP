@@ -746,6 +746,17 @@ function uploadFile(){
                       ?>
               </select>
       </div>
+
+      <br>
+      <div class="row-fluid">
+      <label>Active Contract</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorType" >
+                      <option>YES</option>
+                      <option>NO</option>
+              </select>
+      </div>
+
+
      </div>
 
       <div id="invoicesContent" hidden="hidden">
