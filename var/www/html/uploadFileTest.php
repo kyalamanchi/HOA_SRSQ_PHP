@@ -405,7 +405,7 @@ function uploadFile(){
         item = {};
         item['file_type'] = 'contracts';
         item['date'] = document.getElementById('daterange').value; 
-        item['board_approval_id'] =  document.getElementById('board_approval_id').value;
+        item['board_approval_id'] =  document.getElementById('boardApprovalId').value;
         item['vendor_id'] =  $("#vendorList").find("option:selected").attr("id");
         item['vendor_type'] = $("#vendorType").find("option:selected").attr("id");
         item['active_contract'] = $("#activeContract").find("option:selected").attr("id");
