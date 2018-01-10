@@ -326,6 +326,8 @@ function uploadFile(){
         alert(document.getElementById("daterange").value);
         alert(document.getElementById("boardMeetingList").value);
         alert(document.getElementById("boardMeetingType").value);
+        alert($("#boardMeetingType").find("option:selected").attr("id"));
+        alert($("#boardMeetingList").find("option:selected").attr("id"));
       }
       else {
         swal("Please select a Category","","error");
