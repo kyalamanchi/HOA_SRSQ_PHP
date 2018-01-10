@@ -590,55 +590,7 @@ function uploadFile(){
 
       <div id="minutesContent" hidden="hidden">
         <h1>Minutes</h1>
-
-<!--       <div class="row-fluid">
-      <label>Disclosure Type</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
-                      <option data-hidden="true"></option>
-                     <?php
-                        // $query = "SELECT * from disclosure_type where community_id=".$_SESSION['hoa_community_id'];
-                        // $queryResult = pg_query($query);
-                        // while ($row = pg_fetch_assoc($queryResult)) {
-                        //     echo '<option id="'.$row['id'].'">';
-                        //       echo $row['name'];
-                        //     echo '</option>';
-                        }
-                      ?> -->
-        <!--       </select>
-      </div>
-      <h5 id="recordExisitsStatus">
-      
-      </h5>
-      <br>
-      <label>Legal date from - Actual Date</label>
-      <input type="text" class="form-control daterange" id="legalDateActualDate"/>
-      <br>
-      <div >
-        <label for="deliveryType" onchange="changeState();">Delivery Type</label>
-        <input class="form-control" id="deliveryType" type="text">
-      </div>
-      <br>
-      <label>Fiscal Year Start - End</label>
-      <input type="text" class="form-control daterange" id="fiscalYearStartEnd"/>
-      <br>
-      <label>Legal Date Until</label>
-      <input type="text" class="form-control daterange" id="legalDateUntil"/>
-      <br>
-      <div class="form-group" style="width: 35%">
-        <label for="comment">Notes:</label>
-        <textarea class="form-control" rows="3" id="comment"></textarea>
-      </div>
-      <div class="row-fluid">
-      <label>Changed this year</label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="changedThisYear" >
-                      <option>TRUE</option>
-                      <option>FALSE</option>
-              </select>
-      </div>
-      <br>
-       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
-        <h5>OR</h5> -->
-   </div>
+     </div>
 
 
 
