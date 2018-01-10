@@ -588,7 +588,6 @@ function uploadFile(){
 
 
       <div id="minutesContent" hidden="hidden">
-
       <div class="row-fluid">
       <label>Board Meeting </label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
@@ -613,7 +612,6 @@ function uploadFile(){
       <label>Valid From - Valid Until </label>
       <input type="text" class="form-control daterange"  id="daterange"/>
       <br>
-
       <div class="row-fluid">
       <label>Board Meeting Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
