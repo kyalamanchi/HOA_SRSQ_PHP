@@ -653,7 +653,7 @@ function uploadFile(){
 
           </section>
 
-</div>
+    </div>
       </div>
 
       <?php include 'footer.php'; ?>
