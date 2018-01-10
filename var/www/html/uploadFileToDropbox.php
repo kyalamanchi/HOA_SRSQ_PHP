@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 ini_set("session.save_path","/var/www/html/session/");
 session_start();
 if ( $_SESSION['hoa_user_id'] ){
@@ -139,7 +139,6 @@ $communityCode = $row['community_code'];
 if ( $fileContent ){
 
  $url = 'https://content.dropboxapi.com/2/files/upload';
- 
  $ch = curl_init($url);
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Disclosures/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
@@ -204,32 +203,75 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
     $communityID = $parseJSON[0]->community_id;
     $userID = $parseJSON[0]->user_id;
 
-    if ( ($boardMeetingType == 'undefined') && ($boardMeeting == 'undefined') ){
-        // print_r($boardMeeting);
-        // print_r($boardMeetingType);
-        // print_r($boardMeetingFileData);
-        // print_r($boardMeetingFileName);
-        // print_r($boardMeetingDate[0]);
-        // print_r($boardMeetingDate[1]);
-        // print_r($boardMeetingDate23);
-        $query = "INSERT INTO community_minutes(community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from) VALUES(".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."')";
-        echo $query;
+    $query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
+    $queryResult = pg_query($query);
+    $row = pg_fetch_assoc($queryResult);
+    $communityCode = $row['community_code'];
 
+    $url = 'https://content.dropboxapi.com/2/files/upload';
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Meeting Minutes/'.$communityCode.'/'.$boardMeetingFileName.'","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, base64_decode($boardMeetingFileData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($ch); 
+    $dbResponse = $response;
+    $response = json_decode($response);
+    $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Meeting Minutes/".$communityCode."/".$boardMeetingFileName."','".date('Y-m-d H:i:s')."')";
+    pg_query($dropboxInsertQuery);
+    if ( isset($response->error_summary) ){
+        echo "An error occured.";
+         exit(0);
+    }
+
+    else if (strpos($dbResponse, 'Error') !== false) {
+        echo "An error occured.";
+         exit(0);
+    }
+
+    $documentID = $response->id;
+
+    if ( ($boardMeetingType == 'undefined') && ($boardMeeting == 'undefined') ){
+        $query = "INSERT INTO community_minutes(community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from) VALUES(".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."')";
+        if ( !pg_query($query) ){
+            echo "An error occured.";
+        }
+        else {
+            echo "Success.";
+        }  
     }
     else  if ( ($boardMeetingType == 'undefined')  ) { 
 
+        $query = "INSERT INTO community_minutes(board_meeting_id,community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from) VALUES(".$boardMeeting.",".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."')";
+        if ( !pg_query($query) ){
+            echo "An error occured.";
+        }
+        else {
+            echo "Success.";
+        }  
 
     }
-
     else if ( ($boardMeeting == 'undefined') ) {
-
+        $query = "INSERT INTO community_minutes(community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from,board_meeting_type_id) VALUES(".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."',".$boardMeetingType.")";
+        if ( !pg_query($query) ){
+            echo "An error occured.";
+        }
+        else {
+            echo "Success.";
+        }  
     }
 
     else {
 
+        $query = "INSERT INTO community_minutes(board_meeting_id,community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from,board_meeting_type_id) VALUES(".$boardMeeting.",".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."',".$boardMeetingType.")";
+        if ( !pg_query($query) ){
+            echo "An error occured.";
+        }
+        else {
+            echo "Success.";
+        }  
+
     }
-
-
 }
 
 else {
