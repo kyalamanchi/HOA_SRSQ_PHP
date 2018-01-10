@@ -306,15 +306,15 @@ function uploadFile(){
 
           else {
                 swal({
-  title: "File uploaded successfully",
-  text: "",
-  icon: "success",
-})
-.then((uploadedFile) => {
-  if (uploadedFile) {
-    window.location = "https://hoaboardtime.com/uploadFile.php";
-  } 
-});
+                title: "File uploaded successfully",
+                text: "",
+                icon: "success",
+          })
+          .then((uploadedFile) => {
+          if (uploadedFile) {
+              window.location = "https://hoaboardtime.com/uploadFile.php";
+          } 
+          });
           }
         }
         }
@@ -323,11 +323,37 @@ function uploadFile(){
 
       }
       else if ( $("#fileType").val() == "Minutes" ) {
-        alert(document.getElementById("daterange").value);
-        alert(document.getElementById("boardMeetingList").value);
-        alert(document.getElementById("boardMeetingType").value);
-        alert($("#boardMeetingType").find("option:selected").attr("id"));
-        alert($("#boardMeetingList").find("option:selected").attr("id"));
+        // alert(document.getElementById("daterange").value);
+        // alert(document.getElementById("boardMeetingList").value);
+        // alert(document.getElementById("boardMeetingType").value);
+        // alert($("#boardMeetingType").find("option:selected").attr("id"));
+        // alert($("#boardMeetingList").find("option:selected").attr("id"));
+        jsonData = [];
+        item = {};
+        item['board_meeting'] = $("#boardMeetingList").find("option:selected").attr("id");
+        item['board_meeting_type'] = $("#boardMeetingType").find("option:selected").attr("id");
+        item['meeting_minutes_date'] = document.getElementById("daterange").value;
+        item['meeting_file_name'] =  fileName;
+        item['meeting_file_date'] = fileData;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+
+
+
+
       }
       else {
         swal("Please select a Category","","error");
