@@ -483,6 +483,7 @@ function uploadFile(){
                       <option>Legal document</option>
                       <option>Disclosure</option>
                       <option>Insurance</option>
+                      <option>Minutes</option>
               </select>
         </div>
       <br>
