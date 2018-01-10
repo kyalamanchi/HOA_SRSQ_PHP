@@ -333,19 +333,14 @@
                       $otp = rand(100000,1000000);
 
                       switch ($community_id) {
-                        case 1:
-                          $community = 'SRP';
-                          $cnote = "Stoneridgeplace HOA";
-                          $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
-                          $from = 'info@stoneridgeplace.org';
-                            break;
-
+                        
                         case 2:
                           $community = 'SRSQ';
                           $cnote = "Stoneridge Square HOA";
                           $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
                           $from = 'info@stoneridgesquare.org';
                             break;
+                            
                       }                     
                     
                       $content = 'Hello '.$first_name.' '.$last_name.',<br><br>Please use '.$otp.' as OTP for reseting your HOA account password.<br><br>Thank you<br>'.$cnote.'.';
