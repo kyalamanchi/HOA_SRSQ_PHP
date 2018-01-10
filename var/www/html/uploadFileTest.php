@@ -326,13 +326,13 @@ function uploadFile(){
         jsonData = [];
         item = {};
         item['file_type'] = 'minutes';
-        if ( $("#boardMeetingList").find("option:selected").attr("id") == 'undefined' ){
+        if ( typeof $("#boardMeetingList").find("option:selected").attr("id") == 'undefined' ){
           item['board_meeting'] = 'undefined';
         }
         else {
           item['board_meeting'] = $("#boardMeetingList").find("option:selected").attr("id");
         }
-        if ( $("#boardMeetingType").find("option:selected").attr("id") == 'undefined' ){
+        if ( typeof $("#boardMeetingType").find("option:selected").attr("id") == 'undefined' ){
           item['board_meeting_type'] = 'undefined';
         }
         else {
