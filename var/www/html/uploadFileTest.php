@@ -401,6 +401,58 @@ function uploadFile(){
         }
       }
       else if ( $("#fileType").val()  == "Contracts" ) {
+        jsonData = [];
+        item = {};
+        item['file_type'] = 'contracts';
+        item['date'] = document.getElementById('daterange').value; 
+        item['board_approval_id'] =  document.getElementById('board_approval_id').value;
+        item['vendor_id'] =  $("#vendorList").find("option:selected").attr("id");
+        item['vendor_type'] = $("#vendorType").find("option:selected").attr("id");
+        item['active_contract'] = $("#activeContract").find("option:selected").attr("id");
+        item['future_contract'] =  $("#futureContract").find("option:selected").attr("id");
+        item['yearly_contract'] = document.getElementById("yearlyAmount").value;
+        item['short_desc'] = document.getElementById("shortDesc").value;
+        item['desc'] = document.getElementById("description").value;
+        item['file_name'] =  fileName;
+        item['file_data'] = fileData;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id']; ?>;
+        item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            $("#pleaseWaitDialog2").modal("hide");
+            if ( request.responseText == "An error occured."){
+              swal("An error ocuured. Please try again. ","","error");
+            }
+          else if ( request.responseText == "Success." ){
+          swal({
+            title: "Record Created",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+              } 
+            });
+          }
+        }
+        }
 
       }
       else if ( $("#fileType").val() == "Invoices" ) {
