@@ -756,6 +756,14 @@ function uploadFile(){
               </select>
       </div>
 
+      <div class="row-fluid">
+      <label>Future Contract</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="futureContract" >
+                      <option>YES</option>
+                      <option>NO</option>
+              </select>
+      </div>
+
 
      </div>
 
