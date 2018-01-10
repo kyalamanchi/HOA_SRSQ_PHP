@@ -326,8 +326,18 @@ function uploadFile(){
         jsonData = [];
         item = {};
         item['file_type'] = 'minutes';
-        item['board_meeting'] = $("#boardMeetingList").find("option:selected").attr("id");
+        if ( $("#boardMeetingList").find("option:selected").attr("id") == 'undefined' ){
+          item['board_meeting'] = 'undefined';
+        }
+        else {
+          item['board_meeting'] = $("#boardMeetingList").find("option:selected").attr("id");
+        }
+        if ( $("#boardMeetingType").find("option:selected").attr("id") == 'undefined' ){
+          item['board_meeting_type'] = 'undefined';
+        }
+        else {
         item['board_meeting_type'] = $("#boardMeetingType").find("option:selected").attr("id");
+        }
         item['meeting_minutes_date'] = document.getElementById("daterange").value;
         item['meeting_file_name'] =  fileName;
         item['meeting_file_data'] = fileData;
