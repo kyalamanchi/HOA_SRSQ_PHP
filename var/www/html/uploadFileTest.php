@@ -590,6 +590,23 @@ function uploadFile(){
 
       <div id="minutesContent" hidden="hidden">
         <h1>Minutes</h1>
+      
+      <div class="row-fluid">
+      <label>Board Meeting Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+
      </div>
 
 
