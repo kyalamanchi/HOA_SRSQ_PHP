@@ -150,19 +150,40 @@ function updateContent(){
   var type = $("#fileType").val();
 
   if ( type == "Legal document" ){
-  document.getElementById("legalContent").hidden = false;
-  document.getElementById("disclosuresContent").hidden = true;
-  document.getElementById("minutesContent").hidden = true;
+    document.getElementById("legalContent").hidden = false;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("minutesContent").hidden = true;
+    document.getElementById("contractsContent").hidden = true;
+    document.getElementById("invoicesContent").hidden = true;
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
       document.getElementById("minutesContent").hidden = true;
       document.getElementById("disclosuresContent").hidden = false;
+      document.getElementById("contractsContent").hidden = true;
+      document.getElementById("invoicesContent").hidden = true;
   }
   else if( type == "Minutes" ){
     document.getElementById("minutesContent").hidden = false;
     document.getElementById("legalContent").hidden = true;
     document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("contractsContent").hidden = true;
+    document.getElementById("invoicesContent").hidden = true;
+  }
+  else if ( type == "Contracts" ) {
+    document.getElementById("minutesContent").hidden = true;
+    document.getElementById("legalContent").hidden = true;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("contractsContent").hidden = false;
+    document.getElementById("invoicesContent").hidden = true;
+
+  }
+  else if ( type == "Invoices" ) {
+    document.getElementById("minutesContent").hidden = true;
+    document.getElementById("legalContent").hidden = true;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("contractsContent").hidden = true;
+    document.getElementById("invoicesContent").hidden = false;
   }
   else {
       document.getElementById("legalContent").hidden = true;
@@ -378,6 +399,12 @@ function uploadFile(){
           }
         }
         }
+      }
+      else if ( $("#fileType").val()  == "Contracts" ) {
+
+      }
+      else if ( $("#fileType").val() == "Invoices" ) {
+
       }
       else {
         swal("Please select a Category","","error");
