@@ -589,8 +589,7 @@ function uploadFile(){
 
 
       <div id="minutesContent" hidden="hidden">
-        <h1>Minutes</h1>
-      
+    
       <div class="row-fluid">
       <label>Board Meeting Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
