@@ -866,9 +866,15 @@ function uploadFile(){
       <br>
       <label>Work Status</label>
       <input type="text" class="form-control" style="width: 35%;"  id="workStatus"/>
-      <br>
+      <br>  
       <label>Payment Status</label>
       <input type="text" class="form-control" style="width: 35%;"  id="paymentStatus"/>
+      <br>
+      <label>Account Number</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="accountNumber"/>
+      <br>
+      <label>Due Date</label>
+      <input type="text" class="form-control daterange"  id="dueDate"/>
       <br>
 
       <div class="row-fluid">
@@ -987,6 +993,10 @@ $(document).ready(
               showDropdowns: true
             });
             $("#singleDate").daterangepicker({
+              singleDatePicker: true,
+              showDropdowns: true
+            });
+            $("#dueDate").daterangepicker({
               singleDatePicker: true,
               showDropdowns: true
             });
