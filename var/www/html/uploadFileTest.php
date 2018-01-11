@@ -509,16 +509,8 @@ function uploadFile(){
         //       } 
         //     });
         //   }
-        // }
         }
-
-
-
-
-
-
-
-
+        }
       }
       else {
         swal("Please select a Category","","error");
