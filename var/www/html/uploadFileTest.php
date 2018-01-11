@@ -438,7 +438,6 @@ function uploadFile(){
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
-            alert(request.responseText);
             if ( request.responseText == "An error occured."){
               swal("An error ocuured. Please try again. ","","error");
             }
@@ -459,23 +458,63 @@ function uploadFile(){
 
       }
       else if ( $("#fileType").val() == "Invoices" ) {
-        // jsonData = [];
-        // item = {};
-        // item['file_type'] =  'invoices';
-        // item['file_name'] =  fileName;
-        // item['file_data'] = fileData;
-        // item['invoice_id']  = ;
-        // item['invoice_date'] = ;
-        // item['invoice_amount'] = ;
-        // item['vendor_id'] = ;
-        // item['work_status'] = ;
-        // item['payment_status'] = ;
-        // item['account_number'] = ;
-        // item['due_date'] = ;
-        // item['reserve_expense'] = ;
-        // item['valid_until']=  ;
-        // jsonData.push(item);
-        // sendData = JSON.stringify(jsonData);
+        jsonData = [];
+        item = {};
+        item['file_type'] =  'invoices';
+        item['file_name'] =  fileName;
+        item['file_data'] = fileData;
+        item['invoice_id']  = document.getElementById("invoiceID".value);
+        item['invoice_date'] = document.getElementById("singleDate");
+        item['invoice_amount'] = document.getElementById("invoiceAmount").value;
+        item['vendor_id'] = $("#vendorList").find("option:selected").attr("id");
+        item['work_status'] = document.getElementById("workStatus").value;
+        item['payment_status'] = document.getElementById("paymentStatus").value;
+        item['account_number'] = document.getElementById("accountNumber").value;
+        item['due_date'] = document.getElementById("dueDate").value;
+        item['reserve_expense'] = document.getElementById("reserveExpense").value;
+        item['valid_until']=  document.getElementById("validUntil").value;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+
+
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            alert(request.responseText);
+        //     $("#pleaseWaitDialog2").modal("hide");
+        //     if ( request.responseText == "An error occured."){
+        //       swal("An error ocuured. Please try again. ","","error");
+        //     }
+        //   else if ( request.responseText == "Success." ){
+        //   swal({
+        //     title: "Record Created",
+        //     text: "",
+        //     icon: "success",
+        //   })
+        //   .then((uploadedFile) => {
+        //     if (uploadedFile) {
+        //         window.location = "https://hoaboardtime.com/uploadFile.php";
+        //       } 
+        //     });
+        //   }
+        // }
+        }
+
+
+
+
 
 
 
