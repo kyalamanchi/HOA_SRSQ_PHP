@@ -275,7 +275,76 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
 }
 
 else if ( $parseJSON[0]->file_type == "contracts"){
-  print_r($parseJSON);
+  // print_r($parseJSON);
+
+    $communityID = $parseJSON[0]->community_id;
+    $userID = $parseJSON[0]->user_id;
+
+    $fileName = $parseJSON[0]->file_name;
+    $fileData = $parseJSON[0]->file_data;
+
+    $query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
+    $queryResult = pg_query($query);
+    $row = pg_fetch_assoc($queryResult);
+    $communityCode = $row['community_code'];
+
+
+    $url = 'https://content.dropboxapi.com/2/files/upload';
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, base64_decode($boardMeetingFileData));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    $response = curl_exec($ch); 
+    $dbResponse = $response;
+    $response = json_decode($response);
+    $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Contracts/".$communityCode."/".$fileName."','".date('Y-m-d H:i:s')."')";
+    pg_query($dropboxInsertQuery);
+    if ( isset($response->error_summary) ){
+        echo "An error occured.";
+         exit(0);
+    }
+
+    else if (strpos($dbResponse, 'Error') !== false) {
+        echo "An error occured.";
+         exit(0);
+    }
+    $documentID = $response->id;
+    $date  = $parseJSON[0]->date; 
+    $boardApprovalID = $parseJSON[0]->board_approval_id;
+    $vendorID = $parseJSON[0]->vendor_id;
+    $vendorType = $parseJSON[0]->vendor_type;
+    $activeContract = $parseJSON[0]->active_contract;
+    $futureContract = $parseJSON[0]->future_contract;
+    $yearlyContract = $parseJSON[0]->yearly_contract;
+    $shortDescription = $parseJSON[0]->short_desc;
+    $description = $parseJSON[0]->desc;
+    $dates = explode('-', $date);
+
+    if ( $activeContract == 'YES' ){
+      $activeContract = 'TRUE';
+    }
+    else {
+      $activeContract = 'FALSE';
+    }
+
+    if ( $futureContract == 'YES' ){
+      $futureContract = 'TRUE';
+    }
+    else {
+      $futureContract = 'FALSE';
+    }
+
+
+    $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,future_contract,community_id,document_id,yearly_amount,desc,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".$dates[0]."','".$dates[1]."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."','".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
+
+    if ( !pg_query($query) ){
+      echo "Success.";
+    }
+    else {
+      echo "An error occured.";
+    }
+
 }
 
 else {
