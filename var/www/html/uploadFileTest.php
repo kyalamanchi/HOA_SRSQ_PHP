@@ -867,7 +867,6 @@ function uploadFile(){
       <label>Work Status</label>
       <input type="text" class="form-control" style="width: 35%;"  id="workStatus"/>
       <br>
-      <br>
       <label>Payment Status</label>
       <input type="text" class="form-control" style="width: 35%;"  id="paymentStatus"/>
       <br>
