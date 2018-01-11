@@ -876,6 +876,12 @@ function uploadFile(){
       <label>Due Date</label>
       <input type="text" class="form-control daterange"  id="dueDate"/>
       <br>
+      <label>Reserve Expense</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="reserveExpense"/>
+      <br>
+      <label>Valid Until</label>
+      <input type="text" class="form-control daterange"  id="validUntil"/>
+      <br>
 
       <div class="row-fluid">
       <label>Board Meeting </label>
@@ -916,16 +922,11 @@ function uploadFile(){
               </select>
       </div>
      </div>
-
-
-
-
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
-
       </div>
 
 
@@ -997,6 +998,10 @@ $(document).ready(
               showDropdowns: true
             });
             $("#dueDate").daterangepicker({
+              singleDatePicker: true,
+              showDropdowns: true
+            });
+            $("#validUntil").daterangepicker({
               singleDatePicker: true,
               showDropdowns: true
             });
