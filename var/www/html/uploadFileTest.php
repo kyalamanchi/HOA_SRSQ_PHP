@@ -493,7 +493,7 @@ function uploadFile(){
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             alert(request.responseText);
-        //     $("#pleaseWaitDialog2").modal("hide");
+            $("#pleaseWaitDialog2").modal("hide");
         //     if ( request.responseText == "An error occured."){
         //       swal("An error ocuured. Please try again. ","","error");
         //     }
