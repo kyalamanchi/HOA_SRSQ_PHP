@@ -838,7 +838,7 @@ function uploadFile(){
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
       <br>
       <label>Invoice Date</label>
-      <input type="text" class="form-control date"  id="date"/>
+      <input type="text" class="form-control daterange"  id="singleDate"/>
       <br>
 
 
@@ -955,6 +955,10 @@ $(document).ready(
 
       <script type="text/javascript">
             $('.daterange').daterangepicker({
+              showDropdowns: true
+            });
+            $("#singleDate").daterangepicker({
+              singleDatePicker: true,
               showDropdowns: true
             });
             $("#legalDateUntil").daterangepicker({
