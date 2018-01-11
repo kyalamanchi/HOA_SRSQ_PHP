@@ -863,8 +863,14 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-
-
+      <br>
+      <label>Work Status</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="workStatus"/>
+      <br>
+      <br>
+      <label>Payment Status</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="paymentStatus"/>
+      <br>
 
       <div class="row-fluid">
       <label>Board Meeting </label>
