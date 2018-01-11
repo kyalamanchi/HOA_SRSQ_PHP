@@ -150,20 +150,47 @@ function updateContent(){
   var type = $("#fileType").val();
 
   if ( type == "Legal document" ){
-  document.getElementById("legalContent").hidden = false;
-  document.getElementById("disclosuresContent").hidden = true;
-
+    document.getElementById("legalContent").hidden = false;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("minutesContent").hidden = true;
+    document.getElementById("contractsContent").hidden = true;
+    document.getElementById("invoicesContent").hidden = true;
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
+      document.getElementById("minutesContent").hidden = true;
       document.getElementById("disclosuresContent").hidden = false;
+      document.getElementById("contractsContent").hidden = true;
+      document.getElementById("invoicesContent").hidden = true;
   }
-  else if ( type == "Legal document" ){
+  else if( type == "Minutes" ){
+    document.getElementById("minutesContent").hidden = false;
+    document.getElementById("legalContent").hidden = true;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("contractsContent").hidden = true;
+    document.getElementById("invoicesContent").hidden = true;
+  }
+  else if ( type == "Contracts" ) {
+    document.getElementById("minutesContent").hidden = true;
+    document.getElementById("legalContent").hidden = true;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("contractsContent").hidden = false;
+    document.getElementById("invoicesContent").hidden = true;
 
+  }
+  else if ( type == "Invoices" ) {
+    document.getElementById("minutesContent").hidden = true;
+    document.getElementById("legalContent").hidden = true;
+    document.getElementById("disclosuresContent").hidden = true;
+    document.getElementById("contractsContent").hidden = true;
+    document.getElementById("invoicesContent").hidden = false;
   }
   else {
       document.getElementById("legalContent").hidden = true;
       document.getElementById("disclosuresContent").hidden = true;
+      document.getElementById("minutesContent").hidden = true;
+      document.getElementById("invoicesContent").hidden = true;
+      document.getElementById("contractsContent").hidden = true;
        
   }
 } 
@@ -302,21 +329,190 @@ function uploadFile(){
 
           else {
                 swal({
-  title: "File uploaded successfully",
-  text: "",
-  icon: "success",
-})
-.then((uploadedFile) => {
-  if (uploadedFile) {
-    window.location = "https://hoaboardtime.com/uploadFile.php";
-  } 
-});
+                title: "File uploaded successfully",
+                text: "",
+                icon: "success",
+          })
+          .then((uploadedFile) => {
+          if (uploadedFile) {
+              window.location = "https://hoaboardtime.com/uploadFile.php";
+          } 
+          });
           }
         }
         }
         
 
 
+      }
+      else if ( $("#fileType").val() == "Minutes" ) {
+        jsonData = [];
+        item = {};
+        item['file_type'] = 'minutes';
+        if ( typeof $("#boardMeetingList").find("option:selected").attr("id") == 'undefined' ){
+          item['board_meeting'] = 'undefined';
+        }
+        else {
+          item['board_meeting'] = $("#boardMeetingList").find("option:selected").attr("id");
+        }
+        if ( typeof $("#boardMeetingType").find("option:selected").attr("id") == 'undefined' ){
+          item['board_meeting_type'] = 'undefined';
+        }
+        else {
+        item['board_meeting_type'] = $("#boardMeetingType").find("option:selected").attr("id");
+        }
+        item['meeting_minutes_date'] = document.getElementById("daterange").value;
+        item['meeting_file_name'] =  fileName;
+        item['meeting_file_data'] = fileData;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id']; ?>;
+        item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            $("#pleaseWaitDialog2").modal("hide");
+            if ( request.responseText == "An error occured."){
+              swal("An error ocuured. Please try again. ","","error");
+            }
+          else if ( request.responseText == "Success." ){
+          swal({
+            title: "Record Created",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+              } 
+            });
+          }
+        }
+        }
+      }
+      else if ( $("#fileType").val()  == "Contracts" ) {
+        jsonData = [];
+        item = {};
+        item['file_type'] = 'contracts';
+        item['date'] = document.getElementById('daterange').value; 
+        item['board_approval_id'] =  document.getElementById('boardApprovalId').value;
+        item['vendor_id'] =  $("#vendorList").find("option:selected").attr("id");
+        item['vendor_type'] = $("#vendorType").find("option:selected").attr("id");
+        item['active_contract'] = $("#activeContract").find("option:selected").attr("id");
+        item['future_contract'] =  $("#futureContract").find("option:selected").attr("id");
+        item['yearly_contract'] = document.getElementById("yearlyAmount").value;
+        item['short_desc'] = document.getElementById("shortDesc").value;
+        item['desc'] = document.getElementById("description").value;
+        item['file_name'] =  fileName;
+        item['file_data'] = fileData;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id']; ?>;
+        item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            $("#pleaseWaitDialog2").modal("hide");
+            if ( request.responseText == "An error occured."){
+              swal("An error ocuured. Please try again. ","","error");
+            }
+          else if ( request.responseText == "Success." ){
+          swal({
+            title: "Record Created",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+              } 
+            });
+          }
+        }
+        }
+
+      }
+      else if ( $("#fileType").val() == "Invoices" ) {
+        jsonData = [];
+        item = {};
+        item['file_type'] =  'invoices';
+        item['file_name'] =  fileName;
+        item['file_data'] = fileData;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id']; ?>;
+        item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
+        item['invoice_id']  = document.getElementById("invoiceID").value;
+        item['invoice_date'] = document.getElementById("singleDate").value;
+        item['invoice_amount'] = document.getElementById("invoiceAmount").value;
+        item['vendor_id'] = $("#vendorList").find("option:selected").attr("id");
+        item['work_status'] = document.getElementById("workStatus").value;
+        item['payment_status'] = document.getElementById("paymentStatus").value;
+        item['account_number'] = document.getElementById("accountNumber").value;
+        item['due_date'] = document.getElementById("dueDate").value;
+        item['reserve_expense'] = $("#reserveExpense").val();
+        item['valid_until']=  document.getElementById("validUntil").value;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+
+
+        var request  = new XMLHttpRequest();
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
+
+        var pleaseWaitData = '<div class="progress">\
+                      <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
+                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
+                      </div>\
+                    </div>';
+        $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
+        $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
+        $("#pleaseWaitDialog2").modal("show");
+        request.onreadystatechange = function () {
+          if (request.readyState == XMLHttpRequest.DONE) {
+            alert(request.responseText);
+            $("#pleaseWaitDialog2").modal("hide");
+        //     if ( request.responseText == "An error occured."){
+        //       swal("An error ocuured. Please try again. ","","error");
+        //     }
+        //   else if ( request.responseText == "Success." ){
+        //   swal({
+        //     title: "Record Created",
+        //     text: "",
+        //     icon: "success",
+        //   })
+        //   .then((uploadedFile) => {
+        //     if (uploadedFile) {
+        //         window.location = "https://hoaboardtime.com/uploadFile.php";
+        //       } 
+        //     });
+        //   }
+        }
+        }
       }
       else {
         swal("Please select a Category","","error");
@@ -366,12 +562,12 @@ function uploadFile(){
               $('#daterange').data('daterangepicker').setStartDate(date23[2]);
               $('#daterange').data('daterangepicker').setEndDate(date23[3]);
               if ( request.responseText.includes("Not found") ){
-                document.getElementById("legalRecordExisitsStatus").innerHTML = "No records exists for this category.";
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "";
               }
               else 
               {
                 
-                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exists for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
 
           }
@@ -418,25 +614,24 @@ function uploadFile(){
               $('#legalDateActualDate').data('daterangepicker').setEndDate(date23[3]);
               $('#legalDateUntil').data('daterangepicker').setStartDate(date23[3]);
               if ( request.responseText.includes("Not found") ){
-                document.getElementById("recordExisitsStatus").innerHTML = "No records exists for this category.";
+                document.getElementById("recordExisitsStatus").innerHTML = "";
               }
               else if ( request.responseText.includes("document missing") ){
-                document.getElementById("recordExisitsStatus").innerHTML = "A record exists for current category. No file found.";
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. No file found.";
               }
               else 
               {
                 
-                document.getElementById("recordExisitsStatus").innerHTML = "A record exists for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
           }
         }
     }
   }
 
+  else if ( $("#fileType").val() == "Minutes" ) {
 
-
-
-
+  }
   }
 
 
@@ -481,7 +676,9 @@ function uploadFile(){
                       <option data-hidden="true"></option>
                       <option>Legal document</option>
                       <option>Disclosure</option>
-                      <option>Insurance</option>
+                      <option>Minutes</option>
+                      <option>Contracts</option>
+                      <option>Invoices</option>
               </select>
         </div>
       <br>
@@ -572,12 +769,182 @@ function uploadFile(){
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
       </div>
+      <div id="minutesContent" hidden="hidden">
+      <div class="row-fluid">
+      <label>Board Meeting </label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" >
+                      <?php
+                        $query = "SELECT * from board_meeting where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $counter = 0;
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['meeting_title'];
+                            echo '</option>';
+                            $counter = $counter + 1;
+                        }
+                        if ( $counter == 0 ){
+                          echo '<option data-hidden="true">No meetings exisits.</option>';
+                        }
+                      ?>
+              </select>
+      </div>
       <br>
-      <label class="btn btn-default" >Select File<input type="file" id="fileInput" hidden disabled="disabled">      
+      <label>Valid From - Valid Until </label>
+      <input type="text" class="form-control daterange"  id="daterange"/>
+      <br>
+      <div class="row-fluid">
+      <label>Board Meeting Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingType" >
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from board_meeting_type where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['id'].'">';
+                              echo $row['name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+     </div>
+
+
+      <div id="contractsContent" hidden="hidden">
+      <label>Active From - Active Until </label>
+      <input type="text" class="form-control daterange"  id="daterange"/>
+      <br>
+      <label>Board Approval ID</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="boardApprovalId"/>
+      <br>
+
+      <div class="row-fluid">
+      <label>Vendor</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorList" >
+                      <?php
+                        $query = "SELECT * from vendor_master where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $counter = 0;
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['vendor_id'].'">';
+                              echo $row['vendor_name'];
+                            echo '</option>';
+                            $counter = $counter + 1;
+                        }
+                        if ( $counter == 0 ){
+                          echo '<option data-hidden="true">No Vendors found.</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+      <br>
+      <div class="row-fluid">
+      <label>Vendor Type</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorType" >
+                      <option data-hidden="true"></option>
+                      <?php
+                        $query = "SELECT * from vendor_type";
+                        $queryResult = pg_query($query);
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['vendor_type_id'].'">';
+                              echo $row['vendor_type_name'];
+                            echo '</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+
+      <br>
+      <div class="row-fluid">
+      <label>Active Contract</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="activeContract" >
+                      <option>YES</option>
+                      <option>NO</option>
+              </select>
+      </div>
+
+      <div class="row-fluid">
+      <label>Future Contract</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="futureContract" >
+                      <option>YES</option>
+                      <option>NO</option>
+              </select>
+      </div>
+
+      <br>
+      <label>Yearly Amount</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="yearlyAmount"/>
+      <br>
+      <label>Short Description</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="shortDesc"/>
+      <br>
+      <label>Description</label>
+      <textarea class="form-control" rows="5" style="width: 35%" id="description"></textarea>
+      <br>
+
+
+     </div>
+
+      <div id="invoicesContent" hidden="hidden">
+      <label>Invoice ID</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
+      <br>
+      <label>Invoice Date</label>
+      <input type="text" class="form-control daterange"  id="singleDate"/>
+      <br>
+      <label>Invoice Amount</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="invoiceAmount"/>
+      <br>
+
+      <div class="row-fluid">
+      <label>Vendor</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorList" >
+                      <?php
+                        $query = "SELECT * from vendor_master where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $counter = 0;
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['vendor_id'].'">';
+                              echo $row['vendor_name'];
+                            echo '</option>';
+                            $counter = $counter + 1;
+                        }
+                        if ( $counter == 0 ){
+                          echo '<option data-hidden="true">No Vendors found.</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+      <br>
+      <label>Work Status</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="workStatus"/>
+      <br>  
+      <label>Payment Status</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="paymentStatus"/>
+      <br>
+      <label>Account Number</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="accountNumber"/>
+      <br>
+      <label>Due Date</label>
+      <input type="text" class="form-control daterange"  id="dueDate"/>
+      <br>
+      <div class="row-fluid">
+      <label>Reserve Expense</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="reserveExpense" >
+                      <option>TRUE</option>
+                      <option>FALSE</option>
+              </select>
+      </div>
+      <br>
+      <label>Valid Until</label>
+      <input type="text" class="form-control daterange"  id="validUntil"/>
+     </div>
+      <br>
+      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
-
       </div>
 
 
@@ -601,7 +968,7 @@ function uploadFile(){
 
           </section>
 
-</div>
+    </div>
       </div>
 
       <?php include 'footer.php'; ?>
@@ -642,6 +1009,18 @@ $(document).ready(
 
       <script type="text/javascript">
             $('.daterange').daterangepicker({
+              showDropdowns: true
+            });
+            $("#singleDate").daterangepicker({
+              singleDatePicker: true,
+              showDropdowns: true
+            });
+            $("#dueDate").daterangepicker({
+              singleDatePicker: true,
+              showDropdowns: true
+            });
+            $("#validUntil").daterangepicker({
+              singleDatePicker: true,
               showDropdowns: true
             });
             $("#legalDateUntil").daterangepicker({
