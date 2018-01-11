@@ -473,7 +473,7 @@ function uploadFile(){
         item['payment_status'] = document.getElementById("paymentStatus").value;
         item['account_number'] = document.getElementById("accountNumber").value;
         item['due_date'] = document.getElementById("dueDate").value;
-        item['reserve_expense'] = document.getElementById("reserveExpense").value;
+        item['reserve_expense'] = $("#reserveExpense").val();
         item['valid_until']=  document.getElementById("validUntil").value;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
@@ -929,8 +929,13 @@ function uploadFile(){
       <label>Due Date</label>
       <input type="text" class="form-control daterange"  id="dueDate"/>
       <br>
+      <div class="row-fluid">
       <label>Reserve Expense</label>
-      <input type="text" class="form-control" style="width: 35%;"  id="reserveExpense"/>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="reserveExpense" >
+                      <option>TRUE</option>
+                      <option>FALSE</option>
+              </select>
+      </div>
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>

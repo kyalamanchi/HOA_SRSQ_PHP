@@ -263,7 +263,7 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
 
     else {
 
-        $query = "INSERT INTO community_minutes(board_meeting_id,community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from,board_meeting_type_id) VALUES(".$boardMeeting.",".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".$boardMeetingDate[1]."','".$boardMeetingDate[0]."',".$boardMeetingType.")";
+        $query = "INSERT INTO community_minutes(board_meeting_id,community_id,updated_by,updated_on,document_id,created_on,created_by,valid_until,valid_from,board_meeting_type_id) VALUES(".$boardMeeting.",".$communityID.",".$userID.",'".date('Y-m-d H:i:s')."','".$documentID."','".date('Y-m-d H:i:s')."',".$userID.",'".date('Y-m-d H:i:s',strtotime($boardMeetingDate[1]))."','".date('Y-m-d H:i:s',strtotime($boardMeetingDate[0]))."',".$boardMeetingType.")";
         if ( !pg_query($query) ){
             echo "An error occured.";
         }
@@ -336,7 +336,7 @@ else if ( $parseJSON[0]->file_type == "contracts"){
     }
 
 
-    $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,future_contract,community_id,document_id,yearly_amount,desc,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".$dates[0]."','".$dates[1]."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."','".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
+    $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,future_contract,community_id,document_id,yearly_amount,desc,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".date('Y-m-d H:i:s',strtotime($dates[0]))."','".date('Y-m-d H:i:s',strtotime($dates[1]))."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."','".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
 
     if ( !pg_query($query) ){
       echo "Success.";
