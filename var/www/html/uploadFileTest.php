@@ -457,6 +457,24 @@ function uploadFile(){
 
       }
       else if ( $("#fileType").val() == "Invoices" ) {
+        jsonData = [];
+        item = {};
+        item['file_type'] =  'invoices';
+        item['file_name'] =  fileName;
+        item['file_data'] = fileData;
+        item['invoice_id']  = ;
+        item['invoice_date'] = ;
+        item['invoice_amount'] = ;
+        item['vendor_id'] = ;
+        item['work_status'] = ;
+        item['payment_status'] = ;
+        item['account_number'] = ;
+        item['due_date'] = ;
+        item['reserve_expense'] = ;
+        item['valid_until']=  ;
+        jsonData.push(item);
+        sendData = JSON.stringify(jsonData);
+
 
 
 
@@ -882,26 +900,6 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
       <br>
-
-      <div class="row-fluid">
-      <label>Board Meeting </label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
-                      <?php
-                        $query = "SELECT * from board_meeting where community_id=".$_SESSION['hoa_community_id'];
-                        $queryResult = pg_query($query);
-                        $counter = 0;
-                        while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option id="'.$row['id'].'">';
-                              echo $row['meeting_title'];
-                            echo '</option>';
-                            $counter = $counter + 1;
-                        }
-                        if ( $counter == 0 ){
-                          echo '<option data-hidden="true">No meetings exisits.</option>';
-                        }
-                      ?>
-              </select>
-      </div>
      </div>
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
