@@ -348,7 +348,8 @@ else if ( $parseJSON[0]->file_type == "contracts"){
 }
 else if ( $parseJSON[0]->file_type == 'invoices' ){ 
 
-  print_r($parseJSON);
+  // print_r($parseJSON);
+  
 }
 
 else {

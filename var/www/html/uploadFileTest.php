@@ -463,6 +463,8 @@ function uploadFile(){
         item['file_type'] =  'invoices';
         item['file_name'] =  fileName;
         item['file_data'] = fileData;
+        item['community_id'] = <?php echo $_SESSION['hoa_community_id']; ?>;
+        item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
         item['invoice_id']  = document.getElementById("invoiceID").value;
         item['invoice_date'] = document.getElementById("singleDate").value;
         item['invoice_amount'] = document.getElementById("invoiceAmount").value;
