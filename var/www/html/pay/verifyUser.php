@@ -6,6 +6,11 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 include 'includes/dbconn.php';
+
+$change = 'ALTER TABLE verification_code_sent ALTER COLUMN verification_code TYPE text';
+pg_query($change);
+
+
 if ( $_GET['id'] ){
 $message  = $_GET['id'];
 echo 'data: '.$message."\n\n";  
@@ -16,6 +21,23 @@ $queryResult = pg_query($query);
 $row = pg_fetch_assoc($queryResult);
 
 if ( $row['cell_no'] ){
+
+  //Generating random number
+
+  $otp  = mt_rand(99999,1000000);
+
+  $insertQuery = "INSERT INTO verification_code_sent(hoa_id,verification_code_type,verification_code,sent_on,is_valid) VALUES(".$_GET['id'].",1,'".base64_encode($otp)."','".date('Y-m-d H:i:s')."','TRUE') ON CONFLICT(hoa_id,verification_code_type) DO UPDATE SET verification_code='".$otp."',sent_on='".date('Y-m-d H:i:s')."',is_valid='TRUE'";
+
+  pg_query($insertQuery);
+
+  //Sending OTP 
+
+  $body = $otp." is your OTP."
+
+  $fromNumber = ;
+  $toNumber  = ;
+
+
   $id = "";
   $id = $id.strlen(base64_decode($row['cell_no']));
   $id = $id." ";
@@ -27,6 +49,7 @@ if ( $row['cell_no'] ){
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
+
 }
 else if ( $row['email'] ){
   $id = "";

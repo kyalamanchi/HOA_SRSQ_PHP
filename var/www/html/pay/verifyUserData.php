@@ -11,12 +11,15 @@ if ( $_GET['id'] && $_GET['data']){
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
   if ( $row['cell_no'] ){
-      if ( !(strcmp( base64_decode($row['cell_no']), $_GET['data'])) ){
-  
+      $query2 = "SELECT  verification_code FROM verification_code_sent WHERE verification_code_type=1 AND hoa_id=".$_GET['id'];
+      $query2Result = pg_query($query2);
+      $row = pg_fetch_assoc($query2Result);
+      $otp = base64_decode($row['verification_code']);
+      if ( !(strcmp( $otp, $_GET['data'])) ){
         $message  = "success";
-      echo 'data: '.$message."\n\n";  
-      ob_end_flush();
-      flush();
+        echo 'data: '.$message."\n\n";  
+        ob_end_flush();
+        flush();
         exit(0);
       }
   }
