@@ -844,6 +844,27 @@ function uploadFile(){
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceAmount"/>
       <br>
 
+      <div class="row-fluid">
+      <label>Vendor</label>
+              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="vendorList" >
+                      <?php
+                        $query = "SELECT * from vendor_master where community_id=".$_SESSION['hoa_community_id'];
+                        $queryResult = pg_query($query);
+                        $counter = 0;
+                        while ($row = pg_fetch_assoc($queryResult)) {
+                            echo '<option id="'.$row['vendor_id'].'">';
+                              echo $row['vendor_name'];
+                            echo '</option>';
+                            $counter = $counter + 1;
+                        }
+                        if ( $counter == 0 ){
+                          echo '<option data-hidden="true">No Vendors found.</option>';
+                        }
+                      ?>
+              </select>
+      </div>
+
+
 
       <div class="row-fluid">
       <label>Board Meeting </label>
