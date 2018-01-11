@@ -458,6 +458,8 @@ function uploadFile(){
       }
       else if ( $("#fileType").val() == "Invoices" ) {
 
+
+
       }
       else {
         swal("Please select a Category","","error");
@@ -832,6 +834,14 @@ function uploadFile(){
      </div>
 
       <div id="invoicesContent" hidden="hidden">
+      <label>Invoice ID</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
+      <br>
+      <label>Invoice Date</label>
+      <input type="text" class="form-control date"  id="date"/>
+      <br>
+
+
       <div class="row-fluid">
       <label>Board Meeting </label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
