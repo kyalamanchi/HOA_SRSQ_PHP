@@ -457,23 +457,23 @@ function uploadFile(){
 
       }
       else if ( $("#fileType").val() == "Invoices" ) {
-        jsonData = [];
-        item = {};
-        item['file_type'] =  'invoices';
-        item['file_name'] =  fileName;
-        item['file_data'] = fileData;
-        item['invoice_id']  = ;
-        item['invoice_date'] = ;
-        item['invoice_amount'] = ;
-        item['vendor_id'] = ;
-        item['work_status'] = ;
-        item['payment_status'] = ;
-        item['account_number'] = ;
-        item['due_date'] = ;
-        item['reserve_expense'] = ;
-        item['valid_until']=  ;
-        jsonData.push(item);
-        sendData = JSON.stringify(jsonData);
+        // jsonData = [];
+        // item = {};
+        // item['file_type'] =  'invoices';
+        // item['file_name'] =  fileName;
+        // item['file_data'] = fileData;
+        // item['invoice_id']  = ;
+        // item['invoice_date'] = ;
+        // item['invoice_amount'] = ;
+        // item['vendor_id'] = ;
+        // item['work_status'] = ;
+        // item['payment_status'] = ;
+        // item['account_number'] = ;
+        // item['due_date'] = ;
+        // item['reserve_expense'] = ;
+        // item['valid_until']=  ;
+        // jsonData.push(item);
+        // sendData = JSON.stringify(jsonData);
         
 
 
