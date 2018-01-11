@@ -464,7 +464,7 @@ function uploadFile(){
         item['file_name'] =  fileName;
         item['file_data'] = fileData;
         item['invoice_id']  = document.getElementById("invoiceID".value);
-        item['invoice_date'] = document.getElementById("singleDate");
+        item['invoice_date'] = document.getElementById("singleDate").value;
         item['invoice_amount'] = document.getElementById("invoiceAmount").value;
         item['vendor_id'] = $("#vendorList").find("option:selected").attr("id");
         item['work_status'] = document.getElementById("workStatus").value;
