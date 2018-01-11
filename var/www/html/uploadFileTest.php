@@ -840,6 +840,9 @@ function uploadFile(){
       <label>Invoice Date</label>
       <input type="text" class="form-control daterange"  id="singleDate"/>
       <br>
+      <label>Invoice Amount</label>
+      <input type="text" class="form-control" style="width: 35%;"  id="invoiceAmount"/>
+      <br>
 
 
       <div class="row-fluid">
