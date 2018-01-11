@@ -474,7 +474,7 @@ function uploadFile(){
         // item['valid_until']=  ;
         // jsonData.push(item);
         // sendData = JSON.stringify(jsonData);
-        
+
 
 
 
@@ -899,27 +899,6 @@ function uploadFile(){
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
-      <br>
-
-      <div class="row-fluid">
-      <label>Board Meeting </label>
-              <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" onchange="getFileDetails();">
-                      <?php
-                        $query = "SELECT * from board_meeting where community_id=".$_SESSION['hoa_community_id'];
-                        $queryResult = pg_query($query);
-                        $counter = 0;
-                        while ($row = pg_fetch_assoc($queryResult)) {
-                            echo '<option id="'.$row['id'].'">';
-                              echo $row['meeting_title'];
-                            echo '</option>';
-                            $counter = $counter + 1;
-                        }
-                        if ( $counter == 0 ){
-                          echo '<option data-hidden="true">No meetings exisits.</option>';
-                        }
-                      ?>
-              </select>
-      </div>
      </div>
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
