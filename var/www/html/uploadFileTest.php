@@ -189,6 +189,8 @@ function updateContent(){
       document.getElementById("legalContent").hidden = true;
       document.getElementById("disclosuresContent").hidden = true;
       document.getElementById("minutesContent").hidden = true;
+      document.getElementById("invoicesContent").hidden = true;
+      document.getElementById("contractsContent").hidden = true;
        
   }
 } 
