@@ -199,6 +199,7 @@ function updateContent(){
 function getFileData()
 {
   var file = document.getElementById("fileInput").files[0];
+  document.getElementById("pdf").src = file;
   if ( file ){
       var reader = new FileReader();
       reader.readAsDataURL(file);
@@ -986,7 +987,9 @@ function uploadFile(){
 
      </div>
 
-      <div id="invoicesContent" hidden="hidden">
+      <div class="row" id="invoicesContent" hidden="hidden">
+
+      <div class="col-xs-6">
       <label>Invoice ID</label>
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
       <br>
@@ -1045,6 +1048,14 @@ function uploadFile(){
       </label>
       <h5 id="label"></h5>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+
+
+      </div>
+
+      <div class="col-xs-6">
+        <embed id = 'pdf' src=""></embed>
+      </div>
+
 
      </div>
 
