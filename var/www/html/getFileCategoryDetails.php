@@ -21,7 +21,7 @@ if ( $parseJSON[0]->type == "legal" ){
      $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") AND COMMUNITY_ID=".$parseJSON[0]->community_id;
      }
      else {
-     $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") AND COMMUNITY_ID=".$parseJSON[0]->community_id." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."'";
+     $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") AND COMMUNITY_ID=".$parseJSON[0]->community_id." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."' ORDER BY last_updated_on";
      }
      $secondQueryResult = pg_query($secondQuery);
      while( $row2 = pg_fetch_assoc($secondQueryResult) ){
@@ -31,7 +31,6 @@ if ( $parseJSON[0]->type == "legal" ){
      if ( $row23['id'] ){
           if ( $row23['document_id'] ){
                echo "@A file found@".$row23['document_id'];
-               echo $secondQuery;
           }
           else {
                echo "Not found";
