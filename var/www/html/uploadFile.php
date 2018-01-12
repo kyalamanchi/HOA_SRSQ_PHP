@@ -743,8 +743,9 @@ function uploadFile(){
           ?>
       </div> 
       </div>
-      <div id="disclosuresContent" hidden="hidden">
+      <div id="disclosuresContent" class="row" hidden="hidden">
 
+      <div class="col-xs-6">
       <div class="row-fluid">
       <label>Disclosure Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
@@ -792,6 +793,49 @@ function uploadFile(){
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
+      </div>
+      <div class="col-xs-6">
+          <h5>Existing Documents : </h5>
+          <?php 
+
+            $query2 = "SELECT * FROM disclosure_type where community_id=".$_SESSION['hoa_community_id'];
+            $queryResult2  = pg_query($query2);
+            while ($row2 = pg_fetch_assoc($queryResult2)) {
+
+                    $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$_SESSION['hoa_community_id']." AND TABLE_NAME='disclosure_type' AND SUB_CATEGORY='".$row2['name']."'";
+                    $queryResult = pg_query($query);   
+                    $row = pg_fetch_assoc($queryResult);
+                    if ( !(isset($row['valid_from'])) ){
+                      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") and community_id =".$_SESSION['hoa_community_id']."' ORDER BY updated_on";
+
+                     }
+                     else {
+                        $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") and community_id =".$_SESSION['hoa_community_id']." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."' ORDER BY updated_on";
+                    }
+                    $secondQueryResult = pg_query($secondQuery);
+                    while( $row24 = pg_fetch_assoc($secondQueryResult) ){
+                      $row23 = $row24;
+                    }
+                    if ( isset($row23) ){
+                          if ( $row23['id'] ){
+                          if ( $row23['document_id'] ){
+                            echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
+                          }
+                          else {
+                            echo "Not found";
+                    }
+                    }
+                    else {
+                      echo "Not found";
+                    }
+                    }
+            }
+
+
+          ?>
+      </div>
+
+
       </div>
       <div id="minutesContent" hidden="hidden">
       <div class="row-fluid">

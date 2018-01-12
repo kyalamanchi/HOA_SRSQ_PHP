@@ -199,7 +199,6 @@ function updateContent(){
 function getFileData()
 {
   var file = document.getElementById("fileInput").files[0];
-  document.getElementById("pdf").src = file;
   if ( file ){
       var reader = new FileReader();
       reader.readAsDataURL(file);
@@ -701,6 +700,8 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
+
+      <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
@@ -748,6 +749,10 @@ function uploadFile(){
 
           ?>
       </div> 
+
+
+
+
       </div>
       <div class="row" id="disclosuresContent" hidden="hidden">
       <div class="col-xs-6">
@@ -798,6 +803,13 @@ function uploadFile(){
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
+
+      <br>
+      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
+      </label>
+      <h5 id="label"></h5>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+
       </div>
       <div class="col-xs-6">
           <h5>Existing Documents : </h5>
@@ -811,13 +823,10 @@ function uploadFile(){
                     $queryResult = pg_query($query);   
                     $row = pg_fetch_assoc($queryResult);
                     if ( !(isset($row['valid_from'])) ){
-                     // $secondQuery = "SELECT * FROM community_disclosures WHERE type_id=(SELECT ID FROM disclosure_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." ORDER BY updated_on";
-
                       $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") and community_id =".$_SESSION['hoa_community_id']."' ORDER BY updated_on";
 
                      }
                      else {
-                        // $secondQuery = "SELECT * FROM community_disclosures WHERE type_id=(SELECT ID FROM disclosure_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."' ORDER BY updated_on";
                         $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") and community_id =".$_SESSION['hoa_community_id']." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."' ORDER BY updated_on";
                     }
                     $secondQueryResult = pg_query($secondQuery);
@@ -974,9 +983,7 @@ function uploadFile(){
 
      </div>
 
-      <div class="row" id="invoicesContent" hidden="hidden">
-
-      <div class="col-xs-6">
+      <div id="invoicesContent" hidden="hidden">
       <label>Invoice ID</label>
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
       <br>
@@ -1030,23 +1037,20 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
 
-
-
-      </div>
-
-      <div class="col-xs-6">
-        <embed id = 'pdf' src=""></embed>
-      </div>
-
-
-     </div>
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
 
+     </div>
+
       </div>
+
+
+      <br>
+
+      <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
