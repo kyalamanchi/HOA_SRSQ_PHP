@@ -1022,6 +1022,7 @@ function uploadFile(){
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
+          alert(f);
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
           var res = f.split(".");
