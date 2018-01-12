@@ -567,7 +567,7 @@ function uploadFile(){
               else 
               {
                 
-                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+                document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/documentPreview.php?"+"path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
 
           }
@@ -622,7 +622,7 @@ function uploadFile(){
               else 
               {
                 
-                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/getDocumentPreviewTest.php?t=-1&cid="+<?php echo $_SESSION['hoa_community_id']; ?>+"&path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
+                document.getElementById("recordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/documentPreview.php?"+"path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
           }
         }
