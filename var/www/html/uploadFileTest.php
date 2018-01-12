@@ -701,8 +701,6 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
-
-      <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
@@ -800,13 +798,6 @@ function uploadFile(){
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
-      <br>
-
-      <br>
-      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
-      </label>
-      <h5 id="label"></h5>
-      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
       <div class="col-xs-6">
           <h5>Existing Documents : </h5>
@@ -1039,11 +1030,6 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
 
-      <br>
-      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
-      </label>
-      <h5 id="label"></h5>
-      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
 
 
       </div>
@@ -1054,13 +1040,13 @@ function uploadFile(){
 
 
      </div>
+      <br>
+      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
+      </label>
+      <h5 id="label"></h5>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
 
       </div>
-
-
-      <br>
-
-      <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
