@@ -155,11 +155,6 @@ function updateContent(){
     document.getElementById("minutesContent").hidden = true;
     document.getElementById("contractsContent").hidden = true;
     document.getElementById("invoicesContent").hidden = true;
-    document.getElementById("legalContent").innerHTML += "<br>\
-      <label class=\"btn btn-default\">Select File<input type=\"file\" id=\"fileInput\" hidden disabled=\"disabled\">\      
-      </label>\
-      <h5 id=\"label\"></h5>\
-      <button type=\"button\" class=\"btn btn-success\" onclick=\"uploadFile();\" id=\"saveButton\" disabled=\"disabled\">Upload</button>";
   }
   else if ( type == "Disclosure" ){
       document.getElementById("legalContent").hidden = true;
@@ -1012,7 +1007,11 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
      </div>
-
+      <br>
+      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
+      </label>
+      <h5 id="label"></h5>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
 
 
