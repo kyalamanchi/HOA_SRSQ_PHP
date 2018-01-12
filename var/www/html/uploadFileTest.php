@@ -702,7 +702,7 @@ function uploadFile(){
       <br>
       </div> 
       <div class="col-xs-6">
-          <label>Existing Documents : </label>
+          <h5>Existing Documents : </h5>
           <?php 
 
             $query2 = "SELECT * FROM legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
@@ -725,7 +725,8 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                              echo '<br>'.$row2['name'];
+                              // echo '<br><a href='.$row2['name'];
+                            echo "<a href=\"https://hoaboardtime.com/documentPreview.php?path=$row23['document_id']&desc=preview target=\"_blank\">".$row2['name']."</a>";
                           }
                           else {
                             echo "Not found";
