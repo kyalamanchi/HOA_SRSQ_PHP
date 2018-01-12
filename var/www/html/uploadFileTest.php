@@ -834,11 +834,6 @@ function uploadFile(){
 
 
           ?>
-
-
-
-
-
       </div>
       </div>
       <div id="minutesContent" hidden="hidden">
