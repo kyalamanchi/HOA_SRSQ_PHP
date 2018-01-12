@@ -669,7 +669,6 @@ function uploadFile(){
       <div  class="row" id="legalContent" hidden="hidden">
       <div class="col-xs-6">
       <div class="row-fluid">
-      <br>
       <label>Sub Category</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
