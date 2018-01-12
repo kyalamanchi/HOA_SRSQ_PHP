@@ -743,8 +743,8 @@ function uploadFile(){
           ?>
       </div> 
       </div>
-      <div id="disclosuresContent" hidden="hidden">
-
+      <div class="row" id="disclosuresContent" hidden="hidden">
+      <div class="col-xs-6">
       <div class="row-fluid">
       <label>Disclosure Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
@@ -792,6 +792,10 @@ function uploadFile(){
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
+      </div>
+      <div class="col-xs-6">
+        <h1>Existing Documents</h1>
+      </div>
       </div>
       <div id="minutesContent" hidden="hidden">
       <div class="row-fluid">
