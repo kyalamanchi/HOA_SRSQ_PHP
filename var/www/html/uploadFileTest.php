@@ -703,7 +703,7 @@ function uploadFile(){
       <br>
       </div> 
       <div class="col-xs-6">
-          <h1>Second DIV</h1>
+          <label>Existing Documents : </label>
       </div> 
       </div>
       <div id="disclosuresContent" hidden="hidden">
