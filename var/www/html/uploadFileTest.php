@@ -741,9 +741,9 @@ function uploadFile(){
       </div> 
       </div>
       <div id="disclosuresContent" hidden="hidden">
-
-      <div class="row-fluid">
       <div class="col-xs-6">
+      <div class="row-fluid">
+
       <label>Disclosure Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
