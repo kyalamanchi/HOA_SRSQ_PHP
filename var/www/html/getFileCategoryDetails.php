@@ -31,6 +31,7 @@ if ( $parseJSON[0]->type == "legal" ){
      if ( $row23['id'] ){
           if ( $row23['document_id'] ){
                echo "@A file found@".$row23['document_id'];
+               echo $secondQuery;
           }
           else {
                echo "Not found";
