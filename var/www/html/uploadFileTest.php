@@ -1006,7 +1006,7 @@ function uploadFile(){
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
-      <embed src="file_name.pdf" width="800px" height="2100px" />s
+      <embed src="file_name.pdf" id="pdf" width="800px" height="2100px" />s
      </div>
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
