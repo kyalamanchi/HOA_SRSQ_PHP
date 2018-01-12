@@ -1006,12 +1006,15 @@ function uploadFile(){
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
-     </div>
+
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+
+     </div>
+
       </div>
 
 
