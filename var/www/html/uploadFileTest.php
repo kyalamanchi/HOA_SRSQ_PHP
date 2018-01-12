@@ -684,6 +684,7 @@ function uploadFile(){
               </select>
       </div>
       <h5 id="legalRecordExisitsStatus">
+      
       </h5>
       <br>
       <label>Valid From - Valid Until </label>
@@ -725,6 +726,8 @@ function uploadFile(){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
                             echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
+                              // echo '<br><a href='.$row2['name'];
+                            // echo "<a href=\"https://hoaboardtime.com/documentPreview.php?path=$row23['document_id']&desc=preview target=\"_blank\">".$row2['name']."</a>";
                           }
                           else {
                             echo "Not found";
@@ -741,9 +744,8 @@ function uploadFile(){
       </div> 
       </div>
       <div id="disclosuresContent" hidden="hidden">
-      <div class="col-xs-6">
-      <div class="row-fluid">
 
+      <div class="row-fluid">
       <label>Disclosure Type</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="disclosureFileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
@@ -790,11 +792,6 @@ function uploadFile(){
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
-      </div>
-      <div class="col-xs-6">
-        <h1>Other DIV</h1>
-      </div>
-
       </div>
       <div id="minutesContent" hidden="hidden">
       <div class="row-fluid">
