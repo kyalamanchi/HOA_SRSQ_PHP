@@ -793,7 +793,7 @@ function uploadFile(){
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-6" style="height: 300px;">
           <h5>Existing Documents : </h5>
           <?php 
 
