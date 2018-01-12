@@ -744,7 +744,6 @@ function uploadFile(){
       </div> 
       </div>
       <div id="disclosuresContent" class="row" hidden="hidden">
-
       <div class="col-xs-6">
       <div class="row-fluid">
       <label>Disclosure Type</label>
