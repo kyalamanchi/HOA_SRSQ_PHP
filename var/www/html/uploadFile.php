@@ -666,10 +666,9 @@ function uploadFile(){
               </select>
         </div>
       <br>
-      <div  id="legalContent" hidden="hidden">
-
+      <div  class="row" id="legalContent" hidden="hidden">
+      <div class="col-xs-6">
       <div class="row-fluid">
-      <br>
       <label>Sub Category</label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="fileSubCategory" onchange="getFileDetails();">
                       <option data-hidden="true"></option>
@@ -683,7 +682,7 @@ function uploadFile(){
                         }
                       ?>
               </select>
-        </div>
+      </div>
       <h5 id="legalRecordExisitsStatus">
       
       </h5>
@@ -701,8 +700,49 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
-      </div>  
+      </div> 
+      <div class="col-xs-6">
+          <h5>Existing Documents : </h5>
+          <?php 
 
+            $query2 = "SELECT * FROM legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
+            $queryResult2  = pg_query($query2);
+            while ($row2 = pg_fetch_assoc($queryResult2)) {
+
+                    $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$_SESSION['hoa_community_id']." AND TABLE_NAME='legal_docs_type' AND SUB_CATEGORY='".$row2['name']."'";
+                    $queryResult = pg_query($query);   
+                    $row = pg_fetch_assoc($queryResult);
+                    if ( !(isset($row['valid_from'])) ){
+                     $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." ORDER BY last_updated_on";
+                     }
+                     else {
+                        $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."' ORDER BY last_updated_on";
+                    }
+                    $secondQueryResult = pg_query($secondQuery);
+                    while( $row24 = pg_fetch_assoc($secondQueryResult) ){
+                      $row23 = $row24;
+                    }
+                    if ( isset($row23) ){
+                          if ( $row23['id'] ){
+                          if ( $row23['document_id'] ){
+                            echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
+                              // echo '<br><a href='.$row2['name'];
+                            // echo "<a href=\"https://hoaboardtime.com/documentPreview.php?path=$row23['document_id']&desc=preview target=\"_blank\">".$row2['name']."</a>";
+                          }
+                          else {
+                            echo "Not found";
+                    }
+                    }
+                    else {
+                      echo "Not found";
+                    }
+                    }
+            }
+
+
+          ?>
+      </div> 
+      </div>
       <div id="disclosuresContent" hidden="hidden">
 
       <div class="row-fluid">
