@@ -793,10 +793,10 @@ function uploadFile(){
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
         <h5>OR</h5>
       </div>
-      <div class="col-xs-6" style="height: 300px;">
+      <div class="col-xs-6">
           <h5>Existing Documents : </h5>
           <?php 
-
+            echo '<ul>';
             $query2 = "SELECT * FROM disclosure_type where community_id=".$_SESSION['hoa_community_id'];
             $queryResult2  = pg_query($query2);
             while ($row2 = pg_fetch_assoc($queryResult2)) {
@@ -818,7 +818,7 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                            echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
+                            echo '<li style="display:inline-block;"><a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a></li>';
                           }
                           else {
                             echo "Not found";
@@ -830,7 +830,7 @@ function uploadFile(){
                     }
             }
 
-
+            echo '</ul>';
           ?>
       </div>
 
