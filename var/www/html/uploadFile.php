@@ -494,7 +494,6 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-            alert(request.responseText);
             $("#pleaseWaitDialog2").modal("hide");
         }
         }
@@ -541,7 +540,6 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-              alert(request.responseText);
               var date23 = request.responseText.split('@');
               document.getElementById('name').value = date23[0];
               document.getElementById('short_desc').value = date23[1];
