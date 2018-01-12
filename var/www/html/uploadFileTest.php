@@ -144,7 +144,7 @@ input, label {
 <script type="text/javascript">
 var fileData = "";
 var fileName = "";
-var objLoc = document.getElementById('pdf');
+// var objLoc = document.getElementById('pdf');
 function updateContent(){
   
   document.getElementById('fileInput').disabled = false;
@@ -1007,7 +1007,7 @@ function uploadFile(){
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
-      <embed src="file_name.pdf" id="pdf" width="300px" height="300px" />
+      <div id ="pdf"></div>
      </div>
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
@@ -1023,8 +1023,8 @@ function uploadFile(){
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
-          objLoc.src = f;
-
+          // objLoc.src = f;
+          document.getElementById('pdf').innerHTML = '<embed src="'+f+'" id="pdf" width="300px" height="300px" />';
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
           var res = f.split(".");
