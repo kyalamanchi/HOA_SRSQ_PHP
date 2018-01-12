@@ -726,8 +726,6 @@ function uploadFile(){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
                             echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
-                              // echo '<br><a href='.$row2['name'];
-                            // echo "<a href=\"https://hoaboardtime.com/documentPreview.php?path=$row23['document_id']&desc=preview target=\"_blank\">".$row2['name']."</a>";
                           }
                           else {
                             echo "Not found";
