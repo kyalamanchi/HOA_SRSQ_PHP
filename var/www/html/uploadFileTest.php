@@ -666,8 +666,8 @@ function uploadFile(){
               </select>
         </div>
       <br>
-      <div  id="legalContent" hidden="hidden">
-
+      <div  class="row" id="legalContent" hidden="hidden">
+      <div class="col-xs-6">
       <div class="row-fluid">
       <br>
       <label>Sub Category</label>
@@ -683,7 +683,7 @@ function uploadFile(){
                         }
                       ?>
               </select>
-        </div>
+      </div>
       <h5 id="legalRecordExisitsStatus">
       
       </h5>
@@ -701,8 +701,11 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
-      </div>  
-
+      </div> 
+      <div class="col-xs-6">
+          <h1>Second DIV</h1>
+      </div> 
+      </div>
       <div id="disclosuresContent" hidden="hidden">
 
       <div class="row-fluid">
