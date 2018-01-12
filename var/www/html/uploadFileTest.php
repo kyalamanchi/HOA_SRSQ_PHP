@@ -144,6 +144,7 @@ input, label {
 <script type="text/javascript">
 var fileData = "";
 var fileName = "";
+var objLoc = document.getElementById('pdf');
 function updateContent(){
   
   document.getElementById('fileInput').disabled = false;
@@ -1022,7 +1023,8 @@ function uploadFile(){
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
-          alert(f);
+          objLoc.src = f;
+
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
           var res = f.split(".");
