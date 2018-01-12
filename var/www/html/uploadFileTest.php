@@ -823,7 +823,10 @@ function uploadFile(){
                     $queryResult = pg_query($query);   
                     $row = pg_fetch_assoc($queryResult);
                     if ( !(isset($row['valid_from'])) ){
-                     $secondQuery = "SELECT * FROM community_disclosures WHERE type_id=(SELECT ID FROM disclosure_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." ORDER BY updated_on";
+                     // $secondQuery = "SELECT * FROM community_disclosures WHERE type_id=(SELECT ID FROM disclosure_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." ORDER BY updated_on";
+
+                      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") and community_id =".$_SESSION['hoa_community_id']."' ORDER BY updated_on";
+
                      }
                      else {
                         // $secondQuery = "SELECT * FROM community_disclosures WHERE type_id=(SELECT ID FROM disclosure_type WHERE name='".$row2['name']."' and community_id=".$_SESSION['hoa_community_id'].") AND COMMUNITY_ID=".$_SESSION['hoa_community_id']." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."' ORDER BY updated_on";
