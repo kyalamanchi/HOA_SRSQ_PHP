@@ -1068,7 +1068,7 @@ function uploadFile(){
           document.getElementById("saveButton").disabled = false;
           document.getElementById("label").innerHTML = fileName;
           document.getElementById("preview").innerHTML = "Preview";
-          
+          var divHeight = document.getElementById('invoicesContent').clientHeight;
           document.getElementById("embdLink").height = divHeight;
           $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
 
