@@ -655,8 +655,9 @@ function uploadFile(){
         ?>
         
         <section class="content-header">
+
           <h1><strong>Upload file</strong></h1>
-          <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+
         </section>
         <br>
         <section class="content" id="content">
@@ -674,6 +675,7 @@ function uploadFile(){
       <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       <h5 id="label"></h5>
       <br>
       <br>
