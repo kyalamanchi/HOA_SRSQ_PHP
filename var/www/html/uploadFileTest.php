@@ -878,7 +878,8 @@ function uploadFile(){
 
 
       </div>
-      <div id="minutesContent" hidden="hidden">
+      <div class="row" id="minutesContent" hidden="hidden">
+      <div class="col-xs-6">
       <div class="row-fluid">
       <label>Board Meeting </label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" >
@@ -917,6 +918,43 @@ function uploadFile(){
                       ?>
               </select>
       </div>
+    </div>
+    <div class="col-xs-6">
+      <h5>Existing documents:</h5>
+              <?php 
+
+              $query = "SELECT * FROM COMMUNITY_CONTRACTS WHERE EXTRACT( YEAR FROM ACTIVE_UNTIL) >=".date('Y');
+              $queryResult = pg_query($query);
+
+              $links = array();
+              $counter = 0;
+              while ($row = pg_fetch_assoc($queryResult)) {
+                  $counter = $counter  + 1;
+                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$row['desc'].'</a>');
+
+              }
+              if ( $counter == 0  ){
+                echo '<br>No documents found.</br>';
+              }
+              else {
+
+                echo '<table>';
+
+                echo '<tr>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '</tr>';
+                $counter = 0;
+                foreach ($links as $key) {
+                  echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                  $counter = $counter + 3;
+                }
+                echo '</table>';
+              }
+
+        ?>
+    </div>
      </div>
 
 
