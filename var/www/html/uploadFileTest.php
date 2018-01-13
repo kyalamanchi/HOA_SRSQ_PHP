@@ -141,10 +141,10 @@ input, label {
 }
 
 td {
-    padding-top: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
 }
     </style>
 <script type="text/javascript">
