@@ -867,7 +867,7 @@ function uploadFile(){
 
             $counter = 0;
             foreach ($links as $key) {
-              if ( $counter %3  == 0 ){
+              if ( ($counter%3)  == 0 ){
                 echo '<tr>';
               }
 
@@ -875,7 +875,7 @@ function uploadFile(){
               echo $key;
               echo '</td>';
 
-              if ( $counter%3 == 0 ){
+              if ( ($counter%3) == 0 ){
                 echo '</tr>';
               }
 
