@@ -1049,7 +1049,7 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
       <div id ="pdf"></div>
-        <embed width="100%" height="100%" name="plugin" id="embdLink" />
+        <embed width="400px" height="400px" name="plugin" id="embdLink" />
       </div>
       </div>
       <br>
