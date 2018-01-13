@@ -920,7 +920,9 @@ function uploadFile(){
      </div>
 
 
-      <div id="contractsContent" hidden="hidden">
+      <div class="row" id="contractsContent" hidden="hidden">
+
+      <div class="col-xs-6">
       <label>Active From - Active Until </label>
       <input type="text" class="form-control daterange"  id="daterange"/>
       <br>
@@ -991,7 +993,10 @@ function uploadFile(){
       <label>Description</label>
       <textarea class="form-control" rows="5" style="width: 35%" id="description"></textarea>
       <br>
-
+      </div>
+      <div class="col-xs-6">
+        <h5>Existing documents : </h5>
+      </div>
 
      </div>
 
