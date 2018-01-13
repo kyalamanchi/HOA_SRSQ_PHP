@@ -929,13 +929,15 @@ function uploadFile(){
               $links = array();
               $counter = 0;
               while ($row = pg_fetch_assoc($queryResult)) {
-
                   $subQuery = "SELECT meeting_title FROM  board_meeting WHERE id=".$row['board_meeting_id'];
                   $subQueryResult = pg_query($subQuery);
                   $subRow = pg_fetch_assoc($subQueryResult);
                   $counter = $counter  + 1;
-                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$subRow['meeting_title'].'</a>');
-
+                  $name = $subRow['meeting_title'];
+                  if ( !isset($subRow['meeting_title']) ){
+                    $name = 'Board Meeting '.($counter + 1);
+                  }
+                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$name.'</a>');
               }
               if ( $counter == 0  ){
                 echo '<br>No documents found.</br>';
@@ -943,7 +945,6 @@ function uploadFile(){
               else {
 
                 echo '<table>';
-
                 echo '<tr>';
                 echo '<th></th>';
                 echo '<th></th>';
