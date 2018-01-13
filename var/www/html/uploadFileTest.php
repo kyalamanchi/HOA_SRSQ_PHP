@@ -920,17 +920,21 @@ function uploadFile(){
       </div>
     </div>
     <div class="col-xs-6">
-      <h5>Existing documents:</h5>
+      <h5>Existing documents :</h5>
               <?php 
 
-              $query = "SELECT * FROM COMMUNITY_CONTRACTS WHERE EXTRACT( YEAR FROM ACTIVE_UNTIL) >=".date('Y');
+              $query = "SELECT * FROM community_minutes WHERE EXTRACT( YEAR FROM created_on) >=".date('Y');
               $queryResult = pg_query($query);
 
               $links = array();
               $counter = 0;
               while ($row = pg_fetch_assoc($queryResult)) {
+
+                  $subQuery = "SELECT meeting_title FROM  board_meeting WHERE id=".$row['board_meeting_id'];
+                  $subQueryResult = pg_query($subQuery);
+                  $subRow = pg_fetch_assoc($subQueryResult);
                   $counter = $counter  + 1;
-                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$row['desc'].'</a>');
+                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$subRow['meeting_title'].'</a>');
 
               }
               if ( $counter == 0  ){
