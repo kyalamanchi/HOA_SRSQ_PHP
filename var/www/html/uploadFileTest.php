@@ -1060,8 +1060,6 @@ function uploadFile(){
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
           var f =  this.value;
-          // objLoc.src = f;
-          document.getElementById('pdf').innerHTML = '<embed src="'+f+'" id="pdf" width="300px" height="300px" />';
           f = f.replace(/.*[\/\\]/, '');
           fileName  = f;
           var res = f.split(".");
