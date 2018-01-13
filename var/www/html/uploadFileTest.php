@@ -140,6 +140,12 @@ input, label {
     display:block;
 }
 
+td {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+}
     </style>
 <script type="text/javascript">
 var fileData = "";
