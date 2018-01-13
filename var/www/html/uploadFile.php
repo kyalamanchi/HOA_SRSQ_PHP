@@ -845,7 +845,7 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                            array_push($links, '<a style="display:inline-block; margin-right:20px;" href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a>');
+                            array_push($links, '<a style="display:inline-block; margin-right:20px;" href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'('.$row2['name'].')'.'</a>');
 
                           }
                           else {
