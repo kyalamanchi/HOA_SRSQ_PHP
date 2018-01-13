@@ -1051,7 +1051,7 @@ function uploadFile(){
       <input type="text" class="form-control daterange"  id="validUntil"/>
       </div>
       <div class="col-xs-6">
-        <center><label id="preview"> Select a file to load preview</label></center>
+        <center><label id="preview">Select a file to load preview</label></center>
         <embed width="100%" height="400px" name="plugin" id="embdLink" />
       </div>
       </div>
