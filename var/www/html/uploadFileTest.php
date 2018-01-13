@@ -867,30 +867,10 @@ function uploadFile(){
 
             $counter = 0;
             foreach ($links as $key) {
-
-
                 echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'$links[$counter+2]'</td></tr>';
                 $counter = $counter + 3;
-
-
-              //   echo '<tr>';
-              // }
-
-              // echo '<td>';
-              // echo $key;
-              // echo '</td>';
-
-              // if ( ($counter%3) == 0 ){
-              //   echo '</tr>';
-              // }
-
-              //   $counter = $counter + 1;
             }
-
             echo '</table>';
-
-
-
           ?>
       </div>
 
