@@ -666,12 +666,11 @@ function uploadFile(){
                       <option>Invoices</option>
               </select>
         </div>
-        <br>
-        <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
       <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+      <br>
       <br>
       <div  class="row" id="legalContent" hidden="hidden">
       <div class="col-xs-6">
