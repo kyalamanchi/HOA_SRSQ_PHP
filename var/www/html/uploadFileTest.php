@@ -666,6 +666,7 @@ function uploadFile(){
                       <option>Invoices</option>
               </select>
         </div>
+      <br>
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
