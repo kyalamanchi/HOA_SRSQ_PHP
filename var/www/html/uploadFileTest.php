@@ -1071,8 +1071,8 @@ function uploadFile(){
           document.getElementById("label").innerHTML = fileName;
           document.getElementById("preview").innerHTML = "Preview";
           var divHeight = document.getElementById('invoicesContent').clientHeight;
-          document.getElementById("embdLink").height = divHeight;
           document.getElementById("embedDiv").innerHTML = '<embed src="'+window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}))+'" width="100%" height="400px" name="plugin" id="embdLink" />';
+          document.getElementById("embdLink").height = divHeight;
           // $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
           // document.getElementById("embdLink").src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
           getFileData();
