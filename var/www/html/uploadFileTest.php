@@ -1049,13 +1049,9 @@ function uploadFile(){
       <input type="text" class="form-control daterange"  id="validUntil"/>
       <div id ="pdf"></div>
      </div>
-
             <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
-
-
       <br>
-
       <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
@@ -1071,18 +1067,11 @@ function uploadFile(){
           getFileData();
         };
       </script>
-                <br>
-                <br>
-
           </section>
-
     </div>
       </div>
-
       <?php include 'footer.php'; ?>
-
       <div class="control-sidebar-bg"></div>
-
     </div>
     <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
         <div class="modal-dialog">
