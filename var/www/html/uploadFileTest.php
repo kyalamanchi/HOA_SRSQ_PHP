@@ -1052,7 +1052,9 @@ function uploadFile(){
       </div>
       <div class="col-xs-6">
         <center><label id="preview">Select a file to load preview</label></center>
-        <embed width="100%" height="400px" name="plugin" id="embdLink" />
+        <div id="embedDiv">
+            
+        </div>
       </div>
       </div>
       </div>
@@ -1070,9 +1072,9 @@ function uploadFile(){
           document.getElementById("preview").innerHTML = "Preview";
           var divHeight = document.getElementById('invoicesContent').clientHeight;
           document.getElementById("embdLink").height = divHeight;
-          $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
-
-          document.getElementById("embdLink").src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
+          document.getElementById("embedDiv").innerHTML = '<embed src="'+window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}))+'" width="100%" height="400px" name="plugin" id="embdLink" />';
+          // $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
+          // document.getElementById("embdLink").src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
           getFileData();
         };
       </script>
