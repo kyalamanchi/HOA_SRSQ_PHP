@@ -1051,6 +1051,7 @@ function uploadFile(){
       <input type="text" class="form-control daterange"  id="validUntil"/>
       </div>
       <div class="col-xs-6">
+        <label id="preview"> Select a file to load preview</label>
         <embed width="100%" height="400px" name="plugin" id="embdLink" />
       </div>
       </div>
@@ -1066,6 +1067,7 @@ function uploadFile(){
           document.getElementById("name").value = res[res.length-2];
           document.getElementById("saveButton").disabled = false;
           document.getElementById("label").innerHTML = fileName;
+          document.getElementById("preview").value = "Preview";
           $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
           getFileData();
         };
