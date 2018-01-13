@@ -995,7 +995,7 @@ function uploadFile(){
 
      </div>
 
-      <div class="row23" id="invoicesContent" hidden="hidden">
+      <div class="row" id="invoicesContent" hidden="hidden">
       <div class="col-xs-6">
       <label>Invoice ID</label>
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
