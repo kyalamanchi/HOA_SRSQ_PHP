@@ -1005,7 +1005,7 @@ function uploadFile(){
               $counter = 0;
               while ($row = pg_fetch_assoc($queryResult)) {
                   $counter = $counter  + 1;
-                  array_push($links,'<a href="https://hoaboardtime.documentPreview.php?path='.$row['document_id'].'&desc=preview">'.$row['desc'].'</a>');
+                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview">'.$row['desc'].'</a>');
 
               }
               if ( $counter == 0  ){
