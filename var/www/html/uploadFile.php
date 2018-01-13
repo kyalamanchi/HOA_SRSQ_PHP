@@ -140,10 +140,17 @@ input, label {
     display:block;
 }
 
+td {
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
     </style>
 <script type="text/javascript">
 var fileData = "";
 var fileName = "";
+// var objLoc = document.getElementById('pdf');
 function updateContent(){
   
   document.getElementById('fileInput').disabled = false;
@@ -666,6 +673,12 @@ function uploadFile(){
               </select>
         </div>
       <br>
+      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
+      </label>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+      <h5 id="label"></h5>
+      <br>
+      <br>
       <div  class="row" id="legalContent" hidden="hidden">
       <div class="col-xs-6">
       <div class="row-fluid">
@@ -707,6 +720,9 @@ function uploadFile(){
 
             $query2 = "SELECT * FROM legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
             $queryResult2  = pg_query($query2);
+
+            $links = array();
+
             while ($row2 = pg_fetch_assoc($queryResult2)) {
 
                     $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$_SESSION['hoa_community_id']." AND TABLE_NAME='legal_docs_type' AND SUB_CATEGORY='".$row2['name']."'";
@@ -725,9 +741,7 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                            echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
-                              // echo '<br><a href='.$row2['name'];
-                            // echo "<a href=\"https://hoaboardtime.com/documentPreview.php?path=$row23['document_id']&desc=preview target=\"_blank\">".$row2['name']."</a>";
+                            array_push($links, '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a>');
                           }
                           else {
                             echo "Not found";
@@ -739,7 +753,20 @@ function uploadFile(){
                     }
             }
 
+            echo '<table>';
 
+            echo '<tr>';
+            echo '<th></th>';
+            echo '<th></th>';
+            echo '<th></th>';
+            echo '</tr>';
+
+            $counter = 0;
+            foreach ($links as $key) {
+                echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                $counter = $counter + 3;
+            }
+            echo '</table>';
           ?>
       </div> 
       </div>
@@ -791,14 +818,14 @@ function uploadFile(){
       </div>
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
-        <h5>OR</h5>
       </div>
-      <div class="col-xs-6">
+      <div class="col-xs-6" >
           <h5>Existing Documents : </h5>
           <?php 
 
             $query2 = "SELECT * FROM disclosure_type where community_id=".$_SESSION['hoa_community_id'];
             $queryResult2  = pg_query($query2);
+            $links = array();
             while ($row2 = pg_fetch_assoc($queryResult2)) {
 
                     $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$_SESSION['hoa_community_id']." AND TABLE_NAME='disclosure_type' AND SUB_CATEGORY='".$row2['name']."'";
@@ -818,8 +845,8 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                            // echo '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a><br>';
-                            echo '<a style="display:inline-block; margin-right:20px;" href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a>';
+                            array_push($links, '<a style="display:inline-block; margin-right:20px;" href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a>');
+
                           }
                           else {
                             echo "Not found";
@@ -832,6 +859,20 @@ function uploadFile(){
             }
 
 
+            echo '<table>';
+
+            echo '<tr>';
+            echo '<th></th>';
+            echo '<th></th>';
+            echo '<th></th>';
+            echo '</tr>';
+
+            $counter = 0;
+            foreach ($links as $key) {
+                echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                $counter = $counter + 3;
+            }
+            echo '</table>';
           ?>
       </div>
 
@@ -954,7 +995,8 @@ function uploadFile(){
 
      </div>
 
-      <div id="invoicesContent" hidden="hidden">
+      <div class="row" id="invoicesContent" hidden="hidden">
+      <div class="col-xs-6">
       <label>Invoice ID</label>
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
       <br>
@@ -1007,17 +1049,16 @@ function uploadFile(){
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
-     </div>
-      <br>
-      <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
-      </label>
-      <h5 id="label"></h5>
-      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
-
-
+      <div class="col-xs-6">
+        <center><label id="preview">Select a file to load preview</label></center>
+        <div id="embedDiv">
+            
+        </div>
+      </div>
+      </div>
+      </div>
       <br>
-
       <br>
       <script type="text/javascript">
         document.getElementById('fileInput').onchange = function () {
@@ -1028,21 +1069,20 @@ function uploadFile(){
           document.getElementById("name").value = res[res.length-2];
           document.getElementById("saveButton").disabled = false;
           document.getElementById("label").innerHTML = fileName;
+          document.getElementById("preview").innerHTML = "Preview";
+          var divHeight = document.getElementById('invoicesContent').clientHeight;
+          document.getElementById("embedDiv").innerHTML = '<embed src="'+window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}))+'" width="100%" height="400px" name="plugin" id="embdLink" />';
+          document.getElementById("embdLink").height = divHeight;
+          // $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
+          // document.getElementById("embdLink").src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
           getFileData();
         };
       </script>
-                <br>
-                <br>
-
           </section>
-
     </div>
       </div>
-
       <?php include 'footer.php'; ?>
-
       <div class="control-sidebar-bg"></div>
-
     </div>
     <div class="modal" id="pleaseWaitDialog2" data-backdrop="static" data-keyboard="false" role="dialog">
         <div class="modal-dialog">
