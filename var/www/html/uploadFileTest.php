@@ -1005,8 +1005,7 @@ function uploadFile(){
               $counter = 0;
               while ($row = pg_fetch_assoc($queryResult)) {
                   $counter = $counter  + 1;
-
-                  array_push($links,'<a href="https://hoaboardtime.documentPreview.php?path='.$row[''].'&desc=preview"></a>');
+                  array_push($links,'<a href="https://hoaboardtime.documentPreview.php?path='.$row['document_id'].'&desc=preview">'.$row['desc'].'</a>');
 
               }
               if ( $counter == 0  ){
@@ -1014,6 +1013,19 @@ function uploadFile(){
               }
               else {
 
+                echo '<table>';
+
+                echo '<tr>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '</tr>';
+                $counter = 0;
+                foreach ($links as $key) {
+                  echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                  $counter = $counter + 3;
+                }
+                echo '</table>';
               }
 
         ?>
