@@ -937,7 +937,6 @@ function uploadFile(){
                   if ( !isset($subRow['meeting_title']) ){
                     $name = 'Board Meeting '.($counter + 1);
                   }
-                  print_r($subRow);
                   array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$name.'</a>');
               }
               if ( $counter == 0  ){
