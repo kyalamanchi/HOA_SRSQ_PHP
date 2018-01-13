@@ -996,6 +996,27 @@ function uploadFile(){
       </div>
       <div class="col-xs-6">
         <h5>Existing documents : </h5>
+        <?php 
+
+              $query = "SELECT * FROM COMMUNITY_CONTRACTS WHERE EXTRACT( YEAR FROM ACTIVE_UNTIL) >=".date('Y');
+              $queryResult = pg_query($query);
+
+              $links = array();
+              $counter = 0;
+              while ($row = pg_fetch_assoc($queryResult)) {
+                  $counter = $counter  + 1;
+
+                  array_push($links,'<a href="https://hoaboardtime.documentPreview.php?path='.$row[''].'&desc=preview"></a>');
+
+              }
+              if ( $counter == 0  ){
+                echo '<br>No documents found.</br>';
+              }
+              else {
+
+              }
+
+        ?>
       </div>
 
      </div>
