@@ -995,7 +995,7 @@ function uploadFile(){
 
      </div>
 
-      <div class="row" id="invoicesContent" hidden="hidden">
+      <div class="row23" id="invoicesContent" hidden="hidden">
       <div class="col-xs-6">
       <label>Invoice ID</label>
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
@@ -1068,7 +1068,10 @@ function uploadFile(){
           document.getElementById("saveButton").disabled = false;
           document.getElementById("label").innerHTML = fileName;
           document.getElementById("preview").innerHTML = "Preview";
+          
+          document.getElementById("embdLink").height = divHeight;
           $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
+
           getFileData();
         };
       </script>
