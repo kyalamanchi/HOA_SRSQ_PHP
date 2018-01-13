@@ -676,7 +676,7 @@ function uploadFile(){
       <label class="btn btn-default">Select File<input type="file" id="fileInput" hidden disabled="disabled">      
       </label>
       <h5 id="label"></h5>
-      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
+
       <br>
       <br>
       <div  class="row" id="legalContent" hidden="hidden">
@@ -713,6 +713,7 @@ function uploadFile(){
         <input class="form-control" id="short_desc" type="text">
       </div>
       <br>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div> 
       <div class="col-xs-6">
           <h5>Existing Documents : </h5>
@@ -818,6 +819,7 @@ function uploadFile(){
       </div>
       <br>
        <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton2" disabled="disabled">Save without file</button>
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
       <div class="col-xs-6" >
           <h5>Existing Documents : </h5>
@@ -917,6 +919,8 @@ function uploadFile(){
                       ?>
               </select>
       </div>
+
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
      </div>
 
 
@@ -992,7 +996,7 @@ function uploadFile(){
       <textarea class="form-control" rows="5" style="width: 35%" id="description"></textarea>
       <br>
 
-
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
      </div>
 
       <div id="invoicesContent" hidden="hidden">
@@ -1049,6 +1053,8 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
       <div id ="pdf"></div>
+
+      <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
      </div>
       </div>
 
