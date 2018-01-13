@@ -756,20 +756,16 @@ function uploadFile(){
             echo '<table>';
 
             echo '<tr>';
-
-            echo '<th>Company</th>';
-
-
+            echo '<th></th>';
+            echo '<th></th>';
+            echo '<th></th>';
             echo '</tr>';
 
+            $counter = 0;
             foreach ($links as $key) {
-                echo '<tr>';
-                  echo '<td>';
-                    echo $key;
-                  echo '</td>';
-                echo '</tr>';
+                echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                $counter = $counter + 3;
             }
-
             echo '</table>';
           ?>
       </div> 
