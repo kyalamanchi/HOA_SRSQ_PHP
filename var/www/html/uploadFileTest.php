@@ -746,7 +746,7 @@ function uploadFile(){
 
                             echo '<td><a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a></td>';
 
-                            if ( $counter == 0 || $counter == 3){
+                            if ( $counter == 0 || $counter == 3 || ($counter%3 == 0)){
                               echo '</tr>';
                               
                             }
