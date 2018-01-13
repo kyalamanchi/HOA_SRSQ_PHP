@@ -1049,7 +1049,8 @@ function uploadFile(){
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
       <div id ="pdf"></div>
-     </div>
+        <embed width="100%" height="100%" name="plugin" id="embdLink" />
+      </div>
       </div>
       <br>
       <br>
@@ -1064,6 +1065,7 @@ function uploadFile(){
           document.getElementById("name").value = res[res.length-2];
           document.getElementById("saveButton").disabled = false;
           document.getElementById("label").innerHTML = fileName;
+          $('#embdLink')[0].src = window.URL.createObjectURL(new Blob([this.files[0]], {"type":"application/pdf"}));
           getFileData();
         };
       </script>
