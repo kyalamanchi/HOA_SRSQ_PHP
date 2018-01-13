@@ -714,13 +714,9 @@ function uploadFile(){
 
             $query2 = "SELECT * FROM legal_docs_type where community_id=".$_SESSION['hoa_community_id'];
             $queryResult2  = pg_query($query2);
-            echo '<table>';
-            echo '  <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            </tr>';
-            $counter = 0;
+
+            $links = array();
+
             while ($row2 = pg_fetch_assoc($queryResult2)) {
 
                     $query = "SELECT * FROM DOC_MAPPING WHERE COMMUNITY_ID=".$_SESSION['hoa_community_id']." AND TABLE_NAME='legal_docs_type' AND SUB_CATEGORY='".$row2['name']."'";
@@ -739,21 +735,7 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                            if ( $counter == 0 || $counter == 3){
-                              echo '<tr>';
-
-                            }
-
-                            echo '<td><a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a></td>';
-
-                            if ( $counter == 0 || $counter == 3 || ($counter%3 == 0)){
-                              echo '</tr>';
-                              
-                            }
-
-                            $counter = $counter + 1;
-
-
+                            array_push($links, '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a>');
                           }
                           else {
                             echo "Not found";
@@ -765,9 +747,24 @@ function uploadFile(){
                     }
             }
 
+            echo '<table>';
+
+            echo '<tr>';
+
+            echo '<th>Company</th>';
+
+
+            echo '</tr>';
+
+            foreach ($links as $key) {
+                echo '<tr>';
+                  echo '<td>';
+                    echo $key;
+                  echo '</td>';
+                echo '</tr>';
+            }
+
             echo '</table>';
-
-
           ?>
       </div> 
       </div>
