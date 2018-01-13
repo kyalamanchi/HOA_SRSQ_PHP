@@ -655,9 +655,8 @@ function uploadFile(){
         ?>
         
         <section class="content-header">
-
           <h1><strong>Upload file</strong></h1>
-
+          <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
         </section>
         <br>
         <section class="content" id="content">
@@ -1049,7 +1048,6 @@ function uploadFile(){
       <input type="text" class="form-control daterange"  id="validUntil"/>
       <div id ="pdf"></div>
      </div>
-            <button type="button" class="btn btn-success" onclick="uploadFile();" id="saveButton" disabled="disabled">Upload</button>
       </div>
       <br>
       <br>
