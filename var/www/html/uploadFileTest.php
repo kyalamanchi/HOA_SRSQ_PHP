@@ -995,7 +995,8 @@ function uploadFile(){
 
      </div>
 
-      <div id="invoicesContent" hidden="hidden">
+      <div class="row" id="invoicesContent" hidden="hidden">
+      <div class="col-xs-6">
       <label>Invoice ID</label>
       <input type="text" class="form-control" style="width: 35%;"  id="invoiceID"/>
       <br>
@@ -1048,8 +1049,10 @@ function uploadFile(){
       <br>
       <label>Valid Until</label>
       <input type="text" class="form-control daterange"  id="validUntil"/>
-      <div id ="pdf"></div>
-        <embed width="400px" height="400px" name="plugin" id="embdLink" />
+      </div>
+      <div class="col-xs-6">
+        <embed width="100%" height="400px" name="plugin" id="embdLink" />
+      </div>
       </div>
       </div>
       <br>
