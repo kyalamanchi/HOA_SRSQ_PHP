@@ -878,7 +878,8 @@ function uploadFile(){
 
 
       </div>
-      <div id="minutesContent" hidden="hidden">
+      <div class="row" id="minutesContent" hidden="hidden">
+      <div class="col-xs-6">
       <div class="row-fluid">
       <label>Board Meeting </label>
               <select class="selectpicker" data-show-subtext="true" data-live-search="true" id="boardMeetingList" >
@@ -917,10 +918,61 @@ function uploadFile(){
                       ?>
               </select>
       </div>
+    </div>
+    <div class="col-xs-6">
+      <h5>Existing documents :</h5>
+              <?php 
+
+              $query = "SELECT * FROM community_minutes WHERE EXTRACT( YEAR FROM created_on) >=".date('Y');
+              $queryResult = pg_query($query);
+
+              $links = array();
+              $counter = 0;
+              while ($row = pg_fetch_assoc($queryResult)) {
+                  $subQuery = "SELECT meeting_title,start_date FROM  board_meeting WHERE id=".$row['board_meeting_id'];
+                  $subQueryResult = pg_query($subQuery);
+                  $subRow = pg_fetch_assoc($subQueryResult);
+                  $counter = $counter  + 1;
+                  
+                  if (isset($subRow['meeting_title'])  ){
+                    $name = $subRow['meeting_title'];
+                  }
+                  else if ( isset($subRow['start_date']) ){
+                    $name  = 'Board Meeting - '.$subRow['start_date'];
+                  }
+                  else {
+                    $name = 'Board Meeting '.($counter + 1);
+                  }
+
+                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$name.'</a>');
+              }
+              if ( $counter == 0  ){
+                echo '<br>No documents found.</br>';
+              }
+              else {
+
+                echo '<table>';
+                echo '<tr>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '</tr>';
+                $counter = 0;
+                foreach ($links as $key) {
+                  echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                  $counter = $counter + 3;
+                }
+                echo '</table>';
+              }
+
+        ?>
+    </div>
      </div>
 
 
-      <div id="contractsContent" hidden="hidden">
+      <div class="row" id="contractsContent" hidden="hidden">
+
+      <div class="col-xs-6">
       <label>Active From - Active Until </label>
       <input type="text" class="form-control daterange"  id="daterange"/>
       <br>
@@ -991,7 +1043,43 @@ function uploadFile(){
       <label>Description</label>
       <textarea class="form-control" rows="5" style="width: 35%" id="description"></textarea>
       <br>
+      </div>
+      <div class="col-xs-6">
+        <h5>Existing documents : </h5>
+        <?php 
 
+              $query = "SELECT * FROM COMMUNITY_CONTRACTS WHERE EXTRACT( YEAR FROM ACTIVE_UNTIL) >=".date('Y');
+              $queryResult = pg_query($query);
+
+              $links = array();
+              $counter = 0;
+              while ($row = pg_fetch_assoc($queryResult)) {
+                  $counter = $counter  + 1;
+                  array_push($links,'<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['document_id'].'&desc=preview" target="_blank">'.$row['desc'].'</a>');
+
+              }
+              if ( $counter == 0  ){
+                echo '<br>No documents found.</br>';
+              }
+              else {
+
+                echo '<table>';
+
+                echo '<tr>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '<th></th>';
+                echo '</tr>';
+                $counter = 0;
+                foreach ($links as $key) {
+                  echo '<tr><td>'.$links[$counter].'</td><td>'.$links[$counter+1].'</td><td>'.$links[$counter+2].'</td></tr>';
+                  $counter = $counter + 3;
+                }
+                echo '</table>';
+              }
+
+        ?>
+      </div>
 
      </div>
 
