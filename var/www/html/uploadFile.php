@@ -50,11 +50,6 @@
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
-
-
-
     <style type="text/css">
       body{
   min-height: 100vh;
@@ -502,6 +497,22 @@ function uploadFile(){
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
+            if ( request.responseText == "An error occured."){
+              swal("An error ocuured. Please try again. ","","error");
+            }
+          else if ( request.responseText == "Success." ){
+          swal({
+            title: "Record Created",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+              } 
+            });
+          }
+
         }
         }
       }
