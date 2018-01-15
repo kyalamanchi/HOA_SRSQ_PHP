@@ -10,6 +10,8 @@
 	$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
 	$userAgent = $_SERVER['HTTP_USER_AGENT'];
 
+	$now = date('Y-m-d H:i:s');
+
 	ini_set('max_execution_time', 180);
 
 	include 'password.php';
