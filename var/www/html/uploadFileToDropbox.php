@@ -353,6 +353,7 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   $communityID = $parseJSON[0]->community_id;
   $fileName = $parseJSON[0]->file_name;
   $fileContent = base64_decode($parseJSON[0]->file_data);
+
   $invoiceID = $parseJSON[0]->invoice_id;
   $invoiceDate = date('Y-m-d H:i:s',strtotime($parseJSON[0]->invoice_date));
   $invoiceAmount=  $parseJSON[0]->invoice_amount;
@@ -363,18 +364,15 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   $dueDate = date('Y-m-d H:i:s',strtotime($parseJSON[0]->due_date));
   $reserveExpense = $parseJSON[0]->reserve_expense;
   $validUntil = date('Y-m-d H:i:s',strtotime($parseJSON[0]->valid_until));
-
   $query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
   $communityCode = $row['community_code'];
-
-
     $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Invoice/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABoBKu_uVFwETVv4sEP3xoKXWzY0yxGk0QBfV4mjoRM5JM','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Invoice/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch); 
     $dbResponse = $response;
@@ -392,15 +390,14 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
     }
   
   $documentID = $response->id;
-
-
   $insertQuery = "INSERT INTO community_invoices(community_id,invoice_id,invoice_date,invoice_amount,vendor_id,work_status,payment_status,account_number,due_date,document_id,reserve_expense,uploaded_by,updated_on,created_by,created_on,valid_until) VALUES(".$communityID.",'".$invoiceID."','".$invoiceDate."',".$invoiceAmount.",".$vendorID.",'".$workStatus."','".$paymentStatus."','".$accountNumber."','".$dueDate."','".$documentID."','".$reserveExpense."',".$userID.",'".date('Y-m-d H:i:s')."',".$userID.",'".date('Y-m-d H:i:s')."','".$validUntil."') ";
-  if ( !pg_query($insertQuery) ) {
-    echo "An error occured.";
-  }
-  else {
-    echo "Success.";
-  }
+  // if ( !pg_query($insertQuery) ) {
+  //   echo "An error occured.";
+  // }
+  // else {
+  //   echo "Success.";
+  // }
+  echo $insertQuery;
 
 
 }
