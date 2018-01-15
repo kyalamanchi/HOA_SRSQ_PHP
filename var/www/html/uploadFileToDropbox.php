@@ -355,7 +355,7 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   $invoiceID = $parseJSON[0]->invoice_id;
   $invoiceDate = date('Y-m-d H:i:s',strtotime($parseJSON[0]->invoice_date));
   $invoiceAmount=  $parseJSON[0]->invoice_amount;
-  $invoiceID  = $parseJSON[0]->vendor_id;
+  $vendorID  = $parseJSON[0]->vendor_id;
   $workStatus = $parseJSON[0]->work_status;
   $paymentStatus = $parseJSON[0]->payment_status;
   $accountNumber = $parseJSON[0]->account_number;
