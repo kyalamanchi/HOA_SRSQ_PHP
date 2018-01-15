@@ -50,11 +50,6 @@
 
     <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
-
-
-
-
     <style type="text/css">
       body{
   min-height: 100vh;
@@ -264,16 +259,16 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-                              swal({
-  title: "File uploaded successfully",
-  text: "",
-  icon: "success",
-})
-.then((uploadedFile) => {
-  if (uploadedFile) {
-    window.location = "https://hoaboardtime.com/uploadFile.php";
-  } 
-});
+          swal({
+            title: "File uploaded successfully",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+          if (uploadedFile) {
+            window.location = "https://hoaboardtime.com/uploadFile.php";
+          } 
+          });
           }
         }
         }
@@ -428,12 +423,10 @@ function uploadFile(){
         item['user_id'] = <?php echo $_SESSION['hoa_user_id']; ?>;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-
         var request  = new XMLHttpRequest();
         request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
         request.setRequestHeader("Content-type", "application/json");
         request.send(sendData);
-
         var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
@@ -462,7 +455,6 @@ function uploadFile(){
           }
         }
         }
-
       }
       else if ( $("#fileType").val() == "Invoices" ) {
         jsonData = [];
@@ -476,21 +468,15 @@ function uploadFile(){
         item['invoice_date'] = document.getElementById("singleDate").value;
         item['invoice_amount'] = document.getElementById("invoiceAmount").value;
         item['vendor_id'] = $("#vendorList").find("option:selected").attr("id");
-        item['work_status'] = document.getElementById("workStatus").value;
-        item['payment_status'] = document.getElementById("paymentStatus").value;
+        item['work_status'] = '';
+        item['payment_status'] = '';
         item['account_number'] = document.getElementById("accountNumber").value;
         item['due_date'] = document.getElementById("dueDate").value;
         item['reserve_expense'] = $("#reserveExpense").val();
         item['valid_until']=  document.getElementById("validUntil").value;
         jsonData.push(item);
-        sendData = JSON.stringify(jsonData);
-
-
+        sendData = JSON.stringify(jsonData);  
         var request  = new XMLHttpRequest();
-        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
-        request.setRequestHeader("Content-type", "application/json");
-        request.send(sendData);
-
         var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
@@ -499,22 +485,36 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-            $("#pleaseWaitDialog2").modal("hide");
+          $("#pleaseWaitDialog2").modal("hide");
+          if (request.responseText == "An error occured."){
+            swal("An error ocuured. Please try again. ","","error");
+          }
+          else if ( request.responseText == "Success." ) {
+              swal({
+                title: "File uploaded successfully",
+                text: "",
+                icon: "success",
+        })
+        .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+        } 
+        });
+          }
         }
         }
       }
       else {
         swal("Please select a Category","","error");
       }
-
-  }
-
+}
 
   function getFileDetails(){
-
-
     if ( $("#fileType").val() == "Legal document" ){
         document.getElementById("legalRecordExisitsStatus").innerHTML = "";
         jsonData = [];
@@ -845,7 +845,7 @@ function uploadFile(){
                     if ( isset($row23) ){
                           if ( $row23['id'] ){
                           if ( $row23['document_id'] ){
-                            array_push($links, '<a style="display:inline-block; margin-right:20px;" href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].'</a>');
+                            array_push($links, '<a style="display:inline-block; margin-right:20px;" href="https://hoaboardtime.com/documentPreview.php?path='.$row23['document_id'].'&desc=preview" target="_blank">'.$row2['name'].' ('.$row2['name'].')'.'</a>');
 
                           }
                           else {
@@ -1114,12 +1114,6 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-      <br>
-      <label>Work Status</label>
-      <input type="text" class="form-control" style="width: 35%;"  id="workStatus"/>
-      <br>  
-      <label>Payment Status</label>
-      <input type="text" class="form-control" style="width: 35%;"  id="paymentStatus"/>
       <br>
       <label>Account Number</label>
       <input type="text" class="form-control" style="width: 35%;"  id="accountNumber"/>
