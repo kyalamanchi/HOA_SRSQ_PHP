@@ -708,7 +708,7 @@
 
                       <?php
 
-                        $res = pg_query("SELECT * FROM community_contracts WHERE vendor_id=$vendor_id AND community_id=$community_id AND IS_HIDDEN ='FALSE' ORDER BY active_from DESC");
+                        $res = pg_query("SELECT * FROM community_contracts WHERE vendor_id=$vendor_id AND community_id=$community_id AND is_hidden ='FALSE' ORDER BY active_from DESC");
 
                         if($res)
                         {
