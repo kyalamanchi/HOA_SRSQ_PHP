@@ -1047,7 +1047,6 @@ function uploadFile(){
       <div class="col-xs-6">
         <h5>Existing documents : </h5>
         <?php 
-
               $query = "SELECT * FROM COMMUNITY_CONTRACTS WHERE EXTRACT( YEAR FROM ACTIVE_UNTIL) >=".date('Y');
               $queryResult = pg_query($query);
 
@@ -1062,9 +1061,7 @@ function uploadFile(){
                 echo '<br>No documents found.</br>';
               }
               else {
-
                 echo '<table>';
-
                 echo '<tr>';
                 echo '<th></th>';
                 echo '<th></th>';
@@ -1077,12 +1074,9 @@ function uploadFile(){
                 }
                 echo '</table>';
               }
-
         ?>
       </div>
-
      </div>
-
       <div class="row" id="invoicesContent" hidden="hidden">
       <div class="col-xs-6">
       <label>Invoice ID</label>
@@ -1176,8 +1170,6 @@ function uploadFile(){
             </div>
         </div>
     </div>
-
-
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
