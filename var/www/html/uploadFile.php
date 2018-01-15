@@ -471,8 +471,8 @@ function uploadFile(){
         item['invoice_date'] = document.getElementById("singleDate").value;
         item['invoice_amount'] = document.getElementById("invoiceAmount").value;
         item['vendor_id'] = $("#vendorList").find("option:selected").attr("id");
-        item['work_status'] = document.getElementById("workStatus").value;
-        item['payment_status'] = document.getElementById("paymentStatus").value;
+        item['work_status'] = '';
+        item['payment_status'] = '';
         item['account_number'] = document.getElementById("accountNumber").value;
         item['due_date'] = document.getElementById("dueDate").value;
         item['reserve_expense'] = $("#reserveExpense").val();
@@ -1119,12 +1119,6 @@ function uploadFile(){
                       ?>
               </select>
       </div>
-      <br>
-      <label>Work Status</label>
-      <input type="text" class="form-control" style="width: 35%;"  id="workStatus"/>
-      <br>  
-      <label>Payment Status</label>
-      <input type="text" class="form-control" style="width: 35%;"  id="paymentStatus"/>
       <br>
       <label>Account Number</label>
       <input type="text" class="form-control" style="width: 35%;"  id="accountNumber"/>
