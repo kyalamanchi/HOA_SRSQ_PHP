@@ -20,11 +20,12 @@
 
 include 'includes/dbconn.php';
 
-$query = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='Voting & Election Rules' and community_id=2) AND COMMUNITY_ID=2 and valid_from='2017-01-01' and valid_until='2018-12-31'";
+$query = "SELECT * FROM community_invoices";
 $queryResult = pg_query($query);
 
 while ($row = pg_fetch_assoc($queryResult)) {
 	print_r($row);
+	print_r(nl2br("\n\n"));
 }
 
 ?>
