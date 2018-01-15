@@ -471,28 +471,29 @@ function uploadFile(){
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
-            if ( request.responseText == "An error occured."){
-              swal({
-                    title: 'An error occured',
-                    text: 'Page will refresh automatically',
-                    timer: 1000,
-                    buttons: false,
-                    icon: "error"
-                }).then(function() {
-                    window.location = "https://hoaboardtime.com/uploadFile.php";
-                });
-          }
-          else if ( request.responseText == "Success." ){
-              swal({
-                    title: 'Record Created',
-                    text: 'Page will refresh automatically',
-                    timer: 1000,
-                    buttons: false,
-                    icon: "success"
-                }).then(function() {
-                    window.location = "https://hoaboardtime.com/uploadFile.php";
-                });
-          }
+            alert(request.responseText);
+          //   if ( request.responseText == "An error occured."){
+          //     swal({
+          //           title: 'An error occured',
+          //           text: 'Page will refresh automatically',
+          //           timer: 1000,
+          //           buttons: false,
+          //           icon: "error"
+          //       }).then(function() {
+          //           window.location = "https://hoaboardtime.com/uploadFile.php";
+          //       });
+          // }
+          // else if ( request.responseText == "Success." ){
+          //     swal({
+          //           title: 'Record Created',
+          //           text: 'Page will refresh automatically',
+          //           timer: 1000,
+          //           buttons: false,
+          //           icon: "success"
+          //       }).then(function() {
+          //           window.location = "https://hoaboardtime.com/uploadFile.php";
+          //       });
+          // }
         }
         }
       }
