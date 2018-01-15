@@ -479,8 +479,6 @@ function uploadFile(){
         item['valid_until']=  document.getElementById("validUntil").value;
         jsonData.push(item);
         sendData = JSON.stringify(jsonData);
-
-
         var request  = new XMLHttpRequest();
         request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
         request.setRequestHeader("Content-type", "application/json");
