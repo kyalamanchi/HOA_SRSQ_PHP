@@ -292,7 +292,7 @@ else if ( $parseJSON[0]->file_type == "contracts"){
     $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABoBKu_uVFwETVv4sEP3xoKXWzY0yxGk0QBfV4mjoRM5JM','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, base64_decode($fileData));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch); 
