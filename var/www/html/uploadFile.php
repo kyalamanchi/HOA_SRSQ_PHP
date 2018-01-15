@@ -496,21 +496,21 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
           alert(request.responseText);
           $("#pleaseWaitDialog2").modal("hide");
-        //   if (request.responseText == "An error occured."){
-        //     swal("An error ocuured. Please try again. ","","error");
-        //   }
-        //   else {
-        //       swal({
-        //         title: "File uploaded successfully",
-        //         text: request.responseText,
-        //         icon: "success",
-        // })
-        // .then((uploadedFile) => {
-        //     if (uploadedFile) {
-        //         window.location = "https://hoaboardtime.com/uploadFile.php";
-        // } 
-        // });
-        //   }
+          if (request.responseText == "An error occured."){
+            swal("An error ocuured. Please try again. ","","error");
+          }
+          else {
+              swal({
+                title: "File uploaded successfully",
+                text: request.responseText,
+                icon: "success",
+        })
+        .then((uploadedFile) => {
+            if (uploadedFile) {
+                window.location = "https://hoaboardtime.com/uploadFile.php";
+        } 
+        });
+          }
         }
         }
       }
