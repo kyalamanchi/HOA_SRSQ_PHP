@@ -20,14 +20,18 @@
 
 include 'includes/dbconn.php';
 
-$query = "ALTER TABLE community_invoices ALTER COLUMN document_id TYPE text";
+$query = "SELECT DATA_TYPE 
+FROM INFORMATION_SCHEMA.COLUMNS
+WHERE 
+     TABLE_NAME = 'community_invoices' AND 
+     COLUMN_NAME = 'document_id'";
 
-if ( !pg_query($query)) {
-	print_r("TABLE TYPE CHANGED");
-}
-else {
-	print_r("failed to change type");
-}
+
+$queryResult = pg_query($query);
+
+$row = pg_fetch_assoc($queryResult);
+
+print_r($row);
 
 
 ?>
