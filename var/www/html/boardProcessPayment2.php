@@ -626,7 +626,7 @@
                         
                          <?php
 
-                          $query = "SELECT * FROM current_year_payments_processed WHERE home_id=".$home_id;   
+                          $query = "SELECT * FROM current_year_payments_processed WHERE home_id=".$home_id." AND year=$year";   
                           $result = pg_query($query);
 
                           while ($row=pg_fetch_assoc($result)) 
