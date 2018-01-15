@@ -337,7 +337,7 @@ else if ( $parseJSON[0]->file_type == "contracts"){
 
 
     $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,future_contract,community_id,document_id,yearly_amount,desc,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".date('Y-m-d H:i:s',strtotime($dates[0]))."','".date('Y-m-d H:i:s',strtotime($dates[1]))."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."','".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
-    alert($query);
+    echo $query;
     // if ( !pg_query($query) ){
     //   echo "Success.";
     // }
