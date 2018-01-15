@@ -22,6 +22,7 @@
 	$community_id = $_SESSION['hoa_community_id'];
 
 	$d = date("Y-m-d");
+	$year = date('Y');
 
 	$m1 = 'f';
 	$m2 = 'f';
@@ -117,7 +118,7 @@
 
     	if($m1 != $db_m1)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m1_pmt_processed='".$m1."', m1_pmt_process_date='".$d."', m1_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m1_pmt_processed='".$m1."', m1_pmt_process_date='".$d."', m1_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -129,7 +130,7 @@
 
     	if($m2 != $db_m2)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m2_pmt_processed='".$m2."', m2_pmt_process_date='".$d."', m2_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m2_pmt_processed='".$m2."', m2_pmt_process_date='".$d."', m2_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -141,7 +142,7 @@
 
     	if($m3 != $db_m3)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m3_pmt_processed='".$m3."', m3_pmt_process_date='".$d."', m3_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m3_pmt_processed='".$m3."', m3_pmt_process_date='".$d."', m3_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -153,7 +154,7 @@
 
     	if($m4 != $db_m4)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m4_pmt_processed='".$m4."', m4_pmt_process_date='".$d."', m4_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m4_pmt_processed='".$m4."', m4_pmt_process_date='".$d."', m4_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -165,7 +166,7 @@
 
     	if($m5 != $db_m5)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m5_pmt_processed='".$m5."', m5_pmt_process_date='".$d."', m5_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m5_pmt_processed='".$m5."', m5_pmt_process_date='".$d."', m5_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -177,7 +178,7 @@
 
     	if($m6 != $db_m6)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m6_pmt_processed='".$m6."', m6_pmt_process_date='".$d."', m6_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m6_pmt_processed='".$m6."', m6_pmt_process_date='".$d."', m6_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -189,7 +190,7 @@
 
     	if($m7 != $db_m7)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m7_pmt_processed='".$m7."', m7_pmt_process_date='".$d."', m7_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m7_pmt_processed='".$m7."', m7_pmt_process_date='".$d."', m7_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -201,7 +202,7 @@
 
     	if($m8 != $db_m8)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m8_pmt_processed='".$m8."', m8_pmt_process_date='".$d."', m8_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m8_pmt_processed='".$m8."', m8_pmt_process_date='".$d."', m8_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -213,7 +214,7 @@
 
     	if($m9 != $db_m9)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m9_pmt_processed='".$m9."', m9_pmt_process_date='".$d."', m9_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m9_pmt_processed='".$m9."', m9_pmt_process_date='".$d."', m9_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -225,7 +226,7 @@
 
     	if($m10 != $db_m10)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m10_pmt_processed='".$m10."', m10_pmt_process_date='".$d."', m10_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m10_pmt_processed='".$m10."', m10_pmt_process_date='".$d."', m10_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -237,7 +238,7 @@
 
     	if($m11 != $db_m11)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m11_pmt_processed='".$m11."', m11_pmt_process_date='".$d."', m11_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m11_pmt_processed='".$m11."', m11_pmt_process_date='".$d."', m11_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
@@ -249,7 +250,7 @@
 
     	if($m12 != $db_m12)
     	{
-    		$query = "UPDATE current_year_payments_processed SET m12_pmt_processed='".$m12."', m12_pmt_process_date='".$d."', m12_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    		$query = "UPDATE current_year_payments_processed SET m12_pmt_processed='".$m12."', m12_pmt_process_date='".$d."', m12_pmt_processed_by=".$updated_by." WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
 		    $result = pg_query($query);
 
 
