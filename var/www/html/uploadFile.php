@@ -482,8 +482,6 @@ function uploadFile(){
         var request  = new XMLHttpRequest();
         request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
         request.setRequestHeader("Content-type", "application/json");
-        request.send(sendData);
-
         var pleaseWaitData = '<div class="progress">\
                       <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar"\
                       aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%; height: 40px">\
@@ -512,6 +510,7 @@ function uploadFile(){
 // });
           }
         }
+        request.send(sendData);
         }
       else {
         swal("Please select a Category","","error");
