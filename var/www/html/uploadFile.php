@@ -478,7 +478,7 @@ function uploadFile(){
         item['reserve_expense'] = $("#reserveExpense").val();
         item['valid_until']=  document.getElementById("validUntil").value;
         jsonData.push(item);
-        sendData = JSON.stringify(jsonData);
+        sendData = JSON.stringify(jsonData);  
         var request  = new XMLHttpRequest();
         request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
         request.setRequestHeader("Content-type", "application/json");
@@ -492,28 +492,31 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
+
+
+
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
-            alert(request.responseText);
-            if ( request.responseText == "An error occured."){
-              swal("An error ocuured. Please try again. ","","error");
-            }
-          else if ( request.responseText == "Success." ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
+          if (request.responseText == "An error occured."){
+            swal("An error ocuured. Please try again. ","","error");
           }
+          else {
+                              swal({
+  title: "File uploaded successfully",
+  text: "",
+  icon: "success",
+})
+.then((uploadedFile) => {
+  if (uploadedFile) {
+    window.location = "https://hoaboardtime.com/uploadFile.php";
+  } 
+});
+          }
+        }
+        }
 
-        }
-        }
+
       }
       else {
         swal("Please select a Category","","error");
