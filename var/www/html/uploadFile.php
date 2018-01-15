@@ -497,7 +497,7 @@ function uploadFile(){
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
           }
-          else {
+          else if ( request.responseText == "Success." ) {
               swal({
                 title: "File uploaded successfully",
                 text: "",
