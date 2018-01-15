@@ -111,7 +111,7 @@
 
                       <?php
 
-                        $result = pg_query("SELECT CD1.* FROM COMMUNITY_DISCLOSURES CD1 INNER JOIN (SELECT type_id,MAX(UPDATED_ON) AS MAXDATETIME FROM COMMUNITY_DISCLOSURES GROUP BY type_id) GROUPEDCD ON CD1.type_id = GROUPEDCD.type_id AND CD1.UPDATED_ON = GROUPEDCD.MAXDATETIME");
+                        $result = pg_query("SELECT CD1.* FROM COMMUNITY_DISCLOSURES CD1 INNER JOIN (SELECT type_id,MAX(UPDATED_ON) AS MAXDATETIME FROM COMMUNITY_DISCLOSURES GROUP BY type_id) GROUPEDCD ON CD1.type_id = GROUPEDCD.type_id AND CD1.UPDATED_ON = GROUPEDCD.MAXDATETIME ORDER BY TYPE_ID");
 
                         while($row = pg_fetch_assoc($result))
                         {
