@@ -702,7 +702,6 @@
                       <th>Active Until</th>
                       <th>Yearly Amount</th>
                       <th>Description</th>
-                      <th>Document</th>
                     </thead>
 
                     <tbody>
