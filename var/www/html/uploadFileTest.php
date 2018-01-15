@@ -389,7 +389,7 @@ function uploadFile(){
             if ( request.responseText == "An error occured."){
               swal("An error ocuured. Please try again. ","","error");
             }
-          else if ( request.responseText == "Success." ){
+          else if ( request.responseText == "Success." ){ 
           // swal({
           //   title: "Record Created",
           //   text: "",
@@ -400,7 +400,6 @@ function uploadFile(){
           //       window.location = "https://hoaboardtime.com/uploadFile.php";
           //     } 
           //   });
-
             swal({
               title: "Row created.",
               text: "",
@@ -450,8 +449,18 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
             if ( request.responseText == "An error occured."){
-              swal("An error ocuured. Please try again. ","","error");
-            }
+              // swal("An error ocuured. Please try again. ","","error");
+            swal({
+              title: "An error occured.",
+              text: "",
+              type: "success",
+              timer: 2000
+            });
+            function () {
+                location.reload(true);
+                tr.hide();
+            };
+          }
           else if ( request.responseText == "Success." ){
           swal({
             title: "Record Created",
