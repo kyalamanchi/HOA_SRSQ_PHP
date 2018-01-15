@@ -259,16 +259,16 @@ function uploadFile(){
             swal("An error ocuured. Please try again. ","","error");
           }
           else {
-                              swal({
-  title: "File uploaded successfully",
-  text: "",
-  icon: "success",
-})
-.then((uploadedFile) => {
-  if (uploadedFile) {
-    window.location = "https://hoaboardtime.com/uploadFile.php";
-  } 
-});
+          swal({
+            title: "File uploaded successfully",
+            text: "",
+            icon: "success",
+          })
+          .then((uploadedFile) => {
+          if (uploadedFile) {
+            window.location = "https://hoaboardtime.com/uploadFile.php";
+          } 
+          });
           }
         }
         }
@@ -490,7 +490,6 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
-          alert(request.responseText);
           $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
