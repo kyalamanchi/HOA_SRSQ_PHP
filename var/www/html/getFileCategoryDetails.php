@@ -57,7 +57,6 @@ else if ( $parseJSON[0]->type == "disclosure" ){
      }
      else {
       // $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."' ORDER BY updated_on";
-
      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id."' ORDER BY updated_on";
      }
      $secondQueryResult = pg_query($secondQuery);
