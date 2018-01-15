@@ -515,13 +515,9 @@ function uploadFile(){
       else {
         swal("Please select a Category","","error");
       }
-
 }
 
-
   function getFileDetails(){
-
-
     if ( $("#fileType").val() == "Legal document" ){
         document.getElementById("legalRecordExisitsStatus").innerHTML = "";
         jsonData = [];
