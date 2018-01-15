@@ -504,7 +504,7 @@ function uploadFile(){
           else {
                               swal({
   title: "File uploaded successfully",
-  text: "",
+  text: request.responseText,
   icon: "success",
 })
 .then((uploadedFile) => {
