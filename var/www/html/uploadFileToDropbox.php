@@ -170,17 +170,9 @@ pg_query($dropboxInsertQuery);
  		echo "An error occured.";
  		exit(0);
  	}
-
-
-
-
- 	
  }
-
 }
-
 else {
-
      $query  = "INSERT INTO community_disclosures(community_id,type_id,legal_date_from,actual_date,delivery_type,fiscal_year_start,fiscal_year_end,legal_date_until,applicable,notes,changed_this_year,updated_on,updated_by) VALUES(".$communityID.",".$parseJSON[0]->sub_category.",'".$parseJSON[0]->legal_date_from."','".$parseJSON[0]->legal_date_to."',".$parseJSON[0]->delivery_type.",'".$parseJSON[0]->fiscal_year_start."','".$parseJSON[0]->fiscal_year_end."','".$parseJSON[0]->legal_date_until."','TRUE','".$parseJSON[0]->notes."',".$parseJSON[0]->changed_this_year.",'".date('Y-m-d H:i:s')."',".$uploaderId.")";
      if ( !(pg_query($query)) ){
           echo "An error occured.";
@@ -189,7 +181,6 @@ else {
      else{
           echo "Record Created";
      }
-
 }
 }
 
@@ -292,7 +283,7 @@ else if ( $parseJSON[0]->file_type == "contracts"){
     $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABoBKu_uVFwETVv4sEP3xoKXWzY0yxGk0QBfV4mjoRM5JM','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, base64_decode($fileData));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch); 
