@@ -283,7 +283,7 @@ else if ( $parseJSON[0]->file_type == "contracts"){
     $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer xCCkLEFieJAAAAAAAAABoBKu_uVFwETVv4sEP3xoKXWzY0yxGk0QBfV4mjoRM5JM','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Contracts/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, base64_decode($fileData));
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch); 
@@ -330,12 +330,12 @@ else if ( $parseJSON[0]->file_type == "contracts"){
 
 
     $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,expired_contract,future_contract,community_id,document_id,yearly_amount,description,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".date('Y-m-d H:i:s',strtotime($dates[0]))."','".date('Y-m-d H:i:s',strtotime($dates[1]))."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$expiredContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."',".$userID.",'".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
-    // if ( pg_query($query) ){
-    //   echo "Success.";
-    // }
-    // else {
-    //   echo "An error occured.";
-    // }
+    if ( pg_query($query) ){
+      echo "Success.";
+    }
+    else {
+      echo "An error occured.";
+    }
     echo $query;
 }
 else if ( $parseJSON[0]->file_type == 'invoices' ){ 
