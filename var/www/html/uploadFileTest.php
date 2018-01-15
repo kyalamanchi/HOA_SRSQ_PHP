@@ -452,8 +452,9 @@ function uploadFile(){
               // swal("An error ocuured. Please try again. ","","error");
               swal({
                     title: 'An error occured',
-                    text: '',
-                    timer: 2000
+                    text: 'Page will refresh automatically',
+                    timer: 1000
+                    icon: "error"
                 }).then(function() {
                     window.location = "https://hoaboardtime.com/uploadFile.php";
                 });
