@@ -449,18 +449,8 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
             if ( request.responseText == "An error occured."){
-              // swal("An error ocuured. Please try again. ","","error");
-            swal({
-              title: "An error occured.",
-              text: "",
-              type: "success",
-              timer: 2000
-            });
-            function () {
-                location.reload(true);
-                tr.hide();
-            };
-          }
+              swal("An error ocuured. Please try again. ","","error");
+            }
           else if ( request.responseText == "Success." ){
           swal({
             title: "Record Created",
