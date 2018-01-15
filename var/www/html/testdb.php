@@ -20,18 +20,32 @@
 
 include 'includes/dbconn.php';
 
-$query = "SELECT DATA_TYPE 
-FROM INFORMATION_SCHEMA.COLUMNS
-WHERE 
-     TABLE_NAME = 'community_invoices' AND 
-     COLUMN_NAME = 'document_id'";
+// $query = "SELECT DATA_TYPE 
+// FROM INFORMATION_SCHEMA.COLUMNS
+// WHERE 
+//      TABLE_NAME = 'community_invoices' AND 
+//      COLUMN_NAME = 'document_id'";
 
 
-$queryResult = pg_query($query);
+// $queryResult = pg_query($query);
 
-$row = pg_fetch_assoc($queryResult);
+// $row = pg_fetch_assoc($queryResult);
 
-print_r($row);
+// print_r($row);
+
+// $query = "CREATE SEQUENCE community_invoices_seq START 1";
+
+// if ( pg_query($query)){
+// 	print_r("Sequence created");
+
+// }
+
+
+// $query = "ALTER TABLE community_invoices ALTER COLUMN id SET DEFAULT nextval('community_invoices_seq'::regclass)";
+
+// if ( pg_query($query) ) {
+// 	print_r("Table altered");
+// }
 
 
 ?>
