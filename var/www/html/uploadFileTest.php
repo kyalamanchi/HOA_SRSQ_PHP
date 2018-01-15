@@ -412,7 +412,6 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
             if ( request.responseText == "An error occured."){
-
               swal({
                     title: 'An error occured',
                     text: 'Page will refresh automatically',
@@ -422,8 +421,6 @@ function uploadFile(){
                 }).then(function() {
                     window.location = "https://hoaboardtime.com/uploadFile.php";
                 });
-
-
 
             }
           else if ( request.responseText == "Success." ){ 

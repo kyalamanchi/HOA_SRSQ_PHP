@@ -256,19 +256,31 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
-            swal("An error ocuured. Please try again. ","","error");
+
+              swal({
+                    title: 'An error occured',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "error"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+
+
+
           }
           else {
-          swal({
-            title: "File uploaded successfully",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-          if (uploadedFile) {
-            window.location = "https://hoaboardtime.com/uploadFile.php";
-          } 
-          });
+
+                swal({
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
           }
         }
         }
@@ -313,33 +325,46 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
-            swal("An error ocuured. Please try again. ","","error");
-          }
 
+              swal({
+                    title: 'An error occured',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "error"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+
+
+          }
           else if ( request.responseText == "Record Created" ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
+
+
+                swal({
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+
+
+
           }
 
           else {
                 swal({
-                title: "File uploaded successfully",
-                text: "",
-                icon: "success",
-          })
-          .then((uploadedFile) => {
-          if (uploadedFile) {
-              window.location = "https://hoaboardtime.com/uploadFile.php";
-          } 
-          });
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
           }
         }
         }
@@ -387,19 +412,27 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
             if ( request.responseText == "An error occured."){
-              swal("An error ocuured. Please try again. ","","error");
+              swal({
+                    title: 'An error occured',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "error"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+
             }
-          else if ( request.responseText == "Success." ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
+          else if ( request.responseText == "Success." ){ 
+                swal({
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
           }
         }
         }
@@ -439,19 +472,26 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
             if ( request.responseText == "An error occured."){
-              swal("An error ocuured. Please try again. ","","error");
-            }
+              swal({
+                    title: 'An error occured',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "error"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+          }
           else if ( request.responseText == "Success." ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
+              swal({
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
           }
         }
         }
@@ -492,20 +532,31 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
           $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
-            swal("An error ocuured. Please try again. ","","error");
+
+
+              swal({
+                    title: 'An error occured',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "error"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+
+
           }
           else if ( request.responseText == "Success." ) {
-              swal({
-                title: "File uploaded successfully",
-                text: "",
-                icon: "success",
-        })
-        .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-        } 
-        });
-          }
+                swal({
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000,
+                    buttons: false,
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+        }
         }
         }
       }
@@ -557,7 +608,6 @@ function uploadFile(){
               }
               else 
               {
-                
                 document.getElementById("legalRecordExisitsStatus").innerHTML = "A record exisits for current category. <a href=\"https://hoaboardtime.com/documentPreview.php?"+"path="+date23[5]+"&desc=preview\" target=\"_blank\">Click here </a>to view document.";
               }
 
@@ -1047,7 +1097,6 @@ function uploadFile(){
       <div class="col-xs-6">
         <h5>Existing documents : </h5>
         <?php 
-
               $query = "SELECT * FROM COMMUNITY_CONTRACTS WHERE EXTRACT( YEAR FROM ACTIVE_UNTIL) >=".date('Y');
               $queryResult = pg_query($query);
 
@@ -1062,9 +1111,7 @@ function uploadFile(){
                 echo '<br>No documents found.</br>';
               }
               else {
-
                 echo '<table>';
-
                 echo '<tr>';
                 echo '<th></th>';
                 echo '<th></th>';
@@ -1077,12 +1124,9 @@ function uploadFile(){
                 }
                 echo '</table>';
               }
-
         ?>
       </div>
-
      </div>
-
       <div class="row" id="invoicesContent" hidden="hidden">
       <div class="col-xs-6">
       <label>Invoice ID</label>
@@ -1176,8 +1220,6 @@ function uploadFile(){
             </div>
         </div>
     </div>
-
-
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <script src="plugins/fastclick/fastclick.js"></script>
