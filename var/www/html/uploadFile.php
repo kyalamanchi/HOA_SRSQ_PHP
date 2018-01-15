@@ -488,6 +488,8 @@ function uploadFile(){
         $("#pleaseWaitDialog2").find('.modal-header').html('<h3>Please wait...</h3>');
         $("#pleaseWaitDialog2").find('.modal-body').html(pleaseWaitData);
         $("#pleaseWaitDialog2").modal("show");
+        request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
+        request.setRequestHeader("Content-type", "application/json");
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
           $("#pleaseWaitDialog2").modal("hide");
@@ -507,8 +509,6 @@ function uploadFile(){
         });
           }
         }
-          request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
-          request.setRequestHeader("Content-type", "application/json");
           request.send(sendData);
         }
       }
