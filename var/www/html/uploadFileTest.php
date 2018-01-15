@@ -449,8 +449,15 @@ function uploadFile(){
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
             if ( request.responseText == "An error occured."){
-              swal("An error ocuured. Please try again. ","","error");
-            }
+              // swal("An error ocuured. Please try again. ","","error");
+              swal({
+                    title: 'An error occured',
+                    text: '',
+                    timer: 2000
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+          }
           else if ( request.responseText == "Success." ){
           swal({
             title: "Record Created",
