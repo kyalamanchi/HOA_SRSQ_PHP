@@ -492,9 +492,7 @@ function uploadFile(){
         request.setRequestHeader("Content-type", "application/json");
         request.send(sendData);
         request.onreadystatechange = function () {
-          alert(request.responseText);
           if (request.readyState == XMLHttpRequest.DONE) {
-          alert(request.responseText);
           $("#pleaseWaitDialog2").modal("hide");
           if (request.responseText == "An error occured."){
             swal("An error ocuured. Please try again. ","","error");
@@ -502,7 +500,7 @@ function uploadFile(){
           else {
               swal({
                 title: "File uploaded successfully",
-                text: request.responseText,
+                text: "",
                 icon: "success",
         })
         .then((uploadedFile) => {
