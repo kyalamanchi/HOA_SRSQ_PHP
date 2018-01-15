@@ -136,7 +136,7 @@
 
                           if($document_id != "")
                           {
-                            $document = "<a href='getDocumentPreviewTest.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file-pdf'></i></a>";
+                            $document = "<a href='getDocumentPreviewTest.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file'></i></a>";
                           }
 
                           if($civilcode_section != '')
