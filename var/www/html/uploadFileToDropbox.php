@@ -347,13 +347,11 @@ else if ( $parseJSON[0]->file_type == "contracts"){
 
 }
 else if ( $parseJSON[0]->file_type == 'invoices' ){ 
-
   // print_r($parseJSON);
   $userID  = $parseJSON[0]->user_id;
   $communityID = $parseJSON[0]->community_id;
   $fileName = $parseJSON[0]->file_name;
   $fileContent = base64_decode($parseJSON[0]->file_data);
-
   $invoiceID = $parseJSON[0]->invoice_id;
   $invoiceDate = date('Y-m-d H:i:s',strtotime($parseJSON[0]->invoice_date));
   $invoiceAmount=  $parseJSON[0]->invoice_amount;
@@ -388,7 +386,6 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
         echo "An error occured.";
          exit(0);
     }
-  
   $documentID = $response->id;
   $insertQuery = "INSERT INTO community_invoices(community_id,invoice_id,invoice_date,invoice_amount,vendor_id,work_status,payment_status,account_number,due_date,document_id,reserve_expense,uploaded_by,updated_on,created_by,created_on,valid_until) VALUES(".$communityID.",'".$invoiceID."','".$invoiceDate."',".$invoiceAmount.",".$vendorID.",'".$workStatus."','".$paymentStatus."','".$accountNumber."','".$dueDate."','".$documentID."','".$reserveExpense."',".$userID.",'".date('Y-m-d H:i:s')."',".$userID.",'".date('Y-m-d H:i:s')."','".$validUntil."') ";
   // if ( !pg_query($insertQuery) ) {
@@ -398,8 +395,6 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   //   echo "Success.";
   // }
   echo $insertQuery;
-
-
 }
 
 else {
