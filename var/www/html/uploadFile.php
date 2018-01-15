@@ -512,6 +512,7 @@ function uploadFile(){
           request.setRequestHeader("Content-type", "application/json");
           request.send(sendData);
         }
+      }
       else {
         swal("Please select a Category","","error");
       }
