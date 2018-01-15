@@ -21,7 +21,7 @@
 	$updated_by = $_SESSION['hoa_user_id'];
 	$community_id = $_SESSION['hoa_community_id'];
 
-	$d = date("Y-m-d");
+	$d = date("Y-m-d H:i:s");
 	$year = date('Y');
 
 	$m1 = 'f';
@@ -39,7 +39,7 @@
 
     include 'includes/dbconn.php';
 
-    $query = "SELECT * FROM current_year_payments_processed WHERE home_id=".$home_id." AND hoa_id=".$hoa_id;   
+    $query = "SELECT * FROM current_year_payments_processed WHERE home_id=".$home_id." AND year=$year AND hoa_id=".$hoa_id;   
     $result = pg_query($query);
 
     if($result)
