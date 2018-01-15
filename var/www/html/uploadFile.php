@@ -490,6 +490,7 @@ function uploadFile(){
         $("#pleaseWaitDialog2").modal("show");
         request.open("POST", "https://hoaboardtime.com/uploadFileToDropbox.php", true);
         request.setRequestHeader("Content-type", "application/json");
+        request.send(sendData);
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
           $("#pleaseWaitDialog2").modal("hide");
@@ -509,7 +510,7 @@ function uploadFile(){
         });
           }
         }
-          request.send(sendData);
+
         }
       }
       else {
