@@ -720,7 +720,7 @@
                             $active_until = $row['active_until'];
                             $document = $row['document'];
                             $yearly_amount = $row['yearly_amount'];
-                            $desc = $row['desc'];
+                            $desc = $row['short_desc'];
                             $documentID = $row['document_id'];
                             if($yearly_amount == "")
                               $yearly_amount = 'N/A';
@@ -730,15 +730,16 @@
                             if($documentID != "")
                             {
 
-                              // $row1 = pg_fetch_assoc(pg_query("SELECT * FROM document_management WHERE document_id=$document"));
+                              echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td><a href='https://hoaboardtime.com/documentPreview.php?path=$documentID&desc=$desc' target='_blank'>$desc</a></td></tr>";
 
-                              // $document_url = $row1['url'];
 
                             }
-                            else
+                            else{
                               $documentID = "N/A";
+                            echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td>$documentID</td></tr>";
 
-                            echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td><a href='https://hoaboardtime.com/documentPreview.php?path=$documentID&desc=$desc' target='_blank'>$desc</a></td></tr>";
+                            }
+
 
                           }
 
