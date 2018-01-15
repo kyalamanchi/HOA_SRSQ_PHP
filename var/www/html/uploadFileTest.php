@@ -460,16 +460,31 @@ function uploadFile(){
                 });
           }
           else if ( request.responseText == "Success." ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
+          // swal({
+          //   title: "Record Created",
+          //   text: "",
+          //   icon: "success",
+          // })
+          // .then((uploadedFile) => {
+          //   if (uploadedFile) {
+          //       window.location = "https://hoaboardtime.com/uploadFile.php";
+          //     } 
+          //   });
+
+
+              swal({
+                    title: 'Record Created',
+                    text: 'Page will refresh automatically',
+                    timer: 1000
+                    icon: "success"
+                }).then(function() {
+                    window.location = "https://hoaboardtime.com/uploadFile.php";
+                });
+
+
+
+
+
           }
         }
         }
