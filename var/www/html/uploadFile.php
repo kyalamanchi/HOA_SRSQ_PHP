@@ -440,21 +440,22 @@ function uploadFile(){
         request.onreadystatechange = function () {
           if (request.readyState == XMLHttpRequest.DONE) {
             $("#pleaseWaitDialog2").modal("hide");
-            if ( request.responseText == "An error occured."){
-              swal("An error ocuured. Please try again. ","","error");
-            }
-          else if ( request.responseText == "Success." ){
-          swal({
-            title: "Record Created",
-            text: "",
-            icon: "success",
-          })
-          .then((uploadedFile) => {
-            if (uploadedFile) {
-                window.location = "https://hoaboardtime.com/uploadFile.php";
-              } 
-            });
-          }
+            alert(request.responseText);
+          //   if ( request.responseText == "An error occured."){
+          //     swal("An error ocuured. Please try again. ","","error");
+          //   }
+          // else if ( request.responseText == "Success." ){
+          // swal({
+          //   title: "Record Created",
+          //   text: "",
+          //   icon: "success",
+          // })
+          // .then((uploadedFile) => {
+          //   if (uploadedFile) {
+          //       window.location = "https://hoaboardtime.com/uploadFile.php";
+          //     } 
+          //   });
+          // }
         }
         }
 
