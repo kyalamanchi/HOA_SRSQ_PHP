@@ -231,7 +231,7 @@
                         <?php
             setlocale(LC_MONETARY, 'en_US');
             date_default_timezone_set('America/Los_Angeles');
-            //$vendorID = $_GET['select_vendor'];
+            $vendorID = base64_decode($_GET['select_vendor']);
             if ( $vendorID ){
             $query = "SELECT quickbooks_id from vendor_master where vendor_id = $vendorID";
             $res  = pg_query($query);

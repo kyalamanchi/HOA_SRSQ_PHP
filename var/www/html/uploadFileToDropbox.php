@@ -170,17 +170,9 @@ pg_query($dropboxInsertQuery);
  		echo "An error occured.";
  		exit(0);
  	}
-
-
-
-
- 	
  }
-
 }
-
 else {
-
      $query  = "INSERT INTO community_disclosures(community_id,type_id,legal_date_from,actual_date,delivery_type,fiscal_year_start,fiscal_year_end,legal_date_until,applicable,notes,changed_this_year,updated_on,updated_by) VALUES(".$communityID.",".$parseJSON[0]->sub_category.",'".$parseJSON[0]->legal_date_from."','".$parseJSON[0]->legal_date_to."',".$parseJSON[0]->delivery_type.",'".$parseJSON[0]->fiscal_year_start."','".$parseJSON[0]->fiscal_year_end."','".$parseJSON[0]->legal_date_until."','TRUE','".$parseJSON[0]->notes."',".$parseJSON[0]->changed_this_year.",'".date('Y-m-d H:i:s')."',".$uploaderId.")";
      if ( !(pg_query($query)) ){
           echo "An error occured.";
@@ -189,7 +181,6 @@ else {
      else{
           echo "Record Created";
      }
-
 }
 }
 
@@ -323,9 +314,11 @@ else if ( $parseJSON[0]->file_type == "contracts"){
 
     if ( $activeContract == 'YES' ){
       $activeContract = 'TRUE';
+      $expiredContract = 'FALSE';
     }
     else {
       $activeContract = 'FALSE';
+      $expiredContract = 'TRUE';
     }
 
     if ( $futureContract == 'YES' ){
@@ -336,18 +329,16 @@ else if ( $parseJSON[0]->file_type == "contracts"){
     }
 
 
-    $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,future_contract,community_id,document_id,yearly_amount,desc,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".date('Y-m-d H:i:s',strtotime($dates[0]))."','".date('Y-m-d H:i:s',strtotime($dates[1]))."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."','".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
-
-    if ( !pg_query($query) ){
+    $query = "INSERT INTO community_contracts(active_from,active_until,board_approval_id,vendor_id,vendor_type_id,active_contract,expired_contract,future_contract,community_id,document_id,yearly_amount,description,created_on,created_by,updated_on,updated_by,short_desc,upload_date,uploaded_by) VALUES('".date('Y-m-d H:i:s',strtotime($dates[0]))."','".date('Y-m-d H:i:s',strtotime($dates[1]))."','".$boardApprovalID."','".$vendorID."',".$vendorType.",'".$activeContract."','".$expiredContract."','".$futureContract."',".$communityID.",'".$documentID."',".$yearlyContract.",'".$description."','".date('Y-m-d H:i:s')."',".$userID.",'".date('Y-m-d H:i:s')."',".$userID.",'".$shortDescription."','".date('Y-m-d H:i:s')."',".$userID.")"; 
+    if ( pg_query($query) ){
       echo "Success.";
     }
     else {
       echo "An error occured.";
     }
-
+    echo $query;
 }
 else if ( $parseJSON[0]->file_type == 'invoices' ){ 
-
   // print_r($parseJSON);
   $userID  = $parseJSON[0]->user_id;
   $communityID = $parseJSON[0]->community_id;
@@ -356,25 +347,22 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   $invoiceID = $parseJSON[0]->invoice_id;
   $invoiceDate = date('Y-m-d H:i:s',strtotime($parseJSON[0]->invoice_date));
   $invoiceAmount=  $parseJSON[0]->invoice_amount;
-  $invoiceID  = $parseJSON[0]->vendor_id;
+  $vendorID  = $parseJSON[0]->vendor_id;
   $workStatus = $parseJSON[0]->work_status;
   $paymentStatus = $parseJSON[0]->payment_status;
   $accountNumber = $parseJSON[0]->account_number;
   $dueDate = date('Y-m-d H:i:s',strtotime($parseJSON[0]->due_date));
   $reserveExpense = $parseJSON[0]->reserve_expense;
   $validUntil = date('Y-m-d H:i:s',strtotime($parseJSON[0]->valid_until));
-
   $query = "SELECT * FROM COMMUNITY_INFO WHERE community_id=".$communityID;
   $queryResult = pg_query($query);
   $row = pg_fetch_assoc($queryResult);
   $communityCode = $row['community_code'];
-
-
     $url = 'https://content.dropboxapi.com/2/files/upload';
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
     curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Invoice/'.$communityCode.'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileData);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContent);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch); 
     $dbResponse = $response;
@@ -390,10 +378,7 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
         echo "An error occured.";
          exit(0);
     }
-  
   $documentID = $response->id;
-
-
   $insertQuery = "INSERT INTO community_invoices(community_id,invoice_id,invoice_date,invoice_amount,vendor_id,work_status,payment_status,account_number,due_date,document_id,reserve_expense,uploaded_by,updated_on,created_by,created_on,valid_until) VALUES(".$communityID.",'".$invoiceID."','".$invoiceDate."',".$invoiceAmount.",".$vendorID.",'".$workStatus."','".$paymentStatus."','".$accountNumber."','".$dueDate."','".$documentID."','".$reserveExpense."',".$userID.",'".date('Y-m-d H:i:s')."',".$userID.",'".date('Y-m-d H:i:s')."','".$validUntil."') ";
   if ( !pg_query($insertQuery) ) {
     echo "An error occured.";
@@ -401,8 +386,7 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   else {
     echo "Success.";
   }
-
-
+  // echo $insertQuery;
 }
 
 else {

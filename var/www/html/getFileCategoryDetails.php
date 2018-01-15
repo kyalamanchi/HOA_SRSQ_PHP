@@ -21,8 +21,7 @@ if ( $parseJSON[0]->type == "legal" ){
      $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") AND COMMUNITY_ID=".$parseJSON[0]->community_id;
      }
      else {
-      // $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."'";
-     $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") AND COMMUNITY_ID=".$parseJSON[0]->community_id." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."'";
+     $secondQuery = "SELECT * FROM COMMUNITY_LEGAL_DOCS WHERE legal_docs_type_id=(SELECT ID FROM legal_docs_type WHERE name='".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") AND COMMUNITY_ID=".$parseJSON[0]->community_id." and valid_from='".$row['valid_from']."' and valid_until='".$row['valid_until']."' ORDER BY last_updated_on";
      }
      $secondQueryResult = pg_query($secondQuery);
      while( $row2 = pg_fetch_assoc($secondQueryResult) ){
@@ -54,10 +53,11 @@ else if ( $parseJSON[0]->type == "disclosure" ){
      $result = $row['name'].'@'.$row['short_desc'].'@'.date('m/d/Y',strtotime($row['valid_from'])).'@'.date('m/d/Y',strtotime($row['valid_until']));
      echo $result;
      if ( !(isset($row['valid_from'])) ){
-     $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id;
+     $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id."' ORDER BY updated_on";
      }
      else {
-      $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."'";
+      // $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." and fiscal_year_start='".$row['valid_from']."' and fiscal_year_end='".$row['valid_until']."' ORDER BY updated_on";
+     $secondQuery = "SELECT * FROM community_disclosures where type_id=(select id from disclosure_type where name = '".$parseJSON[0]->sub_category."' and community_id=".$parseJSON[0]->community_id.") and community_id =".$parseJSON[0]->community_id." ORDER BY updated_on";
      }
      $secondQueryResult = pg_query($secondQuery);
      while( $row2  = pg_fetch_assoc($secondQueryResult) ){
