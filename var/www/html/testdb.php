@@ -20,12 +20,17 @@
 
 include 'includes/dbconn.php';
 
-$query = "SELECT * FROM community_invoices";
-$queryResult = pg_query($query);
+$query = "ALTER TABLE community_invoices DROP CONSTRAINT community_invoices_document_id_fkey";
 
-while ($row = pg_fetch_assoc($queryResult)) {
-	print_r($row);
-	print_r(nl2br("\n\n"));
+if ( !pg_query($query)) {
+	print_r("Contraint dropped");
 }
+
+$query = "ALTER TABLE community_invoices ALTER COLUMN document_id TYPE text";
+
+if ( !pg_query($query)) {
+	print_r("TABLE TYPE CHANGED");
+}
+
 
 ?>
