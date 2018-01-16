@@ -10,13 +10,22 @@
 
 	$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
 	$userAgent = $_SERVER['HTTP_USER_AGENT'];
+
+
 	$now = date('Y-m-d H:i:s');
+
+	$escapedAgent = pg_escape_string($userAgent);	
+
 
 	ini_set('max_execution_time', 180);
 
 	include 'password.php';
 
 	include 'includes/dbconn.php';
+
+
+
+
 
 	$query = "SELECT * FROM usr WHERE email='".$login_email."'";
 	$result = pg_query($query);
@@ -86,7 +95,7 @@
 
 
 
-			$insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $_SESSION['hoa_hoa_id'], '".date('Y-m-d H:i:s')."','Login')");
+			// $insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
 
 
 			if($num_row == 0)
