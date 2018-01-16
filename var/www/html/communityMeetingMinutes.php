@@ -109,7 +109,7 @@
                 $subQuery=  "SELECT * FROM COMMUNITY_MINUTES WHERE YEAR=".$row['year']." ORDER BY CREATED_ON DESC";
                 $subQueryResult  = pg_query($subQuery);
                 while ($subRow = pg_fetch_assoc($subQueryResult)) {
-                        $monthNum  = 01;
+                        $monthNum  = $subRow['month'];
                         $dateObj   = DateTime::createFromFormat('!m', $monthNum);
                         $monthName = $dateObj->format('F'); 
                         $desc = $monthName.'_'.$boardTypeArray[$subRow['board_meeting_type_id']];
