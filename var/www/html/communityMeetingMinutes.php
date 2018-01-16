@@ -69,13 +69,13 @@
         
         <section class="content-header">
 
-          <h1><strong>Disclosures</strong></h1>
+          <h1><strong>Minutes</strong></h1>
 
           <ol class="breadcrumb">
             
             <?php if($mode == 1) echo "<li><i class='fa fa-institution'></i> Community</li>"; ?>
 
-            <li>Disclosures</li>
+            <li>Minutes</li>
           
           </ol>
 
