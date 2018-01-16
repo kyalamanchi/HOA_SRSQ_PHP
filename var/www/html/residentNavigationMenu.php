@@ -65,7 +65,7 @@
               
         <a href="communityDisclosures.php">
 
-          <i class='fa fa-wrench'></i> <span>Disclosures</span>
+          <i class='fa fa-file'></i> <span>Disclosures</span>
 
         </a>
 
