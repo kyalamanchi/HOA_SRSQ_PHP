@@ -90,7 +90,7 @@
 
         	$row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE community_id=$community_id AND payment_status_id=1 AND process_date>='$year-$month-1' AND process_date<='$year-$month-$end_date'"));
 
-        	$amount_recieved = $row['sum'];
+        	$amount_recieved = 0;
 
           if($amount_recieved == "")
             $amount_recieved = 0.0;
