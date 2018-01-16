@@ -12,6 +12,7 @@
 
 	if ( $_GET['id'] == -1 ) {
 		print_r("Message");
+		exit(0);
 	}
 
 	$now = date('Y-m-d H:i:s');
