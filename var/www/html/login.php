@@ -10,12 +10,15 @@
 	$ip = $_SERVER['REMOTE_ADDR']?:($_SERVER['HTTP_X_FORWARDED_FOR']?:$_SERVER['HTTP_CLIENT_IP']);
 	$userAgent = $_SERVER['HTTP_USER_AGENT'];
 
-	if ( $_GET['id'] == -1 ) {
-		print_r("Message");
-		exit(0);
-	}
 
 	$now = date('Y-m-d H:i:s');
+
+	$escapedAgent = pg_escape_string($userAgent);	
+	if ( $_GET['id'] == -1 ) {
+		print_r("Message");
+		print_r("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
+		exit(0);
+	}
 
 	ini_set('max_execution_time', 180);
 
