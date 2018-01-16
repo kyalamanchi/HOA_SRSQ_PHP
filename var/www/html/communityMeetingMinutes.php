@@ -83,92 +83,55 @@
 
         <section class="content">
           
-          <div class="row">
+          <div class="row container-fluid">
 
-            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-sm-12">
+            <ul class="timeline">
 
-              <div class="box">
+              <?php
 
-                <div class="box-body table-responsive">
+                $result = pg_query("SELECT year_of_upload FROM document_management WHERE community_id=$community_id GROUP BY year_of_upload ORDER BY year_of_upload DESC");
+
+                while($row = pg_fetch_assoc($result))
+                {
+                
+                $year_of_upload = $row['year_of_upload'];
+                
+                echo "<li class='time-label'>
                   
-                  <table id="example1" class="table table-bordered table-striped">
+                  <span class='bg-red'>".$year_of_upload."</span>
+
+                </li> 
+
+                <li>
+          
+                  <div class='timeline-item'>
+
+                    <div class='timeline-body container-fluid'>";
+                  
+                      if($community_id == 2)
+                        $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload AND url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year_of_upload."_%'");
+
+                      while($row1 = pg_fetch_assoc($result1))
+                      {
+
+                        $desc = $row1['description'];
+                        $document_url = $row1['url'];
+
+                        echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?t=-2&path=$document_url&desc=$desc' target='_blank'>$desc</a></div>";
+
+                      }
+
+                    echo "</div>
                     
-                    <thead>
-                      
-                      <tr>
-                        
-                        <th>DisclosureType</th>
-                        <th>Actual Date</th>
-                        <th>Delivery Type</th>
-                        <th>Notes</th>
-                        <th>Document</th>
+                  </div>
+                  
+                </li>";
 
-                      </tr>
+                }
 
-                    </thead>
+              ?>
 
-                    <tbody>
-
-                      <?php
-
-                        $result = pg_query("SELECT CD1.* FROM COMMUNITY_DISCLOSURES CD1 INNER JOIN (SELECT type_id,MAX(UPDATED_ON) AS MAXDATETIME FROM COMMUNITY_DISCLOSURES GROUP BY type_id) GROUPEDCD ON CD1.type_id = GROUPEDCD.type_id AND CD1.UPDATED_ON = GROUPEDCD.MAXDATETIME ORDER BY TYPE_ID");
-
-                        while($row = pg_fetch_assoc($result))
-                        {
-
-                          $actual_date = $row['actual_date'];
-                          $disclosure_type = $row['type_id'];
-                          $delivery_type = $row['delivery_type'];
-                          $notes = $row['notes'];
-                          $document_id = $row['document_id'];
-
-                          if($delivery_type == 1)
-                            $delivery_type = 'Email';
-
-                          $row1 = pg_fetch_assoc(pg_query("SELECT * FROM disclosure_type WHERE id=$disclosure_type"));
-
-                          $civilcode_section = $row1['civilcode_section'];
-                          $description = $row1['desc'];
-                          $legal_url = $row1['legal_url'];
-                          $disclosure_type = $row1['name'];
-
-                          $document = "";
-
-                          if($document_id != "")
-                          {
-                            $document = "<a href='documentPreview.php?path=$document_id&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file'></i></a>";
-                          }
-
-                          if($civilcode_section != '')
-                          {
-
-                            $disclosure_type .= " (";
-                            $disclosure_type .= $civilcode_section;
-                            $disclosure_type .= ")";
-
-                          }
-
-                          if($legal_url != '')
-                            $disclosure_type = "<a target='_blank' href='$legal_url'>$disclosure_type</a>";
-
-                          if($actual_date != '')
-                            $actual_date = date('m-d-Y', strtotime($actual_date));
-
-                          echo "<tr><td>$disclosure_type</td><td>$actual_date</td><td>$delivery_type</td><td>$notes</td><td>$document</td></tr>";
-
-                        }
-
-                      ?>
-                    
-                    </tbody>
-
-                  </table>
-
-                </div>
-
-              </div>
-
-            </section>
+            </ul>
 
           </div>
 
