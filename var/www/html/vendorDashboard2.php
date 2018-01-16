@@ -768,7 +768,7 @@
 
                 <div class="box-header">
 
-                  <center><h4><strong>Vendor Contracts</strong></h4></center>
+                  <center><h4><strong>Vendor Invoices</strong></h4></center>
 
                 </div>
 
