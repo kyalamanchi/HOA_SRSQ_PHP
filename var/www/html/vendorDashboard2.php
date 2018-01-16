@@ -788,7 +788,7 @@
 
                       <?php
 
-                        $query = "SELECT * FROM COMMUNITY_INVOICES WHERE VENDOR_ID=$vendor_id AND community_id=$community_id ORDER BY invoice_date DESC";
+                        $query = "SELECT * FROM COMMUNITY_INVOICES WHERE VENDOR_ID=".$vendor_id." AND community_id=$community_id ORDER BY invoice_date DESC";
                         $QueryResponse = pg_query($query);
 
                         while ($row = pg_fetch_assoc($QueryResponse)) {
@@ -801,7 +801,6 @@
                           echo '<tr><td>'.$row['invoice_date'].'</td><td>'.$row['invoice_amount'].'</td><td>'.$row['due_date'].'</td><td>'.$description.'</td></tr>';
 
                         }
-
                         // $res = pg_query("SELECT * FROM community_contracts WHERE vendor_id=$vendor_id AND community_id=$community_id AND is_hidden ='FALSE' ORDER BY active_from DESC");
 
                         // if($res)
