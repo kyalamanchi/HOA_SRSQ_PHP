@@ -17,7 +17,6 @@
 	$escapedAgent = pg_escape_string($userAgent);
 
 	$insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Logout')");
-	pg_query($insertResult);
 	
 	header('Location: https://hoaboardtime.com/');
 	
