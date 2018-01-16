@@ -115,8 +115,11 @@
                         $dateObj   = DateTime::createFromFormat('!m', $monthNum);
                         $monthName = $dateObj->format('F'); 
                         $desc = $monthName.'_'.$boardTypeArray[$subRow['board_meeting_type_id']];
-                        echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/documentPreview.php?path=".$row['document_id']."&desc=$desc' target='_blank'>$desc</a></div>";
                         }
+                        else {
+                          $desc = $boardTypeArray[$subRow['board_meeting_type_id']];
+                        }
+                        echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/documentPreview.php?path=".$row['document_id']."&desc=$desc' target='_blank'>$desc</a></div>";
 
                 }
                     echo "</div>
