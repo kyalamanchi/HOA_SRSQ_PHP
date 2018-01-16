@@ -539,7 +539,7 @@
 
                       <?php
 
-                        $res = pg_query("SELECT * FROM accounts_payable WHERE vendor_id=$vendor_id AND community_id=$community_id ORDER BY pay_date DESC");
+                        $res = pg_query("SELECT * FROM accounts_payable WHERE vendor_id='$vendor_id' AND community_id=$community_id ORDER BY pay_date DESC");
 
                         if($res)
                         {
