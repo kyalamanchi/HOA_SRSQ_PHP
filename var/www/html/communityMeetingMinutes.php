@@ -109,11 +109,14 @@
                 $subQuery=  "SELECT * FROM COMMUNITY_MINUTES WHERE YEAR=".$row['year']." ORDER BY CREATED_ON DESC";
                 $subQueryResult  = pg_query($subQuery);
                 while ($subRow = pg_fetch_assoc($subQueryResult)) {
-                        $monthNum  = 01;
+
+                        if ( isset($subRow['month']) ){
+                        $monthNum  = $subRow['month'];
                         $dateObj   = DateTime::createFromFormat('!m', $monthNum);
                         $monthName = $dateObj->format('F'); 
                         $desc = $monthName.'_'.$boardTypeArray[$subRow['board_meeting_type_id']];
                         echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/documentPreview.php?path=".$row['document_id']."&desc=$desc' target='_blank'>$desc</a></div>";
+                        }
 
                 }
                     echo "</div>
