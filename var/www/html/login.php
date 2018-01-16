@@ -50,11 +50,11 @@
 			$_SESSION['hoa_community_id'] = $row['community_id'];
 
 
-				if ( $_GET['id'] == -1 ) {
-		print_r("Message");
-		print_r("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
-		exit(0);
-	}
+			if ( $_GET['id'] == -1 ) {
+					print_r("Message");
+				print_r("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
+				exit(0);
+			}
 				
 			$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
 				
