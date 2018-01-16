@@ -106,7 +106,7 @@
                 <li>
                   <div class='timeline-item'>
                     <div class='timeline-body container-fluid'>";
-                $subQuery=  "SELECT * FROM COMMUNITY_MINUTES WHERE YEAR=".$row['year']." ORDER BY CREATED_ON DESC";
+                $subQuery=  "SELECT * FROM COMMUNITY_MINUTES WHERE YEAR=".$row['year']." AND is_hidden = 'FALSE' ORDER BY CREATED_ON DESC";
                 $subQueryResult  = pg_query($subQuery);
                 while ($subRow = pg_fetch_assoc($subQueryResult)) {
 
