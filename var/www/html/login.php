@@ -94,8 +94,8 @@
 			}
 
 
-
-			// $insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
+			$hoa_id = $_SESSION['hoa_hoa_id'];
+			$insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
 
 
 			if($num_row == 0)
