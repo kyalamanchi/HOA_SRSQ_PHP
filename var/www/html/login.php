@@ -76,9 +76,11 @@
 
 			$escapedAgent = pg_escape_string($userAgent);	
 
+			$insertQuery = "INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')";
+
 			$insertResult = pg_query("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
 
-			echo 'alert($insertResult);'; 
+			echo 'alert($insertQuery);'; 
 
 			if($num_row == 0)
 			{
