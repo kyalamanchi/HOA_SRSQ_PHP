@@ -75,7 +75,7 @@
               
         <a href="communityMinutes.php">
 
-          <i class='fa fa-wrench'></i> <span>Minutes</span>
+          <i class='fa fa-file'></i> <span>Minutes</span>
 
         </a>
 
