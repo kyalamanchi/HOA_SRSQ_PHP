@@ -92,7 +92,7 @@
 
         	$amount_recieved = $row['sum'];
 
-          $amount_recieved = 0.0;
+          $amount_recieved = 0.0; 
 
 
           if($amount_recieved == "")
