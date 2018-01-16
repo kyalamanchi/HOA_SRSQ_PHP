@@ -759,6 +759,89 @@
 
           </div>
 
+
+          <div class="row">
+
+            <section class="col-lg-12 col-xl-12 col-md-12 col-xs-12 col-xs-12">
+
+              <div class="box">
+
+                <div class="box-header">
+
+                  <center><h4><strong>Vendor Contracts</strong></h4></center>
+
+                </div>
+
+                <div class="box-body table-responsive">
+                  
+                  <table id='example2' class="table table-bordered">
+
+                    <thead>
+                      
+                      <th>Active From</th>
+                      <th>Active Until</th>
+                      <th>Yearly Amount</th>
+                      <th>Description</th>
+                    </thead>
+
+                    <tbody>
+
+                      <?php
+
+                        $res = pg_query("SELECT * FROM community_contracts WHERE vendor_id=$vendor_id AND community_id=$community_id AND is_hidden ='FALSE' ORDER BY active_from DESC");
+
+                        if($res)
+                        {
+
+                          while($row = pg_fetch_assoc($res))
+                          {
+                            
+                            $active_from = $row['active_from'];
+                            $active_until = $row['active_until'];
+                            $document = $row['document'];
+                            $yearly_amount = $row['yearly_amount'];
+                            $desc = $row['short_desc'];
+                            $documentID = $row['document_id'];
+                            if($yearly_amount == "")
+                              $yearly_amount = 'N/A';
+                            else
+                              $yearly_amount = '$ '.$yearly_amount;
+
+                            if($documentID != "")
+                            {
+
+                              echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td><a href='https://hoaboardtime.com/documentPreview.php?path=$documentID&desc=$desc' target='_blank'>$desc</a></td></tr>";
+
+
+                            }
+                            else{
+                              $documentID = "N/A";
+                            echo "<tr><td>".date('m-d-Y', strtotime($active_from))."</td><td>".date('m-d-Y', strtotime($active_until))."</td><td>$yearly_amount</td><td>$documentID</td></tr>";
+
+                            }
+
+
+                          }
+
+                        }
+
+                      ?>
+                      
+                    </tbody>
+                    
+                  </table>
+
+                </div>
+
+              </div>
+
+            </section>
+
+          </div>
+
+
+
+
         </section>
 
       </div>
