@@ -15,6 +15,14 @@
 	$now = date('Y-m-d H:i:s');
 
 	$escapedAgent = pg_escape_string($userAgent);	
+
+
+	ini_set('max_execution_time', 180);
+
+	include 'password.php';
+
+	include 'includes/dbconn.php';
+
 	if ( $_GET['id'] == -1 ) {
 		print_r("Message");
 		$hoa_id = 1259;
@@ -22,11 +30,6 @@
 		exit(0);
 	}
 
-	ini_set('max_execution_time', 180);
-
-	include 'password.php';
-
-	include 'includes/dbconn.php';
 
 	$query = "SELECT * FROM usr WHERE email='".$login_email."'";
 	$result = pg_query($query);
