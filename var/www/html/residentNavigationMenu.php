@@ -73,7 +73,7 @@
 
       <li class="treeview">
               
-        <a href="communityMinutes.php">
+        <a href="communityMeetingMinutes.php">
 
           <i class='fa fa-file'></i> <span>Minutes</span>
 
