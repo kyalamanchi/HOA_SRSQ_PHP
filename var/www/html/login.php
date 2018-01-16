@@ -13,12 +13,6 @@
 
 	$now = date('Y-m-d H:i:s');
 
-	$escapedAgent = pg_escape_string($userAgent);	
-	if ( $_GET['id'] == -1 ) {
-		print_r("Message");
-		print_r("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
-		exit(0);
-	}
 
 	ini_set('max_execution_time', 180);
 
@@ -54,6 +48,13 @@
 			$_SESSION['hoa_email'] = $login_email;
 			$_SESSION['hoa_user_id'] = $row['id'];
 			$_SESSION['hoa_community_id'] = $row['community_id'];
+
+
+				if ( $_GET['id'] == -1 ) {
+		print_r("Message");
+		print_r("INSERT INTO user_access_log (ip_address, user_agent, hoa_id, access_date,access_page) VALUES ('$ip', '{$escapedAgent}', $hoa_id, '".date('Y-m-d H:i:s')."','Login')");
+		exit(0);
+	}
 				
 			$result123 = pg_query("UPDATE usr SET forgot_password_code='".$otp."' WHERE id=".$id);
 				
