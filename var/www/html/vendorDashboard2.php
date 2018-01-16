@@ -774,7 +774,7 @@
 
                 <div class="box-body table-responsive">
                   
-                  <table id='example2' class="table table-bordered">
+                  <table id='example3' class="table table-bordered">
 
                     <thead>
                       
@@ -880,6 +880,8 @@
         $("#example1").DataTable({ "pageLength": 50 });
 
         $("#example2").DataTable({ "pageLength": 50 });
+
+        $("#example3").DataTable({ "pageLength": 50 });
       });
     </script>
 
