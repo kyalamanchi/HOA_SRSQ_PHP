@@ -1,5 +1,5 @@
 <?php
-	
+	date_default_timezone_set('America/Los_Angeles');
 	ini_set("session.save_path","/var/www/html/session/");
 	include 'includes/dbconn.php';
 	$hoa_id = $_SESSION['hoa_hoa_id'];
