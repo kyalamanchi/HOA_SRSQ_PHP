@@ -158,6 +158,17 @@
 
           </li>
 
+
+          <li>
+
+            <a href="communityMeetingMinutes.php">
+
+              <span>Minutes</span>
+
+            </a>
+
+          </li>
+
           <li>
 
             <a href="communityMailingList.php">
