@@ -126,50 +126,6 @@
                   </div>
                 </li>";
                 }
-
-
-
-
-                // $result = pg_query("SELECT year_of_upload FROM document_management WHERE community_id=$community_id GROUP BY year_of_upload ORDER BY year_of_upload DESC");
-
-                // while($row = pg_fetch_assoc($result))
-                // {
-                
-                // $year_of_upload = $row['year_of_upload'];
-                
-                // echo "<li class='time-label'>
-                  
-                //   <span class='bg-red'>".$year_of_upload."</span>
-
-                // </li> 
-
-                // <li>
-          
-                //   <div class='timeline-item'>
-
-                //     <div class='timeline-body container-fluid'>";
-                  
-                //       if($community_id == 2)
-                //         $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload AND url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year_of_upload."_%'");
-
-                //       while($row1 = pg_fetch_assoc($result1))
-                //       {
-
-                //         $desc = $row1['description'];
-                //         $document_url = $row1['url'];
-
-                //         echo "<div class='row container-fluid'><a href='https://hoaboardtime.com/getDocumentPreviewTest.php?t=-2&path=$document_url&desc=$desc' target='_blank'>$desc</a></div>";
-
-                //       }
-
-                //     echo "</div>
-                    
-                //   </div>
-                  
-                // </li>";
-
-                // }
-
               ?>
 
             </ul>
