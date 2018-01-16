@@ -790,7 +790,6 @@
 
                         $query = "SELECT * FROM COMMUNITY_INVOICES WHERE VENDOR_ID=".$vendor_id." AND community_id=$community_id ORDER BY invoice_date DESC";
                         $QueryResponse = pg_query($query);
-                        print_r($query);
                         while ($row = pg_fetch_assoc($QueryResponse)) {
                           if ( isset($row['document_id']) ) {
                             $description = '<a href="https://hoaboardtime.com/documentPreview.php?path='.$row['invoice_id'].'&desc='.$row['invoice_id'].'">'.$row['invoice_id'].'</a>';
