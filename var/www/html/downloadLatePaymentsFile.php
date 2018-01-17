@@ -13,9 +13,9 @@ else {
 date_default_timezone_set('America/Los_Angeles');
 if ( $_GET['id'] ){
 
-	$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
-	$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
-	$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+  $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
 
 
