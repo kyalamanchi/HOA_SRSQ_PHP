@@ -24,7 +24,7 @@ else {
 
 
 	else {
-		print_r("An error occured.");
+		print_r("An error occured. No community id provided");
 		exit(0);
 	}
 
