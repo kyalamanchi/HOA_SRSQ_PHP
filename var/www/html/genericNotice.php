@@ -108,6 +108,12 @@ $message  = "Generating Inspection Notice...Please Wait...";
   echo 'data: '.$message."\n\n";  
   ob_end_flush();
   flush();
+
+    $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
+
   //Dropbox Upload
   $url = 'https://content.dropboxapi.com/2/files/upload';
   $ch = curl_init($url);
@@ -119,7 +125,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
 else if ( $homeID < 287 ){
 	$pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
 	}
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
