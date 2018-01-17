@@ -57,7 +57,7 @@ $communityCode = $row['community_code'];
 
 $path = "/Legal Documents/".$communityCode."/".$fileName;
 
- $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+ $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
   $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
   $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
@@ -142,7 +142,7 @@ $communityCode = $row['community_code'];
 	
 if ( $fileContent ){
 
-   $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+   $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
   $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
   $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
@@ -207,7 +207,7 @@ else if ( $parseJSON[0]->file_type == "minutes" ){
     $row = pg_fetch_assoc($queryResult);
     $communityCode = $row['community_code'];
 
-     $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+     $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
   $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
   $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
@@ -291,7 +291,7 @@ else if ( $parseJSON[0]->file_type == "contracts"){
     $row = pg_fetch_assoc($queryResult);
     $communityCode = $row['community_code'];
 
-     $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+     $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
   $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
   $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
@@ -375,7 +375,7 @@ else if ( $parseJSON[0]->file_type == 'invoices' ){
   $row = pg_fetch_assoc($queryResult);
   $communityCode = $row['community_code'];
 
-   $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+   $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
   $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
   $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
