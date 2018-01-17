@@ -14,9 +14,9 @@
 	else {
     	$dropboxInsertUserID = 401;
 	}
-
-	$accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
-
+	$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+	$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+	$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
 	$path = $_GET['path'];
 	$description = $_GET['desc'];
