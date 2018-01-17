@@ -151,14 +151,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 }
-// $url = 'https://content.dropboxapi.com/2/files/upload';
-// $ch = curl_init($url);
-// $fileContents = file_get_contents($hoaID.'.zip');
-// $pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$hoaID.'.zip';
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-// curl_exec($ch);
+
 //Deleting pdf & tab files
 unlink($hoaID.'.pdf');
 unlink($hoaID.'.tab');
