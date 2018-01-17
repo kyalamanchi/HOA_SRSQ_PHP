@@ -37,11 +37,18 @@ if (true){
 		$file = fopen($name, "w");
 		fwrite($file, base64_decode($fileData));
 		fclose($file);
+
+  		$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+  		$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  		$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
+
+
 		$url = 'https://content.dropboxapi.com/2/files/upload';
 		$fileContents = file_get_contents($name);
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Inspection_Attachments/'.date('Y').'/'.$fileName.'","mode": "add","autorename": true,"mute": false}'));
 		curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
     	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		$response = curl_exec($ch);
