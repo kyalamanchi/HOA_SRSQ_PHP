@@ -265,6 +265,11 @@ if ( $homeDS < 144 ){
 else if( $homeDS < 287 ){
     $commID = 2;
 }
+$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
+
 $message  = "Generating Statement for home id ".$homeDS."...Please Wait...";
 echo 'data: '.$message."\n\n";  
 if (ob_get_contents())
@@ -292,7 +297,7 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
@@ -310,11 +315,17 @@ if ( !pg_query($dropboxInsertQuery) ){
 
 }
 else if ( $homeDS < 287 ){
-    $url = 'https://content.dropboxapi.com/2/files/upload';
+
+$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
+
+$url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
