@@ -167,7 +167,7 @@ if ($zip->open($violationID.'.zip',  ZipArchive::CREATE)) {
 $zip->addFile('data.pdf', 'data.pdf');
 $zip->addFile('data.tab', 'data.tab');
 $zip->close();
- $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$community_id;
+ $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
   $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
   $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 $url = 'https://content.dropboxapi.com/2/files/upload';
