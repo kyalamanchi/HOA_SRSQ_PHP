@@ -312,29 +312,17 @@ echo 'data: '.$message."\n\n";
 if (ob_get_contents())
 ob_end_flush();
 flush();
-if ( $homeDS < 144 ){
-$url = 'https://content.dropboxapi.com/2/files/upload';
-$fileContents = file_get_contents($finalHOAID.'.pdf');
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
-curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-$response = curl_exec($ch);
-curl_close($ch);
-unlink($finalHOAID.'.pdf');
-unlink($finalHOAID.'.tab');
 
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRP/".date('Y')."/PDF/".$finalHOAID.".pdf','".date('Y-m-d H:i:s')."')";
-pg_query($dropboxInsertQuery);
+if ( $homeDS < 287 && $homeDS > 143 ){
+ $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
-}
-else if ( $homeDS < 287 ){
     $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
@@ -351,25 +339,15 @@ echo 'data: '.$message."\n\n";
 if (ob_get_contents())
 ob_end_flush();
 flush();
-if ( $homeDS < 144){
-$url = 'https://content.dropboxapi.com/2/files/upload';
-$fileContents = file_get_contents($finalHOAID.'.zip');
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
-curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-$response = curl_exec($ch);
-curl_close($ch);
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRP/".date('Y')."/ZIP/".$finalHOAID.".zip','".date('Y-m-d H:i:s')."')";
-pg_query($dropboxInsertQuery);
-}
-else if ( $homeDS < 287 ){
+if ( $homeDS < 287 && $homeDS > 143){
+     $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
     $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.zip');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);

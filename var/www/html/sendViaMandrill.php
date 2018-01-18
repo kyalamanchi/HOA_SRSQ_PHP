@@ -34,10 +34,15 @@ $message  = curl_exec($req);
 	// echo 'data: '.$message."\n\n";  
 	ob_end_flush();
 	flush();
+
+	$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  	$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  	$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$_GET['hoaid'].'.pdf"}'));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$_GET['hoaid'].'.pdf"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
@@ -47,32 +52,20 @@ $message  = curl_exec($req);
 
 	}
 
-	else if ( $communityIDD == 1 ){
-	$message = "Fetching file...Please wait...";
-	// echo 'data: '.$message."\n\n";  
-	ob_end_flush();
-	flush();
-	$url = 'https://content.dropboxapi.com/2/files/download';
-	$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/PDF/'.$_GET['hoaid'].'.pdf"}'));
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-	$response = curl_exec($ch);
-	$fileContents = base64_encode($response);
-	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Billing_Statements/SRSQ/".date('Y')."/PDF/".$_GET['hoaid'].".pdf','".date('Y-m-d H:i:s')."')";
-	pg_query($dropboxInsertQuery);	
-	}
 
 
 	//Upload file content to Dropbox Sent Emails Folders
 
+	$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  	$dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  	$accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
 	$url = 'https://content.dropboxapi.com/2/files/upload';
 	$random = mt_rand();
 
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$random.'.pdf","mode": "add","autorename": true,"mute": false}'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Sent Files/'.$random.'.pdf","mode": "add","autorename": true,"mute": false}'));
     curl_setopt($ch, CURLOPT_POSTFIELDS, $response); 
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     $response = curl_exec($ch);

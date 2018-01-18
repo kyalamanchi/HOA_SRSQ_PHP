@@ -56,11 +56,16 @@ $message  = "Fetching Inspection Notice...Please Wait...";
 if ( ($_GET['id']) && ($_GET['doc_id']) ){
 $hoaID = $_GET['id'];
 $documentID = $_GET['doc_id'];
+
+  $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
 //Downloading document from Dropbox
 $url = 'https://content.dropboxapi.com/2/files/download';
  $ch = curl_init($url);
  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
- curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "'.$documentID.'"}'));
+ curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$documentID.'"}'));
  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
  $response = curl_exec($ch);
  curl_close($ch);
@@ -146,14 +151,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 }
-// $url = 'https://content.dropboxapi.com/2/files/upload';
-// $ch = curl_init($url);
-// $fileContents = file_get_contents($hoaID.'.zip');
-// $pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$hoaID.'.zip';
-// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
-// curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-// curl_exec($ch);
+
 //Deleting pdf & tab files
 unlink($hoaID.'.pdf');
 unlink($hoaID.'.tab');

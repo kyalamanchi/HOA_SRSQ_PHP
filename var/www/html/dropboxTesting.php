@@ -13,7 +13,7 @@
 
 	<?php
 		
-		$cheaders = array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF',
+		$cheaders = array('Authorization: Bearer ',
                     'Content-Type: application/json');
 
 		$ch = curl_init('https://api.dropboxapi.com/2/paper/docs/list');

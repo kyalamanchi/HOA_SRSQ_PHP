@@ -10,10 +10,12 @@
 
             $fileID = $parsJSON[0]->pdf_id;
 
+            $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+            $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+            $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
             //Download file from dropbox
 
-            $accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
             $url = 'https://content.dropboxapi.com/2/files/download';
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');

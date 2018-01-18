@@ -4,7 +4,13 @@
   $fp = fopen($path, 'rb');
   $size = filesize($path);
 
-  $cheaders = array('Authorization: Bearer QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF',
+  include 'includes/dbconn.php';
+  $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
+
+  $cheaders = array('Authorization: Bearer '.$accessToken,
                     'Content-Type: application/octet-stream',
                     'Dropbox-API-Arg: {"path":"/'.$path.'", "mode":"add"}');
 

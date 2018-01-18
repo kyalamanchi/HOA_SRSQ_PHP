@@ -11,6 +11,7 @@
   <head>
 	
     <?php
+      date_default_timezone_set('America/Los_Angeles');
 
       if(@!$_SESSION['hoa_username'])
       	header("Location: https://hoaboardtime.com/logout.php");
@@ -99,7 +100,7 @@
 
         	$total_customers = $row['count'];
 
-        	$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id"));
+        	$row = pg_fetch_assoc(pg_query("SELECT amount FROM assessment_amounts WHERE community_id=$community_id   AND year=".date('Y')));
 
         	$assessment_amount = $row['amount'];
 

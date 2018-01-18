@@ -47,9 +47,9 @@
     
     <div class="wrapper">
 
-      <?php if($mode == 1) include "boardHeader.php"; ?>
+      <?php if($mode == 1) include "boardHeader.php"; else if($mode == 2) include "residentHeader.php"; ?>
       
-      <?php if($mode == 1) include 'boardNavigationMenu.php'; ?>
+      <?php if($mode == 1) include 'boardNavigationMenu.php'; else if($mode == 2) include "residentNavigationMenu.php"; ?>
 
       <?php include 'zenDeskScript.php'; ?>
 
@@ -136,7 +136,7 @@
 
                           if($document_id != "")
                           {
-                            $document = "<a href='getDocumentPreviewTest.php?path=$document_url&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file'></i></a>";
+                            $document = "<a href='documentPreview.php?path=$document_id&desc=$description&cid=$community_id' target='_blank'><i class='fa fa-file'></i></a>";
                           }
 
                           if($civilcode_section != '')

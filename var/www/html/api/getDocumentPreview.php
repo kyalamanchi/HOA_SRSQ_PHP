@@ -12,18 +12,11 @@ else {
     $dropboxInsertUserID = 401;
 }
 
-	if($_GET['cid'] == 1)
-	{
-		
-		$accessToken = '0gTJRfMcSHAAAAAAAAAADNfolm5IYvkINbXQpejgF8X2Hoy_6kXOlJemzq1a-588';
 
-	}
-	else if($_GET['cid'] == 2)
-	{
-		
-		$accessToken = 'QwUjEm5GAkAAAAAAAAAAN-KemUHI72QOlDsQxtH6H9JlRixSoi1fqq7D7BCHrNFm';
 
-	}
+  $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$_GET['cid'];
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
 	$path = $_GET['path'];
 	$description = $_GET['desc'];

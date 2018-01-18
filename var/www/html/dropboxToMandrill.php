@@ -16,12 +16,18 @@ $subject = $_GET['subject'];
 $messageBody = $_GET['body'];
 $documentID = $_GET['docid'];
 $toEmails = $_GET['email'];
-if ($_GET['hoaid']){	
+if ($_GET['hoaid']){
+
+  $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
+
+
 	$message = "Fetching file...Please wait...";
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Dropbox-API-Arg: {"path": "'.$documentID.'"}'));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "'.$documentID.'"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);

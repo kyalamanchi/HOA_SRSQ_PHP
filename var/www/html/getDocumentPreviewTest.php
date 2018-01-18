@@ -16,29 +16,16 @@ else {
 }
 	if ( isset($_GET['cid']) ){
 
-	if($_GET['cid'] == 1)
-	{
-		
-		$accessToken = '0gTJRfMcSHAAAAAAAAAADNfolm5IYvkINbXQpejgF8X2Hoy_6kXOlJemzq1a-588';
-
-	}
-	else if($_GET['cid'] == 2)
-	{
-		
-		$accessToken = 'QwUjEm5GAkAAAAAAAAAAN-KemUHI72QOlDsQxtH6H9JlRixSoi1fqq7D7BCHrNFm';
-
-	}
+	$dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=".$_GET['cid'];
+  $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));
+  $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 
 	}
 
 
-
-	if ( $_GET['t'] == -1){
-		$accessToken = 'n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB';
-	}
-
-	else if (  $_GET['t'] == -2 ){
-		$accessToken = 'GzqVivbSGFAAAAAAAAAC1oFMaa1UDMQ81y-mT2e0tdlt22AKxJ5_AaLCPRryNqDn';
+	else {
+		print_r("An error occured. No community id provided");
+		exit(0);
 	}
 
 	$path = $_GET['path'];

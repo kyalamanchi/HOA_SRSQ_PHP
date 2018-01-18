@@ -61,6 +61,26 @@
 
       </li>
 
+      <li class="treeview">
+              
+        <a href="communityDisclosures.php">
+
+          <i class='fa fa-file'></i> <span>Disclosures</span>
+
+        </a>
+
+      </li>
+
+      <li class="treeview">
+              
+        <a href="communityMeetingMinutes.php">
+
+          <i class='fa fa-file'></i> <span>Minutes</span>
+
+        </a>
+
+      </li>
+
       <li class="header text-center"> Other Links </li>
 
       <li class="treeview">
@@ -82,6 +102,7 @@
         </a>
 
       </li>
+
 
     </ul>
 
