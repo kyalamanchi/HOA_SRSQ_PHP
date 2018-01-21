@@ -206,7 +206,7 @@
                 $fname = $row['firstname'];
                 $lname = $row['lastname'];
                 @$email = $row['email'];
-                @$cell_no = $row['cell_no'];
+                @$cell_no = base64_decode($row['cell_no']);
 
                 $result = pg_query("SELECT * FROM homeid WHERE home_id=".$home_id);
 
