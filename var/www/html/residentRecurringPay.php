@@ -229,7 +229,7 @@
                 @$row = pg_fetch_assoc($result);
                 @$state = $row['state_code'];
 
-                $result=pg_query("SELECT * FROM assessment_amounts WHERE community_info_community_id=".$community_id);
+                $result=pg_query("SELECT * FROM assessment_amounts WHERE community_info_community_id=".$community_id." AND year=".date('Y'));
 
                 $row = pg_fetch_assoc($result);
 
