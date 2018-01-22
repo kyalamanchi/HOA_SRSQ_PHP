@@ -211,7 +211,7 @@
           $fname = $row['firstname'];
           $lname = $row['lastname'];
           @$email = $row['email'];
-          @$cell_no = $row['cell_no'];
+          @$cell_no = base64_decode($row['cell_no']);
 
           $result = pg_query("SELECT * FROM homeid WHERE home_id=".$home_id);
 
@@ -234,7 +234,7 @@
           @$row = pg_fetch_assoc($result);
           @$state = $row['state_code'];
 
-          $result=pg_query("SELECT * FROM assessment_amounts WHERE community_info_community_id=".$community_id);
+          $result=pg_query("SELECT * FROM assessment_amounts WHERE community_info_community_id=".$community_id." AND year=".date('Y'));
 
           $row = pg_fetch_assoc($result);
 
