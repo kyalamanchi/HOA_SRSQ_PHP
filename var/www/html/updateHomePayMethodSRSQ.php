@@ -48,16 +48,21 @@ foreach ($result->results as $schedule) {
 	if ( $schedule->schedule_status == 'active') {
 		//Getting right schedule amount
 		$url = "https://api.forte.net/v3/schedules/";
-		$url = $url.$schedule->schedule_id."/scheduleitems";
-		print_r($url);
-		print_r(nl2br("\n\n"));
-		// $ch = curl_init($url);
-		// curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-		// curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
-		// curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		// $result = curl_exec($ch);
-		// curl_close($ch);
-		// $schedule = json_decode($result);
+		$url = $url.$schedule->schedule_id."/scheduleitems?page_size=10000";		
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$result = curl_exec($ch);
+		curl_close($ch);
+		$schedule = json_decode($result);
+		foreach ($result->results as $scheduleItem) {
+			# code...
+			if ( $scheduleItem->schedule_item_status == 'scheduled' ) {
+				print_r($scheduleItem->schedule_item_amount );
+				print_r(nl2br("\n\n\n"));
+			}
+		}
 
 	}
 	
