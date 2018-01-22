@@ -61,6 +61,7 @@ foreach ($result->results as $schedule) {
 			if ( $scheduleItem->schedule_item_status == 'scheduled' ) {
 				print_r($scheduleItem->schedule_item_amount );
 				print_r(nl2br("\n\n\n"));
+				break;
 			}
 		}
 
