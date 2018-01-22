@@ -46,8 +46,17 @@ if ( $result->number_results <= 10000){
 foreach ($result->results as $schedule) {
 
 	if ( $schedule->schedule_status == 'active') {
+		$url =  "https://api.forte.net/v3/schedules/".$schedule->schedule_id."/scheduleitems?page_size=10000";
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$scheduleItemResult = curl_exec($ch);
+		print_r($scheduleItemResult);
+		print_r(nl2br("\n\n\n"));
+		print_r(json_decode($scheduleItemResult));
+		print_r(nl2br("\n\n\n"));
 		//Getting right schedule amount
-
 		// foreach ($result23->results as $scheduleItem) {
 		// 	# code...
 
