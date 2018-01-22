@@ -59,6 +59,7 @@ foreach ($result->results as $schedule) {
 			if ( $scheduleItemsList->schedule_item_status == 'scheduled') {
 				print_r($scheduleItemsList);
 				print_r(nl2br("\n\n"));
+				break;
 			}
 
 		}
