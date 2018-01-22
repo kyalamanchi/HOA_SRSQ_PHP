@@ -52,10 +52,14 @@ foreach ($result->results as $schedule) {
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 		$scheduleItemResult = curl_exec($ch);
-		print_r($scheduleItemResult);
-		print_r(nl2br("\n\n\n"));
-		print_r(json_decode($scheduleItemResult));
-		print_r(nl2br("\n\n\n"));
+
+		$scheduleItemResult = json_decode($scheduleItemResult);
+
+		foreach ($scheduleItemResult->results as $scheduleItemsList) {
+			print_r($scheduleItemsList);
+			print_r(nl2br("\n\n"));
+		}
+
 		//Getting right schedule amount
 		// foreach ($result23->results as $scheduleItem) {
 		// 	# code...
