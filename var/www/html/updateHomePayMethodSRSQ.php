@@ -50,7 +50,18 @@ foreach ($result->results as $schedule) {
 	if ( $schedule->schedule_summary->schedule_remaining_quantity == 0){
 		$completedSchedules[$schedule->schedule_id] = 0;
 	}
+
+
+
 	if ( $schedule->schedule_summary->schedule_remaining_quantity > 1){
+
+		if ( $schedule->schedule_status == 'active') {
+			print_r("Active Schedule");
+			print_r($schedule);
+			print_r(nl2br("\n\n"));
+		}
+
+
 		$remainingMonth = $schedule->schedule_summary->schedule_remaining_quantity;
 		$rm = "+".$remainingMonth." months";
 		$day = date('d',strtotime($schedule->schedule_start_date));
