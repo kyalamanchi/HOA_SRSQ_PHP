@@ -56,8 +56,11 @@ foreach ($result->results as $schedule) {
 		$scheduleItemResult = json_decode($scheduleItemResult);
 
 		foreach ($scheduleItemResult->results as $scheduleItemsList) {
-			print_r($scheduleItemsList);
-			print_r(nl2br("\n\n"));
+			if ( $scheduleItemsList->schedule_item_status == 'scheduled') {
+				print_r($scheduleItemsList);
+				print_r(nl2br("\n\n"));
+			}
+
 		}
 
 		//Getting right schedule amount
