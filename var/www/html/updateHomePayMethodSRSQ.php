@@ -44,6 +44,12 @@ $failedScheduleIDS = array();
 $completedSchedules = array();
 if ( $result->number_results <= 10000){
 foreach ($result->results as $schedule) {
+
+	if ( $schedule->schedule_status == 'active') {
+			print_r("Active Schedule");
+			print_r($schedule);
+			print_r(nl2br("\n\n"));
+	}
 	
 	$clientIDS[$schedule->customer_token] = 1;
 
