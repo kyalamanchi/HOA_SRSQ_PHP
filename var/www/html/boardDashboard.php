@@ -405,7 +405,7 @@
 
                       $total_needed = $assessment_amount * 12 * $total_customers;
 
-                      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id"));
+                      $row = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_payments WHERE payment_status_id=1 AND community_id=$community_id WHERE year=$year"));
                       $total_received = $row['sum'];
 
                     ?>
