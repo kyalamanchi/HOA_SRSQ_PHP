@@ -53,15 +53,15 @@ foreach ($result->results as $schedule) {
 		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 		curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		$result = curl_exec($ch);
+		$result23 = curl_exec($ch);
 		curl_close($ch);
-		$schedule = json_decode($result);
-		foreach ($result->results as $scheduleItem) {
+		$result23 = json_decode($result);
+		foreach ($result23->results as $scheduleItem) {
 			# code...
 			if ( $scheduleItem->schedule_item_status == 'scheduled' ) {
 				print_r($scheduleItem->schedule_item_amount );
 				print_r(nl2br("\n\n\n"));
-				break;
+				break;	
 			}
 		}
 
