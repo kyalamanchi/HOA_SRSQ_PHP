@@ -56,14 +56,17 @@ foreach ($result->results as $schedule) {
 		$result23 = curl_exec($ch);
 		curl_close($ch);
 		$result23 = json_decode($result);
-		foreach ($result23->results as $scheduleItem) {
-			# code...
-			if ( $scheduleItem->schedule_item_status == 'scheduled' ) {
-				print_r($scheduleItem->schedule_item_amount );
-				print_r(nl2br("\n\n\n"));
-				break;	
-			}
-		}
+		print_r($result23);
+		print_r(nl2br("\n\n"));
+		// foreach ($result23->results as $scheduleItem) {
+		// 	# code...
+
+		// 	// if ( $scheduleItem->schedule_item_status == 'scheduled' ) {
+		// 	// 	print_r($scheduleItem->schedule_item_amount );
+		// 	// 	print_r(nl2br("\n\n\n"));
+		// 	// 	break;	
+		// 	// }
+		// }
 
 	}
 	
