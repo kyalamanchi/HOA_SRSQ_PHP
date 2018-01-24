@@ -61,6 +61,10 @@
 
       </li>
 
+      <li class="header text-center"> Other Links </li>
+
+      
+
       <li class="treeview">
               
         <a href="communityDisclosures.php">
@@ -81,8 +85,6 @@
 
       </li>
 
-      <li class="header text-center"> Other Links </li>
-
       <li class="treeview">
               
         <a href='residentQuickPay.php'>
@@ -95,7 +97,7 @@
 
       <li class="treeview">
 
-        <a>
+        <a href='residentRecurringPay.php'>
 
           <i class='fa fa-repeat'></i> <span>Recurring Pay</span>
               
