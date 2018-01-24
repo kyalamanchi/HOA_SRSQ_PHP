@@ -44,20 +44,52 @@ $failedScheduleIDS = array();
 $completedSchedules = array();
 if ( $result->number_results <= 10000){
 foreach ($result->results as $schedule) {
+
+
 	
 	$clientIDS[$schedule->customer_token] = 1;
 
 	if ( $schedule->schedule_summary->schedule_remaining_quantity == 0){
 		$completedSchedules[$schedule->schedule_id] = 0;
 	}
+
+
+
 	if ( $schedule->schedule_summary->schedule_remaining_quantity > 1){
+
+		if ( $schedule->schedule_status == 'active') {
+		$url =  "https://api.forte.net/v3/schedules/".$schedule->schedule_id."/scheduleitems?page_size=10000";
+		$ch = curl_init($url);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		$scheduleItemResult = curl_exec($ch);
+
+		$scheduleItemResult = json_decode($scheduleItemResult);
+
+		foreach ($scheduleItemResult->results as $scheduleItemsList) {
+			if ( $scheduleItemsList->schedule_item_status == 'scheduled') {
+				$updateAmount = $scheduleItemsList->schedule_item_amount;
+				break;
+			}
+			}
+		}
+
+		if ( !isset($updateAmount) ) { 
+			$updateAmount = $schedule->schedule_amount;
+		}
+
 		$remainingMonth = $schedule->schedule_summary->schedule_remaining_quantity;
 		$rm = "+".$remainingMonth." months";
 		$day = date('d',strtotime($schedule->schedule_start_date));
 		$scheduleExpiry = date('Y-m-d', strtotime($rm,strtotime(date('Y-m-'.$day))));
-		$updateQuery = "UPDATE home_pay_method SET payment_type_id=1,community_id=2,hoa_id=".$schedule->customer_id.",clientid='".$schedule->customer_token."',sch_start='".date('Y-m-d',strtotime($schedule->schedule_start_date))."',sch_end='".$scheduleExpiry."',sch_expires='".$scheduleExpiry."',next_sch='".date('Y-m-d',strtotime($schedule->schedule_summary->schedule_next_date))."',sch_create_date='".date('Y-m-d',strtotime($schedule->schedule_created_date))."',schedule_qty='".$schedule->schedule_quantity."',no_sch_succ_compltd='".$schedule->schedule_summary->schedule_successful_quantity."',sch_amt=".$schedule->schedule_amount.",sch_status='".$schedule->schedule_status."',sch_frequency='".$schedule->schedule_frequency."',updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE home_id=".$homeIDSARRAY[$schedule->customer_id];
+		$updateQuery = "UPDATE home_pay_method SET payment_type_id=1,community_id=2,hoa_id=".$schedule->customer_id.",clientid='".$schedule->customer_token."',sch_start='".date('Y-m-d',strtotime($schedule->schedule_start_date))."',sch_end='".$scheduleExpiry."',sch_expires='".$scheduleExpiry."',next_sch='".date('Y-m-d',strtotime($schedule->schedule_summary->schedule_next_date))."',sch_create_date='".date('Y-m-d',strtotime($schedule->schedule_created_date))."',schedule_qty='".$schedule->schedule_quantity."',no_sch_succ_compltd='".$schedule->schedule_summary->schedule_successful_quantity."',sch_amt=".$updateAmount.",sch_status='".$schedule->schedule_status."',sch_frequency='".$schedule->schedule_frequency."',updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE home_id=".$homeIDSARRAY[$schedule->customer_id];
 		// print_r($updateQuery.nl2br("\n\n"));
+
+
+		if ( pg_query($updateQuery) ){
 		$updateCount  = $updateCount + 1;
+		}
 
 	}
 	else if ( $schedule->schedule_summary->schedule_remaining_quantity == 1) {
@@ -94,7 +126,30 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 			$finalHoaID = $schedule->xdata->xdata_1;
 		}
 
-		$updateQuery = "UPDATE home_pay_method SET payment_type_id=1,community_id=2,hoa_id=".$finalHoaID.",clientid='".$schedule->customer_token."',sch_start='".date('Y-m-d',strtotime($schedule->schedule_start_date))."',sch_end='".$scheduleExpiry."',sch_expires='".$scheduleExpiry."',next_sch='".date('Y-m-d',strtotime($schedule->schedule_summary->schedule_next_date))."',sch_create_date='".date('Y-m-d',strtotime($schedule->schedule_created_date))."',schedule_qty='".$schedule->schedule_quantity."',no_sch_succ_compltd='".$schedule->schedule_summary->schedule_successful_quantity."',sch_amt=".$schedule->schedule_amount.",sch_status='".$schedule->schedule_status."',sch_frequency='".$schedule->schedule_frequency."',updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE home_id=".$homeIDSARRAY[$finalHoaID];
+		if ( $schedule->schedule_status == 'active') {
+		$url2 =  "https://api.forte.net/v3/schedules/".$schedule->schedule_id."/scheduleitems?page_size=10000";
+		$ch2 = curl_init($url2);
+		curl_setopt($ch2, CURLOPT_CUSTOMREQUEST, 'GET');
+		curl_setopt($ch2, CURLOPT_HTTPHEADER, array('content-type: application/json','x-forte-auth-organization-id: org_332536','authorization: Basic ZjNkOGJhZmY1NWM2OTY4MTExNTQ2OTM3ZDU0YTU1ZGU6Zjc0NzdkNTExM2EwNzg4NTUwNmFmYzIzY2U2MmNhYWU='));
+		curl_setopt($ch2, CURLOPT_RETURNTRANSFER, TRUE);
+		$scir2 = curl_exec($ch2);
+
+		$scir2 = json_decode($scir2);
+
+		foreach ($scir2->results as $sil2) {
+			if ( $sil2->schedule_item_status == 'scheduled') {
+				$updateAmount = $sil2->schedule_item_amount;
+				break;
+			}
+			}
+		}
+
+		if ( !isset($updateAmount) ) { 
+			$updateAmount = $schedule->schedule_amount;
+		}
+
+
+		$updateQuery = "UPDATE home_pay_method SET payment_type_id=1,community_id=2,hoa_id=".$finalHoaID.",clientid='".$schedule->customer_token."',sch_start='".date('Y-m-d',strtotime($schedule->schedule_start_date))."',sch_end='".$scheduleExpiry."',sch_expires='".$scheduleExpiry."',next_sch='".date('Y-m-d',strtotime($schedule->schedule_summary->schedule_next_date))."',sch_create_date='".date('Y-m-d',strtotime($schedule->schedule_created_date))."',schedule_qty='".$schedule->schedule_quantity."',no_sch_succ_compltd='".$schedule->schedule_summary->schedule_successful_quantity."',sch_amt=".$updateAmount.",sch_status='".$schedule->schedule_status."',sch_frequency='".$schedule->schedule_frequency."',updated_on='".date('Y-m-d H:i:s')."',updated_by=401 WHERE home_id=".$homeIDSARRAY[$finalHoaID];
 		// print_r($updateQuery.nl2br("\n\n"));
 		if (pg_query($updateQuery)){
 			$updateCount  = $updateCount + 1;
