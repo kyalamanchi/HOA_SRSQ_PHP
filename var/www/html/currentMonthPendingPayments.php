@@ -127,6 +127,8 @@
                           $email = $row1['email'];
                           $cell_no = $row1['cell_no'];
 
+                          $cell_no = base64_decode($cell_no);
+
                           $row1 = pg_fetch_assoc(pg_query("SELECT sum(amount) FROM current_charges WHERE hoa_id=$hoa_id AND home_id=$home_id"));
                           $charges = $row1['sum'];
 
