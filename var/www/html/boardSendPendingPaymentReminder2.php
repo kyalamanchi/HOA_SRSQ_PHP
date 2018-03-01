@@ -17,7 +17,7 @@
 		echo $_POST['home_id_'.$i]."<br>";
 
 
-	$to = "geethchadalawada@gmail.com";
+	$to = "";
 
     switch ($community_id) {
         case 2:

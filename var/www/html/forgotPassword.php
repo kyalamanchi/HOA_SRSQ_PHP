@@ -328,7 +328,7 @@
                     else
                     {
 
-                      $to = $reset_email;#"geethchadalawada@gmail.com";#
+                      $to = $reset_email;
 
                       $otp = rand(100000,1000000);
 

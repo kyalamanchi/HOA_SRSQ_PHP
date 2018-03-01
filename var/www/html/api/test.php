@@ -26,8 +26,6 @@
 
 		<meta charset='UTF-8'>
 		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
-		<meta name='description' content='HOA Alchemy User Features'>
-		<meta name='author' content='Geeth'>
 
 		<title><?php echo $community_code; ?> - User Page</title>
 
