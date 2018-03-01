@@ -7,9 +7,9 @@
 </body>
 </html>
 <?php
-$email = 'dhivysh@gmail.com';
+$email = '';
 $currentdate = date("Y/m/d");
-$name = 'dhivysh';
+$name = '';
 $address = 'Address';
 include 'includes/dbconn.php';
 if ( true ) {

@@ -1,6 +1,6 @@
 <?php
 $id = $_GET['id'];
-$email = "dhivysh@gmail.com";
+$email = "";
 include 'includes/dbconn.php';
 if ( true ) {
    $query = "select hoa_id,home_id,firstname,lastname,email from hoaid where hoa_id=".$_GET['id'];
