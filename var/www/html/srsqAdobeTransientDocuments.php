@@ -3,8 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 print_r(phpversion());
 date_default_timezone_set('America/Los_Angeles');
-$dbconnection = pg_connect("host=srq.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-if ($dbconnection){
+include 'includes/dbconn.php';
+
+if (1){
 //Connection success
 $query = "SELECT * FROM community_transient_documents WHERE  COMMUNITY_ID=2";
 $results = pg_query($query);

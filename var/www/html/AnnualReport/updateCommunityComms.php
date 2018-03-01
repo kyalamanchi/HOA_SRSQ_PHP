@@ -2,8 +2,7 @@
 
 	session_start();
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
+include 'includes/dbconn.php';
 	$community_id = $_SESSION['hoa_alchemy_community_id'];
 	$hoa_id = $_SESSION['hoa_alchemy_hoa_id'];
 	$user_id = $_SESSION['hoa_alchemy_user_id'];

@@ -1,7 +1,6 @@
 <?php
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
+include 'includes/dbconn.php';
 	$date = date("Y-m-d H:i:s");
 	$enter_otp = $_POST['enter_otp'];
 	$hoa_id = $_POST['hoa_id'];

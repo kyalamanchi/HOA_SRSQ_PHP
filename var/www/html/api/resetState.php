@@ -5,8 +5,7 @@
 	if(!$_SESSION['hoa_alchemy_hoa_id'])
 		header("Location: logout.php");
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
+include 'includes/dbconn.php';
 	$mailing_country = $_SESSION['mailing_country'];
 	$mailing_state = $_SESSION['mailing_state'];
 

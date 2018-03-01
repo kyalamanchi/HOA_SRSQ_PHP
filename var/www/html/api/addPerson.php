@@ -2,8 +2,7 @@
 
 	session_start();
 
-	pg_connect("host=hoapgtest.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
-
+include 'includes/dbconn.php';
 	$firstname = $_POST['add_person_firstname'];
 	$lastname = $_POST['add_person_lastname'];
 	$email = $_POST['add_person_email'];
