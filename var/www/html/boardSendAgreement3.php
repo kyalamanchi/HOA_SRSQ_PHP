@@ -19,19 +19,19 @@
 
 			case 1:
 				
-				header("Location: https://hoaboardtime.com/srsqBoardEmailConsent.php?id=$hoa_id");
+				header("Location: https://hoaboardtime.com/qBoardEmailConsent.php?id=$hoa_id");
 				
 				break;
 
 			case 2:
 
-				header("Location: https://hoaboardtime.com/srsqBoardPool.php?id=$hoa_id");
+				header("Location: https://hoaboardtime.com/qBoardPool.php?id=$hoa_id");
 
 				break;
 
 			case 4:
 				
-				header("Location: https://hoaboardtime.com/srsqBoardCollectionPolicy.php?id=$hoa_id");
+				header("Location: https://hoaboardtime.com/qBoardCollectionPolicy.php?id=$hoa_id");
 				
 				break;
 		}
