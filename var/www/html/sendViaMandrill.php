@@ -11,6 +11,7 @@ header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set("America/Los_Angeles");
 
 include 'includes/dbconn.php';
+include 'includes/api_keys.php';
 
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);
@@ -102,12 +103,12 @@ $message  = curl_exec($req);
 	$fileName = $_GET['hoaid'].'_account_statement_'.date('Y-m-d H:i:s').'.pdf';
 
 	if ( $comID == 2 ){
-	$mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));
+	$mailingData = array("key" => $m_api_key_3, "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));
 
 	}
 	else if ( $comID == 1 ){
 		$subject = "Stoneridgeplace HOA Account Statement - ".$_GET['hoaid'];
-		$mailingData = array("key" => "NRqC1Izl9L8aU-lgm_LS2A", "message" => array("html" => "<br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"send_at"=>"2000-01-01 00:00:00"));
+		$mailingData = array("key" => $m_api_key_2, "message" => array("html" => "<br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"send_at"=>"2000-01-01 00:00:00"));
 	}
 	$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/send.json");

@@ -4,7 +4,8 @@ ini_set('display_errors', 1);
 header("Content-Type: text/event-stream\n\n");
 date_default_timezone_set('America/Los_Angeles');
 
-include 'includes/dbconn.php';$message  = "Please Wait...";
+include 'includes/dbconn.php';
+$message  = "Please Wait...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();

@@ -1,6 +1,7 @@
 <?php
 
 	ini_set("session.save_path","/var/www/html/session/");
+	include 'includes/api_keys.php';
 
     session_start();
 
@@ -23,7 +24,7 @@
         case 2:
             $community = 'SRSQ';
             $cnote = "Stoneridge Square HOA";
-            $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+            $api_key = $m_api_key;
             $from = 'info@stoneridgesquare.org';
             break;
     }

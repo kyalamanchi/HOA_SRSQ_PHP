@@ -4,6 +4,7 @@
 date_default_timezone_set('America/Los_Angeles');
 
 include 'includes/dbconn.php';
+include 'includes/api_keys.php';
 
 $query = "SELECT api_mail_id FROM community_emails_sent ";
 $queryResult = pg_query($query);
@@ -16,7 +17,7 @@ while ($row = pg_fetch_assoc($queryResult)) {
 
 
 $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
-$api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
+$api_key = $m_api_key_3;
 	$postString = '{
     "key": "'.$api_key.'",
     "query": "stoneridgesquare.org",

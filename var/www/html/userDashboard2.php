@@ -3,6 +3,7 @@
   ini_set("session.save_path","/var/www/html/session/");
 
   session_start();
+  include 'includes/api_keys.php';
 
 ?>
 
@@ -1151,7 +1152,7 @@
                                 date_default_timezone_set('America/Los_Angeles');
                                 $uri = 'https://mandrillapp.com/api/1.0/messages/search.json';
                                 if($community_id == 2)
-                                  $api_key = 'cYcxW-Z8ZPuaqPne1hFjrA';
+                                  $api_key = $m_api_key_3;
 
                                 $resss = pg_query("SELECT * FROM person WHERE hoa_id=$hoa_id");
                                 

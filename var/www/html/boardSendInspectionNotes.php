@@ -7,6 +7,7 @@
 	$community_id = $_SESSION['hoa_community_id'];
 
 	include 'includes/dbconn.php';
+	include 'includes/api_keys.php';
 
 	$id = $_POST['id'];
 	$date = $_POST['date'];
@@ -38,7 +39,7 @@
 	        case 2:
 	            $community = 'SRSQ';
 	            $cnote = "Stoneridge Square HOA";
-	            $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+	            $api_key = $m_api_key;
 	            $from = 'info@stoneridgesquare.org';
 	            break;
 	    }

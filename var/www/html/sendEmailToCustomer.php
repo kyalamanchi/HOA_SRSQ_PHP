@@ -3,6 +3,7 @@
 	ini_set("session.save_path","/var/www/html/session/");
 
   	session_start();
+	include 'includes/api_keys.php';
 
 	$community_id = $_SESSION['hoa_community_id'];
 
@@ -26,14 +27,14 @@
         case 1:
             //$community = 'SRP';
             //$cnote = "Stoneridgeplace HOA";
-            $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+            $api_key = $m_api_key_2;
             $from = 'info@stoneridgeplace.org';
             break;
 
         case 2:
             //$community = 'SRSQ';
             //$cnote = "Stoneridge Square HOA";
-            $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+            $api_key = $m_api_key;
             $from = 'info@stoneridgesquare.org';
             break;
     }

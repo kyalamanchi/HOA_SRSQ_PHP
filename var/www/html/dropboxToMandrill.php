@@ -11,6 +11,7 @@ else {
 }
 
 include 'includes/dbconn.php';
+include 'includes/api_keys.php';
 $fileContents = "";
 $subject = $_GET['subject'];
 $messageBody = $_GET['body'];
@@ -56,7 +57,7 @@ if ($_GET['hoaid']){
 	$queryResult = pg_query($query);
 	$row = pg_fetch_assoc($queryResult);
 	$legalName = $row['legal_name'];
-	$mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Hello ".$name.", </b><br><br>Inspection deficiency, please address this issue ASAP.<br><br>Thanks,<br>Stoneridge Square Board","subject" => $subject,"from_email" => "info@stoneridgesquare.org","from_name" => $legalName,"to" => array(array("email"=>$toEmails,"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "attachment.pdf","content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));	
+	$mailingData = array("key" => $m_api_key_3, "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Hello ".$name.", </b><br><br>Inspection deficiency, please address this issue ASAP.<br><br>Thanks,<br>Stoneridge Square Board","subject" => $subject,"from_email" => "info@stoneridgesquare.org","from_name" => $legalName,"to" => array(array("email"=>$toEmails,"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "attachment.pdf","content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));	
 	$ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/send.json");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);

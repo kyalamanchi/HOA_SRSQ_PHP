@@ -9,6 +9,7 @@
       session_start();
 
       include 'includes/dbconn.php';
+      include 'includes/api_keys.php';
 
       $community_id = 2;
 
@@ -337,7 +338,7 @@
                         case 2:
                           $community = 'SRSQ';
                           $cnote = "Stoneridge Square HOA";
-                          $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+                          $api_key = $m_api_key;
                           $from = 'info@stoneridgesquare.org';
                             break;
                             

@@ -1,8 +1,7 @@
 <?php 
 
 include 'includes/dbconn.php';
-
-// $srsqkey = "cYcxW-Z8ZPuaqPne1hFjrA";
+include 'includes/api_keys.php';
 
 $query = "SELECT * FROM COMMUNITY_EMAILS_SENT WHERE COMMUNITY_ID = 2 AND API_MAIL_ID IS NOT NULL";
 
@@ -12,7 +11,7 @@ while ($row = pg_fetch_assoc($queryResult)) {
 
 
 
-$sendData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA","id" => $row['api_mail_id']);
+$sendData = array("key" => $m_api_key_3,"id" => $row['api_mail_id']);
 
 $sendData = json_encode($sendData);
 

@@ -5,6 +5,7 @@
 			$parsJSON = json_decode($data);
 			
             include 'includes/dbconn.php';
+			include 'includes/api_keys.php';
 
             $hoaID = $parsJSON[0]->hoa_id;
 
@@ -82,7 +83,7 @@
 
                     $subject  = "Inspection Notice  - ".$hrow['address1'];
 
-                    $mailingData = array("key" => "cYcxW-Z8ZPuaqPne1hFjrA", "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Hello ".$row['firstname'].' '.$row['lastname'].", </b><br><br>Inspection deficiency, please address this issue ASAP.<br><br>Thanks,<br>".$row23['legal_name'],"subject" => $subject,"from_email" => $row23['email'],"from_name" => $row23['legal_name'],"to" => array(array("email"=>$toEmail,"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "inspection_notice.pdf","content" => $fileData)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00")); 
+                    $mailingData = array("key" => $m_api_key_3, "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Hello ".$row['firstname'].' '.$row['lastname'].", </b><br><br>Inspection deficiency, please address this issue ASAP.<br><br>Thanks,<br>".$row23['legal_name'],"subject" => $subject,"from_email" => $row23['email'],"from_name" => $row23['legal_name'],"to" => array(array("email"=>$toEmail,"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => "inspection_notice.pdf","content" => $fileData)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00")); 
 
                     $ch = curl_init();
                     curl_setopt($ch, CURLOPT_URL, "https://mandrillapp.com/api/1.0/messages/send.json");

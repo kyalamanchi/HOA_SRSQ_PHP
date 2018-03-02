@@ -1002,10 +1002,10 @@
 
                       $result3 = curl_exec($ch);
                       $json_decode3 = json_decode($result3,TRUE);
-                      $srsq_third_Account = $json_decode3['Account'];
-                      $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+                      $s_t_a = $json_decode3['Account'];
+                      $s_t_a_Balance = $s_t_a['CurrentBalance'];
 
-                      echo "Savings : <strong>$ ".$srp_primary_Savings_CurrentBalance."</strong><br>Checkings : <strong>$ ".$srp_savings."</strong><br>Investments : <strong>$ ".$srsq_third_Account_Balance."</strong>";
+                      echo "Savings : <strong>$ ".$srp_primary_Savings_CurrentBalance."</strong><br>Checkings : <strong>$ ".$srp_savings."</strong><br>Investments : <strong>$ ".$s_t_a_Balance."</strong>";
                     }
 
                   ?>

@@ -5,6 +5,7 @@
     session_start();
 
     include 'includes/dbconn.php';
+	include 'includes/api_keys.php';
  
     $reset_email = $_REQUEST['forgot_password_email'];
 
@@ -27,7 +28,7 @@
             
             $community = 'SRP';
             $cnote = "Stoneridgeplace HOA";
-            $api_key = 'NRqC1Izl9L8aU-lgm_LS2A';
+            $api_key = $m_api_key_2;
             $from = 'info@stoneridgeplace.org';
             
             break;
@@ -36,7 +37,7 @@
             
             $community = 'SRSQ';
             $cnote = "Stoneridge Square HOA";
-            $api_key = 'MO3K0X3fhNe4qFMX6jOTOw';
+            $api_key = $m_api_key;
             $from = 'info@stoneridgesquare.org';
             
             break;
