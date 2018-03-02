@@ -103,8 +103,8 @@
 
         $result3 = curl_exec($ch);
         $json_decode3 = json_decode($result3,TRUE);
-        $srsq_third_Account = $json_decode3['Account'];
-        $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+        $s_t_a = $json_decode3['Account'];
+        $s_t_a_Balance = $s_t_a['CurrentBalance'];
             
       }
 
@@ -217,7 +217,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              <h1 class='text-info'><strong>$ ".round($srsq_third_Account_Balance, 0)."</strong></h1>
+                              <h1 class='text-info'><strong>$ ".round($s_t_a_Balance, 0)."</strong></h1>
 
                             </a>
 

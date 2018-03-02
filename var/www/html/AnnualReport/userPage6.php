@@ -79,8 +79,8 @@
 
         $result3 = curl_exec($ch);
         $json_decode3 = json_decode($result3,TRUE);
-        $srsq_third_Account = $json_decode3['Account'];
-        $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+        $s_t_a = $json_decode3['Account'];
+        $s_t_a_Balance = $s_t_a['CurrentBalance'];
             
     }
 
@@ -3389,7 +3389,7 @@
 
 																				<div class='counter-number'>
 
-																					".round($srsq_third_Account_Balance, 0)."
+																					".round($s_t_a_Balance, 0)."
 
 																				</div>
 
@@ -3740,7 +3740,7 @@
 
 																				<div class='counter-number'>
 
-																					".round($srsq_third_Account_Balance, 0)."
+																					".round($s_t_a_Balance, 0)."
 
 																				</div>
 

@@ -340,12 +340,12 @@
 
                       $result3 = curl_exec($ch);
                       $json_decode3 = json_decode($result3,TRUE);
-                      $srsq_third_Account = $json_decode3['Account'];
-                      $srsq_third_Account_Balance = $srsq_third_Account['CurrentBalance'];
+                      $s_t_a = $json_decode3['Account'];
+                      $s_t_a_Balance = $s_t_a['CurrentBalance'];
 
                       echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Checkings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Savings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Investments</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srsq_third_Account_Balance."</a></strong></div>";
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$s_t_a_Balance."</a></strong></div>";
                     }
 
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
