@@ -249,9 +249,9 @@
                           $result = curl_exec($ch);
 
                           $json_Decode = json_decode($result,TRUE);
-                          $srp_Deposits = $json_Decode['QueryResponse'];
+                          $deposite_json = $json_Decode['QueryResponse'];
 
-                          foreach ($srp_Deposits['Deposit'] as $Deposit) {
+                          foreach ($deposite_json['Deposit'] as $Deposit) {
                               
                             echo "<tr><td>".date('m-d-Y', strtotime(nl2br($Deposit['TxnDate'])))."</td><td>".nl2br($Deposit['DepositToAccountRef']['name'])."</td><td>$ ".nl2br($Deposit['TotalAmt'])."</td><td>".nl2br($Deposit['PrivateNote'])."</td></tr>";
 
