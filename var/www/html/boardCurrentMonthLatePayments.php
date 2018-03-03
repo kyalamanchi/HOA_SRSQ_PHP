@@ -21,6 +21,7 @@
         $user_id=$_SESSION['hoa_user_id'];
 
         include 'includes/dbconn.php';
+        include 'includes/globalvar.php';
 
         $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
         $num_row = pg_num_rows($result);
@@ -196,11 +197,8 @@
               <ul class="sidebar-menu">
             
                 <?php if($community_id == 2)
-                echo "<li class='header text-center'>
-
-                  <img src='srsq_logo.JPG'>
-
-                </li>"; ?>
+                echo "<li class='header text-center'>".$communtiy_logo."</li>"
+                ; ?>
             
                 <li class="header text-center"> Quick Links </li>
 
