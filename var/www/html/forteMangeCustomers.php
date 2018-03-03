@@ -49,7 +49,7 @@ function deleteCustomer(button){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "https://hoaboardtime.com/deleteSrsqForteCustomer.php", true);
+  request.open("POST", "https://hoaboardtime.com/deleteForteCustomer.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   request.onreadystatechange = function () {
