@@ -37,7 +37,7 @@ function hidePleaseWait() {
 
 function modifyCustomer(button){
   // window.alert(button.id);
-  var url  = "https://hoaboardtime.com/modifyForteCustomerSRSQ.php?id="+button.id;
+  var url  = "https://hoaboardtime.com/modifyForteCustomer.php?id="+button.id;
   window.location = url;
 }
 
