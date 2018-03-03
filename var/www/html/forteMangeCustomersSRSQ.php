@@ -99,7 +99,7 @@ function createCustomer(){
           $customerToken = $customer->customer_token;
           echo '<tr>';
           echo '<td>';
-          echo '<a href="https://hoaboardtime.com/viewCustomerTransactionsSRSQ.php?id='.$customer->customer_token.'">'.$customer->customer_id.'</a>';
+          echo '<a href="https://hoaboardtime.com/viewCustomerTransactions.php?id='.$customer->customer_token.'">'.$customer->customer_id.'</a>';
           echo '</td>';
           echo '<td>';
           echo $customer->display_name;
