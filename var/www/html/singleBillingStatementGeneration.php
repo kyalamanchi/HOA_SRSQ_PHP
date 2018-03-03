@@ -12,6 +12,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 require('fpdf/fpdf.php');
 include 'includes/dbconn.php';
+include 'includes/globalvar.php';
 $pageNumber = -1;
 $finalHOAID = -1;
 $finalHOMEID = -1;
@@ -322,7 +323,7 @@ if ( $homeDS < 287 && $homeDS > 143 ){
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
@@ -330,7 +331,7 @@ curl_close($ch);
 unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/".$community_name."/".date('Y')."/PDF/".$finalHOAID.".pdf','".date('Y-m-d H:i:s')."')";
 pg_query($dropboxInsertQuery);
 
 }
@@ -347,13 +348,13 @@ if ( $homeDS < 287 && $homeDS > 143){
 $fileContents = file_get_contents($finalHOAID.'.zip');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
 
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip','".date('Y-m-d H:i:s')."')";
+$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','/Billing_Statements/".$community_name."/".date('Y')."/ZIP/".$finalHOAID.".zip','".date('Y-m-d H:i:s')."')";
 pg_query($dropboxInsertQuery);
 
 }

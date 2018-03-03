@@ -50,7 +50,7 @@
 
       <header class="main-header">
         
-        <a href="https://hoaboardtime.com/srsq.php" class="logo">
+        <a href="https://hoaboardtime.com/" class="logo">
           
           <span class="logo-mini">SRSQ</span>
           
