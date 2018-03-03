@@ -62,7 +62,7 @@ function updateCustomerData(button){
   }
 }
 function cancel(){
-  window.location = "https://hoaboardtime.com/forteMangeCustomersSRSQ.php";
+  window.location = "https://hoaboardtime.com/forteMangeCustomers.php";
 }
 </script>
 </head>
