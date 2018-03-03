@@ -51,7 +51,7 @@ function updateCustomerData(button){
   jsonObj.push(item);
   lol =  JSON.stringify(jsonObj);
   var request= new XMLHttpRequest();
-  request.open("POST", "https://hoaboardtime.com/updateCustomerDataBGSRSQ.php", true);
+  request.open("POST", "https://hoaboardtime.com/updateCustomerDataBG.php", true);
   request.setRequestHeader("Content-type", "application/json");
   request.send(lol);
   request.onreadystatechange = function () {

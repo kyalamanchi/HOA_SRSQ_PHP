@@ -80,7 +80,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPayments.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -96,7 +96,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethod.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -201,7 +201,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreements.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -218,7 +218,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreements.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -235,7 +235,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreements.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -374,7 +374,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPaymentsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateCurrentPayments.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -390,7 +390,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethodSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateHomePayMethod.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -494,7 +494,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateAgreements.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -511,7 +511,7 @@ ob_end_flush();
 flush();
 
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignAgreements.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
@@ -527,7 +527,7 @@ echo 'data: '.$message."\n\n";
 ob_end_flush();
 flush();
 $req = curl_init();
-curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreementsSRSQ.php");
+curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/updateMegaSignChildAgreements.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
 $message  = curl_exec($req);
 echo 'data: '.$message."\n\n";  
