@@ -41,7 +41,7 @@ function changeOptions2(button){
     if( button.id == 1 ){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetails.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
     request.send(null);
     request.onreadystatechange = function(){
     if (request.readyState == XMLHttpRequest.DONE){
@@ -82,7 +82,7 @@ function changeOptions2(button){
     else if  ( button.id == 2 ){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetails.php?id="+button.id+"&data1="+document.getElementById("data1").value+"&data2="+document.getElementById("data2").value,true);
     request.send(null);
     request.onreadystatechange = function(){
     if (request.readyState == XMLHttpRequest.DONE){
@@ -123,7 +123,7 @@ function changeOptions2(button){
     else if  ( button.id == 3 ){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetails.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
     request.send(null);
     request.onreadystatechange = function(){
     
@@ -165,7 +165,7 @@ function changeOptions2(button){
     else if ( button.id == 4){
     $('#example').dataTable().fnClearTable();
     var request = new XMLHttpRequest();
-    request.open("POST","https://hoaboardtime.com/forteFullLoadDetailsSRSQ.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
+    request.open("POST","https://hoaboardtime.com/forteFullLoadDetails.php?id="+button.id+"&data1="+document.getElementById("data1").value,true);
     request.send(null);
     request.onreadystatechange = function(){
     
