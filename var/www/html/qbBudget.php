@@ -1,6 +1,7 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
 include 'includes/dbconn.php';
+include 'includes/globalvar.php';
 $req = curl_init();
 curl_setopt($req, CURLOPT_URL,"https://hoaboardtime.com/qbProfitLossMonth.php");
 curl_setopt($req, CURLOPT_RETURNTRANSFER, true);
@@ -89,7 +90,7 @@ th, td {
         <center><h4><span class="notbold">Stoneridge Square Association</span></h4></center>
         <br>
         <center><h4>Budget Vs Actuals</h4></center>
-        <center><h4><span class="notbold"><?php echo 'SRSQ 2017'?></span></h4></center>
+        <center><h4><span class="notbold"><?php echo $community_name.' 2017'?></span></h4></center>
         <br>
         <br>
 <table id="example" class="cell-border" cellspacing="0" width="100%">

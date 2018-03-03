@@ -17,6 +17,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
   ob_end_flush();
   flush();
  	include 'includes/dbconn.php';
+ 	include 'includes/globalvar.php';
 	if ( true ){
 	$query = "SELECT * FROM COMMUNITY_INFO";
 	$queryResult = pg_query($query);
@@ -123,7 +124,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
   $pathVar = '/Inspection_Notices/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
 }
 else if ( $homeID < 287 ){
-	$pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
+	$pathVar = '/Inspection_Notices/'.$community_name.'/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
 	}
   curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "'.$pathVar.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
