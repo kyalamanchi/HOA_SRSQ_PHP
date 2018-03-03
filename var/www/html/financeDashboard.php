@@ -60,6 +60,8 @@
 
       if($community_id == 2)
       {
+
+        echo $oauth_consumer_key;
                       
         $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/33?minorversion=8');      
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
