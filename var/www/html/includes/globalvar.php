@@ -2,7 +2,7 @@
 
 	$community_name = 'SRSQ';
 
-	$communtiy_logo = '/includes/srsq_logo.JPG';
+	$communtiy_logo = "<img src='/includes/srsq_logo.JPG' alt='SRSQ_Logo'>";
 
 ?>
 
