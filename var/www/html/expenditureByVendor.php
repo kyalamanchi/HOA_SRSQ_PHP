@@ -22,6 +22,7 @@
       $mode = $_SESSION['hoa_mode'];
 
       include 'includes/dbconn.php';
+      include 'includes/api_keys.php';
 
     ?>
 
