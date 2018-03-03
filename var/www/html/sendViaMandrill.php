@@ -12,6 +12,7 @@ date_default_timezone_set("America/Los_Angeles");
 
 include 'includes/dbconn.php';
 include 'includes/api_keys.php';
+include 'includes/globalvar.php';
 
 $query = "SELECT email FROM community_info WHERE community_id = 2";
 $queryResult = pg_query($query);
@@ -43,12 +44,12 @@ $message  = curl_exec($req);
 	$url = 'https://content.dropboxapi.com/2/files/download';
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$_GET['hoaid'].'.pdf"}'));
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/PDF/'.$_GET['hoaid'].'.pdf"}'));
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	$response = curl_exec($ch);
 	$fileContents = base64_encode($response);
 
-	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Billing_Statements/SRSQ/".date('Y')."/PDF/".$_GET['hoaid'].".pdf','".date('Y-m-d H:i:s')."')";
+	$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'DOWNLOAD','/Billing_Statements/".$community_name."/".date('Y')."/PDF/".$_GET['hoaid'].".pdf','".date('Y-m-d H:i:s')."')";
 	pg_query($dropboxInsertQuery);	
 
 	}
@@ -103,7 +104,7 @@ $message  = curl_exec($req);
 	$fileName = $_GET['hoaid'].'_account_statement_'.date('Y-m-d H:i:s').'.pdf';
 
 	if ( $comID == 2 ){
-	$mailingData = array("key" => $m_api_key_3, "message" => array("html" => "<center><img src=\"cid:srsq\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => "srsq","content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));
+	$mailingData = array("key" => $m_api_key_3, "message" => array("html" => "<center><img src=\"cid:".$mandrill_cid."\" alt=\"Community Logo\"></center><br><b>Attached is your account statement  for ".date('M-Y')."</b><br><br>","subject" => $subject,"from_email" => $communityEmail,"from_name" => $legalName,"to" => array(array("email"=>$_GET['email'],"name"=>$name)),"improtant"=>"true","track_opens" => "true","track_clicks" => "true","attachments" => array(array("type" => "application/pdf","name" => $fileName,"content" => $fileContents)),"images"=>array( array("type" => "image/jpg","name" => $mandrill_cid,"content" => $communityLogo) ),"send_at"=>"2000-01-01 00:00:00"));
 
 	}
 	else if ( $comID == 1 ){
