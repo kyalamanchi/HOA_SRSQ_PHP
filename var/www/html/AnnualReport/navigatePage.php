@@ -8,9 +8,7 @@
 	session_destroy();
 	session_regenerate_id(true);
 
-	if($community_id == 1)
-		header("Location: https://stoneridgeplace.com");
-	else if($community_id == 2)
+	if($community_id == 2)
 		header("Location: https://hoaboardtime.com");
 
 ?>
