@@ -19,6 +19,7 @@
       $user_id=$_SESSION['hoa_user_id'];
 
       include 'includes/dbconn.php';
+      include 'includes/globalvar.php';
 
       $mode = $_SESSION['hoa_mode'];
 

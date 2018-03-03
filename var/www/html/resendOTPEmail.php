@@ -6,6 +6,7 @@
 
     include 'includes/dbconn.php';
 	include 'includes/api_keys.php';
+    include 'includes/globalvar.php';
  
     $reset_email = $_REQUEST['forgot_password_email'];
 

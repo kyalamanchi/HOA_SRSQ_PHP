@@ -3,6 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 $jsonData = json_decode(file_get_contents('php://input'));
 
 include 'includes/dbconn.php';
+include 'includes/globalvar.php';
 
 $hoaID =  $jsonData->hoa_id;
 $noticeName =  $jsonData->notice_name;
@@ -65,7 +66,7 @@ $inspectionStatus = 1;
 	$docid = curl_exec($req);
 	if ( $docid ){
 	$subject = "Inspection Notice";
-	$body  = "<center><img src=\"cid:srsq\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
+	$body  = "<center><img src=\"cid:".$mandrill_cid."\"></center><br>During regular inspection we found that property was out of compliance with the rules and regulations of the community. Inspection notice is attached with this email.<br>";
 	$docID = $result;
 	$email = $toEmail;
 	$req = curl_init();
