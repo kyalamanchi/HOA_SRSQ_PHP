@@ -52,7 +52,11 @@
         
         <a href="https://hoaboardtime.com/" class="logo">
           
+<<<<<<< HEAD
           <span class="logo-mini"><?php echo $m_community; ?></span>
+=======
+          <span class="logo-mini"></span>
+>>>>>>> 950b373b8ada46ad28d804ae2ca3e98a171b29d3
           
           <span class="logo-lg"><?php echo $m_cnote; ?></span>
 

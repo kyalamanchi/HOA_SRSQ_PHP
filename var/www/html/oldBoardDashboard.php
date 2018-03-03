@@ -311,8 +311,8 @@
                             
                       $result = curl_exec($ch);
                       $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+                      $var_primarySavings = $json_decode['Account'];
+                      $var_current_balance = $var_primarySavings['CurrentBalance'];
                             
                       curl_close($ch);
 
@@ -324,12 +324,12 @@
                             
                       $result2 = curl_exec($ch);
                       $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings_balance = $srp['CurrentBalance'];
+                      $var = $json_decode2['Account'];
+                      $var_savings_balance = $var['CurrentBalance'];
 
                       echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Savings</div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'>Checkings</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_savings_balance."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_current_balance."</a></strong></div>";
+                      echo "<div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$var_savings_balance."</a></strong></div><div class='col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$var_current_balance."</a></strong></div>";
                     }
                     else if($community_id == 2)
                     {
@@ -341,8 +341,8 @@
 
                       $result = curl_exec($ch);
                       $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+                      $var_primarySavings = $json_decode['Account'];
+                      $var_primary_Savings_CurrentBalance = $var_primarySavings['CurrentBalance'];
 
                       curl_close($ch);
 
@@ -354,8 +354,8 @@
 
                       $result2 = curl_exec($ch);
                       $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings = $srp['CurrentBalance'];
+                      $var = $json_decode2['Account'];
+                      $var_savings = $var['CurrentBalance'];
 
                       curl_close($ch);
 
@@ -372,7 +372,7 @@
 
                       echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Checkings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Savings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Investments</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$s_t_a_Balance."</a></strong></div>";
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$var_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$var_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='https://hoaboardtime.com/boardCommunityDeposits.php'>$ ".$s_t_a_Balance."</a></strong></div>";
                     }
 
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));

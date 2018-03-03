@@ -976,8 +976,8 @@
 
                       $result = curl_exec($ch);
                       $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+                      $var_primarySavings = $json_decode['Account'];
+                      $var_primary_Savings_CurrentBalance = $var_primarySavings['CurrentBalance'];
 
                       curl_close($ch);
 
@@ -989,8 +989,8 @@
 
                       $result2 = curl_exec($ch);
                       $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings = $srp['CurrentBalance'];
+                      $var = $json_decode2['Account'];
+                      $var_savings = $var['CurrentBalance'];
 
                       curl_close($ch);
 
@@ -1005,7 +1005,7 @@
                       $s_t_a = $json_decode3['Account'];
                       $s_t_a_Balance = $s_t_a['CurrentBalance'];
 
-                      echo "Savings : <strong>$ ".$srp_primary_Savings_CurrentBalance."</strong><br>Checkings : <strong>$ ".$srp_savings."</strong><br>Investments : <strong>$ ".$s_t_a_Balance."</strong>";
+                      echo "Savings : <strong>$ ".$var_primary_Savings_CurrentBalance."</strong><br>Checkings : <strong>$ ".$var_savings."</strong><br>Investments : <strong>$ ".$s_t_a_Balance."</strong>";
                     }
 
                   ?>

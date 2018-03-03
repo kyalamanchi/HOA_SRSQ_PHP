@@ -288,29 +288,7 @@ echo 'data: '.$message."\n\n";
 if (ob_get_contents())
 ob_end_flush();
 flush();
-if ( $homeDS < 144 ){
-$url = 'https://content.dropboxapi.com/2/files/upload';
-$fileContents = file_get_contents($finalHOAID.'.pdf');
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRP/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
-curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-$response = curl_exec($ch);
-curl_close($ch);
-unlink($finalHOAID.'.pdf');
-unlink($finalHOAID.'.tab');
-
-$dropboxPath = "/Billing_Statements/SRP/".date('Y')."/PDF/".$finalHOAID.".pdf";
-$dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
-if ( !pg_query($dropboxInsertQuery) ){
-    print_r("Failed to insert to dropbox_stats");
-    print_r(nl2br("\n\n"));
-}
-
-
-}
-else if ( $homeDS < 287 ){
+if ( $homeDS < 287 ){
 
 $dropboxQuery = "SELECT oauth2_key FROM dropbox_api WHERE community_id=2";
 $dropboxQueryResult = pg_fetch_assoc(pg_query($dropboxQuery));

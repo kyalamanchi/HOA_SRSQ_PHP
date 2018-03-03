@@ -76,8 +76,8 @@ include 'includes/dbconn.php';
                             
         $result = curl_exec($ch);
         $json_decode = json_decode($result,TRUE);
-        $srp_primarySavings = $json_decode['Account'];
-        $srp_current_balance = $srp_primarySavings['CurrentBalance'];
+        $var_primarySavings = $json_decode['Account'];
+        $var_current_balance = $var_primarySavings['CurrentBalance'];
                             
         curl_close($ch);
 
@@ -89,8 +89,8 @@ include 'includes/dbconn.php';
                             
         $result2 = curl_exec($ch);
         $json_decode2 = json_decode($result2,TRUE);
-        $srp = $json_decode2['Account'];
-        $srp_savings_balance = $srp['CurrentBalance'];
+        $var = $json_decode2['Account'];
+        $var_savings_balance = $var['CurrentBalance'];
 
     }
     else if($community_id == 2)
@@ -103,8 +103,8 @@ include 'includes/dbconn.php';
 
         $result = curl_exec($ch);
         $json_decode = json_decode($result,TRUE);
-        $srp_primarySavings = $json_decode['Account'];
-        $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+        $var_primarySavings = $json_decode['Account'];
+        $var_primary_Savings_CurrentBalance = $var_primarySavings['CurrentBalance'];
 
         curl_close($ch);
 
@@ -116,8 +116,8 @@ include 'includes/dbconn.php';
 
         $result2 = curl_exec($ch);
         $json_decode2 = json_decode($result2,TRUE);
-        $srp = $json_decode2['Account'];
-        $srp_savings = $srp['CurrentBalance'];
+        $var = $json_decode2['Account'];
+        $var_savings = $var['CurrentBalance'];
 
         curl_close($ch);
 

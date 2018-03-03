@@ -24,14 +24,7 @@
 
     switch ($community_id) 
     {
-    	case 1:
-            
-            $community = 'SRP';
-            $cnote = "Stoneridgeplace HOA";
-            $api_key = $m_api_key_2;
-            $from = 'info@stoneridgeplace.org';
-            
-            break;
+    	
 
     	case 2:
             
