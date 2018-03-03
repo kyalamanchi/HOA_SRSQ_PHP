@@ -89,7 +89,7 @@
         $ch  = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/account/31?minorversion=8');
                       
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="'.$oauth_consumer_key.'",oauth_token="'.$oauth_token.'",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="'.$oauth_signature3.'"'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('User-Agent:Intuit-qbov3-postman-collection1','Accept:application/json','Authorization:OAuth oauth_consumer_key="'.$oauth_consumer_key.'",oauth_token="'.$oauth_token.'",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1506681985",oauth_nonce="H7DXVHb2Qdp",oauth_version="1.0",oauth_signature="'.$oauth_signature4.'"'));
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
         $result3 = curl_exec($ch);
