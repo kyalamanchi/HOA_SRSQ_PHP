@@ -19,7 +19,6 @@
 	$oauth_version = "1.0";
 	$oauth_signature = "Q6nh88OF70guXg8XN0Jlwcp2cnQ%3D";
 
-
 	$oauth_signature2 = "aEBIdXcJdXSWiLp5k9gxlVuvsbs%3D";
 	$oauth_signature3 = "5IDpz%2F%2FItyjMYbh4Ke3JoBx3YGY%3D";
 	$oauth_signature4 = "HDWt%2BfIz3NrAhJE9fO9G%2FI8Q%2Fcg%3D";
