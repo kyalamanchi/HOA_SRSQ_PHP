@@ -2,8 +2,8 @@
 	
 	require 'app/start.php';
 
-	$path = '/srsq_logo.JPG';
-	$description = 'srsq_logo.JPG';
+	$path = '/logo.JPG';
+	$description = 'logo.JPG';
 
 	$accessToken = 'QwUjEm5GAkAAAAAAAAAADocHK4CgCJoBl2A8-fe9Fs42E06qkDqJA2S9YPwGbZyF';
 

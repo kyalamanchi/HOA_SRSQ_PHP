@@ -120,7 +120,7 @@ $message  = "Generating Inspection Notice...Please Wait...";
   $fileContents = file_get_contents($homeAddress.'.pdf');
   unlink($homeAddress.'.pdf');
   if ( $homeID < 144 ){
-  $pathVar = '/Inspection_Notices/SRP/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
+  $pathVar = '/Inspection_Notices/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';
 }
 else if ( $homeID < 287 ){
 	$pathVar = '/Inspection_Notices/SRSQ/'.date('Y').'/'.$homeAddress.'_'.$_GET['id'].'.pdf';

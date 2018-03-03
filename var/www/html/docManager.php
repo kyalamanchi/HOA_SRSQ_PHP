@@ -6,9 +6,7 @@
 
 	$client = new Dropbox\Client($accessToken, $appName, 'UTF-8');
 
-	#$client->getFile('/srsq_logo.JPG', fopen('file.JPG', 'wb'));
 
-	#print_r($client->getMetaData("/SRSQ_HOA/Documents/Minutes"));
 
 	$path = '/SRSQ_HOA/Documents/VendorInvoices/SRSQ_USPS_VendorInvoices_2017_April_001245_Invoice_Approved.pdf';
 

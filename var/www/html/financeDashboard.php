@@ -54,7 +54,7 @@
 
     <script type="text/javascript">
       var dimensionValue1 = "'<?php echo $_SESSION['hoa_hoa_id'] ?>';
-      var dimensionValue2 = "SRSQ";
+      var dimensionValue2 = "";
       ga('create', 'UA-102881886-2', 'auto');
       ga('set', 'dimension1', dimensionValue1);
       ga('set', 'dimension2', dimensionValue2);
@@ -77,8 +77,8 @@
 
         $result = curl_exec($ch);
         $json_decode = json_decode($result,TRUE);
-        $srp_primarySavings = $json_decode['Account'];
-        $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+        $var_primarySavings = $json_decode['Account'];
+        $var_primary_Savings_CurrentBalance = $var_primarySavings['CurrentBalance'];
 
         curl_close($ch);
 
@@ -90,8 +90,8 @@
 
         $result2 = curl_exec($ch);
         $json_decode2 = json_decode($result2,TRUE);
-        $srp = $json_decode2['Account'];
-        $srp_savings = $srp['CurrentBalance'];
+        $var = $json_decode2['Account'];
+        $var_savings = $var['CurrentBalance'];
 
         curl_close($ch);
 
@@ -161,7 +161,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              <h1 class='text-info'><strong>$ ".round($srp_primary_Savings_CurrentBalance, 0)."</strong></h1>
+                              <h1 class='text-info'><strong>$ ".round($var_primary_Savings_CurrentBalance, 0)."</strong></h1>
 
                             </a>
 
@@ -189,7 +189,7 @@
 
                             <a href='https://hoaboardtime.com/communityIncome.php'>
 
-                              <h1 class='text-info'><strong>$ ".round($srp_savings, 0)."</strong></h1>
+                              <h1 class='text-info'><strong>$ ".round($var_savings, 0)."</strong></h1>
 
                             </a>
 
