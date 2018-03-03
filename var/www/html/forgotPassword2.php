@@ -51,7 +51,7 @@
         
         <a href="https://hoaboardtime.com/" class="logo">
           
-          <span class="logo-mini">SRSQ</span>
+          <span class="logo-mini"></span>
           
           <span class="logo-lg">Stoneridge Square Association</span>
 
