@@ -314,8 +314,8 @@
 
                       $result = curl_exec($ch);
                       $json_decode = json_decode($result,TRUE);
-                      $srp_primarySavings = $json_decode['Account'];
-                      $srp_primary_Savings_CurrentBalance = $srp_primarySavings['CurrentBalance'];
+                      $primarySavings = $json_decode['Account'];
+                      $var_primary_Savings_CurrentBalance = $primarySavings['CurrentBalance'];
 
                       curl_close($ch);
 
@@ -327,8 +327,8 @@
 
                       $result2 = curl_exec($ch);
                       $json_decode2 = json_decode($result2,TRUE);
-                      $srp = $json_decode2['Account'];
-                      $srp_savings = $srp['CurrentBalance'];
+                      $var = $json_decode2['Account'];
+                      $var_savings = $var['CurrentBalance'];
 
                       curl_close($ch);
 
@@ -345,7 +345,7 @@
 
                       echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Checkings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Savings</div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'>Investments</div></div><div class='row text-center'>";
 
-                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$srp_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$s_t_a_Balance."</a></strong></div>";
+                      echo "<div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$var_primary_Savings_CurrentBalance."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$var_savings."</a></strong></div><div class='col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4'><strong><a href='communityIncome.php'>$ ".$s_t_a_Balance."</a></strong></div>";
                     }
 
                     $documents = pg_num_rows(pg_query("SELECT * FROM document_management WHERE community_id=$community_id"));
