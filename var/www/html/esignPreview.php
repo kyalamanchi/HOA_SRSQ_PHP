@@ -3,6 +3,8 @@
 	ini_set("session.save_path","/var/www/html/session/");
 	session_start();
 
+	include "includes/api_keys.php";
+
     date_default_timezone_set('America/Los_Angeles');
 
 	header("Content-type: application/pdf");
@@ -15,7 +17,7 @@
 	curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
 
 	if($_SESSION['hoa_community_id'] == 2)
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Access-Token:3AAABLblqZhBbuoGJoQZXIMhISUIAnh7R_qmzGgn_COsBf1G0kXyDFiaXxE-oM8ZMaL1LPybdYz1U2gYXszLLzpLuenZ3Ojfm'));
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array('Access-Token:'.$echo_sign_access_token));
 
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 	

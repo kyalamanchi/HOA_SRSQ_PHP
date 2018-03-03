@@ -9,6 +9,7 @@
       session_start();
 
       include 'includes/dbconn.php';
+      include 'includes/api_keys.php';
 
       $community_id = 2;
 
@@ -25,7 +26,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <title>Stoneridge Square Association</title>
+    <title><?php echo $m_cnote; ?></title>
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -51,9 +52,9 @@
         
         <a href="https://hoaboardtime.com/" class="logo">
           
-          <span class="logo-mini">SRSQ</span>
+          <span class="logo-mini"><?php echo $m_community; ?></span>
           
-          <span class="logo-lg">Stoneridge Square Association</span>
+          <span class="logo-lg"><?php echo $m_cnote; ?></span>
 
         </a>
         
@@ -202,16 +203,6 @@
               </a>
 
             </li>
-
-            <li class="treeview">
-              
-              <a target='_blank' href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'>
-               
-                <i class='fa fa-envelope'></i> <span>Mailing List</span>
-
-              </a>
-
-            </li>
              
             <li class="treeview">
 
@@ -356,7 +347,7 @@
 
         <div class="pull-right hidden-xs"></div>
         
-        <strong>Copyright &copy; <?php echo date('Y'); ?> <a target='_blank' href="https://www.stoneridgesquare.org">Stoneridge Square Association</a>.</strong> All rights
+        <strong>Copyright &copy; <?php echo date('Y'); ?>.</strong> All rights
         reserved.
 
       </footer>
