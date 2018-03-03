@@ -54,7 +54,7 @@
 
     <script type="text/javascript">
       var dimensionValue1 = "'<?php echo $_SESSION['hoa_hoa_id'] ?>';
-      var dimensionValue2 = "SRSQ";
+      var dimensionValue2 = "";
       ga('create', 'UA-102881886-2', 'auto');
       ga('set', 'dimension1', dimensionValue1);
       ga('set', 'dimension2', dimensionValue2);

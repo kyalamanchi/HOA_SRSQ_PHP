@@ -35,7 +35,7 @@ function hidePleaseWait() {
 }
 
 function cancel(){
-  window.location = "https://hoaboardtime.com/forteMangeCustomersSRSQ.php";
+  window.location = "https://hoaboardtime.com/forteMangeCustomers.php";
 }
 function createCustomer(){
   showPleaseWait();
