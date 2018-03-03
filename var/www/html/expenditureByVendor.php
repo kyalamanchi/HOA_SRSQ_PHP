@@ -113,7 +113,7 @@
                       $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/reports/VendorExpenses?start_date=2017-01-01&end_date=2017-12-31');
                           // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
                           curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1515086555",oauth_nonce="23SDN9gEoIc",oauth_version="1.0",oauth_signature="Q6nh88OF70guXg8XN0Jlwcp2cnQ%3D"'));
+                          curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Authorization:OAuth oauth_consumer_key='.$oauth_consumer_key.',oauth_token='.$oauth_token.',oauth_signature_method='.$oauth_signature_method.',oauth_timestamp='.$oauth_timestamp.',oauth_nonce='.$oauth_nonce.',oauth_version='.$oauth_version.',oauth_signature='.$oauth_signature));
                           // curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from vendor");
                           curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                           $result = curl_exec($ch);
