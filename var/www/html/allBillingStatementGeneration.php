@@ -28,6 +28,7 @@ $currentChargesTotal  = 0;
 $currentPaymentsTotal = 0;
 $lastData  = array();
 include 'includes/dbconn.php';
+include 'includes/globalvar.php';
 $cityInfo = array();
 $stateInfo = array();
 $zipInfo = array();
@@ -48,16 +49,13 @@ $zipInfo[$row['zip_id']] = $row['zip_code'];
 }
 class PDF extends FPDF
 {
-function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTotal2,$homeID,$connection,$zipInfo,$stateInfo,$cityInfo,$commID)
+function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTotal2,$homeID,$zipInfo,$stateInfo,$cityInfo,$commID)
 {
 
     global $pageNumber,$finalHOAID,$finalHOMEID,$finalAddress1,$finalAddress2,$finalAddress3,$finalAddress4,$finalAddress5,$finalreturnAddress1,$finalreturnAddress2,$finalreturnAddress3,$finalreturnAddress4,$finalPayee;
     if ( $homeID > 287 ){
         $commID = 2;
     }
-
-    if($community_id == 2)
-        $connection = pg_connect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy");
 
     $z = "SELECT * FROM COMMUNITY_INFO WHERE COMMUNITY_ID = ".$commID;
     $g = pg_query($z);
@@ -76,7 +74,7 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
     }
 
     $q = "SELECT * FROM HOAID WHERE HOME_ID=".$homeID;
-    $r = pg_query($connection,$q);
+    $r = pg_query($q);
     $status = true;
     while($row = pg_fetch_assoc($r)){
         $hoaID = $row['hoa_id'];
@@ -84,7 +82,7 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
         $lname = $row['lastname'];
     }
     $q2 = "SELECT * FROM HOMEID WHERE HOME_ID=".$homeID."";
-    $r2 = pg_query($connection,$q2);
+    $r2 = pg_query($q2);
     while ($row = pg_fetch_assoc($r2)) {
         $status = $row['living_status'];
         if ( ($status == 'true') || ($status == 'TRUE') || ($status == 't') ){
@@ -95,7 +93,7 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
         }
         else {
         $q3 = "SELECT * FROM HOME_MAILING_ADDRESS WHERE HOME_ID=".$homeID;
-        $r3 = pg_query($connection,$q3);
+        $r3 = pg_query($q3);
         if ( $r3 ){
             while ($row = pg_fetch_assoc($r3)) {
             $address = $row['address1'];
@@ -170,8 +168,6 @@ function ImprovedTable($header, $data,$currentChargesTotal2,$currentPaymentsTota
      $pageNumber = $this->PageNo();
 }
 }
-$connection = pg_pconnect("host=srsq-only.crsa3tdmtcll.us-west-1.rds.amazonaws.com port=5432 dbname=SRP user=HOA_serviceID password=hoaalchemy")
-or die("Failed to connect to database");
 
 $homequery = "SELECT HOME_ID FROM HOMEID WHERE COMMUNITY_ID = 2 ORDER BY HOME_ID";
 $homequeryResult = pg_query($homequery);
@@ -275,7 +271,7 @@ echo 'data: '.$message."\n\n";
 if (ob_get_contents())
 ob_end_flush();
 flush();
-$pdf->ImprovedTable($header,$data,$currentChargesTotal,$currentPaymentsTotal,$homeDS,$connection,$zipInfo,$stateInfo,$cityInfo,$commID);
+$pdf->ImprovedTable($header,$data,$currentChargesTotal,$currentPaymentsTotal,$homeDS,$zipInfo,$stateInfo,$cityInfo,$commID);
 $pdf->Output($finalHOAID.'.pdf','F');
 $handler = fopen($finalHOAID.'.tab', 'w');
 $finalWriteData = "1"."\t".$finalAddress1."\t".$finalAddress2."\t".$finalAddress3." ".$finalAddress4." ".$finalAddress5."\t\t\t1\t".$pageNumber."\t".$finalHOAID.".pdf\t".$finalreturnAddress1."\t".$finalreturnAddress2." ".$finalreturnAddress3." ".$finalreturnAddress4."\t\t\t".$finalPayee;
@@ -325,7 +321,7 @@ $url = 'https://content.dropboxapi.com/2/files/upload';
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
@@ -334,7 +330,7 @@ unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 
 
-$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf";
+$dropboxPath = "/Billing_Statements/".$community_name."/".date('Y')."/PDF/".$finalHOAID.".pdf";
 $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
@@ -352,13 +348,13 @@ flush();
 $fileContents = file_get_contents($finalHOAID.'.zip');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer n-Bgs_XVPEAAAAAAAAEQYgvfkzJWzxx59jqgvKQeXbtsYt-eXdZ6BNRYivEGKVGB','Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
 
-$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip";
+$dropboxPath = "/Billing_Statements/".$community_name."/".date('Y')."/ZIP/".$finalHOAID.".zip";
 $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
@@ -368,7 +364,7 @@ if ( !pg_query($dropboxInsertQuery) ){
 }
 unlink($finalHOAID.'.zip');
 }
-pg_close($connection);
+pg_close();
 
 $response = json_decode($response);
 

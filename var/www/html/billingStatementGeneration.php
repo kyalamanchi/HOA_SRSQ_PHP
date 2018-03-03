@@ -31,6 +31,7 @@ $currentChargesTotal  = 0;
 $currentPaymentsTotal = 0;
 $lastData  = array();
 include 'includes/dbconn.php';
+include 'includes/globalvar.php';
 $cityInfo = array();
 $stateInfo = array();
 $zipInfo = array();
@@ -288,7 +289,7 @@ $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 $fileContents = file_get_contents($finalHOAID.'.pdf');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/PDF/'.$finalHOAID.'.pdf'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
@@ -298,7 +299,7 @@ unlink($finalHOAID.'.pdf');
 unlink($finalHOAID.'.tab');
 
 
-$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/PDF/".$finalHOAID.".pdf";
+$dropboxPath = "/Billing_Statements/".$community_name."/".date('Y')."/PDF/".$finalHOAID.".pdf";
 $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
@@ -320,14 +321,14 @@ $accessToken = base64_decode($dropboxQueryResult['oauth2_key']);
 $fileContents = file_get_contents($finalHOAID.'.zip');
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/SRSQ/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
+curl_setopt($ch, CURLOPT_HTTPHEADER, array('Authorization: Bearer '.$accessToken,'Content-Type:application/octet-stream','Dropbox-API-Arg: {"path": "/Billing_Statements/'.$community_name.'/'.date('Y').'/ZIP/'.$finalHOAID.'.zip'.'","mode": "overwrite","autorename": false,"mute": false}'));
 curl_setopt($ch, CURLOPT_POSTFIELDS, $fileContents); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 $response = curl_exec($ch);
 curl_close($ch);
 
 
-$dropboxPath = "/Billing_Statements/SRSQ/".date('Y')."/ZIP/".$finalHOAID.".zip";
+$dropboxPath = "/Billing_Statements/".$community_name."/".date('Y')."/ZIP/".$finalHOAID.".zip";
 $dropboxInsertQuery = "INSERT INTO dropbox_stats(user_id,action,dropbox_path,requested_on) VALUES(".$dropboxInsertUserID.",'UPLOAD','".$dropboxPath."','".date('Y-m-d H:i:s')."')";
 if ( !pg_query($dropboxInsertQuery) ){
     print_r("Failed to insert to dropbox_stats");
