@@ -9,6 +9,7 @@
       session_start();
 
       include 'includes/dbconn.php';
+      include 'includes/globalvar.php';
 
       $community_id = 2;
 
@@ -147,7 +148,7 @@
       $result = pg_query("SELECT * FROM current_charges WHERE community_id=$community_id AND assessment_rule_type_id=3 AND assessment_date>='$year-$month-01' AND assessment_date<='$year-$month-$end_date'");
       $late_fee = pg_num_rows($result);
 
-      $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year."_%'"));
+      $minutes = pg_num_rows(pg_query("SELECT * FROM document_management WHERE url LIKE '/".$community_name."_HOA/Documents/Minutes/".$community_name."_Minutes_".$year."_%'"));
 
       $dm  = array('0' => 0, '1' => 0, '2' => 0, '3' => 0, '4' => 0, '5' => 0, '6' => 0, '7' => 0, '8' => 0, '9' => 0, '10' => 0, '11' => 0, '12' => 0, '13' => 0, '14' => 0, '15' => 0, '16' => 0, '17' => 0, '18' => 0, '19' => 0, '20' => 0);
       
@@ -226,7 +227,7 @@
         
         <a href="index.php" class="logo">
           
-          <span class="logo-mini">SRSQ</span>
+          <span class="logo-mini"></span>
           
           <span class="logo-lg">Stoneridge Square Association at Pleasantonnnn</span>
 
