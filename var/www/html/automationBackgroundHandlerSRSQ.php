@@ -16,8 +16,8 @@ if ( $_GET['id'] == 1){
 
 
 
-//SRSQ UPDATION
-$message  = "Updating SRSQ Transactions...";
+// UPDATION
+$message  = "Updating  Transactions...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -33,7 +33,7 @@ flush();
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,1,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRSQ paymethods...";
+$message  = "Updating  paymethods...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -49,7 +49,7 @@ flush();
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,8,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRSQ deposits...";
+$message  = "Updating  deposits...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -63,7 +63,7 @@ curl_exec($req);
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,2,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRSQ deposit transactions...";
+$message  = "Updating  deposit transactions...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -94,8 +94,8 @@ curl_exec($req);
 else if ( $_GET['id'] == 2){
 
 
-//SRSQ
-$message  = "Updating SRSQ Agreements...";
+//
+$message  = "Updating  Agreements...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -112,7 +112,7 @@ $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB
 pg_query($query);
 
 
-$message  = "Updating SRSQ Mega Sign Agreements...";
+$message  = "Updating  Mega Sign Agreements...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -129,7 +129,7 @@ $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB
 pg_query($query);
 
 
-$message  = "Updating SRSQ Mega Sign Child Agreements...";
+$message  = "Updating  Mega Sign Child Agreements...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -225,8 +225,8 @@ pg_query($query);
 }
 else {
 	
-//SRSQ UPDATION
-$message  = "Updating SRSQ Transactions...";
+// UPDATION
+$message  = "Updating  Transactions...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -242,7 +242,7 @@ flush();
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,1,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRSQ paymethods...";
+$message  = "Updating  paymethods...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -258,7 +258,7 @@ flush();
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,8,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRSQ deposits...";
+$message  = "Updating  deposits...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -272,7 +272,7 @@ curl_exec($req);
 $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB_SUB_CATEGORY_ID\",\"START_TIME\") VALUES(2,1,2,'".date('Y-m-d H:i:s')."')";
 pg_query($query);
 
-$message  = "Updating SRSQ deposit transactions...";
+$message  = "Updating  deposit transactions...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -294,8 +294,8 @@ ob_end_flush();
 flush();
 
 
-//SRSQ
-$message  = "Updating SRSQ Agreements...";
+//
+$message  = "Updating  Agreements...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -312,7 +312,7 @@ $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB
 pg_query($query);
 
 
-$message  = "Updating SRSQ Mega Sign Agreements...";
+$message  = "Updating  Mega Sign Agreements...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
@@ -329,7 +329,7 @@ $query = "INSERT INTO BACKGROUND_JOBS(\"COMMUNITY_ID\",\"JOB_CATEGORY_ID\",\"JOB
 pg_query($query);
 
 
-$message  = "Updating SRSQ Mega Sign Child Agreements...";
+$message  = "Updating  Mega Sign Child Agreements...";
 echo 'data: '.$message."\n\n";  
 ob_end_flush();
 flush();
