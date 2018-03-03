@@ -54,7 +54,7 @@
 
       	<header class="main-header">
         
-        	<a href="srsq.php" class="logo">
+        	<a href="" class="logo">
           
           		<span class="logo-mini"><?php echo $_SESSION['hoa_community_code']; ?></span>
           
