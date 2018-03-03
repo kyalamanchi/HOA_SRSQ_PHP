@@ -142,7 +142,7 @@
                 <?php if($community_id == 2)
                 echo "<li class='header text-center'>
 
-                  <img src='srsq_logo.JPG'>
+                  <img src=''>
 
                 </li>"; ?>
             
