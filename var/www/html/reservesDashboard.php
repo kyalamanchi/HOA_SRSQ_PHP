@@ -52,15 +52,6 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <script src="dist/js/googleanalytics.js"></script>
 
-    <script type="text/javascript">
-      var dimensionValue1 = '<?php echo $_SESSION['hoa_hoa_id'] ?>';
-      var dimensionValue2 = "SRSQ";
-      ga('create', 'UA-102881886-2', 'auto');
-      ga('set', 'dimension1', dimensionValue1);
-      ga('set', 'dimension2', dimensionValue2);
-      ga('send', 'pageview');
-    </script>
-
   </head>
 
   <body class="hold-transition skin-blue sidebar-mini">

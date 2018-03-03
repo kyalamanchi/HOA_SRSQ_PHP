@@ -15,7 +15,7 @@
             
       <?php 
 
-        echo "<li class='header text-center'><img src='srsq_logo.JPG'></li>"; 
+        echo "<li class='header text-center'><img src=".$communtiy_logo."></li>"; 
 
       ?>
             
