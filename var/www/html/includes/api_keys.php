@@ -19,8 +19,6 @@
 	$oauth_version = "1.0";
 	$oauth_signature = "Q6nh88OF70guXg8XN0Jlwcp2cnQ%3D";
 
-	$oauth_consumer_key2 = "qyprdRAm244oPXhP3miXslnVdpDfWF";
-
 
 
 
