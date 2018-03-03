@@ -5,6 +5,8 @@
 
   session_start();
 
+  include "includes/globalvar.php";
+
 ?>
 
 <aside class="main-sidebar">
@@ -15,7 +17,7 @@
             
       <?php 
 
-        echo "<li class='header text-center'><img src='srsq_logo.JPG'></li>"; 
+        echo "<li class='header text-center'>$community_logo</li>"; 
 
       ?>
             
