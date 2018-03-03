@@ -21,6 +21,7 @@
       $user_id=$_SESSION['hoa_user_id'];
 
       include 'includes/dbconn.php';
+      include 'includes/globalvar.php';
 
       $result = pg_query("SELECT * FROM board_committee_details WHERE user_id=$user_id AND community_id=$community_id");
 		  $num_row = pg_num_rows($result);
@@ -378,7 +379,7 @@
                     <div class='timeline-body container-fluid'>";
                   
                       if($community_id == 2)
-                        $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload AND url LIKE '/SRSQ_HOA/Documents/Minutes/SRSQ_Minutes_".$year_of_upload."_%'");
+                        $result1 = pg_query("SELECT * FROM document_management WHERE community_id=$community_id AND year_of_upload=$year_of_upload AND url LIKE '/".$community_name."_HOA/Documents/Minutes/".$community_name."_Minutes_".$year_of_upload."_%'");
 
                       while($row1 = pg_fetch_assoc($result1))
                       {

@@ -37,10 +37,10 @@
 
 		switch ($community_id) {
 	        case 2:
-	            $community = 'SRSQ';
-	            $cnote = "Stoneridge Square HOA";
+	            $community = $m_community;
+	            $cnote = $m_cnote;
 	            $api_key = $m_api_key;
-	            $from = 'info@stoneridgesquare.org';
+	            $from = $m_from;
 	            break;
 	    }
    
