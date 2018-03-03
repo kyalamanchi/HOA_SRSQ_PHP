@@ -15,7 +15,7 @@
     <?php
 
       include 'includes/dbconn.php';
-      include 'includes/globalvar.php';
+      include 'includes/api_keys.php';
 
       $community_id = 2;
 
@@ -32,7 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
-    <title>Stoneridge Square Association</title>
+    <title><?php echo $m_cnote; ?></title>
     
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -53,9 +53,9 @@
         
         <a href="index.php" class="logo">
           
-          <span class="logo-mini">SRSQ</span>
+          <span class="logo-mini"><?php echo $m_community; ?></span>
           
-          <span class="logo-lg">Stoneridge Square Association</span>
+          <span class="logo-lg"><?php echo $m_cnote; ?></span>
 
         </a>
         
@@ -200,16 +200,6 @@
               <a href="index.php#getInvolved">
                 
                 <i class="fa fa-comment"></i> <span>Get Involved</span>
-
-              </a>
-
-            </li>
-
-            <li class="treeview">
-              
-              <a target='_blank' href='http://stoneridgesquare.us12.list-manage.com/subscribe?u=12a11bf64aa26b44b5b667427&id=09692e90bd'>
-               
-                <i class='fa fa-envelope'></i> <span>Mailing List</span>
 
               </a>
 
