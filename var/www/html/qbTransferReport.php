@@ -1,5 +1,9 @@
 <?php
+
 date_default_timezone_set('America/Los_Angeles');
+
+include "includes/api_keys.php";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -95,7 +99,7 @@ function hidePleaseWait() {
                 $ch = curl_init('https://quickbooks.api.intuit.com/v3/company/123145844183384/query?minorversion=8');
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'POST');
                 // curl_setopt($ch, CURLOPT_CUSTOMREQUEST , 'GET');
-                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="qyprdRAm244oPXhP3miXslnVdpDfWF",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509358132",oauth_nonce="3lUoyos1rhR",oauth_version="1.0",oauth_signature="LmW6fQbpxh97DMOo9ifRFrChI54%3D"'));
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept:application/json','Content-Type:application/text','Authorization:OAuth oauth_consumer_key="'.$oauth_consumer_key.'",oauth_token="qyprdwVPs6UkPK3Xrpe9XMGvlGdJa6EUg0s65QPt2Cgsr14v",oauth_signature_method="HMAC-SHA1",oauth_timestamp="1509358132",oauth_nonce="3lUoyos1rhR",oauth_version="1.0",oauth_signature="LmW6fQbpxh97DMOo9ifRFrChI54%3D"'));
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "select * from transfer");
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                 $result = curl_exec($ch);
