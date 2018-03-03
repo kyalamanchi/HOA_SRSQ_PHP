@@ -15,6 +15,7 @@
     <?php
 
       include 'includes/dbconn.php';
+      include 'includes/globalvar.php';
 
       $community_id = 2;
 

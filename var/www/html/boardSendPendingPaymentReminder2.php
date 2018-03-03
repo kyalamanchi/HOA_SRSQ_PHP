@@ -22,11 +22,11 @@
 
     switch ($community_id) {
         case 2:
-            $community = 'SRSQ';
-            $cnote = "Stoneridge Square HOA";
-            $api_key = $m_api_key;
-            $from = 'info@stoneridgesquare.org';
-            break;
+                $community = $m_community;
+                $cnote = $m_cnote;
+                $api_key = $m_api_key;
+                $from = $m_from;
+                break;
     }
 
     $content = $mes;
