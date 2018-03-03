@@ -81,7 +81,7 @@ function payNow(){
   jsonObj.push(item);
   lol = JSON.stringify(jsonObj);
   var request  = new  XMLHttpRequest();
-  request.open("POST","https://hoaboardtime.com/processPaymentSRSQ.php",true);
+  request.open("POST","https://hoaboardtime.com/processPayment.php",true);
   request.send(lol.toString());
   request.onreadystatechange = function(){
     if ( request.readyState == XMLHttpRequest.DONE ){
